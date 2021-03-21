@@ -1,0 +1,6 @@
+[[section-technical-risks]]
+== Risks and Technical Debts
+
+:filename: src/11_technical_risks.adoc
+// include::_feedback.adoc[]
+

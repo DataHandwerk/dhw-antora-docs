@@ -1,0 +1,34 @@
+@startuml(id=DWHBDevelopment-GUI-Component)
+title DWH B Development - GUI - Components
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+hide stereotype
+top to bottom direction
+skinparam rectangle<<22>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<23>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam database<<5>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+database "==Repository db (Project B)\n<size:10>[Container: Database]</size>" <<5>> as 5
+package "GUI\n[Container: GUI]" {
+  rectangle "==CRUD GUI\n<size:10>[Component: ?]</size>\n\nCRUD - Create, Read, Update, Delete" <<23>> as 23
+  rectangle "==Visualization GUI\n<size:10>[Component: ?]</size>\n\nVisualization of data lineage (references), real and virtual PK, FK-PK" <<22>> as 22
+}
+22 .[#707070].> 5 : "uses"
+@enduml

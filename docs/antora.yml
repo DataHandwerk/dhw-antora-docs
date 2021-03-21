@@ -1,0 +1,7 @@
+name: dhw
+title: DataHandwerk
+version: master
+nav:
+- modules/ROOT/nav.adoc
+- modules/arc/nav.adoc
+# - modules-one/nav.adoc

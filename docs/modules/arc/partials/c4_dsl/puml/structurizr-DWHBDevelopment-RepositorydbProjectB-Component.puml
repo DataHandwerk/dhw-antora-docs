@@ -1,0 +1,111 @@
+@startuml(id=DWHBDevelopment-RepositorydbProjectB-Component)
+title DWH B Development - Repository db (Project B) - Components
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+hide stereotype
+top to bottom direction
+skinparam rectangle<<11>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<12>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<13>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<14>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<15>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<16>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam database<<17>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<6>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<7>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<8>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<9>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<10>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<21>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+database "==DWH db Development (Project B)\n<size:10>[Container: Database]</size>" <<17>> as 17
+rectangle "==GUI\n<size:10>[Container: GUI]</size>\n\nGraphical User Interface" <<21>> as 21
+package "Repository db (Project B)\n[Container: Database]" {
+  rectangle "==Configuration\n<size:10>[Component]</size>\n\nConnection with DWH database and various settings for the behavior of the processes in the repository." <<7>> as 7
+  rectangle "==Inheritance\n<size:10>[Component]</size>\n\nInheritance or determination of extended properties for RepoObjects or RepoObject columns, based on references" <<11>> as 11
+  rectangle "==Persistence Generator\n<size:10>[Component]</size>\n\nViews or tables can be persisted in tables, with or without history with temporal tables. Code for performing the persistations is created." <<13>> as 13
+  rectangle "==Reference\n<size:10>[Component]</size>\n\nDetermination and management of references (dependencies) between RepoObjects or RepoObject columns" <<10>> as 10
+  rectangle "==RepoObject\n<size:10>[Component]</size>\n\nCentral construct to represent objects (tables, views, procedures, functions, index, ...) and their subunits (columns, index columns, procedure parameters, ...), their properties and relationships between them." <<8>> as 8
+  rectangle "==SqlParser\n<size:10>[Component]</size>\n\nParse the code of views to extract column-level references or other logic from them" <<9>> as 9
+  rectangle "==Synonyms\n<size:10>[Component]</size>\n\nSynonyms are used to connect the repository database with the corresponding DWH database" <<6>> as 6
+  rectangle "==USP Generator\n<size:10>[Component]</size>\n\nusp (userdefined stored procedures) can be generated in a formalized way: containing optional logging and some workflow elements (sub procedures, conditions, parent-child logic)" <<12>> as 12
+  rectangle "==View Generator\n<size:10>[Component]</size>\n\nNot yet implemented" <<14>> as 14
+  rectangle "==Visualization\n<size:10>[Component]</size>\n\npreparation for Visualization of data lineage (references), real and virtual PK, FK-PK" <<16>> as 16
+  rectangle "==Workflow\n<size:10>[Component]</size>\n\nA workflow executes procedures in a specific and necessary order." <<15>> as 15
+}
+17 .[#707070].> 8 : "RepoObject correspond with extended properties"
+21 .[#707070].> 16 : "uses"
+11 .[#707070].> 10 : ""
+11 .[#707070].> 8 : ""
+13 .[#707070].> 10 : ""
+13 .[#707070].> 8 : ""
+13 .[#707070].> 12 : ""
+10 .[#707070].> 8 : ""
+10 .[#707070].> 9 : ""
+8 .[#707070].> 17 : ""
+8 .[#707070].> 6 : ""
+9 .[#707070].> 6 : ""
+6 .[#707070].> 17 : "Synonyms link to DWH System Views"
+12 .[#707070].> 8 : ""
+14 .[#707070].> 8 : ""
+14 .[#707070].> 9 : ""
+16 .[#707070].> 10 : ""
+15 .[#707070].> 10 : ""
+@enduml

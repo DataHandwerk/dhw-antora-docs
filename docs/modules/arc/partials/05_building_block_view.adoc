@@ -1,0 +1,225 @@
+[[section-building-block-view]]
+
+
+== Building Block View
+
+:filename: src/05_building_block_view.adoc
+// include::_feedback.adoc[]
+
+// :c4_dsl_includedir: c4_dsl/puml
+
+=== Whitebox Overall System
+
+[plantuml, structurizr-DataHandwerkDevelopment-Container, svg]
+....
+include::c4_dsl/puml/structurizr-DataHandwerkDevelopment-Container.puml[]
+....
+
+
+[plantuml, structurizr-DWHBDevelopment-Container, svg]
+....
+include::c4_dsl/puml/structurizr-DWHBDevelopment-Container.puml[]
+....
+
+
+[plantuml, structurizr-DWHBProduction-Container, svg]
+....
+include::c4_dsl/puml/structurizr-DWHBProduction-Container.puml[]
+....
+
+
+
+// [plantuml, dhw-whitebox-overall-system, svg]
+// ....
+// ' left to right direction
+// skinparam componentStyle uml2
+
+// [GUI]
+
+// database "Repository DB" as repo_db {
+//   package [Configuration] {
+//     [Synonyms]
+//     [Parameter]
+//   }
+//   [RepoObject] as RepoObject
+//   [SQL Parser] as SqlParser
+//   [Reference] as Reference
+//   [Inheritance]
+//   package [Generators] {
+//     [USP generator (Procedures)] as GeneratorUsp
+//     [Persistence generator] as GeneratorPersistence
+//     [View generator] as GeneratorView
+//     [Workflow]
+//   }
+// }
+
+// database  "DWH DB" as dwh_db {
+//   [System views and procedures] as dwh_sys
+//   [extended properties] as dwh_ep
+// }
+
+// Synonyms --> dwh_sys    : link to
+// RepoObject <--> dwh_ep  : correspond to each other
+
+// Reference --> RepoObject
+// Inheritance --> RepoObject
+// GeneratorUsp --> RepoObject
+// GeneratorPersistence --> RepoObject
+// GeneratorView --> RepoObject
+
+// Reference --> SqlParser
+// GeneratorView --> SqlParser
+
+// Inheritance --> Reference
+// Workflow --> Reference
+// GeneratorPersistence --> Reference
+// GeneratorView --> Reference
+
+// GeneratorPersistence --> GeneratorUsp
+// ....
+
+
+// // Motivation::
+
+// // _<text explanation>_
+
+
+// Contained Building Blocks::
+// // _<Description of contained building block (black boxes)>_
+
+// .DHW1::black_boxes
+// // [options="header",cols="1,4"]
+// [cols="1,6"]
+// |===
+// // |box|Description
+
+// | Configuration 
+// | Connection with DWH database and various settings for the behavior of the processes in the repository.
+
+// | RepoObject
+// | Central construct to represent objects (tables, views, procedures, functions, index, ...) and their subunits (columns, index columns, procedure parameters, ...), their properties and relationships between them. 
+
+// | Reference
+// | Determination and management of references (dependencies) between RepoObjects or RepoObject columns
+
+// | Inheritance
+// | Inheritance or determination of extended properties for RepoObjects or RepoObject columns, based on references
+
+// | SQL Parser
+// | Parse the code of views to extract column-level references or other logic from them.
+
+// | Generators
+// | Script generators for tables, procedures and views; especially also for tables for persisting views (with optional history tables)
+
+// | GUI
+// | Additional GUI for more convenient data entry than with standard tools like SSMS or ADS
+
+// |===
+
+// // Important Interfaces::
+// // _<Description of important interfaces>_
+
+
+
+
+// // ==== <Name black box 1>
+
+
+
+// // _<Purpose/Responsibility>_
+
+// // _<Interface(s)>_
+
+// // _<(Optional) Quality/Performance Characteristics>_
+
+// // _<(Optional) Directory/File Location>_
+
+// // _<(Optional) Fulfilled Requirements>_
+
+// // _<(optional) Open Issues/Problems/Risks>_
+
+
+
+
+// // ==== <Name black box 2>
+
+// // _<black box template>_
+
+// // ==== <Name black box n>
+
+// // _<black box template>_
+
+
+// // ==== <Name interface 1>
+
+// // ...
+
+// // ==== <Name interface m>
+
+
+=== Level 2
+
+==== DWH db Development (Project B)
+
+[plantuml, structurizr-DWHBDevelopment-DWHdbDevelopmentProjectB-Component, svg]
+....
+include::c4_dsl/puml/structurizr-DWHBDevelopment-DWHdbDevelopmentProjectB-Component.puml[]
+....
+
+==== Repository db Development (Project B)
+
+[plantuml, structurizr-DWHBDevelopment-RepositorydbProjectB-Component, svg]
+....
+include::c4_dsl/puml/structurizr-DWHBDevelopment-RepositorydbProjectB-Component.puml[]
+....
+
+==== GUI (Project B)
+
+[plantuml, structurizr-DWHBDevelopment-GUI-Component, svg]
+....
+include::c4_dsl/puml/structurizr-DWHBDevelopment-GUI-Component.puml[]
+....
+
+
+// ==== White Box RepoObject
+
+
+
+// _<white box template>_
+
+// ==== White Box _<building block 2>_
+
+
+// _<white box template>_
+
+// ...
+
+// ==== White Box _<building block m>_
+
+
+// _<white box template>_
+
+
+
+// === Level 3
+
+
+
+
+// ==== White Box <_building block x.1_>
+
+
+
+
+// _<white box template>_
+
+
+// ==== White Box <_building block x.2_>
+
+// _<white box template>_
+
+
+
+// ==== White Box <_building block y.1_>
+
+// _<white box template>_

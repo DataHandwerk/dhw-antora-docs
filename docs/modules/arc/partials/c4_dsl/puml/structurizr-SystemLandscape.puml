@@ -1,0 +1,77 @@
+@startuml(id=SystemLandscape)
+title System Landscape for Customer
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+hide stereotype
+top to bottom direction
+skinparam rectangle<<1>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<24>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<2>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<3>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<4>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam folder<<26>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<27>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<28>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam folder<<31>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+rectangle "==DHW Developer\n<size:10>[Person]</size>\n\nDeveloper of DataHandwerk Toolkit" <<27>> as 27
+rectangle "==DataHandwerk Development\n<size:10>[Software System]</size>" <<28>> as 28
+folder "==DataHandwerk git\n<size:10>[Software System]</size>\n\nCode of DataHandwerk in Version Control" <<31>> as 31
+package "Customer" {
+  rectangle "==DWH Developer\n<size:10>[Person]</size>\n\nDeveloper of some DWH" <<1>> as 1
+  rectangle "==Deployment Team\n<size:10>[Person]</size>" <<2>> as 2
+  rectangle "==Project B DWH User\n<size:10>[Person]</size>\n\nuser of DWH (Project B)" <<3>> as 3
+  rectangle "==DWH B Development\n<size:10>[Software System]</size>" <<4>> as 4
+  rectangle "==DWH B Production\n<size:10>[Software System]</size>" <<24>> as 24
+  folder "==DWH B git\n<size:10>[Software System]</size>\n\nCode of Project B in Version Control (git, subversion, ...)" <<26>> as 26
+}
+27 .[#707070].> 28 : "uses for testing and development"
+27 .[#707070].> 31 : "uses"
+1 .[#707070].> 4 : "developes"
+1 .[#707070].> 26 : "uses"
+1 .[#707070].> 31 : "takes code or builds"
+2 .[#707070].> 24 : "deployes on production system"
+2 .[#707070].> 26 : "takes code or builds"
+3 .[#707070].> 24 : "uses"
+@enduml

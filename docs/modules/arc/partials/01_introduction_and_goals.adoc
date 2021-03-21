@@ -1,0 +1,185 @@
+:filename: src/01_introduction_and_goals.adoc
+
+[[section-introduction-and-goals]]
+== Introduction and Goals
+
+include::_feedback.adoc[]
+
+kbd:[DHW] (**D**ata**H**and**w**erk) is designed to support BI and DWH developers working with the Microsoft BI platform (MS SQL Server).
+
+Handwerk statt Massenproduktion. - Craft instead of mass production. +
+MSSQL based tools for data craftsmen.  - Individual customization instead of assembly line.
+
+// [role="arc42help"]
+// ****
+// Handwerk = craft +
+// Handwerker = craftsmen
+
+// Als Handwerk werden zahlreiche gewerbliche Tätigkeiten bezeichnet, die Produkte meist auf Bestellung fertigen oder Dienstleistungen auf Nachfrage erbringen. Die handwerkliche Tätigkeit steht der industriellen Massenproduktion gegenüber.
+
+// Craft is the term used to describe numerous commercial activities that manufacture products mostly to order or provide services on demand. Craft activities are contrasted with industrial mass production.
+// ****
+
+[NOTE]
+====
+Handwerk = craft +
+Handwerker = craftsmen
+
+// Als Handwerk werden zahlreiche gewerbliche Tätigkeiten bezeichnet, die Produkte meist auf Bestellung fertigen oder Dienstleistungen auf Nachfrage erbringen. Die handwerkliche Tätigkeit steht der industriellen Massenproduktion gegenüber.
+
+Craft is the term used to describe numerous commercial activities that manufacture products mostly to order or provide services on demand. Craft activities are contrasted with industrial mass production.
+====
+
+// Die wichtigsten Stakeholder des Projekts sind DWH-Entwickler, die ihre Arbeit als *Handwerk* verstehen.
+
+// * Für diese Data-Handwerker wird eine Werkzeugkiste erstellt und nach und nach mit Werkzeugen gefüllt und erweitert.
+// * Die Datenhandwerker erhalten mit der Toolbox die *Möglichkeit, schneller und besser* zu arbeiten und *bei Bedarf Teile zu automatisieren*, wenn (und nur wenn) sie das wünschen.
+// * Werkzeuge und Methoden können einzeln und unabhängig voneinander *fakultativ* eingesetzt werden. Sie müssen nicht obligatorisch eingesetzt werden.
+// * Die Toolbox soll immer *als Bereicherung und Hilfsmittel empfunden werden*, gerne als stützendes, nie als beengendes Korsett. +
+// Ein Entwickler wird durch die Verwendung von Werkzeugen und Methoden nicht ungewünscht eingeschränkt. Er lässt sich partiell und bewusst einschränken, wenn für ihn subjektiv die Vorteile überwiegen.
+
+The project's key stakeholders are DWH developers who see their work as a *craft*.
+
+* A toolkit is created for these data craftsmen and gradually filled and expanded with tools.
+* The data craftsmen are given the *possibility to work faster and better* with the toolkit and *to automate parts* if (and only if) they wish to do so.
+* Tools and methods can be used individually and independently *optional*. They do not have to be used in a mandatory way.
+* The toolbox should always be *perceived as an enrichment and aid*, gladly as a supportive, never as a constricting corset. +
+A developer is not undesirably restricted by the use of tools and methods. He allows himself to be partially and consciously restricted if the advantages subjectively outweigh the disadvantages for him.
+
+=== Requirements Overview
+
+// . Kombination von Handarbeit und Werkzeugverwendung
+// ** Die Kombination von _Handarbeit ohne Tools_ und der _Verwendung von Tools_ ist einfach möglich. Es darf *keine Einbahnstraße* geben.
+// ** Ein *Entwickler wird nicht zum Sklaven* der Werkzeuge oder der Methoden, sondern kann jederzeit wie ein Handwerker selbst entscheiden kann, in welchem Umfang er welche Werkzeuge zu seiner Unterstützung verwenden will, oder eben nicht.
+// . mssql und Azure Features
+// ** Es muss für BI Entwickler *immer* möglich sein, *alle* mssql und Azure Features zu verwenden. Letztendlich also auch https://azure.microsoft.com/en-us/services/synapse-analytics/[Azure Synapse Analytics], Data Factory, BLOB Storage und andere Azure Produkte.
+// ** Wann immer möglich oder gewünscht, kann ein Entwickler zur Realisierung von Zielen bevorzugt mssql Features verwenden, statt proprietärer Lösungen. Werkzeuge sollen deren Verwendung vereinfachen.
+// *** temporale Tabellen
+// *** Graph Datenbanken
+// *** ...
+// . ein minimal-invasives *Repository* ergänzt Datenbank-Metadaten
+// ** Funktionen und Methoden, die in einer Datenbank nicht oder unzureichend vorhanden sind, werden über ein Repository (pro Datenbank) ergänzt, welches über Synonyme mit System-Katalog-Sichten der DWH-Datenbank verbunden ist.
+// ** Ein Repository ist ebenfalls eine Datenbank: die Repository-Datenbank.
+// ** Dieses Repository braucht und soll nicht alle Metadaten zur vollständigen Definition einer Datenbank enthalten, sondern nur notwendige oder sinnvolle Ergänzungen.
+// ** Ein Repository wird von außen an eine DWH-Datenbank angeschlossen, mit _minimalen invasiven Eingriffen_ in diese Datenbank
+// ** diese minimal invasiven Eingriffe lassen sich rückgängig machen
+// ** für diese minimal invasiven Eingriffe werden (nach aktueller Konzeption) `extended properties` verwendet, die vielen Datenbank-Objekten und auch Spalten, Paramtern usw. zugewiesen und auch wieder entfernt werden können.
+// *** durch die Verwendung eindeutiger `guid` ist es möglich, Objekte inklusive der in den `extended properties` gespeicherten zusätzlichen Metadaten in andere Datenbanken zu kopieren.
+// . Unabhängigkeit von Sofort-Support
+// ** Man soll auch arbeiten können, wenn ein Werkzeug nicht wie erwartet funktioniert. Es soll keine blockierende Abhängigkeit von einem Tool oder eine Methode entstehen, die Support-Feuerwehr-Einsätze erfordert, sondern es soll immer auch einen manuellen Ausweg geben.
+// ** Dadurch soll insbesondere die Zusammenarbeit in der Community attraktiver werden: image:https://img.shields.io/badge/collaborate-in%20discussions-blue.svg[link="{project-discussions}"]
+// . Dokumentation
+// ** Das Repository, seine Funktionsweise und die Methoden werden *verständlich und ausführlich dokumentiert*. Eine gute Dokumentation
+// *** bietet Transparenz
+// *** schafft Verständnis
+// *** erleichtert das selbständige Arbeiten
+// *** erleichtert den Einstieg
+// *** verringert die Abhängigkeit vom Support
+// . Modularer Aufbau und Erweiterbarkeit
+// ** Das Toolbox-Konzept ermöglicht, dass die Toolbox von verschiedenen Anwendern mit Modulen (Tools) erweitert werden kann.
+// ** Beispiele für mögliche Module:
+// *** Relation Management
+// **** virtuelle PK und FK
+// *** Persistierungs- und Historisierungs- Assistent
+// *** Dokumentations-Assistent (inklusive Erstellung und Vererbung von Beschreibungen und Friendly Name)
+// *** Data Lineage Visualizer
+// *** Import Wizard
+// *** SSIS Generator
+// *** Data Factory Generator
+// *** Data Vault Assistent
+// *** DSGVO Assistent
+// *** SSAS Tabular Generator
+// *** Easy Refactoring
+// *** ...
+
+
+. Combination of manual work and the use of tools
+** The combination of _handwork without tools_ and the _use of tools_ is easily possible. There must be *no one-way street*.
+** A *developer does not become a slave* to the tools or the methods, but can at any time, like a craftsman, decide for himself to what extent he wants to use which tools to support him, or not.
+. mssql and Azure features
+** It must *always* be possible for BI developers to use *all* mssql and Azure features. So ultimately also https://azure.microsoft.com/en-us/services/synapse-analytics/[Azure Synapse Analytics], Data Factory, BLOB Storage and other Azure products.
+** Whenever possible or desired, a developer may prefer to use mssql features to realize goals, rather than proprietary solutions. Tools should simplify their use.
+*** temporal tables
+*** graph databases
+*** ...
+. a minimally invasive *repository* supplements database metadata
+** Functions and methods that are absent or insufficient in a database are supplemented via a repository (per database), which is connected via synonyms to system catalog views of the DWH database.
+** A repository is also a database: the repository database.
+** This repository does not need and should not contain all metadata to fully define a database, but only necessary or useful additions.
+** A repository is externally connected to a DWH database, with _minimal invasive interventions_ in this database.
+** these minimal invasive interventions can be undone
+** for these minimal invasive interventions (according to current conception) `extended properties` are used, which can be assigned to many database objects and also columns, parameters etc. and also removed again.
+*** by using unique `guid` it is possible to copy objects including the additional metadata stored in the `extended properties` into other databases.
+. Independence from immediate support
+** One should be able to work even if a tool does not work as expected. There shall be no blocking dependency on a tool or a method that requires support fire department interventions, but there shall always be a manual way out.
+** This should especially make community collaboration more attractive: image:https://img.shields.io/badge/collaborate-in%20discussions-blue.svg[link="{project-discussions}"]
+. Documentation
+** The repository, how it works, and the methods are *clearly and thoroughly documented*. Good documentation
+*** provides transparency
+*** creates understanding
+*** facilitates independent work
+*** makes it easier to get started
+*** reduces dependence on support
+. Modular structure and expandability
+** The toolbox concept allows the toolbox to be extended with modules (tools) by different users.
+** Examples of possible modules:
+*** Relation Management
+**** virtual PK and FK
+*** Persistence and Historization Assistant
+*** Documentation Wizard (including creation and inheritance of descriptions and Friendly Name)
+*** Data Lineage Visualizer
+*** Import Wizard
+*** SSIS Generator
+*** Data Factory Generator
+*** Data Vault Wizard
+*** DSGVO Wizard
+*** SSAS Tabular Generator
+*** Easy Refactoring
+*** ...
+
+// Translated with www.DeepL.com/Translator (free version)
+
+=== Quality Goals
+
+. Fixing bugs is more important than implementing new features.
+. A feature is only as good as its documentation.
+
+
+
+=== Stakeholders
+
+// .Stakeholders
+// include::../excel/Stakeholders.xlsx/Stakeholders.adoc[]
+
+// //before using the content of excel files, they need to be exported from Excel into adoc (they are also exported into csc)
+// //use: exportExcel
+// //https://doctoolchain.github.io/docToolchain/#_exportexcel
+
+.Stakeholders
+[options="header",cols="1,2a"]
+|===
+|Role/Name|Expectations
+
+| dwh developer 
+|
+* wants to work faster, more efficiently and more effectively
+* wants to automate boring work optionally
+* wants to decide for himself what he automates and what not
+* does not want to become a slave of the tools
+
+| dwh user
+| wants a well documented DWH
+|===
+
+=== Alternatives
+
+==== Repository based database generators
+
+// Es gibt kommerzielle Werkzeuge, mit denen Struktur und Funktion von relationalen und analytischen Datenbanken über ein Repository definiert werden, um daraus den Code dieser Datenbanken zu generieren. Bei diesen Werkzeugen handelt es sich um Einbahnstraßen Repository => Zieldatenbank. Man kann mit diesen Werkzeugen sehr erfolgreich arbeiten, wenn man die vorgesehenen Methoden und Ansätze akzeptiert. Mein subjektives Loblied auf den AnalyticsCreator gibt es hier (auf Deutsch): http://analyticscreator.aisberg.de/2020-04-26-warum-analyticscreator/[Warum ich seit 2017 den AnalyticsCreator verwende].
+
+There are commercial tools that define the structure and function of relational and analytical databases via a repository in order to generate the code of these databases. These tools are _one-way_: repository => target database. One can work very successfully with these tools if one accepts the methods and approaches provided. My subjective praise of AnalyticsCreator can be found here (in German): http://analyticscreator.aisberg.de/2020-04-26-warum-analyticscreator/[Warum ich seit 2017 den AnalyticsCreator verwende].
+
+- https://www.analyticscreator.com/[AnalyticsCreator]
+- Deltamaster Modeler (Additional program for the https://www.bissantz.de/software/?lang=en[Delta Master])
+- https://www.wherescape.com/[Wherescape]
+

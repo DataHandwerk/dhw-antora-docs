@@ -1,0 +1,14 @@
+:project: DataHandwerk-Toolkit-mssql
+:project-name: DataHandwerk-Toolkit-mssql
+:project-url: https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql
+:project-discussions: https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql/discussions
+:project-issues: https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql/issues
+:project-bugs: https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql/issues?q=is%3Aopen+is%3Aissue+label%3Abug
+
+:project-report-issue-link: https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql/issues/new?title=&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:
+
+:repositoryDocsDir: https://github.com/DataHandwerk/doc/tree/main/src/doc/
+:project-repository-docs-link: https://github.com/DataHandwerk/doc/tree/main/src/doc/
+:project-repository-docs-edit-link: https://github.com/DataHandwerk/doc/edit/main/src/doc/
+
+:c4_dsl_includedir: c4_dsl/puml

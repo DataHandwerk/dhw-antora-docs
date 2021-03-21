@@ -1,0 +1,367 @@
+[[section-runtime-view]]
+== Runtime View
+
+:filename: src/06_runtime_view.adoc
+// include::_feedback.adoc[]
+
+
+// === <Runtime Scenario 1>
+
+=== [repo].[usp_main]
+
+// * _<insert runtime diagram or textual description of the scenario>_
+// * _<insert description of the notable aspects of the interactions between the
+// building block instances depicted in this diagram.>_
+
+// https://plantuml.com/en/salt
+// Tree widget
+// oder
+// Tree Table
+
+// select
+// *
+// from
+// [repo].[ftv_ExecutionLog_tree] (DEFAULT, DEFAULT)
+// order by 
+// id
+
+[plantuml, dhw-tree-ExecutionLog-usp_main, svg]
+....
+@startsalt
+{
+{T
+Procedure  |  Duration sec
++ [repo].[usp_main]  |  62
+++ [repo].[usp_sync_guid]  |  10
++++ [repo].[usp_sync_guid_RepoObject]  |  1
+++++ [graph].[usp_PERSIST_RepoObject]  |  0
+++++ [graph].[usp_PERSIST_ProcedureInstance]  |  0
++++ [repo].[usp_sync_guid_RepoObjectColumn]  |  5
+++++ [graph].[usp_PERSIST_RepoObjectColumn]  |  0
+++ [repo].[usp_update_Referencing_Count]  |  6
+++ [repo].[usp_index_inheritance]  |  8
++++ [repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]  |  2
++++ [repo].[usp_Index_Settings]  |  1
+++ [repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id]  |  1
+++ [repo].[usp_GeneratorUsp_insert_update_persistence]  |  4
+}
+}
+@endsalt
+....
+
+
+// SELECT
+//        [id]
+//      , [plantUML_Sequence_start_stop]
+//      , [proc_fullname]
+//      , [parent_proc_fullname]
+//      , [created_dt]
+// FROM
+//      [repo].[ExecutionLog_plantUML_Sequence_start_stop]
+// WHERE  [id] BETWEEN 3159 AND 3248
+// ORDER BY
+//          [id]
+
+[plantuml, dhw-sequence-usp_main, svg]
+....
+ -> "[repo].[usp_main]"
+activate "[repo].[usp_main]"
+"[repo].[usp_main]" -> "[repo].[usp_sync_guid]"
+activate "[repo].[usp_sync_guid]"
+"[repo].[usp_sync_guid]" -> "[repo].[usp_sync_guid_RepoObject]"
+activate "[repo].[usp_sync_guid_RepoObject]"
+"[repo].[usp_sync_guid_RepoObject]" -> "[graph].[usp_PERSIST_RepoObject]"
+activate "[graph].[usp_PERSIST_RepoObject]"
+"[repo].[usp_sync_guid_RepoObject]" <- "[graph].[usp_PERSIST_RepoObject]"
+deactivate "[graph].[usp_PERSIST_RepoObject]"
+"[repo].[usp_sync_guid_RepoObject]" -> "[graph].[usp_PERSIST_ProcedureInstance]"
+activate "[graph].[usp_PERSIST_ProcedureInstance]"
+"[repo].[usp_sync_guid_RepoObject]" <- "[graph].[usp_PERSIST_ProcedureInstance]"
+deactivate "[graph].[usp_PERSIST_ProcedureInstance]"
+"[repo].[usp_sync_guid]" <- "[repo].[usp_sync_guid_RepoObject]"
+deactivate "[repo].[usp_sync_guid_RepoObject]"
+"[repo].[usp_sync_guid]" -> "[repo].[usp_sync_guid_RepoObjectColumn]"
+activate "[repo].[usp_sync_guid_RepoObjectColumn]"
+"[repo].[usp_sync_guid_RepoObjectColumn]" -> "[graph].[usp_PERSIST_RepoObjectColumn]"
+activate "[graph].[usp_PERSIST_RepoObjectColumn]"
+"[repo].[usp_sync_guid_RepoObjectColumn]" <- "[graph].[usp_PERSIST_RepoObjectColumn]"
+deactivate "[graph].[usp_PERSIST_RepoObjectColumn]"
+"[repo].[usp_sync_guid]" <- "[repo].[usp_sync_guid_RepoObjectColumn]"
+deactivate "[repo].[usp_sync_guid_RepoObjectColumn]"
+"[repo].[usp_main]" <- "[repo].[usp_sync_guid]"
+deactivate "[repo].[usp_sync_guid]"
+"[repo].[usp_main]" -> "[repo].[usp_update_Referencing_Count]"
+activate "[repo].[usp_update_Referencing_Count]"
+"[repo].[usp_main]" <- "[repo].[usp_update_Referencing_Count]"
+deactivate "[repo].[usp_update_Referencing_Count]"
+"[repo].[usp_main]" -> "[repo].[usp_index_inheritance]"
+activate "[repo].[usp_index_inheritance]"
+"[repo].[usp_index_inheritance]" -> "[repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]"
+activate "[repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]"
+"[repo].[usp_index_inheritance]" <- "[repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]"
+deactivate "[repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]"
+"[repo].[usp_index_inheritance]" -> "[repo].[usp_Index_Settings]"
+activate "[repo].[usp_Index_Settings]"
+"[repo].[usp_index_inheritance]" <- "[repo].[usp_Index_Settings]"
+deactivate "[repo].[usp_Index_Settings]"
+"[repo].[usp_main]" <- "[repo].[usp_index_inheritance]"
+deactivate "[repo].[usp_index_inheritance]"
+"[repo].[usp_main]" -> "[repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id]"
+activate "[repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id]"
+"[repo].[usp_main]" <- "[repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id]"
+deactivate "[repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id]"
+"[repo].[usp_main]" -> "[repo].[usp_GeneratorUsp_insert_update_persistence]"
+activate "[repo].[usp_GeneratorUsp_insert_update_persistence]"
+"[repo].[usp_main]" <- "[repo].[usp_GeneratorUsp_insert_update_persistence]"
+deactivate "[repo].[usp_GeneratorUsp_insert_update_persistence]"
+ <- "[repo].[usp_main]"
+deactivate "[repo].[usp_main]"
+....
+
+// SELECT [id]
+//  , [plantUML_Sequence]
+//  , [proc_schema_name]
+//  , [proc_name]
+//  , [step_id]
+//  , [step_name]
+//  , [created_dt]
+//  , [source_object]
+//  , [target_object]
+//  , [inserted]
+//  , [updated]
+//  , [deleted]
+// FROM [repo].[ExecutionLog_gross]
+// WHERE [id] BETWEEN 3159
+//   AND 3248
+// ORDER BY [id]
+
+==== [repo].[usp_sync_guid_RepoObject]
+
+[plantuml, dhw-sequence-usp_sync_guid_RepoObject, svg]
+....
+skinparam maxmessagesize 220
+
+== [repo].[usp_sync_guid_RepoObject] - start ==
+
+"[repo_sys].[SysObject]" ->O "[repo].[RepoObject]" : SET several RepoObject_SysObject_...
+rnote right:53
+"[repo_sys].[SysObject]" ->O "[repo].[RepoObject]" : SET [SysObject_name] = [repo].[RepoObject].[RepoObject_guid]
+rnote right:0
+"[repo_sys].[SysObject]" -> "[repo].[RepoObject]" : [SysObject_RepoObject_guid] -> [RepoObject_guid]; some name, type, …
+rnote right:0
+"[repo_sys].[SysObject]" -> "[repo].[RepoObject]" : INSERT still missing Object
+rnote right:21
+"[repo].[RepoObject]" ->O "[repo].[RepoObject]" : SET [RepoObject_schema_name] = [SysObject_schema_name] , [RepoObject_name] = [SysObject_name]
+rnote right:21
+"[repo].[RepoObject]" --> "[repo_sys].[SysObject]" : write RepoObject_guid into extended properties of SysObject
+rnote right:
+"[repo].[RepoObject]" ->O "[repo].[RepoObject]" : SET is_SysObject_missing = 1
+rnote right:0
+"[repo].[RepoObject]" ->x "[repo].[RepoObject]" : DELETE; marked missing SysObject, but not is_repo_managed  = 1
+rnote right:0
+"[repo_sys].[SysObject]" ->O "[repo].[RepoObject]" : UPDATE other properties, where not is_repo_managed  = 1
+rnote right:2
+"[repo].[RepoObject_persistence]" ->O "[repo].[RepoObject]" : SET [Repo_temporal_type]
+rnote right:0
+"[repo].[RepoObject]" ->O "[repo].[ProcedureInstance]" : MERGE INTO [repo].[ProcedureInstance]
+rnote right:6
+
+== [graph].[usp_PERSIST_RepoObject] - start ==
+
+"[graph].[RepoObject_S]" ->x "[graph].[RepoObject]" : delete persistence target missing in source
+rnote right:0
+"[graph].[RepoObject_S]" ->O "[graph].[RepoObject]" : update changed
+rnote right:0
+"[graph].[RepoObject_S]" -> "[graph].[RepoObject]" : insert missing
+rnote right:21
+
+== [graph].[usp_PERSIST_RepoObject] - end ==
+
+
+== [graph].[usp_PERSIST_ProcedureInstance] - start ==
+
+"[graph].[ProcedureInstance_S]" ->x "[graph].[ProcedureInstance]" : delete persistence target missing in source
+rnote right:0
+"[graph].[ProcedureInstance_S]" ->O "[graph].[ProcedureInstance]" : update changed
+rnote right:0
+"[graph].[ProcedureInstance_S]" -> "[graph].[ProcedureInstance]" : insert missing
+rnote right:6
+
+== [graph].[usp_PERSIST_ProcedureInstance] - end ==
+
+
+== [repo].[usp_sync_guid_RepoObject] - end ==
+
+....
+
+==== [repo].[usp_sync_guid_RepoObjectColumn]
+
+[plantuml, dhw-sequence-usp_sync_guid_RepoObjectColumn, svg]
+....
+skinparam maxmessagesize 220
+
+== [repo].[usp_sync_guid_RepoObjectColumn] - start ==
+
+"[repo_sys].[SysColumn]" ->O "[repo].[RepoObjectColumn]" : UPDATE repo_sys.SysColumn_RepoObjectColumn_via_RepoObjectColumn_guid
+rnote right:150
+"[repo].[RepoObjectColumn]" ->O "[repo].[RepoObjectColumn]" : SET [SysObjectColumn_name] = [RepoObjectColumn_guid] (to avoid conflict in the next INSERT step)
+rnote right:0
+"[repo_sys].[SysColumn]" -> "[repo].[RepoObjectColumn]" : [SysObject_RepoObjectColumn_guid] -> [RepoObjectColumn_guid] ([RepoObjectColumn_guid] is stored in extended properties)
+rnote right:0
+"[repo_sys].[SysColumn]" ->x "[repo].[RepoObjectColumn]" : DELETE repo.RepoObjectColumn, WHERE (RowNumberOverName > 1); via [repo].[SysColumn_RepoObjectColumn_via_name]
+rnote right:0
+"[repo_sys].[SysColumn]" -> "[repo].[RepoObjectColumn]" : INSERT still missing Column
+rnote right:144
+"[repo].[RepoObjectColumn]" ->O "[repo].[RepoObjectColumn]" : SET [RepoObjectColumn_name] = [SysObjectColumn_name] WHERE (has_different_sys_names = 1) AND (ISNULL(is_repo_managed, 0) = 0)
+rnote right:144
+"[repo_sys].[SysColumn]" ->O "[repo].[RepoObjectColumn]" : other properties, where (ISNULL(is_repo_managed, 0) = 0)
+rnote right:2
+"[repo_sys].[SysColumn]" ->O "[repo].[RepoObjectColumn]" : persistence: update RepoObjectColumn_name and repo attributes from sys attributes of persistence_source_RepoObjectColumn_guid
+rnote right:0
+"[repo].[RepoObjectColumn]" ->O "[repo].[RepoObjectColumn]" : persistence: [roc_p].[persistence_source_RepoObjectColumn_guid] = [roc_s].[RepoObjectColumn_guid] (matching by column name via [repo].[RepoObject_persistence])
+rnote right:0
+"[repo].[RepoObjectColumn]" -> "[repo].[RepoObjectColumn]" : persistence: add missing persistence columns existing in source
+rnote right:0
+"[repo].[RepoObject_persistence]" -> "[repo].[RepoObjectColumn]" : persistence: insert missing HistValidColumns
+rnote right:0
+"[repo].[RepoObjectColumn]" ->O "[repo].[RepoObjectColumn]" : persistence: SET [persistence_source_RepoObjectColumn_guid] = NULL (missing source column)
+rnote right:2076
+"[repo].[RepoObjectColumn]" --> "[repo_sys].[SysColumn]" : write RepoObjectColumn_guid into extended properties of SysObjectColumn, Level2
+rnote right:
+"[repo_sys].[SysColumn]" ->O "[repo].[RepoObjectColumn]" : SET [is_SysObjectColumn_missing] = 1
+rnote right:0
+"[repo_sys].[RepoObjectColumn]" ->x "[repo].[RepoObjectColumn]" : where is_SysObjectColumn_missing = 1, but not in objects which are is_repo_managed
+rnote right:0
+
+== [graph].[usp_PERSIST_RepoObjectColumn] - start ==
+
+"[graph].[RepoObjectColumn_S]" ->x "[graph].[RepoObjectColumn]" : delete persistence target missing in source
+rnote right:0
+"[graph].[RepoObjectColumn_S]" ->O "[graph].[RepoObjectColumn]" : update changed
+rnote right:0
+"[graph].[RepoObjectColumn_S]" -> "[graph].[RepoObjectColumn]" : insert missing
+rnote right:144
+
+== [graph].[usp_PERSIST_RepoObjectColumn] - end ==
+
+
+== [repo].[usp_sync_guid_RepoObjectColumn] - end ==
+....
+
+==== [repo].[usp_update_Referencing_Count]
+
+[plantuml, dhw-sequence-usp_update_Referencing_Count, svg]
+....
+skinparam maxmessagesize 220
+
+== [repo].[usp_update_Referencing_Count] - start ==
+
+"[repo_sys].[RepoObjectReferencing]" ->O "[repo].[RepoObject]" : SET [RepoObject_Referencing_Count] = [rorc].[Referencing_Count]
+rnote right:27
+"[repo_sys].[RepoObjectReferenced]" ->O "[repo].[RepoObjectColumn]" : SET [Referencing_Count] = [rorc].[Referencing_Count]
+rnote right:141
+
+== [repo].[usp_update_Referencing_Count] - end ==
+....
+
+==== [repo].[usp_index_inheritance]
+
+[plantuml, dhw-sequence-usp_index_inheritance, svg]
+....
+skinparam maxmessagesize 220
+== [repo].[usp_index_inheritance] - start ==
+
+
+== [repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T] - start ==
+
+?->x "[repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]" : truncate persistence target
+rnote right:0
+"[repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing]" -> "[repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]" : insert all
+rnote right:147
+
+== [repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T] - end ==
+
+"[repo].[IndexReferencedReferencing_HasFullColumnsInReferencing]" ->x "[repo].[Index_virtual]" : DELETE (referenced index is missing)
+rnote right:2
+"[repo].[IndexReferencedReferencing_HasFullColumnsInReferencing]" -> "[repo].[Index_virtual]" : INSERT (Index which should be inherited in referenced, but not yet referenced)
+rnote right:2
+"[repo].[IndexColumn_virtual_referenced_setpoint]" ->x "[repo].[IndexColumn_virtual]" : DELETE (where entries are missing in setpoint)
+rnote right:0
+"[repo].[IndexColumn_virtual_referenced_setpoint]" -> "[repo].[IndexColumn_virtual]" : INSERT missing
+rnote right:4
+"[repo].[Index_gross]" ->x "[repo].[Index_virtual]" : DELETE duplicates by pattern
+rnote right:7
+"[repo].[IndexColumn_virtual_referenced_setpoint]" ->O "[repo].[IndexColumn_virtual]" : SET [RepoObjectColumn_guid] = [setpoint].[referencing_RepoObjectColumn_guid], [is_descending_key] = [setpoint].[is_descending_key]
+rnote right:4
+
+== [repo].[usp_Index_Settings] - start ==
+
+"[repo].[Index_IndexPattern]" ->x "[repo].[Index_Settings]" : DELETE
+rnote right:9
+"[repo].[Index_IndexPattern]" -> "[repo].[Index_Settings]" : INSERT
+rnote right:2
+"[repo].[Index_IndexPattern]" ->O "[repo].[Index_Settings]" : UPDATE
+rnote right:4
+
+== [repo].[usp_Index_Settings] - end ==
+
+"[repo].[Index_IndexSemanticGroup]" ->O "[repo].[Index_IndexSemanticGroup]" : SET [IndexSemanticGroup] = [TSource].[IndexSemanticGroup]
+rnote right:2
+"[repo].[RepoObject]" ->O "[repo].[Index_virtual]" : SET [is_index_primary_key] = 1, [is_index_unique] = 1 (propagate PK from [repo].[RepoObject] into [repo].[Index_virtual])
+rnote right:0
+"[repo].[Index_union]" ->O "[repo].[Index_virtual]" : SET [is_index_primary_key] = 1 (WHERE rop.has_history = 1 and source-index is PK)
+rnote right:0
+"[repo].[Index_union]" ->O "[repo].[Index_Settings]" : SET [is_create_constraint] = 1 (WHERE persistence has_history = 1)
+rnote right:0
+"[repo].[Index_virtual]" ->O "[repo].[Index_virtual]" : SET [is_index_unique] = 1 (each PK is also [is_index_unique])
+rnote right:0
+"[repo].[Index_gross]" ->O "[repo].[RepoObject]" : SET [pk_index_guid] = [pk].[index_guid] (WHERE [is_index_primary_key] = 1 and [RowNumber_PkPerParentObject] = 1)
+rnote right:0
+"[repo].[RepoObject]" ->O "[repo].[Index_virtual]" : SET [is_index_primary_key] = 0 (where it is not a PK in [repo].[RepoObject])
+rnote right:0
+"[repo].[RepoObject]" ->O "[repo].[Index_virtual]" : SET [iv].[index_name] WHERE [iv].[index_name] IS NULL
+rnote right:2
+
+== [repo].[usp_index_inheritance] - end ==
+....
+
+==== [repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id]
+
+// [plantuml, dhw-sequence-usp_RepoObjectColumn_update_RepoObjectColumn_column_id, svg]
+// ....
+
+// == [repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id] - start ==
+
+
+// == [repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id] - end ==
+
+// ....
+
+==== [repo].[usp_GeneratorUsp_insert_update_persistence]
+
+[plantuml, usp_GeneratorUsp_insert_update_persistence, svg]
+....
+
+== [repo].[usp_GeneratorUsp_insert_update_persistence] - start ==
+
+"[repo].[RepoObject_gross]" ->x " [repo].[GeneratorUsp]" : delete old usp, which doesn't exist anymore
+rnote right:0
+"[repo].[RepoObject_gross]" -> "[repo].[GeneratorUsp]" : insert new usp
+rnote right:0
+"[repo].[GeneratorUspStep_Persistence]" ->O "[repo].[GeneratorUspStep]" : update steps, changed
+rnote right:0
+"[repo].[GeneratorUspStep_Persistence]" -> "[repo].[GeneratorUspStep]" : insert steps, not existing
+rnote right:0
+"[repo].[GeneratorUspStep_Persistence_IsInactive_setpoint]" ->O "[repo].[GeneratorUspStep]" : update steps; SET [is_inactive] = [setpoint].[is_inactive]
+rnote right:0
+
+== [repo].[usp_GeneratorUsp_insert_update_persistence] - end ==
+
+....
+
+
+=== <Runtime Scenario 2>
+
+=== ...
+
+=== <Runtime Scenario n>

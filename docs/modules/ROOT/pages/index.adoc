@@ -1,0 +1,9 @@
+= DHW - DataHandwerk toolkit mssql
+:description: DHW - DataHandwerk toolkit mssql. Handwerk statt Massenproduktion. Craft instead of mass production. MSSQL based tools for data craftsmen. Individual customization instead of assembly line.
+:keywords: dhw, DataHandwerk, dwh, datawarehouse, ms sql server,
+:author: Germo Görtz
+:date: {docdate}
+
+image:DatenHandwerk-toolkit-mssql.svg[dhw]
+
+DHW. Handwerk statt Massenproduktion. Craft instead of mass production. MSSQL based tools for data craftsmen. Individual customization instead of assembly line.

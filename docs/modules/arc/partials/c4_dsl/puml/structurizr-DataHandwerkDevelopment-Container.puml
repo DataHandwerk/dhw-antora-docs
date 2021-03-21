@@ -1,0 +1,27 @@
+@startuml(id=DataHandwerkDevelopment-Container)
+title DataHandwerk Development - Containers
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+hide stereotype
+top to bottom direction
+skinparam database<<29>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam database<<30>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+package "DataHandwerk Development\n[Software System]" {
+  database "==DWH db (Project A)\n<size:10>[Container: Database]</size>" <<30>> as 30
+  database "==Repository db (Project A)\n<size:10>[Container: Database]</size>" <<29>> as 29
+}
+@enduml

@@ -1,0 +1,192 @@
+[[section-system-scope-and-context]]
+== System Scope and Context
+
+:filename: src/03_system_scope_and_context.adoc
+// include::_feedback.adoc[]
+
+// :c4_dsl_includedir: c4_dsl/puml
+// c4_dsl_includedir we need explicitely
+// configure project settings settings for asciidoc
+// is included in src/config_project.adoc
+// include::config_project.adoc[]
+
+=== System Landscape
+
+[plantuml, structurizr-SystemLandscape, svg]
+....
+include::partial$c4_dsl/puml/structurizr-SystemLandscape.puml[]
+....
+
+=== DataHandwerk Development Context
+
+[plantuml, structurizr-DataHandwerkDevelopment-SystemContext, svg]
+....
+include::c4_dsl/puml/structurizr-DataHandwerkDevelopment-SystemContext.puml[]
+....
+
+=== Customer Context
+
+[plantuml, structurizr-DWHBDevelopment-SystemContext, svg]
+....
+include::c4_dsl/puml/structurizr-DWHBDevelopment-SystemContext.puml[]
+....
+
+[plantuml, structurizr-DWHBgit-SystemContext, svg]
+....
+include::c4_dsl/puml/structurizr-DWHBgit-SystemContext.puml[]
+....
+
+[plantuml, structurizr-DWHBProduction-SystemContext, svg]
+....
+include::c4_dsl/puml/structurizr-DWHBProduction-SystemContext.puml[]
+....
+
+
+
+// === Business Context
+
+// [plantuml, dhw-business-context, svg]
+// ....
+// ' left to right direction
+// skinparam componentStyle uml2
+
+// actor "DHW (DataHandwerk) Developer" as dhw_developer
+// actor "DWH Developer" as dwh_developer
+// ' actor "Project A DWH User" as project_a_dwh_user
+// actor "Project B DWH User" as project_b_dwh_user
+
+// package "MS SQL DHW" as mssql_dhw {
+//   database "Project A Repository DB" as project_a_repo_db {
+//   }
+//   database  "Project A DWH DB" as project_a_dwh_db {
+//   }
+// }
+
+// package "MS SQL Dev" as mssql_dev {
+//   database "Project B Repository DB" as project_b_repo_db {
+//   }
+//   database  "Project B DWH DB" as project_b_dwh_db {
+//   }
+// }
+
+// package "MS SQL Production" as mssql_prod {
+//   ' database  "Project A Prod DWH DB" as project_a_prod_dwh_db {
+//   ' }
+//   database  "Project B Prod DWH DB" as project_b_prod_dwh_db {
+//   }
+// }
+
+// ' package "GUI tools" as gui_tools {
+// '   component tools [
+// '     SSMS
+// '     Azure Data Studio
+// '     Visual Studio - SSDT
+// '     other tools
+// '   ]
+// ' }
+
+// dhw_developer --> project_a_repo_db                     : develops
+// dhw_developer --> project_a_dwh_db                     : uses for testing
+// ' dhw_developer --> tools                     : uses
+
+// dwh_developer --> project_b_repo_db         : uses
+// dwh_developer --> project_b_dwh_db         : develops
+// ' dwh_developer --> tools                     : uses
+
+
+// ' project_a_prod_dwh_db <-- project_a_dwh_user   
+// project_b_prod_dwh_db <-- project_b_dwh_user : uses
+
+// ' tools --> mssql_dev                       : configure, manage, and administer components within
+
+// project_a_repo_db <--> project_a_dwh_db : connected
+// project_b_repo_db <--> project_b_dwh_db : connected
+
+// project_a_repo_db <-- project_b_repo_db : Database-Project DHW
+
+// ' project_a_dwh_db <--> project_a_prod_dwh_db : Database-Project A 
+// project_b_dwh_db <-- project_b_prod_dwh_db : Database-Project B
+
+// ' dwh_developer --> mssql_dev
+// ' dwh_developer --> project_a_repo_db
+// ' dwh_developer --> project_b_repo_db
+// ' dwh_developer --> project_a_dwh_db
+// ' dwh_developer --> project_b_dwh_db
+// ....
+
+// DHW (DataHandwerk) Developer:: Database developers who develop the toolkit
+// DWH Developer:: Database developers using the toolkit to develop DWH
+// DWH User:: End users consuming the DWH
+
+
+// === Technical Context
+
+// [plantuml, dhw-technical-context, svg]
+// ....
+// ' left to right direction
+// skinparam componentStyle uml2
+
+// package "MS SQL Dev" as mssql_dev {
+//   database "Project A Repository DB" as project_a_repo_db {
+//     [Synonyms] as repo_syn
+//     [RepoObjects] as repo_object
+// '    [Index virtual]
+// '    [Reference virtual]
+// '    [other tools]
+//     package "generated scripts for objects in DWH DB" as project_a_scripts {
+//       [procedure scripts]
+//       [view scripts]
+//       [table scripts]
+//     }
+//   }
+//   database  "Project A DWH DB" as project_a_dwh_db {
+//     [System views and procedures] as dwh_sys
+//     [extended properties] as dwh_ep
+//     frame "optional" {
+//       [Logging] as dwh_logging
+//     }
+//     package "objects, generated based on repo scripts" as project_a_generated_objects {
+//         [procedures 2]
+//         [views 2]
+//         [tables 2]
+//     }
+//     package "normal objects" as project_a_objects {
+//         [procedures]
+//         [views]
+//         [tables]
+//     }
+//   }
+// }
+
+// ' package "GUI tools" as gui_tools {
+// '   component tools [
+// '     SSMS
+// '     Azure Data Studio
+// '     Visual Studio - SSDT
+// '     other tools
+// '   ]
+// ' }
+
+// repo_syn --> dwh_sys                      : link to
+// repo_object <--> dwh_ep                   : correspond to each other
+// ' project_a_scripts --> project_a_repo_db   : are generated based on
+// ' project_a_scripts --> project_a_dwh_db    : can be executed to create or change objects in
+// ' project_a_scripts <-- project_a_generated_objects    : created, using
+// [procedures 2] ..> dwh_logging                : uses
+// [procedures] ..> dwh_logging                : uses
+
+// ' procedures --> [procedure scripts]
+// ' tables --> [table scripts]
+// ' views --> [view scripts]
+
+// ' tools --> mssql_dev                       : configure, manage, and administer components within
+// ' tools <-- project_a_scripts               : can be executed, using
+// ....
+
+// System views and procedures:: are the same in all databases
+// Synonyms:: are used to connect a repository database with a DWH database, based on System views and procedures. The connection can thus be easily changed.
+// RepoObjects:: are the basis of the toolkit. Columns, extended porperties, inidicies, references (dependencies) and other stuff are assigned to the RepoObjects. There is a synchronization with extended properties of objects and subobjects in the DWH. Thus, many (not all) metadata from the repository can be mapped directly in the DWH.
+// Extended properties:: can be defined in the DWH or in the repository. For their values there is a possibility of inheritance or filling based on parameters. Thus, descriptions can be inherited along the references, formulas of calculations can be written in descriptions, lists of referenced objects or columns can be created. This allows and simplifies the creation of documentation directly from the database - _documentation as code_.
+// normal object:: Objects created directly (or however) by the developer in the DWH.
+// generated scripts:: There are generators for procedures, tables (especially persistence with optional historization in temporal tables, including procedures to merge into these tables) and views (planned).
+// objects, generated based on repo scripts:: If a developer wishes, he can use the "generated scripts" to be assisted in the creation of objects.

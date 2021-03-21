@@ -1,0 +1,63 @@
+:filename: src/02_architecture_constraints.adoc
+
+[[section-architecture-constraints]]
+== Architecture Constraints
+
+// include::_feedback.adoc[]
+
+. The project is based on Microsoft SQL Server (mssql)
+. It must *always* be possible for BI developers to use *all* mssql and Azure features in DWH databases.
+. a minimally invasive *repository database* _supplements_ DWH database metadata
+** A repository database is externally connected to a DWH database via *synonyms to system catalog views* of the DWH database.
+** Changes can be made both in repository and in DWH database. Synchronization is required for this.
+** for additional _minimal invasive interventions_ `extended properties` are used, which can be assigned to many database objects and also columns, parameters etc.
+** The synchronization concept takes into account that renaming and refactoring can be performed in the repository as well as in the DWH database.
+** The DWH database works without the repository and all traces of a repository can be removed (extended properties can be dropped).
+
+// === Technical Constraints
+
+// .Technical Constraints
+// [options="header", cols="1,6,12a"]
+// |===
+// ||Constraint|Background and / or motivation
+
+// 3+|_Software and programming constraints_
+
+// |TC1
+// |Main implementation in TSQL 
+// |
+
+// |TC2
+// |Additional implementation can use other programming languages 
+// |some required components are not availabe or possible in TSQL
+
+// |TC3
+// |Third party software must be available under an compatible open source license and installable via a package manager
+// |The interested developer or architect should be able to check out the sources, compile and run the application without problems compiling or installing dependencies. All external dependencies should be available via the package manager of the operation system or at least through an installer.
+
+// 3+|_Operating System Constraints_
+
+// |TC4
+// |Target OS: Windows
+// |The application should be compilable on all 3 mayor operation systems running SQL Server (Mac OS X, Linux and Windows), but Windows is the main target and Windows specific elements are OK
+
+
+// 3+|_Hardware Constraints_
+
+
+// |===
+
+// === Organizational Constraints
+
+// === Conventions
+
+// .List of Conventions
+// [options="header", cols="1,6,12a"]
+// |===
+// ||Constraint|Background and / or motivation
+
+// |C1
+// |Architecture documentation
+// |Structure based on the english arc42-Template
+
+// |===

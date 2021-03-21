@@ -1,0 +1,23 @@
+[[section-concepts]]
+== Cross-cutting Concepts
+
+:filename: src/08_concepts.adoc
+// include::_feedback.adoc[]
+
+
+
+=== _<Concept 1>_
+
+_<explanation>_
+
+
+
+=== _<Concept 2>_
+
+_<explanation>_
+
+...
+
+=== _<Concept n>_
+
+_<explanation>_

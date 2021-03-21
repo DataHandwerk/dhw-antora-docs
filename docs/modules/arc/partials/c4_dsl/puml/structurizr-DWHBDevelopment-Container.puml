@@ -1,0 +1,36 @@
+@startuml(id=DWHBDevelopment-Container)
+title DWH B Development - Containers
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+hide stereotype
+top to bottom direction
+skinparam database<<5>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam database<<17>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<21>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+package "DWH B Development\n[Software System]" {
+  database "==DWH db Development (Project B)\n<size:10>[Container: Database]</size>" <<17>> as 17
+  rectangle "==GUI\n<size:10>[Container: GUI]</size>\n\nGraphical User Interface" <<21>> as 21
+  database "==Repository db (Project B)\n<size:10>[Container: Database]</size>" <<5>> as 5
+}
+17 .[#707070].> 5 : "RepoObject correspond with extended properties"
+21 .[#707070].> 5 : "uses"
+5 .[#707070].> 17 : "Synonyms link to DWH System Views"
+@enduml

@@ -1,0 +1,6 @@
+[[section-design-decisions]]
+== Design Decisions
+
+:filename: src/09_design_decisions.adoc
+// include::_feedback.adoc[]
+

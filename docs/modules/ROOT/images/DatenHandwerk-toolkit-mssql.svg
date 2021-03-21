@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1280"
+   height="640"
+   viewBox="0 0 338.66666 169.33334"
+   version="1.1"
+   id="svg108"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="DatenHandwerk-toolkit-mssql.svg"
+   inkscape:export-filename="D:\Users\ggoer\OneDrive\SVG_Logo\DataHandwerk\DataHandwerk-toolkit-mssql_1280x640.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <title
+     id="title378">DatenHandwerk toolkit mssql</title>
+  <defs
+     id="defs102" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.3125"
+     inkscape:cx="640"
+     inkscape:cy="320"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="true"
+     units="px"
+     inkscape:window-width="3840"
+     inkscape:window-height="2080"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid376" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata105">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>DatenHandwerk toolkit mssql</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:25.4px;line-height:1.53;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="331.45282"
+       y="29.36554"
+       id="text318"><tspan
+         sodipodi:role="line"
+         id="tspan316"
+         x="331.45282"
+         y="29.36554"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.4px;font-family:Consolas;-inkscape-font-specification:'Consolas Bold';text-align:end;text-anchor:end;stroke-width:0.264583">DataHandwerk</tspan><tspan
+         sodipodi:role="line"
+         x="331.45282"
+         y="69.361763"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.4px;font-family:Consolas;-inkscape-font-specification:'Consolas Bold';text-align:end;text-anchor:end;stroke-width:0.264583"
+         id="tspan320" /><tspan
+         sodipodi:role="line"
+         x="331.45282"
+         y="109.35799"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Consolas;-inkscape-font-specification:Consolas;text-align:end;text-anchor:end;stroke-width:0.264583"
+         id="tspan326">toolkit</tspan><tspan
+         sodipodi:role="line"
+         x="331.45282"
+         y="149.35422"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Consolas;-inkscape-font-specification:Consolas;text-align:end;text-anchor:end;stroke-width:0.264583"
+         id="tspan322">mssql</tspan></text>
+    <g
+       id="g374"
+       transform="matrix(0.35725211,0,0,0.35725211,5.266195,6.9361534)">
+      <path
+         d="m 167.02,8.0789 -8.7548,11.136 v 67.684 l 8.754,10.609 h 65.952 l 8.7548,-10.611 v -67.682 l -8.754,-11.136 z"
+         fill="#ffcc00"
+         id="path330" />
+      <path
+         d="m 341.42,54.932 -25.66,25.935 c 29.625,29.942 47.949,71.307 47.949,117 0,91.379 -73.296,165.46 -163.71,165.46 -90.415,0 -163.71,-74.079 -163.71,-165.46 0,-45.69 18.324,-87.055 47.949,-117 L 58.577,54.932 c -36.193,36.579 -58.578,87.112 -58.578,142.93 0,111.64 89.543,202.14 200,202.14 110.46,0 200,-90.5 200,-202.14 0,-55.819 -22.386,-106.35 -58.579,-142.93 z"
+         fill="#ffcc00"
+         id="path332" />
+      <g
+         fill="#000080"
+         id="g340">
+        <path
+           d="m 181.45,0 v 8.0781 h -14.428 l 32.977,35.969 32.977,-35.969 H 218.548 V 0 Z"
+           id="path334" />
+        <path
+           d="m 200,61.541 -32.977,35.967 h 14.428 v 124.99 l -4.0352,-2.625 c 0,0 -8.0609,-8.1534 -5.2383,-15.896 2.8226,-7.7426 3.0394,-11.224 1.7774,-16.543 -2.2064,-9.2991 -6.9075,-13.422 -11.455,-7.6621 -4.4863,5.6834 0.67344,11.219 -3.2266,12.795 -3.9,1.5755 -7.3474,-0.16422 -8.4668,-4.4824 -1.1194,-4.3182 3.7107,-9.6559 5.6445,-16.303 2.0161,-6.928 1.2096,-14.264 -8.8711,-14.264 -5.6452,0 -10.625,2.5932 -10.625,5.8535 0,3.2602 -3.0847,12.487 -6.3106,9.2266 -3.2258,-3.2603 -1.0971,-15.601 -2.0156,-22.008 -0.73548,-5.1333 -1.3861,-9.3867 -7.0312,-9.3867 -4.0323,0 -5.6694,-0.19043 -7.6856,6.3301 -2.0162,6.52053 -6.5624,7.4471 -10.191,3.7793 -3.629,-3.6678 -2.5118,-7.4273 -6.9473,-11.91 -4.4363,-4.4837 -8.4674,-4.5504 -15.322,-1.291 -6.45,3.0671 -7.1504,8.2655 -7.1504,14.982 0,7.7431 5.0503,10.537 11.502,12.982 3.204,1.2144 9.2738,5.2118 4.6367,9.8984 -4.6371,4.6866 -9.3959,0.002 -12.676,5.5273 -3.629,6.113 1.9446,10.25 4.9688,13.307 3.0242,3.0565 14.849,0 17.672,0 2.8226,0 7.8723,3.7886 4.6465,7.0488 -3.2258,3.2603 -10.493,12.513 -6.4609,16.588 7.0564,7.1318 18.783,0.83129 23.186,-0.375 5.075,-1.3913 12.068,0.1986 9.0723,3.2266 -5.6452,5.7054 -8.8262,9.9324 -8.8262,14.875 0,2.649 0.56315,6.9494 12.455,3.0566 14.315,-4.6866 26.706,-4.2366 31.223,-1.5469 2.4952,1.485 8.462,5.5925 15.754,10.736 v 0.0879 c -1.1355,0.52979 -2.2753,1.0675 -3.4277,1.6348 -42.891,21.109 -63.51,51.645 -63.51,51.645 l 15.525,13.244 c 0,0 24.732,-30.327 51.41,-45.953 v 75.5 h 37.098 v -69.537 c 5.4726,3.9677 9.0703,6.5898 9.0703,6.5898 l 42.744,40.328 14.309,-13.652 -21.365,-22.414 -37.139,-30.938 c 8.0629,-1.7051 16.1,-3.2767 22.17,-4.3281 14.112,-2.4436 48.84,6.332 48.84,6.332 l 8.2656,-14.061 c 0,0 -5.8473,-1.834 -8.6699,-1.834 -2.8226,0 -9.9864,1.3578 2.8418,-11.607 6.5847,-6.655 6.4897,-8.2093 9.5195,-12.523 3.6468,-5.1936 7.3389,-15.574 8.5703,-23.814 0.80968,-5.4145 -4.5977,-0.7563 -4.5977,-4.5684 0,-6.0518 3.3287,-18.105 4.6738,-33.051 1.429,-15.879 -5.7539,-14.059 -6.5781,-14.656 -0.94193,-0.6822 -0.42156,-4.0925 -1.6562,-4.8008 -1.0387,-0.59664 -3.7866,1.5135 -5.0527,0.87695 -16.108,-8.1107 -29.921,32.985 -32.316,41.59 -1.2484,4.4845 -4.8063,-3.6873 -7.3555,4.2637 -2.5492,7.951 -2.127,17.883 -2.127,28.818 0,10.935 2.7389,18.369 -3.0176,20.508 -3.7758,1.4027 -18.82,-0.57886 -41.129,3.9961 v -138.59 h 14.428 l -32.977,-35.967 z"
+           id="path336" />
+        <path
+           d="m 241.73,86.897 38.066,8.2e-4 v -67.683 H 241.73 l -33.484,33.841 z"
+           id="path338" />
+      </g>
+      <path
+         d="m 106.95,168.44 c 1.1186,-1.2014 13.637,8.8703 27.96,22.497 14.323,13.626 25.028,25.647 23.91,26.847 -1.1194,1.2006 -13.637,-8.8703 -27.96,-22.497 -14.324,-13.625 -25.029,-25.644 -23.91,-26.846 z"
+         fill="#ffcc00"
+         id="path342" />
+      <path
+         d="M 191.75,53.057 158.266,19.216 H 120.199 V 86.9 h 38.067 z"
+         fill="#000080"
+         id="path344" />
+      <g
+         fill="#ffcc00"
+         id="g352">
+        <path
+           d="m 106.95,168.44 c 1.1186,-1.2014 13.637,8.8703 27.96,22.497 14.323,13.626 25.028,25.647 23.91,26.847 -1.1194,1.2006 -13.637,-8.8703 -27.96,-22.497 -14.324,-13.625 -25.029,-25.644 -23.91,-26.846 z"
+           id="path346" />
+        <path
+           d="m 270.79,179.92 c 0.23692,0.0473 1.0181,-0.54628 1.1899,-0.93693 l 41.133,9.7658 c 0.052,0.49848 0.20537,1.2113 0.98041,1.415 z"
+           id="path348" />
+        <path
+           d="m 266.28,179.88 c 0.39812,-0.47931 0.77315,-0.68806 1.4774,-0.77759 0.0439,-0.007 0.66694,0.01 1.3088,0.22652 0.64182,0.21702 1.4955,0.6058 1.4955,0.6058 0.37722,-0.10166 3.2611,0.4973 5.4767,1.0235 2.2156,0.52623 4.7022,0.75131 7.0232,1.3089 2.321,0.55757 4.6861,1.142 6.4735,1.5718 3.6271,0.87233 10.918,2.6248 10.918,2.6248 l 13.529,3.6322 c 0,0 0.18971,0.15296 1.504,0.12647 1.3143,-0.0265 1.5689,0.21083 1.5689,0.21083 0,0 0.15205,0.0302 0.44977,0.42286 0.29772,0.39266 0.30473,1.3578 0.30473,1.3578 z"
+           id="path350" />
+      </g>
+    </g>
+    <rect
+       id="rect27"
+       width="25.000101"
+       height="6.6145835"
+       x="0"
+       y="0"
+       style="fill:none;stroke-width:0.264583" />
+    <rect
+       id="rect29"
+       width="25.000101"
+       height="6.6145921"
+       x="332.05209"
+       y="162.71875"
+       style="fill:none;stroke-width:0.264583" />
+    <rect
+       style="fill:none;stroke-width:0.264583"
+       id="rect887"
+       width="338.66666"
+       height="169.33333"
+       x="0"
+       y="0" />
+    <rect
+       style="fill:none;stroke-width:0.264583"
+       id="rect889"
+       width="338.66666"
+       height="169.33333"
+       x="0"
+       y="0" />
+  </g>
+</svg>

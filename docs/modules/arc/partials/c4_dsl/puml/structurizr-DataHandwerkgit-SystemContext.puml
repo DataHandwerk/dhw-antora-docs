@@ -1,0 +1,35 @@
+@startuml(id=DataHandwerkgit-SystemContext)
+title DataHandwerk git - System Context
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+hide stereotype
+top to bottom direction
+skinparam rectangle<<1>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam rectangle<<27>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+skinparam folder<<31>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
+rectangle "==DHW Developer\n<size:10>[Person]</size>\n\nDeveloper of DataHandwerk Toolkit" <<27>> as 27
+folder "==DataHandwerk git\n<size:10>[Software System]</size>\n\nCode of DataHandwerk in Version Control" <<31>> as 31
+package "Customer" {
+  rectangle "==DWH Developer\n<size:10>[Person]</size>\n\nDeveloper of some DWH" <<1>> as 1
+}
+27 .[#707070].> 31 : "uses"
+1 .[#707070].> 31 : "takes code or builds"
+@enduml

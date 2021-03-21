@@ -1,0 +1,92 @@
+:filename: architecture.adoc
+// :toc: left
+// :toclevels: 3
+// :toc-position: left
+
+//required for kbd:
+:experimental:
+
+// ++++
+// <!-- github ribbon thanx to https://github.com/blog/273-github-ribbons -->
+// <a href="https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql">
+// <img loading="lazy" width="149" height="149"
+// style="position: absolute; top: 0; left: 0; border: 0;"
+// src="https://github.blog/wp-content/uploads/2008/12/forkme_left_white_ffffff.png?resize=149%2C149" 
+// class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1">
+// </a>
+// ++++
+
+// = image:DatenHandwerk-toolkit-mssql.svg[dhw] Architecture
+= Architecture
+// // toc-title definition MUST follow document title without blank line!
+// :toc-title: Table of Contents
+:author: Germo Görtz
+// :email: datahandwerk@aisberg.de
+:date: {docdate}
+
+image:DatenHandwerk-toolkit-mssql.svg[dhw]
+
+// configure EN settings for asciidoc
+include::partial$config.adoc[]
+
+// configure project settings settings for asciidoc
+include::partial$config_project.adoc[]
+
+// configure style settings settings for asciidoc
+include::partial$config_style.adoc[]
+
+// numbering from here on
+:numbered:
+
+<<<<
+// 1. Introduction and Goals
+include::partial$01_introduction_and_goals.adoc[]
+
+<<<<
+// 2. Architecture Constraints
+include::partial$02_architecture_constraints.adoc[]
+
+<<<<
+// 3. System Scope and Context
+include::partial$03_system_scope_and_context.adoc[]
+
+<<<<
+// 4. Solution Strategy
+include::partial$04_solution_strategy.adoc[]
+
+<<<<
+// 5. Building Block View
+include::partial$05_building_block_view.adoc[]
+
+<<<<
+// 6. Runtime View
+include::partial$06_runtime_view.adoc[]
+
+<<<<
+// 7. Deployment View
+include::partial$07_deployment_view.adoc[]
+
+<<<<
+// 8. Concepts
+include::partial$08_concepts.adoc[]
+
+<<<<
+// 9. Design Decisions
+include::partial$09_design_decisions.adoc[]
+
+<<<<
+// 10. Quality Scenarios
+include::partial$10_quality_scenarios.adoc[]
+
+<<<<
+// 11. Technical Risks
+include::partial$11_technical_risks.adoc[]
+
+<<<<
+// 12. Glossary
+include::partial$12_glossary.adoc[]
+
+// horizontal line
+***
+include::partial$about-arc42.adoc[]
+
