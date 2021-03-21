@@ -24,7 +24,7 @@
 // :email: datahandwerk@aisberg.de
 :date: {docdate}
 
-image:DatenHandwerk-toolkit-mssql.svg[dhw]
+image:ROOT:DatenHandwerk-toolkit-mssql.svg[dhw]
 
 // configure EN settings for asciidoc
 include::partial$config.adoc[]
