@@ -16,31 +16,31 @@
 
 [plantuml, structurizr-SystemLandscape, svg]
 ....
-include::partial$c4_dsl/puml/structurizr-SystemLandscape.puml[]
+include::arc:partial$c4_dsl/puml/structurizr-SystemLandscape.puml[]
 ....
 
 === DataHandwerk Development Context
 
 [plantuml, structurizr-DataHandwerkDevelopment-SystemContext, svg]
 ....
-include::c4_dsl/puml/structurizr-DataHandwerkDevelopment-SystemContext.puml[]
+include::arc:partial$c4_dsl/puml/structurizr-DataHandwerkDevelopment-SystemContext.puml[]
 ....
 
 === Customer Context
 
 [plantuml, structurizr-DWHBDevelopment-SystemContext, svg]
 ....
-include::c4_dsl/puml/structurizr-DWHBDevelopment-SystemContext.puml[]
+include::arc:partial$c4_dsl/puml/structurizr-DWHBDevelopment-SystemContext.puml[]
 ....
 
 [plantuml, structurizr-DWHBgit-SystemContext, svg]
 ....
-include::c4_dsl/puml/structurizr-DWHBgit-SystemContext.puml[]
+include::arc:partial$c4_dsl/puml/structurizr-DWHBgit-SystemContext.puml[]
 ....
 
 [plantuml, structurizr-DWHBProduction-SystemContext, svg]
 ....
-include::c4_dsl/puml/structurizr-DWHBProduction-SystemContext.puml[]
+include::arc:partial$c4_dsl/puml/structurizr-DWHBProduction-SystemContext.puml[]
 ....
 
 

@@ -2,19 +2,19 @@
 
 [[section-architecture-constraints]]
 == 02 Architecture Constraints
-:date: {docdate}
 
 :sectnums:
 
 // include::_feedback.adoc[]
 
-. The project is based on Microsoft SQL Server (mssql)
+. The project is based on Microsoft SQL Server (mssql): +
+SQL Server 2019 or above
 . It must *always* be possible for BI developers to use *all* mssql and Azure features in DWH databases.
 . a minimally invasive *repository database* _supplements_ DWH database metadata
 ** A repository database is externally connected to a DWH database via *synonyms to system catalog views* of the DWH database.
-** Changes can be made both in repository and in DWH database. Synchronization is required for this.
+** Changes can be made both in repository and in DWH database. *Synchronization* is required for this.
 ** for additional _minimal invasive interventions_ `extended properties` are used, which can be assigned to many database objects and also columns, parameters etc.
-** The synchronization concept takes into account that renaming and refactoring can be performed in the repository as well as in the DWH database.
+** The *synchronization concept* takes into account that renaming and refactoring can be performed in the repository as well as in the DWH database.
 ** The DWH database works without the repository and all traces of a repository can be removed (extended properties can be dropped).
 
 // === Technical Constraints

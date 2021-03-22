@@ -4,4 +4,5 @@ version: 0.1.0
 nav:
 - modules/ROOT/nav.adoc
 - modules/arc/nav.adoc
+- modules/manual/nav.adoc
 # - modules-one/nav.adoc

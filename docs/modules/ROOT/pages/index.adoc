@@ -7,3 +7,7 @@
 image:DatenHandwerk-toolkit-mssql.svg[dhw]
 
 DHW. Handwerk statt Massenproduktion. Craft instead of mass production. MSSQL based tools for data craftsmen. Individual customization instead of assembly line.
+
+Read the xref:arc:architecture.adoc[] documentation to learn why DataHandwerk exists, how it works and is built.
+
+Learn first steps: xref:manual:getting-started.adoc[].
