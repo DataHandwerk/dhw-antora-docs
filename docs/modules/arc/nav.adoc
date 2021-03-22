@@ -5,7 +5,7 @@
 * xref:architecture-04.adoc[]
 * xref:architecture-05.adoc[]
 * xref:architecture-06.adoc[]
-// * xref:architecture-07.adoc[]
+* xref:architecture-07.adoc[]
 // * xref:architecture-08.adoc[]
 // * xref:architecture-09.adoc[]
 // * xref:architecture-10.adoc[]
