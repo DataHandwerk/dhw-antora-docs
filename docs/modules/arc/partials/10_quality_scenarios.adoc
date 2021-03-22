@@ -1,8 +1,11 @@
 [[section-quality-scenarios]]
-== Quality Requirements
+== Q10 uality Requirements
+:date: {docdate}
 
-:filename: src/10_quality_scenarios.adoc
-// include::_feedback.adoc[]
+:sectnums:
+
+// :filename: src/10_quality_scenarios.adoc
+// // include::_feedback.adoc[]
 
 
 === Quality Tree

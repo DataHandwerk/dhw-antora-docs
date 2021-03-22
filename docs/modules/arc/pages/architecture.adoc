@@ -3,8 +3,8 @@
 // :toclevels: 3
 // :toc-position: left
 
-//required for kbd:
-:experimental:
+// //required for kbd:
+// :experimental:
 
 // ++++
 // <!-- github ribbon thanx to https://github.com/blog/273-github-ribbons -->
@@ -24,16 +24,14 @@
 // :email: datahandwerk@aisberg.de
 :date: {docdate}
 
-image:ROOT:DatenHandwerk-toolkit-mssql.svg[dhw]
-
-// configure EN settings for asciidoc
-include::partial$config.adoc[]
-
 // configure project settings settings for asciidoc
 include::partial$config_project.adoc[]
+// // configure EN settings for asciidoc
+// include::partial$config.adoc[]
+// // configure style settings settings for asciidoc
+// include::partial$config_style.adoc[]
 
-// configure style settings settings for asciidoc
-include::partial$config_style.adoc[]
+image:ROOT:DatenHandwerk-toolkit-mssql.svg[dhw]
 
 // numbering from here on
 :numbered:

@@ -1,6 +1,9 @@
 [[section-technical-risks]]
-== Risks and Technical Debts
+== 11 Risks and Technical Debts
+:date: {docdate}
 
-:filename: src/11_technical_risks.adoc
-// include::_feedback.adoc[]
+:sectnums:
+
+// :filename: src/11_technical_risks.adoc
+// // include::_feedback.adoc[]
 

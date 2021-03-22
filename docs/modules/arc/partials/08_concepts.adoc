@@ -1,8 +1,11 @@
 [[section-concepts]]
-== Cross-cutting Concepts
+== 08 Cross-cutting Concepts
+:date: {docdate}
 
-:filename: src/08_concepts.adoc
-// include::_feedback.adoc[]
+:sectnums:
+
+// :filename: src/08_concepts.adoc
+// // include::_feedback.adoc[]
 
 
 

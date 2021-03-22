@@ -1,10 +1,13 @@
 [[section-deployment-view]]
 
 
-== Deployment View
+== 07 Deployment View
+:date: {docdate}
 
-:filename: src/07_deployment_view.adoc
-// include::_feedback.adoc[]
+:sectnums:
+
+// :filename: src/07_deployment_view.adoc
+// // include::_feedback.adoc[]
 
 
 === Infrastructure Level 1

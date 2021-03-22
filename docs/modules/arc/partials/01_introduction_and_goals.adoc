@@ -1,8 +1,8 @@
-:filename: src/01_introduction_and_goals.adoc
-
 [[section-introduction-and-goals]]
-== Introduction and Goals
+== 01 Introduction and Goals
+:date: {docdate}
 
+:sectnums:
 include::_feedback.adoc[]
 
 kbd:[DHW] (**D**ata**H**and**w**erk) is designed to support BI and DWH developers working with the Microsoft BI platform (MS SQL Server).

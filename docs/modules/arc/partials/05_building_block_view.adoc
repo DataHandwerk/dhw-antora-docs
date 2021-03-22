@@ -1,10 +1,13 @@
 [[section-building-block-view]]
 
 
-== Building Block View
+== 05 Building Block View
+:date: {docdate}
 
-:filename: src/05_building_block_view.adoc
-// include::_feedback.adoc[]
+:sectnums:
+
+// :filename: src/05_building_block_view.adoc
+// // include::_feedback.adoc[]
 
 // :c4_dsl_includedir: c4_dsl/puml
 

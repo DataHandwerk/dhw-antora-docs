@@ -1,7 +1,9 @@
 [[section-system-scope-and-context]]
-== System Scope and Context
+== 03 System Scope and Context
+:date: {docdate}
 
-:filename: src/03_system_scope_and_context.adoc
+:sectnums:
+
 // include::_feedback.adoc[]
 
 // :c4_dsl_includedir: c4_dsl/puml

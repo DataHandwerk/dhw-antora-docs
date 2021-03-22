@@ -1,7 +1,10 @@
-:filename: src/02_architecture_constraints.adoc
+// :filename: src/02_architecture_constraints.adoc
 
 [[section-architecture-constraints]]
-== Architecture Constraints
+== 02 Architecture Constraints
+:date: {docdate}
+
+:sectnums:
 
 // include::_feedback.adoc[]
 

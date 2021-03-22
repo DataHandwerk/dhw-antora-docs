@@ -1,9 +1,9 @@
-:filename: src/about-arc42.adoc
-// :homepage: http://arc42.org
+// :filename: src/about-arc42.adoc
+// // :homepage: http://arc42.org
 
-// :keywords: software-architecture, documentation, template, arc42
+// // :keywords: software-architecture, documentation, template, arc42
 
-// :numbered!:
+// // :numbered!:
 **About arc42**
 
 // == About arc42

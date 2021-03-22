@@ -1,8 +1,11 @@
 [[section-solution-strategy]]
-== Solution Strategy
+== 04 Solution Strategy
+:date: {docdate}
 
-:filename: src/04_solution_strategy.adoc
-// include::_feedback.adoc[]
+:sectnums:
+
+// :filename: src/04_solution_strategy.adoc
+// // include::_feedback.adoc[]
 
 // * Das Toolkit soll sich in die gewohnte Arbeitsumgebung eines DWH Entwicklers einpassen. Daher basiert das Toolkit auf Repositories in Form von **SQL Server Datenbanken**. Mit diesen Datenbanken kann ein Entwickler so arbeiten, wie er mit anderen Datenbanken arbeitet: mit SSMS, Azure Data Studio = ADS, Visual Studio Datenbankprojekten und anderen Werkzeugen.
 // * Es gibt **ein (1) Repository pro Ziel-DWH**

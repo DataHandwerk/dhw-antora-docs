@@ -1,8 +1,11 @@
 [[section-glossary]]
-== Glossary
+== 12 Glossary
+:date: {docdate}
 
-:filename: src/12_glossary.adoc
-// include::_feedback.adoc[]
+:sectnums:
+
+// :filename: src/12_glossary.adoc
+// // include::_feedback.adoc[]
 
 
 

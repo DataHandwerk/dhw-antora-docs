@@ -1,8 +1,11 @@
 [[section-runtime-view]]
-== Runtime View
+== 06 Runtime View
+:date: {docdate}
 
-:filename: src/06_runtime_view.adoc
-// include::_feedback.adoc[]
+:sectnums:
+
+// :filename: src/06_runtime_view.adoc
+// // include::_feedback.adoc[]
 
 
 // === <Runtime Scenario 1>

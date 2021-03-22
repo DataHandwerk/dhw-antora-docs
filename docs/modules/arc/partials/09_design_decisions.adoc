@@ -1,6 +1,9 @@
 [[section-design-decisions]]
-== Design Decisions
+== 09 Design Decisions
+:date: {docdate}
 
-:filename: src/09_design_decisions.adoc
-// include::_feedback.adoc[]
+:sectnums:
+
+// :filename: src/09_design_decisions.adoc
+// // include::_feedback.adoc[]
 

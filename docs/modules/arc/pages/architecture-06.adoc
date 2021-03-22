@@ -1,0 +1,53 @@
+// <<<<
+// // 1. Introduction and Goals
+// // include::partial$01_introduction_and_goals.adoc[leveloffset=-1]
+// include::partial$01_introduction_and_goals.adoc[]
+
+// <<<<
+// // 2. Architecture Constraints
+// include::partial$02_architecture_constraints.adoc[]
+
+// <<<<
+// 3. System Scope and Context
+// include::partial$03_system_scope_and_context.adoc[leveloffset=-1]
+
+// <<<<
+// // 4. Solution Strategy
+// include::partial$04_solution_strategy.adoc[]
+
+// <<<<
+// // 5. Building Block View
+// include::partial$05_building_block_view.adoc[]
+
+// <<<<
+// // 6. Runtime View
+include::partial$06_runtime_view.adoc[leveloffset=-1]
+
+// <<<<
+// // 7. Deployment View
+// include::partial$07_deployment_view.adoc[]
+
+// <<<<
+// // 8. Concepts
+// include::partial$08_concepts.adoc[]
+
+// <<<<
+// // 9. Design Decisions
+// include::partial$09_design_decisions.adoc[]
+
+// <<<<
+// // 10. Quality Scenarios
+// include::partial$10_quality_scenarios.adoc[]
+
+// <<<<
+// // 11. Technical Risks
+// include::partial$11_technical_risks.adoc[]
+
+// <<<<
+// // 12. Glossary
+// include::partial$12_glossary.adoc[]
+
+// // horizontal line
+// ***
+// include::partial$about-arc42.adoc[]
+
