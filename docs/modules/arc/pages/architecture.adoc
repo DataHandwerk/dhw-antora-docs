@@ -31,7 +31,7 @@ include::partial$config_project.adoc[]
 // // configure style settings settings for asciidoc
 // include::partial$config_style.adoc[]
 
-image:ROOT:DatenHandwerk-toolkit-mssql.svg[dhw]
+image::ROOT:DatenHandwerk-toolkit-mssql.svg[dhw]
 
 // numbering from here on
 :numbered:
