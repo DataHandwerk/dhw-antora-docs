@@ -5,7 +5,7 @@
 == Summary
 
 * create a new repo database
-* clone githup repository from project https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql[]
+* clone github repository from project https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql[]
 * deploy the database project db_DataHandwerk to your database
 * connect repo datatabase to dwh database using synonyms executing the storred procedure `[repo].[usp_connect_database]`
 
