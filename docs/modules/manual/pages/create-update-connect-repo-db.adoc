@@ -15,7 +15,8 @@
 
 == Detailed
 
-First we need to create a "repository database" and connect it with the "dwh database". Here are some excerpts from the architectur description:
+First we need to create a "repository database" and connect it with the "dwh database". +
+Here are some excerpts from the architectur description:
 ____
 include::arc:partial$02_architecture_constraints.adoc[]
 ____
@@ -44,7 +45,7 @@ As an example, we use `WideWorldImporters` as dwh database.
 
 * create a new empty repository database `dhw_WideWorldImporters` +
  `dhw` is an abbreviation for **D**ata**H**and**w**erk. `WideWorldImporters` is used to mark that it is a repository for `WideWorldImporters`. +
- You can also use any other name for your repository database.
+ You can also use any other name for your repository database, for example `repo_WideWorldImporters`.
 
 === update repo database from database project db_DataHandwerk
 
