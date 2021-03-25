@@ -1,0 +1,131 @@
+= Create, update and connect repository database
+:author: Germo Görtz
+:date: {docdate}
+
+== Summary
+
+* create a new repo database
+* clone githup repository from project https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql[]
+* deploy the database project db_DataHandwerk to your database
+* connect repo datatabase to dwh database using synonyms executing the storred procedure `[repo].[usp_connect_database]`
+
+'''
+
+:sectnums:
+
+== Detailed
+
+First we need to create a "repository database" and connect it with the "dwh database". Here are some excerpts from the architectur description:
+____
+include::arc:partial$02_architecture_constraints.adoc[]
+____
+
+// ****
+// include::arc:partial$02_architecture_constraints.adoc[]
+// ****
+
+____
+[plantuml, structurizr-DWHBDevelopment-Container, svg]
+....
+include::arc:partial$c4_dsl/puml/structurizr-DWHBDevelopment-Container.puml[]
+....
+____
+
+____
+[plantuml, structurizr-DWHBDevelopment-DWHdbDevelopmentProjectB-Component, svg]
+....
+include::arc:partial$c4_dsl/puml/structurizr-DWHBDevelopment-DWHdbDevelopmentProjectB-Component.puml[]
+....
+____
+
+=== create repo database
+
+As an example, we use `WideWorldImporters` as dwh database.
+
+* create a new empty repository database `dhw_WideWorldImporters` +
+ `dhw` is an abbreviation for **D**ata**H**and**w**erk. `WideWorldImporters` is used to mark that it is a repository for `WideWorldImporters`. +
+ You can also use any other name for your repository database.
+
+=== update repo database from database project db_DataHandwerk
+
+The structure of the repo database must be updated from the dhw git (database project: db_DataHandwerk).
+____
+[plantuml, structurizr-DataHandwerkgit-SystemContext, svg]
+....
+include::arc:partial$c4_dsl/puml/structurizr-DataHandwerkgit-SystemContext.puml[]
+....
+____
+
+* clone the project https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql[]
+* using https://visualstudio.microsoft.com/vs/features/ssdt/[SQL Server Data Tools for Visual Studio], open the database project: +
+"D:\Repos\GitHub\DataHandwerk\DataHandwerk-toolkit-mssql\db_DataHandwerk\db_DataHandwerk.sqlproj" +
+Your folder could be another
+* Now there are several options
+** use publish
+*** image:create-update-connect-repo-db-publish-1.png[]
+*** image:create-update-connect-repo-db-publish-2.png[]
+*** image:create-update-connect-repo-db-publish-3.png[]
+*** image:create-update-connect-repo-db-publish-4.png[]
+*** image:create-update-connect-repo-db-publish-5.png[]
+** use an existing dacpac (under snapshots) or create a dacpac
+*** image:create-update-connect-repo-db-dacpac-1.png[]
+*** use VS Schema Compare, SSMS, Azure Data Studio (or other tools) to deploy the dacpac
+**** image:create-update-connect-repo-db-dacpac-2.png[]
+**** image:create-update-connect-repo-db-dacpac-3.png[]
+**** follow the wizard
+*** the dacpac also includes the postdeployment script
+** use Schema Compare
+*** use the prepared schema compare and adapt it or create your own
+*** image:create-update-connect-repo-db-sc-01.png[]
+*** image:create-update-connect-repo-db-sc-02.png[]
+
+==== post deployment
+
+After the database is created, some tables need to be populated with data. For this purpose, a post deployment script is included in the project.
+
+This is a one-time process that usually does not need to be repeated later.
+
+The post deployment script will be executed, if you use publish or build, but you should execute it, when using schemacompare. You can also just copy the code from here and execute it. +
+Or you can skip the execution, as long as the content of this script is also called in the procedure `[repo].[usp_connect_database]`.
+
+
+.postdeployment script
+[source,sql]
+----
+include::sqldb:example$/dbdhw/Script.PostDeployment1.sql[]
+----
+
+// include::sqldb:example$/db_DataHandwerk/Script.PostDeployment1.sql[]
+
+=== connect repository database with dwh database, using synonyms
+
+The repository database is connected to the dwh database using synonyms. Execute `[repo].[usp_connect_database]` to connect the synonyms to the correct DWH database.
+
+.connect repository database to the dwh database 'WideWorldImporters'
+====
+----
+[repo].[usp_connect_database]
+@dwh_database_name = 'WideWorldImporters'
+----
+====
+
+.repo.usp_connect_database
+[source,sql]
+----
+include::sqldb:example$/dbdhw/repo/Stored Procedures/usp_connect_database.sql[]
+----
+
+
+// ----
+// include::sqldb:example$/dbdhw/repo/Views/aaa_test_sql_table_column.sql[]
+// ----
+
+
+// ----
+// include::sqldb:example$/dbdhw/repo/Functions/fs_dwh_database_name.sql[]
+// ----
+
+// ----
+// include::sqldb:example$/dbdhw/repo/Functions/fs_dwh_database_name.sql[]
+// ----
+

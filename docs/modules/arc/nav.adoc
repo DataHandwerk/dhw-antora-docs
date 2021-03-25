@@ -1,3 +1,6 @@
+.Architecture (one page)
+* xref:architecture.adoc[]
+
 .Architecture (page per chapter)
 * xref:architecture-01.adoc[]
 * xref:architecture-02.adoc[]
@@ -12,6 +15,3 @@
 // * xref:architecture-11.adoc[]
 // * xref:architecture-12.adoc[]
 * xref:architecture-about.adoc[]
-
-.Architecture (one page)
-* xref:architecture.adoc[]

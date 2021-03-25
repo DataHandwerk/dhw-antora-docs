@@ -1,2 +1,2 @@
 .Manual
-* xref:getting-started.adoc[]
+* xref:create-update-connect-repo-db.adoc[]

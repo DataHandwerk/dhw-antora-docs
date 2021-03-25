@@ -26,6 +26,11 @@ include::arc:partial$c4_dsl/puml/structurizr-SystemLandscape.puml[]
 include::arc:partial$c4_dsl/puml/structurizr-DataHandwerkDevelopment-SystemContext.puml[]
 ....
 
+[plantuml, structurizr-DataHandwerkgit-SystemContext, svg]
+....
+include::arc:partial$c4_dsl/puml/structurizr-DataHandwerkgit-SystemContext.puml[]
+....
+
 === Customer Context
 
 [plantuml, structurizr-DWHBDevelopment-SystemContext, svg]
