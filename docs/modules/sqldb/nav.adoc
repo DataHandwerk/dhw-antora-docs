@@ -1,0 +1,23 @@
+// .dhw_self (Object by type)
+
+// * xref:index.adoc[]
+// +
+// --
+// include::partial$navlist/nav-by-type.adoc[]
+// --
+// .dhw_self (Object by type)
+
+// * xref:index.adoc[]
+// include::partial$navlist/nav-by-type.adoc[]
+include::partial$navlist/nav-by-schema.adoc[]
+* xref:index/IndexSemanticGroup.adoc[]
+
+// ** xref:nav/nav-type-U.adoc[]
+// ** xref:nav/nav-type-V.adoc[]
+// ** xref:nav/nav-type-SN.adoc[]
+// ** xref:nav/nav-type-P.adoc[]
+// ** xref:nav/nav-type-IF.adoc[]
+// ** xref:nav/nav-type-FN.adoc[]
+// ** xref:nav/nav-type-TR.adoc[]
+
+

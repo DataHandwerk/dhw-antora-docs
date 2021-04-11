@@ -1,0 +1,75 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObjectProperty_InheritanceType_InheritanceDefinition << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **property_name** : nvarchar(128)
+  --
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : int
+  par_Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  par_InheritanceDefintion : nvarchar(4000)
+  par_InheritanceType : int
+  property_value : sql_variant
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_type : char(2)
+  ro_Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  ro_InheritanceDefinition : nvarchar(4000)
+  ro_InheritanceType : tinyint
+  sub_Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  sub_InheritanceDefintion : nvarchar(4000)
+  sub_InheritanceType : int
+}
+
+entity repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition << V >> {
+  --
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : int
+  * is_force_inherit_empty_source : int
+  * is_StringAggAllSources : int
+  * property_name : nvarchar(128)
+  property_value : sql_variant
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_guid : uniqueidentifier
+  * RepoObject_type : char(2)
+  resulting_InheritanceDefinition : nvarchar(4000)
+}
+
+entity repo.usp_RepoObject_Inheritance << P >> {
+  --
+}
+
+repo.RepoObjectProperty_InheritanceType_InheritanceDefinition <.. repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition
+repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition <.. repo.usp_RepoObject_Inheritance
+repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::Inheritance_StringAggSeparatorSql <-- repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition::Inheritance_StringAggSeparatorSql
+repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::InheritanceDefinition <-- repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition::InheritanceDefinition
+repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::InheritanceType <-- repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition::InheritanceType
+repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::property_name <-- repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition::property_name
+repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::property_value <-- repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition::property_value
+repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::RepoObject_fullname <-- repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition::RepoObject_fullname
+repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::RepoObject_guid <-- repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition::RepoObject_guid
+repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::RepoObject_type <-- repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition::RepoObject_type

@@ -1,0 +1,448 @@
+= [repo].[GeneratorUsp_ParameterList]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_IndexPatternColumnDatatype:
+:ExistsProperty--pk_IndexPatternColumnName:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+E18F291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+V 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+view
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+66099276
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-07 12:10:30
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-usp_id]]
+=== usp_id
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*usp_id*
+|int
+|NOT NULL
+|
+|
+|===
+
+
+[[column-ParameterList]]
+=== ParameterList
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|ParameterList
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.GeneratorUsp_SqlUsp.adoc#column-UspParameters[repo.GeneratorUsp_SqlUsp.UspParameters]
+--
+
+
+[[column-ParameterListLogging]]
+=== ParameterListLogging
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|ParameterListLogging
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-usp_id>>*
+|int
+|NOT NULL
+|
+|
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+|
+|<<column-ParameterList>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-ParameterListLogging>>
+|nvarchar(max)
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_GeneratorUsp_ParameterList]]
+=== PK_GeneratorUsp_ParameterList
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_no_group[no_group]
++
+--
+* <<column-usp_id>>; int
+--
+* PK, Unique, Real: 1, 1, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:repo.GeneratorUspParameter.adoc[]
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:repo.GeneratorUsp_SqlUsp.adoc[]
+// end::AntoraReferencingList[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+46CF54E5-0696-EB11-84F4-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+int
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+usp_id
+// end::pk_IndexPatternColumnName[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [repo].[GeneratorUspParameter]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+
+/*
+List of parameters without trailing comma
+*/
+CREATE VIEW [repo].[GeneratorUsp_ParameterList]
+AS
+SELECT [up].[usp_id]
+ , ParameterList = STRING_AGG(CONCAT (
+   CAST('@' AS NVARCHAR(max))
+   , [up].[Name]
+   , ' '
+   , [up].[UserTypeFullname]
+   , IIF([up].[has_DefaultValue] = 1, CONCAT (
+     ' = '
+     , ISNULL([up].[DefaultValue], 'NULL')
+     ), NULL)
+   , IIF([up].[is_out] = 1, ' OUTPUT', NULL)
+   , IIF(NOT up.[Description] IS NULL, ' /* ' + up.[Description] + ' */', NULL)
+   ), CHAR(13) + CHAR(10) + ',') WITHIN
+GROUP (
+  ORDER BY [up].[Number]
+  )
+ , ParameterListLogging = STRING_AGG(CONCAT (
+   CAST(' , @parameter_' AS NVARCHAR(max))
+   , right(CONCAT (
+     '0'
+     , RowNumber_PerUsp
+     ), 2)
+   , CAST(' = @' AS NVARCHAR(max))
+   , [up].[Name]
+   ), CHAR(13) + CHAR(10)) WITHIN
+GROUP (
+  ORDER BY [up].[Number]
+  )
+FROM (
+ SELECT [par].[usp_id]
+  , [par].[Number]
+  , [par].[Name]
+  , [par].[UserTypeFullname]
+  , [par].[is_inactive]
+  , [par].[is_out]
+  , [par].[has_DefaultValue]
+  , [par].[DefaultValue]
+  , [par].[Description]
+  , RowNumber_PerUsp = ROW_NUMBER() OVER (
+   PARTITION BY [usp_id] ORDER BY [Number]
+   )
+ FROM [repo].[GeneratorUspParameter] AS par
+ ) AS up
+WHERE [up].[is_inactive] = 0
+GROUP BY [up].[usp_id]
+
+----
+// end::sql_modules_definition[]
+
+

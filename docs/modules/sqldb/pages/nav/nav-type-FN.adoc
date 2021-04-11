@@ -1,0 +1,4 @@
+= scalar function
+
+include::partial$navlist/navlist-type-FN.adoc[]
+

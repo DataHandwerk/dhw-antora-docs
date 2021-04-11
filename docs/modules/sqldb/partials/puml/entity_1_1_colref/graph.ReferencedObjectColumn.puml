@@ -1,0 +1,74 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.RepoObject_Plantuml_ColRefList << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ColRefList : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
+entity graph.ReferencedObjectColumn << U >> {
+  --
+  * $edge_id_7C154492F0954C769C843FC0BEA97AFC : nvarchar(1000)
+  $from_id_F5982CB6A96041F69453F5D5DBE84FFB : nvarchar(1000)
+  $to_id_9D5378D2AACD4945A48693ABF17CD063 : nvarchar(1000)
+  * from_id_7E00AE91C08D4B1FA35C7A8270AC9E8C : bigint
+  * from_obj_id_11EC88C0730D4B5993BF0DBC6FAC2E36 : int
+  * graph_id_E9F774DD8CA2460A924F6173983BE220 : bigint
+  * to_id_085F365914414A0AAB9A494884264043 : bigint
+  * to_obj_id_1AB5BC0BD7FD4956AA05F7CB026BC43D : int
+}
+
+entity graph.RepoObjectColumn_ReferencingReferenced << V >> {
+  **Referenced_guid** : uniqueidentifier
+  **Referencing_guid** : uniqueidentifier
+  --
+  Referenced_fullname : nvarchar(261)
+  Referenced_fullname2 : nvarchar(257)
+  Referenced_RepoObject_guid : uniqueidentifier
+  Referenced_type : char(2)
+  ReferencedColumn_fullname : nvarchar(520)
+  ReferencedColumn_fullname2 : nvarchar(386)
+  ReferencedColumn_name : nvarchar(128)
+  ReferencedColumn_type : nvarchar(128)
+  Referencing_fullname : nvarchar(261)
+  Referencing_fullname2 : nvarchar(257)
+  Referencing_RepoObject_guid : uniqueidentifier
+  Referencing_type : char(2)
+  ReferencingColumn_fullname : nvarchar(520)
+  ReferencingColumn_fullname2 : nvarchar(386)
+  ReferencingColumn_name : nvarchar(128)
+  ReferencingColumn_type : nvarchar(128)
+}
+
+entity repo.usp_main << P >> {
+  --
+}
+
+graph.ReferencedObjectColumn <.. repo.usp_main
+graph.ReferencedObjectColumn <.. graph.RepoObjectColumn_ReferencingReferenced
+graph.ReferencedObjectColumn <.. docs.RepoObject_Plantuml_ColRefList
+

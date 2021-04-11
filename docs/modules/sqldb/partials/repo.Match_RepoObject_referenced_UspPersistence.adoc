@@ -1,0 +1,562 @@
+= [repo].[Match_RepoObject_referenced_UspPersistence]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_IndexPatternColumnDatatype:
+:ExistsProperty--pk_IndexPatternColumnName:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+1468F544-E466-EB11-84DD-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+V 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+view
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+571149080
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-08 15:44:19
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-FirstNode]]
+=== FirstNode
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*FirstNode*
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-LastNode]]
+=== LastNode
+
+[cols="d,m,m,m,m,d"]
+|===
+|2
+|*LastNode*
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-First_usp_persistence_name]]
+=== First_usp_persistence_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|First_usp_persistence_name
+|nvarchar(140)
+|NULL
+|
+|
+|===
+
+
+[[column-First_usp_persistence_RepoObject_guid]]
+=== First_usp_persistence_RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|First_usp_persistence_RepoObject_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-FirstNodeName]]
+=== FirstNodeName
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|FirstNodeName
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+
+[[column-Last_usp_persistence_name]]
+=== Last_usp_persistence_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Last_usp_persistence_name
+|nvarchar(140)
+|NULL
+|
+|
+|===
+
+
+[[column-Last_usp_persistence_RepoObject_guid]]
+=== Last_usp_persistence_RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Last_usp_persistence_RepoObject_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-LastNodeName]]
+=== LastNodeName
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|LastNodeName
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+
+[[column-ListNodeName]]
+=== ListNodeName
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|ListNodeName
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-FirstNode>>*
+|uniqueidentifier
+|NULL
+|
+|
+
+|2
+|*<<column-LastNode>>*
+|uniqueidentifier
+|NULL
+|
+|
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+
+|
+|<<column-First_usp_persistence_name>>
+|nvarchar(140)
+|NULL
+|
+|
+
+|
+|<<column-First_usp_persistence_RepoObject_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-FirstNodeName>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-Last_usp_persistence_name>>
+|nvarchar(140)
+|NULL
+|
+|
+
+|
+|<<column-Last_usp_persistence_RepoObject_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-LastNodeName>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-ListNodeName>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_Match_RepoObject_referenced_UspPersistence]]
+=== PK_Match_RepoObject_referenced_UspPersistence
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_no_group[no_group]
++
+--
+* <<column-FirstNode>>; uniqueidentifier
+* <<column-LastNode>>; uniqueidentifier
+--
+* PK, Unique, Real: 1, 1, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:graph.ReferencedObject.adoc[]
+* xref:graph.RepoObject.adoc[]
+* xref:repo.RepoObject_gross.adoc[]
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:repo.Reference_UspPersistence.adoc[]
+// end::AntoraReferencingList[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+413E7A02-0A96-EB11-84F4-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+uniqueidentifier,uniqueidentifier
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+FirstNode,LastNode
+// end::pk_IndexPatternColumnName[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [graph].[ReferencedObject]
+* [graph].[RepoObject]
+* [repo].[RepoObject_gross]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+Create View repo.Match_RepoObject_referenced_UspPersistence
+As
+Select
+    -- 
+    Q.FirstNode
+  , Q.FirstNodeName
+  , Q.LastNode
+  , Q.LastNodeName
+  , Q.ListNodeName
+  , ro1.[usp_persistence_RepoObject_guid] As First_usp_persistence_RepoObject_guid
+  , ro2.[usp_persistence_RepoObject_guid] As Last_usp_persistence_RepoObject_guid
+  , ro1.[usp_persistence_name]            As First_usp_persistence_name
+  , ro2.[usp_persistence_name]            As Last_usp_persistence_name
+From
+(
+    Select
+        --
+        Object1.[RepoObject_guid]                                                 As FirstNode
+      , Object1.[RepoObject_fullname]                                             As FirstNodeName
+      , String_Agg (Object2.[RepoObject_fullname], '->') WITHIN Group(GRAPH PATH) As ListNodeName
+      , Last_Value (Object2.[RepoObject_guid]) WITHIN Group(GRAPH PATH)           As LastNode
+      , Last_Value (Object2.[RepoObject_fullname]) WITHIN Group(GRAPH PATH)       As LastNodeName
+    From [graph].[RepoObject] As Object1
+       , [graph].[ReferencedObject] For PATH As referenced
+       , [graph].[RepoObject] For PATH As Object2
+    Where MATCH(SHORTEST_PATH(Object1(-(referenced)->Object2)+))
+                And Object1.[RepoObject_type] In ( 'u', 'v' )
+)                                       As Q
+    Left Join [repo].[RepoObject_gross] ro1
+        On ro1.RepoObject_guid = Q.FirstNode
+    Left Join [repo].[RepoObject_gross] ro2
+        On ro2.RepoObject_guid = Q.LastNode
+Where ro1.[is_persistence] = 1
+      And ro2.[is_persistence] = 1
+
+----
+// end::sql_modules_definition[]
+
+

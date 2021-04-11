@@ -1,0 +1,686 @@
+= [docs].[RepoObject_Adoc_T]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--has_history:
+:ExistsProperty--has_history_columns:
+:ExistsProperty--is_persistence:
+:ExistsProperty--is_persistence_check_duplicate_per_pk:
+:ExistsProperty--is_persistence_check_for_empty_source:
+:ExistsProperty--is_persistence_delete_changed:
+:ExistsProperty--is_persistence_delete_missing:
+:ExistsProperty--is_persistence_insert:
+:ExistsProperty--is_persistence_truncate:
+:ExistsProperty--is_persistence_update_changed:
+:ExistsProperty--is_repo_managed:
+:ExistsProperty--persistence_source_RepoObject_fullname:
+:ExistsProperty--persistence_source_RepoObject_fullname2:
+:ExistsProperty--persistence_source_RepoObject_guid:
+:ExistsProperty--persistence_source_RepoObject_xref:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_IndexPatternColumnDatatype:
+:ExistsProperty--pk_IndexPatternColumnName:
+:ExistsProperty--pk_IndexSemanticGroup:
+:ExistsProperty--usp_persistence_RepoObject_guid:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+F4D1303B-0993-EB11-84F2-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+U 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+user table
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+909246294
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-08 21:04:21
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-RepoObject_guid]]
+=== RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*RepoObject_guid*
+|uniqueidentifier
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:docs.RepoObject_Adoc.adoc#column-RepoObject_guid[docs.RepoObject_Adoc.RepoObject_guid]
+--
+
+
+[[column-AdocContent]]
+=== AdocContent
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|AdocContent
+|nvarchar(max)
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:docs.RepoObject_Adoc.adoc#column-AdocContent[docs.RepoObject_Adoc.AdocContent]
+--
+
+
+[[column-FE017F28-EB74-4D10-8A53-2A688FF0FB49]]
+=== FE017F28-EB74-4D10-8A53-2A688FF0FB49
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|FE017F28-EB74-4D10-8A53-2A688FF0FB49
+|int
+|NULL
+|
+|
+|===
+
+
+[[column-is_DocsOutput]]
+=== is_DocsOutput
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_DocsOutput
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:docs.RepoObject_Adoc.adoc#column-is_DocsOutput[docs.RepoObject_Adoc.is_DocsOutput]
+--
+
+
+[[column-PropertyCount]]
+=== PropertyCount
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|PropertyCount
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:docs.RepoObject_Adoc.adoc#column-PropertyCount[docs.RepoObject_Adoc.PropertyCount]
+--
+
+
+[[column-RepoObject_fullname]]
+=== RepoObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:docs.RepoObject_Adoc.adoc#column-RepoObject_fullname[docs.RepoObject_Adoc.RepoObject_fullname]
+--
+
+
+[[column-RepoObject_fullname2]]
+=== RepoObject_fullname2
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_fullname2
+|nvarchar(257)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:docs.RepoObject_Adoc.adoc#column-RepoObject_fullname2[docs.RepoObject_Adoc.RepoObject_fullname2]
+--
+
+
+[[column-RepoObject_schema_name]]
+=== RepoObject_schema_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_schema_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:docs.RepoObject_Adoc.adoc#column-RepoObject_schema_name[docs.RepoObject_Adoc.RepoObject_schema_name]
+--
+
+
+[[column-SysObject_fullname]]
+=== SysObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:docs.RepoObject_Adoc.adoc#column-SysObject_fullname[docs.RepoObject_Adoc.SysObject_fullname]
+--
+
+
+[[column-SysObject_fullname2]]
+=== SysObject_fullname2
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_fullname2
+|nvarchar(257)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:docs.RepoObject_Adoc.adoc#column-SysObject_fullname2[docs.RepoObject_Adoc.SysObject_fullname2]
+--
+
+
+[[column-SysObject_schema_name]]
+=== SysObject_schema_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_schema_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:docs.RepoObject_Adoc.adoc#column-SysObject_schema_name[docs.RepoObject_Adoc.SysObject_schema_name]
+--
+
+
+[[column-SysObject_type]]
+=== SysObject_type
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_type
+|char(2)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:docs.RepoObject_Adoc.adoc#column-SysObject_type[docs.RepoObject_Adoc.SysObject_type]
+--
+
+
+[[column-SysObject_type_name]]
+=== SysObject_type_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_type_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:docs.RepoObject_Adoc.adoc#column-SysObject_type_name[docs.RepoObject_Adoc.SysObject_type_name]
+--
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-RepoObject_guid>>*
+|uniqueidentifier
+|NOT NULL
+|
+|
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+|
+|<<column-AdocContent>>
+|nvarchar(max)
+|NOT NULL
+|
+|
+
+|
+|<<column-FE017F28-EB74-4D10-8A53-2A688FF0FB49>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_DocsOutput>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-PropertyCount>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-RepoObject_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-RepoObject_fullname2>>
+|nvarchar(257)
+|NULL
+|
+|
+
+|
+|<<column-RepoObject_schema_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-SysObject_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-SysObject_fullname2>>
+|nvarchar(257)
+|NULL
+|
+|
+
+|
+|<<column-SysObject_schema_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-SysObject_type>>
+|char(2)
+|NULL
+|
+|
+
+|
+|<<column-SysObject_type_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_RepoObject_Adoc_T]]
+=== PK_RepoObject_Adoc_T
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_repoobject_guid[RepoObject_guid]
++
+--
+* <<column-RepoObject_guid>>; uniqueidentifier
+--
+* PK, Unique, Real: 1, 1, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+
+// end::ReferencedObjectList[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:docs.RepoObject_Adoc.adoc[]
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:docs.usp_PERSIST_RepoObject_Adoc_T.adoc[]
+// end::AntoraReferencingList[]
+
+
+== has_history
+
+// tag::has_history[]
+0
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+0
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+1
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+0
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+0
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+0
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+0
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+1
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+1
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+0
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+1
+// end::is_repo_managed[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+[docs].[RepoObject_Adoc]
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+docs.RepoObject_Adoc
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+D5E0B563-4291-EB11-84F2-A81E8446D5B0
+// end::persistence_source_RepoObject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+xref:docs.RepoObject_Adoc.adoc[]
+// end::persistence_source_RepoObject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+2D899DB0-6298-EB11-84F4-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+uniqueidentifier
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+RepoObject_guid
+// end::pk_IndexPatternColumnName[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+RepoObject_guid
+// end::pk_IndexSemanticGroup[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+9456D491-0B93-EB11-84F2-A81E8446D5B0
+// end::usp_persistence_RepoObject_guid[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+----
+// end::sql_modules_definition[]
+
+

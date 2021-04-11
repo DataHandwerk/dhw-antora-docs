@@ -1,0 +1,703 @@
+= [repo].[IndexColumn_union]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_IndexPatternColumnDatatype:
+:ExistsProperty--pk_IndexPatternColumnName:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+6790291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+V 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+view
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1378103950
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-02-20 11:56:40
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-index_guid]]
+=== index_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*index_guid*
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.Index_ColumList.adoc#column-index_guid[repo.Index_ColumList.index_guid]
+* xref:repo.Index_IndexPattern.adoc#column-index_guid[repo.Index_IndexPattern.index_guid]
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing.adoc#column-index_guid[repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing.index_guid]
+--
+
+
+[[column-index_column_id]]
+=== index_column_id
+
+[cols="d,m,m,m,m,d"]
+|===
+|2
+|*index_column_id*
+|int
+|NOT NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing.adoc#column-index_column_id[repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing.index_column_id]
+* xref:repo.RepoObjectColumn_gross.adoc#column-index_column_id[repo.RepoObjectColumn_gross.index_column_id]
+--
+
+
+[[column-index_name]]
+=== index_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|index_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObjectColumn_gross.adoc#column-index_name[repo.RepoObjectColumn_gross.index_name]
+--
+
+
+[[column-is_descending_key]]
+=== is_descending_key
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_descending_key
+|bit
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing.adoc#column-is_descending_key[repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing.is_descending_key]
+--
+
+
+[[column-is_index_primary_key]]
+=== is_index_primary_key
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_index_primary_key
+|bit
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObjectColumn_gross.adoc#column-is_index_primary_key[repo.RepoObjectColumn_gross.is_index_primary_key]
+--
+
+
+[[column-is_index_real]]
+=== is_index_real
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_index_real
+|bit
+|NULL
+|
+|
+|===
+
+
+[[column-is_index_unique]]
+=== is_index_unique
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_index_unique
+|bit
+|NULL
+|
+|
+|===
+
+
+[[column-parent_RepoObject_guid]]
+=== parent_RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|parent_RepoObject_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-parent_schema_name]]
+=== parent_schema_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|parent_schema_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+
+[[column-parent_SysObject_fullname]]
+=== parent_SysObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|parent_SysObject_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+
+[[column-parent_SysObject_name]]
+=== parent_SysObject_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|parent_SysObject_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+
+[[column-RepoObjectColumn_guid]]
+=== RepoObjectColumn_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObjectColumn_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-SysObject_column_name]]
+=== SysObject_column_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_column_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+
+[[column-SysObject_column_user_type_fullname]]
+=== SysObject_column_user_type_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_column_user_type_fullname
+|nvarchar(182)
+|NULL
+|
+|
+|===
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-index_guid>>*
+|uniqueidentifier
+|NULL
+|
+|
+
+|2
+|*<<column-index_column_id>>*
+|int
+|NOT NULL
+|
+|
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+
+|
+|<<column-index_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-is_descending_key>>
+|bit
+|NULL
+|
+|
+
+|
+|<<column-is_index_primary_key>>
+|bit
+|NULL
+|
+|
+
+|
+|<<column-is_index_real>>
+|bit
+|NULL
+|
+|
+
+|
+|<<column-is_index_unique>>
+|bit
+|NULL
+|
+|
+
+|
+|<<column-parent_RepoObject_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-parent_schema_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-parent_SysObject_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-parent_SysObject_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-RepoObjectColumn_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-SysObject_column_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-SysObject_column_user_type_fullname>>
+|nvarchar(182)
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_IndexColumn_union]]
+=== PK_IndexColumn_union
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_no_group[no_group]
++
+--
+* <<column-index_guid>>; uniqueidentifier
+* <<column-index_column_id>>; int
+--
+* PK, Unique, Real: 1, 1, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:repo.IndexColumn_virtual_gross.adoc[]
+* xref:repo_sys.IndexColumn_unique.adoc[]
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:repo.Index_ColumList.adoc[]
+* xref:repo.Index_IndexPattern.adoc[]
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing.adoc[]
+* xref:repo.RepoObjectColumn_gross.adoc[]
+// end::AntoraReferencingList[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+FD0EFFE1-0896-EB11-84F4-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+uniqueidentifier,int
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+index_guid,index_column_id
+// end::pk_IndexPatternColumnName[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [repo].[IndexColumn_virtual_gross]
+* [repo_sys].[IndexColumn_unique]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+CREATE VIEW [repo].[IndexColumn_union]
+AS
+--
+SELECT [index_guid]
+ , [index_column_id]
+ , [is_descending_key]
+ , [RepoObjectColumn_guid]
+ , [parent_RepoObject_guid]
+ , [index_name]
+ , [parent_schema_name]
+ , [parent_SysObject_name]
+ , [SysObject_column_name]
+ , [SysObject_column_user_type_fullname]
+ , [is_index_unique]
+ , [is_index_primary_key]
+ , [is_index_real]
+ , [parent_SysObject_fullname]
+FROM repo_sys.[IndexColumn_unique] AS T1
+
+UNION ALL
+
+SELECT [index_guid]
+ , [index_column_id]
+ , [is_descending_key]
+ , [RepoObjectColumn_guid]
+ , [parent_RepoObject_guid]
+ , [index_name]
+ , [parent_schema_name]
+ , [parent_Object_name]
+ , [Object_column_name]
+ , [column_user_type_fullname]
+ , [is_index_unique]
+ , [is_index_primary_key]
+ , [is_index_real]
+ , [parent_Object_fullname]
+FROM repo.IndexColumn_virtual_gross AS T2
+----
+// end::sql_modules_definition[]
+
+

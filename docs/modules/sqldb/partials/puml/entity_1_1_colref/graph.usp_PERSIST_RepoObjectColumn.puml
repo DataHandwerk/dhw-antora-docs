@@ -1,0 +1,56 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity graph.RepoObjectColumn_S << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+  --
+  * RepoObject_fullname : nvarchar(261)
+  RepoObject_fullname2 : nvarchar(257)
+  * RepoObject_guid : uniqueidentifier
+  * RepoObject_type : char(2)
+  * RepoObjectColumn_fullname : nvarchar(520)
+  RepoObjectColumn_fullname2 : nvarchar(386)
+  * RepoObjectColumn_name : nvarchar(128)
+  RepoObjectColumn_type : nvarchar(128)
+}
+
+entity graph.usp_PERSIST_RepoObjectColumn << P >> {
+  --
+}
+
+entity repo.usp_ExecutionLog_insert << P >> {
+  --
+}
+
+entity repo.usp_sync_guid_RepoObjectColumn << P >> {
+  --
+}
+
+graph.RepoObjectColumn_S <.. repo.usp_sync_guid_RepoObjectColumn
+graph.RepoObjectColumn_S <.. graph.usp_PERSIST_RepoObjectColumn
+graph.usp_PERSIST_RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
+repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObjectColumn
+repo.usp_ExecutionLog_insert <.. graph.usp_PERSIST_RepoObjectColumn
+

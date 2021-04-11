@@ -1,0 +1,746 @@
+= [repo].[ftv_query_plan_extract_source]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--AntoraParameterList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+2990291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+IF
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+inline function
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+786101841
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-01-28 20:13:00
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-const_info]]
+=== const_info
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|const_info
+|xml
+|NULL
+|
+|
+|===
+
+
+[[column-const_value]]
+=== const_value
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|const_value
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+
+[[column-source_column_info]]
+=== source_column_info
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|source_column_info
+|xml
+|NULL
+|
+|
+|===
+
+
+[[column-source_column_name]]
+=== source_column_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|source_column_name
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+
+[[column-source_database_name]]
+=== source_database_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|source_database_name
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+
+[[column-source_schema_name]]
+=== source_schema_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|source_schema_name
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+
+[[column-source_server_name]]
+=== source_server_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|source_server_name
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+
+[[column-source_table_name]]
+=== source_table_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|source_table_name
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+
+[[column-target_column_info]]
+=== target_column_info
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|target_column_info
+|xml
+|NULL
+|
+|
+|===
+
+
+[[column-target_column_name]]
+=== target_column_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|target_column_name
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+
+
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+|
+|<<column-const_info>>
+|xml
+|NULL
+|
+|
+
+|
+|<<column-const_value>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-source_column_info>>
+|xml
+|NULL
+|
+|
+
+|
+|<<column-source_column_name>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-source_database_name>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-source_schema_name>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-source_server_name>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-source_table_name>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-target_column_info>>
+|xml
+|NULL
+|
+|
+
+|
+|<<column-target_column_name>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+* @query_plan (xml)
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+
+// end::AntoraReferencedList[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+
+// end::pk_IndexPatternColumnName[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+
+// end::ReferencedObjectList[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:repo.usp_RepoObjectSource_QueryPlan.adoc[]
+// end::AntoraReferencingList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+/*
+
+OPTION(MAXRECURSION 100) should be used from outer
+it is not possible to include this into the table valued function
+
+example:
+
+SELECT TOP 100
+       [ro].[RepoObject_guid]
+     , [source_columns].*
+FROM
+     repo.RepoObject AS ro
+     CROSS APPLY
+     repo_sys.ftv_query_plan_extract_source(SysObject_query_plan) AS source_columns
+WHERE  NOT [ro].[SysObject_query_plan] IS NULL OPTION(
+                                                      MAXRECURSION 100)
+
+*/
+/*
+based on
+https://stackoverflow.com/questions/45658957/how-to-get-column-level-dependencies-in-a-view
+
+from:
+https://stackoverflow.com/users/8478406/basil-kisel
+
+It is a solution based on query plan. It has some adventages
+
+- almost any select queries can be processed
+- no SchemaBinding
+
+and disadventages
+
+- has not been tested properly
+- can become broken suddenly if Microsoft change XML query plan.
+
+The core idea is that every column expression inside XML query plan is defined in "DefinedValue" node. 
+First subnode of "DefinedValue" is a reference to output column and second one is a expression. 
+The expression computes from input columns and constant values. 
+As mentioned above It's based only on empirical observation and needs to be tested properly.
+
+*/
+CREATE FUNCTION [repo].[ftv_query_plan_extract_source] (@query_plan XML)
+RETURNS TABLE
+ --RETURNS @retColumnReferences TABLE
+ --(
+ --     -- columns returned by the function
+ --    [target_column_name]   NVARCHAR(4000) NULL
+ --   , [source_server_name] NVARCHAR(4000) NULL
+ --   , [source_database_name] NVARCHAR(4000) NULL
+ --   , [source_schema_name]   NVARCHAR(4000) NULL
+ --   , [source_table_name]    NVARCHAR(4000) NULL
+ --   , [source_column_name]   NVARCHAR(4000) NULL
+ --   , [const_value]          NVARCHAR(4000) NULL
+ --   , [target_column_info]   XML NULL
+ --   , [source_column_info]   XML NULL
+ --   , [const_info]           XML NULL
+ --)
+AS
+RETURN
+-- body of the function
+--Next is a main query. It's biggest part is recursive common table expression for column extraction.
+WITH XMLNAMESPACES(DEFAULT 'http://schemas.microsoft.com/sqlserver/2004/07/showplan', 'http://schemas.microsoft.com/sqlserver/2004/07/showplan' AS shp -- Used in .query() for predictive namespace using. 
+ )
+ , cte_column_dependencies AS (
+  --The seed of recursion is a query that extracts columns for #foo table that store 1 row of interested select query.
+  SELECT (
+    SELECT [foo_col].[info].[query]('./ColumnReference')
+    FOR XML RAW('shp:root')
+     , TYPE
+    ) -- Becouse .value() can't extract attribute from root node.
+   AS [target_column_info]
+   , (
+    SELECT [foo_col].[info].[query]('./ScalarOperator/Identifier/ColumnReference')
+    FOR XML RAW('shp:root')
+     , TYPE
+    ) AS [source_column_info]
+   , CAST(NULL AS XML) AS [const_info]
+   , 1 AS [iteration_no]
+  FROM @query_plan.nodes('//Update/SetPredicate/ScalarOperator/ScalarExpressionList/ScalarOperator/MultipleAssign/Assign') AS foo_col(info)
+  WHERE [foo_col].[info].[exist]('./ColumnReference[@Table="[#foo]"]') = 1
+  --The recursive part searches for "DefinedValue" node with depended column and extract all "ColumnReference" and "Const" subnodes that used in column expression. It's over complicated by XML to SQL conversions.
+  
+  UNION ALL
+  
+  SELECT (
+    SELECT [internal_col].[info].[query]('.')
+    FOR XML RAW('shp:root')
+     , TYPE
+    )
+   , [source_info].[column_info]
+   , [source_info].[const_info]
+   , [prev_dependencies].[iteration_no] + 1
+  FROM @query_plan.nodes('//DefinedValue/ColumnReference') AS internal_col(info)
+  INNER JOIN cte_column_dependencies AS prev_dependencies -- Filters by depended columns.
+   ON prev_dependencies.source_column_info.value('(//ColumnReference/@Column)[1]', 'nvarchar(4000)') = internal_col.info.value('(./@Column)[1]', 'nvarchar(4000)')
+    AND EXISTS (
+     SELECT [prev_dependencies].[source_column_info].value('(.//@Schema)[1]', 'nvarchar(4000)')
+     
+     INTERSECT
+     
+     SELECT [internal_col].[info].value('(./@Schema)[1]', 'nvarchar(4000)')
+     )
+    AND EXISTS (
+     SELECT [prev_dependencies].[source_column_info].value('(.//@Database)[1]', 'nvarchar(4000)')
+     
+     INTERSECT
+     
+     SELECT [internal_col].[info].value('(./@Database)[1]', 'nvarchar(4000)')
+     )
+    AND EXISTS (
+     SELECT [prev_dependencies].[source_column_info].value('(.//@Server)[1]', 'nvarchar(4000)')
+     
+     INTERSECT
+     
+     SELECT [internal_col].[info].value('(./@Server)[1]', 'nvarchar(4000)')
+     )
+  CROSS APPLY (
+   -- Becouse only column or only constant can be places in result row.
+   SELECT (
+     SELECT [source_col].[info].[query]('.')
+     FOR XML RAW('shp:root')
+      , TYPE
+     ) AS [column_info]
+    , NULL AS [const_info]
+   FROM internal_col.info.nodes('..//ColumnReference') AS source_col(info)
+   
+   UNION ALL
+   
+   SELECT NULL AS [column_info]
+    , (
+     SELECT [const].[info].[query]('.')
+     FOR XML RAW('shp:root')
+      , TYPE
+     ) AS [const_info]
+   FROM internal_col.info.nodes('..//Const') AS const(info)
+   ) AS source_info
+  WHERE [source_info].[column_info] IS NULL
+   OR -- Except same node selected by '..//ColumnReference' from its sources. Sorry, I'm not so well to check it with XQuery simple.
+   [source_info].[column_info].value('(//@Column)[1]', 'nvarchar(4000)') <> [internal_col].[info].value('(./@Column)[1]', 'nvarchar(4000)')
+   AND (
+    SELECT [source_info].[column_info].value('(//@Schema)[1]', 'nvarchar(4000)')
+    
+    INTERSECT
+    
+    SELECT [internal_col].[info].value('(./@Schema)[1]', 'nvarchar(4000)')
+    ) IS NULL
+   AND (
+    SELECT [source_info].[column_info].value('(//@Database)[1]', 'nvarchar(4000)')
+    
+    INTERSECT
+    
+    SELECT [internal_col].[info].value('(./@Database)[1]', 'nvarchar(4000)')
+    ) IS NULL
+   AND (
+    SELECT [source_info].[column_info].value('(//@Server)[1]', 'nvarchar(4000)')
+    
+    INTERSECT
+    
+    SELECT [internal_col].[info].value('(./@Server)[1]', 'nvarchar(4000)')
+    ) IS NULL
+  )
+
+----Finally, It's select statement that convert XML to appropriate human text.
+--INSERT INTO @retColumnReferences
+--(
+--     [target_column_name]
+--     , [source_server_name]
+--     , [source_database_name]
+--     , [source_schema_name]
+--     , [source_table_name]
+--     , [source_column_name]
+--     , [const_value]
+--     , [target_column_info]
+--     , [source_column_info]
+--     , [const_info]
+--)
+SELECT [target_column_name] = [col_dep].[target_column_info].value('(.//shp:ColumnReference/@Column)[1]', 'nvarchar(4000)')
+ , [source_server_name] = [col_dep].[source_column_info].value('(.//shp:ColumnReference/@Server)[1]', 'nvarchar(4000)')
+ , [source_database_name] = [col_dep].[source_column_info].value('(.//shp:ColumnReference/@Database)[1]', 'nvarchar(4000)')
+ , [source_schema_name] = [col_dep].[source_column_info].value('(.//shp:ColumnReference/@Schema)[1]', 'nvarchar(4000)')
+ , [source_table_name] = [col_dep].[source_column_info].value('(.//shp:ColumnReference/@Table)[1]', 'nvarchar(4000)')
+ , [source_column_name] = [col_dep].[source_column_info].value('(.//shp:ColumnReference/@Column)[1]', 'nvarchar(4000)')
+ , [const_value] = [col_dep].[const_info].value('(/shp:root/shp:Const/@ConstValue)[1]', 'nvarchar(4000)')
+ , [col_dep].[target_column_info]
+ , [col_dep].[source_column_info]
+ , [col_dep].[const_info]
+--  col_dep.target_column_info
+--, col_dep.source_column_info
+--, col_dep.const_info
+--  coalesce(col_dep.target_column_info.value('(.//shp:ColumnReference/@Server)[1]'   ,'nvarchar(4000)') + '.' ,'')
+--+ coalesce(col_dep.target_column_info.value('(.//shp:ColumnReference/@Database)[1]' ,'nvarchar(4000)') + '.' ,'')
+--+ coalesce(col_dep.target_column_info.value('(.//shp:ColumnReference/@Schema)[1]'   ,'nvarchar(4000)') + '.' ,'')
+--+ col_dep.target_column_info.value('(.//shp:ColumnReference/@Column)[1]' ,'nvarchar(4000)')
+--  as target_column_name
+--, coalesce(col_dep.source_column_info.value('(.//shp:ColumnReference/@Server)[1]'   ,'nvarchar(4000)') + '.' ,'')
+--+ coalesce(col_dep.source_column_info.value('(.//shp:ColumnReference/@Database)[1]' ,'nvarchar(4000)') + '.' ,'')
+--+ coalesce(col_dep.source_column_info.value('(.//shp:ColumnReference/@Schema)[1]'   ,'nvarchar(4000)') + '.' ,'')
+--+ col_dep.source_column_info.value('(.//shp:ColumnReference/@Column)[1]' ,'nvarchar(4000)')
+--  as source_column_name
+--
+FROM cte_column_dependencies AS col_dep
+ --ORDER BY
+ --         [col_dep].[iteration_no]
+ --       , [target_column_name]
+ --       , [source_column_name]
+ --
+ --/*
+ --https://stackoverflow.com/questions/7428669/how-to-set-the-maxrecursion-option-for-a-cte-inside-a-table-valued-function
+ --https://social.msdn.microsoft.com/Forums/en-US/7c7d5fea-38ad-4bc5-9038-a157e640561f/using-option-clause-within-create-function-statement-for-inline-table-functions?forum=transactsql
+ --[the] OPTION clause can be used only at the statement level
+ --So you cannot use it within a query expression inside view definitions or inline TVFs etc.
+ --The only way to use it in your case is to create the TVF without the OPTION clause and specify it in the query that uses the TVF. 
+ --We have a bug that tracks request for allowing use of OPTION clause inside any query expression (for example, if exists() or CTE or view).
+ --You can not change the default value of that option inside a udf. 
+ --You will have to do it in the statement referencing the udf.
+ --*/
+ --
+ --OPTION(MAXRECURSION 100) -- It's an assurance from infinite loop.
+----
+// end::sql_modules_definition[]
+
+

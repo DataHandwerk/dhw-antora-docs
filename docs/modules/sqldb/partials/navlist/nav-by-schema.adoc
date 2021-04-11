@@ -1,0 +1,51 @@
+* Objects by schema
+** xref:nav/nav-schema-config.adoc[]
++
+--
+include::partial$navlist/navlist-schema-config.adoc[]
+--
+** xref:nav/nav-schema-dbeaver.adoc[]
++
+--
+include::partial$navlist/navlist-schema-dbeaver.adoc[]
+--
+** xref:nav/nav-schema-dbo.adoc[]
++
+--
+include::partial$navlist/navlist-schema-dbo.adoc[]
+--
+** xref:nav/nav-schema-docs.adoc[]
++
+--
+include::partial$navlist/navlist-schema-docs.adoc[]
+--
+** xref:nav/nav-schema-graph.adoc[]
++
+--
+include::partial$navlist/navlist-schema-graph.adoc[]
+--
+** xref:nav/nav-schema-repo.adoc[]
++
+--
+include::partial$navlist/navlist-schema-repo.adoc[]
+--
+** xref:nav/nav-schema-repo_sys.adoc[]
++
+--
+include::partial$navlist/navlist-schema-repo_sys.adoc[]
+--
+** xref:nav/nav-schema-sys_dwh.adoc[]
++
+--
+include::partial$navlist/navlist-schema-sys_dwh.adoc[]
+--
+** xref:nav/nav-schema-sys_self.adoc[]
++
+--
+include::partial$navlist/navlist-schema-sys_self.adoc[]
+--
+** xref:nav/nav-schema-tool.adoc[]
++
+--
+include::partial$navlist/navlist-schema-tool.adoc[]
+--

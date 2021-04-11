@@ -1,0 +1,49 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity graph.RepoObject << U >> {
+}
+
+entity graph.RepoObject_S << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity graph.usp_PERSIST_RepoObject << P >> {
+}
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.usp_sync_guid_RepoObject << P >> {
+}
+
+graph.RepoObject <.. repo.usp_sync_guid_RepoObject
+graph.RepoObject_S <.. repo.usp_sync_guid_RepoObject
+graph.RepoObject_S <.. graph.RepoObject
+graph.RepoObject_S <.. graph.usp_PERSIST_RepoObject
+graph.usp_PERSIST_RepoObject <.. repo.usp_sync_guid_RepoObject
+repo.RepoObject <.. repo.usp_sync_guid_RepoObject
+repo.RepoObject <.. graph.RepoObject_S

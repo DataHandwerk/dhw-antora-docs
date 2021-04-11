@@ -1,0 +1,687 @@
+= [repo].[usp_sync_ExtendedProperties_Repo2Sys_Delete]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AdocUspSteps:
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--UspExamples:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--AntoraParameterList:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+5BB33A4A-426D-EB11-84E2-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+P 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+stored procedure
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+939150391
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-11 13:27:47
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+* @execution_instance_guid (uniqueidentifier)
+* @ssis_execution_id (bigint)
+* @sub_execution_id (int)
+* @parent_execution_log_id (bigint)
+// end::AntoraParameterList[]
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+
+// end::AntoraReferencingList[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+
+// end::pk_IndexPatternColumnName[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+.Steps in [repo].[usp_sync_ExtendedProperties_Repo2Sys_Delete]
+[cols="d,15a,d"]
+|===
+|Number|Name (Action, Source, Target)|Parent
+
+|100
+|
+*DECLARE*
+
+
+|
+
+|410
+|
+*Level1-Properties - DROP*
+
+* d
+* [repo].[ExtendedProperty_Repo2Sys_level1]
+* [sys].[sp_dropextendedproperty]
+
+|
+
+|420
+|
+*Level2-Properties - DROP*
+
+* d
+* [repo].[ExtendedProperty_Repo2Sys_level2_Union]
+* [sys].[sp_dropextendedproperty]
+
+|
+|===
+
+// end::AdocUspSteps[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:repo.ExtendedProperty_Repo2Sys_level1.adoc[]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_Union.adoc[]
+* xref:repo.usp_ExecutionLog_insert.adoc[]
+* xref:repo_sys.ExtendedProperties_ParameterForAddUpdateDrop.adoc[]
+// end::AntoraReferencedList[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [repo].[ExtendedProperty_Repo2Sys_level1]
+* [repo].[ExtendedProperty_Repo2Sys_level2_Union]
+* [repo].[usp_ExecutionLog_insert]
+* [repo_sys].[ExtendedProperties_ParameterForAddUpdateDrop]
+// end::ReferencedObjectList[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+EXEC [repo].[usp_sync_ExtendedProperties_Repo2Sys_Delete]
+// end::UspExamples[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+CREATE   PROCEDURE [repo].[usp_sync_ExtendedProperties_Repo2Sys_Delete]
+----keep the code between logging parameters and "START" unchanged!
+---- parameters, used for logging; you don't need to care about them, but you can use them, wenn calling from SSIS or in your workflow to log the context of the procedure call
+  @execution_instance_guid UNIQUEIDENTIFIER = NULL --SSIS system variable ExecutionInstanceGUID could be used, any other unique guid is also fine. If NULL, then NEWID() is used to create one
+, @ssis_execution_id BIGINT = NULL --only SSIS system variable ServerExecutionID should be used, or any other consistent number system, do not mix different number systems
+, @sub_execution_id INT = NULL --in case you log some sub_executions, for example in SSIS loops or sub packages
+, @parent_execution_log_id BIGINT = NULL --in case a sup procedure is called, the @current_execution_log_id of the parent procedure should be propagated here. It allowes call stack analyzing
+AS
+DECLARE
+ --
+   @current_execution_log_id BIGINT --this variable should be filled only once per procedure call, it contains the first logging call for the step 'start'.
+ , @current_execution_guid UNIQUEIDENTIFIER = NEWID() --a unique guid for any procedure call. It should be propagated to sub procedures using "@parent_execution_log_id = @current_execution_log_id"
+ , @source_object NVARCHAR(261) = NULL --use it like '[schema].[object]', this allows data flow vizualizatiuon (include square brackets)
+ , @target_object NVARCHAR(261) = NULL --use it like '[schema].[object]', this allows data flow vizualizatiuon (include square brackets)
+ , @proc_id INT = @@procid
+ , @proc_schema_name NVARCHAR(128) = OBJECT_SCHEMA_NAME(@@procid) --schema ande name of the current procedure should be automatically logged
+ , @proc_name NVARCHAR(128) = OBJECT_NAME(@@procid)               --schema ande name of the current procedure should be automatically logged
+ , @event_info NVARCHAR(MAX)
+ , @step_id INT = 0
+ , @step_name NVARCHAR(1000) = NULL
+ , @rows INT
+
+--[event_info] get's only the information about the "outer" calling process
+--wenn the procedure calls sub procedures, the [event_info] will not change
+SET @event_info = (
+  SELECT [event_info]
+  FROM sys.dm_exec_input_buffer(@@spid, CURRENT_REQUEST_ID())
+  )
+
+IF @execution_instance_guid IS NULL
+ SET @execution_instance_guid = NEWID();
+--
+--SET @rows = @@ROWCOUNT;
+SET @step_id = @step_id + 1
+SET @step_name = 'start'
+SET @source_object = NULL
+SET @target_object = NULL
+
+EXEC repo.usp_ExecutionLog_insert
+ --these parameters should be the same for all logging execution
+   @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ --the following parameters are individual for each call
+ , @step_id = @step_id --@step_id should be incremented before each call
+ , @step_name = @step_name --assign individual step names for each call
+ --only the "start" step should return the log id into @current_execution_log_id
+ --all other calls should not overwrite @current_execution_log_id
+ , @execution_log_id = @current_execution_log_id OUTPUT
+----you can log the content of your own parameters, do this only in the start-step
+----data type is sql_variant
+
+--
+PRINT '[repo].[usp_sync_ExtendedProperties_Repo2Sys_Delete]'
+--keep the code between logging parameters and "START" unchanged!
+--
+----START
+--
+----- start here with your own code
+--
+/*{"ReportUspStep":[{"Number":100,"Name":"DECLARE","has_logging":0,"is_condition":0,"is_inactive":0,"is_SubProcedure":0}]}*/
+PRINT CONCAT('usp_id;Number;Parent_Number: ',14,';',100,';',NULL);
+
+DECLARE
+ --
+ @property_name NVARCHAR(128)
+ , @property_value SQL_VARIANT
+ , @schema_name NVARCHAR(128)
+ , @level0type VARCHAR(128)
+ , @level0name NVARCHAR(128)
+ , @level1type VARCHAR(128)
+ , @level1name NVARCHAR(128)
+ , @level2type VARCHAR(128)
+ , @level2name NVARCHAR(128)
+
+/*{"ReportUspStep":[{"Number":410,"Name":"Level1-Properties - DROP","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[repo].[ExtendedProperty_Repo2Sys_level1]","log_target_object":"[sys].[sp_dropextendedproperty]","log_flag_InsertUpdateDelete":"d"}]}*/
+PRINT CONCAT('usp_id;Number;Parent_Number: ',14,';',410,';',NULL);
+
+DECLARE property_cursor CURSOR READ_ONLY
+FOR
+--
+--level 1 extended properties
+SELECT [property_name]
+ , [property_value]
+ , [level0type]
+ , [level0name]
+ , [level1type]
+ , [level1name]
+ , [level2type]
+ , [level2name]
+FROM [repo_sys].[ExtendedProperties_ParameterForAddUpdateDrop] AS [T]
+WHERE NOT [T].[property_name] = 'RepoObject_guid'
+ AND NOT [T].[property_name] = 'RepoObjectColumn_guid'
+ AND [T].[level2type] IS NULL
+ AND [T].[level2name] IS NULL
+ AND NOT EXISTS (
+  SELECT 1
+  FROM [repo].[ExtendedProperty_Repo2Sys_level1] AS [S]
+  WHERE [T].[property_name] = [S].[property_name]
+   AND [T].[level0type] = [S].[level0type]
+   AND [T].[level0name] = [S].[level0name]
+   AND [T].[level1type] = [S].[level1type]
+   AND [T].[level1name] = [S].[level1name]
+   AND [S].[level2type] IS NULL
+   AND [S].[level2name] IS NULL
+  )
+
+--DECLARE @property_name NVARCHAR(128)
+-- , @property_value SQL_VARIANT
+-- , @schema_name NVARCHAR(128)
+-- , @level0type VARCHAR(128)
+-- , @level0name NVARCHAR(128)
+-- , @level1type VARCHAR(128)
+-- , @level1name NVARCHAR(128)
+-- , @level2type VARCHAR(128)
+-- , @level2name NVARCHAR(128)
+
+SET @rows = 0;
+
+OPEN property_cursor;
+
+FETCH NEXT
+FROM property_cursor
+INTO @property_name
+ , @property_value
+ , @level0type
+ , @level0name
+ , @level1type
+ , @level1name
+ , @level2type
+ , @level2name
+
+WHILE @@fetch_status <> - 1
+BEGIN
+ IF @@fetch_status <> - 2
+ BEGIN
+  EXEC sys.sp_dropextendedproperty @name = @property_name
+   , @level0type = @level0type
+   , @level0name = @level0name
+   , @level1type = @level1type
+   , @level1name = @level1name
+   , @level2type = @level2type
+   , @level2name = @level2name
+
+  SET @rows = @rows + 1;
+ END;
+
+ FETCH NEXT
+ FROM property_cursor
+ INTO @property_name
+  , @property_value
+  , @level0type
+  , @level0name
+  , @level1type
+  , @level1name
+  , @level2type
+  , @level2name
+END
+
+CLOSE property_cursor;
+
+DEALLOCATE property_cursor
+
+-- Logging START --
+SET @rows = @@ROWCOUNT
+SET @step_id = @step_id + 1
+SET @step_name = 'Level1-Properties - DROP'
+SET @source_object = '[repo].[ExtendedProperty_Repo2Sys_level1]'
+SET @target_object = '[sys].[sp_dropextendedproperty]'
+
+EXEC repo.usp_ExecutionLog_insert 
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @deleted = @rows
+-- Logging END --
+
+/*{"ReportUspStep":[{"Number":420,"Name":"Level2-Properties - DROP","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[repo].[ExtendedProperty_Repo2Sys_level2_Union]","log_target_object":"[sys].[sp_dropextendedproperty]","log_flag_InsertUpdateDelete":"d"}]}*/
+PRINT CONCAT('usp_id;Number;Parent_Number: ',14,';',420,';',NULL);
+
+DECLARE property_cursor CURSOR READ_ONLY
+FOR
+--
+--level 2 extended properties
+SELECT [property_name]
+ , [property_value]
+ , [level0type]
+ , [level0name]
+ , [level1type]
+ , [level1name]
+ , [level2type]
+ , [level2name]
+FROM [repo_sys].[ExtendedProperties_ParameterForAddUpdateDrop] AS [T]
+WHERE NOT [T].[property_name] = 'RepoObject_guid'
+ AND NOT [T].[property_name] = 'RepoObjectColumn_guid'
+ AND NOT [T].[level2type] IS NULL
+ AND NOT [T].[level2name] IS NULL
+ AND NOT EXISTS (
+  SELECT 1
+  FROM [repo].[ExtendedProperty_Repo2Sys_level2_Union] AS [S]
+  WHERE [T].[property_name] = [S].[property_name]
+   AND [T].[level0type] = [S].[level0type]
+   AND [T].[level0name] = [S].[level0name]
+   AND [T].[level1type] = [S].[level1type]
+   AND [T].[level1name] = [S].[level1name]
+   AND [T].[level2type] = [S].[level2type]
+   AND [T].[level2name] = [S].[level2name]
+  )
+
+--DECLARE @property_name NVARCHAR(128)
+-- , @property_value SQL_VARIANT
+-- , @schema_name NVARCHAR(128)
+-- , @level0type VARCHAR(128)
+-- , @level0name NVARCHAR(128)
+-- , @level1type VARCHAR(128)
+-- , @level1name NVARCHAR(128)
+-- , @level2type VARCHAR(128)
+-- , @level2name NVARCHAR(128)
+
+SET @rows = 0;
+
+OPEN property_cursor;
+
+FETCH NEXT
+FROM property_cursor
+INTO @property_name
+ , @property_value
+ , @level0type
+ , @level0name
+ , @level1type
+ , @level1name
+ , @level2type
+ , @level2name
+
+WHILE @@fetch_status <> - 1
+BEGIN
+ IF @@fetch_status <> - 2
+ BEGIN
+  EXEC sys.sp_dropextendedproperty @name = @property_name
+   , @level0type = @level0type
+   , @level0name = @level0name
+   , @level1type = @level1type
+   , @level1name = @level1name
+   , @level2type = @level2type
+   , @level2name = @level2name
+
+  SET @rows = @rows + 1;
+ END;
+
+ FETCH NEXT
+ FROM property_cursor
+ INTO @property_name
+  , @property_value
+  , @level0type
+  , @level0name
+  , @level1type
+  , @level1name
+  , @level2type
+  , @level2name
+END
+
+CLOSE property_cursor;
+
+DEALLOCATE property_cursor
+
+-- Logging START --
+SET @rows = @@ROWCOUNT
+SET @step_id = @step_id + 1
+SET @step_name = 'Level2-Properties - DROP'
+SET @source_object = '[repo].[ExtendedProperty_Repo2Sys_level2_Union]'
+SET @target_object = '[sys].[sp_dropextendedproperty]'
+
+EXEC repo.usp_ExecutionLog_insert 
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @deleted = @rows
+-- Logging END --
+
+--
+--finish your own code here
+--keep the code between "END" and the end of the procedure unchanged!
+--
+--END
+--
+--SET @rows = @@ROWCOUNT
+SET @step_id = @step_id + 1
+SET @step_name = 'end'
+SET @source_object = NULL
+SET @target_object = NULL
+
+EXEC repo.usp_ExecutionLog_insert
+   @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+
+
+----
+// end::sql_modules_definition[]
+
+

@@ -1,0 +1,186 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.AntoraNavListPage_by_type << V >> {
+  **type** : nvarchar(128)
+  --
+  * nav_list : nvarchar(309)
+  type_desc : nvarchar(128)
+}
+
+entity docs.AntoraNavListRepoObject_by_schema << V >> {
+  * **RepoObject_schema_name** : nvarchar(128)
+  --
+  nav_list : nvarchar(max)
+}
+
+entity docs.AntoraNavListRepoObject_by_schema_type << V >> {
+  * **RepoObject_schema_name** : nvarchar(128)
+  **type** : char(2)
+  --
+  nav_list : nvarchar(max)
+  type_name : nvarchar(128)
+}
+
+entity docs.AntoraNavListRepoObject_by_type << V >> {
+  **type** : char(2)
+  --
+  nav_list : nvarchar(max)
+  type_name : nvarchar(128)
+}
+
+entity docs.RepoObject_OutputFilter << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  is_DocsOutput : int
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_fullname2 : nvarchar(257)
+  * RepoObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  SysObject_type_name : nvarchar(128)
+}
+
+entity docs.RepoObject_Plantuml_Entity << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  * RepoObject_Puml : nvarchar(max)
+  * RepoObject_PumlOnlyIndex : nvarchar(max)
+  * RepoObject_PumlOnlyPK : nvarchar(max)
+}
+
+entity docs.usp_AntoraExport_ObjectPage << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_ObjectPartialProperties << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_ObjectPuml << P >> {
+  --
+}
+
+entity repo.RepoObject_gross << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  AntoraReferencedList : nvarchar(max)
+  AntoraReferencingList : nvarchar(max)
+  CreateColumnList : nvarchar(max)
+  DbmlColumnList : nvarchar(max)
+  has_different_sys_names : bit
+  has_execution_plan_issue : bit
+  has_get_referenced_issue : bit
+  has_history : bit
+  has_history_columns : bit
+  history_schema_name : nvarchar(128)
+  history_table_name : nvarchar(128)
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_DocsOutput : int
+  * is_in_reference : int
+  is_persistence : bit
+  is_persistence_check_duplicate_per_pk : bit
+  is_persistence_check_for_empty_source : bit
+  is_persistence_delete_changed : bit
+  is_persistence_delete_missing : bit
+  is_persistence_insert : bit
+  is_persistence_truncate : bit
+  is_persistence_update_changed : bit
+  is_repo_managed : bit
+  * is_RepoObject_name_uniqueidentifier : int
+  is_SysObject_missing : bit
+  * is_SysObject_name_uniqueidentifier : int
+  * modify_dt : datetime
+  node_id : bigint
+  persistence_source_RepoObject_fullname : nvarchar(261)
+  persistence_source_RepoObject_fullname2 : nvarchar(257)
+  persistence_source_RepoObject_guid : uniqueidentifier
+  persistence_source_RepoObject_xref : nvarchar(269)
+  persistence_source_SysObject_fullname : nvarchar(261)
+  persistence_source_SysObject_fullname2 : nvarchar(257)
+  persistence_source_SysObject_xref : nvarchar(269)
+  PersistenceCompareColumnList : nvarchar(max)
+  PersistenceInsertColumnList : nvarchar(max)
+  PersistenceUpdateColumnList : nvarchar(max)
+  pk_index_guid : uniqueidentifier
+  pk_IndexPatternColumnDatatype : nvarchar(4000)
+  pk_IndexPatternColumnName : nvarchar(4000)
+  pk_IndexPatternColumnName_new : nvarchar(4000)
+  pk_IndexSemanticGroup : nvarchar(512)
+  Property_ms_description : nvarchar(4000)
+  Repo_history_table_guid : uniqueidentifier
+  Repo_temporal_type : tinyint
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_fullname2 : nvarchar(257)
+  * RepoObject_name : nvarchar(128)
+  RepoObject_Referencing_Count : int
+  * RepoObject_schema_name : nvarchar(128)
+  * RepoObject_type : char(2)
+  RepoObject_type_name : nvarchar(128)
+  sql_modules_antora : nvarchar(max)
+  sql_modules_definition : nvarchar(max)
+  sql_modules_formatted : nvarchar(max)
+  sql_modules_formatted2 : nvarchar(max)
+  * SysObject_fullname : nvarchar(261)
+  * SysObject_fullname2 : nvarchar(257)
+  SysObject_id : int
+  SysObject_modify_date : datetime
+  * SysObject_name : nvarchar(128)
+  * SysObject_parent_object_id : int
+  SysObject_query_executed_dt : datetime
+  SysObject_query_plan : xml
+  * SysObject_query_sql : nvarchar(406)
+  * SysObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  SysObject_type_name : nvarchar(128)
+  temporal_type : tinyint
+  * usp_persistence_name : nvarchar(140)
+  usp_persistence_RepoObject_guid : uniqueidentifier
+}
+
+docs.RepoObject_OutputFilter <.. docs.usp_AntoraExport_ObjectPartialProperties
+docs.RepoObject_OutputFilter <.. docs.usp_AntoraExport_ObjectPage
+docs.RepoObject_OutputFilter <.. docs.AntoraNavListRepoObject_by_type
+docs.RepoObject_OutputFilter <.. docs.AntoraNavListRepoObject_by_schema
+docs.RepoObject_OutputFilter <.. docs.AntoraNavListRepoObject_by_schema_type
+docs.RepoObject_OutputFilter <.. docs.RepoObject_Plantuml_Entity
+docs.RepoObject_OutputFilter <.. docs.usp_AntoraExport_ObjectPuml
+docs.RepoObject_OutputFilter <.. docs.AntoraNavListPage_by_type
+repo.RepoObject_gross <.. docs.RepoObject_OutputFilter
+docs.RepoObject_OutputFilter::RepoObject_guid <-- docs.RepoObject_Plantuml_Entity::RepoObject_guid
+docs.RepoObject_OutputFilter::RepoObject_schema_name <-- docs.AntoraNavListRepoObject_by_schema::RepoObject_schema_name
+docs.RepoObject_OutputFilter::RepoObject_schema_name <-- docs.AntoraNavListRepoObject_by_schema_type::RepoObject_schema_name
+docs.RepoObject_OutputFilter::SysObject_type <-- docs.AntoraNavListRepoObject_by_schema_type::type
+docs.RepoObject_OutputFilter::SysObject_type <-- docs.AntoraNavListRepoObject_by_type::type
+docs.RepoObject_OutputFilter::SysObject_type_name <-- docs.AntoraNavListRepoObject_by_type::type_name
+docs.RepoObject_OutputFilter::SysObject_type_name <-- docs.AntoraNavListRepoObject_by_schema_type::type_name
+repo.RepoObject_gross::is_DocsOutput <-- docs.RepoObject_OutputFilter::is_DocsOutput
+repo.RepoObject_gross::RepoObject_fullname <-- docs.RepoObject_OutputFilter::RepoObject_fullname
+repo.RepoObject_gross::RepoObject_fullname2 <-- docs.RepoObject_OutputFilter::RepoObject_fullname2
+repo.RepoObject_gross::RepoObject_guid <-- docs.RepoObject_OutputFilter::RepoObject_guid
+repo.RepoObject_gross::RepoObject_schema_name <-- docs.RepoObject_OutputFilter::RepoObject_schema_name
+repo.RepoObject_gross::SysObject_type <-- docs.RepoObject_OutputFilter::SysObject_type
+repo.RepoObject_gross::SysObject_type_name <-- docs.RepoObject_OutputFilter::SysObject_type_name

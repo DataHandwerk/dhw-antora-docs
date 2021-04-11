@@ -1,0 +1,4 @@
+= sys_dwh
+
+include::partial$navlist/navlist-schema-sys_dwh.adoc[]
+

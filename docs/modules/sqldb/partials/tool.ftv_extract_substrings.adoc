@@ -1,0 +1,643 @@
+= [tool].[ftv_extract_substrings]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--example1:
+:ExistsProperty--example2:
+:ExistsProperty--MS_Description:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--AntoraParameterList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+A1E4202C-E299-EB11-84F5-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+IF
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+inline function
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1245247491
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-10 18:20:02
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-len1]]
+=== len1
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|len1
+|int
+|NULL
+|
+|
+|===
+
+
+[[column-len2]]
+=== len2
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|len2
+|int
+|NULL
+|
+|
+|===
+
+
+[[column-pos1]]
+=== pos1
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|pos1
+|bigint
+|NULL
+|
+|
+|===
+
+
+[[column-pos1eol]]
+=== pos1eol
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|pos1eol
+|bigint
+|NULL
+|
+|
+|===
+
+
+[[column-pos2]]
+=== pos2
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|pos2
+|bigint
+|NULL
+|
+|
+|===
+
+
+[[column-substring_gross]]
+=== substring_gross
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|substring_gross
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+
+[[column-substring_net]]
+=== substring_net
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|substring_net
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+
+[[column-substring_netPostEol]]
+=== substring_netPostEol
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|substring_netPostEol
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+
+[[column-substring_netPreEol]]
+=== substring_netPreEol
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|substring_netPreEol
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+|
+|<<column-len1>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-len2>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-pos1>>
+|bigint
+|NULL
+|
+|
+
+|
+|<<column-pos1eol>>
+|bigint
+|NULL
+|
+|
+
+|
+|<<column-pos2>>
+|bigint
+|NULL
+|
+|
+
+|
+|<<column-substring_gross>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-substring_net>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-substring_netPostEol>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-substring_netPreEol>>
+|nvarchar(max)
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+* @string (nvarchar(max))
+* @pattern1 (nvarchar(1000))
+* @pattern2 (nvarchar(1000))
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+
+// end::AntoraReferencingList[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+
+// end::pk_IndexPatternColumnName[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+
+// end::ReferencedObjectList[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== example1
+
+// tag::example1[]
+
+DECLARE 
+ @string NVARCHAR(max)
+ , @pattern1 NVARCHAR(1000)
+ , @pattern2 NVARCHAR(1000)
+
+SET @string = '
+<<tag-marker_start>>bbb
+row 1 of bbb
+row 2 of bbb
+<<tag-marker_end>>
+<<tag-marker_start>>ccc
+row 1 of ccc
+row 2 of 222
+<<tag-marker_end>>
+'
+SET @pattern1 = CHAR(13) + CHAR(10) + '<<tag-marker_start>>'
+SET @pattern2 = CHAR(13) + CHAR(10) + '<<tag-marker_end>>'
+
+SELECT *
+FROM tool.[ftv_extract_substrings](@string, @pattern1, @pattern2)
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+SELECT
+ --
+ [RepoObject_guid]
+ , [sql_modules_definition]
+ , es.*
+FROM [repo].[RepoObject_SqlModules_Repo_Sys]
+CROSS APPLY tool.[ftv_extract_substrings]([sql_modules_definition], CHAR(13) + CHAR(10) + '<<property_start>>', CHAR(13) + CHAR(10) + '<<property_end>>') es
+// end::example2[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+* extract multiple substrings between two tags from @string
+* each part between @pattern1 and @pattern2 resultes in one row
+* split the extracted substring_net into the parts for and after the first EOL (end of line)
+** substring_netPreEol
+** substring_netPostEol
+// end::MS_Description[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+/*
+<<property_start>>MS_Description
+* extract multiple substrings between two tags from @string
+* each part between @pattern1 and @pattern2 resultes in one row
+* split the extracted substring_net into the parts for and after the first EOL (end of line)
+** substring_netPreEol
+** substring_netPostEol
+<<property_end>>
+
+
+<<property_start>>example1
+DECLARE 
+ @string NVARCHAR(max)
+ , @pattern1 NVARCHAR(1000)
+ , @pattern2 NVARCHAR(1000)
+
+SET @string = '
+<<tag-marker_start>>bbb
+row 1 of bbb
+row 2 of bbb
+<<tag-marker_end>>
+<<tag-marker_start>>ccc
+row 1 of ccc
+row 2 of 222
+<<tag-marker_end>>
+'
+SET @pattern1 = CHAR(13) + CHAR(10) + '<<tag-marker_start>>'
+SET @pattern2 = CHAR(13) + CHAR(10) + '<<tag-marker_end>>'
+
+SELECT *
+FROM tool.[ftv_extract_substrings](@string, @pattern1, @pattern2)
+<<property_end>>
+
+<<property_start>>example2
+SELECT
+ --
+ [RepoObject_guid]
+ , [sql_modules_definition]
+ , es.*
+FROM [repo].[RepoObject_SqlModules_Repo_Sys]
+CROSS APPLY tool.[ftv_extract_substrings]([sql_modules_definition], CHAR(13) + CHAR(10) + '<<property_start>>', CHAR(13) + CHAR(10) + '<<property_end>>') es
+<<property_end>>
+
+
+*/
+CREATE FUNCTION [tool].[ftv_extract_substrings] (
+ @string NVARCHAR(max)
+ , @pattern1 NVARCHAR(1000)
+ , @pattern2 NVARCHAR(1000)
+ )
+RETURNS TABLE
+AS
+RETURN (
+  WITH positions AS (
+    SELECT pos1
+     , pos2
+     , string
+    FROM (
+     SELECT patindex('%' + @pattern1 + '%', @string) pos1
+      , patindex('%' + @pattern2 + '%', @string) pos2
+      , @string AS string
+     ) firstpattern
+    --WHERE pos2 > pos1
+    
+    UNION ALL
+    
+    SELECT pos1 + patindex('%' + @pattern1 + '%', substring(@string, pos1 + 1, len(@string))) pos1
+     , pos2 + patindex('%' + @pattern2 + '%', substring(@string, pos2 + 1, len(@string))) pos2
+     , @string
+    FROM positions
+    WHERE
+     --
+     patindex('%' + @pattern1 + '%', substring(@string, pos1 + 1, len(@string))) > 0
+     OR patindex('%' + @pattern2 + '%', substring(@string, pos2 + 1, len(@string))) > 0
+    )
+   , result1 AS (
+    SELECT
+     --
+     pos1
+     , pos2
+     , substring_gross = iif(pos2 > pos1, substring(@string, pos1, pos2 - pos1), NULL)
+     , substring_net = iif(pos2 > pos1 + len(@pattern1), substring(@string, pos1 + len(@pattern1), pos2 - pos1 - len(@pattern1)), NULL)
+     , len(@pattern1) AS len1
+     , len(@pattern2) AS len2
+    FROM positions
+    )
+  SELECT
+   --
+   pos1
+   , pos2
+   , substring_gross
+   , substring_net
+   , substring_netPreEol = substring(substring_net, 0, patindex('%' + CHAR(13) + CHAR(10) + '%', substring_net))
+   , substring_netPostEol = substring(substring_net, patindex('%' + CHAR(13) + CHAR(10) + '%', substring_net), len(substring_net))
+   , pos1eol = patindex('%' + CHAR(13) + CHAR(10) + '%', substring_net)
+   , len1
+   , len2
+  FROM result1
+  )
+ --, substring_netToEol = iif(pos2 > pos1 + len(@pattern1), substring(@string, pos1 + len(@pattern1), pos2 - pos1 - len(@pattern1)), NULL)
+
+----
+// end::sql_modules_definition[]
+
+

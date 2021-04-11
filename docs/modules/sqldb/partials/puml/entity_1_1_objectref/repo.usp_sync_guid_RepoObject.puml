@@ -1,0 +1,105 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.type_level1type_level2type << V >> {
+  **type** : nvarchar(128)
+}
+
+entity graph.RepoObject << U >> {
+}
+
+entity graph.RepoObject_S << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity graph.usp_PERSIST_ProcedureInstance << P >> {
+}
+
+entity graph.usp_PERSIST_RepoObject << P >> {
+}
+
+entity repo.ProcedureInstance << U >> {
+  * **id** : int
+}
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_persistence << U >> {
+  * **target_RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_RequiredRepoObjectMerge << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.SysObject_RepoObject_via_guid << V >> {
+}
+
+entity repo.SysObject_RepoObject_via_name << V >> {
+}
+
+entity repo.usp_ExecutionLog_insert << P >> {
+}
+
+entity repo.usp_sync_guid << P >> {
+}
+
+entity repo.usp_sync_guid_RepoObject << P >> {
+}
+
+entity repo_sys.SysObject << V >> {
+}
+
+entity repo_sys.usp_AddOrUpdateExtendedProperty << P >> {
+}
+
+config.type_level1type_level2type <.. repo.usp_sync_guid_RepoObject
+graph.RepoObject <.. repo.usp_sync_guid_RepoObject
+graph.RepoObject_S <.. graph.usp_PERSIST_RepoObject
+graph.RepoObject_S <.. repo.usp_sync_guid_RepoObject
+graph.RepoObject_S <.. graph.RepoObject
+graph.usp_PERSIST_ProcedureInstance <.. repo.usp_sync_guid_RepoObject
+graph.usp_PERSIST_RepoObject <.. repo.usp_sync_guid_RepoObject
+repo.ProcedureInstance <.. repo.usp_sync_guid_RepoObject
+repo.RepoObject <.. repo.SysObject_RepoObject_via_name
+repo.RepoObject <.. repo.SysObject_RepoObject_via_guid
+repo.RepoObject <.. repo.RepoObject_RequiredRepoObjectMerge
+repo.RepoObject <.. repo.usp_sync_guid_RepoObject
+repo.RepoObject <.. graph.RepoObject_S
+repo.RepoObject_persistence <.. repo.usp_sync_guid_RepoObject
+repo.RepoObject_RequiredRepoObjectMerge <.. repo.usp_sync_guid_RepoObject
+repo.SysObject_RepoObject_via_guid <.. repo.usp_sync_guid_RepoObject
+repo.SysObject_RepoObject_via_name <.. repo.usp_sync_guid_RepoObject
+repo.usp_ExecutionLog_insert <.. graph.usp_PERSIST_RepoObject
+repo.usp_ExecutionLog_insert <.. graph.usp_PERSIST_ProcedureInstance
+repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObject
+repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid
+repo.usp_sync_guid_RepoObject <.. repo.usp_sync_guid
+repo_sys.SysObject <.. repo.SysObject_RepoObject_via_name
+repo_sys.SysObject <.. repo.SysObject_RepoObject_via_guid
+repo_sys.SysObject <.. repo.usp_sync_guid_RepoObject
+repo_sys.usp_AddOrUpdateExtendedProperty <.. repo.usp_sync_guid_RepoObject

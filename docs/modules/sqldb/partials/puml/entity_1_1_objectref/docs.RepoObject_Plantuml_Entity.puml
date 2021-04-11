@@ -1,0 +1,54 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.RepoObject_ColumnList << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_IndexList_T << U >> {
+  **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_OutputFilter << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml_Entity << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml_Entity_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.usp_PERSIST_RepoObject_Plantuml_Entity_T << P >> {
+}
+
+docs.RepoObject_ColumnList <.. docs.RepoObject_Plantuml_Entity
+docs.RepoObject_IndexList_T <.. docs.RepoObject_Plantuml_Entity
+docs.RepoObject_OutputFilter <.. docs.RepoObject_Plantuml_Entity
+docs.RepoObject_Plantuml_Entity <.. docs.RepoObject_Plantuml_Entity_T
+docs.RepoObject_Plantuml_Entity <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
+docs.RepoObject_Plantuml_Entity_T <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T

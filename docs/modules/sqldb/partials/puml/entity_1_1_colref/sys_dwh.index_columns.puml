@@ -1,0 +1,50 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo_sys.IndexColumn_unique << V >> {
+  --
+  * index_column_id : int
+  index_guid : uniqueidentifier
+  * index_id : int
+  index_name : sysname
+  is_descending_key : bit
+  is_index_primary_key : bit
+  is_index_real : bit
+  is_index_unique : bit
+  parent_RepoObject_guid : uniqueidentifier
+  parent_schema_name : nvarchar(128)
+  parent_SysObject_fullname : nvarchar(261)
+  parent_SysObject_name : nvarchar(128)
+  RepoObjectColumn_guid : uniqueidentifier
+  SysObject_column_name : sysname
+  SysObject_column_user_type_fullname : nvarchar(182)
+}
+
+entity sys_dwh.index_columns << SN >> {
+  --
+}
+
+sys_dwh.index_columns <.. repo_sys.IndexColumn_unique
+

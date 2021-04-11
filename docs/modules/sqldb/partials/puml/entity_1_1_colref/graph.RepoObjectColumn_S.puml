@@ -1,0 +1,158 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity graph.RepoObjectColumn << U >> {
+  --
+  * $node_id_347F7C762E2642A98518838371CE6BB1 : nvarchar(1000)
+  033FA47C-4D2F-4D6A-8B50-43D42BB835EE : nvarchar(386)
+  * 3BEB9175-44B5-426B-8409-577C841C619B : uniqueidentifier
+  * 62AB1D86-A0D1-4DBF-B60C-4F4F0E6D1D35 : nvarchar(128)
+  AFC74650-9FE6-4EB8-871A-4F5868DC2FE1 : nvarchar(128)
+  * B1FCD5B8-85AB-48F2-B870-E85A25753638 : nvarchar(261)
+  D9A2A770-88F7-4CE2-A442-B33ABE6FA570 : nvarchar(257)
+  DCE6F0AF-8705-4010-9800-BDE64B3D9D44 : nvarchar(520)
+  * E59AE2FF-4777-4954-A263-436BB2E6C52D : char(2)
+  * graph_id_58E017E29B684D7FBC6E4E880C609245 : bigint
+  * RepoObject_fullname : nvarchar(261)
+  RepoObject_fullname2 : nvarchar(257)
+  * RepoObject_guid : uniqueidentifier
+  * RepoObject_type : char(2)
+  * RepoObjectColumn_fullname : nvarchar(520)
+  RepoObjectColumn_fullname2 : nvarchar(386)
+  * RepoObjectColumn_guid : uniqueidentifier
+  * RepoObjectColumn_name : nvarchar(128)
+  RepoObjectColumn_type : nvarchar(128)
+}
+
+entity graph.RepoObjectColumn_S << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+  --
+  * RepoObject_fullname : nvarchar(261)
+  RepoObject_fullname2 : nvarchar(257)
+  * RepoObject_guid : uniqueidentifier
+  * RepoObject_type : char(2)
+  * RepoObjectColumn_fullname : nvarchar(520)
+  RepoObjectColumn_fullname2 : nvarchar(386)
+  * RepoObjectColumn_name : nvarchar(128)
+  RepoObjectColumn_type : nvarchar(128)
+}
+
+entity graph.usp_PERSIST_RepoObjectColumn << P >> {
+  --
+}
+
+entity repo.RepoObjectColumn_gross << V >> {
+  --
+  AntoraReferencedColumnList : nvarchar(max)
+  AntoraReferencingColumnList : nvarchar(max)
+  has_different_sys_names : bit
+  has_get_referenced_issue : bit
+  index_column_id : int
+  index_name : nvarchar(128)
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_index_primary_key : bit
+  is_persistence_no_check : bit
+  is_persistence_no_include : bit
+  is_persistence_no_update : bit
+  is_query_plan_expression : bit
+  is_repo_managed : bit
+  * is_RepoObject_name_uniqueidentifier : int
+  * is_RepoObjectColumn_name_uniqueidentifier : int
+  is_SysObject_missing : bit
+  * is_SysObject_name_uniqueidentifier : int
+  is_SysObjectColumn_missing : bit
+  * is_SysObjectColumn_name_uniqueidentifier : int
+  * modify_dt : datetime
+  node_id : bigint
+  persistence_source_RepoObjectColumn_guid : uniqueidentifier
+  pk_index_guid : uniqueidentifier
+  Property_ms_description : nvarchar(4000)
+  Referencing_Count : int
+  Repo_default_definition : nvarchar(max)
+  Repo_default_is_system_named : bit
+  Repo_default_name : nvarchar(128)
+  Repo_definition : nvarchar(max)
+  * Repo_generated_always_type : tinyint
+  Repo_graph_type : int
+  Repo_increment_value : sql_variant
+  * Repo_is_computed : bit
+  * Repo_is_identity : bit
+  Repo_is_nullable : bit
+  Repo_is_persisted : bit
+  Repo_seed_value : sql_variant
+  Repo_user_type_fullname : nvarchar(128)
+  Repo_user_type_name : nvarchar(128)
+  Repo_uses_database_collation : bit
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_fullname2 : nvarchar(257)
+  * RepoObject_guid : uniqueidentifier
+  * RepoObject_name : nvarchar(128)
+  RepoObject_Referencing_Count : int
+  * RepoObject_schema_name : nvarchar(128)
+  * RepoObject_type : char(2)
+  RepoObjectColumn_column_id : int
+  * RepoObjectColumn_fullname : nvarchar(520)
+  * RepoObjectColumn_fullname2 : nvarchar(386)
+  * RepoObjectColumn_guid : uniqueidentifier
+  * RepoObjectColumn_name : nvarchar(128)
+  * SysObject_fullname : nvarchar(261)
+  * SysObject_fullname2 : nvarchar(257)
+  SysObject_id : int
+  SysObject_modify_date : datetime
+  * SysObject_name : nvarchar(128)
+  * SysObject_parent_object_id : int
+  * SysObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  SysObjectColumn_column_id : int
+  * SysObjectColumn_name : nvarchar(128)
+}
+
+entity repo.usp_sync_guid_RepoObjectColumn << P >> {
+  --
+}
+
+graph.RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
+graph.RepoObjectColumn_S <.. repo.usp_sync_guid_RepoObjectColumn
+graph.RepoObjectColumn_S <.. graph.RepoObjectColumn
+graph.RepoObjectColumn_S <.. graph.usp_PERSIST_RepoObjectColumn
+graph.usp_PERSIST_RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
+repo.RepoObjectColumn_gross <.. graph.RepoObjectColumn_S
+graph.RepoObjectColumn_S::RepoObject_fullname <-- graph.RepoObjectColumn::RepoObject_fullname
+graph.RepoObjectColumn_S::RepoObject_fullname2 <-- graph.RepoObjectColumn::RepoObject_fullname2
+graph.RepoObjectColumn_S::RepoObject_guid <-- graph.RepoObjectColumn::RepoObject_guid
+graph.RepoObjectColumn_S::RepoObject_type <-- graph.RepoObjectColumn::RepoObject_type
+graph.RepoObjectColumn_S::RepoObjectColumn_fullname <-- graph.RepoObjectColumn::RepoObjectColumn_fullname
+graph.RepoObjectColumn_S::RepoObjectColumn_fullname2 <-- graph.RepoObjectColumn::RepoObjectColumn_fullname2
+graph.RepoObjectColumn_S::RepoObjectColumn_guid <-- graph.RepoObjectColumn::RepoObjectColumn_guid
+graph.RepoObjectColumn_S::RepoObjectColumn_name <-- graph.RepoObjectColumn::RepoObjectColumn_name
+graph.RepoObjectColumn_S::RepoObjectColumn_type <-- graph.RepoObjectColumn::RepoObjectColumn_type
+repo.RepoObjectColumn_gross::RepoObject_fullname <-- graph.RepoObjectColumn_S::RepoObject_fullname
+repo.RepoObjectColumn_gross::RepoObject_guid <-- graph.RepoObjectColumn_S::RepoObject_guid
+repo.RepoObjectColumn_gross::RepoObject_type <-- graph.RepoObjectColumn_S::RepoObject_type
+repo.RepoObjectColumn_gross::RepoObjectColumn_fullname <-- graph.RepoObjectColumn_S::RepoObjectColumn_fullname
+repo.RepoObjectColumn_gross::RepoObjectColumn_guid <-- graph.RepoObjectColumn_S::RepoObjectColumn_guid
+repo.RepoObjectColumn_gross::RepoObjectColumn_name <-- graph.RepoObjectColumn_S::RepoObjectColumn_name

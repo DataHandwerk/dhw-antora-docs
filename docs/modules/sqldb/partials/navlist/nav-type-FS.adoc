@@ -1,0 +1,4 @@
+= assembly scalar function
+
+include::partial$navlist/navlist-type-FS.adoc[]
+

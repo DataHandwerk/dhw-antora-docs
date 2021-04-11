@@ -1,0 +1,4 @@
+= repo_sys
+
+include::partial$navlist/navlist-schema-repo_sys.adoc[]
+

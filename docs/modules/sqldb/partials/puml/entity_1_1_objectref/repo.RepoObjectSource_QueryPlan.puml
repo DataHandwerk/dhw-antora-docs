@@ -1,0 +1,36 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
+}
+
+entity repo.RepoObjectSource_QueryPlan << U >> {
+}
+
+entity repo.usp_RepoObjectSource_QueryPlan << P >> {
+}
+
+repo.RepoObjectSource_QueryPlan <.. repo.RepoObjectColumn_reference_QueryPlan
+repo.RepoObjectSource_QueryPlan <.. repo.usp_RepoObjectSource_QueryPlan

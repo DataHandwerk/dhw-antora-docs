@@ -1,0 +1,36 @@
+* Objects by type
+** xref:nav/nav-type-V.adoc[]
++
+--
+include::partial$navlist/navlist-type-V.adoc[]
+--
+** xref:nav/nav-type-U.adoc[]
++
+--
+include::partial$navlist/navlist-type-U.adoc[]
+--
+** xref:nav/nav-type-TR.adoc[]
++
+--
+include::partial$navlist/navlist-type-TR.adoc[]
+--
+** xref:nav/nav-type-SN.adoc[]
++
+--
+include::partial$navlist/navlist-type-SN.adoc[]
+--
+** xref:nav/nav-type-P.adoc[]
++
+--
+include::partial$navlist/navlist-type-P.adoc[]
+--
+** xref:nav/nav-type-FN.adoc[]
++
+--
+include::partial$navlist/navlist-type-FN.adoc[]
+--
+** xref:nav/nav-type-IF.adoc[]
++
+--
+include::partial$navlist/navlist-type-IF.adoc[]
+--

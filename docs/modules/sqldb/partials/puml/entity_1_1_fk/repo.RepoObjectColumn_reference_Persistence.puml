@@ -1,0 +1,50 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObjectColumn_reference_Persistence << V >> {
+- idx_RepoObjectColumn_reference_Persistence__1
+{schema_name,object_name}
+..
+referencing_schema_name; nvarchar(128)
+referencing_entity_name; nvarchar(128)
+--
+- idx_RepoObjectColumn_reference_Persistence__2
+{RepoObject_guid}
+..
+referencing_RepoObject_guid; uniqueidentifier
+--
+- idx_RepoObjectColumn_reference_Persistence__3
+{RepoObjectColumn_guid}
+..
+referencing_RepoObjectColumn_guid; uniqueidentifier
+--
+- idx_RepoObjectColumn_reference_Persistence__4
+{RepoObjectColumn_guid,Column_name}
+..
+referenced_RepoObjectColumn_guid; uniqueidentifier
+referenced_column_name; nvarchar(128)
+}
+
+

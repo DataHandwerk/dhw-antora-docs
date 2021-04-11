@@ -1,0 +1,43 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo_sys.IndexColumn_unique << V >> {
+- idx_IndexColumn_unique__1
+{RepoObjectColumn_guid}
+..
+RepoObjectColumn_guid; uniqueidentifier
+--
+- idx_IndexColumn_unique__2
+
+..
+parent_RepoObject_guid; uniqueidentifier
+--
+- idx_IndexColumn_unique__3
+{RepoObject_guid}
+..
+index_guid; uniqueidentifier
+}
+
+

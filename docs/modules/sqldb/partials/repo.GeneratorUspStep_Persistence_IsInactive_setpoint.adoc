@@ -1,0 +1,549 @@
+= [repo].[GeneratorUspStep_Persistence_IsInactive_setpoint]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_IndexPatternColumnDatatype:
+:ExistsProperty--pk_IndexPatternColumnName:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+7F90291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+V 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+view
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1618104805
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-11 12:54:14
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-usp_id]]
+=== usp_id
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*usp_id*
+|int
+|NOT NULL
+|
+|
+|===
+
+
+[[column-is_inactive]]
+=== is_inactive
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_inactive
+|int
+|NOT NULL
+|
+|
+|===
+
+
+[[column-Number]]
+=== Number
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Number
+|int
+|NOT NULL
+|
+|
+|===
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-usp_id>>*
+|int
+|NOT NULL
+|
+|
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+|
+|<<column-is_inactive>>
+|int
+|NOT NULL
+|
+|
+
+|
+|<<column-Number>>
+|int
+|NOT NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_GeneratorUspStep_Persistence_IsInactive_setpoint]]
+=== PK_GeneratorUspStep_Persistence_IsInactive_setpoint
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_no_group[no_group]
++
+--
+* <<column-usp_id>>; int
+--
+* PK, Unique, Real: 1, 1, 0
+
+
+[[index-UK_GeneratorUspStep_Persistence_IsInactive_setpoint__2]]
+=== UK_GeneratorUspStep_Persistence_IsInactive_setpoint__2
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_no_group[no_group]
++
+--
+* <<column-usp_id>>; int
+* <<column-Number>>; int
+--
+* PK, Unique, Real: 0, 1, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:repo.GeneratorUsp.adoc[]
+* xref:repo.RepoObject_gross.adoc[]
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:repo.usp_GeneratorUsp_insert_update_persistence.adoc[]
+// end::AntoraReferencingList[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+363BB439-0796-EB11-84F4-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+int
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+usp_id
+// end::pk_IndexPatternColumnName[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [repo].[GeneratorUsp]
+* [repo].[RepoObject_gross]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+CREATE VIEW [repo].[GeneratorUspStep_Persistence_IsInactive_setpoint]
+AS
+WITH ro_u
+AS (
+ SELECT [u].[id] AS [usp_id]
+  , [u].[usp_schema]
+  , [u].[usp_name]
+  , ro.[is_persistence_check_duplicate_per_pk]
+  , [ro].[is_persistence_check_for_empty_source]
+  , [ro].[is_persistence_delete_missing]
+  , [ro].[is_persistence_delete_changed]
+  , [ro].[is_persistence_insert]
+  , [ro].[is_persistence_truncate]
+  , [ro].[is_persistence_update_changed]
+  , [ro].[pk_index_guid]
+ FROM repo.RepoObject_gross AS ro
+ INNER JOIN repo.GeneratorUsp AS u
+  ON ro.RepoObject_schema_name = u.usp_schema
+   AND ro.usp_persistence_name = u.usp_name
+ )
+SELECT
+ --check for empty source
+ [usp_id]
+ , Number = 100
+ , [is_inactive] = CASE [is_persistence_check_for_empty_source]
+  WHEN 1
+   THEN 0
+  ELSE 1
+  END
+FROM ro_u
+
+UNION ALL
+
+SELECT
+ --check duplicate per PK
+ --also check existing PK
+ [usp_id]
+ , Number = 300
+ , [is_inactive] = CASE 
+  WHEN [is_persistence_check_duplicate_per_pk] = 1
+   AND NOT ([pk_index_guid] IS NULL)
+   THEN 0
+  ELSE 1
+  END
+FROM ro_u
+
+UNION ALL
+
+SELECT
+ --truncate persistence target
+ [usp_id]
+ , Number = 400
+ , [is_inactive] = CASE [is_persistence_truncate]
+  WHEN 1
+   THEN 0
+  ELSE 1
+  END
+FROM ro_u
+
+UNION ALL
+
+SELECT
+ --delete persistence target missing in source
+ --also do not delete if truncate, because there is nothing to delete after truncate
+ --also check existing PK
+ [usp_id]
+ , Number = 500
+ , [is_inactive] = CASE 
+  WHEN [is_persistence_truncate] = 1
+   OR [is_persistence_delete_missing] = 0
+   OR [pk_index_guid] IS NULL
+   THEN 1
+  ELSE 0
+  END
+FROM ro_u
+
+UNION ALL
+
+SELECT
+ --delete persistence target changed
+ --also do not delete if truncate, because there is nothing to delete after truncate
+ --also check existing PK
+ [usp_id]
+ , Number = 550
+ , [is_inactive] = CASE 
+  WHEN [is_persistence_truncate] = 1
+   OR [is_persistence_delete_changed] = 0
+   OR [pk_index_guid] IS NULL
+   THEN 1
+  ELSE 0
+  END
+FROM ro_u
+
+UNION ALL
+
+SELECT
+ --update changed
+ --also du not update after deleting changed or after truncate, because there is nothing to update
+ --also check existing PK
+ [usp_id]
+ , Number = 600
+ , [is_inactive] = CASE 
+  WHEN [is_persistence_truncate] = 1
+   OR [is_persistence_delete_changed] = 1
+   OR [is_persistence_update_changed] = 0
+   OR [pk_index_guid] IS NULL
+   THEN 1
+  ELSE 0
+  END
+FROM ro_u
+
+UNION ALL
+
+SELECT
+ --insert missing
+ --don't do this, if 'insert all' (in case of truncate)
+ --also check existing PK
+ [usp_id]
+ , Number = 700
+ , [is_inactive] = CASE 
+  WHEN [is_persistence_insert] = 1
+   AND NOT [is_persistence_truncate] = 1
+   AND NOT ([pk_index_guid] IS NULL)
+   THEN 0
+  ELSE 1
+  END
+FROM ro_u
+
+UNION ALL
+
+SELECT
+ --insert all
+ --only in combination with truncate
+ --possible enhancement: maybe some delete all is required, if truncate is not possible?
+ [usp_id]
+ , Number = 800
+ , [is_inactive] = CASE 
+  WHEN [is_persistence_truncate] = 1
+   AND [is_persistence_insert] = 1
+   THEN 0
+  ELSE 1
+  END
+FROM ro_u
+
+----
+// end::sql_modules_definition[]
+
+

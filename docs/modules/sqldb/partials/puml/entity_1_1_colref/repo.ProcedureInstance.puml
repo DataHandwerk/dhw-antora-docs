@@ -1,0 +1,65 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity graph.ProcedureInstance_S << V >> {
+  * **Procedure_RepoObject_guid** : uniqueidentifier
+  * **Instance** : varchar(500)
+  --
+  * Procedure_fullname : nvarchar(261)
+}
+
+entity repo.ProcedureInstance << U >> {
+  * **id** : int
+  --
+  Description : nvarchar(4000)
+  * Instance : varchar(500)
+  * Procedure_RepoObject_guid : uniqueidentifier
+}
+
+entity repo.ProcedureInstanceDependency_gross << V >> {
+  * **id** : int
+  --
+  Description : nvarchar(4000)
+  * is_active : bit
+  * is_PersistenceDependency : bit
+  * referenced_id : int
+  * referenced_Instance : varchar(500)
+  * referenced_Procedure_RepoObject_guid : uniqueidentifier
+  * referenced_RepoObject_fullname : nvarchar(261)
+  * referencing_id : int
+  * referencing_Instance : varchar(500)
+  * referencing_Procedure_RepoObject_guid : uniqueidentifier
+  * referencing_RepoObject_fullname : nvarchar(261)
+}
+
+entity repo.usp_sync_guid_RepoObject << P >> {
+  --
+}
+
+repo.ProcedureInstance <.. repo.usp_sync_guid_RepoObject
+repo.ProcedureInstance <.. graph.ProcedureInstance_S
+repo.ProcedureInstance <.. repo.ProcedureInstanceDependency_gross
+repo.ProcedureInstance::Instance <-- graph.ProcedureInstance_S::Instance
+repo.ProcedureInstance::Procedure_RepoObject_guid <-- graph.ProcedureInstance_S::Procedure_RepoObject_guid

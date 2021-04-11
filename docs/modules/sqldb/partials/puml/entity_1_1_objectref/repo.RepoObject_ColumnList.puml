@@ -1,0 +1,44 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObject_ColumnList << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_gross << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_SqlCreateTable << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn_gross << V >> {
+}
+
+repo.RepoObject_ColumnList <.. repo.RepoObject_gross
+repo.RepoObject_ColumnList <.. repo.RepoObject_SqlCreateTable
+repo.RepoObject_gross <.. repo.RepoObject_SqlCreateTable
+repo.RepoObjectColumn_gross <.. repo.RepoObject_ColumnList

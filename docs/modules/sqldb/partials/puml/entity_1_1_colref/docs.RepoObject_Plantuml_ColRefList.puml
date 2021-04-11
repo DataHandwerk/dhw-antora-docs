@@ -1,0 +1,132 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.RepoObject_Plantuml << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ColRefList : nvarchar(max)
+  ObjectRefList : nvarchar(max)
+  * PlantumlEntity_1_1_ColRef : nvarchar(max)
+  * PlantumlEntity_1_1_FkRef : nvarchar(max)
+  * PlantumlEntity_1_1_ObjectRef : nvarchar(max)
+  PumlEntityList : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
+entity docs.RepoObject_Plantuml_ColRefList << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ColRefList : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
+entity graph.ReferencedObjectColumn << U >> {
+  --
+  * $edge_id_7C154492F0954C769C843FC0BEA97AFC : nvarchar(1000)
+  $from_id_F5982CB6A96041F69453F5D5DBE84FFB : nvarchar(1000)
+  $to_id_9D5378D2AACD4945A48693ABF17CD063 : nvarchar(1000)
+  * from_id_7E00AE91C08D4B1FA35C7A8270AC9E8C : bigint
+  * from_obj_id_11EC88C0730D4B5993BF0DBC6FAC2E36 : int
+  * graph_id_E9F774DD8CA2460A924F6173983BE220 : bigint
+  * to_id_085F365914414A0AAB9A494884264043 : bigint
+  * to_obj_id_1AB5BC0BD7FD4956AA05F7CB026BC43D : int
+}
+
+entity graph.RepoObjectColumn << U >> {
+  --
+  * $node_id_347F7C762E2642A98518838371CE6BB1 : nvarchar(1000)
+  033FA47C-4D2F-4D6A-8B50-43D42BB835EE : nvarchar(386)
+  * 3BEB9175-44B5-426B-8409-577C841C619B : uniqueidentifier
+  * 62AB1D86-A0D1-4DBF-B60C-4F4F0E6D1D35 : nvarchar(128)
+  AFC74650-9FE6-4EB8-871A-4F5868DC2FE1 : nvarchar(128)
+  * B1FCD5B8-85AB-48F2-B870-E85A25753638 : nvarchar(261)
+  D9A2A770-88F7-4CE2-A442-B33ABE6FA570 : nvarchar(257)
+  DCE6F0AF-8705-4010-9800-BDE64B3D9D44 : nvarchar(520)
+  * E59AE2FF-4777-4954-A263-436BB2E6C52D : char(2)
+  * graph_id_58E017E29B684D7FBC6E4E880C609245 : bigint
+  * RepoObject_fullname : nvarchar(261)
+  RepoObject_fullname2 : nvarchar(257)
+  * RepoObject_guid : uniqueidentifier
+  * RepoObject_type : char(2)
+  * RepoObjectColumn_fullname : nvarchar(520)
+  RepoObjectColumn_fullname2 : nvarchar(386)
+  * RepoObjectColumn_guid : uniqueidentifier
+  * RepoObjectColumn_name : nvarchar(128)
+  RepoObjectColumn_type : nvarchar(128)
+}
+
+entity repo.ftv_RepoObject_ReferencedReferencing << IF >> {
+  --
+  Node_fullname2 : nvarchar(257)
+  Node_guid : uniqueidentifier
+  Referenced_Depth : int
+  Referencing_Depth : int
+  ro_guid : uniqueidentifier
+}
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  has_execution_plan_issue : bit
+  has_get_referenced_issue : bit
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_repo_managed : bit
+  is_SysObject_missing : bit
+  * modify_dt : datetime
+  pk_index_guid : uniqueidentifier
+  pk_IndexPatternColumnName_new : nvarchar(4000)
+  Repo_history_table_guid : uniqueidentifier
+  Repo_temporal_type : tinyint
+  * RepoObject_name : nvarchar(128)
+  RepoObject_Referencing_Count : int
+  * RepoObject_schema_name : nvarchar(128)
+  * RepoObject_type : char(2)
+  SysObject_id : int
+  SysObject_modify_date : datetime
+  * SysObject_name : nvarchar(128)
+  * SysObject_parent_object_id : int
+  * SysObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  {abstract} has_different_sys_names : bit
+  * {static} is_RepoObject_name_uniqueidentifier : int
+  * {static} is_SysObject_name_uniqueidentifier : int
+  {abstract} node_id : bigint
+  * {static} RepoObject_fullname : nvarchar(261)
+  * {static} RepoObject_fullname2 : nvarchar(257)
+  * {static} SysObject_fullname : nvarchar(261)
+  * {static} SysObject_fullname2 : nvarchar(257)
+  * {abstract} SysObject_query_sql : nvarchar(406)
+  * {static} usp_persistence_name : nvarchar(140)
+}
+
+docs.RepoObject_Plantuml_ColRefList <.. docs.RepoObject_Plantuml
+graph.ReferencedObjectColumn <.. docs.RepoObject_Plantuml_ColRefList
+graph.RepoObjectColumn <.. docs.RepoObject_Plantuml_ColRefList
+repo.ftv_RepoObject_ReferencedReferencing <.. docs.RepoObject_Plantuml_ColRefList
+repo.RepoObject <.. repo.ftv_RepoObject_ReferencedReferencing
+repo.RepoObject <.. docs.RepoObject_Plantuml_ColRefList
+docs.RepoObject_Plantuml_ColRefList::ColRefList <-- docs.RepoObject_Plantuml::ColRefList

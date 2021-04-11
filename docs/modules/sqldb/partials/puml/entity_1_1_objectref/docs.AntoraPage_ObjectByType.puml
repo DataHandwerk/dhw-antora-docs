@@ -1,0 +1,38 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.type << V >> {
+  **type** : nvarchar(128)
+}
+
+entity docs.AntoraNavListRepoObject_by_type << V >> {
+  **type** : char(2)
+}
+
+entity docs.AntoraPage_ObjectByType << V >> {
+}
+
+config.type <.. docs.AntoraPage_ObjectByType
+docs.AntoraNavListRepoObject_by_type <.. docs.AntoraPage_ObjectByType

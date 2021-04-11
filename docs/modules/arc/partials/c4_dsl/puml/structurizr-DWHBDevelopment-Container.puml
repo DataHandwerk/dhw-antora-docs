@@ -10,27 +10,27 @@ skinparam {
 }
 hide stereotype
 top to bottom direction
+skinparam rectangle<<22>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9A9A9A
+}
 skinparam database<<5>> {
   BackgroundColor #dddddd
   FontColor #000000
   BorderColor #9A9A9A
 }
-skinparam database<<17>> {
-  BackgroundColor #dddddd
-  FontColor #000000
-  BorderColor #9A9A9A
-}
-skinparam rectangle<<21>> {
+skinparam database<<18>> {
   BackgroundColor #dddddd
   FontColor #000000
   BorderColor #9A9A9A
 }
 package "DWH B Development\n[Software System]" {
-  database "==DWH db Development (Project B)\n<size:10>[Container: Database]</size>" <<17>> as 17
-  rectangle "==GUI\n<size:10>[Container: GUI]</size>\n\nGraphical User Interface" <<21>> as 21
+  database "==DWH db Development (Project B)\n<size:10>[Container: Database]</size>" <<18>> as 18
+  rectangle "==GUI\n<size:10>[Container: GUI]</size>\n\nGraphical User Interface" <<22>> as 22
   database "==Repository db (Project B)\n<size:10>[Container: Database]</size>" <<5>> as 5
 }
-17 .[#707070].> 5 : "RepoObject correspond with extended properties"
-21 .[#707070].> 5 : "uses"
-5 .[#707070].> 17 : "Synonyms link to DWH System Views"
+18 .[#707070].> 5 : "RepoObject correspond with extended properties"
+22 .[#707070].> 5 : "uses"
+5 .[#707070].> 18 : "Synonyms link to DWH System Views"
 @enduml

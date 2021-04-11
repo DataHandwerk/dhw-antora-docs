@@ -1,0 +1,4 @@
+= sys_self
+
+include::partial$navlist/navlist-schema-sys_self.adoc[]
+

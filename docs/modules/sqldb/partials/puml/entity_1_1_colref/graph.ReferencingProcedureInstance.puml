@@ -1,0 +1,39 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity graph.ReferencingProcedureInstance << U >> {
+  --
+  * $edge_id_E2A8F9D9A24449B5BAE820B4BB23822F : nvarchar(1000)
+  $from_id_386A079B46584E798B0577A575C29FC1 : nvarchar(1000)
+  $to_id_B0CB742D8F37433F82DB8262698B1A4A : nvarchar(1000)
+  * from_id_FD05B9C9B3BA40E49E694BB9BC5A6D74 : bigint
+  * from_obj_id_5CEA66987D9E42DBAE22CF16CA1C3747 : int
+  * graph_id_3FBBD480757F476A85886E45589A9D62 : bigint
+  * to_id_9A496F83379F4B998E2F491BADCA4286 : bigint
+  * to_obj_id_48A3CDC6D0CC441F944A873BD5D76140 : int
+}
+
+
+

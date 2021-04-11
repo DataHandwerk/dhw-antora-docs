@@ -1,0 +1,4 @@
+= docs
+
+include::partial$navlist/navlist-schema-docs.adoc[]
+

@@ -1,0 +1,513 @@
+= [repo].[RepoObject_SqlModules_23_normalized_wo_nolock]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_IndexPatternColumnDatatype:
+:ExistsProperty--pk_IndexPatternColumnName:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+3990291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+V 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+view
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+914102297
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-02-01 11:24:24
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-RepoObject_guid]]
+=== RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*RepoObject_guid*
+|uniqueidentifier
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.RepoObject_SqlModules_20_statement_children.adoc#column-RepoObject_guid[repo.RepoObject_SqlModules_20_statement_children.RepoObject_guid]
+--
+
+
+[[column-json_key]]
+=== json_key
+
+[cols="d,m,m,m,m,d"]
+|===
+|2
+|*json_key*
+|nvarchar(4000)
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.RepoObject_SqlModules_20_statement_children.adoc#column-json_key[repo.RepoObject_SqlModules_20_statement_children.json_key]
+--
+
+
+[[column-normalized]]
+=== normalized
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|normalized
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.RepoObject_SqlModules_20_statement_children.adoc#column-normalized[repo.RepoObject_SqlModules_20_statement_children.normalized]
+--
+
+
+[[column-normalized_wo_nolock]]
+=== normalized_wo_nolock
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|normalized_wo_nolock
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+
+[[column-SysObject_fullname]]
+=== SysObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.RepoObject_SqlModules_20_statement_children.adoc#column-SysObject_fullname[repo.RepoObject_SqlModules_20_statement_children.SysObject_fullname]
+--
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-RepoObject_guid>>*
+|uniqueidentifier
+|NOT NULL
+|
+|
+
+|2
+|*<<column-json_key>>*
+|nvarchar(4000)
+|NOT NULL
+|
+|
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+
+|
+|<<column-normalized>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-normalized_wo_nolock>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-SysObject_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_RepoObject_SqlModules_23_normalized_wo_nolock]]
+=== PK_RepoObject_SqlModules_23_normalized_wo_nolock
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_no_group[no_group]
++
+--
+* <<column-RepoObject_guid>>; uniqueidentifier
+* <<column-json_key>>; nvarchar(4000)
+--
+* PK, Unique, Real: 1, 1, 0
+
+
+[[index-idx_RepoObject_SqlModules_23_normalized_wo_nolock__2]]
+=== idx_RepoObject_SqlModules_23_normalized_wo_nolock__2
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_repoobject_guid[RepoObject_guid]
++
+--
+* <<column-RepoObject_guid>>; uniqueidentifier
+--
+* PK, Unique, Real: 0, 0, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+
+// end::AntoraReferencingList[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:repo.ftv_sqlparse_children_pivot.adoc[]
+* xref:repo.RepoObject_SqlModules_20_statement_children.adoc[]
+// end::AntoraReferencedList[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+278AA10A-AB97-EB11-84F4-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+uniqueidentifier,nvarchar(4000)
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+RepoObject_guid,json_key
+// end::pk_IndexPatternColumnName[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [repo].[ftv_sqlparse_children_pivot]
+* [repo].[RepoObject_SqlModules_20_statement_children]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+/*
+resolve Function 'T1 (NOLOCK)'
+=> normalized_wo_nolock = 'T1'
+
+(NOLOCK) needs to be extracted from children
+*/
+CREATE VIEW [repo].[RepoObject_SqlModules_23_normalized_wo_nolock]
+AS
+--
+SELECT [T1].[RepoObject_guid]
+ , [T1].[json_key]
+ , [T1].[SysObject_fullname]
+ , [T1].[normalized]
+ , [normalized_wo_nolock] = [T2].[child0_normalized]
+FROM repo.[RepoObject_SqlModules_20_statement_children] AS T1
+CROSS APPLY [repo].[ftv_sqlparse_children_pivot]([T1].[children]) AS T2
+WHERE [T1].[class] = 'Function'
+ AND [T1].[is_group] = 1
+ AND [T2].[child1_normalized] = '(NOLOCK)'
+ --
+ --SELECT
+ --       [RepoObject_guid]
+ --     , [key]
+ --     , [SysObject_fullname]
+ --     , [normalized_wo_nolock] = [0]
+ --     --, [1]
+ --FROM
+ --(
+ --    SELECT
+ --           [T1].[RepoObject_guid]
+ --         , [T1].[key]
+ --         , [T1].[SysObject_fullname]
+ --         , [T1].[normalized]
+ --         , [T2_normalized] = [T2].[normalized]
+ --         , [T2_json_key] = [T2].[json_key]
+ --    FROM
+ --         repo.RepoObject__sql_modules_20_statement_children AS T1
+ --         CROSS APPLY
+ --         [repo].[ftv_sqlparse]([T1].[children]) AS T2
+ --    WHERE  [T1].[class] = 'Function'
+ --           AND [T1].[is_group] = 1
+ --) AS sourcetable PIVOT(MAX(T2_normalized) FOR T2_json_key IN(
+ --                                                             [0]
+ --                                                           , [1])) AS PivotTable
+ --WHERE [1] = '(NOLOCK)'
+----
+// end::sql_modules_definition[]
+
+

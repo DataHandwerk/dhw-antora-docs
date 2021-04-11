@@ -1,0 +1,209 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.RepoObject_Adoc << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  * AdocContent : nvarchar(max)
+  is_DocsOutput : int
+  PropertyCount : int
+  RepoObject_fullname : nvarchar(261)
+  RepoObject_fullname2 : nvarchar(257)
+  RepoObject_schema_name : nvarchar(128)
+  SysObject_fullname : nvarchar(261)
+  SysObject_fullname2 : nvarchar(257)
+  SysObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  SysObject_type_name : nvarchar(128)
+}
+
+entity docs.RepoObject_Adoc_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  * AdocContent : nvarchar(max)
+  FE017F28-EB74-4D10-8A53-2A688FF0FB49 : int
+  is_DocsOutput : int
+  PropertyCount : int
+  RepoObject_fullname : nvarchar(261)
+  RepoObject_fullname2 : nvarchar(257)
+  RepoObject_schema_name : nvarchar(128)
+  SysObject_fullname : nvarchar(261)
+  SysObject_fullname2 : nvarchar(257)
+  SysObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  SysObject_type_name : nvarchar(128)
+}
+
+entity docs.RepoObject_ColumnList << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  AntoraColumnDetails : nvarchar(max)
+  AntoraNonPkColumnTableRows : nvarchar(max)
+  AntoraPkColumnTableRows : nvarchar(max)
+  PlantumlNonPkEntityColumns : nvarchar(max)
+  PlantumlPkEntityColumns : nvarchar(max)
+}
+
+entity docs.RepoObject_IndexList_T << U >> {
+  **RepoObject_guid** : uniqueidentifier
+  --
+  AntoraIndexList : nvarchar(max)
+  PumlIndexList : nvarchar(max)
+}
+
+entity docs.RepoObject_ParameterList << V >> {
+  **RepoObject_guid** : uniqueidentifier
+  --
+  AntoraParameterList : nvarchar(max)
+}
+
+entity docs.usp_PERSIST_RepoObject_Adoc_T << P >> {
+  --
+}
+
+entity repo.RepoObject_gross << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  AntoraReferencedList : nvarchar(max)
+  AntoraReferencingList : nvarchar(max)
+  CreateColumnList : nvarchar(max)
+  DbmlColumnList : nvarchar(max)
+  has_different_sys_names : bit
+  has_execution_plan_issue : bit
+  has_get_referenced_issue : bit
+  has_history : bit
+  has_history_columns : bit
+  history_schema_name : nvarchar(128)
+  history_table_name : nvarchar(128)
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_DocsOutput : int
+  * is_in_reference : int
+  is_persistence : bit
+  is_persistence_check_duplicate_per_pk : bit
+  is_persistence_check_for_empty_source : bit
+  is_persistence_delete_changed : bit
+  is_persistence_delete_missing : bit
+  is_persistence_insert : bit
+  is_persistence_truncate : bit
+  is_persistence_update_changed : bit
+  is_repo_managed : bit
+  * is_RepoObject_name_uniqueidentifier : int
+  is_SysObject_missing : bit
+  * is_SysObject_name_uniqueidentifier : int
+  * modify_dt : datetime
+  node_id : bigint
+  persistence_source_RepoObject_fullname : nvarchar(261)
+  persistence_source_RepoObject_fullname2 : nvarchar(257)
+  persistence_source_RepoObject_guid : uniqueidentifier
+  persistence_source_RepoObject_xref : nvarchar(269)
+  persistence_source_SysObject_fullname : nvarchar(261)
+  persistence_source_SysObject_fullname2 : nvarchar(257)
+  persistence_source_SysObject_xref : nvarchar(269)
+  PersistenceCompareColumnList : nvarchar(max)
+  PersistenceInsertColumnList : nvarchar(max)
+  PersistenceUpdateColumnList : nvarchar(max)
+  pk_index_guid : uniqueidentifier
+  pk_IndexPatternColumnDatatype : nvarchar(4000)
+  pk_IndexPatternColumnName : nvarchar(4000)
+  pk_IndexPatternColumnName_new : nvarchar(4000)
+  pk_IndexSemanticGroup : nvarchar(512)
+  Property_ms_description : nvarchar(4000)
+  Repo_history_table_guid : uniqueidentifier
+  Repo_temporal_type : tinyint
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_fullname2 : nvarchar(257)
+  * RepoObject_name : nvarchar(128)
+  RepoObject_Referencing_Count : int
+  * RepoObject_schema_name : nvarchar(128)
+  * RepoObject_type : char(2)
+  RepoObject_type_name : nvarchar(128)
+  sql_modules_antora : nvarchar(max)
+  sql_modules_definition : nvarchar(max)
+  sql_modules_formatted : nvarchar(max)
+  sql_modules_formatted2 : nvarchar(max)
+  * SysObject_fullname : nvarchar(261)
+  * SysObject_fullname2 : nvarchar(257)
+  SysObject_id : int
+  SysObject_modify_date : datetime
+  * SysObject_name : nvarchar(128)
+  * SysObject_parent_object_id : int
+  SysObject_query_executed_dt : datetime
+  SysObject_query_plan : xml
+  * SysObject_query_sql : nvarchar(406)
+  * SysObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  SysObject_type_name : nvarchar(128)
+  temporal_type : tinyint
+  * usp_persistence_name : nvarchar(140)
+  usp_persistence_RepoObject_guid : uniqueidentifier
+}
+
+entity repo.RepoObjectProperty << U >> {
+  * **RepoObjectProperty_id** : int
+  --
+  inheritance : tinyint
+  * property_name : nvarchar(128)
+  property_value : sql_variant
+  * RepoObject_guid : uniqueidentifier
+  {abstract} property_basetype : sql_variant
+  {abstract} property_bigint : bigint
+  {abstract} property_float : float
+  {abstract} property_int : int
+  {abstract} property_money : money
+  {abstract} property_nvarchar : nvarchar(4000)
+  {abstract} property_real : real
+  {abstract} property_varchar : varchar(8000)
+}
+
+entity repo.RepoObjectProperty_cross << V >> {
+  --
+  * property_name : nvarchar(128)
+  * RepoObject_guid : uniqueidentifier
+}
+
+docs.RepoObject_Adoc <.. docs.RepoObject_Adoc_T
+docs.RepoObject_Adoc <.. docs.usp_PERSIST_RepoObject_Adoc_T
+docs.RepoObject_Adoc_T <.. docs.usp_PERSIST_RepoObject_Adoc_T
+docs.RepoObject_ColumnList <.. docs.RepoObject_Adoc
+docs.RepoObject_IndexList_T <.. docs.RepoObject_Adoc
+docs.RepoObject_ParameterList <.. docs.RepoObject_Adoc
+repo.RepoObject_gross <.. docs.RepoObject_Adoc
+repo.RepoObjectProperty <.. docs.RepoObject_Adoc
+repo.RepoObjectProperty_cross <.. docs.RepoObject_Adoc
+docs.RepoObject_Adoc::AdocContent <-- docs.RepoObject_Adoc_T::AdocContent
+docs.RepoObject_Adoc::is_DocsOutput <-- docs.RepoObject_Adoc_T::is_DocsOutput
+docs.RepoObject_Adoc::PropertyCount <-- docs.RepoObject_Adoc_T::PropertyCount
+docs.RepoObject_Adoc::RepoObject_fullname <-- docs.RepoObject_Adoc_T::RepoObject_fullname
+docs.RepoObject_Adoc::RepoObject_fullname2 <-- docs.RepoObject_Adoc_T::RepoObject_fullname2
+docs.RepoObject_Adoc::RepoObject_guid <-- docs.RepoObject_Adoc_T::RepoObject_guid
+docs.RepoObject_Adoc::RepoObject_schema_name <-- docs.RepoObject_Adoc_T::RepoObject_schema_name
+docs.RepoObject_Adoc::SysObject_fullname <-- docs.RepoObject_Adoc_T::SysObject_fullname
+docs.RepoObject_Adoc::SysObject_fullname2 <-- docs.RepoObject_Adoc_T::SysObject_fullname2
+docs.RepoObject_Adoc::SysObject_schema_name <-- docs.RepoObject_Adoc_T::SysObject_schema_name
+docs.RepoObject_Adoc::SysObject_type <-- docs.RepoObject_Adoc_T::SysObject_type
+docs.RepoObject_Adoc::SysObject_type_name <-- docs.RepoObject_Adoc_T::SysObject_type_name
+repo.RepoObject_gross::RepoObject_guid <-- docs.RepoObject_Adoc::RepoObject_guid

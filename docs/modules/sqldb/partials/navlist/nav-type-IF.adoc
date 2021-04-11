@@ -1,0 +1,4 @@
+= inline function
+
+include::partial$navlist/navlist-type-IF.adoc[]
+

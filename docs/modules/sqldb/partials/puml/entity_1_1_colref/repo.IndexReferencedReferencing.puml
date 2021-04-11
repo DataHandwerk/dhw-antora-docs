@@ -1,0 +1,109 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.Index_union << V >> {
+  **index_guid** : uniqueidentifier
+  --
+  index_name : nvarchar(128)
+  * index_type : tinyint
+  IndexPatternColumnGuid : varchar(8000)
+  is_index_disabled : bit
+  is_index_primary_key : bit
+  is_index_real : bit
+  is_index_unique : bit
+  parent_RepoObject_guid : uniqueidentifier
+  referenced_index_guid : uniqueidentifier
+}
+
+entity repo.Index_virtual << U >> {
+  * **index_guid** : uniqueidentifier
+  --
+  * has_managedName : bit
+  index_name : nvarchar(128)
+  * index_type : tinyint
+  * is_index_disabled : bit
+  * is_index_primary_key : bit
+  * is_index_unique : bit
+  * parent_RepoObject_guid : uniqueidentifier
+  referenced_index_guid : uniqueidentifier
+  RowNumberInReferencing : int
+}
+
+entity repo.IndexReferencedReferencing << V >> {
+  **referenced_RepoObject_guid** : uniqueidentifier
+  **referencing_RepoObject_guid** : uniqueidentifier
+  --
+  referenced_index_guid : uniqueidentifier
+  RowNumberInReferencing_Target : int
+  source_index_guid : uniqueidentifier
+  * source_index_type : tinyint
+}
+
+entity repo.IndexReferencedReferencing_HasFullColumnsInReferencing << V >> {
+  **referenced_RepoObject_guid** : uniqueidentifier
+  **referencing_RepoObject_guid** : uniqueidentifier
+  --
+  referenced_index_guid : uniqueidentifier
+  referencing_IndexPatternColumnGuid : varchar(8000)
+  RowNumberInReferencing : bigint
+  RowNumberInReferencing_Target : int
+  source_index_guid : uniqueidentifier
+  * source_index_type : tinyint
+}
+
+entity repo.RepoObject_reference_union << V >> {
+  **referenced_RepoObject_guid** : uniqueidentifier
+  **referencing_RepoObject_guid** : uniqueidentifier
+  --
+  * InformationSource : varchar(31)
+  * one : int
+  referenced_entity_name : nvarchar(128)
+  * referenced_fullname : nvarchar(517)
+  referenced_id : int
+  referenced_node_id : bigint
+  referenced_schema_name : nvarchar(128)
+  referenced_type : char(2)
+  referencing_entity_name : nvarchar(128)
+  * referencing_fullname : nvarchar(517)
+  referencing_id : int
+  referencing_node_id : bigint
+  referencing_schema_name : nvarchar(128)
+  referencing_type : varchar(2)
+}
+
+repo.Index_union <.. repo.IndexReferencedReferencing
+repo.Index_virtual <.. repo.Index_union
+repo.Index_virtual <.. repo.IndexReferencedReferencing
+repo.IndexReferencedReferencing <.. repo.IndexReferencedReferencing_HasFullColumnsInReferencing
+repo.RepoObject_reference_union <.. repo.IndexReferencedReferencing
+repo.Index_virtual::referenced_index_guid <-- repo.IndexReferencedReferencing::referenced_index_guid
+repo.IndexReferencedReferencing::referenced_index_guid <-- repo.IndexReferencedReferencing_HasFullColumnsInReferencing::referenced_index_guid
+repo.IndexReferencedReferencing::referenced_RepoObject_guid <-- repo.IndexReferencedReferencing_HasFullColumnsInReferencing::referenced_RepoObject_guid
+repo.IndexReferencedReferencing::referencing_RepoObject_guid <-- repo.IndexReferencedReferencing_HasFullColumnsInReferencing::referencing_RepoObject_guid
+repo.IndexReferencedReferencing::RowNumberInReferencing_Target <-- repo.IndexReferencedReferencing_HasFullColumnsInReferencing::RowNumberInReferencing_Target
+repo.IndexReferencedReferencing::source_index_guid <-- repo.IndexReferencedReferencing_HasFullColumnsInReferencing::source_index_guid
+repo.IndexReferencedReferencing::source_index_type <-- repo.IndexReferencedReferencing_HasFullColumnsInReferencing::source_index_type
+repo.RepoObject_reference_union::referenced_RepoObject_guid <-- repo.IndexReferencedReferencing::referenced_RepoObject_guid
+repo.RepoObject_reference_union::referencing_RepoObject_guid <-- repo.IndexReferencedReferencing::referencing_RepoObject_guid

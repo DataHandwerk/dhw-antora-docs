@@ -1,0 +1,4 @@
+= repo
+
+include::partial$navlist/navlist-schema-repo.adoc[]
+

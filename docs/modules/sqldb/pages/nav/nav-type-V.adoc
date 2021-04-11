@@ -1,0 +1,4 @@
+= view
+
+include::partial$navlist/navlist-type-V.adoc[]
+

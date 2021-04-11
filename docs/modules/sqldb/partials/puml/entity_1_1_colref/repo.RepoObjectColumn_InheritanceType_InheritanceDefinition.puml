@@ -1,0 +1,157 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+  --
+  Parameter_default_value : sql_variant
+  Parameter_desciption : nvarchar(1000)
+  Parameter_value : sql_variant
+  {abstract} Parameter_value__result_int : int
+  {abstract} Parameter_value__result_nvarchar : nvarchar(4000)
+}
+
+entity repo.PropertyName_RepoObjectColumn << V >> {
+  * **property_name** : nvarchar(128)
+  --
+}
+
+entity repo.RepoObjectColumn << U >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+  --
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_persistence_no_check : bit
+  is_persistence_no_include : bit
+  is_persistence_no_update : bit
+  is_query_plan_expression : bit
+  is_SysObjectColumn_missing : bit
+  persistence_source_RepoObjectColumn_guid : uniqueidentifier
+  Referencing_Count : int
+  Repo_default_definition : nvarchar(max)
+  Repo_default_is_system_named : bit
+  Repo_default_name : nvarchar(128)
+  Repo_definition : nvarchar(max)
+  * Repo_generated_always_type : tinyint
+  Repo_graph_type : int
+  Repo_increment_value : sql_variant
+  * Repo_is_computed : bit
+  * Repo_is_identity : bit
+  Repo_is_nullable : bit
+  Repo_is_persisted : bit
+  Repo_seed_value : sql_variant
+  Repo_user_type_fullname : nvarchar(128)
+  Repo_user_type_name : nvarchar(128)
+  Repo_uses_database_collation : bit
+  * RepoObject_guid : uniqueidentifier
+  RepoObjectColumn_column_id : int
+  * RepoObjectColumn_name : nvarchar(128)
+  SysObjectColumn_column_id : int
+  * SysObjectColumn_name : nvarchar(128)
+  {abstract} has_different_sys_names : bit
+  * {static} is_RepoObjectColumn_name_uniqueidentifier : int
+  * {static} is_SysObjectColumn_name_uniqueidentifier : int
+}
+
+entity repo.RepoObjectColumn_InheritanceType_InheritanceDefinition << V >> {
+  --
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : int
+  par_Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  par_InheritanceDefinition : nvarchar(4000)
+  par_InheritanceType : int
+  * property_name : nvarchar(128)
+  property_value : sql_variant
+  * RepoObjectColumn_guid : uniqueidentifier
+  * RepoObjectColumn_name : nvarchar(128)
+  roc_Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  roc_InheritanceDefinition : nvarchar(4000)
+  roc_InheritanceType : tinyint
+  sub_Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  sub_InheritanceDefinition : nvarchar(4000)
+  sub_InheritanceType : int
+}
+
+entity repo.RepoObjectColumn_InheritanceType_resulting_InheritanceDefinition << V >> {
+  --
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : int
+  * is_force_inherit_empty_source : int
+  * is_StringAggAllSources : int
+  * property_name : nvarchar(128)
+  property_value : sql_variant
+  * RepoObjectColumn_guid : uniqueidentifier
+  * RepoObjectColumn_name : nvarchar(128)
+  resulting_InheritanceDefinition : nvarchar(4000)
+}
+
+entity repo.RepoObjectColumnProperty << U >> {
+  * **RepoObjectColumnProperty_id** : int
+  --
+  inheritance : tinyint
+  * property_name : nvarchar(128)
+  * property_value : sql_variant
+  * RepoObjectColumn_guid : uniqueidentifier
+  {abstract} property_basetype : sql_variant
+  {abstract} property_bigint : bigint
+  {abstract} property_float : float
+  {abstract} property_int : int
+  {abstract} property_money : money
+  {abstract} property_nvarchar : nvarchar(4000)
+  {abstract} property_real : real
+  {abstract} property_varchar : varchar(8000)
+}
+
+repo.Parameter <.. repo.PropertyName_RepoObjectColumn
+repo.Parameter <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
+repo.PropertyName_RepoObjectColumn <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
+repo.RepoObjectColumn <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
+repo.RepoObjectColumn_InheritanceType_InheritanceDefinition <.. repo.RepoObjectColumn_InheritanceType_resulting_InheritanceDefinition
+repo.RepoObjectColumnProperty <.. repo.PropertyName_RepoObjectColumn
+repo.RepoObjectColumnProperty <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
+repo.Parameter::Parameter_value__result_int <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::par_InheritanceType
+repo.Parameter::Parameter_value__result_int <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::sub_InheritanceType
+repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::sub_Inheritance_StringAggSeparatorSql
+repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::sub_InheritanceDefinition
+repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::par_Inheritance_StringAggSeparatorSql
+repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::par_InheritanceDefinition
+repo.PropertyName_RepoObjectColumn::property_name <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::property_name
+repo.RepoObjectColumn::Inheritance_StringAggSeparatorSql <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::roc_Inheritance_StringAggSeparatorSql
+repo.RepoObjectColumn::InheritanceDefinition <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::roc_InheritanceDefinition
+repo.RepoObjectColumn::InheritanceType <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::roc_InheritanceType
+repo.RepoObjectColumn::RepoObjectColumn_guid <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::RepoObjectColumn_guid
+repo.RepoObjectColumn::RepoObjectColumn_name <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::RepoObjectColumn_name
+repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::Inheritance_StringAggSeparatorSql <-- repo.RepoObjectColumn_InheritanceType_resulting_InheritanceDefinition::Inheritance_StringAggSeparatorSql
+repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::InheritanceDefinition <-- repo.RepoObjectColumn_InheritanceType_resulting_InheritanceDefinition::InheritanceDefinition
+repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::InheritanceType <-- repo.RepoObjectColumn_InheritanceType_resulting_InheritanceDefinition::InheritanceType
+repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::property_name <-- repo.RepoObjectColumn_InheritanceType_resulting_InheritanceDefinition::property_name
+repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::property_value <-- repo.RepoObjectColumn_InheritanceType_resulting_InheritanceDefinition::property_value
+repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::RepoObjectColumn_guid <-- repo.RepoObjectColumn_InheritanceType_resulting_InheritanceDefinition::RepoObjectColumn_guid
+repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::RepoObjectColumn_name <-- repo.RepoObjectColumn_InheritanceType_resulting_InheritanceDefinition::RepoObjectColumn_name
+repo.RepoObjectColumnProperty::property_value <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::property_value

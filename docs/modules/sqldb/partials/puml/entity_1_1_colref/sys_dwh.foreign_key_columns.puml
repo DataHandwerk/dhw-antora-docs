@@ -1,0 +1,56 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo_sys.ForeignKeyColumn << V >> {
+  --
+  * constraint_column_id : int
+  * constraint_object_id : int
+  ForeignKey_fullname : nvarchar(261)
+  ForeignKey_guid : uniqueidentifier
+  ForeignKey_name : sysname
+  * parent_column_id : int
+  * parent_object_id : int
+  * referenced_column_id : int
+  referenced_column_name : sysname
+  referenced_name : nvarchar(128)
+  * referenced_object_id : int
+  referenced_RepoObject_guid : uniqueidentifier
+  referenced_RepoObjectColumn_guid : uniqueidentifier
+  referenced_schema_name : nvarchar(128)
+  referencing_column_name : sysname
+  referencing_name : nvarchar(128)
+  referencing_RepoObject_fullname : nvarchar(261)
+  referencing_RepoObject_guid : uniqueidentifier
+  referencing_RepoObjectColumn_guid : uniqueidentifier
+  referencing_schema_name : nvarchar(128)
+  referencing_SysObject_fullname : nvarchar(261)
+}
+
+entity sys_dwh.foreign_key_columns << SN >> {
+  --
+}
+
+sys_dwh.foreign_key_columns <.. repo_sys.ForeignKeyColumn
+

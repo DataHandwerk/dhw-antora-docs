@@ -1,0 +1,684 @@
+= [repo].[RepoObject_SqlCreateTable]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_IndexPatternColumnDatatype:
+:ExistsProperty--pk_IndexPatternColumnName:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+7990291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+V 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+view
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1570104634
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-08 15:44:19
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-RepoObject_guid]]
+=== RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*RepoObject_guid*
+|uniqueidentifier
+|NOT NULL
+|
+|
+|===
+
+
+[[column-ConList]]
+=== ConList
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|ConList
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+
+[[column-DbmlTable]]
+=== DbmlTable
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|DbmlTable
+|nvarchar(max)
+|NOT NULL
+|
+|
+|===
+
+
+[[column-persistence_source_RepoObject_fullname]]
+=== persistence_source_RepoObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|persistence_source_RepoObject_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+
+[[column-persistence_source_RepoObject_guid]]
+=== persistence_source_RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|persistence_source_RepoObject_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-persistence_source_SysObject_fullname]]
+=== persistence_source_SysObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|persistence_source_SysObject_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+
+[[column-RepoObject_fullname]]
+=== RepoObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_fullname
+|nvarchar(261)
+|NOT NULL
+|
+|
+|===
+
+
+[[column-SqlCreateTable]]
+=== SqlCreateTable
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SqlCreateTable
+|nvarchar(max)
+|NOT NULL
+|
+|
+|===
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-RepoObject_guid>>*
+|uniqueidentifier
+|NOT NULL
+|
+|
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+|
+|<<column-ConList>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-DbmlTable>>
+|nvarchar(max)
+|NOT NULL
+|
+|
+
+|
+|<<column-persistence_source_RepoObject_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-persistence_source_RepoObject_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-persistence_source_SysObject_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-RepoObject_fullname>>
+|nvarchar(261)
+|NOT NULL
+|
+|
+
+|
+|<<column-SqlCreateTable>>
+|nvarchar(max)
+|NOT NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_RepoObject_SqlCreateTable]]
+=== PK_RepoObject_SqlCreateTable
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_no_group[no_group]
++
+--
+* <<column-RepoObject_guid>>; uniqueidentifier
+--
+* PK, Unique, Real: 1, 1, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:repo.fs_get_parameter_value.adoc[]
+* xref:repo.Index_gross.adoc[]
+* xref:repo.Index_SqlConstraint_PkUq.adoc[]
+* xref:repo.RepoObject.adoc[]
+* xref:repo.RepoObject_ColumnList.adoc[]
+* xref:repo.RepoObject_gross.adoc[]
+* xref:repo.RepoObjectColumn.adoc[]
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:repo.ftv_RepoObject_ColumReferenceRepoObject.adoc[]
+// end::AntoraReferencingList[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+662DB2AA-0F96-EB11-84F4-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+uniqueidentifier
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+RepoObject_guid
+// end::pk_IndexPatternColumnName[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [repo].[fs_get_parameter_value]
+* [repo].[Index_gross]
+* [repo].[Index_SqlConstraint_PkUq]
+* [repo].[RepoObject]
+* [repo].[RepoObject_ColumnList]
+* [repo].[RepoObject_gross]
+* [repo].[RepoObjectColumn]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+CREATE VIEW [repo].[RepoObject_SqlCreateTable]
+AS
+SELECT ro.[RepoObject_guid]
+ , DbmlTable = CONCAT (
+  'Table '
+  , QUOTENAME(ro.RepoObject_fullname, '"')
+  , '{'
+  , CHAR(13)
+  , CHAR(10)
+  , ColList.DbmlColumnList
+  --note: 'string to add notes'
+  , CASE 
+   WHEN NOT ro.Property_ms_description IS NULL
+    THEN CHAR(13) + CHAR(10) + 'Note: ''''''' + CHAR(13) + CHAR(10) + REPLACE(REPLACE(ro.Property_ms_description, '\', '\\'), '''''''', '\''''''') + CHAR(13) + CHAR(10) + ''''''''
+   END
+  --optional Settings [setting1: value1, setting2: value2, setting3, setting4]
+  , CHAR(13)
+  , CHAR(10)
+  , CASE 
+   WHEN NOT IndexList.DbmlIndexList IS NULL
+    THEN CHAR(13) + CHAR(10) + 'indexes {' + CHAR(13) + CHAR(10) + IndexList.DbmlIndexList + CHAR(13) + CHAR(10) + '}' + CHAR(13) + CHAR(10)
+   END
+  , '}'
+  , CHAR(13)
+  , CHAR(10)
+  )
+ , ro.RepoObject_fullname
+ , SqlCreateTable = CONCAT (
+  'CREATE TABLE '
+  , ro.[RepoObject_fullname]
+  , ' ('
+  , CHAR(13)
+  , CHAR(10)
+  , ColList.CreateColumnList
+  --todo:
+  --evtl noch ein Komma
+  , CASE 
+   WHEN EXISTS (
+     SELECT 1
+     FROM [repo].[Index_SqlConstraint_PkUq] ConList
+     WHERE ConList.[parent_RepoObject_guid] = ro.[RepoObject_guid]
+     )
+    THEN ','
+   END
+  --CONSTRAINT PK, FK, depending on some settings
+  , ConList.ConList
+  --PERIOD FOR SYSTEM_TIME ([ValidFrom], [ValidTo])
+  , CASE 
+   WHEN EXISTS (
+     SELECT 1
+     FROM [repo].[RepoObjectColumn] roc
+     WHERE roc.RepoObject_guid = ro.RepoObject_guid
+      AND roc.[Repo_generated_always_type] = 1
+     )
+    AND EXISTS (
+     SELECT 1
+     FROM [repo].[RepoObjectColumn] roc
+     WHERE roc.RepoObject_guid = ro.RepoObject_guid
+      AND roc.[Repo_generated_always_type] = 2
+     )
+    THEN CONCAT (
+      ', PERIOD FOR SYSTEM_TIME ('
+      , QUOTENAME((
+        SELECT [RepoObjectColumn_name]
+        FROM [repo].[RepoObjectColumn] roc
+        WHERE roc.RepoObject_guid = ro.RepoObject_guid
+         AND roc.[Repo_generated_always_type] = 1
+        ))
+      , ', '
+      , QUOTENAME((
+        SELECT [RepoObjectColumn_name]
+        FROM [repo].[RepoObjectColumn] roc
+        WHERE roc.RepoObject_guid = ro.RepoObject_guid
+         AND roc.[Repo_generated_always_type] = 2
+        ))
+      , ')'
+      , CHAR(13)
+      , CHAR(10)
+      )
+   END
+  , ')'
+  --WITH
+  --(
+  --SYSTEM_VERSIONING = ON ( HISTORY_TABLE = [Application].[Cities_Archive] )
+  --)
+  , CASE ro.[Repo_temporal_type]
+   WHEN 2
+    THEN CONCAT (
+      CHAR(13)
+      , CHAR(10)
+      , 'WITH'
+      , CHAR(13)
+      , CHAR(10)
+      , '('
+      , CHAR(13)
+      , CHAR(10)
+      , 'SYSTEM_VERSIONING = ON ( HISTORY_TABLE = '
+      --, '[Application].[Cities_Archive]'
+      , COALESCE(ro_hist.[RepoObject_fullname], CONCAT (
+        QUOTENAME(ISNULL(CAST([repo].[fs_get_parameter_value]('Hist_Table_schema', DEFAULT) AS NVARCHAR(128)), ro.[RepoObject_schema_name]))
+        , '.'
+        , QUOTENAME(CONCAT (
+          ro.[RepoObject_name]
+          , CAST([repo].[fs_get_parameter_value]('Hist_Table_name_suffix', DEFAULT) AS NVARCHAR(128))
+          ))
+        ))
+      , ' )'
+      , CHAR(13)
+      , CHAR(10)
+      , ')'
+      , CHAR(13)
+      , CHAR(10)
+      )
+   END
+  )
+ --ConstraintList
+ , ConList.ConList
+ , ro.persistence_source_RepoObject_fullname
+ , ro.persistence_source_RepoObject_guid
+ , ro.persistence_source_SysObject_fullname
+FROM repo.[RepoObject_gross] ro
+--column list should exist, otherwise CREATE statement will be invalid
+INNER JOIN [repo].[RepoObject_ColumnList] AS ColList
+ ON ColList.[RepoObject_guid] = ro.[RepoObject_guid]
+LEFT JOIN (
+ SELECT [parent_RepoObject_guid]
+  , ConList = STRING_AGG(CONCAT (
+    --we need to convert to first argument nvarchar(max) to avoid the limit of 8000 byte
+    CAST(' ' AS NVARCHAR(MAX))
+    , con.[SqlConstraint]
+    , CHAR(13)
+    , CHAR(10)
+    ), ',')
+ FROM [repo].[Index_SqlConstraint_PkUq] Con
+ GROUP BY [parent_RepoObject_guid]
+ ) ConList
+ ON ConList.[parent_RepoObject_guid] = ro.[RepoObject_guid]
+LEFT JOIN (
+ SELECT [parent_RepoObject_guid]
+  , DbmlIndexList = STRING_AGG(CONCAT (
+    --we need to convert to first argument nvarchar(max) to avoid the limit of 8000 byte
+    CAST(' ' AS NVARCHAR(MAX))
+    , '('
+    , i.[DbmlIndexColumnList]
+    , ') '
+    , '['
+    , CASE 
+     --this doesn't work. but we define pk in DbmlColumnList
+     WHEN i.[is_index_primary_key] = 1
+      THEN 'pk'
+     WHEN i.[is_index_unique] = 1
+      THEN 'unique'
+     ELSE 'name:''' + [index_name] + ''''
+     END
+    , ']'
+    ), CHAR(13) + CHAR(10)) WITHIN
+ GROUP (
+   ORDER BY i.[RowNumber_PkPerParentObject]
+   )
+ FROM [repo].[Index_gross] i
+ WHERE i.[is_index_primary_key] = 0
+  AND (
+   i.is_index_unique = 1
+   OR i.is_index_real = 1
+   )
+ GROUP BY [parent_RepoObject_guid]
+ ) IndexList
+ ON IndexList.[parent_RepoObject_guid] = ro.[RepoObject_guid]
+LEFT JOIN repo.RepoObject ro_hist
+ ON ro_hist.RepoObject_guid = ro.Repo_history_table_guid
+
+----
+// end::sql_modules_definition[]
+
+

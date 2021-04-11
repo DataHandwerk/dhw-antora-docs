@@ -1,0 +1,728 @@
+= [repo].[ftv_RepoObjectColumn_ReferenceTree]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--AntoraParameterList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+3F4679B8-147C-EB11-84E6-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+IF
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+inline function
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1060198827
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-03-09 23:38:38
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-Referenced_Depth]]
+=== Referenced_Depth
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Referenced_Depth
+|int
+|NULL
+|
+|
+|===
+
+
+[[column-Referenced_fullname]]
+=== Referenced_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Referenced_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+
+[[column-Referenced_guid]]
+=== Referenced_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Referenced_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-Referenced_RepoObject_guid]]
+=== Referenced_RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Referenced_RepoObject_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-Referenced_type]]
+=== Referenced_type
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Referenced_type
+|char(2)
+|NULL
+|
+|
+|===
+
+
+[[column-ReferencedColumn_fullname]]
+=== ReferencedColumn_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|ReferencedColumn_fullname
+|nvarchar(520)
+|NULL
+|
+|
+|===
+
+
+[[column-ReferencedColumn_type]]
+=== ReferencedColumn_type
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|ReferencedColumn_type
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+
+[[column-Referencing_Depth]]
+=== Referencing_Depth
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Referencing_Depth
+|int
+|NULL
+|
+|
+|===
+
+
+[[column-Referencing_fullname]]
+=== Referencing_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Referencing_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+
+[[column-Referencing_guid]]
+=== Referencing_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Referencing_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-Referencing_RepoObject_guid]]
+=== Referencing_RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Referencing_RepoObject_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-Referencing_type]]
+=== Referencing_type
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Referencing_type
+|char(2)
+|NULL
+|
+|
+|===
+
+
+[[column-ReferencingColumn_fullname]]
+=== ReferencingColumn_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|ReferencingColumn_fullname
+|nvarchar(520)
+|NULL
+|
+|
+|===
+
+
+[[column-ReferencingColumn_type]]
+=== ReferencingColumn_type
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|ReferencingColumn_type
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+
+[[column-RepoObjectColumn_guid]]
+=== RepoObjectColumn_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObjectColumn_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+|
+|<<column-Referenced_Depth>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-Referenced_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-Referenced_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-Referenced_RepoObject_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-Referenced_type>>
+|char(2)
+|NULL
+|
+|
+
+|
+|<<column-ReferencedColumn_fullname>>
+|nvarchar(520)
+|NULL
+|
+|
+
+|
+|<<column-ReferencedColumn_type>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-Referencing_Depth>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-Referencing_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-Referencing_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-Referencing_RepoObject_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-Referencing_type>>
+|char(2)
+|NULL
+|
+|
+
+|
+|<<column-ReferencingColumn_fullname>>
+|nvarchar(520)
+|NULL
+|
+|
+
+|
+|<<column-ReferencingColumn_type>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-RepoObjectColumn_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+* @RepoObjectColumn_guid (uniqueidentifier)
+* @Referenced_Depth (int)
+* @Referencing_Depth (int)
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+
+// end::pk_IndexPatternColumnName[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:graph.RepoObjectColumn_ReferencingReferenced.adoc[]
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:repo.RepoObjectColumn_ReferenceTree.adoc[]
+// end::AntoraReferencingList[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [graph].[RepoObjectColumn_ReferencingReferenced]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+/*
+--Duplicates are possible, if exists alternative path between objects with different depth
+--to elimenate them, exclude Referenced_Depth and Referencing_Depth and use DISTINCT
+
+
+DECLARE @RepoObjectColumn_guid uniqueidentifier
+
+SET @RepoObjectColumn_guid = (SELECT RepoObjectColumn_guid from [repo].[RepoObjectColumn_gross] where RepoObjectColumn_fullname = '[repo].[RepoObjectColumn_gross].[RepoObjectColumn_guid]')
+
+SELECT *
+FROM [repo].[ftv_RepoObjectColumn_ReferenceTree](@RepoObjectColumn_guid, DEFAULT, DEFAULT)
+ORDER BY [Referenced_Depth]
+ , [Referencing_Depth]
+
+SELECT *
+FROM [repo].[ftv_RepoObjectColumn_ReferenceTree](@RepoObjectColumn_guid, 1, 1)
+ORDER BY [Referenced_Depth]
+ , [Referencing_Depth]
+
+SELECT *
+FROM [repo].[ftv_RepoObjectColumn_ReferenceTree](@RepoObjectColumn_guid, 0, 6)
+ORDER BY [Referenced_Depth]
+ , [Referencing_Depth]
+
+SELECT *
+FROM [repo].[ftv_RepoObjectColumn_ReferenceTree](@RepoObjectColumn_guid, 100, 100)
+ORDER BY [Referenced_Depth]
+ , [Referencing_Depth]
+
+
+*/
+CREATE FUNCTION [repo].[ftv_RepoObjectColumn_ReferenceTree] (
+ @RepoObjectColumn_guid uniqueidentifier
+ , @Referenced_Depth INT = 0
+ , @Referencing_Depth INT = 0
+ )
+RETURNS TABLE
+AS
+RETURN (
+  --trees are recursive to get parent child relations
+  WITH tree_referenced AS (
+    SELECT [FirstNode].*
+     , 1 AS [Referenced_Depth]
+     , 0 AS [Referencing_Depth]
+    FROM graph.RepoObjectColumn_ReferencingReferenced AS FirstNode
+    WHERE [Referencing_guid] = @RepoObjectColumn_guid
+     AND 1 <= @Referenced_Depth
+    
+    UNION ALL
+    
+    SELECT [child].*
+     , [Referenced_Depth] = [parent].[Referenced_Depth] + 1
+     , 0
+    FROM graph.RepoObjectColumn_ReferencingReferenced AS child
+    INNER JOIN tree_referenced AS parent
+     ON [child].Referencing_guid = [parent].Referenced_guid
+    WHERE [parent].[Referenced_Depth] < @Referenced_Depth
+    )
+   , tree_referencing AS (
+    SELECT [FirstNode].*
+     , 0 AS [Referenced_Depth]
+     , 1 AS [Referencing_Depth]
+    FROM graph.RepoObjectColumn_ReferencingReferenced AS FirstNode
+    WHERE [Referenced_guid] = @RepoObjectColumn_guid
+     AND 1 <= @Referencing_Depth
+    
+    UNION ALL
+    
+    SELECT [child].*
+     , 0
+     , [Referencing_Depth] = [parent].[Referencing_Depth] + 1
+    FROM graph.RepoObjectColumn_ReferencingReferenced AS child
+    INNER JOIN tree_referencing AS parent
+     ON [child].Referenced_guid = [parent].Referencing_guid
+    WHERE [parent].[Referencing_Depth] < @Referencing_Depth
+    )
+  SELECT *
+   , @RepoObjectColumn_guid AS RepoObjectColumn_guid
+  FROM tree_referenced
+  
+  UNION
+  
+  SELECT *
+   , @RepoObjectColumn_guid AS RepoObjectColumn_guid
+  FROM tree_referencing
+  )
+----
+// end::sql_modules_definition[]
+
+

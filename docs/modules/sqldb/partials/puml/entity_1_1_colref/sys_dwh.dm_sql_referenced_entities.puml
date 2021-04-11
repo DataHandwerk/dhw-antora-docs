@@ -1,0 +1,85 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo_sys.ColumnReference << V >> {
+  --
+  * is_all_columns_found : bit
+  * is_ambiguous : bit
+  * is_caller_dependent : bit
+  * is_incomplete : bit
+  * is_insert_all : bit
+  * is_select_all : bit
+  * is_selected : bit
+  * is_updated : bit
+  referenced_class : tinyint
+  referenced_class_desc : nvarchar(60)
+  referenced_database_name : nvarchar(128)
+  referenced_entity_name : nvarchar(128)
+  referenced_id : int
+  referenced_minor_id : int
+  referenced_minor_name : nvarchar(128)
+  referenced_schema_name : nvarchar(128)
+  referenced_server_name : nvarchar(128)
+  referencing_minor_id : int
+  * SysObject_full_name : nvarchar(517)
+}
+
+entity repo_sys.RepoObjectReferenced << V >> {
+  --
+  has_different_sys_names : bit
+  * is_all_columns_found : bit
+  * is_ambiguous : bit
+  * is_caller_dependent : bit
+  * is_incomplete : bit
+  * is_insert_all : bit
+  is_repo_managed : bit
+  * is_select_all : bit
+  * is_selected : bit
+  * is_updated : bit
+  referenced_class : tinyint
+  referenced_class_desc : nvarchar(60)
+  referenced_database_name : nvarchar(128)
+  referenced_entity_name : nvarchar(128)
+  referenced_id : int
+  referenced_minor_id : int
+  referenced_minor_name : nvarchar(128)
+  referenced_schema_name : nvarchar(128)
+  referenced_server_name : nvarchar(128)
+  referencing_minor_id : int
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_guid : uniqueidentifier
+  * SysObject_fullname : nvarchar(261)
+  SysObject_id : int
+  SysObject_modify_date : datetime
+  SysObject_type : char(2)
+}
+
+entity sys_dwh.dm_sql_referenced_entities << SN >> {
+  --
+}
+
+sys_dwh.dm_sql_referenced_entities <.. repo_sys.RepoObjectReferenced
+sys_dwh.dm_sql_referenced_entities <.. repo_sys.ColumnReference
+

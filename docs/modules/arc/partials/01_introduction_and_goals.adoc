@@ -3,7 +3,7 @@
 :date: {docdate}
 
 :sectnums:
-include::_feedback.adoc[]
+// include::_feedback.adoc[]
 
 kbd:[DHW] (**D**ata**H**and**w**erk) is designed to support BI and DWH developers working with the Microsoft BI platform (MS SQL Server).
 
@@ -112,7 +112,7 @@ A developer is not undesirably restricted by the use of tools and methods. He al
 *** by using unique `guid` it is possible to copy objects including the additional metadata stored in the `extended properties` into other databases.
 . Independence from immediate support
 ** One should be able to work even if a tool does not work as expected. There shall be no blocking dependency on a tool or a method that requires support fire department interventions, but there shall always be a manual way out.
-** This should especially make community collaboration more attractive: image:https://img.shields.io/badge/collaborate-in%20discussions-blue.svg[link="{project-discussions}"]
+// ** This should especially make community collaboration more attractive: image:https://img.shields.io/badge/collaborate-in%20discussions-blue.svg[link="{project-discussions}"]
 . Documentation
 ** The repository, how it works, and the methods are *clearly and thoroughly documented*. Good documentation
 *** provides transparency

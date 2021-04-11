@@ -1,0 +1,4 @@
+= graph
+
+include::partial$navlist/navlist-schema-graph.adoc[]
+

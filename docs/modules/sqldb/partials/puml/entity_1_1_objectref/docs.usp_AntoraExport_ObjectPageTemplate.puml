@@ -1,0 +1,48 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.usp_AntoraExport << P >> {
+}
+
+entity docs.usp_AntoraExport_ObjectPageTemplate << P >> {
+}
+
+entity repo.fs_get_parameter_value << FN >> {
+}
+
+entity repo.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+}
+
+entity repo.usp_ExecutionLog_insert << P >> {
+}
+
+docs.usp_AntoraExport_ObjectPageTemplate <.. docs.usp_AntoraExport
+repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPageTemplate
+repo.Parameter <.. repo.fs_get_parameter_value
+repo.Parameter <.. docs.usp_AntoraExport_ObjectPageTemplate
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPageTemplate
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport

@@ -1,0 +1,560 @@
+= [repo].[usp_ExecutionLog_insert]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--AntoraParameterList:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+8B90291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+P 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+stored procedure
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1714105147
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-01-28 20:13:02
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+* @execution_instance_guid (uniqueidentifier)
+* @ssis_execution_id (bigint)
+* @sub_execution_id (int)
+* @parent_execution_log_id (bigint)
+* @current_execution_guid (uniqueidentifier)
+* @proc_id (int)
+* @proc_schema_name (nvarchar(128))
+* @proc_name (nvarchar(128))
+* @event_info (nvarchar(max))
+* @step_id (int)
+* @step_name (nvarchar(1000))
+* @source_object (nvarchar(261))
+* @target_object (nvarchar(261))
+* @inserted (int)
+* @updated (int)
+* @deleted (int)
+* @info_01 (sql_variant)
+* @info_02 (sql_variant)
+* @info_03 (sql_variant)
+* @info_04 (sql_variant)
+* @info_05 (sql_variant)
+* @info_06 (sql_variant)
+* @info_07 (sql_variant)
+* @info_08 (sql_variant)
+* @info_09 (sql_variant)
+* @parameter_01 (sql_variant)
+* @parameter_02 (sql_variant)
+* @parameter_03 (sql_variant)
+* @parameter_04 (sql_variant)
+* @parameter_05 (sql_variant)
+* @parameter_06 (sql_variant)
+* @parameter_07 (sql_variant)
+* @parameter_08 (sql_variant)
+* @parameter_09 (sql_variant)
+* @parameter_10 (sql_variant)
+* @parameter_11 (sql_variant)
+* @parameter_12 (sql_variant)
+* @parameter_13 (sql_variant)
+* @parameter_14 (sql_variant)
+* @parameter_15 (sql_variant)
+* @parameter_16 (sql_variant)
+* @parameter_17 (sql_variant)
+* @parameter_18 (sql_variant)
+* @parameter_19 (sql_variant)
+* @parameter_20 (sql_variant)
+* @execution_log_id (bigint)
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+
+// end::pk_IndexPatternColumnName[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:repo.ExecutionLog.adoc[]
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:docs.usp_AntoraExport.adoc[]
+* xref:docs.usp_AntoraExport_navigation.adoc[]
+* xref:docs.usp_AntoraExport_ObjectPage.adoc[]
+* xref:docs.usp_AntoraExport_ObjectPageTemplate.adoc[]
+* xref:docs.usp_AntoraExport_ObjectPartialProperties.adoc[]
+* xref:docs.usp_AntoraExport_ObjectPuml.adoc[]
+* xref:docs.usp_AntoraExport_Page_IndexSemanticGroup.adoc[]
+* xref:docs.usp_PERSIST_RepoObject_Adoc_T.adoc[]
+* xref:docs.usp_PERSIST_RepoObject_IndexList_T.adoc[]
+* xref:docs.usp_PERSIST_RepoObject_Plantuml_Entity_T.adoc[]
+* xref:graph.usp_PERSIST_Index.adoc[]
+* xref:graph.usp_PERSIST_ProcedureInstance.adoc[]
+* xref:graph.usp_PERSIST_RepoObject.adoc[]
+* xref:graph.usp_PERSIST_RepoObjectColumn.adoc[]
+* xref:repo.usp_GeneratorUsp_insert_update_persistence.adoc[]
+* xref:repo.usp_Index_finish.adoc[]
+* xref:repo.usp_Index_ForeignKey.adoc[]
+* xref:repo.usp_index_inheritance.adoc[]
+* xref:repo.usp_Index_Settings.adoc[]
+* xref:repo.usp_Index_virtual_InsertUpdate.adoc[]
+* xref:repo.usp_main.adoc[]
+* xref:repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.adoc[]
+* xref:repo.usp_PERSIST_RepoObject_referenced_level_T.adoc[]
+* xref:repo.usp_PERSIST_RepoObject_referencing_level_T.adoc[]
+* xref:repo.usp_PERSIST_RepoObject_SqlModules_41_from_T.adoc[]
+* xref:repo.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T.adoc[]
+* xref:repo.usp_persistence_insert_update.adoc[]
+* xref:repo.usp_RepoObject_Inheritance.adoc[]
+* xref:repo.usp_RepoObject_update_SysObjectQueryPlan.adoc[]
+* xref:repo.usp_RepoObjectColumn_Inheritance.adoc[]
+* xref:repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id.adoc[]
+* xref:repo.usp_RepoObjectSource_FirstResultSet.adoc[]
+* xref:repo.usp_RepoObjectSource_QueryPlan.adoc[]
+* xref:repo.usp_sync_ExtendedProperties_Repo2Sys_Delete.adoc[]
+* xref:repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate.adoc[]
+* xref:repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate.adoc[]
+* xref:repo.usp_sync_guid.adoc[]
+* xref:repo.usp_sync_guid_RepoObject.adoc[]
+* xref:repo.usp_sync_guid_RepoObjectColumn.adoc[]
+* xref:repo.usp_update_Referencing_Count.adoc[]
+// end::AntoraReferencingList[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [repo].[ExecutionLog]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+/*
+only insert, no update
+
+to get duration and grouping, use unique combinations of keys,for example
+
+- @execution_instance_guid (which should be unique per execution)
+- @ssis_execution_id
+- @sub_execution_id
+- @proc_id
+- @step_id
+- @parent_execution_log_id
+
+if a procedure is called several times per ssis_execution, for example the @ssis_execution_id could be used as group and @execution_instance_guid for individual execution
+
+it is also possible to use the @execution_log_id output parameter ad to store it back as @parent_execution_log_id
+
+*/
+CREATE PROCEDURE [repo].[usp_ExecutionLog_insert] @execution_instance_guid UNIQUEIDENTIFIER
+ , @ssis_execution_id BIGINT = NULL
+ , @sub_execution_id INT = NULL
+ , @parent_execution_log_id BIGINT = NULL
+ , @current_execution_guid UNIQUEIDENTIFIER = NULL
+ , @proc_id INT = NULL
+ , @proc_schema_name NVARCHAR(128) = NULL
+ , @proc_name NVARCHAR(128) = NULL
+ , @event_info NVARCHAR(MAX) = NULL
+ , @step_id INT = NULL
+ , @step_name NVARCHAR(1000) = NULL
+ , @source_object NVARCHAR(261) = NULL
+ , @target_object NVARCHAR(261) = NULL
+ , @inserted INT = NULL
+ , @updated INT = NULL
+ , @deleted INT = NULL
+ , @info_01 SQL_VARIANT = NULL
+ , @info_02 SQL_VARIANT = NULL
+ , @info_03 SQL_VARIANT = NULL
+ , @info_04 SQL_VARIANT = NULL
+ , @info_05 SQL_VARIANT = NULL
+ , @info_06 SQL_VARIANT = NULL
+ , @info_07 SQL_VARIANT = NULL
+ , @info_08 SQL_VARIANT = NULL
+ , @info_09 SQL_VARIANT = NULL
+ , @parameter_01 SQL_VARIANT = NULL
+ , @parameter_02 SQL_VARIANT = NULL
+ , @parameter_03 SQL_VARIANT = NULL
+ , @parameter_04 SQL_VARIANT = NULL
+ , @parameter_05 SQL_VARIANT = NULL
+ , @parameter_06 SQL_VARIANT = NULL
+ , @parameter_07 SQL_VARIANT = NULL
+ , @parameter_08 SQL_VARIANT = NULL
+ , @parameter_09 SQL_VARIANT = NULL
+ , @parameter_10 SQL_VARIANT = NULL
+ , @parameter_11 SQL_VARIANT = NULL
+ , @parameter_12 SQL_VARIANT = NULL
+ , @parameter_13 SQL_VARIANT = NULL
+ , @parameter_14 SQL_VARIANT = NULL
+ , @parameter_15 SQL_VARIANT = NULL
+ , @parameter_16 SQL_VARIANT = NULL
+ , @parameter_17 SQL_VARIANT = NULL
+ , @parameter_18 SQL_VARIANT = NULL
+ , @parameter_19 SQL_VARIANT = NULL
+ , @parameter_20 SQL_VARIANT = NULL
+ , @execution_log_id BIGINT = NULL OUTPUT
+AS
+DECLARE @start_dt DATETIME = GETDATE();
+
+INSERT INTO repo.ExecutionLog (
+ [execution_instance_guid]
+ , [parent_execution_log_id]
+ , [ssis_execution_id]
+ , [sub_execution_id]
+ , [current_execution_guid]
+ , [proc_id]
+ , [proc_schema_name]
+ , [proc_name]
+ , [event_info]
+ , [step_id]
+ , [step_name]
+ , [created_dt]
+ , [source_object]
+ , [target_object]
+ , [inserted]
+ , [updated]
+ , [deleted]
+ , [info_01]
+ , [info_02]
+ , [info_03]
+ , [info_04]
+ , [info_05]
+ , [info_06]
+ , [info_07]
+ , [info_08]
+ , [info_09]
+ , [parameter_01]
+ , [parameter_02]
+ , [parameter_03]
+ , [parameter_04]
+ , [parameter_05]
+ , [parameter_06]
+ , [parameter_07]
+ , [parameter_08]
+ , [parameter_09]
+ , [parameter_10]
+ , [parameter_11]
+ , [parameter_12]
+ , [parameter_13]
+ , [parameter_14]
+ , [parameter_15]
+ , [parameter_16]
+ , [parameter_17]
+ , [parameter_18]
+ , [parameter_19]
+ , [parameter_20]
+ )
+VALUES (
+ @execution_instance_guid
+ , @parent_execution_log_id
+ , @ssis_execution_id
+ , @sub_execution_id
+ , @current_execution_guid
+ , @proc_id
+ , @proc_schema_name
+ , @proc_name
+ , @event_info
+ , @step_id
+ , @step_name
+ , @start_dt
+ , @source_object
+ , @target_object
+ , @inserted
+ , @updated
+ , @deleted
+ , @info_01
+ , @info_02
+ , @info_03
+ , @info_04
+ , @info_05
+ , @info_06
+ , @info_07
+ , @info_08
+ , @info_09
+ , @parameter_01
+ , @parameter_02
+ , @parameter_03
+ , @parameter_04
+ , @parameter_05
+ , @parameter_06
+ , @parameter_07
+ , @parameter_08
+ , @parameter_09
+ , @parameter_10
+ , @parameter_11
+ , @parameter_12
+ , @parameter_13
+ , @parameter_14
+ , @parameter_15
+ , @parameter_16
+ , @parameter_17
+ , @parameter_18
+ , @parameter_19
+ , @parameter_20
+ );
+
+SET @execution_log_id = SCOPE_IDENTITY();
+----
+// end::sql_modules_definition[]
+
+

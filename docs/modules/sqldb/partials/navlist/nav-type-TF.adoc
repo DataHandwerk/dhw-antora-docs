@@ -1,0 +1,4 @@
+= table function
+
+include::partial$navlist/navlist-type-TF.adoc[]
+

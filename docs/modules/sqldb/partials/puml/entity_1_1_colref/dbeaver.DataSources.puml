@@ -1,0 +1,67 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity dbeaver.DataSources << U >> {
+  * **id** : int
+  --
+  BulkColumn : varchar(max)
+  {abstract} is_json : int
+}
+
+entity dbeaver.DataSources_connection << V >> {
+  --
+  BulkColumn : varchar(max)
+  conection_name : nvarchar(100)
+  connection_driver : nvarchar(100)
+  connection_json : nvarchar(max)
+  * connection_key : nvarchar(4000)
+  connection_provider : nvarchar(100)
+  connections : nvarchar(max)
+  * id : int
+  is_json : int
+}
+
+entity dbeaver.DataSources_DbSchemaTable << V >> {
+  --
+  BulkColumn : varchar(max)
+  * id : int
+  is_json : int
+  * VirtualModel_database : nvarchar(4000)
+  VirtualModel_database_json : nvarchar(max)
+  VirtualModel_json : nvarchar(max)
+  * VirtualModel_key : nvarchar(4000)
+  * VirtualModel_schema : nvarchar(4000)
+  VirtualModel_schema_json : nvarchar(max)
+  VirtualModel_table : nvarchar(500)
+  VirtualModel_table_constraints_json : nvarchar(max)
+  VirtualModel_table_FK_json : nvarchar(max)
+  VirtualModel_table_json : nvarchar(max)
+  VirtualModel_table_properties_json : nvarchar(max)
+  VirtualModels : nvarchar(max)
+}
+
+dbeaver.DataSources <.. dbeaver.DataSources_connection
+dbeaver.DataSources <.. dbeaver.DataSources_DbSchemaTable
+

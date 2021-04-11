@@ -1,0 +1,84 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.Index_ColumList << V >> {
+  **index_guid** : uniqueidentifier
+  --
+  AntoraIndexColumnList : nvarchar(max)
+  ColumnList : nvarchar(max)
+  ConstraintColumnList : nvarchar(max)
+  DbmlIndexColumnList : nvarchar(max)
+  PersistenceWhereColumnList : nvarchar(max)
+  PumlIndexColumnList : nvarchar(max)
+}
+
+entity repo.Index_Settings << U >> {
+  * **index_guid** : uniqueidentifier
+  --
+  IndexPatternColumnDatatype : nvarchar(4000)
+  IndexPatternColumnName : nvarchar(4000)
+  IndexSemanticGroup : nvarchar(512)
+  * is_create_constraint : bit
+}
+
+entity repo.Index_SqlConstraint_PkUq << V >> {
+  **index_guid** : uniqueidentifier
+  --
+  parent_RepoObject_guid : uniqueidentifier
+  * SqlConstraint : nvarchar(max)
+}
+
+entity repo.Index_union << V >> {
+  **index_guid** : uniqueidentifier
+  --
+  index_name : nvarchar(128)
+  * index_type : tinyint
+  IndexPatternColumnGuid : varchar(8000)
+  is_index_disabled : bit
+  is_index_primary_key : bit
+  is_index_real : bit
+  is_index_unique : bit
+  parent_RepoObject_guid : uniqueidentifier
+  referenced_index_guid : uniqueidentifier
+}
+
+entity repo.RepoObject_SqlCreateTable << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ConList : nvarchar(max)
+  * DbmlTable : nvarchar(max)
+  persistence_source_RepoObject_fullname : nvarchar(261)
+  persistence_source_RepoObject_guid : uniqueidentifier
+  persistence_source_SysObject_fullname : nvarchar(261)
+  * RepoObject_fullname : nvarchar(261)
+  * SqlCreateTable : nvarchar(max)
+}
+
+repo.Index_ColumList <.. repo.Index_SqlConstraint_PkUq
+repo.Index_Settings <.. repo.Index_SqlConstraint_PkUq
+repo.Index_SqlConstraint_PkUq <.. repo.RepoObject_SqlCreateTable
+repo.Index_union <.. repo.Index_SqlConstraint_PkUq
+repo.Index_union::index_guid <-- repo.Index_SqlConstraint_PkUq::index_guid
+repo.Index_union::parent_RepoObject_guid <-- repo.Index_SqlConstraint_PkUq::parent_RepoObject_guid

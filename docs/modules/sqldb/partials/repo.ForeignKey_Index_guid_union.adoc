@@ -1,0 +1,960 @@
+= [repo].[ForeignKey_Index_guid_union]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_IndexPatternColumnDatatype:
+:ExistsProperty--pk_IndexPatternColumnName:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+81170058-C073-EB11-84E3-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+V 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+view
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1975678086
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-08 15:44:19
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-ForeignKey_guid]]
+=== ForeignKey_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*ForeignKey_guid*
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-ForeignKey_guid[repo.ForeignKey_gross.ForeignKey_guid]
+--
+
+
+[[column-delete_referential_action]]
+=== delete_referential_action
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|delete_referential_action
+|tinyint
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-delete_referential_action[repo.ForeignKey_gross.delete_referential_action]
+--
+
+
+[[column-ForeignKey_fullname]]
+=== ForeignKey_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|ForeignKey_fullname
+|nvarchar(517)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-ForeignKey_fullname[repo.ForeignKey_gross.ForeignKey_fullname]
+--
+
+
+[[column-ForeignKey_name]]
+=== ForeignKey_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|ForeignKey_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-ForeignKey_name[repo.ForeignKey_gross.ForeignKey_name]
+--
+
+
+[[column-is_MatchingDatatypePattern]]
+=== is_MatchingDatatypePattern
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_MatchingDatatypePattern
+|int
+|NOT NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-is_MatchingDatatypePattern[repo.ForeignKey_gross.is_MatchingDatatypePattern]
+--
+
+
+[[column-referenced_index_guid]]
+=== referenced_index_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referenced_index_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referenced_index_guid[repo.ForeignKey_gross.referenced_index_guid]
+--
+
+
+[[column-referenced_IndexPatternColumnDatatype]]
+=== referenced_IndexPatternColumnDatatype
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referenced_IndexPatternColumnDatatype
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referenced_IndexPatternColumnDatatype[repo.ForeignKey_gross.referenced_IndexPatternColumnDatatype]
+--
+
+
+[[column-referenced_IndexPatternColumnName]]
+=== referenced_IndexPatternColumnName
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referenced_IndexPatternColumnName
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referenced_IndexPatternColumnName[repo.ForeignKey_gross.referenced_IndexPatternColumnName]
+--
+
+
+[[column-referenced_RepoObject_fullname]]
+=== referenced_RepoObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referenced_RepoObject_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:docs.ForeignKey_RelationScript.adoc#column-referenced_RepoObject_fullname[docs.ForeignKey_RelationScript.referenced_RepoObject_fullname]
+* xref:repo.ForeignKey_gross.adoc#column-referenced_RepoObject_fullname[repo.ForeignKey_gross.referenced_RepoObject_fullname]
+--
+
+
+[[column-referenced_RepoObject_fullname2]]
+=== referenced_RepoObject_fullname2
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referenced_RepoObject_fullname2
+|nvarchar(257)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referenced_RepoObject_fullname2[repo.ForeignKey_gross.referenced_RepoObject_fullname2]
+--
+
+
+[[column-referenced_RepoObject_guid]]
+=== referenced_RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referenced_RepoObject_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:docs.ForeignKey_RelationScript.adoc#column-referenced_RepoObject_guid[docs.ForeignKey_RelationScript.referenced_RepoObject_guid]
+* xref:repo.ForeignKey_gross.adoc#column-referenced_RepoObject_guid[repo.ForeignKey_gross.referenced_RepoObject_guid]
+--
+
+
+[[column-referenced_SysObject_name]]
+=== referenced_SysObject_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referenced_SysObject_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referenced_SysObject_name[repo.ForeignKey_gross.referenced_SysObject_name]
+--
+
+
+[[column-referenced_SysObject_schema_name]]
+=== referenced_SysObject_schema_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referenced_SysObject_schema_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referenced_SysObject_schema_name[repo.ForeignKey_gross.referenced_SysObject_schema_name]
+--
+
+
+[[column-referencing_index_guid]]
+=== referencing_index_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referencing_index_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referencing_index_guid[repo.ForeignKey_gross.referencing_index_guid]
+--
+
+
+[[column-referencing_IndexPatternColumnDatatype]]
+=== referencing_IndexPatternColumnDatatype
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referencing_IndexPatternColumnDatatype
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referencing_IndexPatternColumnDatatype[repo.ForeignKey_gross.referencing_IndexPatternColumnDatatype]
+--
+
+
+[[column-referencing_IndexPatternColumnName]]
+=== referencing_IndexPatternColumnName
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referencing_IndexPatternColumnName
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referencing_IndexPatternColumnName[repo.ForeignKey_gross.referencing_IndexPatternColumnName]
+--
+
+
+[[column-referencing_RepoObject_fullname]]
+=== referencing_RepoObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referencing_RepoObject_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:docs.ForeignKey_RelationScript.adoc#column-referencing_RepoObject_fullname[docs.ForeignKey_RelationScript.referencing_RepoObject_fullname]
+* xref:repo.ForeignKey_gross.adoc#column-referencing_RepoObject_fullname[repo.ForeignKey_gross.referencing_RepoObject_fullname]
+--
+
+
+[[column-referencing_RepoObject_fullname2]]
+=== referencing_RepoObject_fullname2
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referencing_RepoObject_fullname2
+|nvarchar(257)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referencing_RepoObject_fullname2[repo.ForeignKey_gross.referencing_RepoObject_fullname2]
+--
+
+
+[[column-referencing_RepoObject_guid]]
+=== referencing_RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referencing_RepoObject_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:docs.ForeignKey_RelationScript.adoc#column-referencing_RepoObject_guid[docs.ForeignKey_RelationScript.referencing_RepoObject_guid]
+* xref:repo.ForeignKey_gross.adoc#column-referencing_RepoObject_guid[repo.ForeignKey_gross.referencing_RepoObject_guid]
+--
+
+
+[[column-referencing_SysObject_name]]
+=== referencing_SysObject_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referencing_SysObject_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referencing_SysObject_name[repo.ForeignKey_gross.referencing_SysObject_name]
+--
+
+
+[[column-referencing_SysObject_schema_name]]
+=== referencing_SysObject_schema_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referencing_SysObject_schema_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referencing_SysObject_schema_name[repo.ForeignKey_gross.referencing_SysObject_schema_name]
+--
+
+
+[[column-update_referential_action]]
+=== update_referential_action
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|update_referential_action
+|tinyint
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-update_referential_action[repo.ForeignKey_gross.update_referential_action]
+--
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-ForeignKey_guid>>*
+|uniqueidentifier
+|NULL
+|
+|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+|
+|<<column-delete_referential_action>>
+|tinyint
+|NULL
+|
+|
+
+|
+|<<column-ForeignKey_fullname>>
+|nvarchar(517)
+|NULL
+|
+|
+
+|
+|<<column-ForeignKey_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-is_MatchingDatatypePattern>>
+|int
+|NOT NULL
+|
+|
+
+|
+|<<column-referenced_index_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-referenced_IndexPatternColumnDatatype>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-referenced_IndexPatternColumnName>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-referenced_RepoObject_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-referenced_RepoObject_fullname2>>
+|nvarchar(257)
+|NULL
+|
+|
+
+|
+|<<column-referenced_RepoObject_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-referenced_SysObject_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-referenced_SysObject_schema_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-referencing_index_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-referencing_IndexPatternColumnDatatype>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-referencing_IndexPatternColumnName>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-referencing_RepoObject_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-referencing_RepoObject_fullname2>>
+|nvarchar(257)
+|NULL
+|
+|
+
+|
+|<<column-referencing_RepoObject_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-referencing_SysObject_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-referencing_SysObject_schema_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
+|<<column-update_referential_action>>
+|tinyint
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_ForeignKey_Index_guid_union]]
+=== PK_ForeignKey_Index_guid_union
+
+
++
+--
+* <<column-ForeignKey_guid>>; uniqueidentifier
+--
+* PK, Unique, Real: 1, 1, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:repo.ForeignKey_Index_guid.adoc[]
+* xref:repo.ForeignKey_virtual_Index_guid.adoc[]
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:docs.ForeignKey_RelationScript.adoc[]
+* xref:repo.ForeignKey_gross.adoc[]
+* xref:repo.usp_Index_finish.adoc[]
+// end::AntoraReferencingList[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+7AB8BC13-0696-EB11-84F4-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+uniqueidentifier
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+ForeignKey_guid
+// end::pk_IndexPatternColumnName[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [repo].[ForeignKey_Index_guid]
+* [repo].[ForeignKey_virtual_Index_guid]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+
+
+
+CREATE VIEW [repo].[ForeignKey_Index_guid_union]
+AS
+SELECT [ForeignKey_guid]
+ , [is_MatchingDatatypePattern]
+ , [ForeignKey_name]
+ , [ForeignKey_fullname]
+ , [referenced_index_guid]
+ , [referenced_IndexPatternColumnDatatype]
+ , [referenced_IndexPatternColumnName]
+ , [referenced_RepoObject_fullname]
+ , [referenced_RepoObject_fullname2]
+ , [referenced_RepoObject_guid]
+ , [referenced_SysObject_name]
+ , [referenced_SysObject_schema_name]
+ , [referencing_index_guid]
+ , [referencing_IndexPatternColumnDatatype]
+ , [referencing_IndexPatternColumnName]
+ , [referencing_RepoObject_fullname]
+ , [referencing_RepoObject_fullname2]
+ , [referencing_RepoObject_guid]
+ , [referencing_SysObject_name]
+ , [referencing_SysObject_schema_name]
+ , [delete_referential_action]
+ , [update_referential_action]
+FROM [repo].[ForeignKey_Index_guid]
+
+UNION ALL
+
+SELECT [ForeignKey_guid]
+ , [is_MatchingDatatypePattern]
+ , [ForeignKey_name]
+ , [ForeignKey_fullname]
+ , [referenced_index_guid]
+ , [referenced_IndexPatternColumnDatatype]
+ , [referenced_IndexPatternColumnName]
+ , [referenced_RepoObject_fullname]
+ , [referenced_RepoObject_fullname2]
+ , [referenced_RepoObject_guid]
+ , [referenced_SysObject_name]
+ , [referenced_SysObject_schema_name]
+ , [referencing_index_guid]
+ , [referencing_IndexPatternColumnDatatype]
+ , [referencing_IndexPatternColumnName]
+ , [referencing_RepoObject_fullname]
+ , [referencing_RepoObject_fullname2]
+ , [referencing_RepoObject_guid]
+ , [referencing_SysObject_name]
+ , [referencing_SysObject_schema_name]
+ , [delete_referential_action]
+ , [update_referential_action]
+FROM [repo].[ForeignKey_virtual_Index_guid]
+
+----
+// end::sql_modules_definition[]
+
+

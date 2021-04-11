@@ -1,0 +1,108 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObject_SqlModules_41_from << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+  --
+  children : nvarchar(max)
+  class : nvarchar(500)
+  identifier_alias : nvarchar(max)
+  identifier_name : nvarchar(max)
+  * is_from : int
+  is_group : bit
+  * is_join : int
+  is_keyword : bit
+  is_whitespace : bit
+  join_type : varchar(16)
+  Min_RowNumber_From : bigint
+  Min_RowNumber_GroupBy : bigint
+  Min_RowNumber_Where : bigint
+  normalized : nvarchar(max)
+  normalized_PatIndex_Select : bigint
+  normalized_wo_nolock : nvarchar(max)
+  patindex_nolock : bigint
+  RowNumber_per_Object : bigint
+  SysObject_fullname : nvarchar(261)
+}
+
+entity repo.RepoObject_SqlModules_41_from_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+  --
+  children : nvarchar(max)
+  class : nvarchar(500)
+  identifier_alias : nvarchar(max)
+  identifier_name : nvarchar(max)
+  * is_from : int
+  is_group : bit
+  * is_join : int
+  is_keyword : bit
+  is_whitespace : bit
+  join_type : varchar(16)
+  Min_RowNumber_From : bigint
+  Min_RowNumber_GroupBy : bigint
+  Min_RowNumber_Where : bigint
+  normalized : nvarchar(max)
+  normalized_PatIndex_Select : bigint
+  normalized_wo_nolock : nvarchar(max)
+  patindex_nolock : bigint
+  RowNumber_per_Object : bigint
+  SysObject_fullname : nvarchar(261)
+}
+
+entity repo.usp_ExecutionLog_insert << P >> {
+  --
+}
+
+entity repo.usp_PERSIST_RepoObject_SqlModules_41_from_T << P >> {
+  --
+}
+
+repo.RepoObject_SqlModules_41_from <.. repo.usp_PERSIST_RepoObject_SqlModules_41_from_T
+repo.RepoObject_SqlModules_41_from <.. repo.RepoObject_SqlModules_41_from_T
+repo.RepoObject_SqlModules_41_from_T <.. repo.usp_PERSIST_RepoObject_SqlModules_41_from_T
+repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_SqlModules_41_from_T
+repo.RepoObject_SqlModules_41_from::children <-- repo.RepoObject_SqlModules_41_from_T::children
+repo.RepoObject_SqlModules_41_from::class <-- repo.RepoObject_SqlModules_41_from_T::class
+repo.RepoObject_SqlModules_41_from::identifier_alias <-- repo.RepoObject_SqlModules_41_from_T::identifier_alias
+repo.RepoObject_SqlModules_41_from::identifier_name <-- repo.RepoObject_SqlModules_41_from_T::identifier_name
+repo.RepoObject_SqlModules_41_from::is_from <-- repo.RepoObject_SqlModules_41_from_T::is_from
+repo.RepoObject_SqlModules_41_from::is_group <-- repo.RepoObject_SqlModules_41_from_T::is_group
+repo.RepoObject_SqlModules_41_from::is_join <-- repo.RepoObject_SqlModules_41_from_T::is_join
+repo.RepoObject_SqlModules_41_from::is_keyword <-- repo.RepoObject_SqlModules_41_from_T::is_keyword
+repo.RepoObject_SqlModules_41_from::is_whitespace <-- repo.RepoObject_SqlModules_41_from_T::is_whitespace
+repo.RepoObject_SqlModules_41_from::join_type <-- repo.RepoObject_SqlModules_41_from_T::join_type
+repo.RepoObject_SqlModules_41_from::json_key <-- repo.RepoObject_SqlModules_41_from_T::json_key
+repo.RepoObject_SqlModules_41_from::Min_RowNumber_From <-- repo.RepoObject_SqlModules_41_from_T::Min_RowNumber_From
+repo.RepoObject_SqlModules_41_from::Min_RowNumber_GroupBy <-- repo.RepoObject_SqlModules_41_from_T::Min_RowNumber_GroupBy
+repo.RepoObject_SqlModules_41_from::Min_RowNumber_Where <-- repo.RepoObject_SqlModules_41_from_T::Min_RowNumber_Where
+repo.RepoObject_SqlModules_41_from::normalized <-- repo.RepoObject_SqlModules_41_from_T::normalized
+repo.RepoObject_SqlModules_41_from::normalized_PatIndex_Select <-- repo.RepoObject_SqlModules_41_from_T::normalized_PatIndex_Select
+repo.RepoObject_SqlModules_41_from::normalized_wo_nolock <-- repo.RepoObject_SqlModules_41_from_T::normalized_wo_nolock
+repo.RepoObject_SqlModules_41_from::patindex_nolock <-- repo.RepoObject_SqlModules_41_from_T::patindex_nolock
+repo.RepoObject_SqlModules_41_from::RepoObject_guid <-- repo.RepoObject_SqlModules_41_from_T::RepoObject_guid
+repo.RepoObject_SqlModules_41_from::RowNumber_per_Object <-- repo.RepoObject_SqlModules_41_from_T::RowNumber_per_Object
+repo.RepoObject_SqlModules_41_from::SysObject_fullname <-- repo.RepoObject_SqlModules_41_from_T::SysObject_fullname

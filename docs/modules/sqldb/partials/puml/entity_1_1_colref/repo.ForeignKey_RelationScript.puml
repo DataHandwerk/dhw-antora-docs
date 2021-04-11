@@ -1,0 +1,63 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.ForeignKey_Index_guid_union << V >> {
+  **ForeignKey_guid** : uniqueidentifier
+  --
+  delete_referential_action : tinyint
+  ForeignKey_fullname : nvarchar(517)
+  ForeignKey_name : nvarchar(128)
+  * is_MatchingDatatypePattern : int
+  referenced_index_guid : uniqueidentifier
+  referenced_IndexPatternColumnDatatype : nvarchar(4000)
+  referenced_IndexPatternColumnName : nvarchar(4000)
+  referenced_RepoObject_fullname : nvarchar(261)
+  referenced_RepoObject_guid : uniqueidentifier
+  referenced_SysObject_name : nvarchar(128)
+  referenced_SysObject_schema_name : nvarchar(128)
+  referencing_index_guid : uniqueidentifier
+  referencing_IndexPatternColumnDatatype : nvarchar(4000)
+  referencing_IndexPatternColumnName : nvarchar(4000)
+  referencing_RepoObject_fullname : nvarchar(261)
+  referencing_RepoObject_guid : uniqueidentifier
+  referencing_SysObject_name : nvarchar(128)
+  referencing_SysObject_schema_name : nvarchar(128)
+  update_referential_action : tinyint
+}
+
+entity repo.ForeignKey_RelationScript << V >> {
+  --
+  * DbmlRelation : nvarchar(4000)
+  referenced_RepoObject_fullname : nvarchar(261)
+  referenced_RepoObject_guid : uniqueidentifier
+  referencing_RepoObject_fullname : nvarchar(261)
+  referencing_RepoObject_guid : uniqueidentifier
+}
+
+repo.ForeignKey_Index_guid_union <.. repo.ForeignKey_RelationScript
+repo.ForeignKey_Index_guid_union::referenced_RepoObject_fullname <-- repo.ForeignKey_RelationScript::referenced_RepoObject_fullname
+repo.ForeignKey_Index_guid_union::referenced_RepoObject_guid <-- repo.ForeignKey_RelationScript::referenced_RepoObject_guid
+repo.ForeignKey_Index_guid_union::referencing_RepoObject_fullname <-- repo.ForeignKey_RelationScript::referencing_RepoObject_fullname
+repo.ForeignKey_Index_guid_union::referencing_RepoObject_guid <-- repo.ForeignKey_RelationScript::referencing_RepoObject_guid

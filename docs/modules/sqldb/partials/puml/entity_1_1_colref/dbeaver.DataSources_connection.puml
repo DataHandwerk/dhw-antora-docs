@@ -1,0 +1,47 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity dbeaver.DataSources << U >> {
+  * **id** : int
+  --
+  BulkColumn : varchar(max)
+  {abstract} is_json : int
+}
+
+entity dbeaver.DataSources_connection << V >> {
+  --
+  BulkColumn : varchar(max)
+  conection_name : nvarchar(100)
+  connection_driver : nvarchar(100)
+  connection_json : nvarchar(max)
+  * connection_key : nvarchar(4000)
+  connection_provider : nvarchar(100)
+  connections : nvarchar(max)
+  * id : int
+  is_json : int
+}
+
+dbeaver.DataSources <.. dbeaver.DataSources_connection
+

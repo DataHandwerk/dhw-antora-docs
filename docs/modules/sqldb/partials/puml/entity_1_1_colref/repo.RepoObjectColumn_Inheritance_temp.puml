@@ -1,0 +1,50 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObjectColumn_Inheritance_temp << U >> {
+  --
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceType : int
+  * is_force_inherit_empty_source : int
+  * is_StringAggAllSources : int
+  * property_name : nvarchar(128)
+  property_value : sql_variant
+  property_value_new : sql_variant
+  * referenced_RepoObject_fullname : nvarchar(261)
+  referenced_RepoObjectColumn_guid : uniqueidentifier
+  * referenced_RepoObjectColumn_name : nvarchar(128)
+  * referencing_RepoObject_fullname : nvarchar(261)
+  * referencing_RepoObjectColumn_name : nvarchar(128)
+  * RepoObjectColumn_guid : uniqueidentifier
+  resulting_InheritanceDefinition : nvarchar(4000)
+  RowNumberSource : bigint
+}
+
+entity repo.usp_RepoObjectColumn_Inheritance << P >> {
+  --
+}
+
+repo.RepoObjectColumn_Inheritance_temp <.. repo.usp_RepoObjectColumn_Inheritance
+

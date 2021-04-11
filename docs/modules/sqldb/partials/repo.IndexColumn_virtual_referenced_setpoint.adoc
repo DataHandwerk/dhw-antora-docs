@@ -1,0 +1,684 @@
+= [repo].[IndexColumn_virtual_referenced_setpoint]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_IndexPatternColumnDatatype:
+:ExistsProperty--pk_IndexPatternColumnName:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+7D90291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+V 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+view
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1602104748
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-01-29 20:18:27
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-index_guid]]
+=== index_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*index_guid*
+|uniqueidentifier
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-index_guid[repo.Index_virtual.index_guid]
+--
+
+.Referencing Columns
+--
+* xref:repo.check_IndexColumn_virtual_referenced_setpoint.adoc#column-index_guid[repo.check_IndexColumn_virtual_referenced_setpoint.index_guid]
+--
+
+
+[[column-index_column_id]]
+=== index_column_id
+
+[cols="d,m,m,m,m,d"]
+|===
+|2
+|*index_column_id*
+|int
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.adoc#column-index_column_id[repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.index_column_id]
+--
+
+.Referencing Columns
+--
+* xref:repo.check_IndexColumn_virtual_referenced_setpoint.adoc#column-index_column_id[repo.check_IndexColumn_virtual_referenced_setpoint.index_column_id]
+--
+
+
+[[column-is_descending_key]]
+=== is_descending_key
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_descending_key
+|bit
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.adoc#column-is_descending_key[repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.is_descending_key]
+--
+
+
+[[column-referenced_index_guid]]
+=== referenced_index_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referenced_index_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-referenced_index_guid[repo.Index_virtual.referenced_index_guid]
+--
+
+.Referencing Columns
+--
+* xref:repo.check_IndexColumn_virtual_referenced_setpoint.adoc#column-referenced_index_guid[repo.check_IndexColumn_virtual_referenced_setpoint.referenced_index_guid]
+--
+
+
+[[column-referenced_RepoObject_guid]]
+=== referenced_RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referenced_RepoObject_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.adoc#column-referenced_RepoObject_guid[repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.referenced_RepoObject_guid]
+--
+
+.Referencing Columns
+--
+* xref:repo.check_IndexColumn_virtual_referenced_setpoint.adoc#column-referenced_RepoObject_guid[repo.check_IndexColumn_virtual_referenced_setpoint.referenced_RepoObject_guid]
+--
+
+
+[[column-referenced_RepoObjectColumn_guid]]
+=== referenced_RepoObjectColumn_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referenced_RepoObjectColumn_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.adoc#column-referenced_RepoObjectColumn_guid[repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.referenced_RepoObjectColumn_guid]
+--
+
+.Referencing Columns
+--
+* xref:repo.check_IndexColumn_virtual_referenced_setpoint.adoc#column-referenced_RepoObjectColumn_guid[repo.check_IndexColumn_virtual_referenced_setpoint.referenced_RepoObjectColumn_guid]
+--
+
+
+[[column-referencing_RepoObject_guid]]
+=== referencing_RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referencing_RepoObject_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.adoc#column-referencing_RepoObject_guid[repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.referencing_RepoObject_guid]
+--
+
+.Referencing Columns
+--
+* xref:repo.check_IndexColumn_virtual_referenced_setpoint.adoc#column-referencing_RepoObject_guid[repo.check_IndexColumn_virtual_referenced_setpoint.referencing_RepoObject_guid]
+--
+
+
+[[column-referencing_RepoObjectColumn_guid]]
+=== referencing_RepoObjectColumn_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|referencing_RepoObjectColumn_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.adoc#column-referencing_RepoObjectColumn_guid[repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.referencing_RepoObjectColumn_guid]
+--
+
+.Referencing Columns
+--
+* xref:repo.check_IndexColumn_virtual_referenced_setpoint.adoc#column-referencing_RepoObjectColumn_guid[repo.check_IndexColumn_virtual_referenced_setpoint.referencing_RepoObjectColumn_guid]
+--
+
+
+[[column-RowNumberInReferencing]]
+=== RowNumberInReferencing
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RowNumberInReferencing
+|int
+|NULL
+|
+|
+|===
+
+.Description
+....
+the same index can be inherited several times into the same referenced object, if a source is used several times
+for example
+SELECT A_A = A.A, B_A = B.A from source_1 as A LEFT JOIN source_1 as B ON ... 
+normaly these indexes should have different columns
+....
+
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-RowNumberInReferencing[repo.Index_virtual.RowNumberInReferencing]
+--
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-index_guid>>*
+|uniqueidentifier
+|NOT NULL
+|
+|
+
+|2
+|*<<column-index_column_id>>*
+|int
+|NOT NULL
+|
+|
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+
+|
+|<<column-is_descending_key>>
+|bit
+|NULL
+|
+|
+
+|
+|<<column-referenced_index_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-referenced_RepoObject_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-referenced_RepoObjectColumn_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-referencing_RepoObject_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-referencing_RepoObjectColumn_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-RowNumberInReferencing>>
+|int
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_IndexColumn_virtual_referenced_setpoint]]
+=== PK_IndexColumn_virtual_referenced_setpoint
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_no_group[no_group]
++
+--
+* <<column-index_guid>>; uniqueidentifier
+* <<column-index_column_id>>; int
+--
+* PK, Unique, Real: 1, 1, 0
+
+
+[[index-idx_IndexColumn_virtual_referenced_setpoint__2]]
+=== idx_IndexColumn_virtual_referenced_setpoint__2
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_index_guid[index_guid]
++
+--
+* <<column-index_guid>>; uniqueidentifier
+--
+* PK, Unique, Real: 0, 0, 0
+
+
+[[index-idx_IndexColumn_virtual_referenced_setpoint__3]]
+=== idx_IndexColumn_virtual_referenced_setpoint__3
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_no_group[no_group]
++
+--
+* <<column-index_column_id>>; int
+--
+* PK, Unique, Real: 0, 0, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:repo.Index_virtual.adoc[]
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.adoc[]
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:repo.check_IndexColumn_virtual_referenced_setpoint.adoc[]
+* xref:repo.usp_index_inheritance.adoc[]
+// end::AntoraReferencingList[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+439990FA-0896-EB11-84F4-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+uniqueidentifier,int
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+index_guid,index_column_id
+// end::pk_IndexPatternColumnName[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [repo].[Index_virtual]
+* [repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+
+/*
+Sollwert
+jeder Index in [repo].[Index__virtual], der einen [referenced_index_guid] hat, der also geerbt wird
+ben”tigt fr diesen geerbten Index auch geerbte Spalten
+alle ben”tigten Spalten werden hier aufgelistet
+
+Setpoint:
+each index in [repo].[Index__virtual], having a [referenced_index_guid] (the index is inherited)
+also needs the columns
+these required columns are listed here
+this view is a "setpoint"
+all these columns should exists in [repo].[IndexColumn__virtual]
+
+
+
+isue:
+some combinations of ([index_guid], [index_column_id]) are not unique
+why?
+because they have multiple [referencing_RepoObjectColumn_guid]
+but this is wrong, only one referencing_RepoObjectColumn_guid is possible per [index_column_id]
+
+=> [RowNumberInReferencing]
+
+
+
+*/
+CREATE VIEW [repo].[IndexColumn_virtual_referenced_setpoint]
+AS
+--
+SELECT [i].[index_guid] --referencing index, which inherits columns from referenced index 
+ , [ic].[index_column_id]
+ , [ic].[is_descending_key]
+ , [ic].[referencing_RepoObjectColumn_guid] --columns in the referencing RepoObject
+ , [i].[referenced_index_guid] --referenced index, which is the source for inherited columns 
+ , [i].[RowNumberInReferencing]
+ --only for testing:
+ , [ic].[referenced_RepoObjectColumn_guid]
+ , [ic].[referenced_RepoObject_guid]
+ , [ic].[referencing_RepoObject_guid]
+FROM repo.[Index_virtual] AS i
+INNER JOIN repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T AS ic --setpoint belongs to the parent_RepoObject of the index
+ ON ic.referencing_RepoObject_guid = i.parent_RepoObject_guid
+  --ic.index_guid is the referenced index (source index)
+  AND ic.index_guid = i.referenced_index_guid
+  AND ic.[RowNumberInReferencing] = i.[RowNumberInReferencing]
+
+----
+// end::sql_modules_definition[]
+
+

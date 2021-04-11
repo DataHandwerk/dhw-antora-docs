@@ -1,0 +1,102 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.AntoraIndexSemanticgroupPatterndatatype << V >> {
+  **IndexSemanticGroup** : nvarchar(512)
+  **IndexPatternColumnDatatype** : nvarchar(4000)
+}
+
+entity docs.RepoObject_IndexList << V >> {
+  **RepoObject_guid** : uniqueidentifier
+}
+
+entity graph.Index_S << V >> {
+  * **Index_guid** : uniqueidentifier
+}
+
+entity repo.ForeignKey_gross << V >> {
+}
+
+entity repo.ForeignKey_Indexes << V >> {
+  **ForeignKey_guid** : uniqueidentifier
+}
+
+entity repo.ForeignKey_virtual_Indexes << V >> {
+  * **ForeignKey_guid** : uniqueidentifier
+}
+
+entity repo.Index_ColumList << V >> {
+  **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_gross << V >> {
+  * **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_Settings << U >> {
+  * **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_union << V >> {
+  **index_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_gross << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_SqlCreateTable << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.usp_Index_finish << P >> {
+}
+
+entity repo.usp_index_inheritance << P >> {
+}
+
+entity repo.usp_Index_virtual_InsertUpdate << P >> {
+}
+
+repo.ForeignKey_gross <.. docs.RepoObject_IndexList
+repo.Index_ColumList <.. repo.Index_gross
+repo.Index_gross <.. repo.RepoObject_SqlCreateTable
+repo.Index_gross <.. docs.RepoObject_IndexList
+repo.Index_gross <.. docs.AntoraIndexSemanticgroupPatterndatatype
+repo.Index_gross <.. repo.ForeignKey_gross
+repo.Index_gross <.. repo.usp_index_inheritance
+repo.Index_gross <.. repo.usp_Index_virtual_InsertUpdate
+repo.Index_gross <.. repo.ForeignKey_Indexes
+repo.Index_gross <.. repo.ForeignKey_virtual_Indexes
+repo.Index_gross <.. repo.usp_Index_finish
+repo.Index_gross <.. graph.Index_S
+repo.Index_Settings <.. repo.RepoObject_gross
+repo.Index_Settings <.. repo.Index_gross
+repo.Index_Settings <.. repo.usp_Index_finish
+repo.Index_union <.. repo.Index_gross
+repo.Index_union <.. repo.usp_Index_finish
+repo.RepoObject_gross <.. repo.RepoObject_SqlCreateTable
+repo.RepoObject_gross <.. repo.Index_gross
+repo.usp_Index_finish <.. repo.usp_index_inheritance

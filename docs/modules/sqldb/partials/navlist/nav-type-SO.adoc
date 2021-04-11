@@ -1,0 +1,4 @@
+= sequence object
+
+include::partial$navlist/navlist-type-SO.adoc[]
+

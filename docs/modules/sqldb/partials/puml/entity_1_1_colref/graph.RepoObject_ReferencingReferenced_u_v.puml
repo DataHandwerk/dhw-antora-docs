@@ -1,0 +1,63 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity graph.ReferencedObject << U >> {
+  --
+  * $edge_id_25B0DD35E10A49DE8B49228E6802F3EB : nvarchar(1000)
+  $from_id_7B1BEB60463741CAA681054A489A2714 : nvarchar(1000)
+  $to_id_26820C41BE034B00BCBC470518101233 : nvarchar(1000)
+  * from_id_7F3CEF660D794A2A81530928BC4B36F1 : bigint
+  * from_obj_id_A00C6316716D4F9DABE96A189F3A214A : int
+  * graph_id_85ECDD019A4C46AF80CFD8DDFA08F479 : bigint
+  * to_id_45A2D6271B224A08B66CA0CF6A200A54 : bigint
+  * to_obj_id_F1F1771130674EE9A9DAE06330740E13 : int
+}
+
+entity graph.RepoObject << U >> {
+  --
+  * $node_id_FAC3EF4690DB4CD6A98F097DAF0885CC : nvarchar(1000)
+  * 33091D88-929D-488C-B30F-7328A9D970B6 : char(2)
+  * 906BEFD3-76BA-432D-9792-128CEA80A6EE : nvarchar(257)
+  * 9D326C2A-F564-4176-B51F-7BE9FB6685B2 : nvarchar(261)
+  * graph_id_60367FDA1A70430CA390F8144C223EC4 : bigint
+  * RepoObject_fullname : nvarchar(261)
+  RepoObject_fullname2 : nvarchar(257)
+  * RepoObject_guid : uniqueidentifier
+  * RepoObject_type : char(2)
+}
+
+entity graph.RepoObject_ReferencingReferenced_u_v << V >> {
+  **Referenced_guid** : uniqueidentifier
+  **Referencing_guid** : uniqueidentifier
+  --
+  Referenced_fullname : nvarchar(261)
+  Referenced_type : char(2)
+  Referencing_fullname : nvarchar(261)
+  Referencing_type : char(2)
+}
+
+graph.ReferencedObject <.. graph.RepoObject_ReferencingReferenced_u_v
+graph.RepoObject <.. graph.RepoObject_ReferencingReferenced_u_v
+

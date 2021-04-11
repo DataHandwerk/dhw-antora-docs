@@ -1,0 +1,527 @@
+= [repo].[ftv_RepoObject_ColumReferenceRepoObject]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--AntoraParameterList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+9BBE898F-9381-EB11-84E9-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+IF
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+inline function
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1796201449
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-08 15:44:21
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-Dbml]]
+=== Dbml
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Dbml
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+
+[[column-Parameter_RepoObject_guid]]
+=== Parameter_RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Parameter_RepoObject_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-RepoObject_fullname]]
+=== RepoObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+
+[[column-RepoObject_guid]]
+=== RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-RepoObject_type]]
+=== RepoObject_type
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_type
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+|
+|<<column-Dbml>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-Parameter_RepoObject_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-RepoObject_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-RepoObject_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-RepoObject_type>>
+|uniqueidentifier
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+* @RepoObject_guid (uniqueidentifier)
+* @Referenced_Depth (int)
+* @Referencing_Depth (int)
+// end::AntoraParameterList[]
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+
+// end::AntoraReferencingList[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+
+// end::pk_IndexPatternColumnName[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:repo.RepoObject_SqlCreateTable.adoc[]
+* xref:repo.RepoObjectColumn_ReferenceTree.adoc[]
+* xref:repo.RepoObjectColumn_RelationScript.adoc[]
+// end::AntoraReferencedList[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [repo].[RepoObject_SqlCreateTable]
+* [repo].[RepoObjectColumn_ReferenceTree]
+* [repo].[RepoObjectColumn_RelationScript]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+/*
+--hier stimmt irgendetwas nicht, es dauert sehr lange und es kommt ein Fehler mit einer Typ-Konvertierung
+
+--based on [repo].[RepoObjectColumn_ReferenceTree]
+--return referenced and referencing RepoObject
+--Default:
+--@Referenced_Depth = 1
+--@Referencing_Depth
+
+DECLARE @RepoObject_guid uniqueidentifier
+
+SET @RepoObject_guid = (SELECT RepoObject_guid from [repo].[RepoObject] where RepoObject_fullname = '[repo].[RepoObject_gross]')
+
+SELECT *
+FROM [repo].[ftv_RepoObject_ColumReferenceRepoObject](@RepoObject_guid, DEFAULT, DEFAULT)
+
+SELECT *
+FROM [repo].[ftv_RepoObject_ColumReferenceRepoObject](@RepoObject_guid, 1, 1)
+
+*/
+CREATE FUNCTION [repo].[ftv_RepoObject_ColumReferenceRepoObject] (
+ @RepoObject_guid UNIQUEIDENTIFIER
+ , @Referenced_Depth INT = 1
+ , @Referencing_Depth INT = 1
+ )
+RETURNS TABLE
+AS
+RETURN (
+  WITH ro AS (
+    --all RepoObject which are [Referenced_RepoObject_guid] or [Referencing_RepoObject_guid]
+    SELECT DISTINCT [Referenced_fullname] AS [RepoObject_fullname]
+     , [Referenced_RepoObject_guid] AS [RepoObject_guid]
+     , [Referenced_type] AS [RepoObject_type]
+     , NULL AS [DbmlRelation]
+     , @RepoObject_guid AS [Parameter_RepoObject_guid]
+    FROM [repo].[RepoObjectColumn_ReferenceTree]
+    WHERE [Referenced_RepoObject_guid] = @RepoObject_guid
+    
+    UNION
+    
+    SELECT DISTINCT [Referencing_fullname]
+     , [Referencing_RepoObject_guid]
+     , [Referencing_type]
+     , NULL AS [DbmlRelation]
+     , @RepoObject_guid
+    FROM [repo].[RepoObjectColumn_ReferenceTree]
+    WHERE [Referencing_RepoObject_guid] = @RepoObject_guid
+    
+    UNION
+    
+    --add all referenced
+    SELECT DISTINCT [rt].[Referenced_fullname]
+     , [rt].[Referenced_RepoObject_guid]
+     , [rt].[Referenced_type]
+     , [rs].[DbmlRelation]
+     , @RepoObject_guid
+    FROM [repo].[RepoObjectColumn_ReferenceTree] AS rt
+    LEFT JOIN [repo].[RepoObjectColumn_RelationScript] AS rs
+     ON rs.referenced_RepoObject_guid = rt.[Referenced_RepoObject_guid]
+      AND rs.referencing_RepoObject_guid = @RepoObject_guid
+    WHERE [rt].[Referencing_RepoObject_guid] = @RepoObject_guid
+     AND [Referenced_Depth] <= @Referenced_Depth
+     AND [Referencing_Depth] = 0
+    
+    UNION
+    
+    --add all referenced
+    SELECT DISTINCT [rt].[Referencing_fullname]
+     , [rt].[Referencing_RepoObject_guid]
+     , [rt].[Referencing_type]
+     , [rs].[DbmlRelation]
+     , @RepoObject_guid
+    FROM [repo].[RepoObjectColumn_ReferenceTree] AS rt
+    LEFT JOIN [repo].[RepoObjectColumn_RelationScript] AS rs
+     ON rs.referenced_RepoObject_guid = @RepoObject_guid
+      AND rs.referencing_RepoObject_guid = rt.[Referencing_RepoObject_guid]
+    WHERE [rt].[Referenced_RepoObject_guid] = @RepoObject_guid
+     AND [Referenced_Depth] = 0
+     AND [Referencing_Depth] <= @Referencing_Depth
+    )
+  --
+  SELECT [ro].[RepoObject_fullname]
+   , [ro].[RepoObject_guid]
+   , [ro].[RepoObject_type]
+   , [dbml].[DbmlTable] AS [Dbml]
+   , [ro].[Parameter_RepoObject_guid]
+  FROM ro
+  LEFT JOIN [repo].[RepoObject_SqlCreateTable] AS dbml
+   ON dbml.RepoObject_guid = ro.RepoObject_guid
+  
+  UNION
+  
+  SELECT NULL
+   , [ro].[Parameter_RepoObject_guid]
+   , NULL
+   , [ro].[DbmlRelation]
+   , [ro].[Parameter_RepoObject_guid]
+  FROM [ro]
+  WHERE NOT [ro].[DbmlRelation] IS NULL
+   --
+  )
+
+----
+// end::sql_modules_definition[]
+
+

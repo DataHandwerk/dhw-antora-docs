@@ -1,0 +1,673 @@
+= [repo].[GeneratorUspStep_Sql]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_IndexPatternColumnDatatype:
+:ExistsProperty--pk_IndexPatternColumnName:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+4590291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+V 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+view
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1010102639
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-02 16:57:13
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-usp_id]]
+=== usp_id
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*usp_id*
+|int
+|NOT NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.GeneratorUsp_StepList.adoc#column-usp_id[repo.GeneratorUsp_StepList.usp_id]
+--
+
+
+[[column-Number]]
+=== Number
+
+[cols="d,m,m,m,m,d"]
+|===
+|2
+|*Number*
+|int
+|NULL
+|
+|
+|===
+
+
+[[column-AdocStep]]
+=== AdocStep
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|AdocStep
+|nvarchar(max)
+|NOT NULL
+|
+|
+|===
+
+
+[[column-has_logging]]
+=== has_logging
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|has_logging
+|tinyint
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.GeneratorUsp.adoc#column-has_logging[repo.GeneratorUsp.has_logging]
+--
+
+
+[[column-is_required_ELSE]]
+=== is_required_ELSE
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_required_ELSE
+|int
+|NULL
+|
+|
+|===
+
+
+[[column-required_Begin_count]]
+=== required_Begin_count
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|required_Begin_count
+|int
+|NULL
+|
+|
+|===
+
+
+[[column-required_End_count]]
+=== required_End_count
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|required_End_count
+|int
+|NULL
+|
+|
+|===
+
+
+[[column-RowNumber_PerUsp]]
+=== RowNumber_PerUsp
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RowNumber_PerUsp
+|bigint
+|NULL
+|
+|
+|===
+
+
+[[column-SqlStep]]
+=== SqlStep
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SqlStep
+|nvarchar(max)
+|NOT NULL
+|
+|
+|===
+
+
+[[column-usp_fullname]]
+=== usp_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|usp_fullname
+|nvarchar(261)
+|NOT NULL
+|
+|
+|===
+
+.Description
+....
+(concat('[',[usp_schema],'].[',[usp_name],']'))
+....
+
+.Referenced Columns
+--
+* xref:repo.GeneratorUsp.adoc#column-usp_fullname[repo.GeneratorUsp.usp_fullname]
+--
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-usp_id>>*
+|int
+|NOT NULL
+|
+|
+
+|2
+|*<<column-Number>>*
+|int
+|NULL
+|
+|
+
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+
+|
+|<<column-AdocStep>>
+|nvarchar(max)
+|NOT NULL
+|
+|
+
+|
+|<<column-has_logging>>
+|tinyint
+|NOT NULL
+|
+|
+
+|
+|<<column-is_required_ELSE>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-required_Begin_count>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-required_End_count>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-RowNumber_PerUsp>>
+|bigint
+|NULL
+|
+|
+
+|
+|<<column-SqlStep>>
+|nvarchar(max)
+|NOT NULL
+|
+|
+
+|
+|<<column-usp_fullname>>
+|nvarchar(261)
+|NOT NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_GeneratorUspStep_Sql]]
+=== PK_GeneratorUspStep_Sql
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_no_group[no_group]
++
+--
+* <<column-usp_id>>; int
+* <<column-Number>>; int
+--
+* PK, Unique, Real: 1, 1, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:repo.ftv_GeneratorUspStep_sql.adoc[]
+* xref:repo.ftv_GeneratorUspStep_tree.adoc[]
+* xref:repo.GeneratorUsp.adoc[]
+* xref:repo.GeneratorUspStep.adoc[]
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:repo.GeneratorUsp_StepList.adoc[]
+// end::AntoraReferencingList[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+053E549A-0796-EB11-84F4-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+int,int
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+usp_id,Number
+// end::pk_IndexPatternColumnName[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [repo].[ftv_GeneratorUspStep_sql]
+* [repo].[ftv_GeneratorUspStep_tree]
+* [repo].[GeneratorUsp]
+* [repo].[GeneratorUspStep]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+
+/*
+--usage:
+
+SELECT *
+FROM [repo].[GeneratorUspStep_Sql]
+ORDER BY [id]
+ , [RowNumber_PerUsp]
+
+
+*/
+CREATE VIEW [repo].[GeneratorUspStep_Sql]
+AS
+SELECT [u].[id] AS usp_id
+ , [t].[Number]
+ , [u].[has_logging]
+ , [BeginEnd].[required_Begin_count]
+ , [BeginEnd].[required_End_count]
+ , [BeginEnd].[is_required_ELSE]
+ --only information
+ , [u].[usp_fullname]
+ , [t].[RowNumber_PerUsp]
+ --, [t].[Depth]
+ --, [t].[is_condition]
+ --, [t].[Root_Sort]
+ --, [t].[Parent_Number]
+ --, [t].[Parent_Sort]
+ --, [t].[Sort]
+ --, [t].[child_PerParent]
+ --, [t].[Asc_PerParentChild]
+ --, [t].[Desc_PerParentChild]
+ , sql.SqlStep
+ ----this list is  too wide, we need a smaller list
+ --, AdocStep = CONCAT (
+ -- '|'
+ -- , step.Number
+ -- , CHAR(13)
+ -- , CHAR(10)
+ -- , '|'
+ -- , step.[Name]
+ -- , CHAR(13)
+ -- , CHAR(10)
+ -- , '|'
+ -- , step.[is_condition]
+ -- , CHAR(13)
+ -- , CHAR(10)
+ -- , '|'
+ -- , step.[log_source_object]
+ -- , CHAR(13)
+ -- , CHAR(10)
+ -- , '|'
+ -- , step.[log_target_object]
+ -- , CHAR(13)
+ -- , CHAR(10)
+ -- , '|'
+ -- , step.[log_flag_InsertUpdateDelete]
+ -- , CHAR(13)
+ -- , CHAR(10)
+ -- )
+ , AdocStep = CONCAT (
+  '|'
+  , step.Number
+  , CHAR(13) + CHAR(10)
+  , '|'
+  , CHAR(13) + CHAR(10)
+  , '*'
+  , step.[Name]
+  , '*'
+  , CHAR(13) + CHAR(10)
+  , CHAR(13) + CHAR(10)
+  , IIF(step.[is_SubProcedure] = 1, '* ' + '`EXEC ' + step.[Statement] + '`' + CHAR(13) + CHAR(10), NULL)
+  , IIF(step.[is_condition] = 1, '* ' + '`IF ' + step.[Statement] + '`' + CHAR(13) + CHAR(10), NULL)
+  , IIF(step.[log_flag_InsertUpdateDelete] <> '', '* ' + step.[log_flag_InsertUpdateDelete] + CHAR(13) + CHAR(10), NULL)
+  , IIF(step.[log_source_object] <> '', '* ' + step.[log_source_object] + CHAR(13) + CHAR(10), NULL)
+  , IIF(step.[log_target_object] <> '', '* ' + step.[log_target_object] + CHAR(13) + CHAR(10), NULL)
+  , CHAR(13) + CHAR(10)
+  , '|'
+  , step.[Parent_Number]
+  , CHAR(13) + CHAR(10)
+  )
+FROM [repo].[GeneratorUsp] AS u
+CROSS APPLY [repo].[ftv_GeneratorUspStep_tree]([id], NULL) AS t
+LEFT JOIN (
+ SELECT [s].[usp_id]
+  , [t].[Number]
+  , [required_Begin_count] = SUM(IIF([t].[Asc_PerParentChild] = 1, 1, 0))
+  , [required_End_count] = SUM(IIF([t].[Desc_PerParentChild] = 1, 1, 0))
+  , [is_required_ELSE] = MAX([t].[is_required_ELSE])
+ FROM [repo].[GeneratorUspStep] AS s
+ CROSS APPLY [repo].[ftv_GeneratorUspStep_tree]([usp_id], [Number]) AS t
+ WHERE [s].[is_condition] = 1
+ GROUP BY [s].[usp_id]
+  , [t].[Number]
+ ) AS BeginEnd
+ ON BeginEnd.usp_id = u.id
+  AND BeginEnd.Number = t.Number
+LEFT JOIN [repo].[GeneratorUspStep] step
+ ON step.usp_id = u.id
+  AND step.Number = [t].[Number]
+CROSS APPLY [repo].[ftv_GeneratorUspStep_sql]([u].[id], [t].[Number], [u].[has_logging], [BeginEnd].[required_Begin_count], [BeginEnd].[required_End_count], [BeginEnd].[is_required_ELSE]) sql
+
+----
+// end::sql_modules_definition[]
+
+

@@ -1,0 +1,75 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.usp_AntoraExport_ObjectPuml << P >> {
+  --
+}
+
+entity repo.RepoObject_referenced_level << V >> {
+  **StartingNode_guid** : uniqueidentifier
+  **LastNode_guid** : uniqueidentifier
+  * **referenced_level** : int
+  --
+  LastNode_fullname : nvarchar(261)
+  LastNode_fullname2 : nvarchar(257)
+  ListNode : nvarchar(4000)
+  StartingNode_fullname : nvarchar(261)
+  StartingNode_fullname2 : nvarchar(257)
+}
+
+entity repo.RepoObject_referenced_level_T << U >> {
+  **StartingNode_guid** : uniqueidentifier
+  **LastNode_guid** : uniqueidentifier
+  * **referenced_level** : int
+  --
+  LastNode_fullname : nvarchar(261)
+  LastNode_fullname2 : nvarchar(257)
+  ListNode : nvarchar(4000)
+  StartingNode_fullname : nvarchar(261)
+  StartingNode_fullname2 : nvarchar(257)
+}
+
+entity repo.usp_ExecutionLog_insert << P >> {
+  --
+}
+
+entity repo.usp_PERSIST_RepoObject_referenced_level_T << P >> {
+  --
+}
+
+repo.RepoObject_referenced_level <.. repo.RepoObject_referenced_level_T
+repo.RepoObject_referenced_level <.. repo.usp_PERSIST_RepoObject_referenced_level_T
+repo.RepoObject_referenced_level_T <.. repo.usp_PERSIST_RepoObject_referenced_level_T
+repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_referenced_level_T
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPuml
+repo.usp_PERSIST_RepoObject_referenced_level_T <.. docs.usp_AntoraExport_ObjectPuml
+repo.RepoObject_referenced_level::LastNode_fullname <-- repo.RepoObject_referenced_level_T::LastNode_fullname
+repo.RepoObject_referenced_level::LastNode_fullname2 <-- repo.RepoObject_referenced_level_T::LastNode_fullname2
+repo.RepoObject_referenced_level::LastNode_guid <-- repo.RepoObject_referenced_level_T::LastNode_guid
+repo.RepoObject_referenced_level::ListNode <-- repo.RepoObject_referenced_level_T::ListNode
+repo.RepoObject_referenced_level::referenced_level <-- repo.RepoObject_referenced_level_T::referenced_level
+repo.RepoObject_referenced_level::StartingNode_fullname <-- repo.RepoObject_referenced_level_T::StartingNode_fullname
+repo.RepoObject_referenced_level::StartingNode_fullname2 <-- repo.RepoObject_referenced_level_T::StartingNode_fullname2
+repo.RepoObject_referenced_level::StartingNode_guid <-- repo.RepoObject_referenced_level_T::StartingNode_guid

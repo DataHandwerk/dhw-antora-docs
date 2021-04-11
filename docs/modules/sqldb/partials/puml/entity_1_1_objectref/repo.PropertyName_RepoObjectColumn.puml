@@ -1,0 +1,46 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+}
+
+entity repo.PropertyName_RepoObjectColumn << V >> {
+  * **property_name** : nvarchar(128)
+}
+
+entity repo.RepoObjectColumn_InheritanceType_InheritanceDefinition << V >> {
+}
+
+entity repo.RepoObjectColumnProperty << U >> {
+  * **RepoObjectColumnProperty_id** : int
+}
+
+repo.Parameter <.. repo.PropertyName_RepoObjectColumn
+repo.Parameter <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
+repo.PropertyName_RepoObjectColumn <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
+repo.RepoObjectColumnProperty <.. repo.PropertyName_RepoObjectColumn
+repo.RepoObjectColumnProperty <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition

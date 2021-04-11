@@ -1,0 +1,5 @@
+
+include::partial$template/master-page-1.adoc[]
+include::partial$template/master-page-2.adoc[]
+include::partial$template/master-page-3.adoc[]
+

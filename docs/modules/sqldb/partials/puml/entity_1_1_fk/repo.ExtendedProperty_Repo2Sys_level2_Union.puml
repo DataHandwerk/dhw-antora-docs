@@ -1,0 +1,39 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.ExtendedProperty_Repo2Sys_level2_Union << V >> {
+- **PK_ExtendedProperty_Repo2Sys_level2_Union**
+
+..
+level0type; nvarchar(6)
+level0name; nvarchar(128)
+level1type; varchar(9)
+level1name; nvarchar(128)
+level2type; nvarchar(10)
+level2name; nvarchar(128)
+property_name; nvarchar(128)
+}
+
+

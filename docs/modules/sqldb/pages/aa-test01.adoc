@@ -1,0 +1,91 @@
+= test 01
+
+this works fine:
+
+[plantuml, structurizr-SystemLandscape, svg]
+....
+include::arc:partial$c4_dsl/puml/structurizr-SystemLandscape.puml[]
+....
+
+this works fine:
+
+image::sqldb:repo_repoobject.svg[]
+
+How to get graphviz to work?
+
+* scdot file is available in both folders: exmples and partials 
+* scdot file is valid, I can see it using VSC graphviz extension
+* use playbook attribute:
+** kroki-fetch-diagram: true
+
+[graphviz, er-diagram-1, svg]
+....
+include::sqldb:example$repo_repoobject.scdot[]
+....
+
+// [graphviz, er-diagram-2, svg]
+// ....
+// include::sqldb:partial$repo_repoobject.scdot[]
+// ....
+
+[graphviz]
+....
+digraph foo {
+  node [style=rounded]
+  node1 [shape=box]
+  node2 [fillcolor=yellow, style="rounded,filled", shape=diamond]
+  node3 [shape=record, label="{ a | b | c }"]
+
+  node1 -> node2 -> node3
+}
+....
+
+
+
+// [graphviz]
+// ....
+// include::sqldb:example$repo_repoobject.scdot[]
+// ....
+
+```
+bcp "SELECT [AdocContent] FROM [docs].[REpoObject_Adoc] WITH (READUNCOMMITTED) where [AdocFilename] = '[config].[type]'" queryout D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\pages\[config].[type].adoc -S localhost\sql2019 -d dhw_self -c -T
+```
+
+intrisic attributes
+
+https://docs.asciidoctor.org/asciidoc/latest/attributes/document-attributes-reference/#intrinsic-attributes
+
+
+docname
+{docname}
+
+docdir
+{docdir}
+
+doctitle
+{doctitle}
+
+doctime
+{doctime}
+
+doctype
+{doctype}
+
+docfilesuffix
+{docfilesuffix}
+
+
+https://docs.antora.org/antora/2.3/page/intrinsic-attributes/
+
+
+page-relative-src-path
+{page-relative-src-path}
+
+site-title
+{site-title}
+
+site-url
+{site-url}
+
+page-module
+{page-module}

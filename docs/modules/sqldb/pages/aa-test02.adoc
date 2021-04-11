@@ -1,0 +1,74 @@
+= {docname}
+
+.References of {docname}
+// [%autowidth]
+// [width=100%]
+[cols="a,a"]
+|===
+|Referenced Objects |Referencing Objects
+
+|
+* repo_sys.ExtendedProperties_ParameterForAddUpdateDrop.adoc
+* repo_sys.ExtendedProperties_ParameterForAddUpdateDrop.adoc
+|
+* repo_sys.ExtendedProperties_ParameterForAddUpdateDrop.adoc
+* repo_sys.ExtendedProperties_ParameterForAddUpdateDrop.adoc
+
+|===
+
+
+== Columns
+
+[cols="m,m,m,m,m,m"]
+|===
+|PK|Column Name|Data Type|NULL?|ID|Calc
+
+|1
+|*aaa_ID*
+|INT
+|NOT NULL
+|(1,1)
+|
+
+|
+|aaa_bbb_ccc_ddd_eee_fff_ggg_hhh_iii_jjj_kkk_lll_mmm
+|varchar(4000)
+|NULL
+|
+|c
+
+|===
+
+=== aaa_ID
+
+Das Problem bei Tabellen ist, dass lange ein-Wort-Links in einer Tabelle nicht umgebrochen werden +
+Das gibt Probleme bei Referenzen aaa.bbb.ccc, die sehr lang sind
+
+also vielleicht pro Column eine Zeile?
+
+
+
+todo
+
+* [*] isnull - Symbol?
+* [*] Identity - neue Zeile?
+* [*] calculated - neue Zeile?
+* [*] persisted
+* [*] Beschreibung
+* [ ] Index
+* [ ] Markierung PK - alternative Formatierung? Link zur PK Sektion?
+* [ ] fk
+
+Vielleicht mehrere Tabellen:
+
+* alle Spalten und Data-Lineage
+* nur Spalten, die in FK oder PK verwendet werden, oder allgemein eine Index-Tabelle, wo dann PK und andere auch extra markiert sind
+
+Index
+
+* Spalten mit Datentyp
+* is PK
+* is unique
+* SemanticGroup
+
+Warum haben manche Table Value Function einen SQL Code und manche nicht?

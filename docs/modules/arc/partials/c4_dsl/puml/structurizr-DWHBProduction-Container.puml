@@ -15,12 +15,12 @@ skinparam rectangle<<2>> {
   FontColor #000000
   BorderColor #9A9A9A
 }
-skinparam database<<25>> {
+skinparam rectangle<<3>> {
   BackgroundColor #dddddd
   FontColor #000000
   BorderColor #9A9A9A
 }
-skinparam rectangle<<3>> {
+skinparam database<<26>> {
   BackgroundColor #dddddd
   FontColor #000000
   BorderColor #9A9A9A
@@ -28,8 +28,8 @@ skinparam rectangle<<3>> {
 rectangle "==Deployment Team\n<size:10>[Person]</size>" <<2>> as 2
 rectangle "==Project B DWH User\n<size:10>[Person]</size>\n\nuser of DWH (Project B)" <<3>> as 3
 package "DWH B Production\n[Software System]" {
-  database "==DWH db Production (Project B)\n<size:10>[Container: Database]</size>" <<25>> as 25
+  database "==DWH db Production (Project B)\n<size:10>[Container: Database]</size>" <<26>> as 26
 }
-2 .[#707070].> 25 : "deployes on production system"
-3 .[#707070].> 25 : "uses"
+2 .[#707070].> 26 : "deployes on production system"
+3 .[#707070].> 26 : "uses"
 @enduml

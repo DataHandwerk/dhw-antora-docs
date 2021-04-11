@@ -16,6 +16,7 @@ workspace {
                     repo_generator_usp = component "USP Generator" "usp (userdefined stored procedures) can be generated in a formalized way: containing optional logging and some workflow elements (sub procedures, conditions, parent-child logic)"
                     repo_generator_persistence = component "Persistence Generator" "Views or tables can be persisted in tables, with or without history with temporal tables. Code for performing the persistations is created."
                     repo_generator_view = component "View Generator" "Not yet implemented"
+                    repo_generator_docs = component "Documentation Generator" "Not yet implemented"
                     repo_Workflow = component "Workflow" "A workflow executes procedures in a specific and necessary order."
                     repo_visualization = component "Visualization" "preparation for Visualization of data lineage (references), real and virtual PK, FK-PK"
                 }
@@ -69,6 +70,7 @@ workspace {
         repo_generator_usp -> repo_RepoObject
         repo_generator_persistence -> repo_RepoObject
         repo_generator_view -> repo_RepoObject
+        repo_generator_docs -> repo_RepoObject
 
         repo_Reference -> repo_SqlParser
 
@@ -76,6 +78,7 @@ workspace {
         repo_Workflow -> repo_Reference
         repo_generator_persistence -> repo_Reference
         repo_visualization -> repo_Reference
+        repo_generator_docs -> repo_Reference
 
         repo_generator_persistence -> repo_generator_usp
         repo_generator_view -> repo_SqlParser

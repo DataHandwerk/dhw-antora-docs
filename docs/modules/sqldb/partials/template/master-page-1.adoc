@@ -1,0 +1,106 @@
+= {docname}
+
+include::partial${docname}.adoc[tag=existing_properties]
+
+type:
+include::partial${docname}.adoc[tag=SysObject_type]
+(
+include::partial${docname}.adoc[tag=SysObject_type_name]
+), modify_date:
+include::partial${docname}.adoc[tag=SysObject_modify_date]
+
+RepoObject_guid:
+include::partial${docname}.adoc[tag=RepoObject_guid]
+
+ifdef::ExistsProperty--is_repo_managed[]
+is_repo_managed:
+include::partial${docname}.adoc[tag=is_repo_managed]
+endif::ExistsProperty--is_repo_managed[]
+
+ifdef::ExistsProperty--MS_Description[]
+
+== Description
+
+include::partial${docname}.adoc[tag=MS_Description]
+
+endif::ExistsProperty--MS_Description[]
+
+ifdef::ExistsProperty--UspExamples,ExistsProperty--example1,ExistsProperty--example2,ExistsProperty--example3,ExistsProperty--example4,ExistsProperty--example5[]
+
+== Examples
+
+endif::ExistsProperty--UspExamples,ExistsProperty--example1,ExistsProperty--example2,ExistsProperty--example3,ExistsProperty--example4,ExistsProperty--example5[]
+
+
+ifdef::ExistsProperty--UspExamples[]
+
+.UspExamples
+====
+[source,sql]
+----
+include::partial${docname}.adoc[tag=UspExamples]
+----
+====
+
+endif::ExistsProperty--UspExamples[]
+
+ifdef::ExistsProperty--example1[]
+
+.Example 1
+====
+[source,sql]
+----
+include::partial${docname}.adoc[tag=example1]
+----
+====
+
+endif::ExistsProperty--example1[]
+
+ifdef::ExistsProperty--example2[]
+
+.Example 2
+====
+[source,sql]
+----
+include::partial${docname}.adoc[tag=example2]
+----
+====
+
+endif::ExistsProperty--example2[]
+
+ifdef::ExistsProperty--example3[]
+
+.Example 3
+====
+[source,sql]
+----
+include::partial${docname}.adoc[tag=example3]
+----
+====
+
+endif::ExistsProperty--example3[]
+
+ifdef::ExistsProperty--example4[]
+
+.Example 4
+====
+[source,sql]
+----
+include::partial${docname}.adoc[tag=example4]
+----
+====
+
+endif::ExistsProperty--example4[]
+
+ifdef::ExistsProperty--example5[]
+
+.Example 5
+====
+[source,sql]
+----
+include::partial${docname}.adoc[tag=example5]
+----
+====
+
+endif::ExistsProperty--example5[]
+

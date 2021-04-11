@@ -1,0 +1,62 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo_sys.ForeignKey << V >> {
+  --
+  * create_date : datetime
+  delete_referential_action : tinyint
+  delete_referential_action_desc : nvarchar(60)
+  ForeignKey_fullname : nvarchar(261)
+  ForeignKey_guid : uniqueidentifier
+  * is_disabled : bit
+  * is_ms_shipped : bit
+  * is_not_for_replication : bit
+  * is_not_trusted : bit
+  * is_published : bit
+  * is_schema_published : bit
+  * is_system_named : bit
+  key_index_id : int
+  * modify_date : datetime
+  * name : sysname
+  * object_id : int
+  * parent_object_id : int
+  parent_RepoObject_fullname : nvarchar(261)
+  parent_RepoObject_guid : uniqueidentifier
+  parent_SysObject_fullname : nvarchar(261)
+  principal_id : int
+  referenced_object_id : int
+  * schema_id : int
+  type : char(2)
+  type_desc : nvarchar(60)
+  update_referential_action : tinyint
+  update_referential_action_desc : nvarchar(60)
+}
+
+entity sys_dwh.foreign_keys << SN >> {
+  --
+}
+
+sys_dwh.foreign_keys <.. repo_sys.ForeignKey
+

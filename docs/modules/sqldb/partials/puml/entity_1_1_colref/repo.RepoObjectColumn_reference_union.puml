@@ -1,0 +1,199 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing << V >> {
+  **index_guid** : uniqueidentifier
+  * **index_column_id** : int
+  **RowNumberInReferencing** : bigint
+  --
+  is_descending_key : bit
+  referenced_RepoObject_guid : uniqueidentifier
+  referenced_RepoObjectColumn_guid : uniqueidentifier
+  referencing_RepoObject_guid : uniqueidentifier
+  referencing_RepoObjectColumn_guid : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn_MissingSource_TypeV << V >> {
+  --
+  has_different_sys_names : bit
+  is_query_plan_expression : bit
+  * is_RepoObjectColumn_name_uniqueidentifier : int
+  is_SysObjectColumn_missing : bit
+  * is_SysObjectColumn_name_uniqueidentifier : int
+  persistence_source_RepoObjectColumn_guid : uniqueidentifier
+  Referencing_Count : int
+  Repo_default_definition : nvarchar(max)
+  Repo_default_is_system_named : bit
+  Repo_default_name : nvarchar(128)
+  Repo_definition : nvarchar(max)
+  * Repo_generated_always_type : tinyint
+  Repo_graph_type : int
+  Repo_increment_value : sql_variant
+  * Repo_is_computed : bit
+  * Repo_is_identity : bit
+  Repo_is_nullable : bit
+  Repo_is_persisted : bit
+  Repo_seed_value : sql_variant
+  Repo_user_type_fullname : nvarchar(128)
+  Repo_user_type_name : nvarchar(128)
+  Repo_uses_database_collation : bit
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_guid : uniqueidentifier
+  * RepoObjectColumn_guid : uniqueidentifier
+  * RepoObjectColumn_name : nvarchar(128)
+  * SysObject_fullname : nvarchar(261)
+  SysObjectColumn_column_id : int
+  * SysObjectColumn_name : nvarchar(128)
+}
+
+entity repo.RepoObjectColumn_reference_Persistence << V >> {
+  --
+  definition : nvarchar(max)
+  * InformationSource : varchar(27)
+  is_computed : bit
+  is_referenced_object : bit
+  is_referencing_object_equal_referenced_object : bit
+  * referenced_column_name : nvarchar(128)
+  * referenced_entity_name : nvarchar(128)
+  referenced_id : int
+  referenced_minor_id : int
+  referenced_node_id : bigint
+  referenced_RepoObject_guid : uniqueidentifier
+  * referenced_RepoObjectColumn_guid : uniqueidentifier
+  * referenced_schema_name : nvarchar(128)
+  referenced_type : char(2)
+  * referencing_column_name : nvarchar(128)
+  * referencing_entity_name : nvarchar(128)
+  referencing_id : int
+  referencing_minor_id : int
+  referencing_node_id : bigint
+  * referencing_RepoObject_guid : uniqueidentifier
+  * referencing_RepoObjectColumn_guid : uniqueidentifier
+  * referencing_schema_name : nvarchar(128)
+  referencing_type : char(2)
+}
+
+entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
+  --
+  definition : nvarchar(max)
+  * InformationSource : varchar(31)
+  is_computed : bit
+  is_referenced_object : bit
+  is_referencing_object_equal_referenced_object : bit
+  referenced_column_name : sysname
+  referenced_entity_name : nvarchar(128)
+  referenced_id : int
+  * referenced_minor_id : int
+  referenced_node_id : bigint
+  referenced_RepoObject_guid : uniqueidentifier
+  referenced_RepoObjectColumn_guid : uniqueidentifier
+  referenced_schema_name : nvarchar(128)
+  referenced_type : char(2)
+  referencing_column_name : sysname
+  referencing_entity_name : nvarchar(128)
+  * referencing_id : int
+  * referencing_minor_id : int
+  referencing_node_id : bigint
+  referencing_RepoObject_guid : uniqueidentifier
+  referencing_RepoObjectColumn_guid : uniqueidentifier
+  referencing_schema_name : nvarchar(128)
+  referencing_type : char(2)
+}
+
+entity repo.RepoObjectColumn_reference_SqlModules << V >> {
+  --
+  definition : nvarchar(max)
+  * InformationSource : varchar(27)
+  is_computed : bit
+  is_referenced_object : bit
+  is_referencing_object_equal_referenced_object : bit
+  * referenced_column_name : nvarchar(128)
+  * referenced_entity_name : nvarchar(128)
+  referenced_id : int
+  referenced_minor_id : int
+  referenced_node_id : bigint
+  * referenced_RepoObject_guid : uniqueidentifier
+  * referenced_RepoObjectColumn_guid : uniqueidentifier
+  * referenced_schema_name : nvarchar(128)
+  referenced_type : char(2)
+  * referencing_column_name : nvarchar(128)
+  * referencing_entity_name : nvarchar(128)
+  referencing_id : int
+  referencing_minor_id : int
+  referencing_node_id : bigint
+  * referencing_RepoObject_guid : uniqueidentifier
+  * referencing_RepoObjectColumn_guid : uniqueidentifier
+  * referencing_schema_name : nvarchar(128)
+  referencing_type : char(2)
+  SysObject_fullname : nvarchar(261)
+}
+
+entity repo.RepoObjectColumn_reference_union << V >> {
+  --
+  definition : nvarchar(max)
+  * InformationSource : varchar(31)
+  is_computed : bit
+  is_referenced_object : bit
+  is_referencing_object_equal_referenced_object : bit
+  referenced_column_name : nvarchar(128)
+  referenced_entity_name : nvarchar(128)
+  referenced_id : int
+  referenced_minor_id : int
+  referenced_node_id : bigint
+  referenced_RepoObject_guid : uniqueidentifier
+  referenced_RepoObjectColumn_guid : uniqueidentifier
+  referenced_schema_name : nvarchar(128)
+  referenced_type : char(2)
+  referencing_column_name : nvarchar(128)
+  referencing_entity_name : nvarchar(128)
+  referencing_id : int
+  referencing_minor_id : int
+  referencing_node_id : bigint
+  referencing_RepoObject_guid : uniqueidentifier
+  referencing_RepoObjectColumn_guid : uniqueidentifier
+  referencing_schema_name : nvarchar(128)
+  referencing_type : char(2)
+}
+
+entity repo.RepoObjectColumn_RelationScript << V >> {
+  --
+  * DbmlRelation : nvarchar(786)
+  referenced_RepoObject_guid : uniqueidentifier
+  referencing_RepoObject_guid : uniqueidentifier
+}
+
+entity repo.usp_main << P >> {
+  --
+}
+
+repo.RepoObjectColumn_reference_Persistence <.. repo.RepoObjectColumn_reference_union
+repo.RepoObjectColumn_reference_SqlExpressionDependencies <.. repo.RepoObjectColumn_reference_union
+repo.RepoObjectColumn_reference_SqlModules <.. repo.RepoObjectColumn_reference_union
+repo.RepoObjectColumn_reference_union <.. repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing
+repo.RepoObjectColumn_reference_union <.. repo.RepoObjectColumn_MissingSource_TypeV
+repo.RepoObjectColumn_reference_union <.. repo.usp_main
+repo.RepoObjectColumn_reference_union <.. repo.RepoObjectColumn_RelationScript
+repo.RepoObjectColumn_reference_union::referenced_RepoObject_guid <-- repo.RepoObjectColumn_RelationScript::referenced_RepoObject_guid
+repo.RepoObjectColumn_reference_union::referencing_RepoObject_guid <-- repo.RepoObjectColumn_RelationScript::referencing_RepoObject_guid

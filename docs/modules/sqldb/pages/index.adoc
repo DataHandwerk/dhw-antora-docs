@@ -1,0 +1,45 @@
+= dhw_self - database documentation
+
+## objects by type
+
+xref:nav/nav-type-U.adoc[]
+
+xref:nav/nav-type-V.adoc[]
+
+xref:nav/nav-type-SN.adoc[]
+
+xref:nav/nav-type-P.adoc[]
+
+xref:nav/nav-type-IF.adoc[]
+
+xref:nav/nav-type-FN.adoc[]
+
+xref:nav/nav-type-TR.adoc[]
+
+// ## objects by schema
+
+// include::partial$navlist/navlist-by-schema.adoc[]
+
+## Indexes
+
+* xref:index/IndexSemanticGroup.adoc[]
+
+## todo
+
+* [*] isnull
+* [*] Identity
+* [*] calculated
+* [*] persisted
+* [*] Beschreibung
+* [*] Column Reference Diagram
+* [ ] Index
+** [ ] SemanticGroup
+** Spalten mit Datentyp
+** is PK
+** is unique
+* [ ] fk
+* [*] generate from db: nav Listen, nav Pages, (navlist-by-type.adoc[] navlist-by-schema.adoc[] usw.)
+* [ ] Formalisierung examples
+* [ ] Formalisierung Beschreibungen
+* [*] issues, when the case of the object or columns has changed, and we take them from graph tables for documentation
+

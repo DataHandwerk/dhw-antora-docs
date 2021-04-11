@@ -1,2 +1,4 @@
 .Manual
 * xref:create-update-connect-repo-db.adoc[]
+* xref:repo-usp-main.adoc[]
+* xref:persistence-generator.adoc[]

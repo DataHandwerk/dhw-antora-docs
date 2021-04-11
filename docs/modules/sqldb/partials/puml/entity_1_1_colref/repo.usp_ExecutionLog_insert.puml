@@ -1,0 +1,315 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.usp_AntoraExport << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_navigation << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_ObjectPage << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_ObjectPageTemplate << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_ObjectPartialProperties << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_ObjectPuml << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_Page_IndexSemanticGroup << P >> {
+  --
+}
+
+entity docs.usp_PERSIST_RepoObject_Adoc_T << P >> {
+  --
+}
+
+entity docs.usp_PERSIST_RepoObject_IndexList_T << P >> {
+  --
+}
+
+entity docs.usp_PERSIST_RepoObject_Plantuml_Entity_T << P >> {
+  --
+}
+
+entity graph.usp_PERSIST_Index << P >> {
+  --
+}
+
+entity graph.usp_PERSIST_ProcedureInstance << P >> {
+  --
+}
+
+entity graph.usp_PERSIST_RepoObject << P >> {
+  --
+}
+
+entity graph.usp_PERSIST_RepoObjectColumn << P >> {
+  --
+}
+
+entity repo.ExecutionLog << U >> {
+  * **id** : bigint
+  --
+  created_dt : datetime
+  current_execution_guid : uniqueidentifier
+  deleted : int
+  event_info : nvarchar(max)
+  * execution_instance_guid : uniqueidentifier
+  info_01 : sql_variant
+  info_02 : sql_variant
+  info_03 : sql_variant
+  info_04 : sql_variant
+  info_05 : sql_variant
+  info_06 : sql_variant
+  info_07 : sql_variant
+  info_08 : sql_variant
+  info_09 : sql_variant
+  inserted : int
+  parameter_01 : sql_variant
+  parameter_02 : sql_variant
+  parameter_03 : sql_variant
+  parameter_04 : sql_variant
+  parameter_05 : sql_variant
+  parameter_06 : sql_variant
+  parameter_07 : sql_variant
+  parameter_08 : sql_variant
+  parameter_09 : sql_variant
+  parameter_10 : sql_variant
+  parameter_11 : sql_variant
+  parameter_12 : sql_variant
+  parameter_13 : sql_variant
+  parameter_14 : sql_variant
+  parameter_15 : sql_variant
+  parameter_16 : sql_variant
+  parameter_17 : sql_variant
+  parameter_18 : sql_variant
+  parameter_19 : sql_variant
+  parameter_20 : sql_variant
+  parent_execution_log_id : bigint
+  proc_id : int
+  proc_name : nvarchar(128)
+  proc_schema_name : nvarchar(128)
+  source_object : nvarchar(261)
+  ssis_execution_id : bigint
+  step_id : int
+  step_name : nvarchar(1000)
+  sub_execution_id : int
+  target_object : nvarchar(261)
+  updated : int
+  * {abstract} proc_fullname : nvarchar(517)
+}
+
+entity repo.usp_ExecutionLog_insert << P >> {
+  --
+}
+
+entity repo.usp_GeneratorUsp_insert_update_persistence << P >> {
+  --
+}
+
+entity repo.usp_Index_finish << P >> {
+  --
+}
+
+entity repo.usp_Index_ForeignKey << P >> {
+  --
+}
+
+entity repo.usp_index_inheritance << P >> {
+  --
+}
+
+entity repo.usp_Index_Settings << P >> {
+  --
+}
+
+entity repo.usp_Index_virtual_InsertUpdate << P >> {
+  --
+}
+
+entity repo.usp_main << P >> {
+  --
+}
+
+entity repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T << P >> {
+  --
+}
+
+entity repo.usp_PERSIST_RepoObject_referenced_level_T << P >> {
+  --
+}
+
+entity repo.usp_PERSIST_RepoObject_referencing_level_T << P >> {
+  --
+}
+
+entity repo.usp_PERSIST_RepoObject_SqlModules_41_from_T << P >> {
+  --
+}
+
+entity repo.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T << P >> {
+  --
+}
+
+entity repo.usp_persistence_insert_update << P >> {
+  --
+}
+
+entity repo.usp_RepoObject_Inheritance << P >> {
+  --
+}
+
+entity repo.usp_RepoObject_update_SysObjectQueryPlan << P >> {
+  --
+}
+
+entity repo.usp_RepoObjectColumn_Inheritance << P >> {
+  --
+}
+
+entity repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id << P >> {
+  --
+}
+
+entity repo.usp_RepoObjectSource_FirstResultSet << P >> {
+  --
+}
+
+entity repo.usp_RepoObjectSource_QueryPlan << P >> {
+  --
+}
+
+entity repo.usp_sync_ExtendedProperties_Repo2Sys_Delete << P >> {
+  --
+}
+
+entity repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate << P >> {
+  --
+}
+
+entity repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate << P >> {
+  --
+}
+
+entity repo.usp_sync_guid << P >> {
+  --
+}
+
+entity repo.usp_sync_guid_RepoObject << P >> {
+  --
+}
+
+entity repo.usp_sync_guid_RepoObjectColumn << P >> {
+  --
+}
+
+entity repo.usp_update_Referencing_Count << P >> {
+  --
+}
+
+docs.usp_AntoraExport_navigation <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_ObjectPage <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_ObjectPageTemplate <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_ObjectPartialProperties <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_ObjectPuml <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_Page_IndexSemanticGroup <.. docs.usp_AntoraExport
+docs.usp_PERSIST_RepoObject_Adoc_T <.. docs.usp_AntoraExport_ObjectPartialProperties
+docs.usp_PERSIST_RepoObject_IndexList_T <.. docs.usp_AntoraExport_ObjectPartialProperties
+docs.usp_PERSIST_RepoObject_Plantuml_Entity_T <.. docs.usp_AntoraExport_ObjectPuml
+graph.usp_PERSIST_Index <.. repo.usp_Index_finish
+graph.usp_PERSIST_ProcedureInstance <.. repo.usp_sync_guid_RepoObject
+graph.usp_PERSIST_RepoObject <.. repo.usp_sync_guid_RepoObject
+graph.usp_PERSIST_RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
+repo.ExecutionLog <.. repo.usp_ExecutionLog_insert
+repo.usp_ExecutionLog_insert <.. repo.usp_RepoObjectSource_QueryPlan
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_Page_IndexSemanticGroup
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport
+repo.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_IndexList_T
+repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_referencing_level_T
+repo.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPuml
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPageTemplate
+repo.usp_ExecutionLog_insert <.. graph.usp_PERSIST_Index
+repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_referenced_level_T
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPage
+repo.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_Adoc_T
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_navigation
+repo.usp_ExecutionLog_insert <.. repo.usp_Index_finish
+repo.usp_ExecutionLog_insert <.. repo.usp_Index_ForeignKey
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPartialProperties
+repo.usp_ExecutionLog_insert <.. repo.usp_sync_ExtendedProperties_Repo2Sys_Delete
+repo.usp_ExecutionLog_insert <.. repo.usp_RepoObjectColumn_Inheritance
+repo.usp_ExecutionLog_insert <.. repo.usp_RepoObject_Inheritance
+repo.usp_ExecutionLog_insert <.. graph.usp_PERSIST_ProcedureInstance
+repo.usp_ExecutionLog_insert <.. repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate
+repo.usp_ExecutionLog_insert <.. repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate
+repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T
+repo.usp_ExecutionLog_insert <.. graph.usp_PERSIST_RepoObject
+repo.usp_ExecutionLog_insert <.. graph.usp_PERSIST_RepoObjectColumn
+repo.usp_ExecutionLog_insert <.. repo.usp_main
+repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_SqlModules_41_from_T
+repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T
+repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObjectColumn
+repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid
+repo.usp_ExecutionLog_insert <.. repo.usp_persistence_insert_update
+repo.usp_ExecutionLog_insert <.. repo.usp_Index_virtual_InsertUpdate
+repo.usp_ExecutionLog_insert <.. repo.usp_GeneratorUsp_insert_update_persistence
+repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObject
+repo.usp_ExecutionLog_insert <.. repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id
+repo.usp_ExecutionLog_insert <.. repo.usp_RepoObject_update_SysObjectQueryPlan
+repo.usp_ExecutionLog_insert <.. repo.usp_index_inheritance
+repo.usp_ExecutionLog_insert <.. repo.usp_update_Referencing_Count
+repo.usp_ExecutionLog_insert <.. repo.usp_RepoObjectSource_FirstResultSet
+repo.usp_ExecutionLog_insert <.. repo.usp_Index_Settings
+repo.usp_GeneratorUsp_insert_update_persistence <.. repo.usp_main
+repo.usp_Index_finish <.. repo.usp_Index_ForeignKey
+repo.usp_Index_finish <.. repo.usp_index_inheritance
+repo.usp_Index_ForeignKey <.. repo.usp_main
+repo.usp_index_inheritance <.. repo.usp_main
+repo.usp_Index_Settings <.. repo.usp_Index_finish
+repo.usp_Index_virtual_InsertUpdate <.. repo.usp_Index_ForeignKey
+repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T <.. repo.usp_index_inheritance
+repo.usp_PERSIST_RepoObject_referenced_level_T <.. docs.usp_AntoraExport_ObjectPuml
+repo.usp_PERSIST_RepoObject_referencing_level_T <.. docs.usp_AntoraExport_ObjectPuml
+repo.usp_RepoObject_update_SysObjectQueryPlan <.. repo.usp_main
+repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id <.. repo.usp_main
+repo.usp_RepoObjectSource_FirstResultSet <.. repo.usp_main
+repo.usp_RepoObjectSource_QueryPlan <.. repo.usp_main
+repo.usp_sync_guid <.. repo.usp_persistence_insert_update
+repo.usp_sync_guid <.. repo.usp_main
+repo.usp_sync_guid_RepoObject <.. repo.usp_sync_guid
+repo.usp_sync_guid_RepoObjectColumn <.. repo.usp_sync_guid
+repo.usp_update_Referencing_Count <.. repo.usp_main
+

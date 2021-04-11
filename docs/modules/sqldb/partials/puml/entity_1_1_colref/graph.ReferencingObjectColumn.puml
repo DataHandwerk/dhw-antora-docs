@@ -1,0 +1,43 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity graph.ReferencingObjectColumn << U >> {
+  --
+  * $edge_id_DC70EA9971F145D9892721EBFAD6DA3B : nvarchar(1000)
+  $from_id_E02FBFD790F541C5888A72743EC0C66D : nvarchar(1000)
+  $to_id_82344FE7FA59415C82FF9A4D37C1712A : nvarchar(1000)
+  * from_id_AF95740FA51A459CAD5E73CCDA2BB9A1 : bigint
+  * from_obj_id_E30A518916BD429EAA4BC746BAB803B8 : int
+  * graph_id_33EABAD1D448423BA763A06B2E100A3D : bigint
+  * to_id_BC6FD8D77D2B4F3292EFDF7454BE0A57 : bigint
+  * to_obj_id_B789CEA675414B248EC7F2E6F9E8738E : int
+}
+
+entity repo.usp_main << P >> {
+  --
+}
+
+graph.ReferencingObjectColumn <.. repo.usp_main
+

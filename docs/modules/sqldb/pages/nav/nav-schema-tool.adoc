@@ -1,0 +1,4 @@
+= tool
+
+include::partial$navlist/navlist-schema-tool.adoc[]
+

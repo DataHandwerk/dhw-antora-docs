@@ -1,0 +1,71 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.usp_AntoraExport << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_navigation << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_ObjectPage << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_ObjectPageTemplate << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_ObjectPartialProperties << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_ObjectPuml << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_Page_IndexSemanticGroup << P >> {
+  --
+}
+
+entity repo.usp_ExecutionLog_insert << P >> {
+  --
+}
+
+docs.usp_AntoraExport_navigation <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_ObjectPage <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_ObjectPageTemplate <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_ObjectPartialProperties <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_ObjectPuml <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_Page_IndexSemanticGroup <.. docs.usp_AntoraExport
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPartialProperties
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPage
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_navigation
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPageTemplate
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPuml
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_Page_IndexSemanticGroup
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport
+

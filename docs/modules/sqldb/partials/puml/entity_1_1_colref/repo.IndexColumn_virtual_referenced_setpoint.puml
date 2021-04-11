@@ -1,0 +1,107 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.check_IndexColumn_virtual_referenced_setpoint << V >> {
+  * **index_guid** : uniqueidentifier
+  * **index_column_id** : int
+  --
+  referenced_index_guid : uniqueidentifier
+  referenced_RepoObject_guid : uniqueidentifier
+  referenced_RepoObjectColumn_guid : uniqueidentifier
+  referencing_RepoObject_guid : uniqueidentifier
+  referencing_RepoObjectColumn_guid : uniqueidentifier
+  RepoObject_guid_s : uniqueidentifier
+  RepoObject_guid_t : uniqueidentifier
+  RepoObjectColumn_guid_t : uniqueidentifier
+  SysObject_fullname_s : nvarchar(261)
+  SysObject_fullname_t : nvarchar(261)
+  SysObjectColumn_name_s : nvarchar(128)
+  SysObjectColumn_name_t : nvarchar(128)
+}
+
+entity repo.Index_virtual << U >> {
+  * **index_guid** : uniqueidentifier
+  --
+  * has_managedName : bit
+  index_name : nvarchar(128)
+  * index_type : tinyint
+  * is_index_disabled : bit
+  * is_index_primary_key : bit
+  * is_index_unique : bit
+  * parent_RepoObject_guid : uniqueidentifier
+  referenced_index_guid : uniqueidentifier
+  RowNumberInReferencing : int
+}
+
+entity repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T << U >> {
+  **index_guid** : uniqueidentifier
+  * **index_column_id** : int
+  **RowNumberInReferencing** : bigint
+  --
+  is_descending_key : bit
+  referenced_RepoObject_guid : uniqueidentifier
+  referenced_RepoObjectColumn_guid : uniqueidentifier
+  referencing_RepoObject_guid : uniqueidentifier
+  referencing_RepoObjectColumn_guid : uniqueidentifier
+}
+
+entity repo.IndexColumn_virtual_referenced_setpoint << V >> {
+  * **index_guid** : uniqueidentifier
+  * **index_column_id** : int
+  --
+  is_descending_key : bit
+  referenced_index_guid : uniqueidentifier
+  referenced_RepoObject_guid : uniqueidentifier
+  referenced_RepoObjectColumn_guid : uniqueidentifier
+  referencing_RepoObject_guid : uniqueidentifier
+  referencing_RepoObjectColumn_guid : uniqueidentifier
+  RowNumberInReferencing : int
+}
+
+entity repo.usp_index_inheritance << P >> {
+  --
+}
+
+repo.Index_virtual <.. repo.IndexColumn_virtual_referenced_setpoint
+repo.Index_virtual <.. repo.usp_index_inheritance
+repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T <.. repo.IndexColumn_virtual_referenced_setpoint
+repo.IndexColumn_virtual_referenced_setpoint <.. repo.check_IndexColumn_virtual_referenced_setpoint
+repo.IndexColumn_virtual_referenced_setpoint <.. repo.usp_index_inheritance
+repo.Index_virtual::index_guid <-- repo.IndexColumn_virtual_referenced_setpoint::index_guid
+repo.Index_virtual::referenced_index_guid <-- repo.IndexColumn_virtual_referenced_setpoint::referenced_index_guid
+repo.Index_virtual::RowNumberInReferencing <-- repo.IndexColumn_virtual_referenced_setpoint::RowNumberInReferencing
+repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T::index_column_id <-- repo.IndexColumn_virtual_referenced_setpoint::index_column_id
+repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T::is_descending_key <-- repo.IndexColumn_virtual_referenced_setpoint::is_descending_key
+repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T::referenced_RepoObject_guid <-- repo.IndexColumn_virtual_referenced_setpoint::referenced_RepoObject_guid
+repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T::referenced_RepoObjectColumn_guid <-- repo.IndexColumn_virtual_referenced_setpoint::referenced_RepoObjectColumn_guid
+repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T::referencing_RepoObject_guid <-- repo.IndexColumn_virtual_referenced_setpoint::referencing_RepoObject_guid
+repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T::referencing_RepoObjectColumn_guid <-- repo.IndexColumn_virtual_referenced_setpoint::referencing_RepoObjectColumn_guid
+repo.IndexColumn_virtual_referenced_setpoint::index_column_id <-- repo.check_IndexColumn_virtual_referenced_setpoint::index_column_id
+repo.IndexColumn_virtual_referenced_setpoint::index_guid <-- repo.check_IndexColumn_virtual_referenced_setpoint::index_guid
+repo.IndexColumn_virtual_referenced_setpoint::referenced_index_guid <-- repo.check_IndexColumn_virtual_referenced_setpoint::referenced_index_guid
+repo.IndexColumn_virtual_referenced_setpoint::referenced_RepoObject_guid <-- repo.check_IndexColumn_virtual_referenced_setpoint::referenced_RepoObject_guid
+repo.IndexColumn_virtual_referenced_setpoint::referenced_RepoObjectColumn_guid <-- repo.check_IndexColumn_virtual_referenced_setpoint::referenced_RepoObjectColumn_guid
+repo.IndexColumn_virtual_referenced_setpoint::referencing_RepoObject_guid <-- repo.check_IndexColumn_virtual_referenced_setpoint::referencing_RepoObject_guid
+repo.IndexColumn_virtual_referenced_setpoint::referencing_RepoObjectColumn_guid <-- repo.check_IndexColumn_virtual_referenced_setpoint::referencing_RepoObjectColumn_guid

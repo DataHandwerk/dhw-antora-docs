@@ -1,0 +1,63 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.RepoObject_Plantuml_Entity << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  * RepoObject_Puml : nvarchar(max)
+  * RepoObject_PumlOnlyIndex : nvarchar(max)
+  * RepoObject_PumlOnlyPK : nvarchar(max)
+}
+
+entity docs.RepoObject_Plantuml_Entity_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  * RepoObject_Puml : nvarchar(max)
+  * RepoObject_PumlOnlyIndex : nvarchar(max)
+  * RepoObject_PumlOnlyPK : nvarchar(max)
+}
+
+entity docs.usp_AntoraExport_ObjectPuml << P >> {
+  --
+}
+
+entity docs.usp_PERSIST_RepoObject_Plantuml_Entity_T << P >> {
+  --
+}
+
+entity repo.usp_ExecutionLog_insert << P >> {
+  --
+}
+
+docs.RepoObject_Plantuml_Entity <.. docs.RepoObject_Plantuml_Entity_T
+docs.RepoObject_Plantuml_Entity <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
+docs.RepoObject_Plantuml_Entity_T <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
+docs.usp_PERSIST_RepoObject_Plantuml_Entity_T <.. docs.usp_AntoraExport_ObjectPuml
+repo.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPuml
+docs.RepoObject_Plantuml_Entity::RepoObject_guid <-- docs.RepoObject_Plantuml_Entity_T::RepoObject_guid
+docs.RepoObject_Plantuml_Entity::RepoObject_Puml <-- docs.RepoObject_Plantuml_Entity_T::RepoObject_Puml
+docs.RepoObject_Plantuml_Entity::RepoObject_PumlOnlyIndex <-- docs.RepoObject_Plantuml_Entity_T::RepoObject_PumlOnlyIndex
+docs.RepoObject_Plantuml_Entity::RepoObject_PumlOnlyPK <-- docs.RepoObject_Plantuml_Entity_T::RepoObject_PumlOnlyPK

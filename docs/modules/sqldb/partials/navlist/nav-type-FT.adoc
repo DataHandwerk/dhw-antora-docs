@@ -1,0 +1,4 @@
+= assembly table function
+
+include::partial$navlist/navlist-type-FT.adoc[]
+

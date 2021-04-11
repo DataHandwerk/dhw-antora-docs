@@ -1,19 +1,32 @@
+[[section-create-update-connect-repo]]
 = Create, update and connect repository database
 :author: Germo Görtz
 :date: {docdate}
 
-== Summary
+:sectnums:
 
+[abstract]
+== Abstract
+// --
 * create a new repo database
 * clone github repository from project https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql[]
 * deploy the database project db_DataHandwerk to your database
 * connect repo datatabase to dwh database using synonyms executing the storred procedure `[repo].[usp_connect_database]`
++
+.connect repository database to the dwh database 'WideWorldImporters'
+====
+[source,sql]
+----
+include::sqldb:partial$repo.usp_connect_database.adoc[tag=example]
+----
+====
 
-'''
 
-:sectnums:
+IMPORTANT: using *publish* or *dacpac* deployment to update the repo database will reset synonyms. +
+reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing `[repo].[usp_connect_database]`
+// --
 
-== Detailed
+== Architecture background
 
 First we need to create a "repository database" and connect it with the "dwh database". +
 Here are some excerpts from the architectur description:
@@ -39,7 +52,7 @@ include::arc:partial$c4_dsl/puml/structurizr-DWHBDevelopment-DWHdbDevelopmentPro
 ....
 ____
 
-=== create repo database
+== create repo database
 
 As an example, we use `WideWorldImporters` as dwh database.
 
@@ -47,7 +60,7 @@ As an example, we use `WideWorldImporters` as dwh database.
  `dhw` is an abbreviation for **D**ata**H**and**w**erk. `WideWorldImporters` is used to mark that it is a repository for `WideWorldImporters`. +
  You can also use any other name for your repository database, for example `repo_WideWorldImporters`.
 
-=== update repo database from database project db_DataHandwerk
+== update repo database from database project db_DataHandwerk
 
 The structure of the repo database must be updated from the dhw git (database project: db_DataHandwerk).
 ____
@@ -80,7 +93,10 @@ Your folder could be another
 *** image:create-update-connect-repo-db-sc-01.png[]
 *** image:create-update-connect-repo-db-sc-02.png[]
 
-==== post deployment
+WARNING: using *publish* or *dacpac* deployment to update the repo database will reset synonyms. +
+reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing `[repo].[usp_connect_database]`
+
+=== post deployment
 
 After the database is created, some tables need to be populated with data. For this purpose, a post deployment script is included in the project.
 
@@ -93,40 +109,27 @@ Or you can skip the execution, as long as the content of this script is also cal
 .postdeployment script
 [source,sql]
 ----
-include::sqldb:example$/dbdhw/Script.PostDeployment1.sql[]
+include::sqldb:example$/db_DataHandwerk/Script.PostDeployment1.sql[]
 ----
 
-// include::sqldb:example$/db_DataHandwerk/Script.PostDeployment1.sql[]
+// include::sqldb:example$/dbdhw/Script.PostDeployment1.sql[]
 
-=== connect repository database with dwh database, using synonyms
+== connect repository database to dwh database, using synonyms
 
 The repository database is connected to the dwh database using synonyms. Execute `[repo].[usp_connect_database]` to connect the synonyms to the correct DWH database.
 
+IMPORTANT: using *publish* or *dacpac* deployment to update the repo database will reset synonyms. +
+reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing `[repo].[usp_connect_database]`
+
+
 .connect repository database to the dwh database 'WideWorldImporters'
 ====
+[source,sql]
 ----
-[repo].[usp_connect_database]
-@dwh_database_name = 'WideWorldImporters'
+include::sqldb:partial$repo.usp_connect_database.adoc[tag=example]
 ----
 ====
 
-.repo.usp_connect_database
-[source,sql]
-----
-include::sqldb:example$/dbdhw/repo/Stored Procedures/usp_connect_database.sql[]
-----
+// include::sqldb:example$/dbdhw/repo/Stored Procedures/usp_connect_database.sql[tag=example]
 
-
-// ----
-// include::sqldb:example$/dbdhw/repo/Views/aaa_test_sql_table_column.sql[]
-// ----
-
-
-// ----
-// include::sqldb:example$/dbdhw/repo/Functions/fs_dwh_database_name.sql[]
-// ----
-
-// ----
-// include::sqldb:example$/dbdhw/repo/Functions/fs_dwh_database_name.sql[]
-// ----
-
+xref:sqldb:repo.usp_connect_database.adoc[]

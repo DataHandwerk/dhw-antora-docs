@@ -1,0 +1,81 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.Index_virtual << U >> {
+**PK_Index_virtual**
+{index_guid}
+..
+index_guid; uniqueidentifier
+--
+- idx_Index_virtual__1
+{RepoObject_guid}
+..
+parent_RepoObject_guid; uniqueidentifier
+}
+
+entity repo.IndexColumn_virtual << U >> {
+**PK_IndexColumn_unique**
+{index_guid,index_column_id}
+..
+index_guid; uniqueidentifier
+index_column_id; int
+--
+- idx_IndexColumn_virtual__1
+{index_guid}
+..
+index_guid; uniqueidentifier
+--
+- idx_IndexColumn_virtual__2
+{RepoObjectColumn_guid}
+..
+RepoObjectColumn_guid; uniqueidentifier
+}
+
+entity repo.RepoObject << U >> {
+**PK_RepoObject**
+{RepoObject_guid}
+..
+RepoObject_guid; uniqueidentifier
+--
+UK_RepoObject__RepoNames
+{schema_name,object_name}
+..
+RepoObject_schema_name; nvarchar(128)
+RepoObject_name; nvarchar(128)
+--
+UK_RepoObject__SysNames
+{schema_name,object_name}
+..
+SysObject_schema_name; nvarchar(128)
+SysObject_name; nvarchar(128)
+--
+- idx_RepoObject__1
+{index_guid}
+..
+pk_index_guid; uniqueidentifier
+}
+
+repo.Index_virtual::PK_Index_virtual <-- repo.IndexColumn_virtual::idx_IndexColumn_virtual__1
+repo.RepoObject::PK_RepoObject <-- repo.Index_virtual::idx_Index_virtual__1

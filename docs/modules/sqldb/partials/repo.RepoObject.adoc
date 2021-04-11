@@ -1,0 +1,1681 @@
+= [repo].[RepoObject]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_IndexPatternColumnDatatype:
+:ExistsProperty--pk_IndexPatternColumnName:
+:ExistsProperty--pk_IndexSemanticGroup:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+EB8F291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+U 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+user table
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1136723102
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-01 11:27:57
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-RepoObject_guid]]
+=== RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*RepoObject_guid*
+|uniqueidentifier
+|NOT NULL
+|
+|
+|===
+
+.Default: DF_RepoObject_RepoObject_guid
+....
+(newsequentialid())
+....
+
+.Referencing Columns
+--
+* xref:docs.visjs_nodelist_object_test01.adoc#column-RepoObject_guid[docs.visjs_nodelist_object_test01.RepoObject_guid]
+* xref:graph.RepoObject_S.adoc#column-RepoObject_guid[graph.RepoObject_S.RepoObject_guid]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_RepoObject.adoc#column-parent_RepoObject_guid[repo.ExtendedProperty_Repo2Sys_level2_RepoObject.parent_RepoObject_guid]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn.adoc#column-parent_RepoObject_guid[repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn.parent_RepoObject_guid]
+* xref:repo.GeneratorUsp_SqlUsp.adoc#column-RepoObject_guid[repo.GeneratorUsp_SqlUsp.RepoObject_guid]
+* xref:repo.RepoObject_gross.adoc#column-RepoObject_guid[repo.RepoObject_gross.RepoObject_guid]
+* xref:repo.RepoObject_RequiredRepoObjectMerge.adoc#column-RepoObject_guid[repo.RepoObject_RequiredRepoObjectMerge.RepoObject_guid]
+* xref:repo.RepoObject_SqlModules_71_reference_ExpliciteTableAlias.adoc#column-source_RepoObject_guid[repo.RepoObject_SqlModules_71_reference_ExpliciteTableAlias.source_RepoObject_guid]
+* xref:repo.RepoObject_SqlModules_72_reference_NoTableAlias.adoc#column-source_RepoObject_guid[repo.RepoObject_SqlModules_72_reference_NoTableAlias.source_RepoObject_guid]
+* xref:repo.RepoObject_SqlModules_Repo_Sys.adoc#column-RepoObject_guid[repo.RepoObject_SqlModules_Repo_Sys.RepoObject_guid]
+* xref:repo.RepoObjectProperty_cross.adoc#column-RepoObject_guid[repo.RepoObjectProperty_cross.RepoObject_guid]
+* xref:repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.adoc#column-RepoObject_guid[repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.RepoObject_guid]
+* xref:repo.RepoObjectProperty_sys_repo.adoc#column-RepoObject_guid[repo.RepoObjectProperty_sys_repo.RepoObject_guid]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-RepoObject_guid[repo.SysObject_RepoObject_via_guid.RepoObject_guid]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-RepoObject_guid[repo.SysObject_RepoObject_via_name.RepoObject_guid]
+* xref:repo_sys.ForeignKey.adoc#column-ForeignKey_guid[repo_sys.ForeignKey.ForeignKey_guid]
+* xref:repo_sys.ForeignKey.adoc#column-parent_RepoObject_guid[repo_sys.ForeignKey.parent_RepoObject_guid]
+* xref:repo_sys.Index_unique.adoc#column-index_guid[repo_sys.Index_unique.index_guid]
+* xref:repo_sys.Index_unique.adoc#column-parent_RepoObject_guid[repo_sys.Index_unique.parent_RepoObject_guid]
+* xref:repo_sys.RepoObjectReferenced.adoc#column-RepoObject_guid[repo_sys.RepoObjectReferenced.RepoObject_guid]
+* xref:repo_sys.RepoObjectReferencing.adoc#column-RepoObject_guid[repo_sys.RepoObjectReferencing.RepoObject_guid]
+--
+
+
+[[column-has_execution_plan_issue]]
+=== has_execution_plan_issue
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|has_execution_plan_issue
+|bit
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-has_execution_plan_issue[repo.RepoObject_gross.has_execution_plan_issue]
+--
+
+
+[[column-has_get_referenced_issue]]
+=== has_get_referenced_issue
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|has_get_referenced_issue
+|bit
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-has_get_referenced_issue[repo.RepoObject_gross.has_get_referenced_issue]
+* xref:repo.RepoObjectColumn_gross.adoc#column-has_get_referenced_issue[repo.RepoObjectColumn_gross.has_get_referenced_issue]
+--
+
+
+[[column-Inheritance_StringAggSeparatorSql]]
+=== Inheritance_StringAggSeparatorSql
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Inheritance_StringAggSeparatorSql
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-Inheritance_StringAggSeparatorSql[repo.RepoObject_gross.Inheritance_StringAggSeparatorSql]
+* xref:repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.adoc#column-ro_Inheritance_StringAggSeparatorSql[repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.ro_Inheritance_StringAggSeparatorSql]
+--
+
+
+[[column-InheritanceDefinition]]
+=== InheritanceDefinition
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|InheritanceDefinition
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-InheritanceDefinition[repo.RepoObject_gross.InheritanceDefinition]
+* xref:repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.adoc#column-ro_InheritanceDefinition[repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.ro_InheritanceDefinition]
+--
+
+
+[[column-InheritanceType]]
+=== InheritanceType
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|InheritanceType
+|tinyint
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-InheritanceType[repo.RepoObject_gross.InheritanceType]
+* xref:repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.adoc#column-ro_InheritanceType[repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.ro_InheritanceType]
+--
+
+
+[[column-is_repo_managed]]
+=== is_repo_managed
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_repo_managed
+|bit
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-is_repo_managed[repo.RepoObject_gross.is_repo_managed]
+* xref:repo.RepoObjectColumn_gross.adoc#column-is_repo_managed[repo.RepoObjectColumn_gross.is_repo_managed]
+* xref:repo.SysColumn_RepoObjectColumn_via_guid.adoc#column-is_repo_managed[repo.SysColumn_RepoObjectColumn_via_guid.is_repo_managed]
+* xref:repo.SysColumn_RepoObjectColumn_via_name.adoc#column-is_repo_managed[repo.SysColumn_RepoObjectColumn_via_name.is_repo_managed]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-is_repo_managed[repo.SysObject_RepoObject_via_guid.is_repo_managed]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-is_repo_managed[repo.SysObject_RepoObject_via_name.is_repo_managed]
+* xref:repo_sys.RepoObjectReferenced.adoc#column-is_repo_managed[repo_sys.RepoObjectReferenced.is_repo_managed]
+* xref:repo_sys.RepoObjectReferencing.adoc#column-is_repo_managed[repo_sys.RepoObjectReferencing.is_repo_managed]
+--
+
+
+[[column-is_SysObject_missing]]
+=== is_SysObject_missing
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_SysObject_missing
+|bit
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-is_SysObject_missing[repo.RepoObject_gross.is_SysObject_missing]
+* xref:repo.RepoObjectColumn_gross.adoc#column-is_SysObject_missing[repo.RepoObjectColumn_gross.is_SysObject_missing]
+--
+
+
+[[column-modify_dt]]
+=== modify_dt
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|modify_dt
+|datetime
+|NOT NULL
+|
+|
+|===
+
+.Default: DF_RepoObject_modify_dt
+....
+(getdate())
+....
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-modify_dt[repo.RepoObject_gross.modify_dt]
+* xref:repo.RepoObjectColumn_gross.adoc#column-modify_dt[repo.RepoObjectColumn_gross.modify_dt]
+--
+
+
+[[column-pk_index_guid]]
+=== pk_index_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|pk_index_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.Index_virtual_SysObject.adoc#column-pk_index_guid[repo.Index_virtual_SysObject.pk_index_guid]
+* xref:repo.RepoObject_gross.adoc#column-pk_index_guid[repo.RepoObject_gross.pk_index_guid]
+* xref:repo.RepoObjectColumn_gross.adoc#column-pk_index_guid[repo.RepoObjectColumn_gross.pk_index_guid]
+--
+
+
+[[column-pk_IndexPatternColumnName_new]]
+=== pk_IndexPatternColumnName_new
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|pk_IndexPatternColumnName_new
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-pk_IndexPatternColumnName_new[repo.RepoObject_gross.pk_IndexPatternColumnName_new]
+--
+
+
+[[column-Repo_history_table_guid]]
+=== Repo_history_table_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Repo_history_table_guid
+|uniqueidentifier
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-Repo_history_table_guid[repo.RepoObject_gross.Repo_history_table_guid]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-Repo_history_table_guid[repo.SysObject_RepoObject_via_guid.Repo_history_table_guid]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-Repo_history_table_guid[repo.SysObject_RepoObject_via_name.Repo_history_table_guid]
+--
+
+
+[[column-Repo_temporal_type]]
+=== Repo_temporal_type
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Repo_temporal_type
+|tinyint
+|NULL
+|
+|
+|===
+
+.Description
+....
+reference in [repo_sys].[type]
+....
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-Repo_temporal_type[repo.RepoObject_gross.Repo_temporal_type]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-Repo_temporal_type[repo.SysObject_RepoObject_via_guid.Repo_temporal_type]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-Repo_temporal_type[repo.SysObject_RepoObject_via_name.Repo_temporal_type]
+--
+
+
+[[column-RepoObject_name]]
+=== RepoObject_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_name
+|nvarchar(128)
+|NOT NULL
+|
+|
+|===
+
+.Default: DF_RepoObject_RepoObject_name
+....
+(newid())
+....
+
+.Referencing Columns
+--
+* xref:repo.ExtendedProperty_Repo2Sys_level1.adoc#column-level1name[repo.ExtendedProperty_Repo2Sys_level1.level1name]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_RepoObject.adoc#column-level2name[repo.ExtendedProperty_Repo2Sys_level2_RepoObject.level2name]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_RepoObject.adoc#column-level1name[repo.ExtendedProperty_Repo2Sys_level2_RepoObject.level1name]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn.adoc#column-level1name[repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn.level1name]
+* xref:repo.RepoObject.adoc#column-RepoObject_fullname2[repo.RepoObject.RepoObject_fullname2]
+* xref:repo.RepoObject.adoc#column-is_RepoObject_name_uniqueidentifier[repo.RepoObject.is_RepoObject_name_uniqueidentifier]
+* xref:repo.RepoObject.adoc#column-has_different_sys_names[repo.RepoObject.has_different_sys_names]
+* xref:repo.RepoObject.adoc#column-RepoObject_fullname[repo.RepoObject.RepoObject_fullname]
+* xref:repo.RepoObject.adoc#column-usp_persistence_name[repo.RepoObject.usp_persistence_name]
+* xref:repo.RepoObject_gross.adoc#column-RepoObject_name[repo.RepoObject_gross.RepoObject_name]
+* xref:repo.RepoObject_RequiredRepoObjectMerge.adoc#column-RepoObject_name[repo.RepoObject_RequiredRepoObjectMerge.RepoObject_name]
+* xref:repo.RepoObjectColumn_gross.adoc#column-RepoObject_name[repo.RepoObjectColumn_gross.RepoObject_name]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-RepoObject_name[repo.SysObject_RepoObject_via_guid.RepoObject_name]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-RepoObject_name[repo.SysObject_RepoObject_via_name.RepoObject_name]
+--
+
+
+[[column-RepoObject_Referencing_Count]]
+=== RepoObject_Referencing_Count
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_Referencing_Count
+|int
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-RepoObject_Referencing_Count[repo.RepoObject_gross.RepoObject_Referencing_Count]
+* xref:repo.RepoObjectColumn_gross.adoc#column-RepoObject_Referencing_Count[repo.RepoObjectColumn_gross.RepoObject_Referencing_Count]
+--
+
+
+[[column-RepoObject_schema_name]]
+=== RepoObject_schema_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_schema_name
+|nvarchar(128)
+|NOT NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.ExtendedProperty_Repo2Sys_level1.adoc#column-level0name[repo.ExtendedProperty_Repo2Sys_level1.level0name]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_RepoObject.adoc#column-level0name[repo.ExtendedProperty_Repo2Sys_level2_RepoObject.level0name]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn.adoc#column-level0name[repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn.level0name]
+* xref:repo.RepoObject.adoc#column-has_different_sys_names[repo.RepoObject.has_different_sys_names]
+* xref:repo.RepoObject.adoc#column-RepoObject_fullname2[repo.RepoObject.RepoObject_fullname2]
+* xref:repo.RepoObject.adoc#column-RepoObject_fullname[repo.RepoObject.RepoObject_fullname]
+* xref:repo.RepoObject_gross.adoc#column-RepoObject_schema_name[repo.RepoObject_gross.RepoObject_schema_name]
+* xref:repo.RepoObject_RequiredRepoObjectMerge.adoc#column-RepoObject_schema_name[repo.RepoObject_RequiredRepoObjectMerge.RepoObject_schema_name]
+* xref:repo.RepoObjectColumn_gross.adoc#column-RepoObject_schema_name[repo.RepoObjectColumn_gross.RepoObject_schema_name]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-RepoObject_schema_name[repo.SysObject_RepoObject_via_guid.RepoObject_schema_name]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-RepoObject_schema_name[repo.SysObject_RepoObject_via_name.RepoObject_schema_name]
+--
+
+
+[[column-RepoObject_type]]
+=== RepoObject_type
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_type
+|char(2)
+|NOT NULL
+|
+|
+|===
+
+.Description
+....
+reference in [repo_sys].[type]
+....
+
+.Referencing Columns
+--
+* xref:graph.RepoObject_S.adoc#column-RepoObject_type[graph.RepoObject_S.RepoObject_type]
+* xref:repo.ExtendedProperty_Repo2Sys_level1.adoc#column-RepoObject_type[repo.ExtendedProperty_Repo2Sys_level1.RepoObject_type]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_RepoObject.adoc#column-RepoObject_type[repo.ExtendedProperty_Repo2Sys_level2_RepoObject.RepoObject_type]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_RepoObject.adoc#column-parent_RepoObject_type[repo.ExtendedProperty_Repo2Sys_level2_RepoObject.parent_RepoObject_type]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn.adoc#column-parent_RepoObject_type[repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn.parent_RepoObject_type]
+* xref:repo.RepoObject.adoc#column-has_different_sys_names[repo.RepoObject.has_different_sys_names]
+* xref:repo.RepoObject_gross.adoc#column-RepoObject_type[repo.RepoObject_gross.RepoObject_type]
+* xref:repo.RepoObjectColumn_gross.adoc#column-RepoObject_type[repo.RepoObjectColumn_gross.RepoObject_type]
+* xref:repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.adoc#column-RepoObject_type[repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.RepoObject_type]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-RepoObject_type[repo.SysObject_RepoObject_via_guid.RepoObject_type]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-RepoObject_type[repo.SysObject_RepoObject_via_name.RepoObject_type]
+--
+
+
+[[column-SysObject_id]]
+=== SysObject_id
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_id
+|int
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.Index_virtual_SysObject.adoc#column-SysObject_id[repo.Index_virtual_SysObject.SysObject_id]
+* xref:repo.RepoObject.adoc#column-node_id[repo.RepoObject.node_id]
+* xref:repo.RepoObject_gross.adoc#column-SysObject_id[repo.RepoObject_gross.SysObject_id]
+* xref:repo.RepoObject_reference_persistence.adoc#column-referenced_id[repo.RepoObject_reference_persistence.referenced_id]
+* xref:repo.RepoObject_reference_persistence.adoc#column-referencing_id[repo.RepoObject_reference_persistence.referencing_id]
+* xref:repo.RepoObjectColumn_gross.adoc#column-SysObject_id[repo.RepoObjectColumn_gross.SysObject_id]
+* xref:repo.RepoObjectColumn_reference_Persistence.adoc#column-referencing_id[repo.RepoObjectColumn_reference_Persistence.referencing_id]
+* xref:repo.RepoObjectColumn_reference_Persistence.adoc#column-referenced_id[repo.RepoObjectColumn_reference_Persistence.referenced_id]
+* xref:repo.RepoObjectColumn_reference_SqlModules.adoc#column-referenced_id[repo.RepoObjectColumn_reference_SqlModules.referenced_id]
+* xref:repo.RepoObjectColumn_reference_SqlModules.adoc#column-referencing_id[repo.RepoObjectColumn_reference_SqlModules.referencing_id]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-SysObject_id[repo.SysObject_RepoObject_via_guid.SysObject_id]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-SysObject_id[repo.SysObject_RepoObject_via_name.SysObject_id]
+* xref:repo_sys.RepoObjectReferenced.adoc#column-SysObject_id[repo_sys.RepoObjectReferenced.SysObject_id]
+* xref:repo_sys.RepoObjectReferencing.adoc#column-SysObject_id[repo_sys.RepoObjectReferencing.SysObject_id]
+--
+
+
+[[column-SysObject_modify_date]]
+=== SysObject_modify_date
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_modify_date
+|datetime
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-SysObject_modify_date[repo.RepoObject_gross.SysObject_modify_date]
+* xref:repo.RepoObjectColumn_gross.adoc#column-SysObject_modify_date[repo.RepoObjectColumn_gross.SysObject_modify_date]
+* xref:repo_sys.RepoObjectReferenced.adoc#column-SysObject_modify_date[repo_sys.RepoObjectReferenced.SysObject_modify_date]
+* xref:repo_sys.RepoObjectReferencing.adoc#column-SysObject_modify_date[repo_sys.RepoObjectReferencing.SysObject_modify_date]
+--
+
+
+[[column-SysObject_name]]
+=== SysObject_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_name
+|nvarchar(128)
+|NOT NULL
+|
+|
+|===
+
+.Default: DF_RepoObject_SysObject_name
+....
+(newid())
+....
+
+.Referencing Columns
+--
+* xref:repo.Index_virtual_SysObject.adoc#column-SysObject_name[repo.Index_virtual_SysObject.SysObject_name]
+* xref:repo.RepoObject.adoc#column-SysObject_query_sql[repo.RepoObject.SysObject_query_sql]
+* xref:repo.RepoObject.adoc#column-SysObject_fullname[repo.RepoObject.SysObject_fullname]
+* xref:repo.RepoObject.adoc#column-has_different_sys_names[repo.RepoObject.has_different_sys_names]
+* xref:repo.RepoObject.adoc#column-is_SysObject_name_uniqueidentifier[repo.RepoObject.is_SysObject_name_uniqueidentifier]
+* xref:repo.RepoObject.adoc#column-SysObject_fullname2[repo.RepoObject.SysObject_fullname2]
+* xref:repo.RepoObject_gross.adoc#column-SysObject_name[repo.RepoObject_gross.SysObject_name]
+* xref:repo.RepoObject_reference_persistence.adoc#column-referenced_entity_name[repo.RepoObject_reference_persistence.referenced_entity_name]
+* xref:repo.RepoObject_reference_persistence.adoc#column-referencing_entity_name[repo.RepoObject_reference_persistence.referencing_entity_name]
+* xref:repo.RepoObject_RequiredRepoObjectMerge.adoc#column-SysObject_name[repo.RepoObject_RequiredRepoObjectMerge.SysObject_name]
+* xref:repo.RepoObjectColumn_gross.adoc#column-SysObject_name[repo.RepoObjectColumn_gross.SysObject_name]
+* xref:repo.RepoObjectColumn_reference_Persistence.adoc#column-referencing_entity_name[repo.RepoObjectColumn_reference_Persistence.referencing_entity_name]
+* xref:repo.RepoObjectColumn_reference_Persistence.adoc#column-referenced_entity_name[repo.RepoObjectColumn_reference_Persistence.referenced_entity_name]
+* xref:repo.RepoObjectColumn_reference_SqlModules.adoc#column-referencing_entity_name[repo.RepoObjectColumn_reference_SqlModules.referencing_entity_name]
+* xref:repo.RepoObjectColumn_reference_SqlModules.adoc#column-referenced_entity_name[repo.RepoObjectColumn_reference_SqlModules.referenced_entity_name]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-SysObject_name[repo.SysObject_RepoObject_via_guid.SysObject_name]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-SysObject_name[repo.SysObject_RepoObject_via_name.SysObject_name]
+* xref:repo_sys.Index_unique.adoc#column-parent_SysObject_name[repo_sys.Index_unique.parent_SysObject_name]
+--
+
+
+[[column-SysObject_parent_object_id]]
+=== SysObject_parent_object_id
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_parent_object_id
+|int
+|NOT NULL
+|
+|
+|===
+
+.Default: DF_RepoObject_SysObject_parent_object_id
+....
+((0))
+....
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-SysObject_parent_object_id[repo.RepoObject_gross.SysObject_parent_object_id]
+* xref:repo.RepoObjectColumn_gross.adoc#column-SysObject_parent_object_id[repo.RepoObjectColumn_gross.SysObject_parent_object_id]
+--
+
+
+[[column-SysObject_schema_name]]
+=== SysObject_schema_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_schema_name
+|nvarchar(128)
+|NOT NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:repo.Index_virtual_SysObject.adoc#column-SysObject_schema_name[repo.Index_virtual_SysObject.SysObject_schema_name]
+* xref:repo.RepoObject.adoc#column-SysObject_query_sql[repo.RepoObject.SysObject_query_sql]
+* xref:repo.RepoObject.adoc#column-SysObject_fullname[repo.RepoObject.SysObject_fullname]
+* xref:repo.RepoObject.adoc#column-SysObject_fullname2[repo.RepoObject.SysObject_fullname2]
+* xref:repo.RepoObject.adoc#column-has_different_sys_names[repo.RepoObject.has_different_sys_names]
+* xref:repo.RepoObject_gross.adoc#column-SysObject_schema_name[repo.RepoObject_gross.SysObject_schema_name]
+* xref:repo.RepoObject_reference_persistence.adoc#column-referenced_schema_name[repo.RepoObject_reference_persistence.referenced_schema_name]
+* xref:repo.RepoObject_reference_persistence.adoc#column-referencing_schema_name[repo.RepoObject_reference_persistence.referencing_schema_name]
+* xref:repo.RepoObject_RequiredRepoObjectMerge.adoc#column-SysObject_schema_name[repo.RepoObject_RequiredRepoObjectMerge.SysObject_schema_name]
+* xref:repo.RepoObjectColumn_gross.adoc#column-SysObject_schema_name[repo.RepoObjectColumn_gross.SysObject_schema_name]
+* xref:repo.RepoObjectColumn_reference_Persistence.adoc#column-referencing_schema_name[repo.RepoObjectColumn_reference_Persistence.referencing_schema_name]
+* xref:repo.RepoObjectColumn_reference_Persistence.adoc#column-referenced_schema_name[repo.RepoObjectColumn_reference_Persistence.referenced_schema_name]
+* xref:repo.RepoObjectColumn_reference_SqlModules.adoc#column-referenced_schema_name[repo.RepoObjectColumn_reference_SqlModules.referenced_schema_name]
+* xref:repo.RepoObjectColumn_reference_SqlModules.adoc#column-referencing_schema_name[repo.RepoObjectColumn_reference_SqlModules.referencing_schema_name]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-SysObject_schema_name[repo.SysObject_RepoObject_via_guid.SysObject_schema_name]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-SysObject_schema_name[repo.SysObject_RepoObject_via_name.SysObject_schema_name]
+* xref:repo_sys.Index_unique.adoc#column-parent_schema_name[repo_sys.Index_unique.parent_schema_name]
+--
+
+
+[[column-SysObject_type]]
+=== SysObject_type
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_type
+|char(2)
+|NULL
+|
+|
+|===
+
+.Description
+....
+reference in [repo_sys].[type]
+....
+
+.Referencing Columns
+--
+* xref:docs.visjs_nodelist_object_test01.adoc#column-SysObject_type[docs.visjs_nodelist_object_test01.SysObject_type]
+* xref:repo.Index_virtual_SysObject.adoc#column-SysObject_type[repo.Index_virtual_SysObject.SysObject_type]
+* xref:repo.RepoObject.adoc#column-has_different_sys_names[repo.RepoObject.has_different_sys_names]
+* xref:repo.RepoObject_gross.adoc#column-SysObject_type[repo.RepoObject_gross.SysObject_type]
+* xref:repo.RepoObject_reference_persistence.adoc#column-referenced_type[repo.RepoObject_reference_persistence.referenced_type]
+* xref:repo.RepoObject_SqlModules_Repo_Sys.adoc#column-SysObject_type[repo.RepoObject_SqlModules_Repo_Sys.SysObject_type]
+* xref:repo.RepoObjectColumn_gross.adoc#column-SysObject_type[repo.RepoObjectColumn_gross.SysObject_type]
+* xref:repo.RepoObjectColumn_reference_Persistence.adoc#column-referencing_type[repo.RepoObjectColumn_reference_Persistence.referencing_type]
+* xref:repo.RepoObjectColumn_reference_Persistence.adoc#column-referenced_type[repo.RepoObjectColumn_reference_Persistence.referenced_type]
+* xref:repo.RepoObjectColumn_reference_SqlModules.adoc#column-referencing_type[repo.RepoObjectColumn_reference_SqlModules.referencing_type]
+* xref:repo.RepoObjectColumn_reference_SqlModules.adoc#column-referenced_type[repo.RepoObjectColumn_reference_SqlModules.referenced_type]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-SysObject_type[repo.SysObject_RepoObject_via_guid.SysObject_type]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-SysObject_type[repo.SysObject_RepoObject_via_name.SysObject_type]
+* xref:repo_sys.RepoObjectReferenced.adoc#column-SysObject_type[repo_sys.RepoObjectReferenced.SysObject_type]
+* xref:repo_sys.RepoObjectReferencing.adoc#column-SysObject_type[repo_sys.RepoObjectReferencing.SysObject_type]
+--
+
+
+[[column-has_different_sys_names]]
+=== has_different_sys_names
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|has_different_sys_names
+|bit
+|NULL
+|
+|Calc
+|===
+
+.Description
+....
+(CONVERT([bit],case when [RepoObject_schema_name]<>[SysObject_schema_name] OR [RepoObject_name]<>[SysObject_name] OR [RepoObject_type]<>[SysObject_type] then (1) else (0) end))
+....
+
+.Definition
+....
+(CONVERT([bit],case when [RepoObject_schema_name]<>[SysObject_schema_name] OR [RepoObject_name]<>[SysObject_name] OR [RepoObject_type]<>[SysObject_type] then (1) else (0) end))
+....
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-RepoObject_name[repo.RepoObject.RepoObject_name]
+* xref:repo.RepoObject.adoc#column-RepoObject_schema_name[repo.RepoObject.RepoObject_schema_name]
+* xref:repo.RepoObject.adoc#column-RepoObject_type[repo.RepoObject.RepoObject_type]
+* xref:repo.RepoObject.adoc#column-SysObject_name[repo.RepoObject.SysObject_name]
+* xref:repo.RepoObject.adoc#column-SysObject_schema_name[repo.RepoObject.SysObject_schema_name]
+* xref:repo.RepoObject.adoc#column-SysObject_type[repo.RepoObject.SysObject_type]
+--
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-has_different_sys_names[repo.RepoObject_gross.has_different_sys_names]
+* xref:repo_sys.RepoObjectReferenced.adoc#column-has_different_sys_names[repo_sys.RepoObjectReferenced.has_different_sys_names]
+* xref:repo_sys.RepoObjectReferencing.adoc#column-has_different_sys_names[repo_sys.RepoObjectReferencing.has_different_sys_names]
+--
+
+
+[[column-is_RepoObject_name_uniqueidentifier]]
+=== is_RepoObject_name_uniqueidentifier
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_RepoObject_name_uniqueidentifier
+|int
+|NOT NULL
+|
+|Persisted
+|===
+
+.Description
+....
+(case when TRY_CAST([RepoObject_name] AS [uniqueidentifier]) IS NULL then (0) else (1) end)
+....
+
+.Definition (PERSISTED)
+....
+(case when TRY_CAST([RepoObject_name] AS [uniqueidentifier]) IS NULL then (0) else (1) end)
+....
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-RepoObject_name[repo.RepoObject.RepoObject_name]
+--
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-is_RepoObject_name_uniqueidentifier[repo.RepoObject_gross.is_RepoObject_name_uniqueidentifier]
+* xref:repo.RepoObjectColumn_gross.adoc#column-is_RepoObject_name_uniqueidentifier[repo.RepoObjectColumn_gross.is_RepoObject_name_uniqueidentifier]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-is_RepoObject_name_uniqueidentifier[repo.SysObject_RepoObject_via_guid.is_RepoObject_name_uniqueidentifier]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-is_RepoObject_name_uniqueidentifier[repo.SysObject_RepoObject_via_name.is_RepoObject_name_uniqueidentifier]
+--
+
+
+[[column-is_SysObject_name_uniqueidentifier]]
+=== is_SysObject_name_uniqueidentifier
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_SysObject_name_uniqueidentifier
+|int
+|NOT NULL
+|
+|Persisted
+|===
+
+.Description
+....
+(case when TRY_CAST([SysObject_name] AS [uniqueidentifier]) IS NULL then (0) else (1) end)
+....
+
+.Definition (PERSISTED)
+....
+(case when TRY_CAST([SysObject_name] AS [uniqueidentifier]) IS NULL then (0) else (1) end)
+....
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-SysObject_name[repo.RepoObject.SysObject_name]
+--
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-is_SysObject_name_uniqueidentifier[repo.RepoObject_gross.is_SysObject_name_uniqueidentifier]
+* xref:repo.RepoObjectColumn_gross.adoc#column-is_SysObject_name_uniqueidentifier[repo.RepoObjectColumn_gross.is_SysObject_name_uniqueidentifier]
+* xref:repo.SysObject_RepoObject_via_guid.adoc#column-is_SysObject_name_uniqueidentifier[repo.SysObject_RepoObject_via_guid.is_SysObject_name_uniqueidentifier]
+* xref:repo.SysObject_RepoObject_via_name.adoc#column-is_SysObject_name_uniqueidentifier[repo.SysObject_RepoObject_via_name.is_SysObject_name_uniqueidentifier]
+--
+
+
+[[column-node_id]]
+=== node_id
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|node_id
+|bigint
+|NULL
+|
+|Calc
+|===
+
+.Description
+....
+(CONVERT([bigint],[SysObject_id])*(10000))
+....
+
+.Definition
+....
+(CONVERT([bigint],[SysObject_id])*(10000))
+....
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-SysObject_id[repo.RepoObject.SysObject_id]
+--
+
+.Referencing Columns
+--
+* xref:docs.visjs_nodelist_object_test01.adoc#column-node_id[docs.visjs_nodelist_object_test01.node_id]
+* xref:repo.RepoObject_gross.adoc#column-node_id[repo.RepoObject_gross.node_id]
+* xref:repo.RepoObject_reference_persistence.adoc#column-referenced_node_id[repo.RepoObject_reference_persistence.referenced_node_id]
+* xref:repo.RepoObject_reference_persistence.adoc#column-referencing_node_id[repo.RepoObject_reference_persistence.referencing_node_id]
+* xref:repo.RepoObjectColumn_gross.adoc#column-node_id[repo.RepoObjectColumn_gross.node_id]
+* xref:repo.RepoObjectColumn_reference_Persistence.adoc#column-referencing_node_id[repo.RepoObjectColumn_reference_Persistence.referencing_node_id]
+* xref:repo.RepoObjectColumn_reference_Persistence.adoc#column-referenced_node_id[repo.RepoObjectColumn_reference_Persistence.referenced_node_id]
+* xref:repo.RepoObjectColumn_reference_SqlModules.adoc#column-referencing_node_id[repo.RepoObjectColumn_reference_SqlModules.referencing_node_id]
+* xref:repo.RepoObjectColumn_reference_SqlModules.adoc#column-referenced_node_id[repo.RepoObjectColumn_reference_SqlModules.referenced_node_id]
+--
+
+
+[[column-RepoObject_fullname]]
+=== RepoObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_fullname
+|nvarchar(261)
+|NOT NULL
+|
+|Persisted
+|===
+
+.Description
+....
+(concat('[',[RepoObject_schema_name],'].[',[RepoObject_name],']'))
+....
+
+.Definition (PERSISTED)
+....
+(concat('[',[RepoObject_schema_name],'].[',[RepoObject_name],']'))
+....
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-RepoObject_schema_name[repo.RepoObject.RepoObject_schema_name]
+* xref:repo.RepoObject.adoc#column-RepoObject_name[repo.RepoObject.RepoObject_name]
+--
+
+.Referencing Columns
+--
+* xref:graph.ProcedureInstance_S.adoc#column-Procedure_fullname[graph.ProcedureInstance_S.Procedure_fullname]
+* xref:graph.RepoObject_S.adoc#column-RepoObject_fullname[graph.RepoObject_S.RepoObject_fullname]
+* xref:repo.RepoObject_fullname_u_v.adoc#column-RepoObject_fullname[repo.RepoObject_fullname_u_v.RepoObject_fullname]
+* xref:repo.RepoObject_gross.adoc#column-RepoObject_fullname[repo.RepoObject_gross.RepoObject_fullname]
+* xref:repo.RepoObject_reference_persistence.adoc#column-referenced_fullname[repo.RepoObject_reference_persistence.referenced_fullname]
+* xref:repo.RepoObject_reference_persistence.adoc#column-referencing_fullname[repo.RepoObject_reference_persistence.referencing_fullname]
+* xref:repo.RepoObject_RequiredRepoObjectMerge.adoc#column-RepoObject_fullname[repo.RepoObject_RequiredRepoObjectMerge.RepoObject_fullname]
+* xref:repo.RepoObjectColumn_gross.adoc#column-RepoObject_fullname[repo.RepoObjectColumn_gross.RepoObject_fullname]
+* xref:repo.RepoObjectColumn_MissingSource_TypeV.adoc#column-RepoObject_fullname[repo.RepoObjectColumn_MissingSource_TypeV.RepoObject_fullname]
+* xref:repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.adoc#column-RepoObject_fullname[repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.RepoObject_fullname]
+* xref:repo.SysColumn_RepoObjectColumn_via_guid.adoc#column-RepoObject_fullname[repo.SysColumn_RepoObjectColumn_via_guid.RepoObject_fullname]
+* xref:repo.SysColumn_RepoObjectColumn_via_name.adoc#column-RepoObject_fullname[repo.SysColumn_RepoObjectColumn_via_name.RepoObject_fullname]
+* xref:repo_sys.ForeignKey.adoc#column-parent_RepoObject_fullname[repo_sys.ForeignKey.parent_RepoObject_fullname]
+* xref:repo_sys.ForeignKey.adoc#column-ForeignKey_fullname[repo_sys.ForeignKey.ForeignKey_fullname]
+* xref:repo_sys.RepoObjectReferenced.adoc#column-RepoObject_fullname[repo_sys.RepoObjectReferenced.RepoObject_fullname]
+* xref:repo_sys.RepoObjectReferencing.adoc#column-RepoObject_fullname[repo_sys.RepoObjectReferencing.RepoObject_fullname]
+--
+
+
+[[column-RepoObject_fullname2]]
+=== RepoObject_fullname2
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_fullname2
+|nvarchar(257)
+|NOT NULL
+|
+|Persisted
+|===
+
+.Definition (PERSISTED)
+....
+(concat([RepoObject_schema_name],'.',[RepoObject_name]))
+....
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-RepoObject_name[repo.RepoObject.RepoObject_name]
+* xref:repo.RepoObject.adoc#column-RepoObject_schema_name[repo.RepoObject.RepoObject_schema_name]
+--
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-RepoObject_fullname2[repo.RepoObject_gross.RepoObject_fullname2]
+* xref:repo.RepoObjectColumn_gross.adoc#column-RepoObject_fullname2[repo.RepoObjectColumn_gross.RepoObject_fullname2]
+--
+
+
+[[column-SysObject_fullname]]
+=== SysObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_fullname
+|nvarchar(261)
+|NOT NULL
+|
+|Persisted
+|===
+
+.Description
+....
+(concat('[',[SysObject_schema_name],'].[',[SysObject_name],']'))
+....
+
+.Definition (PERSISTED)
+....
+(concat('[',[SysObject_schema_name],'].[',[SysObject_name],']'))
+....
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-SysObject_name[repo.RepoObject.SysObject_name]
+* xref:repo.RepoObject.adoc#column-SysObject_schema_name[repo.RepoObject.SysObject_schema_name]
+--
+
+.Referencing Columns
+--
+* xref:docs.visjs_nodelist_object_test01.adoc#column-SysObject_fullname[docs.visjs_nodelist_object_test01.SysObject_fullname]
+* xref:repo.RepoObject_gross.adoc#column-SysObject_fullname[repo.RepoObject_gross.SysObject_fullname]
+* xref:repo.RepoObject_RequiredRepoObjectMerge.adoc#column-SysObject_fullname[repo.RepoObject_RequiredRepoObjectMerge.SysObject_fullname]
+* xref:repo.RepoObject_SqlModules_10_statement.adoc#column-SysObject_fullname[repo.RepoObject_SqlModules_10_statement.SysObject_fullname]
+* xref:repo.RepoObject_SqlModules_39_object.adoc#column-SysObject_fullname[repo.RepoObject_SqlModules_39_object.SysObject_fullname]
+* xref:repo.RepoObject_SqlModules_71_reference_ExpliciteTableAlias.adoc#column-source_SysObject_fullname[repo.RepoObject_SqlModules_71_reference_ExpliciteTableAlias.source_SysObject_fullname]
+* xref:repo.RepoObject_SqlModules_72_reference_NoTableAlias.adoc#column-source_SysObject_fullname[repo.RepoObject_SqlModules_72_reference_NoTableAlias.source_SysObject_fullname]
+* xref:repo.RepoObjectColumn_gross.adoc#column-SysObject_fullname[repo.RepoObjectColumn_gross.SysObject_fullname]
+* xref:repo.RepoObjectColumn_MissingSource_TypeV.adoc#column-SysObject_fullname[repo.RepoObjectColumn_MissingSource_TypeV.SysObject_fullname]
+* xref:repo.SysColumn_RepoObjectColumn_via_guid.adoc#column-SysObject_fullname[repo.SysColumn_RepoObjectColumn_via_guid.SysObject_fullname]
+* xref:repo.SysColumn_RepoObjectColumn_via_name.adoc#column-SysObject_fullname[repo.SysColumn_RepoObjectColumn_via_name.SysObject_fullname]
+* xref:repo_sys.ForeignKey.adoc#column-parent_SysObject_fullname[repo_sys.ForeignKey.parent_SysObject_fullname]
+* xref:repo_sys.Index_unique.adoc#column-parent_SysObject_fullname[repo_sys.Index_unique.parent_SysObject_fullname]
+* xref:repo_sys.RepoObjectReferenced.adoc#column-SysObject_fullname[repo_sys.RepoObjectReferenced.SysObject_fullname]
+* xref:repo_sys.RepoObjectReferencing.adoc#column-SysObject_fullname[repo_sys.RepoObjectReferencing.SysObject_fullname]
+--
+
+
+[[column-SysObject_fullname2]]
+=== SysObject_fullname2
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_fullname2
+|nvarchar(257)
+|NOT NULL
+|
+|Persisted
+|===
+
+.Definition (PERSISTED)
+....
+(concat([SysObject_schema_name],'.',[SysObject_name]))
+....
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-SysObject_schema_name[repo.RepoObject.SysObject_schema_name]
+* xref:repo.RepoObject.adoc#column-SysObject_name[repo.RepoObject.SysObject_name]
+--
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-SysObject_fullname2[repo.RepoObject_gross.SysObject_fullname2]
+* xref:repo.RepoObjectColumn_gross.adoc#column-SysObject_fullname2[repo.RepoObjectColumn_gross.SysObject_fullname2]
+--
+
+
+[[column-SysObject_query_sql]]
+=== SysObject_query_sql
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_query_sql
+|nvarchar(406)
+|NOT NULL
+|
+|Calc
+|===
+
+.Description
+....
+(concat('SELECT * FROM [',[repo].[fs_dwh_database_name](),'].[',[SysObject_schema_name],'].[',[SysObject_name],']'))
+....
+
+.Definition
+....
+(concat('SELECT * FROM [',[repo].[fs_dwh_database_name](),'].[',[SysObject_schema_name],'].[',[SysObject_name],']'))
+....
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-SysObject_schema_name[repo.RepoObject.SysObject_schema_name]
+* xref:repo.RepoObject.adoc#column-SysObject_name[repo.RepoObject.SysObject_name]
+--
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-SysObject_query_sql[repo.RepoObject_gross.SysObject_query_sql]
+--
+
+
+[[column-usp_persistence_name]]
+=== usp_persistence_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|usp_persistence_name
+|nvarchar(140)
+|NOT NULL
+|
+|Persisted
+|===
+
+.Description
+....
+('usp_PERSIST_'+[RepoObject_name])
+....
+
+.Definition (PERSISTED)
+....
+('usp_PERSIST_'+[RepoObject_name])
+....
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-RepoObject_name[repo.RepoObject.RepoObject_name]
+--
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-usp_persistence_name[repo.RepoObject_gross.usp_persistence_name]
+--
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-RepoObject_guid>>*
+|uniqueidentifier
+|NOT NULL
+|
+|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+|
+|<<column-has_execution_plan_issue>>
+|bit
+|NULL
+|
+|
+
+|
+|<<column-has_get_referenced_issue>>
+|bit
+|NULL
+|
+|
+
+|
+|<<column-Inheritance_StringAggSeparatorSql>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-InheritanceDefinition>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-InheritanceType>>
+|tinyint
+|NULL
+|
+|
+
+|
+|<<column-is_repo_managed>>
+|bit
+|NULL
+|
+|
+
+|
+|<<column-is_SysObject_missing>>
+|bit
+|NULL
+|
+|
+
+|
+|<<column-modify_dt>>
+|datetime
+|NOT NULL
+|
+|
+
+|
+|<<column-pk_index_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-pk_IndexPatternColumnName_new>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-Repo_history_table_guid>>
+|uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-Repo_temporal_type>>
+|tinyint
+|NULL
+|
+|
+
+|
+|<<column-RepoObject_name>>
+|nvarchar(128)
+|NOT NULL
+|
+|
+
+|
+|<<column-RepoObject_Referencing_Count>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-RepoObject_schema_name>>
+|nvarchar(128)
+|NOT NULL
+|
+|
+
+|
+|<<column-RepoObject_type>>
+|char(2)
+|NOT NULL
+|
+|
+
+|
+|<<column-SysObject_id>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-SysObject_modify_date>>
+|datetime
+|NULL
+|
+|
+
+|
+|<<column-SysObject_name>>
+|nvarchar(128)
+|NOT NULL
+|
+|
+
+|
+|<<column-SysObject_parent_object_id>>
+|int
+|NOT NULL
+|
+|
+
+|
+|<<column-SysObject_schema_name>>
+|nvarchar(128)
+|NOT NULL
+|
+|
+
+|
+|<<column-SysObject_type>>
+|char(2)
+|NULL
+|
+|
+
+|
+|<<column-has_different_sys_names>>
+|bit
+|NULL
+|
+|Calc
+
+|
+|<<column-is_RepoObject_name_uniqueidentifier>>
+|int
+|NOT NULL
+|
+|Persisted
+
+|
+|<<column-is_SysObject_name_uniqueidentifier>>
+|int
+|NOT NULL
+|
+|Persisted
+
+|
+|<<column-node_id>>
+|bigint
+|NULL
+|
+|Calc
+
+|
+|<<column-RepoObject_fullname>>
+|nvarchar(261)
+|NOT NULL
+|
+|Persisted
+
+|
+|<<column-RepoObject_fullname2>>
+|nvarchar(257)
+|NOT NULL
+|
+|Persisted
+
+|
+|<<column-SysObject_fullname>>
+|nvarchar(261)
+|NOT NULL
+|
+|Persisted
+
+|
+|<<column-SysObject_fullname2>>
+|nvarchar(257)
+|NOT NULL
+|
+|Persisted
+
+|
+|<<column-SysObject_query_sql>>
+|nvarchar(406)
+|NOT NULL
+|
+|Calc
+
+|
+|<<column-usp_persistence_name>>
+|nvarchar(140)
+|NOT NULL
+|
+|Persisted
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_RepoObject]]
+=== PK_RepoObject
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_repoobject_guid[RepoObject_guid]
++
+--
+* <<column-RepoObject_guid>>; uniqueidentifier
+--
+* PK, Unique, Real: 1, 1, 1
+
+
+[[index-UK_RepoObject__RepoNames]]
+=== UK_RepoObject__RepoNames
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_schema_name,object_name[schema_name,object_name]
++
+--
+* <<column-RepoObject_schema_name>>; nvarchar(128)
+* <<column-RepoObject_name>>; nvarchar(128)
+--
+* PK, Unique, Real: 0, 1, 1
+
+
+[[index-UK_RepoObject__SysNames]]
+=== UK_RepoObject__SysNames
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_schema_name,object_name[schema_name,object_name]
++
+--
+* <<column-SysObject_schema_name>>; nvarchar(128)
+* <<column-SysObject_name>>; nvarchar(128)
+--
+* PK, Unique, Real: 0, 1, 1
+
+
+[[index-idx_RepoObject__1]]
+=== idx_RepoObject__1
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_index_guid[index_guid]
++
+--
+* <<column-pk_index_guid>>; uniqueidentifier
+--
+* PK, Unique, Real: 0, 0, 0
+* ++FK_RepoObject_Index_IndexSemanticGroup__pk_index_guid++ +
+referenced: xref:repo.Index_Settings.adoc[], xref:repo.Index_Settings.adoc#index-PK_Index_Settings[PK_Index_Settings]
+* is disabled
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+
+// end::AntoraReferencedList[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+
+// end::ReferencedObjectList[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:docs.ftv_RepoObject_Reference_PlantUml_EntityRefList.adoc[]
+* xref:docs.RepoObject_Plantuml_ColRefList.adoc[]
+* xref:docs.RepoObject_Plantuml_ObjectRefList.adoc[]
+* xref:docs.visjs_nodelist_object_test01.adoc[]
+* xref:graph.ProcedureInstance_S.adoc[]
+* xref:graph.RepoObject_S.adoc[]
+* xref:repo.check_IndexColumn_virtual_referenced_setpoint.adoc[]
+* xref:repo.ExtendedProperty_Repo2Sys_level1.adoc[]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_RepoObject.adoc[]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn.adoc[]
+* xref:repo.ftv_RepoObject_ReferencedReferencing.adoc[]
+* xref:repo.GeneratorUsp_SqlUsp.adoc[]
+* xref:repo.Index_virtual_SysObject.adoc[]
+* xref:repo.IndexColumn_virtual_gross.adoc[]
+* xref:repo.ProcedureInstanceDependency_gross.adoc[]
+* xref:repo.RepoObject_fullname_u_v.adoc[]
+* xref:repo.RepoObject_gross.adoc[]
+* xref:repo.RepoObject_persistence_column.adoc[]
+* xref:repo.RepoObject_persistence_ForInput.adoc[]
+* xref:repo.RepoObject_persistence_ObjectNames.adoc[]
+* xref:repo.RepoObject_reference_persistence.adoc[]
+* xref:repo.RepoObject_RequiredRepoObjectMerge.adoc[]
+* xref:repo.RepoObject_SqlCreateTable.adoc[]
+* xref:repo.RepoObject_SqlModules_10_statement.adoc[]
+* xref:repo.RepoObject_SqlModules_39_object.adoc[]
+* xref:repo.RepoObject_SqlModules_71_reference_ExpliciteTableAlias.adoc[]
+* xref:repo.RepoObject_SqlModules_72_reference_NoTableAlias.adoc[]
+* xref:repo.RepoObject_SqlModules_Repo_Sys.adoc[]
+* xref:repo.RepoObjectColumn_gross.adoc[]
+* xref:repo.RepoObjectColumn_MissingSource_TypeV.adoc[]
+* xref:repo.RepoObjectColumn_reference_FirstResultSet.adoc[]
+* xref:repo.RepoObjectColumn_reference_Persistence.adoc[]
+* xref:repo.RepoObjectColumn_reference_QueryPlan.adoc[]
+* xref:repo.RepoObjectColumn_reference_SqlModules.adoc[]
+* xref:repo.RepoObjectColumnProperty_sys_repo.adoc[]
+* xref:repo.RepoObjectProperty_cross.adoc[]
+* xref:repo.RepoObjectProperty_InheritanceType_InheritanceDefinition.adoc[]
+* xref:repo.RepoObjectProperty_sys_repo.adoc[]
+* xref:repo.SysColumn_RepoObjectColumn_via_guid.adoc[]
+* xref:repo.SysColumn_RepoObjectColumn_via_name.adoc[]
+* xref:repo.SysObject_RepoObject_via_guid.adoc[]
+* xref:repo.SysObject_RepoObject_via_name.adoc[]
+* xref:repo.usp_Index_finish.adoc[]
+* xref:repo.usp_Index_virtual_InsertUpdate.adoc[]
+* xref:repo.usp_persistence_insert_update.adoc[]
+* xref:repo.usp_RepoObject_update_SysObjectQueryPlan.adoc[]
+* xref:repo.usp_RepoObjectProperty_set.adoc[]
+* xref:repo.usp_RepoObjectSource_FirstResultSet.adoc[]
+* xref:repo.usp_RepoObjectSource_QueryPlan.adoc[]
+* xref:repo.usp_sync_guid_RepoObject.adoc[]
+* xref:repo.usp_sync_guid_RepoObjectColumn.adoc[]
+* xref:repo.usp_update_Referencing_Count.adoc[]
+* xref:repo_sys.ForeignKey.adoc[]
+* xref:repo_sys.Index_unique.adoc[]
+* xref:repo_sys.RepoObjectReferenced.adoc[]
+* xref:repo_sys.RepoObjectReferencing.adoc[]
+// end::AntoraReferencingList[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+ED8F291C-9D61-EB11-84DC-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+uniqueidentifier
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+RepoObject_guid
+// end::pk_IndexPatternColumnName[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+RepoObject_guid
+// end::pk_IndexSemanticGroup[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+----
+// end::sql_modules_definition[]
+
+

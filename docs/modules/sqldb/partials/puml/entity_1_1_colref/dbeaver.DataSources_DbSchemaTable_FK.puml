@@ -1,0 +1,81 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity dbeaver.DataSources_DbSchemaTable << V >> {
+  --
+  BulkColumn : varchar(max)
+  * id : int
+  is_json : int
+  * VirtualModel_database : nvarchar(4000)
+  VirtualModel_database_json : nvarchar(max)
+  VirtualModel_json : nvarchar(max)
+  * VirtualModel_key : nvarchar(4000)
+  * VirtualModel_schema : nvarchar(4000)
+  VirtualModel_schema_json : nvarchar(max)
+  VirtualModel_table : nvarchar(500)
+  VirtualModel_table_constraints_json : nvarchar(max)
+  VirtualModel_table_FK_json : nvarchar(max)
+  VirtualModel_table_json : nvarchar(max)
+  VirtualModel_table_properties_json : nvarchar(max)
+  VirtualModels : nvarchar(max)
+}
+
+entity dbeaver.DataSources_DbSchemaTable_FK << V >> {
+  --
+  BulkColumn : varchar(max)
+  * id : int
+  is_json : int
+  * key : nvarchar(4000)
+  * type : tinyint
+  value : nvarchar(max)
+  * VirtualModel_database : nvarchar(4000)
+  VirtualModel_database_json : nvarchar(max)
+  VirtualModel_json : nvarchar(max)
+  * VirtualModel_key : nvarchar(4000)
+  * VirtualModel_schema : nvarchar(4000)
+  VirtualModel_schema_json : nvarchar(max)
+  VirtualModel_table : nvarchar(500)
+  VirtualModel_table_FK_attributes_json : nvarchar(max)
+  VirtualModel_table_FK_constraint : nvarchar(500)
+  VirtualModel_table_FK_entity : nvarchar(500)
+  VirtualModel_table_FK_json : nvarchar(max)
+  VirtualModel_table_json : nvarchar(max)
+  VirtualModels : nvarchar(max)
+}
+
+dbeaver.DataSources_DbSchemaTable <.. dbeaver.DataSources_DbSchemaTable_FK
+dbeaver.DataSources_DbSchemaTable::BulkColumn <-- dbeaver.DataSources_DbSchemaTable_FK::BulkColumn
+dbeaver.DataSources_DbSchemaTable::id <-- dbeaver.DataSources_DbSchemaTable_FK::id
+dbeaver.DataSources_DbSchemaTable::is_json <-- dbeaver.DataSources_DbSchemaTable_FK::is_json
+dbeaver.DataSources_DbSchemaTable::VirtualModel_database <-- dbeaver.DataSources_DbSchemaTable_FK::VirtualModel_database
+dbeaver.DataSources_DbSchemaTable::VirtualModel_database_json <-- dbeaver.DataSources_DbSchemaTable_FK::VirtualModel_database_json
+dbeaver.DataSources_DbSchemaTable::VirtualModel_json <-- dbeaver.DataSources_DbSchemaTable_FK::VirtualModel_json
+dbeaver.DataSources_DbSchemaTable::VirtualModel_key <-- dbeaver.DataSources_DbSchemaTable_FK::VirtualModel_key
+dbeaver.DataSources_DbSchemaTable::VirtualModel_schema <-- dbeaver.DataSources_DbSchemaTable_FK::VirtualModel_schema
+dbeaver.DataSources_DbSchemaTable::VirtualModel_schema_json <-- dbeaver.DataSources_DbSchemaTable_FK::VirtualModel_schema_json
+dbeaver.DataSources_DbSchemaTable::VirtualModel_table <-- dbeaver.DataSources_DbSchemaTable_FK::VirtualModel_table
+dbeaver.DataSources_DbSchemaTable::VirtualModel_table_FK_json <-- dbeaver.DataSources_DbSchemaTable_FK::VirtualModel_table_FK_json
+dbeaver.DataSources_DbSchemaTable::VirtualModel_table_json <-- dbeaver.DataSources_DbSchemaTable_FK::VirtualModel_table_json
+dbeaver.DataSources_DbSchemaTable::VirtualModels <-- dbeaver.DataSources_DbSchemaTable_FK::VirtualModels

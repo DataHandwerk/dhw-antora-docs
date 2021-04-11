@@ -1,0 +1,56 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo_sys.SysObject << V >> {
+  --
+  * create_date : datetime
+  history_table_id : int
+  * is_ms_shipped : bit
+  * is_published : bit
+  * is_schema_published : bit
+  max_column_id_used : int
+  * modify_date : datetime
+  * parent_object_id : int
+  principal_id : int
+  * schema_id : int
+  sql_modules_definition : nvarchar(max)
+  * SysObject_fullname : nvarchar(517)
+  * SysObject_fullname2 : nvarchar(257)
+  * SysObject_id : int
+  * SysObject_name : sysname
+  SysObject_RepoObject_guid : uniqueidentifier
+  SysObject_schema_name : sysname
+  temporal_type : tinyint
+  temporal_type_desc : nvarchar(60)
+  type : char(2)
+  type_desc : nvarchar(60)
+}
+
+entity sys_dwh.sql_modules << SN >> {
+  --
+}
+
+sys_dwh.sql_modules <.. repo_sys.SysObject
+

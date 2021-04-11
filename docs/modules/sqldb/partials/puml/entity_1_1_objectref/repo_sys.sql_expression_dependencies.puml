@@ -1,0 +1,56 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.ftv_dwh_database << IF >> {
+}
+
+entity repo.RepoObject_reference_SqlExpressionDependencies << V >> {
+  **referenced_RepoObject_guid** : uniqueidentifier
+  **referencing_RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
+}
+
+entity repo_sys.sql_expression_dependencies << V >> {
+}
+
+entity repo_sys.SysColumn << V >> {
+}
+
+entity repo_sys.SysObject << V >> {
+}
+
+entity sys_dwh.sql_expression_dependencies << SN >> {
+}
+
+repo.ftv_dwh_database <.. repo_sys.SysColumn
+repo.ftv_dwh_database <.. repo_sys.sql_expression_dependencies
+repo_sys.sql_expression_dependencies <.. repo.RepoObject_reference_SqlExpressionDependencies
+repo_sys.sql_expression_dependencies <.. repo.RepoObjectColumn_reference_SqlExpressionDependencies
+repo_sys.SysColumn <.. repo_sys.sql_expression_dependencies
+repo_sys.SysObject <.. repo_sys.SysColumn
+repo_sys.SysObject <.. repo_sys.sql_expression_dependencies
+sys_dwh.sql_expression_dependencies <.. repo_sys.sql_expression_dependencies

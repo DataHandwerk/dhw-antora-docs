@@ -1,0 +1,116 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity graph.ReferencedObject << U >> {
+}
+
+entity graph.ReferencedObjectColumn << U >> {
+}
+
+entity graph.ReferencingObject << U >> {
+}
+
+entity graph.ReferencingObjectColumn << U >> {
+}
+
+entity graph.RepoObject << U >> {
+}
+
+entity graph.RepoObjectColumn << U >> {
+}
+
+entity repo.fs_get_parameter_value << FN >> {
+}
+
+entity repo.RepoObject_reference_union << V >> {
+  **referenced_RepoObject_guid** : uniqueidentifier
+  **referencing_RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn_reference_union << V >> {
+}
+
+entity repo.usp_ExecutionLog_insert << P >> {
+}
+
+entity repo.usp_GeneratorUsp_insert_update_persistence << P >> {
+}
+
+entity repo.usp_Index_ForeignKey << P >> {
+}
+
+entity repo.usp_index_inheritance << P >> {
+}
+
+entity repo.usp_main << P >> {
+}
+
+entity repo.usp_RepoObject_update_SysObjectQueryPlan << P >> {
+}
+
+entity repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id << P >> {
+}
+
+entity repo.usp_RepoObjectSource_FirstResultSet << P >> {
+}
+
+entity repo.usp_RepoObjectSource_QueryPlan << P >> {
+}
+
+entity repo.usp_sync_guid << P >> {
+}
+
+entity repo.usp_update_Referencing_Count << P >> {
+}
+
+graph.ReferencedObject <.. repo.usp_main
+graph.ReferencedObjectColumn <.. repo.usp_main
+graph.ReferencingObject <.. repo.usp_main
+graph.ReferencingObjectColumn <.. repo.usp_main
+graph.RepoObject <.. repo.usp_main
+graph.RepoObjectColumn <.. repo.usp_main
+repo.fs_get_parameter_value <.. repo.usp_main
+repo.fs_get_parameter_value <.. repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id
+repo.RepoObject_reference_union <.. repo.usp_main
+repo.RepoObjectColumn_reference_union <.. repo.usp_main
+repo.usp_ExecutionLog_insert <.. repo.usp_RepoObjectSource_QueryPlan
+repo.usp_ExecutionLog_insert <.. repo.usp_update_Referencing_Count
+repo.usp_ExecutionLog_insert <.. repo.usp_Index_ForeignKey
+repo.usp_ExecutionLog_insert <.. repo.usp_main
+repo.usp_ExecutionLog_insert <.. repo.usp_RepoObjectSource_FirstResultSet
+repo.usp_ExecutionLog_insert <.. repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id
+repo.usp_ExecutionLog_insert <.. repo.usp_RepoObject_update_SysObjectQueryPlan
+repo.usp_ExecutionLog_insert <.. repo.usp_index_inheritance
+repo.usp_ExecutionLog_insert <.. repo.usp_GeneratorUsp_insert_update_persistence
+repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid
+repo.usp_GeneratorUsp_insert_update_persistence <.. repo.usp_main
+repo.usp_Index_ForeignKey <.. repo.usp_main
+repo.usp_index_inheritance <.. repo.usp_main
+repo.usp_RepoObject_update_SysObjectQueryPlan <.. repo.usp_main
+repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id <.. repo.usp_main
+repo.usp_RepoObjectSource_FirstResultSet <.. repo.usp_main
+repo.usp_RepoObjectSource_QueryPlan <.. repo.usp_main
+repo.usp_sync_guid <.. repo.usp_main
+repo.usp_update_Referencing_Count <.. repo.usp_main

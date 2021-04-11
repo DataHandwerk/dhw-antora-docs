@@ -1,0 +1,49 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity sys_self.ExtendedProperties_ParameterForAddUpdateDrop << V >> {
+  --
+  * class : tinyint
+  class_desc : nvarchar(60)
+  level0name : nvarchar(128)
+  * level0type : varchar(6)
+  level1name : nvarchar(128)
+  level1type : varchar(9)
+  level2name : nvarchar(128)
+  level2type : varchar(10)
+  * minor_id : int
+  * property_name : sysname
+  property_value : sql_variant
+  type : char(2)
+  type_level1type : varchar(9)
+  type_level2type : varchar(10)
+}
+
+entity sys_self.usp_dropextendedproperty_level_1 << P >> {
+  --
+}
+
+sys_self.ExtendedProperties_ParameterForAddUpdateDrop <.. sys_self.usp_dropextendedproperty_level_1
+

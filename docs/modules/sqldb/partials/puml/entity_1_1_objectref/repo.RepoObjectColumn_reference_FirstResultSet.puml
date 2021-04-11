@@ -1,0 +1,55 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_reference_union << V >> {
+  **referenced_RepoObject_guid** : uniqueidentifier
+  **referencing_RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn_gross << V >> {
+}
+
+entity repo.RepoObjectColumn_reference_BySamePredecessors << V >> {
+}
+
+entity repo.RepoObjectColumn_reference_FirstResultSet << V >> {
+}
+
+entity repo.RepoObjectSource_FirstResultSet << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **column_ordinal** : int
+}
+
+repo.RepoObject <.. repo.RepoObjectColumn_gross
+repo.RepoObject <.. repo.RepoObjectColumn_reference_FirstResultSet
+repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_FirstResultSet
+repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_BySamePredecessors
+repo.RepoObjectColumn_gross <.. repo.RepoObjectColumn_reference_FirstResultSet
+repo.RepoObjectColumn_reference_FirstResultSet <.. repo.RepoObjectColumn_reference_BySamePredecessors
+repo.RepoObjectSource_FirstResultSet <.. repo.RepoObjectColumn_reference_FirstResultSet

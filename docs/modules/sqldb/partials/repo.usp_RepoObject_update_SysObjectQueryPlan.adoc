@@ -1,0 +1,620 @@
+= [repo].[usp_RepoObject_update_SysObjectQueryPlan]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--AntoraReferencedList:
+:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--AntoraParameterList:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+9D90291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+P 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+stored procedure
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1858105660
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-08 15:44:25
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+* @execution_instance_guid (uniqueidentifier)
+* @ssis_execution_id (bigint)
+* @sub_execution_id (int)
+* @parent_execution_log_id (bigint)
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::AdocUspSteps[]
+
+// end::AdocUspSteps[]
+
+
+== example1
+
+// tag::example1[]
+
+// end::example1[]
+
+
+== example2
+
+// tag::example2[]
+
+// end::example2[]
+
+
+== example3
+
+// tag::example3[]
+
+// end::example3[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_RepoObject_guid[]
+
+// end::usp_persistence_RepoObject_guid[]
+
+
+== UspExamples
+
+// tag::UspExamples[]
+
+// end::UspExamples[]
+
+
+== UspParameters
+
+// tag::UspParameters[]
+
+// end::UspParameters[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_RepoObject_xref[]
+
+// end::persistence_source_RepoObject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_IndexPatternColumnDatatype[]
+
+// end::pk_IndexPatternColumnDatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_IndexPatternColumnName[]
+
+// end::pk_IndexPatternColumnName[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_IndexSemanticGroup[]
+
+// end::pk_IndexSemanticGroup[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::MS_Description[]
+
+// end::MS_Description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_RepoObject_fullname[]
+
+// end::persistence_source_RepoObject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_RepoObject_fullname2[]
+
+// end::persistence_source_RepoObject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_RepoObject_guid[]
+
+// end::persistence_source_RepoObject_guid[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== example4
+
+// tag::example4[]
+
+// end::example4[]
+
+
+== example5
+
+// tag::example5[]
+
+// end::example5[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== AntoraReferencedList
+
+// tag::AntoraReferencedList[]
+* xref:repo.RepoObject.adoc[]
+* xref:repo.RepoObject_gross.adoc[]
+* xref:repo.RepoObject_QueryPlan.adoc[]
+* xref:repo.usp_ExecutionLog_insert.adoc[]
+// end::AntoraReferencedList[]
+
+
+== AntoraReferencingList
+
+// tag::AntoraReferencingList[]
+* xref:repo.usp_main.adoc[]
+// end::AntoraReferencingList[]
+
+
+== ReferencedObjectList
+
+// tag::ReferencedObjectList[]
+* [repo].[RepoObject]
+* [repo].[RepoObject_gross]
+* [repo].[RepoObject_QueryPlan]
+* [repo].[usp_ExecutionLog_insert]
+// end::ReferencedObjectList[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+/*
+references on column level
+target: repo.RepoObjectSource_from_query_plan
+source: query plan analysis of the execution of a query like
+`Vselect top (1) * into #foo from (SELECT * FROM sss.aaa)`
+
+First update query plan and write them into repo.RepoObject
+then analyse the query plans and update results into 
+
+EXEC [repo_sys].[usp_RepoObject_update_SysObjectQueryPlan]
+EXEC [repo].[usp_RepoObjectSource_QueryPlan]
+
+some query plans can't be extracted, some can be extracted but not analyzed
+in this case mark the RepoObject in repo.RepoObject
+SET [has_execution_plan_issue] = 1
+
+*/
+CREATE PROCEDURE [repo].[usp_RepoObject_update_SysObjectQueryPlan]
+ -- some optional parameters, used for logging
+ @execution_instance_guid UNIQUEIDENTIFIER = NULL --SSIS system variable ExecutionInstanceGUID could be used, but other any other guid
+ , @ssis_execution_id BIGINT = NULL --only SSIS system variable ServerExecutionID should be used, or any other consistent number system, do not mix
+ , @sub_execution_id INT = NULL
+ , @parent_execution_log_id BIGINT = NULL
+AS
+DECLARE @current_execution_log_id BIGINT
+ , @current_execution_guid UNIQUEIDENTIFIER = NEWID()
+ , @source_object NVARCHAR(261) = NULL
+ , @target_object NVARCHAR(261) = NULL
+ , @proc_id INT = @@procid
+ , @proc_schema_name NVARCHAR(128) = OBJECT_SCHEMA_NAME(@@procid)
+ , @proc_name NVARCHAR(128) = OBJECT_NAME(@@procid)
+ , @event_info NVARCHAR(MAX)
+ , @step_id INT = 0
+ , @step_name NVARCHAR(1000) = NULL
+ , @rows INT
+
+SET @event_info = (
+  SELECT [event_info]
+  FROM sys.dm_exec_input_buffer(@@spid, CURRENT_REQUEST_ID())
+  )
+
+IF @execution_instance_guid IS NULL
+ SET @execution_instance_guid = NEWID();
+--SET @rows = @@ROWCOUNT;
+SET @step_id = @step_id + 1
+SET @step_name = 'start'
+
+--SET @source_object = NULL
+--SET @target_object = NULL
+EXEC repo.usp_ExecutionLog_insert @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @inserted = NULL
+ , @updated = NULL
+ , @deleted = NULL
+ , @info_01 = NULL
+ , @info_02 = NULL
+ , @info_03 = NULL
+ , @info_04 = NULL
+ , @info_05 = NULL
+ , @info_06 = NULL
+ , @info_07 = NULL
+ , @info_08 = NULL
+ , @info_09 = NULL
+ , @execution_log_id = @current_execution_log_id OUTPUT;
+
+--
+----START
+--
+DECLARE @RepoObject_guid UNIQUEIDENTIFIER
+ , @SysObject_query_sql NVARCHAR(4000)
+ , @SysObject_query_plan XML
+ , @SysObject_query_executed_dt DATETIME
+ , @select_into_query AS VARCHAR(4000)
+
+DECLARE view_cursor CURSOR
+FOR
+--
+SELECT [ro].[RepoObject_guid]
+ , [ro].[SysObject_query_sql]
+ , [ro].[SysObject_query_plan]
+ , [ro].[SysObject_query_executed_dt]
+--, ro.[SysObject_modify_date]
+FROM repo.RepoObject_gross AS ro
+WHERE
+ --   --only views and tables (for calculated columns)
+ ----we don't need tables, references for calculated columns we have in [repo].[RepoObjectColumn_reference__sql_expression_dependencies]
+ --   [ro].[SysObject_type] IN
+ --                            (
+ --                            'V' , 'U'
+ --                            )
+ --only views
+ [ro].[SysObject_type] = 'V'
+ AND [ro].[SysObject_query_sql] <> ''
+ AND (
+  [ro].[SysObject_query_plan] IS NULL
+  OR [ro].[SysObject_query_executed_dt] IS NULL
+  --query plan could be outdated
+  OR [ro].[SysObject_query_executed_dt] < [ro].[SysObject_modify_date]
+  )
+ --we can't catch some issues with sys.dm_exec_query_stats
+ --thats why as an workaround we exclude them
+ AND ISNULL([ro].[has_execution_plan_issue], 0) = 0
+ORDER BY [ro].[RepoObject_guid]
+
+--FOR UPDATE OF [SysObject_query_plan]
+-- , [SysObject_query_executed_dt]
+OPEN view_cursor
+
+FETCH NEXT
+FROM view_cursor
+INTO @RepoObject_guid
+ , @SysObject_query_sql
+ , @SysObject_query_plan
+ , @SysObject_query_executed_dt
+
+WHILE @@fetch_status <> - 1
+BEGIN
+ IF @@fetch_status <> - 2
+ BEGIN
+  SET @select_into_query = 'select top (1) * into #foo from (' + @SysObject_query_sql + ') as src'
+
+  --information about the current RepoObject in case of error
+  --some query plans can't be extracted, some can be extracted but not analyzed
+  --in this case mark the RepoObject in repo.RepoObject
+  --SET [has_execution_plan_issue] = 1
+  PRINT CONCAT (
+    @RepoObject_guid
+    , ' '
+    , @SysObject_query_sql
+    )
+  PRINT 'if you get issues and TRY CATCH doesn''t solve them, then execute this:'
+  PRINT CONCAT (
+    'UPDATE [repo].[RepoObject] SET [has_execution_plan_issue] = 1 WHERE [RepoObject_guid] = '''
+    , @RepoObject_guid
+    , ''''
+    )
+
+  DECLARE @xml_plan AS XML = NULL
+   , @xml_generation_tries AS TINYINT = 10
+
+  WHILE @xml_plan IS NULL
+   AND @xml_generation_tries > 0 -- There is no guaranty that plan will be cached.
+  BEGIN
+   PRINT @select_into_query;
+
+   EXECUTE (@select_into_query);
+
+   --most time TRY CATCH doesn't work
+   --sometimes any select from sys.dm_exec_query_stats results in an error:
+   --Msg 681, Level 16, State 3, Line 1
+   --Attempting to set a non-NULL-able column's value to NULL.
+   --sometimes we get other errors
+   BEGIN TRY
+    SELECT @xml_plan = [pln].[query_plan]
+    FROM sys.dm_exec_query_stats AS qry
+    CROSS APPLY sys.dm_exec_sql_text(qry.sql_handle) AS txt
+    CROSS APPLY sys.dm_exec_query_plan(qry.plan_handle) AS pln
+    WHERE [txt].TEXT = @select_into_query;
+   END TRY
+
+   BEGIN CATCH
+    PRINT 'Can''t get query_plan'
+
+    UPDATE ro
+    SET [has_execution_plan_issue] = 1
+    FROM [repo].[RepoObject] AS [ro]
+    WHERE [ro].[RepoObject_guid] = @RepoObject_guid
+   END CATCH
+
+   SET @xml_generation_tries = @xml_generation_tries - 1
+  END
+
+  --PRINT 'IF @xml_plan IS NULL';
+  --IF @xml_plan IS NULL
+  --    BEGIN
+  --        --RAISERROR(N'Can''t extract XML query plan from cache.' , 15 , 0);
+  --        RAISERROR(N'Can''t extract XML query plan from cache.' , 10 , 0);
+  --        RETURN;
+  --END;
+  MERGE INTO [repo].[RepoObject_QueryPlan] T
+  USING (
+   SELECT @RepoObject_guid
+    , @xml_plan
+   ) AS S(RepoObject_guid, SysObject_query_plan)
+   ON S.RepoObject_guid = T.RepoObject_guid
+  WHEN MATCHED
+   THEN
+    UPDATE
+    SET [SysObject_query_plan] = [S].[SysObject_query_plan]
+     , [SysObject_query_executed_dt] = GETDATE()
+  WHEN NOT MATCHED
+   THEN
+    INSERT (
+     [RepoObject_guid]
+     , [SysObject_query_plan]
+     , [SysObject_query_executed_dt]
+     )
+    VALUES (
+     S.RepoObject_guid
+     , S.SysObject_query_plan
+     , GETDATE()
+     );
+
+  --UPDATE repo.RepoObject
+  --SET [SysObject_query_plan] = @xml_plan
+  -- , [SysObject_query_executed_dt] = GETDATE()
+  --WHERE [RepoObject_guid] = @RepoObject_guid
+  SET @rows = @@rowcount;
+  SET @step_id = @step_id + 1
+  SET @step_name = 'UPDATE SET [SysObject_query_plan] = @xml_plan, [SysObject_query_executed_dt] = GETDATE()'
+  SET @source_object = '[repo].[RepoObject]'
+  SET @target_object = '[repo].[RepoObject]'
+
+  EXEC repo.usp_ExecutionLog_insert @execution_instance_guid = @execution_instance_guid
+   , @ssis_execution_id = @ssis_execution_id
+   , @sub_execution_id = @sub_execution_id
+   , @parent_execution_log_id = @parent_execution_log_id
+   , @current_execution_guid = @current_execution_guid
+   , @proc_id = @proc_id
+   , @proc_schema_name = @proc_schema_name
+   , @proc_name = @proc_name
+   , @event_info = @event_info
+   , @step_id = @step_id
+   , @step_name = @step_name
+   , @source_object = @source_object
+   , @target_object = @target_object
+   , @inserted = NULL
+   , @updated = @rows
+   , @deleted = NULL
+   , @info_01 = @RepoObject_guid
+   , @info_02 = @SysObject_query_sql
+   , @info_03 = NULL
+   , @info_04 = NULL
+   , @info_05 = NULL
+   , @info_06 = NULL
+   , @info_07 = NULL
+   , @info_08 = NULL
+   , @info_09 = NULL
+ END
+
+ FETCH NEXT
+ FROM view_cursor
+ INTO @RepoObject_guid
+  , @SysObject_query_sql
+  , @SysObject_query_plan
+  , @SysObject_query_executed_dt
+END
+
+CLOSE view_cursor
+
+DEALLOCATE view_cursor
+
+--
+--END
+--
+--SET @rows = @@ROWCOUNT;
+SET @step_id = @step_id + 1;
+SET @step_name = 'end'
+SET @source_object = NULL
+SET @target_object = NULL
+
+EXEC repo.usp_ExecutionLog_insert @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @inserted = NULL
+ , @updated = NULL
+ , @deleted = NULL
+ , @info_01 = NULL
+ , @info_02 = NULL
+ , @info_03 = NULL
+ , @info_04 = NULL
+ , @info_05 = NULL
+ , @info_06 = NULL
+ , @info_07 = NULL
+ , @info_08 = NULL
+ , @info_09 = NULL
+
+----
+// end::sql_modules_definition[]
+
+

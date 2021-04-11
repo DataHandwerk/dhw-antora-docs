@@ -1,0 +1,45 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.SysObject_RepoObject_via_name << V >> {
+- idx_SysObject_RepoObject_via_name__1
+{RepoObject_guid}
+..
+RepoObject_guid; uniqueidentifier
+--
+- idx_SysObject_RepoObject_via_name__2
+
+..
+SysObject_schema_name; sysname
+SysObject_name; sysname
+--
+- idx_SysObject_RepoObject_via_name__3
+{schema_name,object_name}
+..
+RepoObject_schema_name; nvarchar(128)
+RepoObject_name; nvarchar(128)
+}
+
+

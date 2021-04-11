@@ -1,0 +1,83 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.aaa_test_sql_table_column << V >> {
+  --
+  Repo_increment_value : sql_variant
+  * Repo_is_computed : bit
+  * Repo_is_identity : bit
+  Repo_is_persisted : bit
+  Repo_seed_value : sql_variant
+  * RepoObjectColumn_name : nvarchar(128)
+  * sql_table_column_common : nvarchar(max)
+  sql_table_column_computed : nvarchar(max)
+  * sql_table_column_identity : varchar(4)
+}
+
+entity repo.RepoObjectColumn << U >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+  --
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_persistence_no_check : bit
+  is_persistence_no_include : bit
+  is_persistence_no_update : bit
+  is_query_plan_expression : bit
+  is_SysObjectColumn_missing : bit
+  persistence_source_RepoObjectColumn_guid : uniqueidentifier
+  Referencing_Count : int
+  Repo_default_definition : nvarchar(max)
+  Repo_default_is_system_named : bit
+  Repo_default_name : nvarchar(128)
+  Repo_definition : nvarchar(max)
+  * Repo_generated_always_type : tinyint
+  Repo_graph_type : int
+  Repo_increment_value : sql_variant
+  * Repo_is_computed : bit
+  * Repo_is_identity : bit
+  Repo_is_nullable : bit
+  Repo_is_persisted : bit
+  Repo_seed_value : sql_variant
+  Repo_user_type_fullname : nvarchar(128)
+  Repo_user_type_name : nvarchar(128)
+  Repo_uses_database_collation : bit
+  * RepoObject_guid : uniqueidentifier
+  RepoObjectColumn_column_id : int
+  * RepoObjectColumn_name : nvarchar(128)
+  SysObjectColumn_column_id : int
+  * SysObjectColumn_name : nvarchar(128)
+  {abstract} has_different_sys_names : bit
+  * {static} is_RepoObjectColumn_name_uniqueidentifier : int
+  * {static} is_SysObjectColumn_name_uniqueidentifier : int
+}
+
+repo.RepoObjectColumn <.. repo.aaa_test_sql_table_column
+repo.RepoObjectColumn::Repo_increment_value <-- repo.aaa_test_sql_table_column::Repo_increment_value
+repo.RepoObjectColumn::Repo_is_computed <-- repo.aaa_test_sql_table_column::Repo_is_computed
+repo.RepoObjectColumn::Repo_is_identity <-- repo.aaa_test_sql_table_column::Repo_is_identity
+repo.RepoObjectColumn::Repo_is_persisted <-- repo.aaa_test_sql_table_column::Repo_is_persisted
+repo.RepoObjectColumn::Repo_seed_value <-- repo.aaa_test_sql_table_column::Repo_seed_value
+repo.RepoObjectColumn::RepoObjectColumn_name <-- repo.aaa_test_sql_table_column::RepoObjectColumn_name

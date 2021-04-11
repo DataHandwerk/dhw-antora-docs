@@ -1,0 +1,166 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  has_execution_plan_issue : bit
+  has_get_referenced_issue : bit
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_repo_managed : bit
+  is_SysObject_missing : bit
+  * modify_dt : datetime
+  pk_index_guid : uniqueidentifier
+  pk_IndexPatternColumnName_new : nvarchar(4000)
+  Repo_history_table_guid : uniqueidentifier
+  Repo_temporal_type : tinyint
+  * RepoObject_name : nvarchar(128)
+  RepoObject_Referencing_Count : int
+  * RepoObject_schema_name : nvarchar(128)
+  * RepoObject_type : char(2)
+  SysObject_id : int
+  SysObject_modify_date : datetime
+  * SysObject_name : nvarchar(128)
+  * SysObject_parent_object_id : int
+  * SysObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  {abstract} has_different_sys_names : bit
+  * {static} is_RepoObject_name_uniqueidentifier : int
+  * {static} is_SysObject_name_uniqueidentifier : int
+  {abstract} node_id : bigint
+  * {static} RepoObject_fullname : nvarchar(261)
+  * {static} RepoObject_fullname2 : nvarchar(257)
+  * {static} SysObject_fullname : nvarchar(261)
+  * {static} SysObject_fullname2 : nvarchar(257)
+  * {abstract} SysObject_query_sql : nvarchar(406)
+  * {static} usp_persistence_name : nvarchar(140)
+}
+
+entity repo.RepoObjectColumn << U >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+  --
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_persistence_no_check : bit
+  is_persistence_no_include : bit
+  is_persistence_no_update : bit
+  is_query_plan_expression : bit
+  is_SysObjectColumn_missing : bit
+  persistence_source_RepoObjectColumn_guid : uniqueidentifier
+  Referencing_Count : int
+  Repo_default_definition : nvarchar(max)
+  Repo_default_is_system_named : bit
+  Repo_default_name : nvarchar(128)
+  Repo_definition : nvarchar(max)
+  * Repo_generated_always_type : tinyint
+  Repo_graph_type : int
+  Repo_increment_value : sql_variant
+  * Repo_is_computed : bit
+  * Repo_is_identity : bit
+  Repo_is_nullable : bit
+  Repo_is_persisted : bit
+  Repo_seed_value : sql_variant
+  Repo_user_type_fullname : nvarchar(128)
+  Repo_user_type_name : nvarchar(128)
+  Repo_uses_database_collation : bit
+  * RepoObject_guid : uniqueidentifier
+  RepoObjectColumn_column_id : int
+  * RepoObjectColumn_name : nvarchar(128)
+  SysObjectColumn_column_id : int
+  * SysObjectColumn_name : nvarchar(128)
+  {abstract} has_different_sys_names : bit
+  * {static} is_RepoObjectColumn_name_uniqueidentifier : int
+  * {static} is_SysObjectColumn_name_uniqueidentifier : int
+}
+
+entity repo.RepoObjectColumnProperty << U >> {
+  * **RepoObjectColumnProperty_id** : int
+  --
+  inheritance : tinyint
+  * property_name : nvarchar(128)
+  * property_value : sql_variant
+  * RepoObjectColumn_guid : uniqueidentifier
+  {abstract} property_basetype : sql_variant
+  {abstract} property_bigint : bigint
+  {abstract} property_float : float
+  {abstract} property_int : int
+  {abstract} property_money : money
+  {abstract} property_nvarchar : nvarchar(4000)
+  {abstract} property_real : real
+  {abstract} property_varchar : varchar(8000)
+}
+
+entity repo.RepoObjectColumnProperty_sys_repo << V >> {
+  --
+  * property_name : sysname
+  property_value : sql_variant
+  * RepoObjectColumn_guid : uniqueidentifier
+  RepoObjectColumnProperty_id : int
+  RepoObjectColumnProperty_property_value : sql_variant
+  SysObject_name : nvarchar(128)
+  SysObject_schema_name : nvarchar(128)
+  SysObjectColumn_name : nvarchar(128)
+}
+
+entity repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate << P >> {
+  --
+}
+
+entity repo_sys.ExtendedProperties << V >> {
+  --
+  * class : tinyint
+  class_desc : nvarchar(60)
+  entity_column_name : nvarchar(128)
+  entity_index_name : nvarchar(128)
+  entity_parameter_name : nvarchar(128)
+  level2type : varchar(9)
+  * major_id : int
+  * minor_id : int
+  minor_name : nvarchar(128)
+  parent_name : sysname
+  parent_object_id : int
+  parent_type : char(2)
+  property_basetype : sql_variant
+  * property_name : sysname
+  property_nvarchar : nvarchar(4000)
+  property_value : sql_variant
+  SysObject_name : nvarchar(128)
+  SysObject_schema_name : nvarchar(128)
+}
+
+repo.RepoObject <.. repo.RepoObjectColumnProperty_sys_repo
+repo.RepoObjectColumn <.. repo.RepoObjectColumnProperty_sys_repo
+repo.RepoObjectColumnProperty <.. repo.RepoObjectColumnProperty_sys_repo
+repo.RepoObjectColumnProperty <.. repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate
+repo.RepoObjectColumnProperty_sys_repo <.. repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate
+repo_sys.ExtendedProperties <.. repo.RepoObjectColumnProperty_sys_repo
+repo.RepoObjectColumn::RepoObjectColumn_guid <-- repo.RepoObjectColumnProperty_sys_repo::RepoObjectColumn_guid
+repo_sys.ExtendedProperties::property_name <-- repo.RepoObjectColumnProperty_sys_repo::property_name
+repo_sys.ExtendedProperties::property_value <-- repo.RepoObjectColumnProperty_sys_repo::property_value
+repo_sys.ExtendedProperties::SysObject_name <-- repo.RepoObjectColumnProperty_sys_repo::SysObject_name
+repo_sys.ExtendedProperties::SysObject_schema_name <-- repo.RepoObjectColumnProperty_sys_repo::SysObject_schema_name

@@ -1,0 +1,49 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.Index_ColumList << V >> {
+  **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_Settings << U >> {
+  * **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_SqlConstraint_PkUq << V >> {
+  **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_union << V >> {
+  **index_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_SqlCreateTable << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+repo.Index_ColumList <.. repo.Index_SqlConstraint_PkUq
+repo.Index_Settings <.. repo.Index_SqlConstraint_PkUq
+repo.Index_SqlConstraint_PkUq <.. repo.RepoObject_SqlCreateTable
+repo.Index_union <.. repo.Index_SqlConstraint_PkUq

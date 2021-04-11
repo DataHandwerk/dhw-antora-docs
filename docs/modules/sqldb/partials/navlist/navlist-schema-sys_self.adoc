@@ -1,0 +1,4 @@
+* xref:sys_self.ExtendedProperties.adoc[]
+* xref:sys_self.ExtendedProperties_ParameterForAddUpdateDrop.adoc[]
+* xref:sys_self.usp_dropextendedproperty_level_1.adoc[]
+* xref:sys_self.usp_dropextendedproperty_level_2.adoc[]

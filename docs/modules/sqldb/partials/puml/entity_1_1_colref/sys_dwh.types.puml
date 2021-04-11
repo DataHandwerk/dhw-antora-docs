@@ -1,0 +1,123 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo_sys.parameters << V >> {
+  --
+  column_encryption_key_database_name : sysname
+  column_encryption_key_id : int
+  default_value : sql_variant
+  encryption_algorithm_name : sysname
+  encryption_type : int
+  encryption_type_desc : nvarchar(64)
+  * has_default_value : bit
+  * is_cursor_ref : bit
+  is_nullable : bit
+  * is_output : bit
+  * is_readonly : bit
+  * is_xml_document : bit
+  * max_length : smallint
+  name : sysname
+  * object_id : int
+  * parameter_id : int
+  * precision : tinyint
+  * scale : tinyint
+  SysObject_fullname : nvarchar(517)
+  SysObject_fullname2 : nvarchar(257)
+  SysObject_name : sysname
+  SysObject_RepoObject_guid : uniqueidentifier
+  SysObject_schema_name : sysname
+  SysObject_type : char(2)
+  * system_type_id : tinyint
+  user_type_fullname : nvarchar(182)
+  * user_type_id : int
+  user_type_name : sysname
+  * xml_collection_id : int
+}
+
+entity repo_sys.SysColumn << V >> {
+  --
+  collation_name : sysname
+  column_encryption_key_database_name : sysname
+  column_encryption_key_id : int
+  default_definition : nvarchar(max)
+  default_is_system_named : bit
+  default_name : sysname
+  * default_object_id : int
+  default_parent_column_id : int
+  definition : nvarchar(max)
+  encryption_algorithm_name : sysname
+  encryption_type : int
+  encryption_type_desc : nvarchar(64)
+  generated_always_type : tinyint
+  generated_always_type_desc : nvarchar(60)
+  graph_type : int
+  graph_type_desc : nvarchar(60)
+  increment_value : sql_variant
+  * is_ansi_padded : bit
+  is_column_set : bit
+  * is_computed : bit
+  is_dts_replicated : bit
+  * is_filestream : bit
+  is_hidden : bit
+  * is_identity : bit
+  * is_masked : bit
+  is_merge_published : bit
+  is_non_sql_subscribed : bit
+  is_nullable : bit
+  is_persisted : bit
+  is_replicated : bit
+  * is_rowguidcol : bit
+  is_sparse : bit
+  * is_xml_document : bit
+  last_value : sql_variant
+  * max_length : smallint
+  * precision : tinyint
+  * rule_object_id : int
+  * scale : tinyint
+  seed_value : sql_variant
+  * SysObject_column_id : int
+  SysObject_column_name : sysname
+  * SysObject_id : int
+  SysObject_name : nvarchar(128)
+  SysObject_RepoObject_guid : uniqueidentifier
+  SysObject_RepoObjectColumn_guid : uniqueidentifier
+  SysObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  SysObject_type_desc : nvarchar(60)
+  * system_type_id : tinyint
+  user_type_fullname : nvarchar(182)
+  * user_type_id : int
+  user_type_name : sysname
+  uses_database_collation : bit
+  * xml_collection_id : int
+}
+
+entity sys_dwh.types << SN >> {
+  --
+}
+
+sys_dwh.types <.. repo_sys.SysColumn
+sys_dwh.types <.. repo_sys.parameters
+

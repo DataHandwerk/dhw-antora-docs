@@ -1,0 +1,58 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.RepoObject_OutputFilter << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  is_DocsOutput : int
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_fullname2 : nvarchar(257)
+  * RepoObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  SysObject_type_name : nvarchar(128)
+}
+
+entity docs.usp_AntoraExport << P >> {
+  --
+}
+
+entity docs.usp_AntoraExport_ObjectPage << P >> {
+  --
+}
+
+entity repo.fs_get_parameter_value << FN >> {
+  --
+}
+
+entity repo.usp_ExecutionLog_insert << P >> {
+  --
+}
+
+docs.RepoObject_OutputFilter <.. docs.usp_AntoraExport_ObjectPage
+docs.usp_AntoraExport_ObjectPage <.. docs.usp_AntoraExport
+repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPage
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPage
+repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport
+
