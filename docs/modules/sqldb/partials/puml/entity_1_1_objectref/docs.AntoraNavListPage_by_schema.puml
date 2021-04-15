@@ -24,6 +24,11 @@ skinparam class {
 
 
 entity docs.AntoraNavListPage_by_schema << V >> {
+  * **RepoObject_schema_name** : nvarchar(128)
 }
 
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
 
+repo.RepoObject <.. docs.AntoraNavListPage_by_schema

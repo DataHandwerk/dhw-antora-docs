@@ -73,7 +73,7 @@ entity repo.ftv_sqlparse_with_some_children << IF >> {
   normalized : nvarchar(max)
 }
 
-entity repo.RepoObject_SqlModules_20_statement_children << V >> {
+entity sqlparse.RepoObject_SqlModules_20_statement_children << V >> {
   * **RepoObject_guid** : uniqueidentifier
   * **json_key** : nvarchar(4000)
   --
@@ -117,7 +117,7 @@ entity repo.RepoObject_SqlModules_20_statement_children << V >> {
   SysObject_fullname : nvarchar(261)
 }
 
-entity repo.RepoObject_SqlModules_24_IdentifierList_children << V >> {
+entity sqlparse.RepoObject_SqlModules_24_IdentifierList_children << V >> {
   * **RepoObject_guid** : uniqueidentifier
   * **json_key** : nvarchar(4000)
   * **T2_json_key** : nvarchar(4000)
@@ -133,13 +133,13 @@ entity repo.RepoObject_SqlModules_24_IdentifierList_children << V >> {
   T2_class : nvarchar(500)
 }
 
-repo.ftv_sqlparse_with_some_children <.. repo.RepoObject_SqlModules_20_statement_children
-repo.ftv_sqlparse_with_some_children <.. repo.RepoObject_SqlModules_24_IdentifierList_children
 repo.ftv_sqlparse_with_some_children <.. repo.ftv_sqlparse_IdentifierList__TestOnly
-repo.RepoObject_SqlModules_20_statement_children <.. repo.RepoObject_SqlModules_24_IdentifierList_children
-repo.RepoObject_SqlModules_20_statement_children::class <-- repo.RepoObject_SqlModules_24_IdentifierList_children::class
-repo.RepoObject_SqlModules_20_statement_children::json_key <-- repo.RepoObject_SqlModules_24_IdentifierList_children::json_key
-repo.RepoObject_SqlModules_20_statement_children::normalized <-- repo.RepoObject_SqlModules_24_IdentifierList_children::normalized
-repo.RepoObject_SqlModules_20_statement_children::RepoObject_guid <-- repo.RepoObject_SqlModules_24_IdentifierList_children::RepoObject_guid
-repo.RepoObject_SqlModules_20_statement_children::RowNumber_per_Object <-- repo.RepoObject_SqlModules_24_IdentifierList_children::RowNumber_per_Object
-repo.RepoObject_SqlModules_20_statement_children::SysObject_fullname <-- repo.RepoObject_SqlModules_24_IdentifierList_children::SysObject_fullname
+repo.ftv_sqlparse_with_some_children <.. sqlparse.RepoObject_SqlModules_20_statement_children
+repo.ftv_sqlparse_with_some_children <.. sqlparse.RepoObject_SqlModules_24_IdentifierList_children
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_24_IdentifierList_children
+sqlparse.RepoObject_SqlModules_20_statement_children::class <-- sqlparse.RepoObject_SqlModules_24_IdentifierList_children::class
+sqlparse.RepoObject_SqlModules_20_statement_children::json_key <-- sqlparse.RepoObject_SqlModules_24_IdentifierList_children::json_key
+sqlparse.RepoObject_SqlModules_20_statement_children::normalized <-- sqlparse.RepoObject_SqlModules_24_IdentifierList_children::normalized
+sqlparse.RepoObject_SqlModules_20_statement_children::RepoObject_guid <-- sqlparse.RepoObject_SqlModules_24_IdentifierList_children::RepoObject_guid
+sqlparse.RepoObject_SqlModules_20_statement_children::RowNumber_per_Object <-- sqlparse.RepoObject_SqlModules_24_IdentifierList_children::RowNumber_per_Object
+sqlparse.RepoObject_SqlModules_20_statement_children::SysObject_fullname <-- sqlparse.RepoObject_SqlModules_24_IdentifierList_children::SysObject_fullname

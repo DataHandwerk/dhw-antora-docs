@@ -24,6 +24,11 @@ include::partial$navlist/navlist-schema-docs.adoc[]
 --
 include::partial$navlist/navlist-schema-graph.adoc[]
 --
+** xref:nav/nav-schema-logs.adoc[]
++
+--
+include::partial$navlist/navlist-schema-logs.adoc[]
+--
 ** xref:nav/nav-schema-repo.adoc[]
 +
 --
@@ -33,6 +38,11 @@ include::partial$navlist/navlist-schema-repo.adoc[]
 +
 --
 include::partial$navlist/navlist-schema-repo_sys.adoc[]
+--
+** xref:nav/nav-schema-sqlparse.adoc[]
++
+--
+include::partial$navlist/navlist-schema-sqlparse.adoc[]
 --
 ** xref:nav/nav-schema-sys_dwh.adoc[]
 +
@@ -48,4 +58,14 @@ include::partial$navlist/navlist-schema-sys_self.adoc[]
 +
 --
 include::partial$navlist/navlist-schema-tool.adoc[]
+--
+** xref:nav/nav-schema-uspgenerator.adoc[]
++
+--
+include::partial$navlist/navlist-schema-uspgenerator.adoc[]
+--
+** xref:nav/nav-schema-workflow.adoc[]
++
+--
+include::partial$navlist/navlist-schema-workflow.adoc[]
 --

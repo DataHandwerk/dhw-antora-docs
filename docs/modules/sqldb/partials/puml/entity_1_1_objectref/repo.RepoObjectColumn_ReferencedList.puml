@@ -29,9 +29,11 @@ entity graph.RepoObjectColumn_ReferencingReferenced << V >> {
 }
 
 entity repo.RepoObjectColumn_gross << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumn_ReferencedList << V >> {
+  **Referencing_guid** : uniqueidentifier
 }
 
 graph.RepoObjectColumn_ReferencingReferenced <.. repo.RepoObjectColumn_ReferencedList

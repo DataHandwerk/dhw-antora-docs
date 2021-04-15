@@ -3,11 +3,11 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AdocUspSteps:
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
-:ExistsProperty--ReferencedObjectList:
-:ExistsProperty--UspExamples:
+:ExistsProperty--adocuspsteps:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--exampleusage:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--AntoraParameterList:
 // end::existing_properties[]
@@ -39,7 +39,7 @@ stored procedure
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-11 13:27:46
+2021-04-13 20:27:30
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -75,130 +75,120 @@ stored procedure
 * @parent_execution_log_id (bigint)
 // end::AntoraParameterList[]
 
-== UspParameters
+== AdocUspSteps
 
-// tag::UspParameters[]
+// tag::adocuspsteps[]
+.Steps in [graph].[usp_PERSIST_RepoObject]
+[cols="d,15a,d"]
+|===
+|Number|Name (Action, Source, Target)|Parent
 
-// end::UspParameters[]
+|100
+|
+*check for empty source*
 
+* `IF (SELECT count(*) FROM [graph].[RepoObject_S]) = 0`
+* [graph].[RepoObject_S]
 
-== pk_IndexPatternColumnName
+|
 
-// tag::pk_IndexPatternColumnName[]
+|110
+|
+*ERROR 50110: persistence source is empty*
 
-// end::pk_IndexPatternColumnName[]
 
+|100
 
-== pk_IndexSemanticGroup
+|500
+|
+*delete persistence target missing in source*
 
-// tag::pk_IndexSemanticGroup[]
+* D
+* [graph].[RepoObject_S]
+* [graph].[RepoObject]
 
-// end::pk_IndexSemanticGroup[]
+|
 
+|600
+|
+*update changed*
 
-== persistence_source_RepoObject_xref
+* U
+* [graph].[RepoObject_S]
+* [graph].[RepoObject]
 
-// tag::persistence_source_RepoObject_xref[]
+|
 
-// end::persistence_source_RepoObject_xref[]
+|700
+|
+*insert missing*
 
+* I
+* [graph].[RepoObject_S]
+* [graph].[RepoObject]
 
-== pk_index_guid
+|
+|===
 
-// tag::pk_index_guid[]
+// end::adocuspsteps[]
 
-// end::pk_index_guid[]
 
+== AntoraReferencedList
 
-== pk_IndexPatternColumnDatatype
+// tag::antorareferencedlist[]
+* xref:graph.RepoObject.adoc[]
+* xref:graph.RepoObject_S.adoc[]
+* xref:logs.usp_ExecutionLog_insert.adoc[]
+// end::antorareferencedlist[]
 
-// tag::pk_IndexPatternColumnDatatype[]
 
-// end::pk_IndexPatternColumnDatatype[]
+== AntoraReferencingList
 
+// tag::antorareferencinglist[]
+* xref:repo.usp_sync_guid_RepoObject.adoc[]
+// end::antorareferencinglist[]
 
-== persistence_source_RepoObject_fullname
 
-// tag::persistence_source_RepoObject_fullname[]
+== exampleUsage
 
-// end::persistence_source_RepoObject_fullname[]
+// tag::exampleusage[]
+EXEC [graph].[usp_PERSIST_RepoObject]
+// end::exampleusage[]
 
 
-== persistence_source_RepoObject_fullname2
+== exampleUsage_2
 
-// tag::persistence_source_RepoObject_fullname2[]
+// tag::exampleusage_2[]
 
-// end::persistence_source_RepoObject_fullname2[]
+// end::exampleusage_2[]
 
 
-== persistence_source_RepoObject_guid
+== exampleWrong_Usage
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::examplewrong_usage[]
 
-// end::persistence_source_RepoObject_guid[]
+// end::examplewrong_usage[]
 
 
-== is_repo_managed
+== has_execution_plan_issue
 
-// tag::is_repo_managed[]
+// tag::has_execution_plan_issue[]
 
-// end::is_repo_managed[]
+// end::has_execution_plan_issue[]
 
 
-== microsoft_database_tools_support
+== has_get_referenced_issue
 
-// tag::microsoft_database_tools_support[]
+// tag::has_get_referenced_issue[]
 
-// end::microsoft_database_tools_support[]
+// end::has_get_referenced_issue[]
 
 
-== MS_Description
+== has_history
 
-// tag::MS_Description[]
+// tag::has_history[]
 
-// end::MS_Description[]
-
-
-== is_persistence_insert
-
-// tag::is_persistence_insert[]
-
-// end::is_persistence_insert[]
-
-
-== is_persistence_truncate
-
-// tag::is_persistence_truncate[]
-
-// end::is_persistence_truncate[]
-
-
-== is_persistence_update_changed
-
-// tag::is_persistence_update_changed[]
-
-// end::is_persistence_update_changed[]
-
-
-== is_persistence_check_for_empty_source
-
-// tag::is_persistence_check_for_empty_source[]
-
-// end::is_persistence_check_for_empty_source[]
-
-
-== is_persistence_delete_changed
-
-// tag::is_persistence_delete_changed[]
-
-// end::is_persistence_delete_changed[]
-
-
-== is_persistence_delete_missing
-
-// tag::is_persistence_delete_missing[]
-
-// end::is_persistence_delete_missing[]
+// end::has_history[]
 
 
 == has_history_columns
@@ -222,112 +212,146 @@ stored procedure
 // end::is_persistence_check_duplicate_per_pk[]
 
 
-== example4
+== is_persistence_check_for_empty_source
 
-// tag::example4[]
+// tag::is_persistence_check_for_empty_source[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_persistence_check_for_empty_source[]
 
 
-== has_history
+== is_persistence_delete_changed
 
-// tag::has_history[]
+// tag::is_persistence_delete_changed[]
 
-// end::has_history[]
-
-
-== example1
-
-// tag::example1[]
-
-// end::example1[]
+// end::is_persistence_delete_changed[]
 
 
-== example2
+== is_persistence_delete_missing
 
-// tag::example2[]
+// tag::is_persistence_delete_missing[]
 
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
+// end::is_persistence_delete_missing[]
 
 
-== usp_persistence_RepoObject_guid
+== is_persistence_insert
 
-// tag::usp_persistence_RepoObject_guid[]
+// tag::is_persistence_insert[]
 
-// end::usp_persistence_RepoObject_guid[]
-
-
-== AdocUspSteps
-
-// tag::AdocUspSteps[]
-.Steps in [graph].[usp_PERSIST_RepoObject]
-[cols="d,15a,d"]
-|===
-|Number|Name (Action, Source, Target)|Parent
-
-|100
-|
-*check for empty source*
-
-* `IF (SELECT count(*) FROM [graph].[RepoObject_S]) = 0`
-* [graph].[RepoObject_S]
-
-|
-
-|110
-|
-*ERROR 50110: persistence source is empty*
+// end::is_persistence_insert[]
 
 
-|100
-|===
+== is_persistence_truncate
 
-// end::AdocUspSteps[]
+// tag::is_persistence_truncate[]
 
-
-== AntoraReferencedList
-
-// tag::AntoraReferencedList[]
-* xref:graph.RepoObject_S.adoc[]
-* xref:repo.usp_ExecutionLog_insert.adoc[]
-// end::AntoraReferencedList[]
+// end::is_persistence_truncate[]
 
 
-== AntoraReferencingList
+== is_persistence_update_changed
 
-// tag::AntoraReferencingList[]
-* xref:repo.usp_sync_guid_RepoObject.adoc[]
-// end::AntoraReferencingList[]
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::ms_description[]
+
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
 * [graph].[RepoObject]
 * [graph].[RepoObject_S]
-* [repo].[usp_ExecutionLog_insert]
-// end::ReferencedObjectList[]
+* [logs].[usp_ExecutionLog_insert]
+// end::referencedobjectlist[]
 
 
-== UspExamples
+== usp_persistence_RepoObject_guid
 
-// tag::UspExamples[]
-EXEC [graph].[usp_PERSIST_RepoObject]
-// end::UspExamples[]
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -343,6 +367,7 @@ CREATE   PROCEDURE [graph].[usp_PERSIST_RepoObject]
 , @sub_execution_id INT = NULL --in case you log some sub_executions, for example in SSIS loops or sub packages
 , @parent_execution_log_id BIGINT = NULL --in case a sup procedure is called, the @current_execution_log_id of the parent procedure should be propagated here. It allowes call stack analyzing
 AS
+BEGIN
 DECLARE
  --
    @current_execution_log_id BIGINT --this variable should be filled only once per procedure call, it contains the first logging call for the step 'start'.
@@ -360,8 +385,9 @@ DECLARE
 --[event_info] get's only the information about the "outer" calling process
 --wenn the procedure calls sub procedures, the [event_info] will not change
 SET @event_info = (
-  SELECT [event_info]
+  SELECT TOP 1 [event_info]
   FROM sys.dm_exec_input_buffer(@@spid, CURRENT_REQUEST_ID())
+  ORDER BY [event_info]
   )
 
 IF @execution_instance_guid IS NULL
@@ -373,7 +399,7 @@ SET @step_name = 'start'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert
+EXEC logs.usp_ExecutionLog_insert
  --these parameters should be the same for all logging execution
    @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
@@ -414,6 +440,135 @@ PRINT CONCAT('usp_id;Number;Parent_Number: ',9,';',110,';',100);
 
 END;
 
+/*{"ReportUspStep":[{"Number":500,"Name":"delete persistence target missing in source","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[graph].[RepoObject_S]","log_target_object":"[graph].[RepoObject]","log_flag_InsertUpdateDelete":"D"}]}*/
+PRINT CONCAT('usp_id;Number;Parent_Number: ',9,';',500,';',NULL);
+
+DELETE T
+FROM [graph].[RepoObject] AS T
+WHERE
+NOT EXISTS
+(SELECT 1 FROM [graph].[RepoObject_S] AS S
+WHERE
+T.[RepoObject_guid] = S.[RepoObject_guid]
+)
+ 
+
+-- Logging START --
+SET @rows = @@ROWCOUNT
+SET @step_id = @step_id + 1
+SET @step_name = 'delete persistence target missing in source'
+SET @source_object = '[graph].[RepoObject_S]'
+SET @target_object = '[graph].[RepoObject]'
+
+EXEC logs.usp_ExecutionLog_insert 
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @deleted = @rows
+-- Logging END --
+
+/*{"ReportUspStep":[{"Number":600,"Name":"update changed","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[graph].[RepoObject_S]","log_target_object":"[graph].[RepoObject]","log_flag_InsertUpdateDelete":"U"}]}*/
+PRINT CONCAT('usp_id;Number;Parent_Number: ',9,';',600,';',NULL);
+
+UPDATE T
+SET
+  T.[RepoObject_fullname] = S.[RepoObject_fullname]
+, T.[RepoObject_guid] = S.[RepoObject_guid]
+, T.[RepoObject_type] = S.[RepoObject_type]
+
+FROM [graph].[RepoObject] AS T
+INNER JOIN [graph].[RepoObject_S] AS S
+ON
+T.[RepoObject_guid] = S.[RepoObject_guid]
+
+WHERE
+   T.[RepoObject_fullname] <> S.[RepoObject_fullname]
+OR T.[RepoObject_guid] <> S.[RepoObject_guid]
+OR T.[RepoObject_type] <> S.[RepoObject_type]
+
+
+-- Logging START --
+SET @rows = @@ROWCOUNT
+SET @step_id = @step_id + 1
+SET @step_name = 'update changed'
+SET @source_object = '[graph].[RepoObject_S]'
+SET @target_object = '[graph].[RepoObject]'
+
+EXEC logs.usp_ExecutionLog_insert 
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @updated = @rows
+-- Logging END --
+
+/*{"ReportUspStep":[{"Number":700,"Name":"insert missing","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[graph].[RepoObject_S]","log_target_object":"[graph].[RepoObject]","log_flag_InsertUpdateDelete":"I"}]}*/
+PRINT CONCAT('usp_id;Number;Parent_Number: ',9,';',700,';',NULL);
+
+INSERT INTO 
+ [graph].[RepoObject]
+ (
+  [RepoObject_fullname]
+, [RepoObject_guid]
+, [RepoObject_type]
+)
+SELECT
+  [RepoObject_fullname]
+, [RepoObject_guid]
+, [RepoObject_type]
+
+FROM [graph].[RepoObject_S] AS S
+WHERE
+NOT EXISTS
+(SELECT 1
+FROM [graph].[RepoObject] AS T
+WHERE
+T.[RepoObject_guid] = S.[RepoObject_guid]
+)
+
+-- Logging START --
+SET @rows = @@ROWCOUNT
+SET @step_id = @step_id + 1
+SET @step_name = 'insert missing'
+SET @source_object = '[graph].[RepoObject_S]'
+SET @target_object = '[graph].[RepoObject]'
+
+EXEC logs.usp_ExecutionLog_insert 
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @inserted = @rows
+-- Logging END --
+
 --
 --finish your own code here
 --keep the code between "END" and the end of the procedure unchanged!
@@ -426,7 +581,7 @@ SET @step_name = 'end'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert
+EXEC logs.usp_ExecutionLog_insert
    @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -440,6 +595,8 @@ EXEC repo.usp_ExecutionLog_insert
  , @step_name = @step_name
  , @source_object = @source_object
  , @target_object = @target_object
+
+END
 
 
 ----

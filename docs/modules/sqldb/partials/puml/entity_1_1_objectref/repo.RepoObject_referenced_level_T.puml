@@ -44,8 +44,8 @@ entity repo.RepoObject_referenced_level_T << U >> {
 entity repo.usp_PERSIST_RepoObject_referenced_level_T << P >> {
 }
 
-repo.RepoObject_referenced_level <.. repo.RepoObject_referenced_level_T
 repo.RepoObject_referenced_level <.. repo.usp_PERSIST_RepoObject_referenced_level_T
-repo.RepoObject_referenced_level_T <.. repo.ftv_RepoObject_ReferencedReferencing
+repo.RepoObject_referenced_level <.. repo.RepoObject_referenced_level_T
 repo.RepoObject_referenced_level_T <.. repo.usp_PERSIST_RepoObject_referenced_level_T
+repo.RepoObject_referenced_level_T <.. repo.ftv_RepoObject_ReferencedReferencing
 repo.RepoObject_referenced_level_T <.. docs.ftv_RepoObject_Reference_PlantUml_EntityRefList

@@ -39,5 +39,5 @@ entity repo_sys.SysObject << V >> {
 repo.RepoObject <.. repo.SysObject_RepoObject_via_guid
 repo.RepoObject <.. repo.usp_sync_guid_RepoObject
 repo.SysObject_RepoObject_via_guid <.. repo.usp_sync_guid_RepoObject
-repo_sys.SysObject <.. repo.SysObject_RepoObject_via_guid
 repo_sys.SysObject <.. repo.usp_sync_guid_RepoObject
+repo_sys.SysObject <.. repo.SysObject_RepoObject_via_guid

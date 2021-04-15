@@ -23,6 +23,20 @@ skinparam class {
 }
 
 
+entity docs.RepoObject_Plantuml_ObjectRefList_0_30 << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ObjectRefList : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
+entity docs.RepoObject_Plantuml_ObjectRefList_30_0 << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ObjectRefList : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
 entity docs.RepoObject_Plantuml_ColRefList << V >> {
   * **RepoObject_guid** : uniqueidentifier
   --
@@ -55,6 +69,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -109,9 +124,13 @@ entity repo.RepoObject_referencing_level_T << U >> {
 
 repo.ftv_RepoObject_ReferencedReferencing <.. docs.RepoObject_Plantuml_ColRefList
 repo.ftv_RepoObject_ReferencedReferencing <.. docs.RepoObject_Plantuml_ObjectRefList
-repo.RepoObject <.. repo.ftv_RepoObject_ReferencedReferencing
-repo.RepoObject <.. docs.RepoObject_Plantuml_ColRefList
+repo.ftv_RepoObject_ReferencedReferencing <.. 
+repo.ftv_RepoObject_ReferencedReferencing <.. 
+repo.RepoObject <.. 
+repo.RepoObject <.. 
 repo.RepoObject <.. docs.RepoObject_Plantuml_ObjectRefList
+repo.RepoObject <.. docs.RepoObject_Plantuml_ColRefList
+repo.RepoObject <.. repo.ftv_RepoObject_ReferencedReferencing
 repo.RepoObject_referenced_level_T <.. repo.ftv_RepoObject_ReferencedReferencing
 repo.RepoObject_referencing_level_T <.. repo.ftv_RepoObject_ReferencedReferencing
 

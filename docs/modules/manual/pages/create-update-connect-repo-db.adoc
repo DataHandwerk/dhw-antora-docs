@@ -11,19 +11,19 @@
 * create a new repo database
 * clone github repository from project https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql[]
 * deploy the database project db_DataHandwerk to your database
-* connect repo datatabase to dwh database using synonyms executing the storred procedure `[repo].[usp_connect_database]`
+* connect repo datatabase to dwh database using synonyms executing the storred procedure xref:sqldb:config.usp_connect_database.adoc[]
 +
 .connect repository database to the dwh database 'WideWorldImporters'
 ====
 [source,sql]
 ----
-include::sqldb:partial$repo.usp_connect_database.adoc[tag=example]
+include::sqldb:partial$config.usp_connect_database.adoc[tag=exampleusage]
 ----
 ====
 
 
 IMPORTANT: using *publish* or *dacpac* deployment to update the repo database will reset synonyms. +
-reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing `[repo].[usp_connect_database]`
+reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing xref:sqldb:config.usp_connect_database.adoc[]
 // --
 
 == Architecture background
@@ -94,7 +94,7 @@ Your folder could be another
 *** image:create-update-connect-repo-db-sc-02.png[]
 
 WARNING: using *publish* or *dacpac* deployment to update the repo database will reset synonyms. +
-reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing `[repo].[usp_connect_database]`
+reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing xref:sqldb:config.usp_connect_database.adoc[]
 
 === post deployment
 
@@ -102,8 +102,8 @@ After the database is created, some tables need to be populated with data. For t
 
 This is a one-time process that usually does not need to be repeated later.
 
-The post deployment script will be executed, if you use publish or build, but you should execute it, when using schemacompare. You can also just copy the code from here and execute it. +
-Or you can skip the execution, as long as the content of this script is also called in the procedure `[repo].[usp_connect_database]`.
+The post deployment script will be executed, if you use publish or build, but it is not executed, when using schemacompare. You can also just copy the code from here and execute it. +
+Or you can skip the execution at all, because and as long as the content of this script is also called in the procedure xref:sqldb:config.usp_connect_database.adoc[].
 
 
 .postdeployment script
@@ -116,20 +116,18 @@ include::sqldb:example$/db_DataHandwerk/Script.PostDeployment1.sql[]
 
 == connect repository database to dwh database, using synonyms
 
-The repository database is connected to the dwh database using synonyms. Execute `[repo].[usp_connect_database]` to connect the synonyms to the correct DWH database.
+The repository database is connected to the dwh database using synonyms. Execute xref:sqldb:config.usp_connect_database.adoc[] to connect the synonyms to the correct DWH database.
 
 IMPORTANT: using *publish* or *dacpac* deployment to update the repo database will reset synonyms. +
-reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing `[repo].[usp_connect_database]`
+reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing xref:sqldb:config.usp_connect_database.adoc[]
 
 
 .connect repository database to the dwh database 'WideWorldImporters'
 ====
 [source,sql]
 ----
-include::sqldb:partial$repo.usp_connect_database.adoc[tag=example]
+include::sqldb:partial$config.usp_connect_database.adoc[tag=exampleusage]
 ----
 ====
 
 // include::sqldb:example$/dbdhw/repo/Stored Procedures/usp_connect_database.sql[tag=example]
-
-xref:sqldb:repo.usp_connect_database.adoc[]

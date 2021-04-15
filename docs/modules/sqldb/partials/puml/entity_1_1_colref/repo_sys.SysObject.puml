@@ -23,20 +23,6 @@ skinparam class {
 }
 
 
-entity repo.RepoObject_SqlModules_Repo_Sys << V >> {
-  --
-  is_json_sql_modules_json : int
-  is_outdated : bit
-  * modify_date : datetime
-  * RepoObject_guid : uniqueidentifier
-  sql_modules_definition : nvarchar(max)
-  sql_modules_dt : datetime
-  sql_modules_formatted : nvarchar(max)
-  sql_modules_formatted2 : nvarchar(max)
-  sql_modules_json : nvarchar(max)
-  SysObject_type : char(2)
-}
-
 entity repo.SysObject_RepoObject_via_guid << V >> {
   --
   history_table_guid : uniqueidentifier
@@ -295,6 +281,20 @@ entity repo_sys.SysObject << V >> {
   type_desc : nvarchar(60)
 }
 
+entity sqlparse.RepoObject_SqlModules_Repo_Sys << V >> {
+  --
+  is_json_sql_modules_json : int
+  is_outdated : bit
+  * modify_date : datetime
+  * RepoObject_guid : uniqueidentifier
+  sql_modules_definition : nvarchar(max)
+  sql_modules_dt : datetime
+  sql_modules_formatted : nvarchar(max)
+  sql_modules_formatted2 : nvarchar(max)
+  sql_modules_json : nvarchar(max)
+  SysObject_type : char(2)
+}
+
 entity sys_dwh.objects << SN >> {
   --
 }
@@ -316,29 +316,29 @@ repo.SysObject_RepoObject_via_name <.. repo.usp_sync_guid_RepoObject
 repo_sys.ExtendedProperties <.. repo_sys.SysObject
 repo_sys.ExtendedProperties <.. repo_sys.SysColumn
 repo_sys.SysColumn <.. repo_sys.sql_expression_dependencies
-repo_sys.SysObject <.. repo.usp_sync_guid_RepoObject
 repo_sys.SysObject <.. repo_sys.parameters
-repo_sys.SysObject <.. repo.RepoObject_SqlModules_Repo_Sys
-repo_sys.SysObject <.. repo.SysObject_RepoObject_via_name
-repo_sys.SysObject <.. repo.SysObject_RepoObject_via_guid
-repo_sys.SysObject <.. repo_sys.ColumnReference
+repo_sys.SysObject <.. repo.usp_sync_guid_RepoObject
 repo_sys.SysObject <.. repo_sys.SysColumn
+repo_sys.SysObject <.. repo.SysObject_RepoObject_via_guid
+repo_sys.SysObject <.. repo.SysObject_RepoObject_via_name
+repo_sys.SysObject <.. repo_sys.ColumnReference
+repo_sys.SysObject <.. sqlparse.RepoObject_SqlModules_Repo_Sys
 repo_sys.SysObject <.. repo_sys.sql_expression_dependencies
-sys_dwh.objects <.. repo_sys.ExtendedProperties
 sys_dwh.objects <.. repo_sys.SysObject
+sys_dwh.objects <.. repo_sys.ExtendedProperties
 sys_dwh.schemas <.. repo_sys.SysObject
 sys_dwh.sql_modules <.. repo_sys.SysObject
 sys_dwh.tables <.. repo_sys.SysObject
 repo_sys.SysColumn::definition <-- repo_sys.sql_expression_dependencies::definition
 repo_sys.SysColumn::is_computed <-- repo_sys.sql_expression_dependencies::is_computed
-repo_sys.SysObject::history_table_id <-- repo.SysObject_RepoObject_via_name::history_table_id
 repo_sys.SysObject::history_table_id <-- repo.SysObject_RepoObject_via_guid::history_table_id
-repo_sys.SysObject::modify_date <-- repo.SysObject_RepoObject_via_guid::modify_date
-repo_sys.SysObject::modify_date <-- repo.RepoObject_SqlModules_Repo_Sys::modify_date
+repo_sys.SysObject::history_table_id <-- repo.SysObject_RepoObject_via_name::history_table_id
 repo_sys.SysObject::modify_date <-- repo.SysObject_RepoObject_via_name::modify_date
-repo_sys.SysObject::parent_object_id <-- repo.SysObject_RepoObject_via_name::parent_object_id
+repo_sys.SysObject::modify_date <-- sqlparse.RepoObject_SqlModules_Repo_Sys::modify_date
+repo_sys.SysObject::modify_date <-- repo.SysObject_RepoObject_via_guid::modify_date
 repo_sys.SysObject::parent_object_id <-- repo.SysObject_RepoObject_via_guid::parent_object_id
-repo_sys.SysObject::sql_modules_definition <-- repo.RepoObject_SqlModules_Repo_Sys::sql_modules_definition
+repo_sys.SysObject::parent_object_id <-- repo.SysObject_RepoObject_via_name::parent_object_id
+repo_sys.SysObject::sql_modules_definition <-- sqlparse.RepoObject_SqlModules_Repo_Sys::sql_modules_definition
 repo_sys.SysObject::SysObject_fullname <-- repo_sys.parameters::SysObject_fullname
 repo_sys.SysObject::SysObject_fullname2 <-- repo_sys.parameters::SysObject_fullname2
 repo_sys.SysObject::SysObject_id <-- repo.SysObject_RepoObject_via_name::SysObject_id

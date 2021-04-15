@@ -1,0 +1,48 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.fs_get_parameter_value << FN >> {
+}
+
+entity config.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+}
+
+entity docs.usp_AntoraExport_ObjectPageTemplate << P >> {
+}
+
+entity logs.ExecutionLog << U >> {
+  * **id** : bigint
+}
+
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
+config.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPageTemplate
+config.Parameter <.. docs.usp_AntoraExport_ObjectPageTemplate
+config.Parameter <.. config.fs_get_parameter_value
+logs.ExecutionLog <.. logs.usp_ExecutionLog_insert
+logs.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPageTemplate

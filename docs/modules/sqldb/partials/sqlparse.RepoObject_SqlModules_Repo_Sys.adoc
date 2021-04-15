@@ -1,0 +1,662 @@
+= [sqlparse].[RepoObject_SqlModules_Repo_Sys]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--referencedobjectlist:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+5390291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+V 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+view
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+626817295
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-13 19:02:38
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-is_json_sql_modules_json]]
+=== is_json_sql_modules_json
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_json_sql_modules_json
+|int
+|NULL
+|
+|
+|===
+
+.Description
+--
+(isjson([sql_modules_json]))
+--
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules.adoc#column-is_json_sql_modules_json[sqlparse.RepoObject_SqlModules.is_json_sql_modules_json]
+--
+
+
+[[column-is_outdated]]
+=== is_outdated
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_outdated
+|bit
+|NULL
+|
+|
+|===
+
+
+[[column-modify_date]]
+=== modify_date
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|modify_date
+|datetime
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo_sys.SysObject.adoc#column-modify_date[repo_sys.SysObject.modify_date]
+--
+
+
+[[column-RepoObject_guid]]
+=== RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_guid
+|uniqueidentifier
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-RepoObject_guid[repo.RepoObject.RepoObject_guid]
+--
+
+.Referencing Columns
+--
+* xref:repo.RepoObjectProperty_Collect_source_sql_modules_definition.adoc#column-RepoObject_guid[repo.RepoObjectProperty_Collect_source_sql_modules_definition.RepoObject_guid]
+--
+
+
+[[column-sql_modules_definition]]
+=== sql_modules_definition
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|sql_modules_definition
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo_sys.SysObject.adoc#column-sql_modules_definition[repo_sys.SysObject.sql_modules_definition]
+--
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-sql_modules_definition[repo.RepoObject_gross.sql_modules_definition]
+--
+
+
+[[column-sql_modules_dt]]
+=== sql_modules_dt
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|sql_modules_dt
+|datetime
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules.adoc#column-sql_modules_dt[sqlparse.RepoObject_SqlModules.sql_modules_dt]
+--
+
+
+[[column-sql_modules_formatted]]
+=== sql_modules_formatted
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|sql_modules_formatted
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules.adoc#column-sql_modules_formatted[sqlparse.RepoObject_SqlModules.sql_modules_formatted]
+--
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-sql_modules_formatted[repo.RepoObject_gross.sql_modules_formatted]
+--
+
+
+[[column-sql_modules_formatted2]]
+=== sql_modules_formatted2
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|sql_modules_formatted2
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules.adoc#column-sql_modules_formatted2[sqlparse.RepoObject_SqlModules.sql_modules_formatted2]
+--
+
+.Referencing Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-sql_modules_formatted2[repo.RepoObject_gross.sql_modules_formatted2]
+--
+
+
+[[column-sql_modules_json]]
+=== sql_modules_json
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|sql_modules_json
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules.adoc#column-sql_modules_json[sqlparse.RepoObject_SqlModules.sql_modules_json]
+--
+
+
+[[column-SysObject_type]]
+=== SysObject_type
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_type
+|char(2)
+|NULL
+|
+|
+|===
+
+.Description
+--
+reference in [repo_sys].[type]
+--
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-SysObject_type[repo.RepoObject.SysObject_type]
+--
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+
+
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+|
+|<<column-is_json_sql_modules_json>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_outdated>>
+|bit
+|NULL
+|
+|
+
+|
+|<<column-modify_date>>
+|datetime
+|NOT NULL
+|
+|
+
+|
+|<<column-RepoObject_guid>>
+|uniqueidentifier
+|NOT NULL
+|
+|
+
+|
+|<<column-sql_modules_definition>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-sql_modules_dt>>
+|datetime
+|NULL
+|
+|
+
+|
+|<<column-sql_modules_formatted>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-sql_modules_formatted2>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-sql_modules_json>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-SysObject_type>>
+|char(2)
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-idx_RepoObject_SqlModules_Repo_Sys__1]]
+=== idx_RepoObject_SqlModules_Repo_Sys__1
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_repoobject_guid[RepoObject_guid]
++
+--
+* <<column-RepoObject_guid>>; uniqueidentifier
+--
+* PK, Unique, Real: 0, 0, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::adocuspsteps[]
+
+// end::adocuspsteps[]
+
+
+== AntoraReferencedList
+
+// tag::antorareferencedlist[]
+* xref:repo.RepoObject.adoc[]
+* xref:repo_sys.SysObject.adoc[]
+* xref:sqlparse.RepoObject_SqlModules.adoc[]
+// end::antorareferencedlist[]
+
+
+== AntoraReferencingList
+
+// tag::antorareferencinglist[]
+* xref:repo.RepoObject_gross.adoc[]
+* xref:repo.RepoObjectProperty_Collect_source_sql_modules_definition.adoc[]
+// end::antorareferencinglist[]
+
+
+== exampleUsage
+
+// tag::exampleusage[]
+
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::ms_description[]
+
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+* [repo].[RepoObject]
+* [repo_sys].[SysObject]
+* [sqlparse].[RepoObject_SqlModules]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+Create View [sqlparse].RepoObject_SqlModules_Repo_Sys
+As
+--
+Select
+    ro.RepoObject_guid
+  ----when outdated, use original [sql_modules_definition], otherwise use saved [sql_modules_definition]
+  --, [sql_modules_definition] = CASE 
+  -- WHEN (
+  --   [ros].[sql_modules_dt] IS NULL
+  --   OR [ros].[sql_modules_dt] < [so].[modify_date]
+  --   )
+  --  THEN [so].[sql_modules_definition]
+  -- ELSE [ros].[sql_modules_definition]
+  -- END
+  , so.sql_modules_definition
+  , ros.sql_modules_dt
+  --, [ros].[sql_modules_antora]
+  , ros.sql_modules_formatted
+  , ros.sql_modules_formatted2
+  , ros.sql_modules_json
+  , ros.is_json_sql_modules_json
+  , so.modify_date
+  , ro.SysObject_type
+  , is_outdated = Cast(Case
+                           When
+                           (
+                               ros.sql_modules_dt Is Null
+                               Or ros.sql_modules_dt < so.modify_date
+                           )
+                               Then
+                               1
+                           Else
+                               0
+                       End As Bit)
+From
+    repo.RepoObject                As ro
+    Inner Join
+        repo_sys.SysObject         As so
+            On
+            ro.RepoObject_guid  = so.SysObject_RepoObject_guid
+
+    Left Join
+        [sqlparse].RepoObject_SqlModules As ros
+            On
+            ros.RepoObject_guid = ro.RepoObject_guid
+Where
+    Not so.sql_modules_definition Is Null;
+
+----
+// end::sql_modules_definition[]
+
+

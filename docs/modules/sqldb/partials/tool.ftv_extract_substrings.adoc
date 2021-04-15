@@ -3,9 +3,10 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--example1:
-:ExistsProperty--example2:
-:ExistsProperty--MS_Description:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--exampleusage:
+:ExistsProperty--exampleusage_2:
+:ExistsProperty--ms_description:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--AntoraParameterList:
 :ExistsProperty--Columns:
@@ -38,7 +39,7 @@ inline function
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-10 18:20:02
+2021-04-15 16:45:56
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -270,128 +271,113 @@ inline function
 
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
+// end::adocuspsteps[]
 
 
 == AntoraReferencedList
 
-// tag::AntoraReferencedList[]
+// tag::antorareferencedlist[]
 
-// end::AntoraReferencedList[]
+// end::antorareferencedlist[]
 
 
 == AntoraReferencingList
 
-// tag::AntoraReferencingList[]
-
-// end::AntoraReferencingList[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
+// tag::antorareferencinglist[]
+* xref:repo.RepoObjectProperty_Collect_source_sql_modules_definition.adoc[]
+// end::antorareferencinglist[]
 
 
-== usp_persistence_RepoObject_guid
+== exampleUsage
 
-// tag::usp_persistence_RepoObject_guid[]
+// tag::exampleusage[]
 
-// end::usp_persistence_RepoObject_guid[]
+DECLARE 
+ @string NVARCHAR(max)
+ , @pattern1 NVARCHAR(1000)
+ , @pattern2 NVARCHAR(1000)
 
+SET @string = '
+<<tag-marker_start>>bbb
+row 1 of bbb
+row 2 of bbb
+<<tag-marker_end>>
+<<tag-marker_start>>ccc
+row 1 of ccc
+row 2 of 222
+<<tag-marker_end>>
+'
+SET @pattern1 = CHAR(13) + CHAR(10) + '<<tag-marker_start>>'
+SET @pattern2 = CHAR(13) + CHAR(10) + '<<tag-marker_end>>'
 
-== UspExamples
-
-// tag::UspExamples[]
-
-// end::UspExamples[]
-
-
-== UspParameters
-
-// tag::UspParameters[]
-
-// end::UspParameters[]
-
-
-== persistence_source_RepoObject_xref
-
-// tag::persistence_source_RepoObject_xref[]
-
-// end::persistence_source_RepoObject_xref[]
-
-
-== pk_index_guid
-
-// tag::pk_index_guid[]
-
-// end::pk_index_guid[]
+SELECT *
+FROM tool.[ftv_extract_substrings](@string, @pattern1, @pattern2)
+// end::exampleusage[]
 
 
-== pk_IndexPatternColumnDatatype
+== exampleUsage_2
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::exampleusage_2[]
 
-// end::pk_IndexPatternColumnDatatype[]
-
-
-== pk_IndexPatternColumnName
-
-// tag::pk_IndexPatternColumnName[]
-
-// end::pk_IndexPatternColumnName[]
-
-
-== pk_IndexSemanticGroup
-
-// tag::pk_IndexSemanticGroup[]
-
-// end::pk_IndexSemanticGroup[]
+SELECT
+ --
+ [RepoObject_guid]
+ , [sql_modules_definition]
+ , es.*
+FROM [repo].[RepoObject_SqlModules_Repo_Sys]
+CROSS APPLY tool.[ftv_extract_substrings]([sql_modules_definition], CHAR(13) + CHAR(10) + '<<property_start>>', CHAR(13) + CHAR(10) + '<<property_end>>') es
+// end::exampleusage_2[]
 
 
-== ReferencedObjectList
+== exampleWrong_Usage
 
-// tag::ReferencedObjectList[]
+// tag::examplewrong_usage[]
 
-// end::ReferencedObjectList[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
+// end::examplewrong_usage[]
 
 
-== microsoft_database_tools_support
+== has_execution_plan_issue
 
-// tag::microsoft_database_tools_support[]
+// tag::has_execution_plan_issue[]
 
-// end::microsoft_database_tools_support[]
-
-
-== persistence_source_RepoObject_fullname
-
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
+// end::has_execution_plan_issue[]
 
 
-== persistence_source_RepoObject_fullname2
+== has_get_referenced_issue
 
-// tag::persistence_source_RepoObject_fullname2[]
+// tag::has_get_referenced_issue[]
 
-// end::persistence_source_RepoObject_fullname2[]
+// end::has_get_referenced_issue[]
 
 
-== persistence_source_RepoObject_guid
+== has_history
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::has_history[]
 
-// end::persistence_source_RepoObject_guid[]
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -436,99 +422,107 @@ inline function
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
-
-
-== is_persistence
-
-// tag::is_persistence[]
-
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
-
-
-== example1
-
-// tag::example1[]
-
-DECLARE 
- @string NVARCHAR(max)
- , @pattern1 NVARCHAR(1000)
- , @pattern2 NVARCHAR(1000)
-
-SET @string = '
-<<tag-marker_start>>bbb
-row 1 of bbb
-row 2 of bbb
-<<tag-marker_end>>
-<<tag-marker_start>>ccc
-row 1 of ccc
-row 2 of 222
-<<tag-marker_end>>
-'
-SET @pattern1 = CHAR(13) + CHAR(10) + '<<tag-marker_start>>'
-SET @pattern2 = CHAR(13) + CHAR(10) + '<<tag-marker_end>>'
-
-SELECT *
-FROM tool.[ftv_extract_substrings](@string, @pattern1, @pattern2)
-// end::example1[]
-
-
-== example2
-
-// tag::example2[]
-
-SELECT
- --
- [RepoObject_guid]
- , [sql_modules_definition]
- , es.*
-FROM [repo].[RepoObject_SqlModules_Repo_Sys]
-CROSS APPLY tool.[ftv_extract_substrings]([sql_modules_definition], CHAR(13) + CHAR(10) + '<<property_start>>', CHAR(13) + CHAR(10) + '<<property_end>>') es
-// end::example2[]
+// end::microsoft_database_tools_support[]
 
 
 == MS_Description
 
-// tag::MS_Description[]
+// tag::ms_description[]
 
 * extract multiple substrings between two tags from @string
 * each part between @pattern1 and @pattern2 resultes in one row
 * split the extracted substring_net into the parts for and after the first EOL (end of line)
 ** substring_netPreEol
 ** substring_netPostEol
-// end::MS_Description[]
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -546,7 +540,7 @@ CROSS APPLY tool.[ftv_extract_substrings]([sql_modules_definition], CHAR(13) + C
 <<property_end>>
 
 
-<<property_start>>example1
+<<property_start>>exampleUsage
 DECLARE 
  @string NVARCHAR(max)
  , @pattern1 NVARCHAR(1000)
@@ -569,7 +563,7 @@ SELECT *
 FROM tool.[ftv_extract_substrings](@string, @pattern1, @pattern2)
 <<property_end>>
 
-<<property_start>>example2
+<<property_start>>exampleUsage_2
 SELECT
  --
  [RepoObject_guid]
@@ -581,62 +575,84 @@ CROSS APPLY tool.[ftv_extract_substrings]([sql_modules_definition], CHAR(13) + C
 
 
 */
-CREATE FUNCTION [tool].[ftv_extract_substrings] (
- @string NVARCHAR(max)
- , @pattern1 NVARCHAR(1000)
- , @pattern2 NVARCHAR(1000)
- )
-RETURNS TABLE
-AS
-RETURN (
-  WITH positions AS (
-    SELECT pos1
-     , pos2
-     , string
-    FROM (
-     SELECT patindex('%' + @pattern1 + '%', @string) pos1
-      , patindex('%' + @pattern2 + '%', @string) pos2
-      , @string AS string
-     ) firstpattern
-    --WHERE pos2 > pos1
-    
-    UNION ALL
-    
-    SELECT pos1 + patindex('%' + @pattern1 + '%', substring(@string, pos1 + 1, len(@string))) pos1
-     , pos2 + patindex('%' + @pattern2 + '%', substring(@string, pos2 + 1, len(@string))) pos2
-     , @string
-    FROM positions
-    WHERE
-     --
-     patindex('%' + @pattern1 + '%', substring(@string, pos1 + 1, len(@string))) > 0
-     OR patindex('%' + @pattern2 + '%', substring(@string, pos2 + 1, len(@string))) > 0
-    )
-   , result1 AS (
-    SELECT
-     --
-     pos1
-     , pos2
-     , substring_gross = iif(pos2 > pos1, substring(@string, pos1, pos2 - pos1), NULL)
-     , substring_net = iif(pos2 > pos1 + len(@pattern1), substring(@string, pos1 + len(@pattern1), pos2 - pos1 - len(@pattern1)), NULL)
-     , len(@pattern1) AS len1
-     , len(@pattern2) AS len2
-    FROM positions
-    )
-  SELECT
-   --
-   pos1
-   , pos2
-   , substring_gross
-   , substring_net
-   , substring_netPreEol = substring(substring_net, 0, patindex('%' + CHAR(13) + CHAR(10) + '%', substring_net))
-   , substring_netPostEol = substring(substring_net, patindex('%' + CHAR(13) + CHAR(10) + '%', substring_net), len(substring_net))
-   , pos1eol = patindex('%' + CHAR(13) + CHAR(10) + '%', substring_net)
-   , len1
-   , len2
-  FROM result1
-  )
- --, substring_netToEol = iif(pos2 > pos1 + len(@pattern1), substring(@string, pos1 + len(@pattern1), pos2 - pos1 - len(@pattern1)), NULL)
-
+CREATE Function [tool].[ftv_extract_substrings]
+(
+    @string   NVarchar(Max)
+  , @pattern1 NVarchar(1000)
+  , @pattern2 NVarchar(1000)
+)
+Returns Table
+As
+Return
+(
+    With
+    positions
+    As
+        (
+        Select
+            pos1
+          , pos2
+          , string
+        From
+        (
+            Select
+                PatIndex ( '%' + @pattern1 + '%', @string ) pos1
+              , PatIndex ( '%' + @pattern2 + '%', @string ) pos2
+              , @string                                     As string
+        ) firstpattern
+        --WHERE pos2 > pos1
+        Union All
+        Select
+            pos1 + PatIndex ( '%' + @pattern1 + '%', Substring ( @string, pos1 + 1, Len ( @string ))) pos1
+          , pos2 + PatIndex ( '%' + @pattern2 + '%', Substring ( @string, pos2 + 1, Len ( @string ))) pos2
+          , @string
+        From
+            positions
+        Where
+            --
+            PatIndex ( '%' + @pattern1 + '%', Substring ( @string, pos1 + 1, Len ( @string )))    > 0
+            Or PatIndex ( '%' + @pattern2 + '%', Substring ( @string, pos2 + 1, Len ( @string ))) > 0
+        )
+  ,
+    result1
+    As
+        (
+        Select
+            --
+            pos1
+          , pos2
+          , substring_gross   = Iif(pos2 > pos1, Substring ( @string, pos1, pos2 - pos1 ), Null)
+          , substring_net     = Iif(pos2 > pos1 + Len ( @pattern1 )
+                                , Substring ( @string, pos1 + Len ( @pattern1 ), pos2 - pos1 - Len ( @pattern1 ))
+                                , Null)
+          , Len ( @pattern1 ) As len1
+          , Len ( @pattern2 ) As len2
+        From
+            positions
+        )
+    Select
+        --
+        pos1
+      , pos2
+      , substring_gross
+      , substring_net
+      , substring_netPreEol  = Substring (
+                                             substring_net
+                                           , 0
+                                           , PatIndex ( '%' + Char ( 13 ) + Char ( 10 ) + '%', substring_net )
+                                         )
+      , substring_netPostEol = Substring (
+                                             substring_net
+                                           , PatIndex ( '%' + Char ( 13 ) + Char ( 10 ) + '%', substring_net )
+                                           , Len ( substring_net )
+                                         )
+      , pos1eol              = PatIndex ( '%' + Char ( 13 ) + Char ( 10 ) + '%', substring_net )
+      , len1
+      , len2
+    From
+        result1
+);
+--, substring_netToEol = iif(pos2 > pos1 + len(@pattern1), substring(@string, pos1 + len(@pattern1), pos2 - pos1 - len(@pattern1)), NULL)
 ----
 // end::sql_modules_definition[]
 

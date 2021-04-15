@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.Parameter << U >> {
+entity config.Parameter << U >> {
   * **Parameter_name** : varchar(100)
   * **sub_Parameter** : nvarchar(128)
   --
@@ -32,6 +32,11 @@ entity repo.Parameter << U >> {
   Parameter_value : sql_variant
   {abstract} Parameter_value__result_int : int
   {abstract} Parameter_value__result_nvarchar : nvarchar(4000)
+}
+
+entity docs.AntoraTemplate_examples << V >> {
+  --
+  page_content : nvarchar(max)
 }
 
 entity repo.PropertyName_RepoObject << V >> {
@@ -83,18 +88,19 @@ entity repo.RepoObjectProperty_InheritanceType_InheritanceDefinition << V >> {
   sub_InheritanceType : int
 }
 
-repo.Parameter <.. repo.PropertyName_RepoObject
-repo.Parameter <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+config.Parameter <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+config.Parameter <.. repo.PropertyName_RepoObject
 repo.PropertyName_RepoObject <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
 repo.PropertyName_RepoObject <.. repo.RepoObjectProperty_cross
+repo.PropertyName_RepoObject <.. docs.AntoraTemplate_examples
 repo.RepoObjectProperty <.. repo.PropertyName_RepoObject
 repo.RepoObjectProperty <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
-repo.Parameter::Parameter_value__result_int <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::par_InheritanceType
-repo.Parameter::Parameter_value__result_int <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::sub_InheritanceType
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::sub_Inheritance_StringAggSeparatorSql
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::sub_InheritanceDefintion
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::par_Inheritance_StringAggSeparatorSql
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::par_InheritanceDefintion
+config.Parameter::Parameter_value__result_int <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::sub_InheritanceType
+config.Parameter::Parameter_value__result_int <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::par_InheritanceType
+config.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::par_Inheritance_StringAggSeparatorSql
+config.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::par_InheritanceDefintion
+config.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::sub_Inheritance_StringAggSeparatorSql
+config.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::sub_InheritanceDefintion
 repo.PropertyName_RepoObject::property_name <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::property_name
 repo.PropertyName_RepoObject::property_name <-- repo.RepoObjectProperty_cross::property_name
 repo.RepoObjectProperty::property_value <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::property_value

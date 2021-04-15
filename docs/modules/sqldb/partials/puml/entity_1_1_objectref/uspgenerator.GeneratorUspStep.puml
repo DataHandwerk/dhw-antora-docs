@@ -1,0 +1,49 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity uspgenerator.ftv_GeneratorUspStep_sql << IF >> {
+}
+
+entity uspgenerator.ftv_GeneratorUspStep_tree << IF >> {
+}
+
+entity uspgenerator.GeneratorUspStep << U >> {
+  * **id** : int
+}
+
+entity uspgenerator.GeneratorUspStep_Sql << V >> {
+  * **usp_id** : int
+  **Number** : int
+}
+
+entity uspgenerator.usp_GeneratorUsp_insert_update_persistence << P >> {
+}
+
+uspgenerator.ftv_GeneratorUspStep_sql <.. uspgenerator.GeneratorUspStep_Sql
+uspgenerator.ftv_GeneratorUspStep_tree <.. uspgenerator.GeneratorUspStep_Sql
+uspgenerator.GeneratorUspStep <.. uspgenerator.GeneratorUspStep_Sql
+uspgenerator.GeneratorUspStep <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUspStep <.. uspgenerator.ftv_GeneratorUspStep_sql
+uspgenerator.GeneratorUspStep <.. uspgenerator.ftv_GeneratorUspStep_tree

@@ -52,5 +52,5 @@ config.spt_values <.. config.type
 config.type <.. config.type_level1type_level2type
 config.type <.. repo.RepoObject_gross
 config.type <.. docs.usp_AntoraExport_navigation
-config.type <.. docs.AntoraNavListPage_by_type
 config.type <.. docs.AntoraPage_ObjectByType
+config.type <.. docs.AntoraNavListPage_by_type

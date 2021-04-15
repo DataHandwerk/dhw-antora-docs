@@ -3,12 +3,13 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--ms_description:
 :ExistsProperty--pk_index_guid:
-:ExistsProperty--pk_IndexPatternColumnDatatype:
-:ExistsProperty--pk_IndexPatternColumnName:
-:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
@@ -36,13 +37,13 @@ view
 == SysObject_id
 
 // tag::SysObject_id[]
-571149080
+1586820715
 // end::SysObject_id[]
 
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-08 15:44:19
+2021-04-14 13:25:39
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -104,6 +105,20 @@ view
 |===
 
 
+[[column-FirstNode_schema_name]]
+=== FirstNode_schema_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|FirstNode_schema_name
+|nvarchar(128)
+|NULL
+|
+|
+|===
+
+
 [[column-FirstNodeName]]
 === FirstNodeName
 
@@ -140,6 +155,20 @@ view
 |
 |Last_usp_persistence_RepoObject_guid
 |uniqueidentifier
+|NULL
+|
+|
+|===
+
+
+[[column-LastNode_schema_name]]
+=== LastNode_schema_name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|LastNode_schema_name
+|nvarchar(128)
 |NULL
 |
 |
@@ -200,6 +229,8 @@ view
 
 
 
+
+
 // end::AntoraPkColumnTableRows[]
 
 == AntoraNonPkColumnTableRows
@@ -222,6 +253,13 @@ view
 |
 
 |
+|<<column-FirstNode_schema_name>>
+|nvarchar(128)
+|NULL
+|
+|
+
+|
 |<<column-FirstNodeName>>
 |nvarchar(261)
 |NULL
@@ -238,6 +276,13 @@ view
 |
 |<<column-Last_usp_persistence_RepoObject_guid>>
 |uniqueidentifier
+|NULL
+|
+|
+
+|
+|<<column-LastNode_schema_name>>
+|nvarchar(128)
 |NULL
 |
 |
@@ -283,51 +328,89 @@ view
 
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
+// end::adocuspsteps[]
 
 
-== microsoft_database_tools_support
+== AntoraReferencedList
 
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
+// tag::antorareferencedlist[]
+* xref:graph.ReferencedObject.adoc[]
+* xref:graph.RepoObject.adoc[]
+* xref:repo.RepoObject_gross.adoc[]
+// end::antorareferencedlist[]
 
 
-== persistence_source_RepoObject_fullname
+== AntoraReferencingList
 
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
+// tag::antorareferencinglist[]
+* xref:repo.Reference_UspPersistence.adoc[]
+* xref:repo.usp_main.adoc[]
+// end::antorareferencinglist[]
 
 
-== persistence_source_RepoObject_guid
+== exampleUsage
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::exampleusage[]
 
-// end::persistence_source_RepoObject_guid[]
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -372,118 +455,66 @@ view
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
+// end::microsoft_database_tools_support[]
 
 
-== is_persistence
+== MS_Description
 
-// tag::is_persistence[]
+// tag::ms_description[]
 
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
-
-
-== pk_IndexSemanticGroup
-
-// tag::pk_IndexSemanticGroup[]
-
-// end::pk_IndexSemanticGroup[]
-
-
-== example1
-
-// tag::example1[]
-
-// end::example1[]
+* detects references between persistence procedures
+* uses referenced stored in xref:sqldb:graph.ReferencedObject.adoc[]
+* to get only relations between persistence tables the result set is limited:
++
+[source,sql]
+------
+Where
+    ro1.[is_persistence]     = 1
+    And ro2.[is_persistence] = 1;
+------
+* FirstNode and LastNode are the persistence tables
+* First_usp_persistence and Last_usp_persistence are the related persistence proccedures +
+each persistence table has a related persistence procedure
+// end::ms_description[]
 
 
-== example2
+== persistence_source_RepoObject_fullname
 
-// tag::example2[]
+// tag::persistence_source_repoobject_fullname[]
 
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
+// end::persistence_source_repoobject_fullname[]
 
 
-== usp_persistence_RepoObject_guid
+== persistence_source_RepoObject_fullname2
 
-// tag::usp_persistence_RepoObject_guid[]
+// tag::persistence_source_repoobject_fullname2[]
 
-// end::usp_persistence_RepoObject_guid[]
-
-
-== UspExamples
-
-// tag::UspExamples[]
-
-// end::UspExamples[]
+// end::persistence_source_repoobject_fullname2[]
 
 
-== UspParameters
+== persistence_source_RepoObject_guid
 
-// tag::UspParameters[]
+// tag::persistence_source_repoobject_guid[]
 
-// end::UspParameters[]
+// end::persistence_source_repoobject_guid[]
 
 
 == persistence_source_RepoObject_xref
 
-// tag::persistence_source_RepoObject_xref[]
+// tag::persistence_source_repoobject_xref[]
 
-// end::persistence_source_RepoObject_xref[]
-
-
-== AntoraReferencedList
-
-// tag::AntoraReferencedList[]
-* xref:graph.ReferencedObject.adoc[]
-* xref:graph.RepoObject.adoc[]
-* xref:repo.RepoObject_gross.adoc[]
-// end::AntoraReferencedList[]
-
-
-== AntoraReferencingList
-
-// tag::AntoraReferencingList[]
-* xref:repo.Reference_UspPersistence.adoc[]
-// end::AntoraReferencingList[]
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -495,25 +526,46 @@ view
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 uniqueidentifier,uniqueidentifier
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 FirstNode,LastNode
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
 * [graph].[ReferencedObject]
 * [graph].[RepoObject]
 * [repo].[RepoObject_gross]
-// end::ReferencedObjectList[]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -521,40 +573,69 @@ FirstNode,LastNode
 // tag::sql_modules_definition[]
 [source,sql]
 ----
-Create View repo.Match_RepoObject_referenced_UspPersistence
+
+/*
+<<property_start>>MS_Description
+* detects references between persistence procedures
+* uses referenced stored in xref:sqldb:graph.ReferencedObject.adoc[]
+* to get only relations between persistence tables the result set is limited:
++
+[source,sql]
+------
+Where
+    ro1.[is_persistence]     = 1
+    And ro2.[is_persistence] = 1;
+------
+* FirstNode and LastNode are the persistence tables
+* First_usp_persistence and Last_usp_persistence are the related persistence proccedures +
+each persistence table has a related persistence procedure
+<<property_end>>
+
+*/
+CREATE View repo.Match_RepoObject_referenced_UspPersistence
 As
 Select
-    -- 
-    Q.FirstNode
+    ro1.usp_persistence_name            As First_usp_persistence_name
+  , ro1.usp_persistence_RepoObject_guid As First_usp_persistence_RepoObject_guid
+  , ro2.usp_persistence_name            As Last_usp_persistence_name
+  , ro2.usp_persistence_RepoObject_guid As Last_usp_persistence_RepoObject_guid
+  , Q.FirstNode
+  , ro1.RepoObject_schema_name          As FirstNode_schema_name
   , Q.FirstNodeName
   , Q.LastNode
+  , ro2.RepoObject_schema_name          As LastNode_schema_name
   , Q.LastNodeName
   , Q.ListNodeName
-  , ro1.[usp_persistence_RepoObject_guid] As First_usp_persistence_RepoObject_guid
-  , ro2.[usp_persistence_RepoObject_guid] As Last_usp_persistence_RepoObject_guid
-  , ro1.[usp_persistence_name]            As First_usp_persistence_name
-  , ro2.[usp_persistence_name]            As Last_usp_persistence_name
 From
 (
     Select
         --
-        Object1.[RepoObject_guid]                                                 As FirstNode
-      , Object1.[RepoObject_fullname]                                             As FirstNodeName
-      , String_Agg (Object2.[RepoObject_fullname], '->') WITHIN Group(GRAPH PATH) As ListNodeName
-      , Last_Value (Object2.[RepoObject_guid]) WITHIN Group(GRAPH PATH)           As LastNode
-      , Last_Value (Object2.[RepoObject_fullname]) WITHIN Group(GRAPH PATH)       As LastNodeName
-    From [graph].[RepoObject] As Object1
-       , [graph].[ReferencedObject] For PATH As referenced
-       , [graph].[RepoObject] For PATH As Object2
-    Where MATCH(SHORTEST_PATH(Object1(-(referenced)->Object2)+))
-                And Object1.[RepoObject_type] In ( 'u', 'v' )
-)                                       As Q
-    Left Join [repo].[RepoObject_gross] ro1
-        On ro1.RepoObject_guid = Q.FirstNode
-    Left Join [repo].[RepoObject_gross] ro2
-        On ro2.RepoObject_guid = Q.LastNode
-Where ro1.[is_persistence] = 1
-      And ro2.[is_persistence] = 1
+        Object1.RepoObject_guid                                                   As FirstNode
+      , Object1.RepoObject_fullname                                               As FirstNodeName
+      , String_Agg ( Object2.RepoObject_fullname, '->' ) Within Group(GRAPH Path) As ListNodeName
+      , Last_Value ( Object2.RepoObject_guid ) WITHIN Group(GRAPH Path)           As LastNode
+      , Last_Value ( Object2.RepoObject_fullname ) WITHIN Group(GRAPH Path)       As LastNodeName
+    From
+        [graph].[RepoObject] As Object1
+      , [graph].[ReferencedObject] For Path As referenced
+      , [graph].[RepoObject] For Path As Object2
+    Where Match(
+        SHORTEST_PATH(Object1(-(referenced)->Object2)+))
+        And Object1.[RepoObject_type] In
+            ( 'u', 'v' )
+)                                 As Q
+    Left Join
+        [repo].[RepoObject_gross] ro1
+            On
+            ro1.RepoObject_guid = Q.FirstNode
+
+    Left Join
+        [repo].[RepoObject_gross] ro2
+            On
+            ro2.RepoObject_guid = Q.LastNode
+Where
+    ro1.[is_persistence]     = 1
+    And ro2.[is_persistence] = 1;
 
 ----
 // end::sql_modules_definition[]

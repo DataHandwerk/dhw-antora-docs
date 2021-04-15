@@ -1,0 +1,85 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.ftv_dwh_database << IF >> {
+}
+
+entity config.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+}
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity uspgenerator.ftv_GeneratorUspStep_sql << IF >> {
+}
+
+entity uspgenerator.ftv_GeneratorUspStep_tree << IF >> {
+}
+
+entity uspgenerator.GeneratorUsp << U >> {
+  * **id** : int
+}
+
+entity uspgenerator.GeneratorUsp_ParameterList << V >> {
+  * **usp_id** : int
+}
+
+entity uspgenerator.GeneratorUsp_SqlUsp << V >> {
+  * **usp_id** : int
+}
+
+entity uspgenerator.GeneratorUsp_StepList << V >> {
+}
+
+entity uspgenerator.GeneratorUspParameter << U >> {
+  * **id** : int
+}
+
+entity uspgenerator.GeneratorUspStep << U >> {
+  * **id** : int
+}
+
+entity uspgenerator.GeneratorUspStep_Sql << V >> {
+  * **usp_id** : int
+  **Number** : int
+}
+
+config.ftv_dwh_database <.. uspgenerator.GeneratorUsp_SqlUsp
+config.Parameter <.. config.ftv_dwh_database
+repo.RepoObject <.. uspgenerator.GeneratorUsp_SqlUsp
+uspgenerator.ftv_GeneratorUspStep_sql <.. uspgenerator.GeneratorUspStep_Sql
+uspgenerator.ftv_GeneratorUspStep_tree <.. uspgenerator.GeneratorUspStep_Sql
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUspStep_Sql
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUsp_SqlUsp
+uspgenerator.GeneratorUsp_ParameterList <.. uspgenerator.GeneratorUsp_SqlUsp
+uspgenerator.GeneratorUsp_StepList <.. uspgenerator.GeneratorUsp_SqlUsp
+uspgenerator.GeneratorUspParameter <.. uspgenerator.GeneratorUsp_ParameterList
+uspgenerator.GeneratorUspStep <.. uspgenerator.ftv_GeneratorUspStep_tree
+uspgenerator.GeneratorUspStep <.. uspgenerator.ftv_GeneratorUspStep_sql
+uspgenerator.GeneratorUspStep <.. uspgenerator.GeneratorUspStep_Sql
+uspgenerator.GeneratorUspStep_Sql <.. uspgenerator.GeneratorUsp_StepList

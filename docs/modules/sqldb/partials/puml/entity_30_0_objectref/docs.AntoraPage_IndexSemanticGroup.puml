@@ -1,0 +1,338 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.ftv_dwh_database << IF >> {
+}
+
+entity config.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+}
+
+entity config.spt_values << U >> {
+}
+
+entity config.type << V >> {
+  **type** : nvarchar(128)
+}
+
+entity docs.AntoraIndexSemanticgroup << V >> {
+  **IndexSemanticGroup** : nvarchar(512)
+}
+
+entity docs.AntoraIndexSemanticgroupPatterndatatype << V >> {
+  **IndexSemanticGroup** : nvarchar(512)
+  **IndexPatternColumnDatatype** : nvarchar(4000)
+}
+
+entity docs.AntoraPage_IndexSemanticGroup << V >> {
+  * **page_content** : nvarchar(max)
+}
+
+entity graph.ReferencedObject << U >> {
+}
+
+entity graph.ReferencedObjectColumn << U >> {
+}
+
+entity graph.RepoObject << U >> {
+}
+
+entity graph.RepoObject_ReferencingReferenced << V >> {
+  **Referenced_guid** : uniqueidentifier
+  **Referencing_guid** : uniqueidentifier
+}
+
+entity graph.RepoObject_S << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity graph.RepoObjectColumn << U >> {
+}
+
+entity graph.RepoObjectColumn_ReferencingReferenced << V >> {
+  **Referenced_guid** : uniqueidentifier
+  **Referencing_guid** : uniqueidentifier
+}
+
+entity graph.RepoObjectColumn_S << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+}
+
+entity repo.fs_get_RepoObjectColumnProperty_nvarchar << FN >> {
+}
+
+entity repo.fs_get_RepoObjectProperty_nvarchar << FN >> {
+}
+
+entity repo.Index_ColumList << V >> {
+  **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_gross << V >> {
+  * **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_Settings << U >> {
+  * **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_union << V >> {
+  **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_unique_IndexPatternColumnGuid << V >> {
+  **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_virtual << U >> {
+  * **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_virtual_IndexPatternColumnGuid << V >> {
+  * **index_guid** : uniqueidentifier
+}
+
+entity repo.IndexColumn_union << V >> {
+  **index_guid** : uniqueidentifier
+  * **index_column_id** : int
+}
+
+entity repo.IndexColumn_virtual << U >> {
+  * **index_guid** : uniqueidentifier
+  * **index_column_id** : int
+}
+
+entity repo.IndexColumn_virtual_gross << V >> {
+  * **index_column_id** : int
+}
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_ColumnList << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_gross << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_persistence << U >> {
+  * **target_RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_QueryPlan << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_ReferencedList << V >> {
+  **Referencing_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_ReferencingList << V >> {
+  **Referenced_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn << U >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn_gross << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn_ReferencedList << V >> {
+  **Referencing_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn_ReferencingList << V >> {
+  **Referenced_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumnProperty << U >> {
+  * **RepoObjectColumnProperty_id** : int
+}
+
+entity repo.RepoObjectProperty << U >> {
+  * **RepoObjectProperty_id** : int
+}
+
+entity repo.SysColumn_RepoObjectColumn_via_name << V >> {
+}
+
+entity repo.SysObject_RepoObject_via_name << V >> {
+}
+
+entity repo_sys.ExtendedProperties << V >> {
+}
+
+entity repo_sys.Index_unique << V >> {
+}
+
+entity repo_sys.IndexColumn_unique << V >> {
+}
+
+entity repo_sys.SysColumn << V >> {
+}
+
+entity repo_sys.SysObject << V >> {
+}
+
+entity sqlparse.RepoObject_SqlModules << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity sqlparse.RepoObject_SqlModules_Repo_Sys << V >> {
+}
+
+entity sys_dwh.columns << SN >> {
+}
+
+entity sys_dwh.computed_columns << SN >> {
+}
+
+entity sys_dwh.default_constraints << SN >> {
+}
+
+entity sys_dwh.extended_properties << SN >> {
+}
+
+entity sys_dwh.identity_columns << SN >> {
+}
+
+entity sys_dwh.index_columns << SN >> {
+}
+
+entity sys_dwh.indexes << SN >> {
+}
+
+entity sys_dwh.objects << SN >> {
+}
+
+entity sys_dwh.parameters << SN >> {
+}
+
+entity sys_dwh.schemas << SN >> {
+}
+
+entity sys_dwh.sql_modules << SN >> {
+}
+
+entity sys_dwh.tables << SN >> {
+}
+
+entity sys_dwh.types << SN >> {
+}
+
+config.ftv_dwh_database <.. repo_sys.ExtendedProperties
+config.ftv_dwh_database <.. repo_sys.SysColumn
+config.Parameter <.. config.ftv_dwh_database
+config.spt_values <.. config.type
+config.type <.. repo.RepoObject_gross
+docs.AntoraIndexSemanticgroup <.. docs.AntoraPage_IndexSemanticGroup
+docs.AntoraIndexSemanticgroupPatterndatatype <.. docs.AntoraIndexSemanticgroup
+graph.ReferencedObject <.. graph.RepoObject_ReferencingReferenced
+graph.ReferencedObjectColumn <.. graph.RepoObjectColumn_ReferencingReferenced
+graph.RepoObject <.. graph.RepoObject_ReferencingReferenced
+graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_ReferencedList
+graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_ReferencingList
+graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_gross
+graph.RepoObject_S <.. graph.RepoObject
+graph.RepoObjectColumn <.. graph.RepoObjectColumn_ReferencingReferenced
+graph.RepoObjectColumn_ReferencingReferenced <.. repo.RepoObjectColumn_ReferencedList
+graph.RepoObjectColumn_ReferencingReferenced <.. repo.RepoObjectColumn_ReferencingList
+graph.RepoObjectColumn_S <.. graph.RepoObjectColumn
+repo.fs_get_RepoObjectColumnProperty_nvarchar <.. repo.RepoObjectColumn_gross
+repo.fs_get_RepoObjectProperty_nvarchar <.. repo.RepoObject_gross
+repo.Index_ColumList <.. repo.Index_gross
+repo.Index_gross <.. docs.AntoraIndexSemanticgroupPatterndatatype
+repo.Index_Settings <.. repo.Index_gross
+repo.Index_Settings <.. repo.RepoObject_gross
+repo.Index_union <.. repo.Index_gross
+repo.Index_unique_IndexPatternColumnGuid <.. repo.Index_union
+repo.Index_virtual <.. repo.Index_union
+repo.Index_virtual <.. repo.IndexColumn_virtual_gross
+repo.Index_virtual <.. repo.Index_virtual_IndexPatternColumnGuid
+repo.Index_virtual_IndexPatternColumnGuid <.. repo.Index_union
+repo.IndexColumn_union <.. repo.RepoObjectColumn_gross
+repo.IndexColumn_union <.. repo.Index_ColumList
+repo.IndexColumn_virtual <.. repo.Index_virtual_IndexPatternColumnGuid
+repo.IndexColumn_virtual <.. repo.IndexColumn_virtual_gross
+repo.IndexColumn_virtual_gross <.. repo.IndexColumn_union
+repo.RepoObject <.. repo.RepoObjectColumn_gross
+repo.RepoObject <.. repo.RepoObject_gross
+repo.RepoObject <.. graph.RepoObject_S
+repo.RepoObject <.. repo.IndexColumn_virtual_gross
+repo.RepoObject <.. repo_sys.Index_unique
+repo.RepoObject <.. sqlparse.RepoObject_SqlModules_Repo_Sys
+repo.RepoObject <.. repo.SysObject_RepoObject_via_name
+repo.RepoObject <.. repo.SysColumn_RepoObjectColumn_via_name
+repo.RepoObject_ColumnList <.. repo.RepoObject_gross
+repo.RepoObject_gross <.. repo.Index_gross
+repo.RepoObject_persistence <.. repo.RepoObject_gross
+repo.RepoObject_QueryPlan <.. repo.RepoObject_gross
+repo.RepoObject_ReferencedList <.. repo.RepoObject_gross
+repo.RepoObject_ReferencingList <.. repo.RepoObject_gross
+repo.RepoObjectColumn <.. repo.RepoObjectColumn_gross
+repo.RepoObjectColumn <.. repo.SysColumn_RepoObjectColumn_via_name
+repo.RepoObjectColumn <.. repo.IndexColumn_virtual_gross
+repo.RepoObjectColumn_gross <.. repo.RepoObject_ColumnList
+repo.RepoObjectColumn_gross <.. graph.RepoObjectColumn_S
+repo.RepoObjectColumn_ReferencedList <.. repo.RepoObjectColumn_gross
+repo.RepoObjectColumn_ReferencingList <.. repo.RepoObjectColumn_gross
+repo.RepoObjectColumnProperty <.. repo.fs_get_RepoObjectColumnProperty_nvarchar
+repo.RepoObjectProperty <.. repo.fs_get_RepoObjectProperty_nvarchar
+repo.SysColumn_RepoObjectColumn_via_name <.. repo_sys.IndexColumn_unique
+repo.SysObject_RepoObject_via_name <.. repo_sys.IndexColumn_unique
+repo_sys.ExtendedProperties <.. repo_sys.SysColumn
+repo_sys.ExtendedProperties <.. repo_sys.SysObject
+repo_sys.Index_unique <.. repo.Index_union
+repo_sys.IndexColumn_unique <.. repo.Index_unique_IndexPatternColumnGuid
+repo_sys.IndexColumn_unique <.. repo.IndexColumn_union
+repo_sys.SysColumn <.. repo.SysColumn_RepoObjectColumn_via_name
+repo_sys.SysObject <.. sqlparse.RepoObject_SqlModules_Repo_Sys
+repo_sys.SysObject <.. repo_sys.SysColumn
+repo_sys.SysObject <.. repo.SysObject_RepoObject_via_name
+sqlparse.RepoObject_SqlModules <.. sqlparse.RepoObject_SqlModules_Repo_Sys
+sqlparse.RepoObject_SqlModules_Repo_Sys <.. repo.RepoObject_gross
+sys_dwh.columns <.. repo_sys.ExtendedProperties
+sys_dwh.columns <.. repo_sys.SysColumn
+sys_dwh.computed_columns <.. repo_sys.SysColumn
+sys_dwh.default_constraints <.. repo_sys.SysColumn
+sys_dwh.extended_properties <.. repo_sys.ExtendedProperties
+sys_dwh.identity_columns <.. repo_sys.SysColumn
+sys_dwh.index_columns <.. repo_sys.IndexColumn_unique
+sys_dwh.indexes <.. repo_sys.IndexColumn_unique
+sys_dwh.indexes <.. repo_sys.ExtendedProperties
+sys_dwh.indexes <.. repo_sys.Index_unique
+sys_dwh.objects <.. repo_sys.ExtendedProperties
+sys_dwh.objects <.. repo_sys.SysObject
+sys_dwh.parameters <.. repo_sys.ExtendedProperties
+sys_dwh.schemas <.. repo_sys.SysObject
+sys_dwh.sql_modules <.. repo_sys.SysObject
+sys_dwh.tables <.. repo_sys.SysObject
+sys_dwh.types <.. repo_sys.SysColumn

@@ -1,0 +1,66 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity uspgenerator.GeneratorUsp_ParameterList << V >> {
+  * **usp_id** : int
+  --
+  ParameterList : nvarchar(max)
+  ParameterListLogging : nvarchar(max)
+}
+
+entity uspgenerator.GeneratorUsp_SqlUsp << V >> {
+  * **usp_id** : int
+  --
+  * AdocUspSteps : nvarchar(max)
+  * has_logging : tinyint
+  MS_Description : nvarchar(4000)
+  RepoObject_guid : uniqueidentifier
+  SqlStepList : nvarchar(max)
+  * SqlUsp : nvarchar(max)
+  usp_Description : nvarchar(4000)
+  * usp_fullname : nvarchar(261)
+  * usp_name : nvarchar(128)
+  * usp_schema : nvarchar(128)
+  * UspExamples : nvarchar(4000)
+  UspParameters : nvarchar(max)
+}
+
+entity uspgenerator.GeneratorUspParameter << U >> {
+  * **id** : int
+  --
+  DefaultValue : nvarchar(max)
+  Description : nvarchar(4000)
+  * has_DefaultValue : tinyint
+  * is_inactive : tinyint
+  * is_out : tinyint
+  * Name : nvarchar(128)
+  * Number : int
+  * UserTypeFullname : nvarchar(128)
+  * usp_id : int
+}
+
+uspgenerator.GeneratorUsp_ParameterList <.. uspgenerator.GeneratorUsp_SqlUsp
+uspgenerator.GeneratorUspParameter <.. uspgenerator.GeneratorUsp_ParameterList
+uspgenerator.GeneratorUsp_ParameterList::ParameterList <-- uspgenerator.GeneratorUsp_SqlUsp::UspParameters

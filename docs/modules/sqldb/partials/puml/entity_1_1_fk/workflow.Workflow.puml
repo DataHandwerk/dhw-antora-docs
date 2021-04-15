@@ -1,0 +1,56 @@
+Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity workflow.Workflow << U >> {
+**PK_Workflow**
+{Workflow_id}
+..
+id; int
+}
+
+entity workflow.WorkflowStep << U >> {
+**PK_WorkflowStep**
+{WorkflowStep_id}
+..
+id; int
+--
+UK_WorkflowStep
+{UK_WorkflowStep}
+..
+Workflow_id; int
+Procedure_RepoObject_guid; uniqueidentifier
+--
+- idx_WorkflowStep__1
+{Workflow_id}
+..
+Workflow_id; int
+--
+- idx_WorkflowStep__2
+{RepoObject_guid}
+..
+Procedure_RepoObject_guid; uniqueidentifier
+}
+
+workflow.Workflow::PK_Workflow <-- workflow.WorkflowStep::idx_WorkflowStep__1

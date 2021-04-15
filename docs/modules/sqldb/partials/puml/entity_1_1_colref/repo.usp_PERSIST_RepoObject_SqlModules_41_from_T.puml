@@ -23,6 +23,10 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+  --
+}
+
 entity repo.RepoObject_SqlModules_41_from << V >> {
   * **RepoObject_guid** : uniqueidentifier
   * **json_key** : nvarchar(4000)
@@ -73,18 +77,14 @@ entity repo.RepoObject_SqlModules_41_from_T << U >> {
   SysObject_fullname : nvarchar(261)
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-  --
-}
-
 entity repo.usp_PERSIST_RepoObject_SqlModules_41_from_T << P >> {
   --
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_SqlModules_41_from_T
 repo.RepoObject_SqlModules_41_from <.. repo.usp_PERSIST_RepoObject_SqlModules_41_from_T
 repo.RepoObject_SqlModules_41_from <.. repo.RepoObject_SqlModules_41_from_T
 repo.RepoObject_SqlModules_41_from_T <.. repo.usp_PERSIST_RepoObject_SqlModules_41_from_T
-repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_SqlModules_41_from_T
 repo.RepoObject_SqlModules_41_from::children <-- repo.RepoObject_SqlModules_41_from_T::children
 repo.RepoObject_SqlModules_41_from::class <-- repo.RepoObject_SqlModules_41_from_T::class
 repo.RepoObject_SqlModules_41_from::identifier_alias <-- repo.RepoObject_SqlModules_41_from_T::identifier_alias

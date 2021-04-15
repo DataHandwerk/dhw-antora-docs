@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -24,7 +24,11 @@ skinparam class {
 
 
 entity repo.RepoObject_related_FK_union << V >> {
+- **PK_RepoObject_related_FK_union**
 
+..
+RepoObject_guid; uniqueidentifier
+included_RepoObject_guid; uniqueidentifier
 }
 
 

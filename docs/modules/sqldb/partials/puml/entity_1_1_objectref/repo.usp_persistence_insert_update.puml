@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
 entity repo.Parameter << U >> {
   * **Parameter_name** : varchar(100)
   * **sub_Parameter** : nvarchar(128)
@@ -36,18 +39,15 @@ entity repo.RepoObject_persistence << U >> {
   * **target_RepoObject_guid** : uniqueidentifier
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-}
-
 entity repo.usp_persistence_insert_update << P >> {
 }
 
 entity repo.usp_sync_guid << P >> {
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_sync_guid
+logs.usp_ExecutionLog_insert <.. repo.usp_persistence_insert_update
 repo.Parameter <.. repo.usp_persistence_insert_update
 repo.RepoObject <.. repo.usp_persistence_insert_update
 repo.RepoObject_persistence <.. repo.usp_persistence_insert_update
-repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid
-repo.usp_ExecutionLog_insert <.. repo.usp_persistence_insert_update
 repo.usp_sync_guid <.. repo.usp_persistence_insert_update

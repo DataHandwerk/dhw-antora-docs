@@ -23,10 +23,16 @@ skinparam class {
 }
 
 
+entity docs.AntoraNavListRepoObject_by_schema << V >> {
+  * **RepoObject_schema_name** : nvarchar(128)
+  --
+  nav_list : nvarchar(max)
+}
+
 entity docs.AntoraPage_ObjectBySchema << V >> {
   --
   * partial_content : nvarchar(4000)
 }
 
-
+docs.AntoraNavListRepoObject_by_schema <.. docs.AntoraPage_ObjectBySchema
 

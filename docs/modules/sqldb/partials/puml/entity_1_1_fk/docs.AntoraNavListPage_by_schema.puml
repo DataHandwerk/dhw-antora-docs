@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -24,7 +24,7 @@ skinparam class {
 
 
 entity docs.AntoraNavListPage_by_schema << V >> {
-- idx_AntoraNavListPage_by_schema__1
+- **PK_AntoraNavListPage_by_schema**
 
 ..
 RepoObject_schema_name; nvarchar(128)

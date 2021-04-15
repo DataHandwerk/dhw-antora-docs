@@ -3,12 +3,13 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AdocUspSteps:
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
-:ExistsProperty--MS_Description:
-:ExistsProperty--UspExamples:
-:ExistsProperty--UspParameters:
+:ExistsProperty--adocuspsteps:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--exampleusage:
+:ExistsProperty--ms_description:
+:ExistsProperty--referencedobjectlist:
+:ExistsProperty--uspparameters:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--AntoraParameterList:
 // end::existing_properties[]
@@ -40,7 +41,7 @@ stored procedure
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-11 13:27:49
+2021-04-13 21:31:58
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -80,198 +81,9 @@ stored procedure
 * @parent_execution_log_id (bigint)
 // end::AntoraParameterList[]
 
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
-
-
-== pk_IndexPatternColumnName
-
-// tag::pk_IndexPatternColumnName[]
-
-// end::pk_IndexPatternColumnName[]
-
-
-== pk_IndexSemanticGroup
-
-// tag::pk_IndexSemanticGroup[]
-
-// end::pk_IndexSemanticGroup[]
-
-
-== ReferencedObjectList
-
-// tag::ReferencedObjectList[]
-
-// end::ReferencedObjectList[]
-
-
-== persistence_source_RepoObject_xref
-
-// tag::persistence_source_RepoObject_xref[]
-
-// end::persistence_source_RepoObject_xref[]
-
-
-== pk_index_guid
-
-// tag::pk_index_guid[]
-
-// end::pk_index_guid[]
-
-
-== pk_IndexPatternColumnDatatype
-
-// tag::pk_IndexPatternColumnDatatype[]
-
-// end::pk_IndexPatternColumnDatatype[]
-
-
-== persistence_source_RepoObject_fullname
-
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
-
-
-== persistence_source_RepoObject_guid
-
-// tag::persistence_source_RepoObject_guid[]
-
-// end::persistence_source_RepoObject_guid[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
-
-
-== microsoft_database_tools_support
-
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== is_persistence_insert
-
-// tag::is_persistence_insert[]
-
-// end::is_persistence_insert[]
-
-
-== is_persistence_truncate
-
-// tag::is_persistence_truncate[]
-
-// end::is_persistence_truncate[]
-
-
-== is_persistence_update_changed
-
-// tag::is_persistence_update_changed[]
-
-// end::is_persistence_update_changed[]
-
-
-== is_persistence_check_for_empty_source
-
-// tag::is_persistence_check_for_empty_source[]
-
-// end::is_persistence_check_for_empty_source[]
-
-
-== is_persistence_delete_changed
-
-// tag::is_persistence_delete_changed[]
-
-// end::is_persistence_delete_changed[]
-
-
-== is_persistence_delete_missing
-
-// tag::is_persistence_delete_missing[]
-
-// end::is_persistence_delete_missing[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
-
-
-== is_persistence
-
-// tag::is_persistence[]
-
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
-
-
-== example4
-
-// tag::example4[]
-
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
-
-
-== has_history
-
-// tag::has_history[]
-
-// end::has_history[]
-
-
-== example1
-
-// tag::example1[]
-
-// end::example1[]
-
-
-== example2
-
-// tag::example2[]
-
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
-
-
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 .Steps in [docs].[usp_AntoraExport_ObjectPageTemplate]
 [cols="d,15a,d"]
 |===
@@ -306,30 +118,158 @@ stored procedure
 * [repo].[Parameter]
 
 |
+
+|510
+|
+*export FROM [docs].[AntoraTemplate_examples]*
+
+* u
+* [docs].[AntoraPage_IndexSemanticGroup]
+
+|
 |===
 
-// end::AdocUspSteps[]
+// end::adocuspsteps[]
 
 
 == AntoraReferencedList
 
-// tag::AntoraReferencedList[]
-* xref:repo.fs_get_parameter_value.adoc[]
-* xref:repo.Parameter.adoc[]
-* xref:repo.usp_ExecutionLog_insert.adoc[]
-// end::AntoraReferencedList[]
+// tag::antorareferencedlist[]
+* xref:config.fs_get_parameter_value.adoc[]
+* xref:config.Parameter.adoc[]
+* xref:logs.usp_ExecutionLog_insert.adoc[]
+// end::antorareferencedlist[]
 
 
 == AntoraReferencingList
 
-// tag::AntoraReferencingList[]
+// tag::antorareferencinglist[]
 * xref:docs.usp_AntoraExport.adoc[]
-// end::AntoraReferencingList[]
+// end::antorareferencinglist[]
+
+
+== exampleUsage
+
+// tag::exampleusage[]
+EXEC [docs].[usp_AntoraExport_ObjectPageTemplate]
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
 
 
 == MS_Description
 
-// tag::MS_Description[]
+// tag::ms_description[]
 * source pages per object are exported into (Adoc_AntoraDocModulFolder)``pages/schemaname.objectname.adoc``
 ** export procedure: xref:docs.usp_AntoraExport_ObjectPage.adoc[]
 ** the content of all page files per object is the same, it has only includes. The content is defined in xref:repo.Parameter.adoc#column-Parameter_value[repo.Parameter.Parameter_value] for ('Adoc_AntoraPageTemplate', '') (*empty* `Sub_parameter`)
@@ -338,10 +278,12 @@ stored procedure
 ====
 ....
 /include::partial$template/master-page-1.adoc[]
-/include::partial$template/master-page-2.adoc[]
+/include::partial$template/master-page-examples.adoc[]
+/include::partial$template/master-page-4.adoc[]
+/include::partial$template/master-page-5.adoc[]
 ....
 ====
-** the content of these includes is defined in xref:repo.Parameter.adoc#column-Parameter_value[repo.Parameter.Parameter_value] for ('Adoc_AntoraPageTemplate', 'x') (*non empty* `Sub_parameter` 'x'). The default for 'x' are `1` and `2`, these are nvarchar values. You can also use strings like 'part_a', 'part_b', but avoild blanks, because these `Sub_parameter` values become filname suffix.
+** the content of these includes is defined in xref:config.Parameter.adoc#column-Parameter_value[config.Parameter.Parameter_value] for ('Adoc_AntoraPageTemplate', 'x') (*non empty* `Sub_parameter` 'x'). The default for 'x' are `1` and `2`, these are nvarchar values. You can also use strings like 'part_a', 'part_b', but avoild blanks, because these `Sub_parameter` values become filname suffix.
 * the template content is the same for all objects. We use +{docname}+ and get the final content from individual 'partials' per object. (real code without leading '/')
 +
 ====
@@ -376,7 +318,7 @@ is_repo_managed:
 [source,sql]
 ----
 SET @outputDir = ISNULL(@outputDir, (
-   SELECT [repo].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
+   SELECT [config].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
    ) + 'partials\template\')
 ----
 * uses `xp_cmdshell`, to call `bcp`, you need to enable:
@@ -415,24 +357,89 @@ RECONFIGURE
 GO
 ----
 ====
-// end::MS_Description[]
+// end::ms_description[]
 
 
-== UspExamples
+== persistence_source_RepoObject_fullname
 
-// tag::UspExamples[]
-EXEC [docs].[usp_AntoraExport_ObjectPageTemplate]
-// end::UspExamples[]
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+* [config].[fs_get_parameter_value]
+* [config].[Parameter]
+* [logs].[usp_ExecutionLog_insert]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
 
 
 == UspParameters
 
-// tag::UspParameters[]
+// tag::uspparameters[]
 @outputDir NVARCHAR(1000) = NULL /* example: 'D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\tempalte\ */
 ,@isTrustedConnection BIT = 1 /* specify whether you are connecting to the SQL instance with a trusted connection (Windows Authentication) or not */
 ,@userName NVARCHAR(250) = 'loginName' /* If isTrustedConnection is set to 0 then you will need to add username and password for connecting to the SQL Server instance */
 ,@password NVARCHAR(250) = 'password'
-// end::UspParameters[]
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -453,6 +460,7 @@ CREATE   PROCEDURE [docs].[usp_AntoraExport_ObjectPageTemplate]
 , @sub_execution_id INT = NULL --in case you log some sub_executions, for example in SSIS loops or sub packages
 , @parent_execution_log_id BIGINT = NULL --in case a sup procedure is called, the @current_execution_log_id of the parent procedure should be propagated here. It allowes call stack analyzing
 AS
+BEGIN
 DECLARE
  --
    @current_execution_log_id BIGINT --this variable should be filled only once per procedure call, it contains the first logging call for the step 'start'.
@@ -470,8 +478,9 @@ DECLARE
 --[event_info] get's only the information about the "outer" calling process
 --wenn the procedure calls sub procedures, the [event_info] will not change
 SET @event_info = (
-  SELECT [event_info]
+  SELECT TOP 1 [event_info]
   FROM sys.dm_exec_input_buffer(@@spid, CURRENT_REQUEST_ID())
+  ORDER BY [event_info]
   )
 
 IF @execution_instance_guid IS NULL
@@ -483,7 +492,7 @@ SET @step_name = 'start'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert
+EXEC logs.usp_ExecutionLog_insert
  --these parameters should be the same for all logging execution
    @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
@@ -530,7 +539,7 @@ ELSE
 PRINT CONCAT('usp_id;Number;Parent_Number: ',30,';',120,';',NULL);
 
 SET @outputDir = ISNULL(@outputDir, (
-   SELECT [repo].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
+   SELECT [config].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
    ) + 'partials\template\')
 
 
@@ -547,11 +556,11 @@ DECLARE @Object_fullname2 NVARCHAR(257);
 /*{"ReportUspStep":[{"Number":410,"Name":"export FROM [repo].[fs_get_parameter_value]('Adoc_AntoraPageTemplate', N'1') and other sub_Parameters","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[repo].[Parameter]","log_flag_InsertUpdateDelete":"u"}]}*/
 PRINT CONCAT('usp_id;Number;Parent_Number: ',30,';',410,';',NULL);
 
-DECLARE template_cursor CURSOR
+DECLARE template_cursor CURSOR Local Fast_Forward
 FOR
 SELECT [sub_Parameter]
 --,[Parameter_value__result_nvarchar]
-FROM [repo].[Parameter]
+FROM [config].[Parameter]
 WHERE [Parameter_name] = 'Adoc_AntoraPageTemplate'
  AND [sub_Parameter] <> ''
 ORDER BY [sub_Parameter]
@@ -566,13 +575,13 @@ WHILE @@FETCH_STATUS = 0
 BEGIN
  --Dynamically construct the BCP command
  --
- --bcp "SELECT [repo].[fs_get_parameter_value]('Adoc_AntoraPageTemplate', N'1')" queryout D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\template\master-page-1.adoc -S localhost\sql2019 -d dhw_self -c -T
+ --bcp "SELECT [config].[fs_get_parameter_value]('Adoc_AntoraPageTemplate', N'1')" queryout D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\template\master-page-1.adoc -S localhost\sql2019 -d dhw_self -c -T
  --
- SET @command = 'bcp "SELECT [repo].[fs_get_parameter_value](''Adoc_AntoraPageTemplate'', N''' + @sub_parameter + ''')" queryout ' + @outputDir + @BaseFileName + @sub_parameter + '.adoc'
+ SET @command = 'bcp "SELECT [config].[fs_get_parameter_value](''Adoc_AntoraPageTemplate'', N''' + @sub_parameter + ''')" queryout ' + @outputDir + @BaseFileName + @sub_parameter + '.adoc'
   --
   + ' -S ' + @instanceName
   --
-  + ' -d ' + ' dhw_self'
+  + ' -d ' + @databaseName
   --
   + ' -c'
   --
@@ -601,7 +610,52 @@ SET @step_name = 'export FROM [repo].[fs_get_parameter_value](''Adoc_AntoraPageT
 SET @source_object = '[repo].[Parameter]'
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @updated = @rows
+-- Logging END --
+
+/*{"ReportUspStep":[{"Number":510,"Name":"export FROM [docs].[AntoraTemplate_examples]","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[docs].[AntoraPage_IndexSemanticGroup]","log_flag_InsertUpdateDelete":"u"}]}*/
+PRINT CONCAT('usp_id;Number;Parent_Number: ',30,';',510,';',NULL);
+
+--nav-by-type.adoc
+SET @command = 'bcp "SELECT [page_content] FROM [docs].[AntoraTemplate_examples]"  queryout ' + @outputDir + 'master-page-examples.adoc'
+ --
+ + ' -S ' + @instanceName
+ --
+ + ' -d ' + @databaseName
+ --
+ + ' -c'
+ --
+ + @TrustedUserPassword
+
+PRINT @command
+
+--Execute the BCP command
+EXEC xp_cmdshell @command
+ , no_output
+
+
+-- Logging START --
+SET @rows = @@ROWCOUNT
+SET @step_id = @step_id + 1
+SET @step_name = 'export FROM [docs].[AntoraTemplate_examples]'
+SET @source_object = '[docs].[AntoraPage_IndexSemanticGroup]'
+SET @target_object = NULL
+
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -630,7 +684,7 @@ SET @step_name = 'end'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert
+EXEC logs.usp_ExecutionLog_insert
    @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -644,6 +698,8 @@ EXEC repo.usp_ExecutionLog_insert
  , @step_name = @step_name
  , @source_object = @source_object
  , @target_object = @target_object
+
+END
 
 
 ----

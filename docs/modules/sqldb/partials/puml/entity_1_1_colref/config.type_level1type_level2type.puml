@@ -136,14 +136,13 @@ config.type_level1type_level2type <.. repo.usp_sync_guid_RepoObjectColumn
 config.type_level1type_level2type <.. repo.ExtendedProperty_Repo2Sys_level1
 config.type_level1type_level2type <.. repo.ExtendedProperty_Repo2Sys_level2_RepoObject
 config.type_level1type_level2type <.. repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn
-config.type::type <-- config.type_level1type_level2type::type
 config.type::type_desc <-- config.type_level1type_level2type::type_desc
 config.type_level1type_level2type::level1type <-- sys_self.ExtendedProperties_ParameterForAddUpdateDrop::type_level1type
+config.type_level1type_level2type::level1type <-- repo_sys.ExtendedProperties_ParameterForAddUpdateDrop::type_level1type
 config.type_level1type_level2type::level1type <-- repo.ExtendedProperty_Repo2Sys_level1::level1type
 config.type_level1type_level2type::level1type <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::level1type
 config.type_level1type_level2type::level1type <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn::level1type
-config.type_level1type_level2type::level1type <-- repo_sys.ExtendedProperties_ParameterForAddUpdateDrop::type_level1type
-config.type_level1type_level2type::level2type <-- repo_sys.ExtendedProperties_ParameterForAddUpdateDrop::type_level2type
 config.type_level1type_level2type::level2type <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::level2type
 config.type_level1type_level2type::level2type <-- repo.ExtendedProperty_Repo2Sys_level1::level2type
+config.type_level1type_level2type::level2type <-- repo_sys.ExtendedProperties_ParameterForAddUpdateDrop::type_level2type
 config.type_level1type_level2type::level2type <-- sys_self.ExtendedProperties_ParameterForAddUpdateDrop::type_level2type

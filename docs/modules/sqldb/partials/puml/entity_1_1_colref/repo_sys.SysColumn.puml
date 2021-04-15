@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.ftv_dwh_database << IF >> {
+entity config.ftv_dwh_database << IF >> {
   --
   dwh_database_id : smallint
   dwh_database_name : nvarchar(128)
@@ -332,22 +332,22 @@ entity sys_dwh.types << SN >> {
   --
 }
 
-repo.ftv_dwh_database <.. repo_sys.ExtendedProperties
-repo.ftv_dwh_database <.. repo_sys.SysColumn
-repo.ftv_dwh_database <.. repo_sys.sql_expression_dependencies
+config.ftv_dwh_database <.. repo_sys.ExtendedProperties
+config.ftv_dwh_database <.. repo_sys.SysColumn
+config.ftv_dwh_database <.. repo_sys.sql_expression_dependencies
 repo.SysColumn_RepoObjectColumn_via_guid <.. repo.usp_sync_guid_RepoObjectColumn
 repo.SysColumn_RepoObjectColumn_via_name <.. repo.usp_sync_guid_RepoObjectColumn
 repo_sys.ExtendedProperties <.. repo_sys.SysObject
 repo_sys.ExtendedProperties <.. repo_sys.SysColumn
-repo_sys.SysColumn <.. repo_sys.ForeignKeyColumn
+repo_sys.SysColumn <.. repo.usp_sync_guid_RepoObjectColumn
 repo_sys.SysColumn <.. repo.SysColumn_RepoObjectColumn_via_guid
 repo_sys.SysColumn <.. repo.SysColumn_RepoObjectColumn_via_name
 repo_sys.SysColumn <.. repo_sys.sql_expression_dependencies
-repo_sys.SysColumn <.. repo.usp_sync_guid_RepoObjectColumn
-repo_sys.SysObject <.. repo_sys.SysColumn
+repo_sys.SysColumn <.. repo_sys.ForeignKeyColumn
 repo_sys.SysObject <.. repo_sys.sql_expression_dependencies
-sys_dwh.columns <.. repo_sys.ExtendedProperties
+repo_sys.SysObject <.. repo_sys.SysColumn
 sys_dwh.columns <.. repo_sys.SysColumn
+sys_dwh.columns <.. repo_sys.ExtendedProperties
 sys_dwh.computed_columns <.. repo_sys.SysColumn
 sys_dwh.default_constraints <.. repo_sys.SysColumn
 sys_dwh.identity_columns <.. repo_sys.SysColumn
@@ -359,51 +359,51 @@ repo_sys.SysColumn::default_is_system_named <-- repo.SysColumn_RepoObjectColumn_
 repo_sys.SysColumn::default_name <-- repo.SysColumn_RepoObjectColumn_via_guid::default_name
 repo_sys.SysColumn::default_name <-- repo.SysColumn_RepoObjectColumn_via_name::default_name
 repo_sys.SysColumn::definition <-- repo.SysColumn_RepoObjectColumn_via_name::definition
-repo_sys.SysColumn::definition <-- repo_sys.sql_expression_dependencies::definition
 repo_sys.SysColumn::definition <-- repo.SysColumn_RepoObjectColumn_via_guid::definition
-repo_sys.SysColumn::generated_always_type <-- repo.SysColumn_RepoObjectColumn_via_guid::generated_always_type
+repo_sys.SysColumn::definition <-- repo_sys.sql_expression_dependencies::definition
 repo_sys.SysColumn::generated_always_type <-- repo.SysColumn_RepoObjectColumn_via_name::generated_always_type
-repo_sys.SysColumn::graph_type <-- repo.SysColumn_RepoObjectColumn_via_name::graph_type
+repo_sys.SysColumn::generated_always_type <-- repo.SysColumn_RepoObjectColumn_via_guid::generated_always_type
 repo_sys.SysColumn::graph_type <-- repo.SysColumn_RepoObjectColumn_via_guid::graph_type
-repo_sys.SysColumn::increment_value <-- repo.SysColumn_RepoObjectColumn_via_guid::increment_value
+repo_sys.SysColumn::graph_type <-- repo.SysColumn_RepoObjectColumn_via_name::graph_type
 repo_sys.SysColumn::increment_value <-- repo.SysColumn_RepoObjectColumn_via_name::increment_value
+repo_sys.SysColumn::increment_value <-- repo.SysColumn_RepoObjectColumn_via_guid::increment_value
+repo_sys.SysColumn::is_computed <-- repo.SysColumn_RepoObjectColumn_via_guid::is_computed
 repo_sys.SysColumn::is_computed <-- repo.SysColumn_RepoObjectColumn_via_name::is_computed
 repo_sys.SysColumn::is_computed <-- repo_sys.sql_expression_dependencies::is_computed
-repo_sys.SysColumn::is_computed <-- repo.SysColumn_RepoObjectColumn_via_guid::is_computed
-repo_sys.SysColumn::is_identity <-- repo.SysColumn_RepoObjectColumn_via_guid::is_identity
 repo_sys.SysColumn::is_identity <-- repo.SysColumn_RepoObjectColumn_via_name::is_identity
-repo_sys.SysColumn::is_nullable <-- repo.SysColumn_RepoObjectColumn_via_name::is_nullable
+repo_sys.SysColumn::is_identity <-- repo.SysColumn_RepoObjectColumn_via_guid::is_identity
 repo_sys.SysColumn::is_nullable <-- repo.SysColumn_RepoObjectColumn_via_guid::is_nullable
-repo_sys.SysColumn::is_persisted <-- repo.SysColumn_RepoObjectColumn_via_guid::is_persisted
+repo_sys.SysColumn::is_nullable <-- repo.SysColumn_RepoObjectColumn_via_name::is_nullable
 repo_sys.SysColumn::is_persisted <-- repo.SysColumn_RepoObjectColumn_via_name::is_persisted
-repo_sys.SysColumn::seed_value <-- repo.SysColumn_RepoObjectColumn_via_name::seed_value
+repo_sys.SysColumn::is_persisted <-- repo.SysColumn_RepoObjectColumn_via_guid::is_persisted
 repo_sys.SysColumn::seed_value <-- repo.SysColumn_RepoObjectColumn_via_guid::seed_value
-repo_sys.SysColumn::SysObject_column_id <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_column_id
+repo_sys.SysColumn::seed_value <-- repo.SysColumn_RepoObjectColumn_via_name::seed_value
 repo_sys.SysColumn::SysObject_column_id <-- repo.SysColumn_RepoObjectColumn_via_name::SysObject_column_id
+repo_sys.SysColumn::SysObject_column_id <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_column_id
+repo_sys.SysColumn::SysObject_column_name <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_column_name
 repo_sys.SysColumn::SysObject_column_name <-- repo.SysColumn_RepoObjectColumn_via_name::SysObject_column_name
 repo_sys.SysColumn::SysObject_column_name <-- repo_sys.ForeignKeyColumn::referenced_column_name
 repo_sys.SysColumn::SysObject_column_name <-- repo_sys.ForeignKeyColumn::referencing_column_name
-repo_sys.SysColumn::SysObject_column_name <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_column_name
-repo_sys.SysColumn::SysObject_id <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_id
 repo_sys.SysColumn::SysObject_id <-- repo.SysColumn_RepoObjectColumn_via_name::SysObject_id
+repo_sys.SysColumn::SysObject_id <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_id
+repo_sys.SysColumn::SysObject_name <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_name
 repo_sys.SysColumn::SysObject_name <-- repo.SysColumn_RepoObjectColumn_via_name::SysObject_name
 repo_sys.SysColumn::SysObject_name <-- repo_sys.ForeignKeyColumn::referencing_name
 repo_sys.SysColumn::SysObject_name <-- repo_sys.ForeignKeyColumn::referenced_name
-repo_sys.SysColumn::SysObject_name <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_name
-repo_sys.SysColumn::SysObject_RepoObject_guid <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_RepoObject_guid
 repo_sys.SysColumn::SysObject_RepoObject_guid <-- repo_sys.ForeignKeyColumn::referenced_RepoObject_guid
 repo_sys.SysColumn::SysObject_RepoObject_guid <-- repo_sys.ForeignKeyColumn::referencing_RepoObject_guid
 repo_sys.SysColumn::SysObject_RepoObject_guid <-- repo.SysColumn_RepoObjectColumn_via_name::SysObject_RepoObject_guid
+repo_sys.SysColumn::SysObject_RepoObject_guid <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_RepoObject_guid
+repo_sys.SysColumn::SysObject_RepoObjectColumn_guid <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_RepoObjectColumn_guid
 repo_sys.SysColumn::SysObject_RepoObjectColumn_guid <-- repo.SysColumn_RepoObjectColumn_via_name::SysObject_RepoObjectColumn_guid
 repo_sys.SysColumn::SysObject_RepoObjectColumn_guid <-- repo_sys.ForeignKeyColumn::referencing_RepoObjectColumn_guid
 repo_sys.SysColumn::SysObject_RepoObjectColumn_guid <-- repo_sys.ForeignKeyColumn::referenced_RepoObjectColumn_guid
-repo_sys.SysColumn::SysObject_RepoObjectColumn_guid <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_RepoObjectColumn_guid
-repo_sys.SysColumn::SysObject_schema_name <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_schema_name
 repo_sys.SysColumn::SysObject_schema_name <-- repo_sys.ForeignKeyColumn::referenced_schema_name
 repo_sys.SysColumn::SysObject_schema_name <-- repo_sys.ForeignKeyColumn::referencing_schema_name
 repo_sys.SysColumn::SysObject_schema_name <-- repo.SysColumn_RepoObjectColumn_via_name::SysObject_schema_name
-repo_sys.SysColumn::SysObject_type <-- repo.SysColumn_RepoObjectColumn_via_name::SysObject_type
+repo_sys.SysColumn::SysObject_schema_name <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_schema_name
 repo_sys.SysColumn::SysObject_type <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_type
+repo_sys.SysColumn::SysObject_type <-- repo.SysColumn_RepoObjectColumn_via_name::SysObject_type
 repo_sys.SysColumn::user_type_fullname <-- repo.SysColumn_RepoObjectColumn_via_guid::user_type_fullname
 repo_sys.SysColumn::user_type_fullname <-- repo.SysColumn_RepoObjectColumn_via_name::user_type_fullname
 repo_sys.SysColumn::user_type_name <-- repo.SysColumn_RepoObjectColumn_via_name::user_type_name

@@ -1,0 +1,102 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity sqlparse.RepoObject_SqlModules_21_statement_children_helper << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+  --
+  children : nvarchar(max)
+  class : nvarchar(500)
+  * is_1_create : int
+  * is_2_view : int
+  * is_3_Identifier : int
+  * is_4_as : int
+  * is_5_select : int
+  * is_6_Identifier : int
+  * is_6_IdentifierList : int
+  * is_7_from : int
+  * is_7_IdentifierList : int
+  * is_8_IdentifierList : int
+  is_group : bit
+  is_keyword : bit
+  is_whitespace : bit
+  normalized : nvarchar(max)
+  RowNumber_per_Object : bigint
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_31_object << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  is_1_create : int
+  is_2_view : int
+  is_3_Identifier : int
+  is_4_as : int
+  is_5_select : int
+  is_6_Identifier : int
+  is_6_IdentifierList : int
+  is_7_from : int
+  is_7_IdentifierList : int
+  is_8_IdentifierList : int
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_39_object << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  has_GroupBy : int
+  is_1_create : int
+  is_2_view : int
+  is_3_Identifier : int
+  is_4_as : int
+  is_5_select : int
+  is_6_Identifier : int
+  is_6_IdentifierList : int
+  is_7_from : int
+  is_7_IdentifierList : int
+  is_8_IdentifierList : int
+  is_create_view_Identifier_as_select : int
+  is_select_IdentifierList_from : int
+  is_union : int
+  Min_RowNumber_From : bigint
+  Min_RowNumber_GroupBy : bigint
+  Min_RowNumber_IdentifierList : bigint
+  Min_RowNumber_Where : bigint
+  SysObject_fullname : nvarchar(261)
+}
+
+sqlparse.RepoObject_SqlModules_21_statement_children_helper <.. sqlparse.RepoObject_SqlModules_31_object
+sqlparse.RepoObject_SqlModules_31_object <.. sqlparse.RepoObject_SqlModules_39_object
+sqlparse.RepoObject_SqlModules_21_statement_children_helper::RepoObject_guid <-- sqlparse.RepoObject_SqlModules_31_object::RepoObject_guid
+sqlparse.RepoObject_SqlModules_31_object::is_1_create <-- sqlparse.RepoObject_SqlModules_39_object::is_1_create
+sqlparse.RepoObject_SqlModules_31_object::is_2_view <-- sqlparse.RepoObject_SqlModules_39_object::is_2_view
+sqlparse.RepoObject_SqlModules_31_object::is_3_Identifier <-- sqlparse.RepoObject_SqlModules_39_object::is_3_Identifier
+sqlparse.RepoObject_SqlModules_31_object::is_4_as <-- sqlparse.RepoObject_SqlModules_39_object::is_4_as
+sqlparse.RepoObject_SqlModules_31_object::is_5_select <-- sqlparse.RepoObject_SqlModules_39_object::is_5_select
+sqlparse.RepoObject_SqlModules_31_object::is_6_Identifier <-- sqlparse.RepoObject_SqlModules_39_object::is_6_Identifier
+sqlparse.RepoObject_SqlModules_31_object::is_6_IdentifierList <-- sqlparse.RepoObject_SqlModules_39_object::is_6_IdentifierList
+sqlparse.RepoObject_SqlModules_31_object::is_7_from <-- sqlparse.RepoObject_SqlModules_39_object::is_7_from
+sqlparse.RepoObject_SqlModules_31_object::is_7_IdentifierList <-- sqlparse.RepoObject_SqlModules_39_object::is_7_IdentifierList
+sqlparse.RepoObject_SqlModules_31_object::is_8_IdentifierList <-- sqlparse.RepoObject_SqlModules_39_object::is_8_IdentifierList

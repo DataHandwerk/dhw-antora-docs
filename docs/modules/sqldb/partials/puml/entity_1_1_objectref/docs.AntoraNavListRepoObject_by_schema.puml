@@ -27,6 +27,9 @@ entity docs.AntoraNavListRepoObject_by_schema << V >> {
   * **RepoObject_schema_name** : nvarchar(128)
 }
 
+entity docs.AntoraPage_ObjectBySchema << V >> {
+}
+
 entity docs.RepoObject_OutputFilter << V >> {
   * **RepoObject_guid** : uniqueidentifier
 }
@@ -34,5 +37,6 @@ entity docs.RepoObject_OutputFilter << V >> {
 entity docs.usp_AntoraExport_navigation << P >> {
 }
 
+docs.AntoraNavListRepoObject_by_schema <.. docs.AntoraPage_ObjectBySchema
 docs.AntoraNavListRepoObject_by_schema <.. docs.usp_AntoraExport_navigation
 docs.RepoObject_OutputFilter <.. docs.AntoraNavListRepoObject_by_schema

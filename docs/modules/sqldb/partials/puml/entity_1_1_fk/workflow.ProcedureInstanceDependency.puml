@@ -1,0 +1,68 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity workflow.ProcedureInstance << U >> {
+**PK_ProcedureInstance**
+{ProcedureInstance_id}
+..
+id; int
+--
+UK_ProcedureInstance
+{PK_ProcedureInstance}
+..
+Procedure_RepoObject_guid; uniqueidentifier
+Instance; varchar(500)
+--
+- idx_ProcedureInstance__1
+{RepoObject_guid}
+..
+Procedure_RepoObject_guid; uniqueidentifier
+}
+
+entity workflow.ProcedureInstanceDependency << U >> {
+**PK_ProcedureInstanceDependency**
+{ProcedureInstanceDependency_id}
+..
+id; int
+--
+UK_ProcedureInstanceDependency
+{UK_ProcedureInstanceDependency}
+..
+referenced_id; int
+referencing_id; int
+--
+- idx_ProcedureInstanceDependency__1
+{ProcedureInstance_id}
+..
+referenced_id; int
+--
+- idx_ProcedureInstanceDependency__2
+{ProcedureInstance_id}
+..
+referencing_id; int
+}
+
+workflow.ProcedureInstance::PK_ProcedureInstance <-- workflow.ProcedureInstanceDependency::idx_ProcedureInstanceDependency__1
+workflow.ProcedureInstance::PK_ProcedureInstance <-- workflow.ProcedureInstanceDependency::idx_ProcedureInstanceDependency__2

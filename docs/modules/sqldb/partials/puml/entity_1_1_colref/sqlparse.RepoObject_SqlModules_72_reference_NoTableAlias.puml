@@ -1,0 +1,176 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  has_execution_plan_issue : bit
+  has_get_referenced_issue : bit
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_repo_managed : bit
+  is_required_ObjectMerge : bit
+  is_SysObject_missing : bit
+  * modify_dt : datetime
+  pk_index_guid : uniqueidentifier
+  pk_IndexPatternColumnName_new : nvarchar(4000)
+  Repo_history_table_guid : uniqueidentifier
+  Repo_temporal_type : tinyint
+  * RepoObject_name : nvarchar(128)
+  RepoObject_Referencing_Count : int
+  * RepoObject_schema_name : nvarchar(128)
+  * RepoObject_type : char(2)
+  SysObject_id : int
+  SysObject_modify_date : datetime
+  * SysObject_name : nvarchar(128)
+  * SysObject_parent_object_id : int
+  * SysObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  {abstract} has_different_sys_names : bit
+  * {static} is_RepoObject_name_uniqueidentifier : int
+  * {static} is_SysObject_name_uniqueidentifier : int
+  {abstract} node_id : bigint
+  * {static} RepoObject_fullname : nvarchar(261)
+  * {static} RepoObject_fullname2 : nvarchar(257)
+  * {static} SysObject_fullname : nvarchar(261)
+  * {static} SysObject_fullname2 : nvarchar(257)
+  * {abstract} SysObject_query_sql : nvarchar(406)
+  * {static} usp_persistence_name : nvarchar(140)
+}
+
+entity repo.RepoObjectColumn << U >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+  --
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_persistence_no_check : bit
+  is_persistence_no_include : bit
+  is_persistence_no_update : bit
+  is_query_plan_expression : bit
+  is_required_ColumnMerge : bit
+  is_SysObjectColumn_missing : bit
+  persistence_source_RepoObjectColumn_guid : uniqueidentifier
+  Referencing_Count : int
+  Repo_default_definition : nvarchar(max)
+  Repo_default_is_system_named : bit
+  Repo_default_name : nvarchar(128)
+  Repo_definition : nvarchar(max)
+  * Repo_generated_always_type : tinyint
+  Repo_graph_type : int
+  Repo_increment_value : sql_variant
+  * Repo_is_computed : bit
+  * Repo_is_identity : bit
+  Repo_is_nullable : bit
+  Repo_is_persisted : bit
+  Repo_seed_value : sql_variant
+  Repo_user_type_fullname : nvarchar(128)
+  Repo_user_type_name : nvarchar(128)
+  Repo_uses_database_collation : bit
+  * RepoObject_guid : uniqueidentifier
+  RepoObjectColumn_column_id : int
+  * RepoObjectColumn_name : nvarchar(128)
+  SysObjectColumn_column_id : int
+  * SysObjectColumn_name : nvarchar(128)
+  {abstract} has_different_sys_names : bit
+  * {static} is_RepoObjectColumn_name_uniqueidentifier : int
+  * {static} is_SysObjectColumn_name_uniqueidentifier : int
+}
+
+entity sqlparse.RepoObject_SqlModules_44_from_Identifier_QuoteName << V >> {
+  --
+  alias : nvarchar(max)
+  alias_QuoteName : nvarchar(max)
+  class : nvarchar(500)
+  * json_key : nvarchar(4000)
+  lag_normalized_wo_nolock : nvarchar(max)
+  name : nvarchar(max)
+  name_charindex_dot : bigint
+  name_PostDot : nvarchar(max)
+  name_PostDot_QuoteName : nvarchar(max)
+  name_PreDot : nvarchar(max)
+  name_PreDot_QuoteName : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  RowNumber_per_Object : bigint
+  SysObject_fullname : nvarchar(261)
+  T1_identifier_alias : nvarchar(max)
+}
+
+entity sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T << U >> {
+  --
+  alias_QuoteName : nvarchar(max)
+  class : nvarchar(500)
+  normalized : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  RowNumber_per_Object : bigint
+  source_column_QuoteName : nvarchar(max)
+  source_table_QuoteName : nvarchar(max)
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias << V >> {
+  --
+  alias_QuoteName : nvarchar(max)
+  normalized : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  * RepoObjectColumn_guid : uniqueidentifier
+  * RepoObjectColumn_name : nvarchar(128)
+  source_column_QuoteName : nvarchar(max)
+  * source_RepoObject_guid : uniqueidentifier
+  * source_RepoObjectColumn_guid : uniqueidentifier
+  * source_RepoObjectColumn_name : nvarchar(128)
+  * source_SysObject_fullname : nvarchar(261)
+  source_table_QuoteName : nvarchar(max)
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_79_reference_union << V >> {
+  --
+  alias_QuoteName : nvarchar(max)
+  normalized : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  * RepoObjectColumn_guid : uniqueidentifier
+  * RepoObjectColumn_name : nvarchar(128)
+  source_column_QuoteName : nvarchar(max)
+  * source_RepoObject_guid : uniqueidentifier
+  * source_RepoObjectColumn_guid : uniqueidentifier
+  * source_RepoObjectColumn_name : nvarchar(128)
+  * source_SysObject_fullname : nvarchar(261)
+  source_table_QuoteName : nvarchar(max)
+  SysObject_fullname : nvarchar(261)
+}
+
+repo.RepoObject <.. sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias
+repo.RepoObjectColumn <.. sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias
+sqlparse.RepoObject_SqlModules_44_from_Identifier_QuoteName <.. sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T <.. sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias
+sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias <.. sqlparse.RepoObject_SqlModules_79_reference_union
+repo.RepoObject::RepoObject_guid <-- sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias::source_RepoObject_guid
+repo.RepoObject::SysObject_fullname <-- sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias::source_SysObject_fullname
+repo.RepoObjectColumn::RepoObjectColumn_guid <-- sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias::source_RepoObjectColumn_guid
+repo.RepoObjectColumn::RepoObjectColumn_guid <-- sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias::RepoObjectColumn_guid
+repo.RepoObjectColumn::RepoObjectColumn_name <-- sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias::RepoObjectColumn_name
+repo.RepoObjectColumn::RepoObjectColumn_name <-- sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias::source_RepoObjectColumn_name

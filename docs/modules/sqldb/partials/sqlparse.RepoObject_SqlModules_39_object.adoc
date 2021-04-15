@@ -1,0 +1,953 @@
+= [sqlparse].[RepoObject_SqlModules_39_object]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--pk_indexsemanticgroup:
+:ExistsProperty--referencedobjectlist:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+0190291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+V 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+view
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+978818549
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-13 19:02:38
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-RepoObject_guid]]
+=== RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*RepoObject_guid*
+|uniqueidentifier
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules.adoc#column-RepoObject_guid[sqlparse.RepoObject_SqlModules.RepoObject_guid]
+--
+
+
+[[column-has_GroupBy]]
+=== has_GroupBy
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|has_GroupBy
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_29_2_object_is_GroupBy.adoc#column-has_GroupBy[sqlparse.RepoObject_SqlModules_29_2_object_is_GroupBy.has_GroupBy]
+--
+
+
+[[column-is_1_create]]
+=== is_1_create
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_1_create
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_31_object.adoc#column-is_1_create[sqlparse.RepoObject_SqlModules_31_object.is_1_create]
+--
+
+
+[[column-is_2_view]]
+=== is_2_view
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_2_view
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_31_object.adoc#column-is_2_view[sqlparse.RepoObject_SqlModules_31_object.is_2_view]
+--
+
+
+[[column-is_3_Identifier]]
+=== is_3_Identifier
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_3_Identifier
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_31_object.adoc#column-is_3_Identifier[sqlparse.RepoObject_SqlModules_31_object.is_3_Identifier]
+--
+
+
+[[column-is_4_as]]
+=== is_4_as
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_4_as
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_31_object.adoc#column-is_4_as[sqlparse.RepoObject_SqlModules_31_object.is_4_as]
+--
+
+
+[[column-is_5_select]]
+=== is_5_select
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_5_select
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_31_object.adoc#column-is_5_select[sqlparse.RepoObject_SqlModules_31_object.is_5_select]
+--
+
+
+[[column-is_6_Identifier]]
+=== is_6_Identifier
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_6_Identifier
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_31_object.adoc#column-is_6_Identifier[sqlparse.RepoObject_SqlModules_31_object.is_6_Identifier]
+--
+
+
+[[column-is_6_IdentifierList]]
+=== is_6_IdentifierList
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_6_IdentifierList
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_31_object.adoc#column-is_6_IdentifierList[sqlparse.RepoObject_SqlModules_31_object.is_6_IdentifierList]
+--
+
+
+[[column-is_7_from]]
+=== is_7_from
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_7_from
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_31_object.adoc#column-is_7_from[sqlparse.RepoObject_SqlModules_31_object.is_7_from]
+--
+
+
+[[column-is_7_IdentifierList]]
+=== is_7_IdentifierList
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_7_IdentifierList
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_31_object.adoc#column-is_7_IdentifierList[sqlparse.RepoObject_SqlModules_31_object.is_7_IdentifierList]
+--
+
+
+[[column-is_8_IdentifierList]]
+=== is_8_IdentifierList
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_8_IdentifierList
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_31_object.adoc#column-is_8_IdentifierList[sqlparse.RepoObject_SqlModules_31_object.is_8_IdentifierList]
+--
+
+
+[[column-is_create_view_Identifier_as_select]]
+=== is_create_view_Identifier_as_select
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_create_view_Identifier_as_select
+|int
+|NULL
+|
+|
+|===
+
+
+[[column-is_select_IdentifierList_from]]
+=== is_select_IdentifierList_from
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_select_IdentifierList_from
+|int
+|NULL
+|
+|
+|===
+
+
+[[column-is_union]]
+=== is_union
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_union
+|int
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_29_1_object_is_union.adoc#column-is_union[sqlparse.RepoObject_SqlModules_29_1_object_is_union.is_union]
+--
+
+
+[[column-Min_RowNumber_From]]
+=== Min_RowNumber_From
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Min_RowNumber_From
+|bigint
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_33_ObjectNormalized.adoc#column-Min_RowNumber_per_normalized[sqlparse.RepoObject_SqlModules_33_ObjectNormalized.Min_RowNumber_per_normalized]
+--
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_41_from.adoc#column-Min_RowNumber_From[sqlparse.RepoObject_SqlModules_41_from.Min_RowNumber_From]
+--
+
+
+[[column-Min_RowNumber_GroupBy]]
+=== Min_RowNumber_GroupBy
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Min_RowNumber_GroupBy
+|bigint
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_33_ObjectNormalized.adoc#column-Min_RowNumber_per_normalized[sqlparse.RepoObject_SqlModules_33_ObjectNormalized.Min_RowNumber_per_normalized]
+--
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_41_from.adoc#column-Min_RowNumber_GroupBy[sqlparse.RepoObject_SqlModules_41_from.Min_RowNumber_GroupBy]
+--
+
+
+[[column-Min_RowNumber_IdentifierList]]
+=== Min_RowNumber_IdentifierList
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Min_RowNumber_IdentifierList
+|bigint
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_32_ObjectClass.adoc#column-Min_RowNumber_per_class[sqlparse.RepoObject_SqlModules_32_ObjectClass.Min_RowNumber_per_class]
+--
+
+
+[[column-Min_RowNumber_Where]]
+=== Min_RowNumber_Where
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Min_RowNumber_Where
+|bigint
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_32_ObjectClass.adoc#column-Min_RowNumber_per_class[sqlparse.RepoObject_SqlModules_32_ObjectClass.Min_RowNumber_per_class]
+--
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_41_from.adoc#column-Min_RowNumber_Where[sqlparse.RepoObject_SqlModules_41_from.Min_RowNumber_Where]
+--
+
+
+[[column-SysObject_fullname]]
+=== SysObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+.Description
+--
+(concat('[',[SysObject_schema_name],'].[',[SysObject_name],']'))
+--
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-SysObject_fullname[repo.RepoObject.SysObject_fullname]
+--
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-RepoObject_guid>>*
+|uniqueidentifier
+|NOT NULL
+|
+|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+|
+|<<column-has_GroupBy>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_1_create>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_2_view>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_3_Identifier>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_4_as>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_5_select>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_6_Identifier>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_6_IdentifierList>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_7_from>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_7_IdentifierList>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_8_IdentifierList>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_create_view_Identifier_as_select>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_select_IdentifierList_from>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-is_union>>
+|int
+|NULL
+|
+|
+
+|
+|<<column-Min_RowNumber_From>>
+|bigint
+|NULL
+|
+|
+
+|
+|<<column-Min_RowNumber_GroupBy>>
+|bigint
+|NULL
+|
+|
+
+|
+|<<column-Min_RowNumber_IdentifierList>>
+|bigint
+|NULL
+|
+|
+
+|
+|<<column-Min_RowNumber_Where>>
+|bigint
+|NULL
+|
+|
+
+|
+|<<column-SysObject_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_RepoObject_SqlModules_39_object]]
+=== PK_RepoObject_SqlModules_39_object
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_repoobject_guid[RepoObject_guid]
++
+--
+* <<column-RepoObject_guid>>; uniqueidentifier
+--
+* PK, Unique, Real: 1, 1, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::adocuspsteps[]
+
+// end::adocuspsteps[]
+
+
+== AntoraReferencedList
+
+// tag::antorareferencedlist[]
+* xref:repo.RepoObject.adoc[]
+* xref:sqlparse.RepoObject_SqlModules.adoc[]
+* xref:sqlparse.RepoObject_SqlModules_29_1_object_is_union.adoc[]
+* xref:sqlparse.RepoObject_SqlModules_29_2_object_is_GroupBy.adoc[]
+* xref:sqlparse.RepoObject_SqlModules_31_object.adoc[]
+* xref:sqlparse.RepoObject_SqlModules_32_ObjectClass.adoc[]
+* xref:sqlparse.RepoObject_SqlModules_33_ObjectNormalized.adoc[]
+// end::antorareferencedlist[]
+
+
+== AntoraReferencingList
+
+// tag::antorareferencinglist[]
+* xref:sqlparse.RepoObject_SqlModules_41_from.adoc[]
+* xref:sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.adoc[]
+// end::antorareferencinglist[]
+
+
+== exampleUsage
+
+// tag::exampleusage[]
+
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::ms_description[]
+
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+EC89A10A-AB97-EB11-84F4-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+uniqueidentifier
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+RepoObject_guid
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+RepoObject_guid
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+* [repo].[RepoObject]
+* [sqlparse].[RepoObject_SqlModules]
+* [sqlparse].[RepoObject_SqlModules_29_1_object_is_union]
+* [sqlparse].[RepoObject_SqlModules_29_2_object_is_GroupBy]
+* [sqlparse].[RepoObject_SqlModules_31_object]
+* [sqlparse].[RepoObject_SqlModules_32_ObjectClass]
+* [sqlparse].[RepoObject_SqlModules_33_ObjectNormalized]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+Create View [sqlparse].RepoObject_SqlModules_39_object
+As
+--
+Select
+    T1.RepoObject_guid
+  , is_create_view_Identifier_as_select = T31.is_1_create * T31.is_2_view * T31.is_3_Identifier * T31.is_4_as
+                                          * T31.is_5_select
+  , is_select_IdentifierList_from       = T31.is_5_select * T31.is_6_IdentifierList * T31.is_7_from
+  , Min_RowNumber_IdentifierList        = T32_1.Min_RowNumber_per_class
+  , Min_RowNumber_From                  = T33_1.Min_RowNumber_per_normalized
+  , Min_RowNumber_GroupBy               = T33_2.Min_RowNumber_per_normalized
+  , Min_RowNumber_Where                 = T32_2.Min_RowNumber_per_class
+  --the following columns are for easy issue tracking
+  , ro.SysObject_fullname
+  , T31.is_1_create
+  , T31.is_2_view
+  , T31.is_3_Identifier
+  , T31.is_4_as
+  , T31.is_5_select
+  , T31.is_6_Identifier
+  , T31.is_6_IdentifierList
+  , T31.is_7_from
+  , T31.is_7_IdentifierList
+  , T31.is_8_IdentifierList
+  , T26.is_union
+  , T27.has_GroupBy
+From
+    [sqlparse].RepoObject_SqlModules                            As T1
+    Left Outer Join
+        repo.RepoObject                                   As ro
+            On
+            ro.RepoObject_guid    = T1.RepoObject_guid
+
+    Left Outer Join
+        [sqlparse].RepoObject_SqlModules_31_object              As T31
+            On
+            T31.RepoObject_guid   = T1.RepoObject_guid
+
+    Left Outer Join
+        [sqlparse].RepoObject_SqlModules_32_ObjectClass         As T32_1
+            On
+            T32_1.RepoObject_guid = T1.RepoObject_guid
+            And T32_1.class       = 'IdentifierList'
+
+    Left Outer Join
+        [sqlparse].RepoObject_SqlModules_32_ObjectClass         As T32_2
+            On
+            T32_2.RepoObject_guid = T1.RepoObject_guid
+            And T32_2.class       = 'WHERE'
+
+    Left Outer Join
+        [sqlparse].RepoObject_SqlModules_33_ObjectNormalized    As T33_1
+            On
+            T33_1.RepoObject_guid = T1.RepoObject_guid
+            And T33_1.normalized  = 'FROM'
+
+    Left Outer Join
+        [sqlparse].RepoObject_SqlModules_33_ObjectNormalized    As T33_2
+            On
+            T33_2.RepoObject_guid = T1.RepoObject_guid
+            And T33_2.normalized  = 'GROUP BY'
+
+    Left Outer Join
+        [sqlparse].RepoObject_SqlModules_29_1_object_is_union   As T26
+            On
+            T26.RepoObject_guid   = T1.RepoObject_guid
+
+    Left Outer Join
+        [sqlparse].RepoObject_SqlModules_29_2_object_is_GroupBy As T27
+            On
+            T27.RepoObject_guid   = T1.RepoObject_guid;
+
+----
+// end::sql_modules_definition[]
+
+

@@ -131,8 +131,8 @@ entity repo.usp_Index_ForeignKey << P >> {
   --
 }
 
-repo.ForeignKey_Indexes <.. repo.ForeignKey_Indexes_union
 repo.ForeignKey_Indexes <.. repo.usp_Index_ForeignKey
+repo.ForeignKey_Indexes <.. repo.ForeignKey_Indexes_union
 repo.ForeignKey_IndexPattern <.. repo.ForeignKey_Indexes
 repo.Index_gross <.. repo.ForeignKey_Indexes
 repo.ForeignKey_IndexPattern::delete_referential_action <-- repo.ForeignKey_Indexes::delete_referential_action
@@ -144,10 +144,12 @@ repo.ForeignKey_IndexPattern::referenced_RepoObject_guid <-- repo.ForeignKey_Ind
 repo.ForeignKey_IndexPattern::referencing_IndexPatternColumnName <-- repo.ForeignKey_Indexes::referencing_IndexPatternColumnName
 repo.ForeignKey_IndexPattern::referencing_RepoObject_guid <-- repo.ForeignKey_Indexes::referencing_RepoObject_guid
 repo.ForeignKey_IndexPattern::update_referential_action <-- repo.ForeignKey_Indexes::update_referential_action
-repo.Index_gross::index_guid <-- repo.ForeignKey_Indexes::referencing_index_guid
 repo.Index_gross::index_guid <-- repo.ForeignKey_Indexes::referenced_index_guid
-repo.Index_gross::IndexPatternColumnDatatype <-- repo.ForeignKey_Indexes::referenced_IndexPatternColumnDatatype
+repo.Index_gross::index_guid <-- repo.ForeignKey_Indexes::referencing_index_guid
+repo.Index_gross::index_name <-- repo.ForeignKey_Indexes::referencing_index_name
+repo.Index_gross::index_name <-- repo.ForeignKey_Indexes::referenced_index_name
 repo.Index_gross::IndexPatternColumnDatatype <-- repo.ForeignKey_Indexes::referencing_IndexPatternColumnDatatype
+repo.Index_gross::IndexPatternColumnDatatype <-- repo.ForeignKey_Indexes::referenced_IndexPatternColumnDatatype
 repo.Index_gross::RepoObject_fullname <-- repo.ForeignKey_Indexes::referenced_RepoObject_fullname
 repo.Index_gross::RepoObject_fullname <-- repo.ForeignKey_Indexes::referencing_RepoObject_fullname
 repo.Index_gross::RepoObject_fullname2 <-- repo.ForeignKey_Indexes::referenced_RepoObject_fullname2

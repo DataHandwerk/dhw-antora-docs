@@ -1,0 +1,93 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObjectColumn << U >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+  --
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_persistence_no_check : bit
+  is_persistence_no_include : bit
+  is_persistence_no_update : bit
+  is_query_plan_expression : bit
+  is_required_ColumnMerge : bit
+  is_SysObjectColumn_missing : bit
+  persistence_source_RepoObjectColumn_guid : uniqueidentifier
+  Referencing_Count : int
+  Repo_default_definition : nvarchar(max)
+  Repo_default_is_system_named : bit
+  Repo_default_name : nvarchar(128)
+  Repo_definition : nvarchar(max)
+  * Repo_generated_always_type : tinyint
+  Repo_graph_type : int
+  Repo_increment_value : sql_variant
+  * Repo_is_computed : bit
+  * Repo_is_identity : bit
+  Repo_is_nullable : bit
+  Repo_is_persisted : bit
+  Repo_seed_value : sql_variant
+  Repo_user_type_fullname : nvarchar(128)
+  Repo_user_type_name : nvarchar(128)
+  Repo_uses_database_collation : bit
+  * RepoObject_guid : uniqueidentifier
+  RepoObjectColumn_column_id : int
+  * RepoObjectColumn_name : nvarchar(128)
+  SysObjectColumn_column_id : int
+  * SysObjectColumn_name : nvarchar(128)
+  {abstract} has_different_sys_names : bit
+  * {static} is_RepoObjectColumn_name_uniqueidentifier : int
+  * {static} is_SysObjectColumn_name_uniqueidentifier : int
+}
+
+entity repo.RepoObjectColumn_RequiredRepoObjectColumnMerge << V >> {
+  --
+  * is_RepoObjectColumn_name_uniqueidentifier : int
+  * is_SysObjectColumn_name_uniqueidentifier : int
+  persistence_source_RepoObjectColumn_guid : uniqueidentifier
+  * RepoObject_guid : uniqueidentifier
+  * RepoObjectColumn_guid : uniqueidentifier
+  * RepoObjectColumn_name : nvarchar(128)
+  roc2_persistence_source_RepoObjectColumn_guid : uniqueidentifier
+  * roc2_RepoObjectColumn_guid : uniqueidentifier
+  * roc2_RepoObjectColumn_name : nvarchar(128)
+  * roc2_SysObjectColumn_name : nvarchar(128)
+  * SysObjectColumn_name : nvarchar(128)
+}
+
+entity repo.usp_sync_guid_RepoObjectColumn << P >> {
+  --
+}
+
+repo.RepoObjectColumn <.. repo.RepoObjectColumn_RequiredRepoObjectColumnMerge
+repo.RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
+repo.RepoObjectColumn_RequiredRepoObjectColumnMerge <.. repo.usp_sync_guid_RepoObjectColumn
+repo.RepoObjectColumn::is_RepoObjectColumn_name_uniqueidentifier <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::is_RepoObjectColumn_name_uniqueidentifier
+repo.RepoObjectColumn::is_SysObjectColumn_name_uniqueidentifier <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::is_SysObjectColumn_name_uniqueidentifier
+repo.RepoObjectColumn::persistence_source_RepoObjectColumn_guid <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::persistence_source_RepoObjectColumn_guid
+repo.RepoObjectColumn::RepoObject_guid <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::RepoObject_guid
+repo.RepoObjectColumn::RepoObjectColumn_guid <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::RepoObjectColumn_guid
+repo.RepoObjectColumn::RepoObjectColumn_name <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::RepoObjectColumn_name
+repo.RepoObjectColumn::SysObjectColumn_name <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::SysObjectColumn_name

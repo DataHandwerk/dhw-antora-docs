@@ -27,6 +27,7 @@ entity repo.fs_get_RepoObjectColumnProperty_nvarchar << FN >> {
 }
 
 entity repo.RepoObjectColumn_gross << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumnProperty << U >> {

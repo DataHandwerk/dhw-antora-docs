@@ -33,6 +33,7 @@ entity repo.RepoObject_reference_union << V >> {
 }
 
 entity repo.RepoObjectColumn_gross << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumn_reference_BySamePredecessors << V >> {

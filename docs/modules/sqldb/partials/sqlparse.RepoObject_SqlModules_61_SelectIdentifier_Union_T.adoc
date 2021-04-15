@@ -1,0 +1,536 @@
+= [sqlparse].[RepoObject_SqlModules_61_SelectIdentifier_Union_T]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--has_history:
+:ExistsProperty--has_history_columns:
+:ExistsProperty--is_persistence:
+:ExistsProperty--is_persistence_check_duplicate_per_pk:
+:ExistsProperty--is_persistence_check_for_empty_source:
+:ExistsProperty--is_persistence_delete_changed:
+:ExistsProperty--is_persistence_delete_missing:
+:ExistsProperty--is_persistence_insert:
+:ExistsProperty--is_persistence_truncate:
+:ExistsProperty--is_persistence_update_changed:
+:ExistsProperty--persistence_source_repoobject_fullname:
+:ExistsProperty--persistence_source_repoobject_fullname2:
+:ExistsProperty--persistence_source_repoobject_guid:
+:ExistsProperty--persistence_source_repoobject_xref:
+:ExistsProperty--referencedobjectlist:
+:ExistsProperty--usp_persistence_repoobject_guid:
+:ExistsProperty--FK:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+86EFC212-B764-EB11-84DD-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+U 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+user table
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1390627997
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-13 11:22:57
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-alias_QuoteName]]
+=== alias_QuoteName
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|alias_QuoteName
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.adoc#column-alias_QuoteName[sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.alias_QuoteName]
+--
+
+
+[[column-class]]
+=== class
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|class
+|nvarchar(500)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.adoc#column-class[sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.class]
+--
+
+
+[[column-normalized]]
+=== normalized
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|normalized
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.adoc#column-normalized[sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.normalized]
+--
+
+
+[[column-RepoObject_guid]]
+=== RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RepoObject_guid
+|uniqueidentifier
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.adoc#column-RepoObject_guid[sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.RepoObject_guid]
+--
+
+
+[[column-RowNumber_per_Object]]
+=== RowNumber_per_Object
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RowNumber_per_Object
+|bigint
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.adoc#column-RowNumber_per_Object[sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.RowNumber_per_Object]
+--
+
+
+[[column-source_column_QuoteName]]
+=== source_column_QuoteName
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|source_column_QuoteName
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.adoc#column-source_column_QuoteName[sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.source_column_QuoteName]
+--
+
+
+[[column-source_table_QuoteName]]
+=== source_table_QuoteName
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|source_table_QuoteName
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.adoc#column-source_table_QuoteName[sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.source_table_QuoteName]
+--
+
+
+[[column-SysObject_fullname]]
+=== SysObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.adoc#column-SysObject_fullname[sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.SysObject_fullname]
+--
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+|
+|<<column-alias_QuoteName>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-class>>
+|nvarchar(500)
+|NULL
+|
+|
+
+|
+|<<column-normalized>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-RepoObject_guid>>
+|uniqueidentifier
+|NOT NULL
+|
+|
+
+|
+|<<column-RowNumber_per_Object>>
+|bigint
+|NULL
+|
+|
+
+|
+|<<column-source_column_QuoteName>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-source_table_QuoteName>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-SysObject_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::adocuspsteps[]
+
+// end::adocuspsteps[]
+
+
+== AntoraReferencedList
+
+// tag::antorareferencedlist[]
+* xref:sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.adoc[]
+// end::antorareferencedlist[]
+
+
+== AntoraReferencingList
+
+// tag::antorareferencinglist[]
+* xref:sqlparse.RepoObject_SqlModules_71_reference_ExpliciteTableAlias.adoc[]
+* xref:sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias.adoc[]
+* xref:sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T.adoc[]
+// end::antorareferencinglist[]
+
+
+== exampleUsage
+
+// tag::exampleusage[]
+
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+0
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+0
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+1
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+0
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+0
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+0
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+0
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+1
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+1
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+0
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::ms_description[]
+
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+[sqlparse].[RepoObject_SqlModules_61_SelectIdentifier_Union]
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+127E4BE1-8F64-EB11-84DD-A81E8446D5B0
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+xref:sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union.adoc[]
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+* [sqlparse].[RepoObject_SqlModules_61_SelectIdentifier_Union]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+677581A6-3C9C-EB11-84F6-A81E8446D5B0
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+----
+// end::sql_modules_definition[]
+
+

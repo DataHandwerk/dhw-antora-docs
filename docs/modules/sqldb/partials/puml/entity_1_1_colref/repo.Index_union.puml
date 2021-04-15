@@ -137,15 +137,15 @@ entity repo_sys.Index_unique << V >> {
 }
 
 repo.Index_gross <.. repo.usp_Index_finish
-repo.Index_union <.. repo.IndexReferencedReferencing
-repo.Index_union <.. repo.Index_SqlConstraint_PkUq
-repo.Index_union <.. repo.Index_gross
 repo.Index_union <.. repo.usp_Index_finish
+repo.Index_union <.. repo.Index_gross
+repo.Index_union <.. repo.Index_SqlConstraint_PkUq
+repo.Index_union <.. repo.IndexReferencedReferencing
 repo.Index_unique_IndexPatternColumnGuid <.. repo.Index_union
-repo.Index_virtual <.. repo.Index_union
 repo.Index_virtual <.. repo.IndexReferencedReferencing
-repo.Index_virtual <.. repo.Index_virtual_IndexPatternColumnGuid
 repo.Index_virtual <.. repo.usp_Index_finish
+repo.Index_virtual <.. repo.Index_virtual_IndexPatternColumnGuid
+repo.Index_virtual <.. repo.Index_union
 repo.Index_virtual_IndexPatternColumnGuid <.. repo.Index_union
 repo_sys.Index_unique <.. repo.Index_union
 repo.Index_union::index_guid <-- repo.Index_SqlConstraint_PkUq::index_guid

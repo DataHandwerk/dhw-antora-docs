@@ -1,0 +1,408 @@
+= [workflow].[Workflow]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--pk_indexsemanticgroup:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+7334CB25-1E66-EB11-84DD-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+U 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+user table
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1886629764
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-14 14:06:15
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-id]]
+=== id
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*id*
+|int
+|NOT NULL
+|(1,1)
+|
+|===
+
+
+[[column-Description]]
+=== Description
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Description
+|nvarchar(4000)
+|NULL
+|
+|
+|===
+
+
+[[column-is_active]]
+=== is_active
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_active
+|bit
+|NOT NULL
+|
+|
+|===
+
+.Default: DF_Workflow_is_active
+....
+((1))
+....
+
+
+[[column-Name]]
+=== Name
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Name
+|nvarchar(500)
+|NOT NULL
+|
+|
+|===
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-id>>*
+|int
+|NOT NULL
+|(1,1)
+|
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+|
+|<<column-Description>>
+|nvarchar(4000)
+|NULL
+|
+|
+
+|
+|<<column-is_active>>
+|bit
+|NOT NULL
+|
+|
+
+|
+|<<column-Name>>
+|nvarchar(500)
+|NOT NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_Workflow]]
+=== PK_Workflow
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_workflow_id[Workflow_id]
++
+--
+* <<column-id>>; int
+--
+* PK, Unique, Real: 1, 1, 1
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::adocuspsteps[]
+
+// end::adocuspsteps[]
+
+
+== AntoraReferencedList
+
+// tag::antorareferencedlist[]
+
+// end::antorareferencedlist[]
+
+
+== AntoraReferencingList
+
+// tag::antorareferencinglist[]
+
+// end::antorareferencinglist[]
+
+
+== exampleUsage
+
+// tag::exampleusage[]
+
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::ms_description[]
+
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+7034CB25-1E66-EB11-84DD-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+int
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+id
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+Workflow_id
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+
+----
+// end::sql_modules_definition[]
+
+

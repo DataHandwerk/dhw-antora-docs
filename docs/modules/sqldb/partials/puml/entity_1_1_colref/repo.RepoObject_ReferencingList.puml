@@ -64,6 +64,7 @@ entity repo.RepoObject_gross << V >> {
   is_persistence_update_changed : bit
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   * modify_dt : datetime
@@ -123,8 +124,8 @@ entity repo.RepoObject_ReferencingList << V >> {
   Referenced_type : char(2)
 }
 
-graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_gross
 graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_ReferencingList
+graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_gross
 repo.RepoObject_ReferencingList <.. repo.RepoObject_gross
 graph.RepoObject_ReferencingReferenced::Referenced_guid <-- repo.RepoObject_ReferencingList::Referenced_guid
 repo.RepoObject_ReferencingList::AntoraReferencingList <-- repo.RepoObject_gross::AntoraReferencingList

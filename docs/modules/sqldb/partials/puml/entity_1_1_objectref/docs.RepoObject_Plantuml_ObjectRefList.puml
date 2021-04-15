@@ -48,5 +48,5 @@ docs.RepoObject_Plantuml_ObjectRefList <.. docs.RepoObject_Plantuml
 graph.ReferencedObject <.. docs.RepoObject_Plantuml_ObjectRefList
 graph.RepoObject <.. docs.RepoObject_Plantuml_ObjectRefList
 repo.ftv_RepoObject_ReferencedReferencing <.. docs.RepoObject_Plantuml_ObjectRefList
-repo.RepoObject <.. repo.ftv_RepoObject_ReferencedReferencing
 repo.RepoObject <.. docs.RepoObject_Plantuml_ObjectRefList
+repo.RepoObject <.. repo.ftv_RepoObject_ReferencedReferencing

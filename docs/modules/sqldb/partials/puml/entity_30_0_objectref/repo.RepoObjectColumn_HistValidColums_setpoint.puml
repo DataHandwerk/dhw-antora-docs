@@ -1,0 +1,45 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.ftv_get_parameter_value << IF >> {
+}
+
+entity config.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+}
+
+entity repo.RepoObject_persistence << U >> {
+  * **target_RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn_HistValidColums_setpoint << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  **RepoObjectColumn_name** : sysname
+}
+
+config.ftv_get_parameter_value <.. repo.RepoObjectColumn_HistValidColums_setpoint
+config.Parameter <.. config.ftv_get_parameter_value
+repo.RepoObject_persistence <.. repo.RepoObjectColumn_HistValidColums_setpoint

@@ -62,6 +62,7 @@ entity repo.RepoObject_gross << V >> {
   is_persistence_update_changed : bit
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   * modify_dt : datetime
@@ -125,6 +126,7 @@ entity repo.RepoObject_SqlCreateTable << V >> {
 }
 
 entity repo.RepoObjectColumn_gross << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
   --
   AntoraReferencedColumnList : nvarchar(max)
   AntoraReferencingColumnList : nvarchar(max)
@@ -143,6 +145,7 @@ entity repo.RepoObjectColumn_gross << V >> {
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
   * is_RepoObjectColumn_name_uniqueidentifier : int
+  is_required_ColumnMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   is_SysObjectColumn_missing : bit
@@ -178,7 +181,6 @@ entity repo.RepoObjectColumn_gross << V >> {
   RepoObjectColumn_column_id : int
   * RepoObjectColumn_fullname : nvarchar(520)
   * RepoObjectColumn_fullname2 : nvarchar(386)
-  * RepoObjectColumn_guid : uniqueidentifier
   * RepoObjectColumn_name : nvarchar(128)
   * SysObject_fullname : nvarchar(261)
   * SysObject_fullname2 : nvarchar(257)

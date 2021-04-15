@@ -23,9 +23,6 @@ skinparam class {
 }
 
 
-entity repo.RepoObject_SqlModules_Repo_Sys << V >> {
-}
-
 entity repo.SysObject_RepoObject_via_guid << V >> {
 }
 
@@ -53,6 +50,9 @@ entity repo_sys.SysColumn << V >> {
 entity repo_sys.SysObject << V >> {
 }
 
+entity sqlparse.RepoObject_SqlModules_Repo_Sys << V >> {
+}
+
 entity sys_dwh.objects << SN >> {
 }
 
@@ -70,16 +70,16 @@ repo.SysObject_RepoObject_via_name <.. repo.usp_sync_guid_RepoObject
 repo_sys.ExtendedProperties <.. repo_sys.SysObject
 repo_sys.ExtendedProperties <.. repo_sys.SysColumn
 repo_sys.SysColumn <.. repo_sys.sql_expression_dependencies
-repo_sys.SysObject <.. repo.usp_sync_guid_RepoObject
 repo_sys.SysObject <.. repo_sys.parameters
-repo_sys.SysObject <.. repo.RepoObject_SqlModules_Repo_Sys
-repo_sys.SysObject <.. repo.SysObject_RepoObject_via_name
-repo_sys.SysObject <.. repo.SysObject_RepoObject_via_guid
-repo_sys.SysObject <.. repo_sys.ColumnReference
+repo_sys.SysObject <.. repo.usp_sync_guid_RepoObject
 repo_sys.SysObject <.. repo_sys.SysColumn
+repo_sys.SysObject <.. repo.SysObject_RepoObject_via_guid
+repo_sys.SysObject <.. repo.SysObject_RepoObject_via_name
+repo_sys.SysObject <.. repo_sys.ColumnReference
+repo_sys.SysObject <.. sqlparse.RepoObject_SqlModules_Repo_Sys
 repo_sys.SysObject <.. repo_sys.sql_expression_dependencies
-sys_dwh.objects <.. repo_sys.ExtendedProperties
 sys_dwh.objects <.. repo_sys.SysObject
+sys_dwh.objects <.. repo_sys.ExtendedProperties
 sys_dwh.schemas <.. repo_sys.SysObject
 sys_dwh.sql_modules <.. repo_sys.SysObject
 sys_dwh.tables <.. repo_sys.SysObject

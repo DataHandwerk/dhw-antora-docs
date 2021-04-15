@@ -1,0 +1,87 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity sqlparse.RepoObject_SqlModules_51_Identitfier << V >> {
+  --
+  child0_class : nvarchar(500)
+  children : nvarchar(max)
+  class : nvarchar(500)
+  is_group : bit
+  is_keyword : bit
+  is_whitespace : bit
+  * json_key : nvarchar(4000)
+  normalized : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  RowNumber_per_Object : bigint
+  source_column : nvarchar(max)
+  source_table : nvarchar(max)
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName << V >> {
+  --
+  child0_class : nvarchar(500)
+  children : nvarchar(max)
+  class : nvarchar(500)
+  is_group : bit
+  is_keyword : bit
+  is_whitespace : bit
+  * json_key : nvarchar(4000)
+  normalized : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  RowNumber_per_Object : bigint
+  source_column : nvarchar(max)
+  source_column_QuoteName : nvarchar(max)
+  source_table : nvarchar(max)
+  source_table_QuoteName : nvarchar(max)
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union << V >> {
+  --
+  alias_QuoteName : nvarchar(max)
+  class : nvarchar(500)
+  normalized : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  RowNumber_per_Object : bigint
+  source_column_QuoteName : nvarchar(max)
+  source_table_QuoteName : nvarchar(max)
+  SysObject_fullname : nvarchar(261)
+}
+
+sqlparse.RepoObject_SqlModules_51_Identitfier <.. sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName
+sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName <.. sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union
+sqlparse.RepoObject_SqlModules_51_Identitfier::child0_class <-- sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName::child0_class
+sqlparse.RepoObject_SqlModules_51_Identitfier::children <-- sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName::children
+sqlparse.RepoObject_SqlModules_51_Identitfier::is_group <-- sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName::is_group
+sqlparse.RepoObject_SqlModules_51_Identitfier::is_keyword <-- sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName::is_keyword
+sqlparse.RepoObject_SqlModules_51_Identitfier::is_whitespace <-- sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName::is_whitespace
+sqlparse.RepoObject_SqlModules_51_Identitfier::json_key <-- sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName::json_key
+sqlparse.RepoObject_SqlModules_51_Identitfier::normalized <-- sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName::normalized
+sqlparse.RepoObject_SqlModules_51_Identitfier::RepoObject_guid <-- sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName::RepoObject_guid
+sqlparse.RepoObject_SqlModules_51_Identitfier::RowNumber_per_Object <-- sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName::RowNumber_per_Object
+sqlparse.RepoObject_SqlModules_51_Identitfier::source_column <-- sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName::source_column
+sqlparse.RepoObject_SqlModules_51_Identitfier::source_table <-- sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName::source_table
+sqlparse.RepoObject_SqlModules_51_Identitfier::SysObject_fullname <-- sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName::SysObject_fullname

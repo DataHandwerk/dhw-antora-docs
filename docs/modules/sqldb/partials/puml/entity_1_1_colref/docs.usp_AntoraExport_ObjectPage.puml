@@ -23,6 +23,10 @@ skinparam class {
 }
 
 
+entity config.fs_get_parameter_value << FN >> {
+  --
+}
+
 entity docs.RepoObject_OutputFilter << V >> {
   * **RepoObject_guid** : uniqueidentifier
   --
@@ -42,17 +46,13 @@ entity docs.usp_AntoraExport_ObjectPage << P >> {
   --
 }
 
-entity repo.fs_get_parameter_value << FN >> {
+entity logs.usp_ExecutionLog_insert << P >> {
   --
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-  --
-}
-
+config.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPage
 docs.RepoObject_OutputFilter <.. docs.usp_AntoraExport_ObjectPage
 docs.usp_AntoraExport_ObjectPage <.. docs.usp_AntoraExport
-repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPage
-repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPage
-repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport
+logs.usp_ExecutionLog_insert <.. docs.usp_AntoraExport
+logs.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPage
 

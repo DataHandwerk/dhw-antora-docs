@@ -64,6 +64,7 @@ entity repo.RepoObject_gross << V >> {
   is_persistence_update_changed : bit
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   * modify_dt : datetime

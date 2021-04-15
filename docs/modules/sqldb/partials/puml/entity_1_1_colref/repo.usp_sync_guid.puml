@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.usp_ExecutionLog_insert << P >> {
+entity logs.usp_ExecutionLog_insert << P >> {
   --
 }
 
@@ -31,7 +31,7 @@ entity repo.usp_main << P >> {
   --
 }
 
-entity repo.usp_persistence_insert_update << P >> {
+entity repo.usp_persistence_set << P >> {
   --
 }
 
@@ -47,13 +47,13 @@ entity repo.usp_sync_guid_RepoObjectColumn << P >> {
   --
 }
 
-repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObject
-repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObjectColumn
-repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid
-repo.usp_ExecutionLog_insert <.. repo.usp_persistence_insert_update
-repo.usp_ExecutionLog_insert <.. repo.usp_main
-repo.usp_sync_guid <.. repo.usp_persistence_insert_update
+logs.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObjectColumn
+logs.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObject
+logs.usp_ExecutionLog_insert <.. repo.usp_persistence_set
+logs.usp_ExecutionLog_insert <.. repo.usp_sync_guid
+logs.usp_ExecutionLog_insert <.. repo.usp_main
 repo.usp_sync_guid <.. repo.usp_main
+repo.usp_sync_guid <.. repo.usp_persistence_set
 repo.usp_sync_guid_RepoObject <.. repo.usp_sync_guid
 repo.usp_sync_guid_RepoObjectColumn <.. repo.usp_sync_guid
 

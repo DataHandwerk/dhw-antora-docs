@@ -23,6 +23,10 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+  --
+}
+
 entity repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing << V >> {
   **index_guid** : uniqueidentifier
   * **index_column_id** : int
@@ -47,10 +51,6 @@ entity repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T << U
   referencing_RepoObjectColumn_guid : uniqueidentifier
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-  --
-}
-
 entity repo.usp_index_inheritance << P >> {
   --
 }
@@ -59,11 +59,11 @@ entity repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInRefere
   --
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T
+logs.usp_ExecutionLog_insert <.. repo.usp_index_inheritance
 repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing <.. repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T
 repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing <.. repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T
 repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T <.. repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T
-repo.usp_ExecutionLog_insert <.. repo.usp_index_inheritance
-repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T
 repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T <.. repo.usp_index_inheritance
 repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing::index_column_id <-- repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T::index_column_id
 repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing::index_guid <-- repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T::index_guid

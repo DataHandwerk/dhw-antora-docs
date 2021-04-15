@@ -52,7 +52,7 @@ entity repo.ftv_sqlparse_children_pivot << IF >> {
   child4_normalized : nvarchar(4000)
 }
 
-entity repo.RepoObject_SqlModules_23_normalized_wo_nolock << V >> {
+entity sqlparse.RepoObject_SqlModules_23_normalized_wo_nolock << V >> {
   * **RepoObject_guid** : uniqueidentifier
   * **json_key** : nvarchar(4000)
   --
@@ -61,7 +61,7 @@ entity repo.RepoObject_SqlModules_23_normalized_wo_nolock << V >> {
   SysObject_fullname : nvarchar(261)
 }
 
-entity repo.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit << V >> {
+entity sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit << V >> {
   * **RepoObject_guid** : uniqueidentifier
   * **json_key** : nvarchar(4000)
   * **T2_json_key** : nvarchar(4000)
@@ -79,6 +79,6 @@ entity repo.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit << 
   T2_class : nvarchar(500)
 }
 
-repo.ftv_sqlparse_children_pivot <.. repo.RepoObject_SqlModules_23_normalized_wo_nolock
-repo.ftv_sqlparse_children_pivot <.. repo.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit
+repo.ftv_sqlparse_children_pivot <.. sqlparse.RepoObject_SqlModules_23_normalized_wo_nolock
+repo.ftv_sqlparse_children_pivot <.. sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit
 

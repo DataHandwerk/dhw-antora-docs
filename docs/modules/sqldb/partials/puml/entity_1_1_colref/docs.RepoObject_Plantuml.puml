@@ -23,6 +23,25 @@ skinparam class {
 }
 
 
+entity docs.RepoObject_Plantuml_ObjectRefList_0_30 << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ObjectRefList : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
+entity docs.RepoObject_Plantuml_ObjectRefList_30_0 << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ObjectRefList : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
+entity config.ftv_get_parameter_value << IF >> {
+  --
+  Parameter_value__result_nvarchar : nvarchar(4000)
+}
+
 entity docs.ftv_RepoObject_Reference_PlantUml_EntityRefList << IF >> {
   --
   PumlEntityList : nvarchar(max)
@@ -37,10 +56,16 @@ entity docs.RepoObject_Plantuml << V >> {
   --
   ColRefList : nvarchar(max)
   ObjectRefList : nvarchar(max)
+  ObjectRefList_0_30 : nvarchar(max)
+  ObjectRefList_30_0 : nvarchar(max)
+  * PlantumlEntity_0_30_ObjectRef : nvarchar(max)
   * PlantumlEntity_1_1_ColRef : nvarchar(max)
   * PlantumlEntity_1_1_FkRef : nvarchar(max)
   * PlantumlEntity_1_1_ObjectRef : nvarchar(max)
+  * PlantumlEntity_30_0_ObjectRef : nvarchar(max)
   PumlEntityList : nvarchar(max)
+  PumlEntityList_0_30 : nvarchar(max)
+  PumlEntityList_30_0 : nvarchar(max)
   * RepoObject_fullname2 : nvarchar(257)
 }
 
@@ -51,6 +76,13 @@ entity docs.RepoObject_Plantuml_ColRefList << V >> {
   * RepoObject_fullname2 : nvarchar(257)
 }
 
+entity docs.RepoObject_PlantUml_FkRefList << V >> {
+  **RepoObject_guid** : uniqueidentifier
+  --
+  FkRefList : nvarchar(max)
+  RepoObject_fullname2 : nvarchar(257)
+}
+
 entity docs.RepoObject_Plantuml_ObjectRefList << V >> {
   * **RepoObject_guid** : uniqueidentifier
   --
@@ -58,7 +90,32 @@ entity docs.RepoObject_Plantuml_ObjectRefList << V >> {
   * RepoObject_fullname2 : nvarchar(257)
 }
 
-entity repo.fs_get_parameter_value << FN >> {
+entity docs.RepoObject_PlantUml_PumlEntityFkList << V >> {
+  **RepoObject_guid** : uniqueidentifier
+  --
+  PumlEntityFkList : nvarchar(max)
+  RepoObject_fullname2 : nvarchar(257)
+}
+
+entity docs.RepoObject_Plantuml_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ColRefList : nvarchar(max)
+  ObjectRefList : nvarchar(max)
+  ObjectRefList_0_30 : nvarchar(max)
+  ObjectRefList_30_0 : nvarchar(max)
+  * PlantumlEntity_0_30_ObjectRef : nvarchar(max)
+  * PlantumlEntity_1_1_ColRef : nvarchar(max)
+  * PlantumlEntity_1_1_FkRef : nvarchar(max)
+  * PlantumlEntity_1_1_ObjectRef : nvarchar(max)
+  * PlantumlEntity_30_0_ObjectRef : nvarchar(max)
+  PumlEntityList : nvarchar(max)
+  PumlEntityList_0_30 : nvarchar(max)
+  PumlEntityList_30_0 : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
+entity docs.usp_PERSIST_RepoObject_Plantuml_T << P >> {
   --
 }
 
@@ -91,6 +148,7 @@ entity repo.RepoObject_gross << V >> {
   is_persistence_update_changed : bit
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   * modify_dt : datetime
@@ -141,11 +199,34 @@ entity repo.RepoObject_gross << V >> {
   usp_persistence_RepoObject_guid : uniqueidentifier
 }
 
+ <.. docs.RepoObject_Plantuml
+ <.. docs.RepoObject_Plantuml
+config.ftv_get_parameter_value <.. docs.RepoObject_Plantuml
 docs.ftv_RepoObject_Reference_PlantUml_EntityRefList <.. docs.RepoObject_Plantuml
+docs.RepoObject_Plantuml <.. docs.RepoObject_Plantuml_T
+docs.RepoObject_Plantuml <.. docs.usp_PERSIST_RepoObject_Plantuml_T
 docs.RepoObject_Plantuml_ColRefList <.. docs.RepoObject_Plantuml
+docs.RepoObject_PlantUml_FkRefList <.. docs.RepoObject_Plantuml
 docs.RepoObject_Plantuml_ObjectRefList <.. docs.RepoObject_Plantuml
-repo.fs_get_parameter_value <.. docs.RepoObject_Plantuml
+docs.RepoObject_PlantUml_PumlEntityFkList <.. docs.RepoObject_Plantuml
+docs.RepoObject_Plantuml_T <.. docs.usp_PERSIST_RepoObject_Plantuml_T
 repo.RepoObject_gross <.. docs.RepoObject_Plantuml
+::ObjectRefList <-- docs.RepoObject_Plantuml::ObjectRefList
+::ObjectRefList <-- docs.RepoObject_Plantuml::ObjectRefList
+::ObjectRefList_0_30 <-- ::ObjectRefList_0_30
+::ObjectRefList_30_0 <-- ::ObjectRefList_30_0
+::PlantumlEntity_0_30_ObjectRef <-- ::PlantumlEntity_0_30_ObjectRef
+::PlantumlEntity_30_0_ObjectRef <-- ::PlantumlEntity_30_0_ObjectRef
+::PumlEntityList_0_30 <-- ::PumlEntityList_0_30
+::PumlEntityList_30_0 <-- ::PumlEntityList_30_0
+docs.RepoObject_Plantuml::ColRefList <-- docs.RepoObject_Plantuml_T::ColRefList
+docs.RepoObject_Plantuml::ObjectRefList <-- docs.RepoObject_Plantuml_T::ObjectRefList
+docs.RepoObject_Plantuml::PlantumlEntity_1_1_ColRef <-- docs.RepoObject_Plantuml_T::PlantumlEntity_1_1_ColRef
+docs.RepoObject_Plantuml::PlantumlEntity_1_1_FkRef <-- docs.RepoObject_Plantuml_T::PlantumlEntity_1_1_FkRef
+docs.RepoObject_Plantuml::PlantumlEntity_1_1_ObjectRef <-- docs.RepoObject_Plantuml_T::PlantumlEntity_1_1_ObjectRef
+docs.RepoObject_Plantuml::PumlEntityList <-- docs.RepoObject_Plantuml_T::PumlEntityList
+docs.RepoObject_Plantuml::RepoObject_fullname2 <-- docs.RepoObject_Plantuml_T::RepoObject_fullname2
+docs.RepoObject_Plantuml::RepoObject_guid <-- docs.RepoObject_Plantuml_T::RepoObject_guid
 docs.RepoObject_Plantuml_ColRefList::ColRefList <-- docs.RepoObject_Plantuml::ColRefList
 docs.RepoObject_Plantuml_ObjectRefList::ObjectRefList <-- docs.RepoObject_Plantuml::ObjectRefList
 repo.RepoObject_gross::RepoObject_fullname2 <-- docs.RepoObject_Plantuml::RepoObject_fullname2

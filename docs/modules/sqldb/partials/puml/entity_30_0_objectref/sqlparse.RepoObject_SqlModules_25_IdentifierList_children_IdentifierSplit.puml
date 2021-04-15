@@ -1,0 +1,68 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity sqlparse.ftv_sqlparse_children_pivot << IF >> {
+}
+
+entity sqlparse.ftv_sqlparse_with_some_children << IF >> {
+}
+
+entity sqlparse.RepoObject_SqlModules << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity sqlparse.RepoObject_SqlModules_10_statement << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity sqlparse.RepoObject_SqlModules_20_statement_children << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+}
+
+entity sqlparse.RepoObject_SqlModules_24_IdentifierList_children << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+  * **T2_json_key** : nvarchar(4000)
+}
+
+entity sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+  * **T2_json_key** : nvarchar(4000)
+}
+
+repo.RepoObject <.. sqlparse.RepoObject_SqlModules_10_statement
+sqlparse.ftv_sqlparse_children_pivot <.. sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit
+sqlparse.ftv_sqlparse_with_some_children <.. sqlparse.RepoObject_SqlModules_20_statement_children
+sqlparse.ftv_sqlparse_with_some_children <.. sqlparse.RepoObject_SqlModules_24_IdentifierList_children
+sqlparse.RepoObject_SqlModules <.. sqlparse.RepoObject_SqlModules_10_statement
+sqlparse.RepoObject_SqlModules_10_statement <.. sqlparse.RepoObject_SqlModules_20_statement_children
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_24_IdentifierList_children
+sqlparse.RepoObject_SqlModules_24_IdentifierList_children <.. sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit

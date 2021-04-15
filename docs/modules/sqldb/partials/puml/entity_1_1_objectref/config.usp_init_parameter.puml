@@ -23,22 +23,22 @@ skinparam class {
 }
 
 
+entity config.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+}
+
 entity config.Parameter_default << V >> {
   * **Parameter_name** : varchar(52)
   * **sub_Parameter** : nvarchar(26)
 }
 
+entity config.usp_connect_database << P >> {
+}
+
 entity config.usp_init_parameter << P >> {
 }
 
-entity repo.Parameter << U >> {
-  * **Parameter_name** : varchar(100)
-  * **sub_Parameter** : nvarchar(128)
-}
-
-entity repo.usp_connect_database << P >> {
-}
-
+config.Parameter <.. config.usp_init_parameter
 config.Parameter_default <.. config.usp_init_parameter
-config.usp_init_parameter <.. repo.usp_connect_database
-repo.Parameter <.. config.usp_init_parameter
+config.usp_init_parameter <.. config.usp_connect_database

@@ -3,12 +3,13 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AdocUspSteps:
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
-:ExistsProperty--MS_Description:
-:ExistsProperty--UspExamples:
-:ExistsProperty--UspParameters:
+:ExistsProperty--adocuspsteps:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--exampleusage:
+:ExistsProperty--ms_description:
+:ExistsProperty--referencedobjectlist:
+:ExistsProperty--uspparameters:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--AntoraParameterList:
 // end::existing_properties[]
@@ -40,7 +41,7 @@ stored procedure
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-11 13:27:49
+2021-04-14 21:26:43
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -73,6 +74,8 @@ stored procedure
 * @outputDir (nvarchar(1000))
 * @outputDir2 (nvarchar(1000))
 * @outputDir3 (nvarchar(1000))
+* @outputDir4 (nvarchar(1000))
+* @outputDir5 (nvarchar(1000))
 * @isTrustedConnection (bit)
 * @userName (nvarchar(250))
 * @password (nvarchar(250))
@@ -82,198 +85,9 @@ stored procedure
 * @parent_execution_log_id (bigint)
 // end::AntoraParameterList[]
 
-== persistence_source_RepoObject_xref
-
-// tag::persistence_source_RepoObject_xref[]
-
-// end::persistence_source_RepoObject_xref[]
-
-
-== pk_index_guid
-
-// tag::pk_index_guid[]
-
-// end::pk_index_guid[]
-
-
-== pk_IndexPatternColumnDatatype
-
-// tag::pk_IndexPatternColumnDatatype[]
-
-// end::pk_IndexPatternColumnDatatype[]
-
-
-== pk_IndexPatternColumnName
-
-// tag::pk_IndexPatternColumnName[]
-
-// end::pk_IndexPatternColumnName[]
-
-
-== pk_IndexSemanticGroup
-
-// tag::pk_IndexSemanticGroup[]
-
-// end::pk_IndexSemanticGroup[]
-
-
-== ReferencedObjectList
-
-// tag::ReferencedObjectList[]
-
-// end::ReferencedObjectList[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
-
-
-== microsoft_database_tools_support
-
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== persistence_source_RepoObject_fullname
-
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
-
-
-== persistence_source_RepoObject_guid
-
-// tag::persistence_source_RepoObject_guid[]
-
-// end::persistence_source_RepoObject_guid[]
-
-
-== is_persistence_check_for_empty_source
-
-// tag::is_persistence_check_for_empty_source[]
-
-// end::is_persistence_check_for_empty_source[]
-
-
-== is_persistence_delete_changed
-
-// tag::is_persistence_delete_changed[]
-
-// end::is_persistence_delete_changed[]
-
-
-== is_persistence_delete_missing
-
-// tag::is_persistence_delete_missing[]
-
-// end::is_persistence_delete_missing[]
-
-
-== is_persistence_insert
-
-// tag::is_persistence_insert[]
-
-// end::is_persistence_insert[]
-
-
-== is_persistence_truncate
-
-// tag::is_persistence_truncate[]
-
-// end::is_persistence_truncate[]
-
-
-== is_persistence_update_changed
-
-// tag::is_persistence_update_changed[]
-
-// end::is_persistence_update_changed[]
-
-
-== example4
-
-// tag::example4[]
-
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
-
-
-== has_history
-
-// tag::has_history[]
-
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
-
-
-== is_persistence
-
-// tag::is_persistence[]
-
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
-
-
-== example1
-
-// tag::example1[]
-
-// end::example1[]
-
-
-== example2
-
-// tag::example2[]
-
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
-
-
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
-
-
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 .Steps in [docs].[usp_AntoraExport_ObjectPuml]
 [cols="d,15a,d"]
 |===
@@ -288,7 +102,7 @@ stored procedure
 
 |120
 |
-*configure outputDir, outputDir2, outputDir3*
+*configure outputDir, outputDir2, outputDir3, outputDir4, outputDir5*
 
 
 |
@@ -337,7 +151,7 @@ stored procedure
 *export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_1_1_ColRef]*
 
 * u
-* [docs].[RepoObject_Plantuml]
+* [docs].[RepoObject_Plantuml_T]
 
 |
 
@@ -346,7 +160,7 @@ stored procedure
 *export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_1_1_ObjectRef]*
 
 * u
-* [docs].[RepoObject_Plantuml]
+* [docs].[RepoObject_Plantuml_T]
 
 |
 
@@ -355,36 +169,174 @@ stored procedure
 *export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_1_1_FkRef]*
 
 * u
-* [docs].[RepoObject_Plantuml]
+* [docs].[RepoObject_Plantuml_T]
+
+|
+
+|440
+|
+*export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_0_30_ObjectRef]*
+
+* u
+* [docs].[RepoObject_Plantuml_T]
+
+|
+
+|450
+|
+*export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_30_0_ObjectRef]*
+
+* u
+* [docs].[RepoObject_Plantuml_T]
 
 |
 |===
 
-// end::AdocUspSteps[]
+// end::adocuspsteps[]
 
 
 == AntoraReferencedList
 
-// tag::AntoraReferencedList[]
+// tag::antorareferencedlist[]
+* xref:config.fs_get_parameter_value.adoc[]
 * xref:docs.RepoObject_OutputFilter.adoc[]
 * xref:docs.usp_PERSIST_RepoObject_Plantuml_Entity_T.adoc[]
-* xref:repo.fs_get_parameter_value.adoc[]
-* xref:repo.usp_ExecutionLog_insert.adoc[]
+* xref:docs.usp_PERSIST_RepoObject_Plantuml_T.adoc[]
+* xref:logs.usp_ExecutionLog_insert.adoc[]
 * xref:repo.usp_PERSIST_RepoObject_referenced_level_T.adoc[]
 * xref:repo.usp_PERSIST_RepoObject_referencing_level_T.adoc[]
-// end::AntoraReferencedList[]
+// end::antorareferencedlist[]
 
 
 == AntoraReferencingList
 
-// tag::AntoraReferencingList[]
+// tag::antorareferencinglist[]
 * xref:docs.usp_AntoraExport.adoc[]
-// end::AntoraReferencingList[]
+// end::antorareferencinglist[]
+
+
+== exampleUsage
+
+// tag::exampleusage[]
+EXEC [docs].[usp_AntoraExport_ObjectPuml]
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
 
 
 == MS_Description
 
-// tag::MS_Description[]
+// tag::ms_description[]
 * the documentation contains diagrams. These diagrams are defined using https://plantuml.com/[plantUML]
 ** export procedure: xref:docs.usp_AntoraExport_ObjectPuml.adoc[]
 ** individual diagrams per object are exported into (Adoc_AntoraDocModulFolder)``partials/puml/``
@@ -397,7 +349,7 @@ stored procedure
 [source,sql]
 ----
 SET @outputDir = ISNULL(@outputDir, (
-   SELECT [repo].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
+   SELECT [config].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
    ) + 'partials\puml\entity_1_1_colref\')
 ----
 * uses `xp_cmdshell`, to call `bcp`, you need to enable:
@@ -436,26 +388,97 @@ RECONFIGURE
 GO
 ----
 ====
-// end::MS_Description[]
+// end::ms_description[]
 
 
-== UspExamples
+== persistence_source_RepoObject_fullname
 
-// tag::UspExamples[]
-EXEC [docs].[usp_AntoraExport_ObjectPuml]
-// end::UspExamples[]
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+* [config].[fs_get_parameter_value]
+* [docs].[RepoObject_OutputFilter]
+* [docs].[usp_PERSIST_RepoObject_Plantuml_Entity_T]
+* [docs].[usp_PERSIST_RepoObject_Plantuml_T]
+* [logs].[usp_ExecutionLog_insert]
+* [repo].[usp_PERSIST_RepoObject_referenced_level_T]
+* [repo].[usp_PERSIST_RepoObject_referencing_level_T]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
 
 
 == UspParameters
 
-// tag::UspParameters[]
+// tag::uspparameters[]
 @outputDir NVARCHAR(1000) = NULL /* example: 'D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\puml\entity_1_1_colref\ */
 ,@outputDir2 NVARCHAR(1000) = NULL /* example: 'D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\puml\entity_1_1_objectref\ */
 ,@outputDir3 NVARCHAR(1000) = NULL /* example: 'D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\puml\entity_1_1_fk\ */
+,@outputDir4 NVARCHAR(1000) = NULL /* example: 'D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\puml\entity_0_30_objectref\ */
+,@outputDir5 NVARCHAR(1000) = NULL /* example: 'D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\puml\entity_30_0_objectref\ */
 ,@isTrustedConnection BIT = 1 /* specify whether you are connecting to the SQL instance with a trusted connection (Windows Authentication) or not */
 ,@userName NVARCHAR(250) = 'loginName' /* If isTrustedConnection is set to 0 then you will need to add username and password for connecting to the SQL Server instance */
 ,@password NVARCHAR(250) = 'password'
-// end::UspParameters[]
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -467,6 +490,8 @@ CREATE   PROCEDURE [docs].[usp_AntoraExport_ObjectPuml]
 @outputDir NVARCHAR(1000) = NULL /* example: 'D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\puml\entity_1_1_colref\ */
 ,@outputDir2 NVARCHAR(1000) = NULL /* example: 'D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\puml\entity_1_1_objectref\ */
 ,@outputDir3 NVARCHAR(1000) = NULL /* example: 'D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\puml\entity_1_1_fk\ */
+,@outputDir4 NVARCHAR(1000) = NULL /* example: 'D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\puml\entity_0_30_objectref\ */
+,@outputDir5 NVARCHAR(1000) = NULL /* example: 'D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs\modules\sqldb\partials\puml\entity_30_0_objectref\ */
 ,@isTrustedConnection BIT = 1 /* specify whether you are connecting to the SQL instance with a trusted connection (Windows Authentication) or not */
 ,@userName NVARCHAR(250) = 'loginName' /* If isTrustedConnection is set to 0 then you will need to add username and password for connecting to the SQL Server instance */
 ,@password NVARCHAR(250) = 'password'
@@ -478,6 +503,7 @@ CREATE   PROCEDURE [docs].[usp_AntoraExport_ObjectPuml]
 , @sub_execution_id INT = NULL --in case you log some sub_executions, for example in SSIS loops or sub packages
 , @parent_execution_log_id BIGINT = NULL --in case a sup procedure is called, the @current_execution_log_id of the parent procedure should be propagated here. It allowes call stack analyzing
 AS
+BEGIN
 DECLARE
  --
    @current_execution_log_id BIGINT --this variable should be filled only once per procedure call, it contains the first logging call for the step 'start'.
@@ -495,8 +521,9 @@ DECLARE
 --[event_info] get's only the information about the "outer" calling process
 --wenn the procedure calls sub procedures, the [event_info] will not change
 SET @event_info = (
-  SELECT [event_info]
+  SELECT TOP 1 [event_info]
   FROM sys.dm_exec_input_buffer(@@spid, CURRENT_REQUEST_ID())
+  ORDER BY [event_info]
   )
 
 IF @execution_instance_guid IS NULL
@@ -508,7 +535,7 @@ SET @step_name = 'start'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert
+EXEC logs.usp_ExecutionLog_insert
  --these parameters should be the same for all logging execution
    @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
@@ -530,9 +557,11 @@ EXEC repo.usp_ExecutionLog_insert
  , @parameter_01 = @outputDir
  , @parameter_02 = @outputDir2
  , @parameter_03 = @outputDir3
- , @parameter_04 = @isTrustedConnection
- , @parameter_05 = @userName
- , @parameter_06 = @password
+ , @parameter_04 = @outputDir4
+ , @parameter_05 = @outputDir5
+ , @parameter_06 = @isTrustedConnection
+ , @parameter_07 = @userName
+ , @parameter_08 = @password
 --
 PRINT '[docs].[usp_AntoraExport_ObjectPuml]'
 --keep the code between logging parameters and "START" unchanged!
@@ -553,18 +582,25 @@ IF @isTrustedConnection = 1
 ELSE
  SET @TrustedUserPassword = ' -U ' + @userName + ' -P ' + @password
 
-/*{"ReportUspStep":[{"Number":120,"Name":"configure outputDir, outputDir2, outputDir3","has_logging":0,"is_condition":0,"is_inactive":0,"is_SubProcedure":0}]}*/
+/*{"ReportUspStep":[{"Number":120,"Name":"configure outputDir, outputDir2, outputDir3, outputDir4, outputDir5","has_logging":0,"is_condition":0,"is_inactive":0,"is_SubProcedure":0}]}*/
 PRINT CONCAT('usp_id;Number;Parent_Number: ',32,';',120,';',NULL);
 
 SET @outputDir = ISNULL(@outputDir, (
-   SELECT [repo].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
+   SELECT [config].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
    ) + 'partials\puml\entity_1_1_colref\')
 SET @outputDir2 = ISNULL(@outputDir2, (
-   SELECT [repo].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
+   SELECT [config].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
    ) + 'partials\puml\entity_1_1_objectref\')
 SET @outputDir3 = ISNULL(@outputDir3, (
-   SELECT [repo].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
+   SELECT [config].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
    ) + 'partials\puml\entity_1_1_fk\')
+SET @outputDir4 = ISNULL(@outputDir4, (
+   SELECT [config].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
+   ) + 'partials\puml\entity_0_30_objectref\')
+SET @outputDir5 = ISNULL(@outputDir5, (
+   SELECT [config].[fs_get_parameter_value]('Adoc_AntoraDocModulFolder', '')
+   ) + 'partials\puml\entity_30_0_objectref\')
+   
 
 /*{"ReportUspStep":[{"Number":210,"Name":"declare variables","has_logging":0,"is_condition":0,"is_inactive":0,"is_SubProcedure":0}]}*/
 PRINT CONCAT('usp_id;Number;Parent_Number: ',32,';',210,';',NULL);
@@ -614,10 +650,10 @@ EXEC [docs].[usp_PERSIST_RepoObject_Plantuml_T]
  , @parent_execution_log_id = @current_execution_log_id
 
 
-/*{"ReportUspStep":[{"Number":410,"Name":"export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_1_1_ColRef]","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[docs].[RepoObject_Plantuml]","log_flag_InsertUpdateDelete":"u"}]}*/
+/*{"ReportUspStep":[{"Number":410,"Name":"export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_1_1_ColRef]","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[docs].[RepoObject_Plantuml_T]","log_flag_InsertUpdateDelete":"u"}]}*/
 PRINT CONCAT('usp_id;Number;Parent_Number: ',32,';',410,';',NULL);
 
-DECLARE db_cursor CURSOR
+DECLARE db_cursor CURSOR Local Fast_Forward
 FOR
 SELECT RepoObject_fullname
  , RepoObject_fullname2
@@ -635,7 +671,7 @@ WHILE @@FETCH_STATUS = 0
 BEGIN
  --Dynamically construct the BCP command
  --
- SET @command = 'bcp "SELECT [PlantumlEntity_1_1_ColRef] FROM [docs].[RepoObject_Plantuml] WITH (READUNCOMMITTED) where [RepoObject_fullname2] = '''
+ SET @command = 'bcp "SELECT [PlantumlEntity_1_1_ColRef] FROM [docs].[RepoObject_Plantuml_T] WITH (READUNCOMMITTED) where [RepoObject_fullname2] = '''
   --
   + @Object_fullname2
   --
@@ -643,7 +679,7 @@ BEGIN
   --
   + ' -S ' + @instanceName
   --
-  + ' -d ' + ' dhw_self'
+  + ' -d ' + @databaseName
   --
   + ' -c'
   --
@@ -670,10 +706,10 @@ DEALLOCATE db_cursor
 SET @rows = @@ROWCOUNT
 SET @step_id = @step_id + 1
 SET @step_name = 'export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_1_1_ColRef]'
-SET @source_object = '[docs].[RepoObject_Plantuml]'
+SET @source_object = '[docs].[RepoObject_Plantuml_T]'
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -690,10 +726,10 @@ EXEC repo.usp_ExecutionLog_insert
  , @updated = @rows
 -- Logging END --
 
-/*{"ReportUspStep":[{"Number":420,"Name":"export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_1_1_ObjectRef]","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[docs].[RepoObject_Plantuml]","log_flag_InsertUpdateDelete":"u"}]}*/
+/*{"ReportUspStep":[{"Number":420,"Name":"export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_1_1_ObjectRef]","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[docs].[RepoObject_Plantuml_T]","log_flag_InsertUpdateDelete":"u"}]}*/
 PRINT CONCAT('usp_id;Number;Parent_Number: ',32,';',420,';',NULL);
 
-DECLARE db_cursor CURSOR
+DECLARE db_cursor CURSOR Local Fast_Forward
 FOR
 SELECT RepoObject_fullname
  , RepoObject_fullname2
@@ -711,7 +747,7 @@ WHILE @@FETCH_STATUS = 0
 BEGIN
  --Dynamically construct the BCP command
  --
- SET @command = 'bcp "SELECT [PlantumlEntity_1_1_ObjectRef] FROM [docs].[RepoObject_Plantuml] WITH (READUNCOMMITTED) where [RepoObject_fullname2] = '''
+ SET @command = 'bcp "SELECT [PlantumlEntity_1_1_ObjectRef] FROM [docs].[RepoObject_Plantuml_T] WITH (READUNCOMMITTED) where [RepoObject_fullname2] = '''
   --
   + @Object_fullname2
   --
@@ -719,7 +755,7 @@ BEGIN
   --
   + ' -S ' + @instanceName
   --
-  + ' -d ' + ' dhw_self'
+  + ' -d ' + @databaseName
   --
   + ' -c'
   --
@@ -746,10 +782,10 @@ DEALLOCATE db_cursor
 SET @rows = @@ROWCOUNT
 SET @step_id = @step_id + 1
 SET @step_name = 'export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_1_1_ObjectRef]'
-SET @source_object = '[docs].[RepoObject_Plantuml]'
+SET @source_object = '[docs].[RepoObject_Plantuml_T]'
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -766,10 +802,10 @@ EXEC repo.usp_ExecutionLog_insert
  , @updated = @rows
 -- Logging END --
 
-/*{"ReportUspStep":[{"Number":430,"Name":"export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_1_1_FkRef]","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[docs].[RepoObject_Plantuml]","log_flag_InsertUpdateDelete":"u"}]}*/
+/*{"ReportUspStep":[{"Number":430,"Name":"export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_1_1_FkRef]","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[docs].[RepoObject_Plantuml_T]","log_flag_InsertUpdateDelete":"u"}]}*/
 PRINT CONCAT('usp_id;Number;Parent_Number: ',32,';',430,';',NULL);
 
-DECLARE db_cursor CURSOR
+DECLARE db_cursor CURSOR Local Fast_Forward
 FOR
 SELECT RepoObject_fullname
  , RepoObject_fullname2
@@ -787,7 +823,7 @@ WHILE @@FETCH_STATUS = 0
 BEGIN
  --Dynamically construct the BCP command
  --
- SET @command = 'bcp "SELECT [PlantumlEntity_1_1_FkRef] FROM [docs].[RepoObject_Plantuml] WITH (READUNCOMMITTED) where [RepoObject_fullname2] = '''
+ SET @command = 'bcp "SELECT [PlantumlEntity_1_1_FkRef] FROM [docs].[RepoObject_Plantuml_T] WITH (READUNCOMMITTED) where [RepoObject_fullname2] = '''
   --
   + @Object_fullname2
   --
@@ -795,7 +831,7 @@ BEGIN
   --
   + ' -S ' + @instanceName
   --
-  + ' -d ' + ' dhw_self'
+  + ' -d ' + @databaseName
   --
   + ' -c'
   --
@@ -822,10 +858,162 @@ DEALLOCATE db_cursor
 SET @rows = @@ROWCOUNT
 SET @step_id = @step_id + 1
 SET @step_name = 'export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_1_1_FkRef]'
-SET @source_object = '[docs].[RepoObject_Plantuml]'
+SET @source_object = '[docs].[RepoObject_Plantuml_T]'
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @updated = @rows
+-- Logging END --
+
+/*{"ReportUspStep":[{"Number":440,"Name":"export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_0_30_ObjectRef]","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[docs].[RepoObject_Plantuml_T]","log_flag_InsertUpdateDelete":"u"}]}*/
+PRINT CONCAT('usp_id;Number;Parent_Number: ',32,';',440,';',NULL);
+
+DECLARE db_cursor CURSOR Local Fast_Forward
+FOR
+SELECT RepoObject_fullname
+ , RepoObject_fullname2
+FROM docs.[RepoObject_OutputFilter]
+ORDER BY RepoObject_fullname
+
+OPEN db_cursor
+
+FETCH NEXT
+FROM db_cursor
+INTO @Object_fullname
+ , @Object_fullname2
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+ --Dynamically construct the BCP command
+ --
+ SET @command = 'bcp "SELECT [PlantumlEntity_0_30_ObjectRef] FROM [docs].[RepoObject_Plantuml_T] WITH (READUNCOMMITTED) where [RepoObject_fullname2] = '''
+  --
+  + @Object_fullname2
+  --
+  + '''" queryout ' + @outputDir4 + @Object_fullname2 + '.puml'
+  --
+  + ' -S ' + @instanceName
+  --
+  + ' -d ' + @databaseName
+  --
+  + ' -c'
+  --
+  + @TrustedUserPassword
+
+ PRINT @command
+
+ --Execute the BCP command
+ EXEC xp_cmdshell @command
+  , no_output
+
+ FETCH NEXT
+ FROM db_cursor
+ INTO @Object_fullname
+  , @Object_fullname2
+END
+
+CLOSE db_cursor
+
+DEALLOCATE db_cursor
+
+
+-- Logging START --
+SET @rows = @@ROWCOUNT
+SET @step_id = @step_id + 1
+SET @step_name = 'export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_0_30_ObjectRef]'
+SET @source_object = '[docs].[RepoObject_Plantuml_T]'
+SET @target_object = NULL
+
+EXEC logs.usp_ExecutionLog_insert 
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @updated = @rows
+-- Logging END --
+
+/*{"ReportUspStep":[{"Number":450,"Name":"export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_30_0_ObjectRef]","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[docs].[RepoObject_Plantuml_T]","log_flag_InsertUpdateDelete":"u"}]}*/
+PRINT CONCAT('usp_id;Number;Parent_Number: ',32,';',450,';',NULL);
+
+DECLARE db_cursor CURSOR Local Fast_Forward
+FOR
+SELECT RepoObject_fullname
+ , RepoObject_fullname2
+FROM docs.[RepoObject_OutputFilter]
+ORDER BY RepoObject_fullname
+
+OPEN db_cursor
+
+FETCH NEXT
+FROM db_cursor
+INTO @Object_fullname
+ , @Object_fullname2
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+ --Dynamically construct the BCP command
+ --
+ SET @command = 'bcp "SELECT [PlantumlEntity_30_0_ObjectRef] FROM [docs].[RepoObject_Plantuml_T] WITH (READUNCOMMITTED) where [RepoObject_fullname2] = '''
+  --
+  + @Object_fullname2
+  --
+  + '''" queryout ' + @outputDir5 + @Object_fullname2 + '.puml'
+  --
+  + ' -S ' + @instanceName
+  --
+  + ' -d ' + @databaseName
+  --
+  + ' -c'
+  --
+  + @TrustedUserPassword
+
+ PRINT @command
+
+ --Execute the BCP command
+ EXEC xp_cmdshell @command
+  , no_output
+
+ FETCH NEXT
+ FROM db_cursor
+ INTO @Object_fullname
+  , @Object_fullname2
+END
+
+CLOSE db_cursor
+
+DEALLOCATE db_cursor
+
+
+-- Logging START --
+SET @rows = @@ROWCOUNT
+SET @step_id = @step_id + 1
+SET @step_name = 'export FROM [docs].[RepoObject_Plantuml] [PlantumlEntity_30_0_ObjectRef]'
+SET @source_object = '[docs].[RepoObject_Plantuml_T]'
+SET @target_object = NULL
+
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -854,7 +1042,7 @@ SET @step_name = 'end'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert
+EXEC logs.usp_ExecutionLog_insert
    @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -868,6 +1056,8 @@ EXEC repo.usp_ExecutionLog_insert
  , @step_name = @step_name
  , @source_object = @source_object
  , @target_object = @target_object
+
+END
 
 
 ----

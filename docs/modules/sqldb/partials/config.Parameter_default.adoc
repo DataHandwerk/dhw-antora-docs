@@ -3,14 +3,14 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencingList:
-:ExistsProperty--example1:
-:ExistsProperty--example2:
-:ExistsProperty--MS_Description:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--exampleusage:
+:ExistsProperty--exampleusage_2:
+:ExistsProperty--ms_description:
 :ExistsProperty--pk_index_guid:
-:ExistsProperty--pk_IndexPatternColumnDatatype:
-:ExistsProperty--pk_IndexPatternColumnName:
-:ExistsProperty--pk_IndexSemanticGroup:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--pk_indexsemanticgroup:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
@@ -44,7 +44,7 @@ view
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-11 18:05:34
+2021-04-15 18:25:00
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -175,93 +175,100 @@ view
 
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
+// end::adocuspsteps[]
 
 
 == AntoraReferencedList
 
-// tag::AntoraReferencedList[]
+// tag::antorareferencedlist[]
 
-// end::AntoraReferencedList[]
-
-
-== ReferencedObjectList
-
-// tag::ReferencedObjectList[]
-
-// end::ReferencedObjectList[]
+// end::antorareferencedlist[]
 
 
-== is_repo_managed
+== AntoraReferencingList
 
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
-
-
-== microsoft_database_tools_support
-
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
+// tag::antorareferencinglist[]
+* xref:config.usp_init_parameter.adoc[]
+// end::antorareferencinglist[]
 
 
-== example3
+== exampleUsage
 
-// tag::example3[]
+// tag::exampleusage[]
 
-// end::example3[]
+--merge this view into [config].[Parameter]:
 
-
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
+EXEC [config].[usp_init_parameter]
+// end::exampleusage[]
 
 
-== UspExamples
+== exampleUsage_2
 
-// tag::UspExamples[]
+// tag::exampleusage_2[]
 
-// end::UspExamples[]
+--delete from [config].[Parameter], what not is defined here in this view (Dangerous: possible data loss)
+--do not delete based on [sub_Parameter]!
+--they can always be added in [config].[Parameter]!
 
-
-== UspParameters
-
-// tag::UspParameters[]
-
-// end::UspParameters[]
-
-
-== persistence_source_RepoObject_xref
-
-// tag::persistence_source_RepoObject_xref[]
-
-// end::persistence_source_RepoObject_xref[]
+DELETE T
+FROM [config].[Parameter] T
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM [config].[Parameter_default] S
+  WHERE S.[Parameter_name] = T.[Parameter_name]
+  )
+// end::exampleusage_2[]
 
 
-== persistence_source_RepoObject_fullname
+== exampleWrong_Usage
 
-// tag::persistence_source_RepoObject_fullname[]
+// tag::examplewrong_usage[]
 
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
+// end::examplewrong_usage[]
 
 
-== persistence_source_RepoObject_guid
+== has_execution_plan_issue
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::has_execution_plan_issue[]
 
-// end::persistence_source_RepoObject_guid[]
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -306,90 +313,55 @@ view
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
-
-
-== is_persistence
-
-// tag::is_persistence[]
-
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
-
-
-== AntoraReferencingList
-
-// tag::AntoraReferencingList[]
-* xref:config.usp_init_parameter.adoc[]
-// end::AntoraReferencingList[]
-
-
-== example1
-
-// tag::example1[]
-
---merge this view into [repo].[Parameter]:
-
-EXEC [config].[usp_init_parameter]
-// end::example1[]
-
-
-== example2
-
-// tag::example2[]
-
---delete from [repo].[Parameter], what not is defined here in this view (Dangerous: possible data loss)
---do not delete based on [sub_Parameter]!
---they can always be added in [repo].[Parameter]!
-
-DELETE T
-FROM [repo].[Parameter] T
-WHERE NOT EXISTS (
-  SELECT 1
-  FROM [config].[Parameter_default] S
-  WHERE S.[Parameter_name] = T.[Parameter_name]
-  )
-// end::example2[]
+// end::microsoft_database_tools_support[]
 
 
 == MS_Description
 
-// tag::MS_Description[]
+// tag::ms_description[]
 
-* default parameters for xref:sqldb:repo.Parameter.adoc[]
-* content can be overwritten in xref:sqldb:repo.Parameter.adoc#column-Parameter_value[repo.Parameter.Parameter_value]
-// end::MS_Description[]
+* default parameters for xref:sqldb:config.Parameter.adoc[]
+* content can be overwritten in xref:sqldb:config.Parameter.adoc#column-Parameter_value[config.Parameter.Parameter_value]
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -401,23 +373,44 @@ WHERE NOT EXISTS (
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 varchar(52),nvarchar(26)
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 Parameter_name,sub_Parameter
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
 
 
 == pk_IndexSemanticGroup
 
-// tag::pk_IndexSemanticGroup[]
+// tag::pk_indexsemanticgroup[]
 PK_Parameter
-// end::pk_IndexSemanticGroup[]
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -426,25 +419,26 @@ PK_Parameter
 [source,sql]
 ----
 
+
 /*
 <<property_start>>MS_Description
-* default parameters for xref:sqldb:repo.Parameter.adoc[]
-* content can be overwritten in xref:sqldb:repo.Parameter.adoc#column-Parameter_value[repo.Parameter.Parameter_value]
+* default parameters for xref:sqldb:config.Parameter.adoc[]
+* content can be overwritten in xref:sqldb:config.Parameter.adoc#column-Parameter_value[config.Parameter.Parameter_value]
 <<property_end>>
 
-<<property_start>>example1
---merge this view into [repo].[Parameter]:
+<<property_start>>exampleUsage
+--merge this view into [config].[Parameter]:
 
 EXEC [config].[usp_init_parameter]
 <<property_end>>
 
-<<property_start>>example2
---delete from [repo].[Parameter], what not is defined here in this view (Dangerous: possible data loss)
+<<property_start>>exampleUsage_2
+--delete from [config].[Parameter], what not is defined here in this view (Dangerous: possible data loss)
 --do not delete based on [sub_Parameter]!
---they can always be added in [repo].[Parameter]!
+--they can always be added in [config].[Parameter]!
 
 DELETE T
-FROM [repo].[Parameter] T
+FROM [config].[Parameter] T
 WHERE NOT EXISTS (
   SELECT 1
   FROM [config].[Parameter_default] S
@@ -452,218 +446,194 @@ WHERE NOT EXISTS (
   )
 <<property_end>>
 */
-CREATE VIEW [config].[Parameter_default]
-AS
+CREATE View [config].[Parameter_default]
+As
 --
 --first [Parameter_default_value] datatype should be SQL_VARIANT to avoid taye casting issues for other entries
-SELECT [Parameter_name] = 'DUMMY'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'dummy parameter, data type SQL_Variant'
- , [Parameter_default_value] = CAST(N'' AS SQL_VARIANT)
-
-UNION ALL
-
-SELECT [Parameter_name] = 'dwh_database_name'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'The database name must be the same as the one used in the synonyms'
- , [Parameter_default_value] = CAST(N'master' AS SYSNAME)
-
-UNION ALL
-
-SELECT [Parameter_name] = 'main enable usp_RepoObjectSource_FirstResultSet'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'execute (or not) usp_RepoObjectSource_FirstResultSet'
- , [Parameter_default_value] = 0
-
-UNION ALL
-
-SELECT [Parameter_name] = 'main enable usp_RepoObject_update_SysObjectQueryPlan'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'execute (or not) usp_RepoObject_update_SysObjectQueryPlan'
- , [Parameter_default_value] = 0
-
-UNION ALL
-
-SELECT [Parameter_name] = 'main enable usp_RepoObjectSource_QueryPlan'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'execute (or not) usp_RepoObjectSource_QueryPlan'
- , [Parameter_default_value] = 0
-
-UNION ALL
-
-SELECT [Parameter_name] = 'persistence_name_suffix'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'default suffix for persistence table which will be added to source object name'
- , [Parameter_default_value] = CAST(N'_T' AS SYSNAME)
-
-UNION ALL
-
-SELECT [Parameter_name] = 'Hist_ValidFrom_column_name'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'default column name for column - datetime2 GENERATED ALWAYS AS ROW START'
- , [Parameter_default_value] = CAST(N'ValidFrom' AS SYSNAME)
-
-UNION ALL
-
-SELECT [Parameter_name] = 'Hist_ValidTo_column_name'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'default column name for column - datetime2 GENERATED ALWAYS AS ROW END'
- , [Parameter_default_value] = CAST(N'ValidTo' AS SYSNAME)
-
-UNION ALL
-
-SELECT [Parameter_name] = 'Hist_Table_schema'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'default: NULL - The historization table uses the same schema as the table to be historized. otherwise the given schema is used'
- , [Parameter_default_value] = NULL
-
-UNION ALL
-
-SELECT [Parameter_name] = 'Hist_Table_name_suffix'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'default suffix for historization table which will be added to historized object name'
- , [Parameter_default_value] = CAST(N'_hist' AS SYSNAME)
-
-UNION ALL
-
-SELECT [Parameter_name] = 'RepoObjectColumn_column_id_OrderBy'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'used in repo.usp_RepoObjectColumn__update_RepoObjectColumn_column_id to define the order of columns'
- , [Parameter_default_value] = CAST(N'
+Select
+    Parameter_name          = 'DUMMY'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'dummy parameter, data type SQL_Variant'
+  , Parameter_default_value = Cast(N'' As Sql_Variant)
+Union All
+Select
+    Parameter_name          = 'dwh_database_name'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'The database name must be the same as the one used in the synonyms'
+  , Parameter_default_value = Cast(N'master' As sysname)
+Union All
+Select
+    Parameter_name          = 'main enable usp_RepoObjectSource_FirstResultSet'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'execute (or not) usp_RepoObjectSource_FirstResultSet'
+  , Parameter_default_value = 0
+Union All
+Select
+    Parameter_name          = 'main enable usp_RepoObject_update_SysObjectQueryPlan'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'execute (or not) usp_RepoObject_update_SysObjectQueryPlan'
+  , Parameter_default_value = 0
+Union All
+Select
+    Parameter_name          = 'main enable usp_RepoObjectSource_QueryPlan'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'execute (or not) usp_RepoObjectSource_QueryPlan'
+  , Parameter_default_value = 0
+Union All
+Select
+    Parameter_name          = 'persistence_name_suffix'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'default suffix for persistence table which will be added to source object name'
+  , Parameter_default_value = Cast(N'_T' As sysname)
+Union All
+Select
+    Parameter_name          = 'Hist_ValidFrom_column_name'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'default column name for column - datetime2 GENERATED ALWAYS AS ROW START'
+  , Parameter_default_value = Cast(N'ValidFrom' As sysname)
+Union All
+Select
+    Parameter_name          = 'Hist_ValidTo_column_name'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'default column name for column - datetime2 GENERATED ALWAYS AS ROW END'
+  , Parameter_default_value = Cast(N'ValidTo' As sysname)
+Union All
+Select
+    Parameter_name          = 'Hist_Table_schema'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'default: NULL - The historization table uses the same schema as the table to be historized. otherwise the given schema is used'
+  , Parameter_default_value = Null
+Union All
+Select
+    Parameter_name          = 'Hist_Table_name_suffix'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'default suffix for historization table which will be added to historized object name'
+  , Parameter_default_value = Cast(N'_hist' As sysname)
+Union All
+Select
+    Parameter_name          = 'RepoObjectColumn_column_id_OrderBy'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'used in repo.usp_RepoObjectColumn__update_RepoObjectColumn_column_id to define the order of columns'
+  , Parameter_default_value = Cast(N'
 ISNULL([ic].[index_column_id] , 99999) --ensure PK index is sorted before other columns
 , [roc].[Repo_is_computed] --computed columns after normal columns
 , [roc].[Repo_is_identity] --IDENTITY columns after normal columns, because nothing should be inserted (they are like computed columns)
 , [roc].[Repo_generated_always_type]
 , [roc].[RepoObjectColumn_name]
-' AS NVARCHAR(4000))
+' As NVarchar(4000))
 --
 --the following parameters can have [sub_Parameter]
 
-UNION ALL
-
-SELECT [Parameter_name] = 'Inheritance_StringAggSeparatorSql_column'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'if NULL then only one source is used for inheritance; if not NULL then STRING_AGG( expression, separator ) is used to aggregate all sources. Content is interpreted as TSQL. Good values are ''CHAR(13)+CHAR(10)'' or '''';'''''
- , [Parameter_default_value] = CAST(NULL AS NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'Inheritance_StringAggSeparatorSql_column'
- , [sub_Parameter] = N'ReferencedObjectColumnList'
- , [Parameter_desciption] = N'if NULL then only one source is used for inheritance; if not NULL then STRING_AGG( expression, separator ) is used to aggregate all sources. Content is interpreted as TSQL. Good values are ''CHAR(13)+CHAR(10)'' or '''';'''''
- , [Parameter_default_value] = CAST(CHAR(13)+CHAR(10) AS NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'Inheritance_StringAggSeparatorSql_object'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'if NULL then only one source is used for inheritance; if not NULL then STRING_AGG( expression, separator ) is used to aggregate all sources. Content is interpreted as TSQL. Good values are ''CHAR(13)+CHAR(10)'' or '''';'''''
- , [Parameter_default_value] = CAST(NULL AS NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'Inheritance_StringAggSeparatorSql_object'
- , [sub_Parameter] = N'ReferencedObjectList'
- , [Parameter_desciption] = N'if NULL then only one source is used for inheritance; if not NULL then STRING_AGG( expression, separator ) is used to aggregate all sources. Content is interpreted as TSQL. Good values are ''CHAR(13)+CHAR(10)'' or '''';'''''
- , [Parameter_default_value] = CAST(CHAR(13)+CHAR(10) AS NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'InheritanceDefinition_column'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'CONCAT arguments to be used with some specific values in [repo].[InheritanceType], for example: ''[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion(''MS_Description'')'''
- , [Parameter_default_value] = CAST(NULL AS NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'InheritanceDefinition_column'
- , [sub_Parameter] = N'MS_Description'
- , [Parameter_desciption] = N'CONCAT arguments to be used with some specific values in [repo].[InheritanceType], for example: ''[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion(''MS_Description'')'''
- , [Parameter_default_value] = CAST('CAST(COALESCE(referencing.[Repo_definition], repo.fs_get_RepoObjectColumnProperty_nvarchar(referenced.[RepoObjectColumn_guid], ''MS_Description'')) AS NVARCHAR(4000))' AS NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'InheritanceDefinition_column'
- , [sub_Parameter] = N'ReferencedObjectColumnList'
- , [Parameter_desciption] = N'CONCAT arguments to be used with some specific values in [repo].[InheritanceType], for example: ''[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion(''MS_Description'')'''
- , [Parameter_default_value] = CAST('''* '' + referenced.[RepoObjectColumn_fullname]' AS NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'InheritanceDefinition_object'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'CONCAT arguments to be used with some specific values in [repo].[InheritanceType], for example: ''[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion(''MS_Description'')'''
- , [Parameter_default_value] = CAST(NULL AS NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'InheritanceDefinition_object'
- , [sub_Parameter] = N'MS_Description'
- , [Parameter_desciption] = N'CONCAT arguments to be used with some specific values in [repo].[InheritanceType], for example: ''[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion(''MS_Description'')'''
- , [Parameter_default_value] = CAST(NULL AS NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'InheritanceDefinition_object'
- , [sub_Parameter] = N'ReferencedObjectList'
- , [Parameter_desciption] = N'CONCAT arguments to be used with some specific values in [repo].[InheritanceType], for example: ''[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion(''MS_Description'')'''
- , [Parameter_default_value] = CAST('''* '' + referenced.[RepoObject_fullname]' AS NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'InheritanceType_column'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'TINYINT; InheritanceType for column: possible values in [repo].[InheritanceType]'
- , [Parameter_default_value] = CAST(0 AS TINYINT)
-
-UNION ALL
-
-SELECT [Parameter_name] = 'InheritanceType_column'
- , [sub_Parameter] = N'MS_Description'
- , [Parameter_desciption] = N'TINYINT; InheritanceType for column: possible values in [repo].[InheritanceType]'
- , [Parameter_default_value] = CAST(0 AS TINYINT)
-
-UNION ALL
-
-SELECT [Parameter_name] = 'InheritanceType_column'
- , [sub_Parameter] = N'ReferencedObjectColumnList'
- , [Parameter_desciption] = N'TINYINT; InheritanceType for object: possible values in [repo].[InheritanceType]'
- , [Parameter_default_value] = CAST(14 AS TINYINT)
-
-UNION ALL
-
-SELECT [Parameter_name] = 'InheritanceType_object'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'TINYINT; InheritanceType for object: possible values in [repo].[InheritanceType]'
- , [Parameter_default_value] = CAST(0 AS TINYINT)
-
-UNION ALL
-
-SELECT [Parameter_name] = 'InheritanceType_object'
- , [sub_Parameter] = N'MS_Description'
- , [Parameter_desciption] = N'TINYINT; InheritanceType for object: possible values in [repo].[InheritanceType]'
- , [Parameter_default_value] = CAST(0 AS TINYINT)
-
-UNION ALL
-
-SELECT [Parameter_name] = 'InheritanceType_object'
- , [sub_Parameter] = N'ReferencedObjectList'
- , [Parameter_desciption] = N'TINYINT; InheritanceType for object: possible values in [repo].[InheritanceType]'
- , [Parameter_default_value] = CAST(14 AS TINYINT)
+Union All
+Select
+    Parameter_name          = 'Inheritance_StringAggSeparatorSql_column'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'if NULL then only one source is used for inheritance; if not NULL then STRING_AGG( expression, separator ) is used to aggregate all sources. Content is interpreted as TSQL. Good values are ''CHAR(13)+CHAR(10)'' or '''';'''''
+  , Parameter_default_value = Cast(Null As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'Inheritance_StringAggSeparatorSql_column'
+  , sub_Parameter           = N'ReferencedObjectColumnList'
+  , Parameter_desciption    = N'if NULL then only one source is used for inheritance; if not NULL then STRING_AGG( expression, separator ) is used to aggregate all sources. Content is interpreted as TSQL. Good values are ''CHAR(13)+CHAR(10)'' or '''';'''''
+  , Parameter_default_value = Cast(Char ( 13 ) + Char ( 10 ) As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'Inheritance_StringAggSeparatorSql_object'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'if NULL then only one source is used for inheritance; if not NULL then STRING_AGG( expression, separator ) is used to aggregate all sources. Content is interpreted as TSQL. Good values are ''CHAR(13)+CHAR(10)'' or '''';'''''
+  , Parameter_default_value = Cast(Null As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'Inheritance_StringAggSeparatorSql_object'
+  , sub_Parameter           = N'ReferencedObjectList'
+  , Parameter_desciption    = N'if NULL then only one source is used for inheritance; if not NULL then STRING_AGG( expression, separator ) is used to aggregate all sources. Content is interpreted as TSQL. Good values are ''CHAR(13)+CHAR(10)'' or '''';'''''
+  , Parameter_default_value = Cast(Char ( 13 ) + Char ( 10 ) As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'InheritanceDefinition_column'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'CONCAT arguments to be used with some specific values in [config].[InheritanceType], for example: ''[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion(''MS_Description'')'''
+  , Parameter_default_value = Cast(Null As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'InheritanceDefinition_column'
+  , sub_Parameter           = N'MS_Description'
+  , Parameter_desciption    = N'CONCAT arguments to be used with some specific values in [config].[InheritanceType], for example: ''[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion(''MS_Description'')'''
+  , Parameter_default_value = Cast('CAST(COALESCE(referencing.[Repo_definition], repo.fs_get_RepoObjectColumnProperty_nvarchar(referenced.[RepoObjectColumn_guid], ''MS_Description'')) AS NVARCHAR(4000))' As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'InheritanceDefinition_column'
+  , sub_Parameter           = N'ReferencedObjectColumnList'
+  , Parameter_desciption    = N'CONCAT arguments to be used with some specific values in [config].[InheritanceType], for example: ''[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion(''MS_Description'')'''
+  , Parameter_default_value = Cast('''* '' + referenced.[RepoObjectColumn_fullname]' As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'InheritanceDefinition_object'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'CONCAT arguments to be used with some specific values in [config].[InheritanceType], for example: ''[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion(''MS_Description'')'''
+  , Parameter_default_value = Cast(Null As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'InheritanceDefinition_object'
+  , sub_Parameter           = N'MS_Description'
+  , Parameter_desciption    = N'CONCAT arguments to be used with some specific values in [config].[InheritanceType], for example: ''[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion(''MS_Description'')'''
+  , Parameter_default_value = Cast(Null As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'InheritanceDefinition_object'
+  , sub_Parameter           = N'ReferencedObjectList'
+  , Parameter_desciption    = N'CONCAT arguments to be used with some specific values in [config].[InheritanceType], for example: ''[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion(''MS_Description'')'''
+  , Parameter_default_value = Cast('''* '' + referenced.[RepoObject_fullname]' As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'InheritanceType_column'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'TINYINT; InheritanceType for column: possible values in [config].[InheritanceType]'
+  , Parameter_default_value = Cast(0 As TinyInt)
+Union All
+Select
+    Parameter_name          = 'InheritanceType_column'
+  , sub_Parameter           = N'MS_Description'
+  , Parameter_desciption    = N'TINYINT; InheritanceType for column: possible values in [config].[InheritanceType]'
+  , Parameter_default_value = Cast(0 As TinyInt)
+Union All
+Select
+    Parameter_name          = 'InheritanceType_column'
+  , sub_Parameter           = N'ReferencedObjectColumnList'
+  , Parameter_desciption    = N'TINYINT; InheritanceType for object: possible values in [config].[InheritanceType]'
+  , Parameter_default_value = Cast(14 As TinyInt)
+Union All
+Select
+    Parameter_name          = 'InheritanceType_object'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'TINYINT; InheritanceType for object: possible values in [config].[InheritanceType]'
+  , Parameter_default_value = Cast(0 As TinyInt)
+Union All
+Select
+    Parameter_name          = 'InheritanceType_object'
+  , sub_Parameter           = N'MS_Description'
+  , Parameter_desciption    = N'TINYINT; InheritanceType for object: possible values in [config].[InheritanceType]'
+  , Parameter_default_value = Cast(0 As TinyInt)
+Union All
+Select
+    Parameter_name          = 'InheritanceType_object'
+  , sub_Parameter           = N'ReferencedObjectList'
+  , Parameter_desciption    = N'TINYINT; InheritanceType for object: possible values in [config].[InheritanceType]'
+  , Parameter_default_value = Cast(14 As TinyInt)
 
 ----todo: Warum sollte es eine Unterscheidung zwischen Sichten und Tabellen geben?
 --UNION ALL
 
 --SELECT [Parameter_name] = 'InheritanceType_object_type_u'
 -- , [sub_Parameter] = N''
--- , [Parameter_desciption] = N'TINYINT; InheritanceType for object type U (user table): possible values in [repo].[InheritanceType]'
+-- , [Parameter_desciption] = N'TINYINT; InheritanceType for object type U (user table): possible values in [config].[InheritanceType]'
 -- , [Parameter_default_value] = CAST(0 AS TINYINT)
 
 --UNION ALL
 
 --SELECT [Parameter_name] = 'InheritanceType_object_type_u'
 -- , [sub_Parameter] = N'MS_Description'
--- , [Parameter_desciption] = N'TINYINT; InheritanceType for object type U (user table): possible values in [repo].[InheritanceType]'
+-- , [Parameter_desciption] = N'TINYINT; InheritanceType for object type U (user table): possible values in [config].[InheritanceType]'
 -- , [Parameter_default_value] = CAST(0 AS TINYINT)
 
 
@@ -671,23 +641,23 @@ SELECT [Parameter_name] = 'InheritanceType_object'
 
 --SELECT [Parameter_name] = 'InheritanceType_object_type_v'
 -- , [sub_Parameter] = N''
--- , [Parameter_desciption] = N'TINYINT; InheritanceType for object type V (view): possible values in [repo].[InheritanceType]'
+-- , [Parameter_desciption] = N'TINYINT; InheritanceType for object type V (view): possible values in [config].[InheritanceType]'
 -- , [Parameter_default_value] = CAST(0 AS TINYINT)
 
 --UNION ALL
 
 --SELECT [Parameter_name] = 'InheritanceType_object_type_v'
 -- , [sub_Parameter] = N'MS_Description'
--- , [Parameter_desciption] = N'TINYINT; InheritanceType for object type V (view): possible values in [repo].[InheritanceType]'
+-- , [Parameter_desciption] = N'TINYINT; InheritanceType for object type V (view): possible values in [config].[InheritanceType]'
 -- , [Parameter_default_value] = CAST(0 AS TINYINT)
 
 
-UNION ALL
-
-SELECT [Parameter_name] = 'puml_skinparam_class'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'skinparam class for generated PlantUML files. <<xxx>> - object type, see: [config].[type]'
- , [Parameter_default_value] = CAST(N'
+Union All
+Select
+    Parameter_name          = 'puml_skinparam_class'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'skinparam class for generated PlantUML files. <<xxx>> - object type, see: [config].[type]'
+  , Parameter_default_value = Cast(N'
 skinparam class {
   BackgroundColor White
   BackgroundColor<<FN>> Yellow
@@ -705,32 +675,30 @@ skinparam class {
   BackgroundColor<<V>> WhiteSmoke
   BackgroundColor<<X>> Aqua
 }
-' as NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'Adoc_AntoraDocModulFolder'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'Antora export folder, will be extended by ''partials\'', ''pages\'', ''examples\'', ''images\'' and so on'
- , [Parameter_default_value] = CAST(N'D:\Repos\GitHub\MyOrganisation\MyProject-docs\docs\modules\sqldb\' as NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'Adoc_AntoraPageTemplate'
- , [sub_Parameter] = N''
- , [Parameter_desciption] = N'content of an final Antora Page'
- , [Parameter_default_value] = CAST(N'
+' As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'Adoc_AntoraDocModulFolder'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'Antora export folder, will be extended by ''partials\'', ''pages\'', ''examples\'', ''images\'' and so on'
+  , Parameter_default_value = Cast(N'D:\Repos\GitHub\MyOrganisation\MyProject-docs\docs\modules\sqldb\' As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'Adoc_AntoraPageTemplate'
+  , sub_Parameter           = N''
+  , Parameter_desciption    = N'content of an final Antora Page'
+  , Parameter_default_value = Cast(N'
 \include::partial$template/master-page-1.adoc[]
-\include::partial$template/master-page-2.adoc[]
-\include::partial$template/master-page-3.adoc[]
-' AS NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'Adoc_AntoraPageTemplate'
- , [sub_Parameter] = N'1'
- , [Parameter_desciption] = N'template for Antora pages which gets Content via include from Partials, using tags. Attention! NVARCHAR(4000), use sub_Parameter for biger content - nvarchar(max) is incompatible with sql_variant'
- , [Parameter_default_value] = CAST(N'= {docname}
+\include::partial$template/master-page-examples.adoc[]
+\include::partial$template/master-page-4.adoc[]
+\include::partial$template/master-page-5.adoc[]
+' As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'Adoc_AntoraPageTemplate'
+  , sub_Parameter           = N'1'
+  , Parameter_desciption    = N'template for Antora pages which gets Content via include from Partials, using tags. Attention! NVARCHAR(4000), use sub_Parameter for biger content - nvarchar(max) is incompatible with sql_variant'
+  , Parameter_default_value = Cast(N'= {docname}
 
 \include::partial${docname}.adoc[tag=existing_properties]
 
@@ -753,96 +721,16 @@ is_repo_managed:
 
 == Description
 
-\include::partial${docname}.adoc[tag=MS_Description]
+\include::partial${docname}.adoc[tag=ms_description]
 
-\endif::ExistsProperty--MS_Description[]
-
-\ifdef::ExistsProperty--UspExamples,ExistsProperty--example1,ExistsProperty--example2,ExistsProperty--example3,ExistsProperty--example4,ExistsProperty--example5[]
-
-== Examples
-
-\endif::ExistsProperty--UspExamples,ExistsProperty--example1,ExistsProperty--example2,ExistsProperty--example3,ExistsProperty--example4,ExistsProperty--example5[]
-
-
-\ifdef::ExistsProperty--UspExamples[]
-
-.UspExamples
-====
-[source,sql]
-----
-\include::partial${docname}.adoc[tag=UspExamples]
-----
-====
-
-\endif::ExistsProperty--UspExamples[]
-
-\ifdef::ExistsProperty--example1[]
-
-.Example 1
-====
-[source,sql]
-----
-\include::partial${docname}.adoc[tag=example1]
-----
-====
-
-\endif::ExistsProperty--example1[]
-
-\ifdef::ExistsProperty--example2[]
-
-.Example 2
-====
-[source,sql]
-----
-\include::partial${docname}.adoc[tag=example2]
-----
-====
-
-\endif::ExistsProperty--example2[]
-
-\ifdef::ExistsProperty--example3[]
-
-.Example 3
-====
-[source,sql]
-----
-\include::partial${docname}.adoc[tag=example3]
-----
-====
-
-\endif::ExistsProperty--example3[]
-
-\ifdef::ExistsProperty--example4[]
-
-.Example 4
-====
-[source,sql]
-----
-\include::partial${docname}.adoc[tag=example4]
-----
-====
-
-\endif::ExistsProperty--example4[]
-
-\ifdef::ExistsProperty--example5[]
-
-.Example 5
-====
-[source,sql]
-----
-\include::partial${docname}.adoc[tag=example5]
-----
-====
-
-\endif::ExistsProperty--example5[]
-' AS NVARCHAR(4000))
-
-UNION ALL
-
-SELECT [Parameter_name] = 'Adoc_AntoraPageTemplate'
- , [sub_Parameter] = N'2'
- , [Parameter_desciption] = N'template for Antora pages which gets Content via include from Partials, using tags. Attention! NVARCHAR(4000), use sub_Parameter for biger content - nvarchar(max) is incompatible with sql_variant'
- , [Parameter_default_value] = CAST(N'
+\endif::ExistsProperty--ms_description[]
+' As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'Adoc_AntoraPageTemplate'
+  , sub_Parameter           = N'4'
+  , Parameter_desciption    = N'template for Antora pages which gets Content via include from Partials, using tags. Attention! NVARCHAR(4000), use sub_Parameter for biger content - nvarchar(max) is incompatible with sql_variant'
+  , Parameter_default_value = Cast(N'
 \ifdef::ExistsProperty--AntoraParameterList[]
 
 == Parameters
@@ -851,26 +739,26 @@ SELECT [Parameter_name] = 'Adoc_AntoraPageTemplate'
 
 \endif::ExistsProperty--AntoraParameterList[]
 
-\ifdef::ExistsProperty--AdocUspSteps[]
+\ifdef::ExistsProperty--adocuspsteps[]
 
 == Procedure steps
 
-\include::partial${docname}.adoc[tag=AdocUspSteps]
+\include::partial${docname}.adoc[tag=adocuspsteps]
 
-\endif::ExistsProperty--AdocUspSteps[]
+\endif::ExistsProperty--adocuspsteps[]
 
 //\ifdef::ExistsProperty--pk_index_guid[]
 //
 //== PK
 //
 //PK SemanticGroup:
-//\include::partial${docname}.adoc[tag=pk_IndexSemanticGroup]
+//\include::partial${docname}.adoc[tag=pk_indexsemanticgroup]
 //
 //PK Column Name(s):
-//\include::partial${docname}.adoc[tag=pk_IndexPatternColumnName]
+//\include::partial${docname}.adoc[tag=pk_indexpatterncolumnname]
 //
 //PK Column Datatype(s):
-//\include::partial${docname}.adoc[tag=pk_IndexPatternColumnDatatype]
+//\include::partial${docname}.adoc[tag=pk_indexpatterncolumndatatype]
 //
 //.PK columns of {docname}
 //[cols="d,m,m,m,m,d"]
@@ -905,7 +793,7 @@ SELECT [Parameter_name] = 'Adoc_AntoraPageTemplate'
 == Persistence, History Table
 
 * persistence source:
-\include::partial${docname}.adoc[tag=persistence_source_RepoObject_xref]
+\include::partial${docname}.adoc[tag=persistence_source_repoobject_xref]
 * is_persistence:
 \include::partial${docname}.adoc[tag=is_persistence]
 * is_persistence_check_duplicate_per_pk:
@@ -939,35 +827,49 @@ SELECT [Parameter_name] = 'Adoc_AntoraPageTemplate'
 ....
 
 \endif::ExistsProperty--FK[]
-' AS NVARCHAR(4000))
+' As NVarchar(4000))
+Union All
+Select
+    Parameter_name          = 'Adoc_AntoraPageTemplate'
+  , sub_Parameter           = N'5'
+  , Parameter_desciption    = N'template for Antora pages which gets Content via include from Partials, using tags. Attention! NVARCHAR(4000), use sub_Parameter for biger content - nvarchar(max) is incompatible with sql_variant'
+  , Parameter_default_value = Cast(N'
 
-UNION ALL
-
-SELECT [Parameter_name] = 'Adoc_AntoraPageTemplate'
- , [sub_Parameter] = N'3'
- , [Parameter_desciption] = N'template for Antora pages which gets Content via include from Partials, using tags. Attention! NVARCHAR(4000), use sub_Parameter for biger content - nvarchar(max) is incompatible with sql_variant'
- , [Parameter_default_value] = CAST(N'
 == References
 
-\ifdef::ExistsProperty--AntoraReferencedList[]
+\ifdef::ExistsProperty--antorareferencedlist[]
 
 === Referenced Objects
 
-\include::partial${docname}.adoc[tag=AntoraReferencedList]
-\endif::ExistsProperty--AntoraReferencedList[]
+\include::partial${docname}.adoc[tag=antorareferencedlist]
+\endif::ExistsProperty--antorareferencedlist[]
 
-\ifdef::ExistsProperty--AntoraReferencingList[]
+\ifdef::ExistsProperty--antorareferencinglist[]
 
 === Referencing Objects
 
-\include::partial${docname}.adoc[tag=AntoraReferencingList]
-\endif::ExistsProperty--AntoraReferencingList[]
+\include::partial${docname}.adoc[tag=antorareferencinglist]
+\endif::ExistsProperty--antorareferencinglist[]
 
 === Object Reference Diagram
 
 [plantuml, entity_1_1_objectref-{docname}, svg]
 ....
 \include::partial$puml/entity_1_1_objectref/{docname}.puml[]
+....
+
+=== Object Reference Diagram - Referenced
+
+[plantuml, entity_30_0_objectref-{docname}, svg]
+....
+\include::partial$puml/entity_30_0_objectref/{docname}.puml[]
+....
+
+=== Object Reference Diagram - Referencing
+
+[plantuml, entity_0_30_objectref-{docname}, svg]
+....
+\include::partial$puml/entity_0_30_objectref/{docname}.puml[]
 ....
 
 \ifdef::ExistsProperty--Columns[]
@@ -1004,8 +906,7 @@ SELECT [Parameter_name] = 'Adoc_AntoraPageTemplate'
 .{docname} script
 \include::partial${docname}.adoc[tag=sql_modules_definition]
 \endif::ExistsProperty--sql_modules_definition[]
-' AS NVARCHAR(4000))
-
+' As NVarchar(4000));
 
 ----
 // end::sql_modules_definition[]

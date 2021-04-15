@@ -36,6 +36,6 @@ entity repo.RepoObject_ReferencingList << V >> {
   **Referenced_guid** : uniqueidentifier
 }
 
-graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_gross
 graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_ReferencingList
+graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_gross
 repo.RepoObject_ReferencingList <.. repo.RepoObject_gross

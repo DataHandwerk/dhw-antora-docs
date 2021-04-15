@@ -30,5 +30,38 @@ entity repo.RepoObjectProperty_from_sql_modules_definition << V >> {
   * RepoObject_guid : uniqueidentifier
 }
 
+entity repo.usp_RepoObjectProperty_collect << P >> {
+  --
+}
 
+entity sqlparse.RepoObject_SqlModules_Repo_Sys << V >> {
+  --
+  is_json_sql_modules_json : int
+  is_outdated : bit
+  * modify_date : datetime
+  * RepoObject_guid : uniqueidentifier
+  sql_modules_definition : nvarchar(max)
+  sql_modules_dt : datetime
+  sql_modules_formatted : nvarchar(max)
+  sql_modules_formatted2 : nvarchar(max)
+  sql_modules_json : nvarchar(max)
+  SysObject_type : char(2)
+}
 
+entity tool.ftv_extract_substrings << IF >> {
+  --
+  len1 : int
+  len2 : int
+  pos1 : bigint
+  pos1eol : bigint
+  pos2 : bigint
+  substring_gross : nvarchar(max)
+  substring_net : nvarchar(max)
+  substring_netPostEol : nvarchar(max)
+  substring_netPreEol : nvarchar(max)
+}
+
+repo.RepoObjectProperty_from_sql_modules_definition <.. repo.usp_RepoObjectProperty_collect
+sqlparse.RepoObject_SqlModules_Repo_Sys <.. repo.RepoObjectProperty_from_sql_modules_definition
+tool.ftv_extract_substrings <.. repo.RepoObjectProperty_from_sql_modules_definition
+sqlparse.RepoObject_SqlModules_Repo_Sys::RepoObject_guid <-- repo.RepoObjectProperty_from_sql_modules_definition::RepoObject_guid

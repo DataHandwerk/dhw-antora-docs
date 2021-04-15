@@ -36,6 +36,7 @@ entity repo.RepoObject_SqlCreateTable << V >> {
 }
 
 entity repo.RepoObjectColumn_gross << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 repo.RepoObject_ColumnList <.. repo.RepoObject_gross

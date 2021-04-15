@@ -1,0 +1,58 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity workflow.ProcedureInstanceDependency << U >> {
+  * **id** : int
+  --
+  Description : nvarchar(4000)
+  * is_active : bit
+  * is_PersistenceDependency : bit
+  * referenced_id : int
+  * referencing_id : int
+}
+
+entity workflow.ProcedureInstanceDependency_gross << V >> {
+  --
+  Description : nvarchar(4000)
+  * id : int
+  * is_active : bit
+  * is_PersistenceDependency : bit
+  * referenced_id : int
+  * referenced_Instance : varchar(500)
+  * referenced_Procedure_RepoObject_guid : uniqueidentifier
+  * referenced_RepoObject_fullname : nvarchar(261)
+  * referencing_id : int
+  * referencing_Instance : varchar(500)
+  * referencing_Procedure_RepoObject_guid : uniqueidentifier
+  * referencing_RepoObject_fullname : nvarchar(261)
+}
+
+workflow.ProcedureInstanceDependency <.. workflow.ProcedureInstanceDependency_gross
+workflow.ProcedureInstanceDependency::Description <-- workflow.ProcedureInstanceDependency_gross::Description
+workflow.ProcedureInstanceDependency::id <-- workflow.ProcedureInstanceDependency_gross::id
+workflow.ProcedureInstanceDependency::is_active <-- workflow.ProcedureInstanceDependency_gross::is_active
+workflow.ProcedureInstanceDependency::is_PersistenceDependency <-- workflow.ProcedureInstanceDependency_gross::is_PersistenceDependency
+workflow.ProcedureInstanceDependency::referenced_id <-- workflow.ProcedureInstanceDependency_gross::referenced_id
+workflow.ProcedureInstanceDependency::referencing_id <-- workflow.ProcedureInstanceDependency_gross::referencing_id

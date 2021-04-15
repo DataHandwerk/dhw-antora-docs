@@ -23,6 +23,20 @@ skinparam class {
 }
 
 
+entity docs.RepoObject_Plantuml_ObjectRefList_0_30 << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ObjectRefList : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
+entity docs.RepoObject_Plantuml_ObjectRefList_30_0 << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ObjectRefList : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
 entity docs.RepoObject_Plantuml_ObjectRefList << V >> {
   * **RepoObject_guid** : uniqueidentifier
   --
@@ -33,12 +47,8 @@ entity docs.RepoObject_Plantuml_ObjectRefList << V >> {
 entity graph.RepoObject << U >> {
   --
   * $node_id_FAC3EF4690DB4CD6A98F097DAF0885CC : nvarchar(1000)
-  * 33091D88-929D-488C-B30F-7328A9D970B6 : char(2)
-  * 906BEFD3-76BA-432D-9792-128CEA80A6EE : nvarchar(257)
-  * 9D326C2A-F564-4176-B51F-7BE9FB6685B2 : nvarchar(261)
   * graph_id_60367FDA1A70430CA390F8144C223EC4 : bigint
   * RepoObject_fullname : nvarchar(261)
-  RepoObject_fullname2 : nvarchar(257)
   * RepoObject_guid : uniqueidentifier
   * RepoObject_type : char(2)
 }
@@ -73,23 +83,23 @@ entity graph.RepoObject_S << V >> {
   * RepoObject_type : char(2)
 }
 
+entity graph.usp_PERSIST_RepoObject << P >> {
+  --
+}
+
 entity repo.Match_RepoObject_referenced_UspPersistence << V >> {
   **FirstNode** : uniqueidentifier
   **LastNode** : uniqueidentifier
   --
   First_usp_persistence_name : nvarchar(140)
   First_usp_persistence_RepoObject_guid : uniqueidentifier
+  FirstNode_schema_name : nvarchar(128)
   FirstNodeName : nvarchar(261)
   Last_usp_persistence_name : nvarchar(140)
   Last_usp_persistence_RepoObject_guid : uniqueidentifier
+  LastNode_schema_name : nvarchar(128)
   LastNodeName : nvarchar(261)
   ListNodeName : nvarchar(4000)
-}
-
-entity repo.RepoObject_reference_union_node_id << V >> {
-  **referenced_RepoObject_guid** : uniqueidentifier
-  **referencing_RepoObject_guid** : uniqueidentifier
-  --
 }
 
 entity repo.RepoObject_referenced_level << V >> {
@@ -124,18 +134,23 @@ entity repo.usp_sync_guid_RepoObject << P >> {
   --
 }
 
-graph.RepoObject <.. repo.usp_sync_guid_RepoObject
-graph.RepoObject <.. repo.usp_main
-graph.RepoObject <.. repo.RepoObject_reference_union_node_id
-graph.RepoObject <.. repo.Match_RepoObject_referenced_UspPersistence
 graph.RepoObject <.. graph.RepoObject_ReferencingReferenced_u_v
 graph.RepoObject <.. graph.RepoObject_ReferencingReferenced
+graph.RepoObject <.. docs.RepoObject_Plantuml_ObjectRefList
 graph.RepoObject <.. repo.RepoObject_referenced_level
 graph.RepoObject <.. repo.RepoObject_referencing_level
-graph.RepoObject <.. docs.RepoObject_Plantuml_ObjectRefList
+graph.RepoObject <.. repo.usp_sync_guid_RepoObject
+graph.RepoObject <.. repo.usp_main
+graph.RepoObject <.. 
+graph.RepoObject <.. 
+graph.RepoObject <.. repo.Match_RepoObject_referenced_UspPersistence
+graph.RepoObject <.. graph.usp_PERSIST_RepoObject
+graph.RepoObject_S <.. graph.usp_PERSIST_RepoObject
 graph.RepoObject_S <.. repo.usp_sync_guid_RepoObject
 graph.RepoObject_S <.. graph.RepoObject
+graph.usp_PERSIST_RepoObject <.. repo.usp_sync_guid_RepoObject
+repo.Match_RepoObject_referenced_UspPersistence <.. repo.usp_main
 graph.RepoObject_S::RepoObject_fullname <-- graph.RepoObject::RepoObject_fullname
-graph.RepoObject_S::RepoObject_fullname2 <-- graph.RepoObject::RepoObject_fullname2
+graph.RepoObject_S::RepoObject_fullname2 <-- ::RepoObject_fullname2
 graph.RepoObject_S::RepoObject_guid <-- graph.RepoObject::RepoObject_guid
 graph.RepoObject_S::RepoObject_type <-- graph.RepoObject::RepoObject_type

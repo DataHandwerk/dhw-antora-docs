@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.ftv_dwh_database << IF >> {
+entity config.ftv_dwh_database << IF >> {
 }
 
 entity repo.SysColumn_RepoObjectColumn_via_guid << V >> {
@@ -65,22 +65,22 @@ entity sys_dwh.identity_columns << SN >> {
 entity sys_dwh.types << SN >> {
 }
 
-repo.ftv_dwh_database <.. repo_sys.ExtendedProperties
-repo.ftv_dwh_database <.. repo_sys.SysColumn
-repo.ftv_dwh_database <.. repo_sys.sql_expression_dependencies
+config.ftv_dwh_database <.. repo_sys.ExtendedProperties
+config.ftv_dwh_database <.. repo_sys.SysColumn
+config.ftv_dwh_database <.. repo_sys.sql_expression_dependencies
 repo.SysColumn_RepoObjectColumn_via_guid <.. repo.usp_sync_guid_RepoObjectColumn
 repo.SysColumn_RepoObjectColumn_via_name <.. repo.usp_sync_guid_RepoObjectColumn
 repo_sys.ExtendedProperties <.. repo_sys.SysObject
 repo_sys.ExtendedProperties <.. repo_sys.SysColumn
-repo_sys.SysColumn <.. repo_sys.ForeignKeyColumn
+repo_sys.SysColumn <.. repo.usp_sync_guid_RepoObjectColumn
 repo_sys.SysColumn <.. repo.SysColumn_RepoObjectColumn_via_guid
 repo_sys.SysColumn <.. repo.SysColumn_RepoObjectColumn_via_name
 repo_sys.SysColumn <.. repo_sys.sql_expression_dependencies
-repo_sys.SysColumn <.. repo.usp_sync_guid_RepoObjectColumn
-repo_sys.SysObject <.. repo_sys.SysColumn
+repo_sys.SysColumn <.. repo_sys.ForeignKeyColumn
 repo_sys.SysObject <.. repo_sys.sql_expression_dependencies
-sys_dwh.columns <.. repo_sys.ExtendedProperties
+repo_sys.SysObject <.. repo_sys.SysColumn
 sys_dwh.columns <.. repo_sys.SysColumn
+sys_dwh.columns <.. repo_sys.ExtendedProperties
 sys_dwh.computed_columns <.. repo_sys.SysColumn
 sys_dwh.default_constraints <.. repo_sys.SysColumn
 sys_dwh.identity_columns <.. repo_sys.SysColumn

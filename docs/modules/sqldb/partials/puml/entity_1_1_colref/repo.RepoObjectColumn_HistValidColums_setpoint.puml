@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.ftv_get_parameter_value << IF >> {
+entity config.ftv_get_parameter_value << IF >> {
   --
   Parameter_value__result_nvarchar : nvarchar(4000)
 }
@@ -48,20 +48,20 @@ entity repo.RepoObject_persistence << U >> {
 }
 
 entity repo.RepoObjectColumn_HistValidColums_setpoint << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  **RepoObjectColumn_name** : sysname
   --
   * Repo_generated_always_type : int
   * Repo_is_nullable : int
   * Repo_user_type_fullname : varchar(12)
   * Repo_user_type_name : varchar(9)
-  * RepoObject_guid : uniqueidentifier
-  RepoObjectColumn_name : sysname
 }
 
 entity repo.usp_sync_guid_RepoObjectColumn << P >> {
   --
 }
 
-repo.ftv_get_parameter_value <.. repo.RepoObjectColumn_HistValidColums_setpoint
+config.ftv_get_parameter_value <.. repo.RepoObjectColumn_HistValidColums_setpoint
 repo.RepoObject_persistence <.. repo.RepoObjectColumn_HistValidColums_setpoint
 repo.RepoObject_persistence <.. repo.usp_sync_guid_RepoObjectColumn
 repo.RepoObjectColumn_HistValidColums_setpoint <.. repo.usp_sync_guid_RepoObjectColumn

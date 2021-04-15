@@ -3,8 +3,8 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--AntoraParameterList:
 :ExistsProperty--Columns:
@@ -31,13 +31,13 @@ inline function
 == SysObject_id
 
 // tag::SysObject_id[]
-1796201449
+1922821912
 // end::SysObject_id[]
 
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-08 15:44:21
+2021-04-13 19:02:39
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -106,7 +106,7 @@ inline function
 |===
 |
 |RepoObject_type
-|uniqueidentifier
+|char(2)
 |NULL
 |
 |
@@ -158,7 +158,7 @@ inline function
 
 |
 |<<column-RepoObject_type>>
-|uniqueidentifier
+|char(2)
 |NULL
 |
 |
@@ -179,130 +179,90 @@ inline function
 * @Referencing_Depth (int)
 // end::AntoraParameterList[]
 
+== AdocUspSteps
+
+// tag::adocuspsteps[]
+
+// end::adocuspsteps[]
+
+
+== AntoraReferencedList
+
+// tag::antorareferencedlist[]
+* xref:repo.RepoObject_SqlCreateTable.adoc[]
+* xref:repo.RepoObjectColumn_ReferenceTree.adoc[]
+* xref:repo.RepoObjectColumn_RelationScript.adoc[]
+// end::antorareferencedlist[]
+
+
 == AntoraReferencingList
 
-// tag::AntoraReferencingList[]
+// tag::antorareferencinglist[]
 
-// end::AntoraReferencingList[]
+// end::antorareferencinglist[]
 
 
-== example1
+== exampleUsage
 
-// tag::example1[]
+// tag::exampleusage[]
 
-// end::example1[]
+// end::exampleusage[]
 
 
-== example2
+== exampleUsage_2
 
-// tag::example2[]
+// tag::exampleusage_2[]
 
-// end::example2[]
+// end::exampleusage_2[]
 
 
-== example3
+== exampleWrong_Usage
 
-// tag::example3[]
+// tag::examplewrong_usage[]
 
-// end::example3[]
+// end::examplewrong_usage[]
 
 
-== usp_persistence_RepoObject_guid
+== has_execution_plan_issue
 
-// tag::usp_persistence_RepoObject_guid[]
+// tag::has_execution_plan_issue[]
 
-// end::usp_persistence_RepoObject_guid[]
+// end::has_execution_plan_issue[]
 
 
-== UspExamples
+== has_get_referenced_issue
 
-// tag::UspExamples[]
+// tag::has_get_referenced_issue[]
 
-// end::UspExamples[]
+// end::has_get_referenced_issue[]
 
 
-== UspParameters
+== has_history
 
-// tag::UspParameters[]
+// tag::has_history[]
 
-// end::UspParameters[]
+// end::has_history[]
 
 
-== persistence_source_RepoObject_xref
+== has_history_columns
 
-// tag::persistence_source_RepoObject_xref[]
+// tag::has_history_columns[]
 
-// end::persistence_source_RepoObject_xref[]
+// end::has_history_columns[]
 
 
-== pk_index_guid
+== is_persistence
 
-// tag::pk_index_guid[]
+// tag::is_persistence[]
 
-// end::pk_index_guid[]
+// end::is_persistence[]
 
 
-== pk_IndexPatternColumnDatatype
+== is_persistence_check_duplicate_per_pk
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::is_persistence_check_duplicate_per_pk[]
 
-// end::pk_IndexPatternColumnDatatype[]
-
-
-== pk_IndexPatternColumnName
-
-// tag::pk_IndexPatternColumnName[]
-
-// end::pk_IndexPatternColumnName[]
-
-
-== pk_IndexSemanticGroup
-
-// tag::pk_IndexSemanticGroup[]
-
-// end::pk_IndexSemanticGroup[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
-
-
-== microsoft_database_tools_support
-
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
-
-
-== persistence_source_RepoObject_fullname
-
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
-
-
-== persistence_source_RepoObject_guid
-
-// tag::persistence_source_RepoObject_guid[]
-
-// end::persistence_source_RepoObject_guid[]
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -347,71 +307,104 @@ inline function
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
+// end::microsoft_database_tools_support[]
 
 
-== is_persistence
+== MS_Description
 
-// tag::is_persistence[]
+// tag::ms_description[]
 
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
+// end::ms_description[]
 
 
-== AdocUspSteps
+== persistence_source_RepoObject_fullname
 
-// tag::AdocUspSteps[]
+// tag::persistence_source_repoobject_fullname[]
 
-// end::AdocUspSteps[]
+// end::persistence_source_repoobject_fullname[]
 
 
-== AntoraReferencedList
+== persistence_source_RepoObject_fullname2
 
-// tag::AntoraReferencedList[]
-* xref:repo.RepoObject_SqlCreateTable.adoc[]
-* xref:repo.RepoObjectColumn_ReferenceTree.adoc[]
-* xref:repo.RepoObjectColumn_RelationScript.adoc[]
-// end::AntoraReferencedList[]
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
 * [repo].[RepoObject_SqlCreateTable]
 * [repo].[RepoObjectColumn_ReferenceTree]
 * [repo].[RepoObjectColumn_RelationScript]
-// end::ReferencedObjectList[]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -439,87 +432,113 @@ SELECT *
 FROM [repo].[ftv_RepoObject_ColumReferenceRepoObject](@RepoObject_guid, 1, 1)
 
 */
-CREATE FUNCTION [repo].[ftv_RepoObject_ColumReferenceRepoObject] (
- @RepoObject_guid UNIQUEIDENTIFIER
- , @Referenced_Depth INT = 1
- , @Referencing_Depth INT = 1
- )
-RETURNS TABLE
-AS
-RETURN (
-  WITH ro AS (
-    --all RepoObject which are [Referenced_RepoObject_guid] or [Referencing_RepoObject_guid]
-    SELECT DISTINCT [Referenced_fullname] AS [RepoObject_fullname]
-     , [Referenced_RepoObject_guid] AS [RepoObject_guid]
-     , [Referenced_type] AS [RepoObject_type]
-     , NULL AS [DbmlRelation]
-     , @RepoObject_guid AS [Parameter_RepoObject_guid]
-    FROM [repo].[RepoObjectColumn_ReferenceTree]
-    WHERE [Referenced_RepoObject_guid] = @RepoObject_guid
-    
-    UNION
-    
-    SELECT DISTINCT [Referencing_fullname]
-     , [Referencing_RepoObject_guid]
-     , [Referencing_type]
-     , NULL AS [DbmlRelation]
-     , @RepoObject_guid
-    FROM [repo].[RepoObjectColumn_ReferenceTree]
-    WHERE [Referencing_RepoObject_guid] = @RepoObject_guid
-    
-    UNION
-    
-    --add all referenced
-    SELECT DISTINCT [rt].[Referenced_fullname]
-     , [rt].[Referenced_RepoObject_guid]
-     , [rt].[Referenced_type]
-     , [rs].[DbmlRelation]
-     , @RepoObject_guid
-    FROM [repo].[RepoObjectColumn_ReferenceTree] AS rt
-    LEFT JOIN [repo].[RepoObjectColumn_RelationScript] AS rs
-     ON rs.referenced_RepoObject_guid = rt.[Referenced_RepoObject_guid]
-      AND rs.referencing_RepoObject_guid = @RepoObject_guid
-    WHERE [rt].[Referencing_RepoObject_guid] = @RepoObject_guid
-     AND [Referenced_Depth] <= @Referenced_Depth
-     AND [Referencing_Depth] = 0
-    
-    UNION
-    
-    --add all referenced
-    SELECT DISTINCT [rt].[Referencing_fullname]
-     , [rt].[Referencing_RepoObject_guid]
-     , [rt].[Referencing_type]
-     , [rs].[DbmlRelation]
-     , @RepoObject_guid
-    FROM [repo].[RepoObjectColumn_ReferenceTree] AS rt
-    LEFT JOIN [repo].[RepoObjectColumn_RelationScript] AS rs
-     ON rs.referenced_RepoObject_guid = @RepoObject_guid
-      AND rs.referencing_RepoObject_guid = rt.[Referencing_RepoObject_guid]
-    WHERE [rt].[Referenced_RepoObject_guid] = @RepoObject_guid
-     AND [Referenced_Depth] = 0
-     AND [Referencing_Depth] <= @Referencing_Depth
-    )
-  --
-  SELECT [ro].[RepoObject_fullname]
-   , [ro].[RepoObject_guid]
-   , [ro].[RepoObject_type]
-   , [dbml].[DbmlTable] AS [Dbml]
-   , [ro].[Parameter_RepoObject_guid]
-  FROM ro
-  LEFT JOIN [repo].[RepoObject_SqlCreateTable] AS dbml
-   ON dbml.RepoObject_guid = ro.RepoObject_guid
-  
-  UNION
-  
-  SELECT NULL
-   , [ro].[Parameter_RepoObject_guid]
-   , NULL
-   , [ro].[DbmlRelation]
-   , [ro].[Parameter_RepoObject_guid]
-  FROM [ro]
-  WHERE NOT [ro].[DbmlRelation] IS NULL
-   --
-  )
+Create Function repo.ftv_RepoObject_ColumReferenceRepoObject
+(
+    @RepoObject_guid   UniqueIdentifier
+  , @Referenced_Depth  Int = 1
+  , @Referencing_Depth Int = 1
+)
+Returns Table
+As
+Return
+(
+    With
+    ro
+    As
+        (
+        --all RepoObject which are [Referenced_RepoObject_guid] or [Referencing_RepoObject_guid]
+        Select
+            Distinct
+            Referenced_fullname        As RepoObject_fullname
+          , Referenced_RepoObject_guid As RepoObject_guid
+          , Referenced_type            As RepoObject_type
+          , Null                       As DbmlRelation
+          , @RepoObject_guid           As Parameter_RepoObject_guid
+        From
+            repo.RepoObjectColumn_ReferenceTree
+        Where
+            Referenced_RepoObject_guid = @RepoObject_guid
+        Union
+        Select
+            Distinct
+            Referencing_fullname
+          , Referencing_RepoObject_guid
+          , Referencing_type
+          , Null                       As DbmlRelation
+          , @RepoObject_guid
+        From
+            repo.RepoObjectColumn_ReferenceTree
+        Where
+            Referencing_RepoObject_guid = @RepoObject_guid
+        Union
+
+        --add all referenced
+        Select
+            Distinct
+            rt.Referenced_fullname
+          , rt.Referenced_RepoObject_guid
+          , rt.Referenced_type
+          , rs.DbmlRelation
+          , @RepoObject_guid
+        From
+            repo.RepoObjectColumn_ReferenceTree      As rt
+            Left Join
+                repo.RepoObjectColumn_RelationScript As rs
+                    On
+                    rs.referenced_RepoObject_guid      = rt.Referenced_RepoObject_guid
+                    And rs.referencing_RepoObject_guid = @RepoObject_guid
+        Where
+            rt.Referencing_RepoObject_guid = @RepoObject_guid
+            And Referenced_Depth           <= @Referenced_Depth
+            And Referencing_Depth          = 0
+        Union
+
+        --add all referenced
+        Select
+            Distinct
+            rt.Referencing_fullname
+          , rt.Referencing_RepoObject_guid
+          , rt.Referencing_type
+          , rs.DbmlRelation
+          , @RepoObject_guid
+        From
+            repo.RepoObjectColumn_ReferenceTree      As rt
+            Left Join
+                repo.RepoObjectColumn_RelationScript As rs
+                    On
+                    rs.referenced_RepoObject_guid      = @RepoObject_guid
+                    And rs.referencing_RepoObject_guid = rt.Referencing_RepoObject_guid
+        Where
+            rt.Referenced_RepoObject_guid = @RepoObject_guid
+            And Referenced_Depth          = 0
+            And Referencing_Depth         <= @Referencing_Depth
+        )
+    --
+    Select
+        ro.RepoObject_fullname
+      , ro.RepoObject_guid
+      , ro.RepoObject_type
+      , dbml.DbmlTable As Dbml
+      , ro.Parameter_RepoObject_guid
+    From
+        ro
+        Left Join
+            repo.RepoObject_SqlCreateTable As dbml
+                On
+                dbml.RepoObject_guid = ro.RepoObject_guid
+    Union
+    Select
+        Null
+      , ro.Parameter_RepoObject_guid
+      , Null
+      , ro.DbmlRelation
+      , ro.Parameter_RepoObject_guid
+    From
+        ro
+    Where
+        Not ro.DbmlRelation Is Null
+--
+);
 
 ----
 // end::sql_modules_definition[]

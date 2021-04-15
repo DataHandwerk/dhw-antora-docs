@@ -26,6 +26,13 @@ skinparam class {
 entity graph.usp_PERSIST_Index << P >> {
 }
 
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
+entity repo.ForeignKey_Indexes_union_T << U >> {
+  **ForeignKey_guid** : uniqueidentifier
+}
+
 entity repo.Index_gross << V >> {
   * **index_guid** : uniqueidentifier
 }
@@ -55,9 +62,6 @@ entity repo.RepoObject_persistence << U >> {
   * **target_RepoObject_guid** : uniqueidentifier
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-}
-
 entity repo.usp_Index_finish << P >> {
 }
 
@@ -71,25 +75,26 @@ entity repo.usp_Index_Settings << P >> {
 }
 
 graph.usp_PERSIST_Index <.. repo.usp_Index_finish
-repo.Index_gross <.. repo.usp_index_inheritance
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_ForeignKey
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_finish
+logs.usp_ExecutionLog_insert <.. graph.usp_PERSIST_Index
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_Settings
+logs.usp_ExecutionLog_insert <.. repo.usp_index_inheritance
+repo.ForeignKey_Indexes_union_T <.. repo.usp_Index_finish
 repo.Index_gross <.. repo.usp_Index_finish
-repo.Index_Settings <.. repo.Index_gross
+repo.Index_gross <.. repo.usp_index_inheritance
 repo.Index_Settings <.. repo.usp_Index_Settings
+repo.Index_Settings <.. repo.Index_gross
 repo.Index_Settings <.. repo.usp_Index_finish
-repo.Index_union <.. repo.Index_gross
 repo.Index_union <.. repo.usp_Index_finish
-repo.Index_virtual <.. repo.Index_union
+repo.Index_union <.. repo.Index_gross
 repo.Index_virtual <.. repo.usp_index_inheritance
+repo.Index_virtual <.. repo.Index_union
 repo.Index_virtual <.. repo.usp_Index_finish
-repo.IndexColumn_virtual <.. repo.usp_index_inheritance
 repo.IndexColumn_virtual <.. repo.usp_Index_finish
+repo.IndexColumn_virtual <.. repo.usp_index_inheritance
 repo.RepoObject <.. repo.usp_Index_finish
 repo.RepoObject_persistence <.. repo.usp_Index_finish
-repo.usp_ExecutionLog_insert <.. graph.usp_PERSIST_Index
-repo.usp_ExecutionLog_insert <.. repo.usp_Index_Settings
-repo.usp_ExecutionLog_insert <.. repo.usp_index_inheritance
-repo.usp_ExecutionLog_insert <.. repo.usp_Index_finish
-repo.usp_ExecutionLog_insert <.. repo.usp_Index_ForeignKey
-repo.usp_Index_finish <.. repo.usp_index_inheritance
 repo.usp_Index_finish <.. repo.usp_Index_ForeignKey
+repo.usp_Index_finish <.. repo.usp_index_inheritance
 repo.usp_Index_Settings <.. repo.usp_Index_finish

@@ -1,13 +1,13 @@
 = Persistence generator
 
-IMPORTANT: The procedure xref:sqldb:repo.usp_persistence_insert_update.adoc[] is not called automatically. If a persistence is to be created or changed, this must be done manually!
+IMPORTANT: The procedure xref:sqldb:repo.usp_persistence_set.adoc[] is not called automatically. If a persistence is to be created or changed, this must be done manually!
 
-IMPORTANT: Before you execute the procedure, check, if the source should have a real or virtual PK. Some persistence actions are not available, if no PK is defined. Execute xref:sqldb:repo.usp_Index_virtual_InsertUpdate[] to define virtual PK, whenever this is possible.
+IMPORTANT: Before you execute the procedure xref:sqldb:repo.usp_persistence_set.adoc[], check, if the persistence source should have a real or virtual PK. Some persistence actions are not available, if no PK is defined in the source. Execute xref:sqldb:repo.usp_Index_virtual_set[] to define virtual PK, whenever this is possible.
 
 ====
 [source,sql]
 ----
-include::sqldb:partial$repo.usp_persistence_insert_update.adoc[tag=example1]
+include::sqldb:partial$repo.usp_persistence_set.adoc[tag=exampleusage]
 ----
 ====
 
@@ -38,7 +38,7 @@ The code is available in xref:sqldb:repo.GeneratorUsp_SqlUsp.adoc#column-SqlUsp[
 Currently it could be tricky to rename columns in persistence source and to promote this into the target. The target could be used. It still needs some testing and investigation to suggest the best practice. It looks like you sould:
 
 * start to change the source
-* then EXEC repo.[usp_persistence_insert_update]
+* then EXEC repo.[usp_persistence_set]
 * check [repo].[RepoObjectColumn_gross]
 * exec [repo].[usp_main]
 * check [repo].[RepoObjectColumn_gross]
@@ -52,7 +52,7 @@ Currently it could be tricky to rename columns in persistence source and to prom
 
 // Columns are defined in [repo].[RepoObject_ColumnList].CreateColumnList
 
-// [repo].[usp_persistence_insert_update] 
+// [repo].[usp_persistence_set] 
 
 
 

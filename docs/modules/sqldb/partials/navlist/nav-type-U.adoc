@@ -1,4 +1,0 @@
-= user table
-
-include::partial$navlist/navlist-type-U.adoc[]
-

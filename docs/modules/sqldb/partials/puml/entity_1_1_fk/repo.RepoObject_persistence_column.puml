@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -25,6 +25,12 @@ skinparam class {
 
 entity repo.RepoObject_persistence_column << V >> {
 - **PK_RepoObject_persistence_column**
+
+..
+target_RepoObject_guid; uniqueidentifier
+RepoObjectColumn_guid_s; uniqueidentifier
+--
+- UK_RepoObject_persistence_column__1
 {RepoObject_guid}
 ..
 target_RepoObject_guid; uniqueidentifier

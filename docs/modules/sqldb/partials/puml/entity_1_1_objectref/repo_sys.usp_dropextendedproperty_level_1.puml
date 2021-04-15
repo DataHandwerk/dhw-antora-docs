@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.fs_dwh_database_name << FN >> {
+entity config.fs_dwh_database_name << FN >> {
 }
 
 entity repo_sys.ExtendedProperties_ParameterForAddUpdateDrop << V >> {
@@ -32,5 +32,5 @@ entity repo_sys.ExtendedProperties_ParameterForAddUpdateDrop << V >> {
 entity repo_sys.usp_dropextendedproperty_level_1 << P >> {
 }
 
-repo.fs_dwh_database_name <.. repo_sys.usp_dropextendedproperty_level_1
+config.fs_dwh_database_name <.. repo_sys.usp_dropextendedproperty_level_1
 repo_sys.ExtendedProperties_ParameterForAddUpdateDrop <.. repo_sys.usp_dropextendedproperty_level_1

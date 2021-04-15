@@ -71,7 +71,7 @@ entity repo.PropertyName_RepoObjectColumn << V >> {
   --
 }
 
-entity repo.RepoObjectColumn_InheritanceType_InheritanceDefinition << V >> {
+entity repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition << V >> {
   --
   Inheritance_StringAggSeparatorSql : nvarchar(4000)
   InheritanceDefinition : nvarchar(4000)
@@ -112,40 +112,40 @@ entity repo.RepoObjectProperty_InheritanceType_InheritanceDefinition << V >> {
   sub_InheritanceType : int
 }
 
-entity repo.usp_parameter_insert_update << P >> {
+entity repo.usp_parameter_set << P >> {
   --
 }
 
-entity repo.usp_persistence_insert_update << P >> {
+entity repo.usp_persistence_set << P >> {
   --
 }
 
 repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPageTemplate
+repo.Parameter <.. docs.usp_AntoraExport_ObjectPageTemplate
 repo.Parameter <.. repo.fs_dwh_database_name
 repo.Parameter <.. repo.fs_get_parameter_value
 repo.Parameter <.. repo.ftv_dwh_database
 repo.Parameter <.. repo.ftv_get_parameter_value
 repo.Parameter <.. config.usp_init_parameter
-repo.Parameter <.. docs.usp_AntoraExport_ObjectPageTemplate
-repo.Parameter <.. repo.usp_parameter_insert_update
-repo.Parameter <.. repo.usp_persistence_insert_update
+repo.Parameter <.. repo.usp_parameter_set
+repo.Parameter <.. repo.usp_persistence_set
 repo.Parameter <.. repo.PropertyName_RepoObject
 repo.Parameter <.. repo.PropertyName_RepoObjectColumn
 repo.Parameter <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
-repo.Parameter <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
+repo.Parameter <.. repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition
 repo.PropertyName_RepoObject <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
-repo.PropertyName_RepoObjectColumn <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
+repo.PropertyName_RepoObjectColumn <.. repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition
 repo.Parameter::Parameter_value__result_int <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::par_InheritanceType
 repo.Parameter::Parameter_value__result_int <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::sub_InheritanceType
-repo.Parameter::Parameter_value__result_int <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::par_InheritanceType
-repo.Parameter::Parameter_value__result_int <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::sub_InheritanceType
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::sub_Inheritance_StringAggSeparatorSql
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::sub_InheritanceDefinition
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::par_Inheritance_StringAggSeparatorSql
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::par_InheritanceDefinition
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::sub_Inheritance_StringAggSeparatorSql
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::sub_InheritanceDefintion
+repo.Parameter::Parameter_value__result_int <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::par_InheritanceType
+repo.Parameter::Parameter_value__result_int <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::sub_InheritanceType
 repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::par_Inheritance_StringAggSeparatorSql
 repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::par_InheritanceDefintion
+repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::sub_Inheritance_StringAggSeparatorSql
+repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::sub_InheritanceDefintion
+repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::par_Inheritance_StringAggSeparatorSql
+repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::par_InheritanceDefinition
+repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::sub_Inheritance_StringAggSeparatorSql
+repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::sub_InheritanceDefinition
 repo.PropertyName_RepoObject::property_name <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::property_name
-repo.PropertyName_RepoObjectColumn::property_name <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::property_name
+repo.PropertyName_RepoObjectColumn::property_name <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::property_name

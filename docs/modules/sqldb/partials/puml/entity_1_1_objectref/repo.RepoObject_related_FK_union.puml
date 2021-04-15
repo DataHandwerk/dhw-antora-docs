@@ -23,7 +23,29 @@ skinparam class {
 }
 
 
-entity repo.RepoObject_related_FK_union << V >> {
+entity docs.RepoObject_PlantUml_FkRefList << V >> {
+  **RepoObject_guid** : uniqueidentifier
 }
 
+entity docs.RepoObject_PlantUml_PumlEntityFkList << V >> {
+  **RepoObject_guid** : uniqueidentifier
+}
 
+entity repo.ForeignKey_Indexes_union_T << U >> {
+  **ForeignKey_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_related_FK_union << V >> {
+  **RepoObject_guid** : uniqueidentifier
+  **included_RepoObject_guid** : uniqueidentifier
+}
+
+repo.ForeignKey_Indexes_union_T <.. docs.RepoObject_PlantUml_FkRefList
+repo.ForeignKey_Indexes_union_T <.. repo.RepoObject_related_FK_union
+repo.RepoObject <.. repo.RepoObject_related_FK_union
+repo.RepoObject_related_FK_union <.. docs.RepoObject_PlantUml_FkRefList
+repo.RepoObject_related_FK_union <.. docs.RepoObject_PlantUml_PumlEntityFkList

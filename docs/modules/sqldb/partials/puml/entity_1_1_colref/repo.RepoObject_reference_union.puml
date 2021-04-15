@@ -91,12 +91,6 @@ entity repo.RepoObject_reference_union << V >> {
   referencing_type : varchar(2)
 }
 
-entity repo.RepoObject_reference_union_node_id << V >> {
-  **referenced_RepoObject_guid** : uniqueidentifier
-  **referencing_RepoObject_guid** : uniqueidentifier
-  --
-}
-
 entity repo.RepoObjectColumn_reference_BySamePredecessors << V >> {
   --
   definition : nvarchar(max)
@@ -152,6 +146,10 @@ entity repo.RepoObjectColumn_reference_FirstResultSet << V >> {
 }
 
 entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
   --
   definition : nvarchar(max)
   * InformationSource : varchar(10)
@@ -162,8 +160,6 @@ entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
   is_target_column_name_expression : bit
   referenced_column_name : nvarchar(128)
   referenced_entity_name : nvarchar(128)
-  referenced_id : int
-  referenced_minor_id : int
   referenced_node_id : bigint
   referenced_RepoObject_guid : uniqueidentifier
   referenced_RepoObjectColumn_guid : uniqueidentifier
@@ -171,8 +167,6 @@ entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
   referenced_type : char(2)
   referencing_column_name : nvarchar(128)
   * referencing_entity_name : nvarchar(128)
-  referencing_id : int
-  referencing_minor_id : int
   referencing_node_id : bigint
   * referencing_RepoObject_guid : uniqueidentifier
   referencing_RepoObjectColumn_guid : uniqueidentifier
@@ -183,6 +177,10 @@ entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
 }
 
 entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
+  * **referencing_id** : int
+  * **referencing_minor_id** : int
+  **referenced_id** : int
+  * **referenced_minor_id** : int
   --
   definition : nvarchar(max)
   * InformationSource : varchar(31)
@@ -191,8 +189,6 @@ entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
   is_referencing_object_equal_referenced_object : bit
   referenced_column_name : sysname
   referenced_entity_name : nvarchar(128)
-  referenced_id : int
-  * referenced_minor_id : int
   referenced_node_id : bigint
   referenced_RepoObject_guid : uniqueidentifier
   referenced_RepoObjectColumn_guid : uniqueidentifier
@@ -200,8 +196,6 @@ entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
   referenced_type : char(2)
   referencing_column_name : sysname
   referencing_entity_name : nvarchar(128)
-  * referencing_id : int
-  * referencing_minor_id : int
   referencing_node_id : bigint
   referencing_RepoObject_guid : uniqueidentifier
   referencing_RepoObjectColumn_guid : uniqueidentifier
@@ -221,16 +215,13 @@ repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_FirstResultS
 repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_QueryPlan
 repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_BySamePredecessors
 repo.RepoObject_reference_union <.. repo.usp_main
-repo.RepoObject_reference_union <.. repo.RepoObject_reference_union_node_id
 repo.RepoObjectColumn_reference_FirstResultSet <.. repo.RepoObjectColumn_reference_BySamePredecessors
 repo.RepoObject_reference_union::referenced_entity_name <-- repo.RepoObjectColumn_reference_BySamePredecessors::referenced_entity_name
-repo.RepoObject_reference_union::referenced_RepoObject_guid <-- repo.RepoObject_reference_union_node_id::referenced_RepoObject_guid
-repo.RepoObject_reference_union::referenced_RepoObject_guid <-- repo.IndexReferencedReferencing::referenced_RepoObject_guid
 repo.RepoObject_reference_union::referenced_RepoObject_guid <-- repo.RepoObjectColumn_reference_BySamePredecessors::referenced_RepoObject_guid
+repo.RepoObject_reference_union::referenced_RepoObject_guid <-- repo.IndexReferencedReferencing::referenced_RepoObject_guid
 repo.RepoObject_reference_union::referenced_schema_name <-- repo.RepoObjectColumn_reference_BySamePredecessors::referenced_schema_name
 repo.RepoObject_reference_union::referenced_type <-- repo.RepoObjectColumn_reference_BySamePredecessors::referenced_type
 repo.RepoObject_reference_union::referencing_RepoObject_guid <-- repo.IndexReferencedReferencing::referencing_RepoObject_guid
-repo.RepoObject_reference_union::referencing_RepoObject_guid <-- repo.RepoObject_reference_union_node_id::referencing_RepoObject_guid
 repo.RepoObjectColumn_reference_FirstResultSet::InformationSource <-- repo.RepoObjectColumn_reference_BySamePredecessors::InformationSource
 repo.RepoObjectColumn_reference_FirstResultSet::is_hidden <-- repo.RepoObjectColumn_reference_BySamePredecessors::is_hidden
 repo.RepoObjectColumn_reference_FirstResultSet::referencing_column_name <-- repo.RepoObjectColumn_reference_BySamePredecessors::referencing_column_name

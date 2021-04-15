@@ -23,7 +23,13 @@ skinparam class {
 }
 
 
-entity repo.fs_dwh_database_name << FN >> {
+entity config.ftv_dwh_database << IF >> {
+  --
+  dwh_database_id : smallint
+  dwh_database_name : nvarchar(128)
+}
+
+entity logs.usp_ExecutionLog_insert << P >> {
   --
 }
 
@@ -36,6 +42,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -74,6 +81,7 @@ entity repo.RepoObjectColumn << U >> {
   is_persistence_no_include : bit
   is_persistence_no_update : bit
   is_query_plan_expression : bit
+  is_required_ColumnMerge : bit
   is_SysObjectColumn_missing : bit
   persistence_source_RepoObjectColumn_guid : uniqueidentifier
   Referencing_Count : int
@@ -100,10 +108,6 @@ entity repo.RepoObjectColumn << U >> {
   {abstract} has_different_sys_names : bit
   * {static} is_RepoObjectColumn_name_uniqueidentifier : int
   * {static} is_SysObjectColumn_name_uniqueidentifier : int
-}
-
-entity repo.usp_ExecutionLog_insert << P >> {
-  --
 }
 
 entity repo.usp_main << P >> {
@@ -162,29 +166,29 @@ entity repo_sys.RepoObjectReferencing << V >> {
   SysObject_type : char(2)
 }
 
-repo.fs_dwh_database_name <.. repo.usp_update_Referencing_Count
+config.ftv_dwh_database <.. repo.usp_update_Referencing_Count
+logs.usp_ExecutionLog_insert <.. repo.usp_update_Referencing_Count
+logs.usp_ExecutionLog_insert <.. repo.usp_main
 repo.RepoObject <.. repo_sys.RepoObjectReferenced
 repo.RepoObject <.. repo_sys.RepoObjectReferencing
 repo.RepoObject <.. repo.usp_update_Referencing_Count
 repo.RepoObjectColumn <.. repo.usp_update_Referencing_Count
-repo.usp_ExecutionLog_insert <.. repo.usp_update_Referencing_Count
-repo.usp_ExecutionLog_insert <.. repo.usp_main
 repo.usp_update_Referencing_Count <.. repo.usp_main
 repo_sys.RepoObjectReferenced <.. repo.usp_update_Referencing_Count
 repo_sys.RepoObjectReferencing <.. repo.usp_update_Referencing_Count
 repo.RepoObject::has_different_sys_names <-- repo_sys.RepoObjectReferenced::has_different_sys_names
 repo.RepoObject::has_different_sys_names <-- repo_sys.RepoObjectReferencing::has_different_sys_names
-repo.RepoObject::is_repo_managed <-- repo_sys.RepoObjectReferencing::is_repo_managed
 repo.RepoObject::is_repo_managed <-- repo_sys.RepoObjectReferenced::is_repo_managed
+repo.RepoObject::is_repo_managed <-- repo_sys.RepoObjectReferencing::is_repo_managed
 repo.RepoObject::RepoObject_fullname <-- repo_sys.RepoObjectReferenced::RepoObject_fullname
 repo.RepoObject::RepoObject_fullname <-- repo_sys.RepoObjectReferencing::RepoObject_fullname
 repo.RepoObject::RepoObject_guid <-- repo_sys.RepoObjectReferencing::RepoObject_guid
 repo.RepoObject::RepoObject_guid <-- repo_sys.RepoObjectReferenced::RepoObject_guid
-repo.RepoObject::SysObject_fullname <-- repo_sys.RepoObjectReferenced::SysObject_fullname
 repo.RepoObject::SysObject_fullname <-- repo_sys.RepoObjectReferencing::SysObject_fullname
-repo.RepoObject::SysObject_id <-- repo_sys.RepoObjectReferencing::SysObject_id
+repo.RepoObject::SysObject_fullname <-- repo_sys.RepoObjectReferenced::SysObject_fullname
 repo.RepoObject::SysObject_id <-- repo_sys.RepoObjectReferenced::SysObject_id
-repo.RepoObject::SysObject_modify_date <-- repo_sys.RepoObjectReferenced::SysObject_modify_date
+repo.RepoObject::SysObject_id <-- repo_sys.RepoObjectReferencing::SysObject_id
 repo.RepoObject::SysObject_modify_date <-- repo_sys.RepoObjectReferencing::SysObject_modify_date
-repo.RepoObject::SysObject_type <-- repo_sys.RepoObjectReferencing::SysObject_type
+repo.RepoObject::SysObject_modify_date <-- repo_sys.RepoObjectReferenced::SysObject_modify_date
 repo.RepoObject::SysObject_type <-- repo_sys.RepoObjectReferenced::SysObject_type
+repo.RepoObject::SysObject_type <-- repo_sys.RepoObjectReferencing::SysObject_type

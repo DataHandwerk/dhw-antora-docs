@@ -1,0 +1,98 @@
+
+ifdef::ExistsProperty--AntoraParameterList[]
+
+== Parameters
+
+include::partial${docname}.adoc[tag=AntoraParameterList]
+
+endif::ExistsProperty--AntoraParameterList[]
+
+ifdef::ExistsProperty--adocuspsteps[]
+
+== Procedure steps
+
+include::partial${docname}.adoc[tag=adocuspsteps]
+
+endif::ExistsProperty--adocuspsteps[]
+
+//ifdef::ExistsProperty--pk_index_guid[]
+//
+//== PK
+//
+//PK SemanticGroup:
+//include::partial${docname}.adoc[tag=pk_indexsemanticgroup]
+//
+//PK Column Name(s):
+//include::partial${docname}.adoc[tag=pk_indexpatterncolumnname]
+//
+//PK Column Datatype(s):
+//include::partial${docname}.adoc[tag=pk_indexpatterncolumndatatype]
+//
+//.PK columns of {docname}
+//[cols="d,m,m,m,m,d"]
+//|===
+//|PK|Column Name|Data Type|NULL?|ID|Calc
+//
+//include::partial${docname}.adoc[tag=AntoraPkColumnTableRows]
+//
+//|===
+//
+//endif::ExistsProperty--pk_index_guid[]
+
+ifdef::ExistsProperty--Columns[]
+
+== Columns
+
+.Columns of {docname}
+[cols="d,m,m,m,m,d"]
+|===
+|PK|Column Name|Data Type|NULL?|ID|Calc
+
+include::partial${docname}.adoc[tag=AntoraPkColumnTableRows]
+
+include::partial${docname}.adoc[tag=AntoraNonPkColumnTableRows]
+
+|===
+
+endif::ExistsProperty--Columns[]
+
+ifdef::ExistsProperty--is_persistence,ExistsProperty--has_history,ExistsProperty--has_history_columns[]
+
+== Persistence, History Table
+
+* persistence source:
+include::partial${docname}.adoc[tag=persistence_source_repoobject_xref]
+* is_persistence:
+include::partial${docname}.adoc[tag=is_persistence]
+* is_persistence_check_duplicate_per_pk:
+include::partial${docname}.adoc[tag=is_persistence_check_duplicate_per_pk]
+* is_persistence_check_for_empty_source:
+include::partial${docname}.adoc[tag=is_persistence_check_for_empty_source]
+* is_persistence_delete_changed:
+include::partial${docname}.adoc[tag=is_persistence_delete_changed]
+* is_persistence_delete_missing:
+include::partial${docname}.adoc[tag=is_persistence_delete_missing]
+* is_persistence_insert:
+include::partial${docname}.adoc[tag=is_persistence_insert]
+* is_persistence_truncate:
+include::partial${docname}.adoc[tag=is_persistence_truncate]
+* is_persistence_update_changed:
+include::partial${docname}.adoc[tag=is_persistence_update_changed]
+* has_history:
+include::partial${docname}.adoc[tag=has_history]
+* has_history_columns:
+include::partial${docname}.adoc[tag=has_history_columns]
+
+endif::ExistsProperty--is_persistence,ExistsProperty--has_history,ExistsProperty--has_history_columns[]
+
+ifdef::ExistsProperty--FK[]
+
+== Foreign Key Diagram
+
+[plantuml, entity_1_1_fk-{docname}, svg]
+....
+include::partial$puml/entity_1_1_fk/{docname}.puml[]
+....
+
+endif::ExistsProperty--FK[]
+

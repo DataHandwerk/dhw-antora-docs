@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.ftv_get_parameter_value << IF >> {
+entity config.ftv_get_parameter_value << IF >> {
 }
 
 entity repo.RepoObject_persistence << U >> {
@@ -31,12 +31,14 @@ entity repo.RepoObject_persistence << U >> {
 }
 
 entity repo.RepoObjectColumn_HistValidColums_setpoint << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  **RepoObjectColumn_name** : sysname
 }
 
 entity repo.usp_sync_guid_RepoObjectColumn << P >> {
 }
 
-repo.ftv_get_parameter_value <.. repo.RepoObjectColumn_HistValidColums_setpoint
+config.ftv_get_parameter_value <.. repo.RepoObjectColumn_HistValidColums_setpoint
 repo.RepoObject_persistence <.. repo.RepoObjectColumn_HistValidColums_setpoint
 repo.RepoObject_persistence <.. repo.usp_sync_guid_RepoObjectColumn
 repo.RepoObjectColumn_HistValidColums_setpoint <.. repo.usp_sync_guid_RepoObjectColumn

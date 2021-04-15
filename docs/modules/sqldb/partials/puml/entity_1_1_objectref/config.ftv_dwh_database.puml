@@ -1,0 +1,65 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.ftv_dwh_database << IF >> {
+}
+
+entity config.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+}
+
+entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
+}
+
+entity repo.usp_update_Referencing_Count << P >> {
+}
+
+entity repo_sys.ExtendedProperties << V >> {
+}
+
+entity repo_sys.sql_expression_dependencies << V >> {
+}
+
+entity repo_sys.SysColumn << V >> {
+}
+
+entity uspgenerator.GeneratorUsp_SqlUsp << V >> {
+  * **usp_id** : int
+}
+
+config.ftv_dwh_database <.. repo_sys.SysColumn
+config.ftv_dwh_database <.. repo.RepoObjectColumn_reference_QueryPlan
+config.ftv_dwh_database <.. repo.usp_update_Referencing_Count
+config.ftv_dwh_database <.. repo_sys.ExtendedProperties
+config.ftv_dwh_database <.. uspgenerator.GeneratorUsp_SqlUsp
+config.ftv_dwh_database <.. repo_sys.sql_expression_dependencies
+config.Parameter <.. config.ftv_dwh_database
+repo_sys.ExtendedProperties <.. repo_sys.SysColumn
+repo_sys.SysColumn <.. repo_sys.sql_expression_dependencies

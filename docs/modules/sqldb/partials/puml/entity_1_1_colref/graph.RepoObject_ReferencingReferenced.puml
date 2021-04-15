@@ -23,6 +23,36 @@ skinparam class {
 }
 
 
+entity repo.ftv_RepoObject_ReferenceTree_referenced << IF >> {
+  --
+  Referenced_Depth : int
+  Referenced_fullname : nvarchar(261)
+  Referenced_fullname2 : nvarchar(257)
+  Referenced_guid : uniqueidentifier
+  Referenced_type : char(2)
+  Referencing_Depth : int
+  Referencing_fullname : nvarchar(261)
+  Referencing_fullname2 : nvarchar(257)
+  Referencing_guid : uniqueidentifier
+  Referencing_type : char(2)
+  RepoObject_guid : uniqueidentifier
+}
+
+entity repo.ftv_RepoObject_ReferenceTree_referencing << IF >> {
+  --
+  Referenced_Depth : int
+  Referenced_fullname : nvarchar(261)
+  Referenced_fullname2 : nvarchar(257)
+  Referenced_guid : uniqueidentifier
+  Referenced_type : char(2)
+  Referencing_Depth : int
+  Referencing_fullname : nvarchar(261)
+  Referencing_fullname2 : nvarchar(257)
+  Referencing_guid : uniqueidentifier
+  Referencing_type : char(2)
+  RepoObject_guid : uniqueidentifier
+}
+
 entity graph.ReferencedObject << U >> {
   --
   * $edge_id_25B0DD35E10A49DE8B49228E6802F3EB : nvarchar(1000)
@@ -38,12 +68,8 @@ entity graph.ReferencedObject << U >> {
 entity graph.RepoObject << U >> {
   --
   * $node_id_FAC3EF4690DB4CD6A98F097DAF0885CC : nvarchar(1000)
-  * 33091D88-929D-488C-B30F-7328A9D970B6 : char(2)
-  * 906BEFD3-76BA-432D-9792-128CEA80A6EE : nvarchar(257)
-  * 9D326C2A-F564-4176-B51F-7BE9FB6685B2 : nvarchar(261)
   * graph_id_60367FDA1A70430CA390F8144C223EC4 : bigint
   * RepoObject_fullname : nvarchar(261)
-  RepoObject_fullname2 : nvarchar(257)
   * RepoObject_guid : uniqueidentifier
   * RepoObject_type : char(2)
 }
@@ -119,6 +145,7 @@ entity repo.RepoObject_gross << V >> {
   is_persistence_update_changed : bit
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   * modify_dt : datetime
@@ -189,11 +216,13 @@ entity repo.RepoObject_ReferencingList << V >> {
 
 graph.ReferencedObject <.. graph.RepoObject_ReferencingReferenced
 graph.RepoObject <.. graph.RepoObject_ReferencingReferenced
-graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_gross
-graph.RepoObject_ReferencingReferenced <.. repo.ftv_RepoObject_ReferenceTree_via_fullname
-graph.RepoObject_ReferencingReferenced <.. repo.ftv_RepoObject_ReferenceTree
-graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_ReferencedList
 graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_ReferencingList
+graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_ReferencedList
+graph.RepoObject_ReferencingReferenced <.. repo.ftv_RepoObject_ReferenceTree
+graph.RepoObject_ReferencingReferenced <.. repo.ftv_RepoObject_ReferenceTree_via_fullname
+graph.RepoObject_ReferencingReferenced <.. 
+graph.RepoObject_ReferencingReferenced <.. 
+graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_gross
 repo.RepoObject_ReferencedList <.. repo.RepoObject_gross
 repo.RepoObject_ReferencingList <.. repo.RepoObject_gross
 graph.RepoObject_ReferencingReferenced::Referenced_guid <-- repo.RepoObject_ReferencingList::Referenced_guid

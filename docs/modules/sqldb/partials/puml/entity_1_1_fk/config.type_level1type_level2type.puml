@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -25,7 +25,7 @@ skinparam class {
 
 entity config.type_level1type_level2type << V >> {
 - **PK_type_level1type_level2type**
-{object_type}
+
 ..
 type; nvarchar(128)
 }

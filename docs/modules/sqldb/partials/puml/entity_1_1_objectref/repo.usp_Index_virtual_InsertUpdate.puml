@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
 entity repo.Index_gross << V >> {
   * **index_guid** : uniqueidentifier
 }
@@ -44,20 +47,17 @@ entity repo.RepoObjectColumn << U >> {
   * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-}
-
 entity repo.usp_Index_ForeignKey << P >> {
 }
 
 entity repo.usp_Index_virtual_InsertUpdate << P >> {
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_virtual_InsertUpdate
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_ForeignKey
 repo.Index_gross <.. repo.usp_Index_virtual_InsertUpdate
 repo.Index_virtual <.. repo.usp_Index_virtual_InsertUpdate
 repo.IndexColumn_virtual <.. repo.usp_Index_virtual_InsertUpdate
 repo.RepoObject <.. repo.usp_Index_virtual_InsertUpdate
 repo.RepoObjectColumn <.. repo.usp_Index_virtual_InsertUpdate
-repo.usp_ExecutionLog_insert <.. repo.usp_Index_virtual_InsertUpdate
-repo.usp_ExecutionLog_insert <.. repo.usp_Index_ForeignKey
 repo.usp_Index_virtual_InsertUpdate <.. repo.usp_Index_ForeignKey

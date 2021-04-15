@@ -26,11 +26,11 @@ skinparam class {
 entity config.spt_values << U >> {
 }
 
+entity config.usp_connect_database << P >> {
+}
+
 entity config.usp_init_spt_values << P >> {
 }
 
-entity repo.usp_connect_database << P >> {
-}
-
 config.spt_values <.. config.usp_init_spt_values
-config.usp_init_spt_values <.. repo.usp_connect_database
+config.usp_init_spt_values <.. config.usp_connect_database

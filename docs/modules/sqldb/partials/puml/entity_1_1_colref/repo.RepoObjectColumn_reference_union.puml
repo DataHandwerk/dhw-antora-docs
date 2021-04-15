@@ -36,6 +36,7 @@ entity repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing << V >
 }
 
 entity repo.RepoObjectColumn_MissingSource_TypeV << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
   --
   has_different_sys_names : bit
   is_query_plan_expression : bit
@@ -61,7 +62,6 @@ entity repo.RepoObjectColumn_MissingSource_TypeV << V >> {
   Repo_uses_database_collation : bit
   * RepoObject_fullname : nvarchar(261)
   * RepoObject_guid : uniqueidentifier
-  * RepoObjectColumn_guid : uniqueidentifier
   * RepoObjectColumn_name : nvarchar(128)
   * SysObject_fullname : nvarchar(261)
   SysObjectColumn_column_id : int
@@ -69,6 +69,10 @@ entity repo.RepoObjectColumn_MissingSource_TypeV << V >> {
 }
 
 entity repo.RepoObjectColumn_reference_Persistence << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
   --
   definition : nvarchar(max)
   * InformationSource : varchar(27)
@@ -77,8 +81,6 @@ entity repo.RepoObjectColumn_reference_Persistence << V >> {
   is_referencing_object_equal_referenced_object : bit
   * referenced_column_name : nvarchar(128)
   * referenced_entity_name : nvarchar(128)
-  referenced_id : int
-  referenced_minor_id : int
   referenced_node_id : bigint
   referenced_RepoObject_guid : uniqueidentifier
   * referenced_RepoObjectColumn_guid : uniqueidentifier
@@ -86,8 +88,6 @@ entity repo.RepoObjectColumn_reference_Persistence << V >> {
   referenced_type : char(2)
   * referencing_column_name : nvarchar(128)
   * referencing_entity_name : nvarchar(128)
-  referencing_id : int
-  referencing_minor_id : int
   referencing_node_id : bigint
   * referencing_RepoObject_guid : uniqueidentifier
   * referencing_RepoObjectColumn_guid : uniqueidentifier
@@ -96,6 +96,10 @@ entity repo.RepoObjectColumn_reference_Persistence << V >> {
 }
 
 entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
+  * **referencing_id** : int
+  * **referencing_minor_id** : int
+  **referenced_id** : int
+  * **referenced_minor_id** : int
   --
   definition : nvarchar(max)
   * InformationSource : varchar(31)
@@ -104,8 +108,6 @@ entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
   is_referencing_object_equal_referenced_object : bit
   referenced_column_name : sysname
   referenced_entity_name : nvarchar(128)
-  referenced_id : int
-  * referenced_minor_id : int
   referenced_node_id : bigint
   referenced_RepoObject_guid : uniqueidentifier
   referenced_RepoObjectColumn_guid : uniqueidentifier
@@ -113,8 +115,6 @@ entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
   referenced_type : char(2)
   referencing_column_name : sysname
   referencing_entity_name : nvarchar(128)
-  * referencing_id : int
-  * referencing_minor_id : int
   referencing_node_id : bigint
   referencing_RepoObject_guid : uniqueidentifier
   referencing_RepoObjectColumn_guid : uniqueidentifier
@@ -123,6 +123,10 @@ entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
 }
 
 entity repo.RepoObjectColumn_reference_SqlModules << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
   --
   definition : nvarchar(max)
   * InformationSource : varchar(27)
@@ -131,8 +135,6 @@ entity repo.RepoObjectColumn_reference_SqlModules << V >> {
   is_referencing_object_equal_referenced_object : bit
   * referenced_column_name : nvarchar(128)
   * referenced_entity_name : nvarchar(128)
-  referenced_id : int
-  referenced_minor_id : int
   referenced_node_id : bigint
   * referenced_RepoObject_guid : uniqueidentifier
   * referenced_RepoObjectColumn_guid : uniqueidentifier
@@ -140,8 +142,6 @@ entity repo.RepoObjectColumn_reference_SqlModules << V >> {
   referenced_type : char(2)
   * referencing_column_name : nvarchar(128)
   * referencing_entity_name : nvarchar(128)
-  referencing_id : int
-  referencing_minor_id : int
   referencing_node_id : bigint
   * referencing_RepoObject_guid : uniqueidentifier
   * referencing_RepoObjectColumn_guid : uniqueidentifier
@@ -191,8 +191,8 @@ entity repo.usp_main << P >> {
 repo.RepoObjectColumn_reference_Persistence <.. repo.RepoObjectColumn_reference_union
 repo.RepoObjectColumn_reference_SqlExpressionDependencies <.. repo.RepoObjectColumn_reference_union
 repo.RepoObjectColumn_reference_SqlModules <.. repo.RepoObjectColumn_reference_union
-repo.RepoObjectColumn_reference_union <.. repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing
 repo.RepoObjectColumn_reference_union <.. repo.RepoObjectColumn_MissingSource_TypeV
+repo.RepoObjectColumn_reference_union <.. repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing
 repo.RepoObjectColumn_reference_union <.. repo.usp_main
 repo.RepoObjectColumn_reference_union <.. repo.RepoObjectColumn_RelationScript
 repo.RepoObjectColumn_reference_union::referenced_RepoObject_guid <-- repo.RepoObjectColumn_RelationScript::referenced_RepoObject_guid

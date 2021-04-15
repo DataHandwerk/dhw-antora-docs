@@ -23,8 +23,17 @@ skinparam class {
 }
 
 
-entity docs.RepoObject_Plantuml_T {
+entity docs.RepoObject_Plantuml << V >> {
   * **RepoObject_guid** : uniqueidentifier
 }
 
+entity docs.RepoObject_Plantuml_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
 
+entity docs.usp_PERSIST_RepoObject_Plantuml_T << P >> {
+}
+
+docs.RepoObject_Plantuml <.. docs.RepoObject_Plantuml_T
+docs.RepoObject_Plantuml <.. docs.usp_PERSIST_RepoObject_Plantuml_T
+docs.RepoObject_Plantuml_T <.. docs.usp_PERSIST_RepoObject_Plantuml_T

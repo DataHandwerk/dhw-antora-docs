@@ -46,6 +46,6 @@ entity repo.usp_PERSIST_RepoObject_referencing_level_T << P >> {
 
 graph.ReferencingObject <.. repo.RepoObject_referencing_level
 graph.RepoObject <.. repo.RepoObject_referencing_level
-repo.RepoObject_referencing_level <.. repo.usp_PERSIST_RepoObject_referencing_level_T
 repo.RepoObject_referencing_level <.. repo.RepoObject_referencing_level_T
+repo.RepoObject_referencing_level <.. repo.usp_PERSIST_RepoObject_referencing_level_T
 repo.RepoObject_referencing_level_T <.. repo.usp_PERSIST_RepoObject_referencing_level_T

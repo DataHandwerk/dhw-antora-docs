@@ -38,6 +38,9 @@ entity repo.RepoObject_SqlModules << U >> {
 entity repo.RepoObject_SqlModules_Repo_Sys << V >> {
 }
 
+entity repo.RepoObjectProperty_from_sql_modules_definition << V >> {
+}
+
 entity repo_sys.SysObject << V >> {
 }
 
@@ -45,4 +48,5 @@ repo.RepoObject <.. repo.RepoObject_SqlModules_Repo_Sys
 repo.RepoObject <.. repo.RepoObject_gross
 repo.RepoObject_SqlModules <.. repo.RepoObject_SqlModules_Repo_Sys
 repo.RepoObject_SqlModules_Repo_Sys <.. repo.RepoObject_gross
+repo.RepoObject_SqlModules_Repo_Sys <.. repo.RepoObjectProperty_from_sql_modules_definition
 repo_sys.SysObject <.. repo.RepoObject_SqlModules_Repo_Sys

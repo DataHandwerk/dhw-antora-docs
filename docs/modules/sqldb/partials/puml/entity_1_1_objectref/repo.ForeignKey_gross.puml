@@ -28,6 +28,11 @@ entity docs.RepoObject_IndexList << V >> {
 }
 
 entity repo.ForeignKey_gross << V >> {
+  **ForeignKey_guid** : uniqueidentifier
+}
+
+entity repo.ForeignKey_Indexes_union_T << U >> {
+  **ForeignKey_guid** : uniqueidentifier
 }
 
 entity repo.Index_gross << V >> {
@@ -35,5 +40,6 @@ entity repo.Index_gross << V >> {
 }
 
 repo.ForeignKey_gross <.. docs.RepoObject_IndexList
-repo.Index_gross <.. docs.RepoObject_IndexList
+repo.ForeignKey_Indexes_union_T <.. repo.ForeignKey_gross
 repo.Index_gross <.. repo.ForeignKey_gross
+repo.Index_gross <.. docs.RepoObject_IndexList

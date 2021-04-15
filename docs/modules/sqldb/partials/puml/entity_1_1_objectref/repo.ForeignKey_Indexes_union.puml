@@ -31,9 +31,19 @@ entity repo.ForeignKey_Indexes_union << V >> {
   **ForeignKey_guid** : uniqueidentifier
 }
 
+entity repo.ForeignKey_Indexes_union_T << U >> {
+  **ForeignKey_guid** : uniqueidentifier
+}
+
 entity repo.ForeignKey_virtual_Indexes << V >> {
   * **ForeignKey_guid** : uniqueidentifier
 }
 
+entity repo.usp_PERSIST_ForeignKey_Indexes_union_T << P >> {
+}
+
 repo.ForeignKey_Indexes <.. repo.ForeignKey_Indexes_union
+repo.ForeignKey_Indexes_union <.. repo.ForeignKey_Indexes_union_T
+repo.ForeignKey_Indexes_union <.. repo.usp_PERSIST_ForeignKey_Indexes_union_T
+repo.ForeignKey_Indexes_union_T <.. repo.usp_PERSIST_ForeignKey_Indexes_union_T
 repo.ForeignKey_virtual_Indexes <.. repo.ForeignKey_Indexes_union

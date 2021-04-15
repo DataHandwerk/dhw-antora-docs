@@ -36,6 +36,10 @@ entity repo.RepoObjectColumn << U >> {
 }
 
 entity repo.RepoObjectColumn_reference_Persistence << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
 }
 
 entity repo.RepoObjectColumn_reference_union << V >> {

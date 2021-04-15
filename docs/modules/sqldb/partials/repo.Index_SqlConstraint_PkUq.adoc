@@ -3,12 +3,12 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
 :ExistsProperty--pk_index_guid:
-:ExistsProperty--pk_IndexPatternColumnDatatype:
-:ExistsProperty--pk_IndexPatternColumnName:
-:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
@@ -36,13 +36,13 @@ view
 == SysObject_id
 
 // tag::SysObject_id[]
-1506104406
+1266819575
 // end::SysObject_id[]
 
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-02-20 11:56:40
+2021-04-13 19:02:38
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -160,51 +160,88 @@ view
 
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
+// end::adocuspsteps[]
 
 
-== microsoft_database_tools_support
+== AntoraReferencedList
 
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
+// tag::antorareferencedlist[]
+* xref:repo.Index_ColumList.adoc[]
+* xref:repo.Index_Settings.adoc[]
+* xref:repo.Index_union.adoc[]
+// end::antorareferencedlist[]
 
 
-== persistence_source_RepoObject_fullname
+== AntoraReferencingList
 
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
+// tag::antorareferencinglist[]
+* xref:repo.RepoObject_SqlCreateTable.adoc[]
+// end::antorareferencinglist[]
 
 
-== persistence_source_RepoObject_guid
+== exampleUsage
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::exampleusage[]
 
-// end::persistence_source_RepoObject_guid[]
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -249,118 +286,53 @@ view
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
+// end::microsoft_database_tools_support[]
 
 
-== is_persistence
+== MS_Description
 
-// tag::is_persistence[]
+// tag::ms_description[]
 
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
+// end::ms_description[]
 
 
-== example1
+== persistence_source_RepoObject_fullname
 
-// tag::example1[]
+// tag::persistence_source_repoobject_fullname[]
 
-// end::example1[]
-
-
-== example2
-
-// tag::example2[]
-
-// end::example2[]
+// end::persistence_source_repoobject_fullname[]
 
 
-== example3
+== persistence_source_RepoObject_fullname2
 
-// tag::example3[]
+// tag::persistence_source_repoobject_fullname2[]
 
-// end::example3[]
-
-
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
+// end::persistence_source_repoobject_fullname2[]
 
 
-== UspExamples
+== persistence_source_RepoObject_guid
 
-// tag::UspExamples[]
+// tag::persistence_source_repoobject_guid[]
 
-// end::UspExamples[]
-
-
-== UspParameters
-
-// tag::UspParameters[]
-
-// end::UspParameters[]
+// end::persistence_source_repoobject_guid[]
 
 
 == persistence_source_RepoObject_xref
 
-// tag::persistence_source_RepoObject_xref[]
+// tag::persistence_source_repoobject_xref[]
 
-// end::persistence_source_RepoObject_xref[]
-
-
-== pk_IndexSemanticGroup
-
-// tag::pk_IndexSemanticGroup[]
-
-// end::pk_IndexSemanticGroup[]
-
-
-== AntoraReferencedList
-
-// tag::AntoraReferencedList[]
-* xref:repo.Index_ColumList.adoc[]
-* xref:repo.Index_Settings.adoc[]
-* xref:repo.Index_union.adoc[]
-// end::AntoraReferencedList[]
-
-
-== AntoraReferencingList
-
-// tag::AntoraReferencingList[]
-* xref:repo.RepoObject_SqlCreateTable.adoc[]
-// end::AntoraReferencingList[]
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -372,25 +344,46 @@ view
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 uniqueidentifier
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 index_guid
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
 * [repo].[Index_ColumList]
 * [repo].[Index_Settings]
 * [repo].[Index_union]
-// end::ReferencedObjectList[]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -403,31 +396,35 @@ index_guid
 --requirement:
 -- - repo.Index_Settings.is_create_constraint = 1
 -- - repo.Index_union.is_index_unique = 1
-CREATE VIEW [repo].[Index_SqlConstraint_PkUq]
-AS
-SELECT [i].[index_guid]
- , [i].[parent_RepoObject_guid]
- , [SqlConstraint] = CONCAT (
-  'CONSTRAINT '
-  --todo missing name?
-  , QUOTENAME([i].[index_name])
-  , ' '
-  , CASE 
-   WHEN [i].[is_index_primary_key] = 1
-    THEN 'PRIMARY KEY '
-   WHEN [i].[is_index_unique] = 1
-    THEN 'UNIQUE '
-   END
-  , CASE [i].[index_type]
-   WHEN 1
-    THEN 'CLUSTERED '
-   WHEN 2
-    THEN 'NONCLUSTERED '
-   END
-  , '('
-  , [ColumnList].[ConstraintColumnList]
-  , ')'
-  )
+Create View repo.Index_SqlConstraint_PkUq
+As
+Select
+    i.index_guid
+  , i.parent_RepoObject_guid
+  , SqlConstraint = Concat (   'CONSTRAINT '
+                             --todo missing name?
+                             , QuoteName ( i.index_name )
+                             , ' '
+                             , Case
+                                   When i.is_index_primary_key = 1
+                                       Then
+                                       'PRIMARY KEY '
+                                   When i.is_index_unique = 1
+                                       Then
+                                       'UNIQUE '
+                               End
+                             , Case i.index_type
+                                   When 1
+                                       Then
+                                       'CLUSTERED '
+                                   When 2
+                                       Then
+                                       'NONCLUSTERED '
+                               End
+                             , '('
+                             , ColumnList.ConstraintColumnList
+                             , ')'
+                           )
 -- , i.index_name
 -- , i.index_type
 -- , i.is_index_unique
@@ -436,13 +433,21 @@ SELECT [i].[index_guid]
 -- , i.is_index_disabled
 ----, i.is_index_real
 ----, i_s.is_create_constraint
-FROM repo.Index_union AS i
-LEFT OUTER JOIN repo.Index_Settings AS i_s
- ON i_s.index_guid = i.index_guid
-LEFT OUTER JOIN repo.Index_ColumList AS ColumnList
- ON ColumnList.[index_guid] = i.[index_guid]
-WHERE [i_s].[is_create_constraint] = 1
- AND [i].[is_index_unique] = 1
+From
+    repo.Index_union         As i
+    Left Outer Join
+        repo.Index_Settings  As i_s
+            On
+            i_s.index_guid        = i.index_guid
+
+    Left Outer Join
+        repo.Index_ColumList As ColumnList
+            On
+            ColumnList.index_guid = i.index_guid
+Where
+    i_s.is_create_constraint = 1
+    And i.is_index_unique    = 1;
+
 ----
 // end::sql_modules_definition[]
 

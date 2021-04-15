@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.Parameter << U >> {
+entity config.Parameter << U >> {
   * **Parameter_name** : varchar(100)
   * **sub_Parameter** : nvarchar(128)
   --
@@ -37,26 +37,6 @@ entity repo.Parameter << U >> {
 entity repo.PropertyName_RepoObjectColumn << V >> {
   * **property_name** : nvarchar(128)
   --
-}
-
-entity repo.RepoObjectColumn_InheritanceType_InheritanceDefinition << V >> {
-  --
-  Inheritance_StringAggSeparatorSql : nvarchar(4000)
-  InheritanceDefinition : nvarchar(4000)
-  InheritanceType : int
-  par_Inheritance_StringAggSeparatorSql : nvarchar(4000)
-  par_InheritanceDefinition : nvarchar(4000)
-  par_InheritanceType : int
-  * property_name : nvarchar(128)
-  property_value : sql_variant
-  * RepoObjectColumn_guid : uniqueidentifier
-  * RepoObjectColumn_name : nvarchar(128)
-  roc_Inheritance_StringAggSeparatorSql : nvarchar(4000)
-  roc_InheritanceDefinition : nvarchar(4000)
-  roc_InheritanceType : tinyint
-  sub_Inheritance_StringAggSeparatorSql : nvarchar(4000)
-  sub_InheritanceDefinition : nvarchar(4000)
-  sub_InheritanceType : int
 }
 
 entity repo.RepoObjectColumnProperty << U >> {
@@ -76,16 +56,36 @@ entity repo.RepoObjectColumnProperty << U >> {
   {abstract} property_varchar : varchar(8000)
 }
 
-repo.Parameter <.. repo.PropertyName_RepoObjectColumn
-repo.Parameter <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
-repo.PropertyName_RepoObjectColumn <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
+entity repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition << V >> {
+  --
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : int
+  par_Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  par_InheritanceDefinition : nvarchar(4000)
+  par_InheritanceType : int
+  * property_name : nvarchar(128)
+  property_value : sql_variant
+  * RepoObjectColumn_guid : uniqueidentifier
+  * RepoObjectColumn_name : nvarchar(128)
+  roc_Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  roc_InheritanceDefinition : nvarchar(4000)
+  roc_InheritanceType : tinyint
+  sub_Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  sub_InheritanceDefinition : nvarchar(4000)
+  sub_InheritanceType : int
+}
+
+config.Parameter <.. repo.PropertyName_RepoObjectColumn
+config.Parameter <.. repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition
+repo.PropertyName_RepoObjectColumn <.. repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition
+repo.RepoObjectColumnProperty <.. repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition
 repo.RepoObjectColumnProperty <.. repo.PropertyName_RepoObjectColumn
-repo.RepoObjectColumnProperty <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
-repo.Parameter::Parameter_value__result_int <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::par_InheritanceType
-repo.Parameter::Parameter_value__result_int <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::sub_InheritanceType
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::sub_Inheritance_StringAggSeparatorSql
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::sub_InheritanceDefinition
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::par_Inheritance_StringAggSeparatorSql
-repo.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::par_InheritanceDefinition
-repo.PropertyName_RepoObjectColumn::property_name <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::property_name
-repo.RepoObjectColumnProperty::property_value <-- repo.RepoObjectColumn_InheritanceType_InheritanceDefinition::property_value
+config.Parameter::Parameter_value__result_int <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::sub_InheritanceType
+config.Parameter::Parameter_value__result_int <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::par_InheritanceType
+config.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::par_Inheritance_StringAggSeparatorSql
+config.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::par_InheritanceDefinition
+config.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::sub_Inheritance_StringAggSeparatorSql
+config.Parameter::Parameter_value__result_nvarchar <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::sub_InheritanceDefinition
+repo.PropertyName_RepoObjectColumn::property_name <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::property_name
+repo.RepoObjectColumnProperty::property_value <-- repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition::property_value

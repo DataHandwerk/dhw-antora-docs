@@ -23,8 +23,10 @@ skinparam class {
 }
 
 
-entity repo.fs_dwh_database_name << FN >> {
+entity repo.ftv_dwh_database << IF >> {
   --
+  dwh_database_id : smallint
+  dwh_database_name : nvarchar(128)
 }
 
 entity repo.GeneratorUsp << U >> {
@@ -78,6 +80,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -106,9 +109,14 @@ entity repo.RepoObject << U >> {
   * {static} usp_persistence_name : nvarchar(140)
 }
 
-repo.fs_dwh_database_name <.. repo.GeneratorUsp_SqlUsp
+entity repo.usp_RepoObjectProperty_collect << P >> {
+  --
+}
+
+repo.ftv_dwh_database <.. repo.GeneratorUsp_SqlUsp
 repo.GeneratorUsp <.. repo.GeneratorUsp_SqlUsp
 repo.GeneratorUsp_ParameterList <.. repo.GeneratorUsp_SqlUsp
+repo.GeneratorUsp_SqlUsp <.. repo.usp_RepoObjectProperty_collect
 repo.GeneratorUsp_StepList <.. repo.GeneratorUsp_SqlUsp
 repo.RepoObject <.. repo.GeneratorUsp_SqlUsp
 repo.GeneratorUsp::has_logging <-- repo.GeneratorUsp_SqlUsp::has_logging

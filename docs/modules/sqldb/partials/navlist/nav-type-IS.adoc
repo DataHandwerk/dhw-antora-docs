@@ -1,4 +1,0 @@
-= inline scalar function
-
-include::partial$navlist/navlist-type-IS.adoc[]
-

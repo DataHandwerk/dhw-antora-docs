@@ -23,6 +23,10 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+  --
+}
+
 entity repo.Parameter << U >> {
   * **Parameter_name** : varchar(100)
   * **sub_Parameter** : nvarchar(128)
@@ -43,6 +47,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -90,10 +95,6 @@ entity repo.RepoObject_persistence << U >> {
   {abstract} temporal_type : tinyint
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-  --
-}
-
 entity repo.usp_persistence_insert_update << P >> {
   --
 }
@@ -102,10 +103,10 @@ entity repo.usp_sync_guid << P >> {
   --
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_sync_guid
+logs.usp_ExecutionLog_insert <.. repo.usp_persistence_insert_update
 repo.Parameter <.. repo.usp_persistence_insert_update
 repo.RepoObject <.. repo.usp_persistence_insert_update
 repo.RepoObject_persistence <.. repo.usp_persistence_insert_update
-repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid
-repo.usp_ExecutionLog_insert <.. repo.usp_persistence_insert_update
 repo.usp_sync_guid <.. repo.usp_persistence_insert_update
 

@@ -1,0 +1,40 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity sqlparse.RepoObject_SqlModules_43_from_Identifier << V >> {
+}
+
+entity sqlparse.RepoObject_SqlModules_44_from_Identifier_QuoteName << V >> {
+}
+
+entity sqlparse.RepoObject_SqlModules_71_reference_ExpliciteTableAlias << V >> {
+}
+
+entity sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias << V >> {
+}
+
+sqlparse.RepoObject_SqlModules_43_from_Identifier <.. sqlparse.RepoObject_SqlModules_44_from_Identifier_QuoteName
+sqlparse.RepoObject_SqlModules_44_from_Identifier_QuoteName <.. sqlparse.RepoObject_SqlModules_71_reference_ExpliciteTableAlias
+sqlparse.RepoObject_SqlModules_44_from_Identifier_QuoteName <.. sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias

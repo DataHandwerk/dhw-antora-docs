@@ -41,9 +41,11 @@ entity repo.ftv_RepoObjectColumn_ReferenceTree << IF >> {
 }
 
 entity repo.RepoObjectColumn_ReferencedList << V >> {
+  **Referencing_guid** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumn_ReferencingList << V >> {
+  **Referenced_guid** : uniqueidentifier
 }
 
 graph.ReferencedObjectColumn <.. graph.RepoObjectColumn_ReferencingReferenced

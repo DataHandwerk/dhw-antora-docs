@@ -1,4 +1,0 @@
-= trigger
-
-include::partial$navlist/navlist-type-TR.adoc[]
-

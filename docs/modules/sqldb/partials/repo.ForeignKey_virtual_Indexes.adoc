@@ -3,14 +3,14 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
-:ExistsProperty--MS_Description:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--ms_description:
 :ExistsProperty--pk_index_guid:
-:ExistsProperty--pk_IndexPatternColumnDatatype:
-:ExistsProperty--pk_IndexPatternColumnName:
-:ExistsProperty--pk_IndexSemanticGroup:
-:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--pk_indexsemanticgroup:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
@@ -38,13 +38,13 @@ view
 == SysObject_id
 
 // tag::SysObject_id[]
-1959678029
+1762821342
 // end::SysObject_id[]
 
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-11 12:27:41
+2021-04-13 19:02:39
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -167,6 +167,11 @@ view
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.Index_gross.adoc#column-index_name[repo.Index_gross.index_name]
+--
+
 
 [[column-referenced_IndexPatternColumnDatatype]]
 === referenced_IndexPatternColumnDatatype
@@ -219,6 +224,11 @@ view
 |
 |===
 
+.Description
+--
+(concat('[',[RepoObject_schema_name],'].[',[RepoObject_name],']'))
+--
+
 .Referenced Columns
 --
 * xref:repo.Index_gross.adoc#column-RepoObject_fullname[repo.Index_gross.RepoObject_fullname]
@@ -237,6 +247,11 @@ view
 |
 |
 |===
+
+.Description
+--
+(concat([RepoObject_schema_name],'.',[RepoObject_name]))
+--
 
 .Referenced Columns
 --
@@ -333,6 +348,11 @@ view
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.Index_gross.adoc#column-index_name[repo.Index_gross.index_name]
+--
+
 
 [[column-referencing_IndexPatternColumnDatatype]]
 === referencing_IndexPatternColumnDatatype
@@ -385,6 +405,11 @@ view
 |
 |===
 
+.Description
+--
+(concat('[',[RepoObject_schema_name],'].[',[RepoObject_name],']'))
+--
+
 .Referenced Columns
 --
 * xref:repo.Index_gross.adoc#column-RepoObject_fullname[repo.Index_gross.RepoObject_fullname]
@@ -403,6 +428,11 @@ view
 |
 |
 |===
+
+.Description
+--
+(concat([RepoObject_schema_name],'.',[RepoObject_name]))
+--
 
 .Referenced Columns
 --
@@ -734,7 +764,7 @@ view
 +
 --
 * <<column-referenced_SysObject_schema_name>>; nvarchar(128)
-* <<column-referenced_SysObject_name>>; nvarchar(128)
+* <<column-referencing_SysObject_name>>; nvarchar(128)
 --
 * PK, Unique, Real: 0, 0, 0
 
@@ -748,30 +778,87 @@ view
 
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
-
-
-== persistence_source_RepoObject_fullname
-
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
+// end::adocuspsteps[]
 
 
-== persistence_source_RepoObject_fullname2
+== AntoraReferencedList
 
-// tag::persistence_source_RepoObject_fullname2[]
+// tag::antorareferencedlist[]
+* xref:repo.ForeignKey_virtual.adoc[]
+* xref:repo.Index_gross.adoc[]
+// end::antorareferencedlist[]
 
-// end::persistence_source_RepoObject_fullname2[]
+
+== AntoraReferencingList
+
+// tag::antorareferencinglist[]
+* xref:repo.ForeignKey_Indexes_union.adoc[]
+// end::antorareferencinglist[]
 
 
-== persistence_source_RepoObject_guid
+== exampleUsage
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::exampleusage[]
 
-// end::persistence_source_RepoObject_guid[]
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -816,97 +903,6 @@ view
 // end::is_persistence_update_changed[]
 
 
-== example4
-
-// tag::example4[]
-
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
-
-
-== has_history
-
-// tag::has_history[]
-
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
-
-
-== is_persistence
-
-// tag::is_persistence[]
-
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
-
-
-== example1
-
-// tag::example1[]
-
-// end::example1[]
-
-
-== example2
-
-// tag::example2[]
-
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
-
-
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
-
-
-== UspExamples
-
-// tag::UspExamples[]
-
-// end::UspExamples[]
-
-
-== UspParameters
-
-// tag::UspParameters[]
-
-// end::UspParameters[]
-
-
-== persistence_source_RepoObject_xref
-
-// tag::persistence_source_RepoObject_xref[]
-
-// end::persistence_source_RepoObject_xref[]
-
-
 == is_repo_managed
 
 // tag::is_repo_managed[]
@@ -921,28 +917,41 @@ view
 // end::microsoft_database_tools_support[]
 
 
-== AntoraReferencedList
-
-// tag::AntoraReferencedList[]
-* xref:repo.ForeignKey_virtual.adoc[]
-* xref:repo.Index_gross.adoc[]
-// end::AntoraReferencedList[]
-
-
-== AntoraReferencingList
-
-// tag::AntoraReferencingList[]
-* xref:repo.ForeignKey_Indexes_union.adoc[]
-// end::AntoraReferencingList[]
-
-
 == MS_Description
 
-// tag::MS_Description[]
+// tag::ms_description[]
 
 * mapping from xref:sqldb:repo.ForeignKey_virtual.adoc[] to referenced_index and referencing_indx
-* can be used to find out missing [referenced_index_guid] or [referencing_index_guid] to create them using xref:sqldb:repo.usp_Index_insert.adoc[]
-// end::MS_Description[]
+* can be used to find out missing [referenced_index_guid] or [referencing_index_guid] to create them using xref:sqldb:repo.usp_Index_virtual_set.adoc[]
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -954,31 +963,45 @@ view
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 uniqueidentifier
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 ForeignKey_guid
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
 
 
 == pk_IndexSemanticGroup
 
-// tag::pk_IndexSemanticGroup[]
+// tag::pk_indexsemanticgroup[]
 ForeignKey_guid
-// end::pk_IndexSemanticGroup[]
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
 * [repo].[ForeignKey_virtual]
 * [repo].[Index_gross]
-// end::ReferencedObjectList[]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -989,56 +1012,58 @@ ForeignKey_guid
 
 
 
-
-
 /*
 <<property_start>>MS_Description
 * mapping from xref:sqldb:repo.ForeignKey_virtual.adoc[] to referenced_index and referencing_indx
-* can be used to find out missing [referenced_index_guid] or [referencing_index_guid] to create them using xref:sqldb:repo.usp_Index_insert.adoc[]
+* can be used to find out missing [referenced_index_guid] or [referencing_index_guid] to create them using xref:sqldb:repo.usp_Index_virtual_set.adoc[]
 <<property_end>>
 */
 
-CREATE VIEW [repo].[ForeignKey_virtual_Indexes]
-AS
-SELECT
- --
- [fk].[ForeignKey_guid]
- , [is_MatchingDatatypePattern] = CASE 
-  WHEN [i_1].[IndexPatternColumnDatatype] = [i_2].[IndexPatternColumnDatatype]
-   THEN 1
-  ELSE 0
-  END
- , [fk].[ForeignKey_name]
- , [ForeignKey_fullname] = CONCAT (
-  QUOTENAME([i_1].[SysObject_schema_name])
-  , '.'
-  , QUOTENAME([fk].[ForeignKey_name])
-  )
- , [fk].[referenced_index_guid]
- , [referenced_index_name] = [i_2].[index_name]
- , [referenced_IndexPatternColumnDatatype] = [i_2].[IndexPatternColumnDatatype]
- , [referenced_IndexPatternColumnName] = [i_2].[IndexPatternColumnName]
- , [referenced_RepoObject_fullname] = [i_2].[RepoObject_fullname]
- , [referenced_RepoObject_fullname2] = [i_2].[RepoObject_fullname2]
- , [referenced_RepoObject_guid] = [i_2].[parent_RepoObject_guid]
- , [referenced_SysObject_name] = [i_2].[SysObject_name]
- , [referenced_SysObject_schema_name] = [i_2].[SysObject_schema_name]
- , [fk].[referencing_index_guid]
- , [referencing_index_name] = [i_1].[index_name]
- , [referencing_IndexPatternColumnDatatype] = [i_1].[IndexPatternColumnDatatype]
- , [referencing_IndexPatternColumnName] = [i_1].[IndexPatternColumnName]
- , [referencing_RepoObject_fullname] = [i_1].[RepoObject_fullname]
- , [referencing_RepoObject_fullname2] = [i_1].[RepoObject_fullname2]
- , [referencing_RepoObject_guid] = [i_1].[parent_RepoObject_guid]
- , [referencing_SysObject_name] = [i_1].[SysObject_name]
- , [referencing_SysObject_schema_name] = [i_1].[SysObject_schema_name]
- , [delete_referential_action]
- , [update_referential_action]
-FROM [repo].[ForeignKey_virtual] AS fk
-LEFT JOIN [repo].[Index_gross] AS i_1
- ON i_1.[index_guid] = fk.[referencing_index_guid]
-LEFT JOIN [repo].[Index_gross] AS i_2
- ON i_2.[index_guid] = fk.[referenced_index_guid]
+CREATE View [repo].[ForeignKey_virtual_Indexes]
+As
+Select
+    --
+    fk.ForeignKey_guid
+  , is_MatchingDatatypePattern             = Case
+                                                 When i_1.IndexPatternColumnDatatype = i_2.IndexPatternColumnDatatype
+                                                     Then
+                                                     1
+                                                 Else
+                                                     0
+                                             End
+  , fk.ForeignKey_name
+  , ForeignKey_fullname                    = Concat ( QuoteName ( i_1.SysObject_schema_name ), '.', QuoteName ( fk.ForeignKey_name ))
+  , fk.referenced_index_guid
+  , referenced_index_name                  = i_2.index_name
+  , referenced_IndexPatternColumnDatatype  = i_2.IndexPatternColumnDatatype
+  , referenced_IndexPatternColumnName      = i_2.IndexPatternColumnName
+  , referenced_RepoObject_fullname         = i_2.RepoObject_fullname
+  , referenced_RepoObject_fullname2        = i_2.RepoObject_fullname2
+  , referenced_RepoObject_guid             = i_2.parent_RepoObject_guid
+  , referenced_SysObject_name              = i_2.SysObject_name
+  , referenced_SysObject_schema_name       = i_2.SysObject_schema_name
+  , fk.referencing_index_guid
+  , referencing_index_name                 = i_1.index_name
+  , referencing_IndexPatternColumnDatatype = i_1.IndexPatternColumnDatatype
+  , referencing_IndexPatternColumnName     = i_1.IndexPatternColumnName
+  , referencing_RepoObject_fullname        = i_1.RepoObject_fullname
+  , referencing_RepoObject_fullname2       = i_1.RepoObject_fullname2
+  , referencing_RepoObject_guid            = i_1.parent_RepoObject_guid
+  , referencing_SysObject_name             = i_1.SysObject_name
+  , referencing_SysObject_schema_name      = i_1.SysObject_schema_name
+  , delete_referential_action
+  , update_referential_action
+From
+    repo.ForeignKey_virtual As fk
+    Left Join
+        repo.Index_gross    As i_1
+            On
+            i_1.index_guid = fk.referencing_index_guid
+
+    Left Join
+        repo.Index_gross    As i_2
+            On
+            i_2.index_guid = fk.referenced_index_guid;
 
 ----
 // end::sql_modules_definition[]

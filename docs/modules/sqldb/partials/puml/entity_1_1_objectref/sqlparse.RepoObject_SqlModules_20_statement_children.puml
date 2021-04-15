@@ -1,0 +1,103 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity sqlparse.ftv_sqlparse_with_some_children << IF >> {
+}
+
+entity sqlparse.RepoObject_SqlModules_10_statement << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity sqlparse.RepoObject_SqlModules_20_statement_children << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+}
+
+entity sqlparse.RepoObject_SqlModules_21_statement_children_helper << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+}
+
+entity sqlparse.RepoObject_SqlModules_22_identifier_alias_AS << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+  **RowNumber** : bigint
+}
+
+entity sqlparse.RepoObject_SqlModules_23_normalized_wo_nolock << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+}
+
+entity sqlparse.RepoObject_SqlModules_24_IdentifierList_children << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+  * **T2_json_key** : nvarchar(4000)
+}
+
+entity sqlparse.RepoObject_SqlModules_29_1_object_is_union << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity sqlparse.RepoObject_SqlModules_29_2_object_is_GroupBy << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity sqlparse.RepoObject_SqlModules_32_ObjectClass << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  **class** : nvarchar(500)
+}
+
+entity sqlparse.RepoObject_SqlModules_33_ObjectNormalized << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  **normalized** : nvarchar(max)
+}
+
+entity sqlparse.RepoObject_SqlModules_41_from << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+}
+
+entity sqlparse.RepoObject_SqlModules_51_Identitfier << V >> {
+}
+
+entity sqlparse.RepoObject_SqlModules_Identitfier << V >> {
+}
+
+sqlparse.ftv_sqlparse_with_some_children <.. sqlparse.RepoObject_SqlModules_24_IdentifierList_children
+sqlparse.ftv_sqlparse_with_some_children <.. sqlparse.RepoObject_SqlModules_20_statement_children
+sqlparse.RepoObject_SqlModules_10_statement <.. sqlparse.RepoObject_SqlModules_20_statement_children
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_51_Identitfier
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_Identitfier
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_21_statement_children_helper
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_29_1_object_is_union
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_29_2_object_is_GroupBy
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_32_ObjectClass
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_33_ObjectNormalized
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_24_IdentifierList_children
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_23_normalized_wo_nolock
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_22_identifier_alias_AS
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_41_from
+sqlparse.RepoObject_SqlModules_22_identifier_alias_AS <.. sqlparse.RepoObject_SqlModules_41_from

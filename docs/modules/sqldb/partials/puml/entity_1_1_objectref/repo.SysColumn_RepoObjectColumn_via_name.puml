@@ -43,11 +43,11 @@ entity repo_sys.IndexColumn_unique << V >> {
 entity repo_sys.SysColumn << V >> {
 }
 
-repo.RepoObject <.. repo.SysColumn_RepoObjectColumn_via_name
 repo.RepoObject <.. repo.usp_sync_guid_RepoObjectColumn
+repo.RepoObject <.. repo.SysColumn_RepoObjectColumn_via_name
 repo.RepoObjectColumn <.. repo.SysColumn_RepoObjectColumn_via_name
 repo.RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
-repo.SysColumn_RepoObjectColumn_via_name <.. repo_sys.IndexColumn_unique
 repo.SysColumn_RepoObjectColumn_via_name <.. repo.usp_sync_guid_RepoObjectColumn
+repo.SysColumn_RepoObjectColumn_via_name <.. repo_sys.IndexColumn_unique
 repo_sys.SysColumn <.. repo.SysColumn_RepoObjectColumn_via_name
 repo_sys.SysColumn <.. repo.usp_sync_guid_RepoObjectColumn

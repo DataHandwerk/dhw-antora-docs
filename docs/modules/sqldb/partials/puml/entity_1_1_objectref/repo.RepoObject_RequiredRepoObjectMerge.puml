@@ -29,11 +29,12 @@ entity repo.RepoObject << U >> {
 
 entity repo.RepoObject_RequiredRepoObjectMerge << V >> {
   * **RepoObject_guid** : uniqueidentifier
+  * **ro2_RepoObject_guid** : uniqueidentifier
 }
 
 entity repo.usp_sync_guid_RepoObject << P >> {
 }
 
-repo.RepoObject <.. repo.usp_sync_guid_RepoObject
 repo.RepoObject <.. repo.RepoObject_RequiredRepoObjectMerge
+repo.RepoObject <.. repo.usp_sync_guid_RepoObject
 repo.RepoObject_RequiredRepoObjectMerge <.. repo.usp_sync_guid_RepoObject

@@ -32,6 +32,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -89,6 +90,7 @@ entity repo.RepoObjectColumn << U >> {
   is_persistence_no_include : bit
   is_persistence_no_update : bit
   is_query_plan_expression : bit
+  is_required_ColumnMerge : bit
   is_SysObjectColumn_missing : bit
   persistence_source_RepoObjectColumn_guid : uniqueidentifier
   Referencing_Count : int
@@ -118,6 +120,10 @@ entity repo.RepoObjectColumn << U >> {
 }
 
 entity repo.RepoObjectColumn_reference_Persistence << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
   --
   definition : nvarchar(max)
   * InformationSource : varchar(27)
@@ -126,8 +132,6 @@ entity repo.RepoObjectColumn_reference_Persistence << V >> {
   is_referencing_object_equal_referenced_object : bit
   * referenced_column_name : nvarchar(128)
   * referenced_entity_name : nvarchar(128)
-  referenced_id : int
-  referenced_minor_id : int
   referenced_node_id : bigint
   referenced_RepoObject_guid : uniqueidentifier
   * referenced_RepoObjectColumn_guid : uniqueidentifier
@@ -135,8 +139,6 @@ entity repo.RepoObjectColumn_reference_Persistence << V >> {
   referenced_type : char(2)
   * referencing_column_name : nvarchar(128)
   * referencing_entity_name : nvarchar(128)
-  referencing_id : int
-  referencing_minor_id : int
   referencing_node_id : bigint
   * referencing_RepoObject_guid : uniqueidentifier
   * referencing_RepoObjectColumn_guid : uniqueidentifier
@@ -177,8 +179,8 @@ repo.RepoObjectColumn <.. repo.RepoObjectColumn_reference_Persistence
 repo.RepoObjectColumn_reference_Persistence <.. repo.RepoObjectColumn_reference_union
 repo.RepoObject::node_id <-- repo.RepoObjectColumn_reference_Persistence::referenced_node_id
 repo.RepoObject::node_id <-- repo.RepoObjectColumn_reference_Persistence::referencing_node_id
-repo.RepoObject::SysObject_id <-- repo.RepoObjectColumn_reference_Persistence::referencing_id
 repo.RepoObject::SysObject_id <-- repo.RepoObjectColumn_reference_Persistence::referenced_id
+repo.RepoObject::SysObject_id <-- repo.RepoObjectColumn_reference_Persistence::referencing_id
 repo.RepoObject::SysObject_name <-- repo.RepoObjectColumn_reference_Persistence::referenced_entity_name
 repo.RepoObject::SysObject_name <-- repo.RepoObjectColumn_reference_Persistence::referencing_entity_name
 repo.RepoObject::SysObject_schema_name <-- repo.RepoObjectColumn_reference_Persistence::referencing_schema_name
@@ -187,9 +189,9 @@ repo.RepoObject::SysObject_type <-- repo.RepoObjectColumn_reference_Persistence:
 repo.RepoObject::SysObject_type <-- repo.RepoObjectColumn_reference_Persistence::referencing_type
 repo.RepoObject_persistence::source_RepoObject_guid <-- repo.RepoObjectColumn_reference_Persistence::referenced_RepoObject_guid
 repo.RepoObject_persistence::target_RepoObject_guid <-- repo.RepoObjectColumn_reference_Persistence::referencing_RepoObject_guid
-repo.RepoObjectColumn::RepoObjectColumn_guid <-- repo.RepoObjectColumn_reference_Persistence::referencing_RepoObjectColumn_guid
 repo.RepoObjectColumn::RepoObjectColumn_guid <-- repo.RepoObjectColumn_reference_Persistence::referenced_RepoObjectColumn_guid
-repo.RepoObjectColumn::SysObjectColumn_column_id <-- repo.RepoObjectColumn_reference_Persistence::referenced_minor_id
+repo.RepoObjectColumn::RepoObjectColumn_guid <-- repo.RepoObjectColumn_reference_Persistence::referencing_RepoObjectColumn_guid
 repo.RepoObjectColumn::SysObjectColumn_column_id <-- repo.RepoObjectColumn_reference_Persistence::referencing_minor_id
+repo.RepoObjectColumn::SysObjectColumn_column_id <-- repo.RepoObjectColumn_reference_Persistence::referenced_minor_id
 repo.RepoObjectColumn::SysObjectColumn_name <-- repo.RepoObjectColumn_reference_Persistence::referenced_column_name
 repo.RepoObjectColumn::SysObjectColumn_name <-- repo.RepoObjectColumn_reference_Persistence::referencing_column_name

@@ -52,6 +52,7 @@ entity repo.RepoObject_gross << V >> {
   is_persistence_update_changed : bit
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   * modify_dt : datetime
@@ -114,7 +115,7 @@ entity repo.usp_RepoObject_update_SysObjectQueryPlan << P >> {
 }
 
 repo.RepoObject_gross <.. repo.usp_RepoObject_update_SysObjectQueryPlan
-repo.RepoObject_QueryPlan <.. repo.RepoObject_gross
 repo.RepoObject_QueryPlan <.. repo.usp_RepoObject_update_SysObjectQueryPlan
+repo.RepoObject_QueryPlan <.. repo.RepoObject_gross
 repo.RepoObject_QueryPlan::SysObject_query_executed_dt <-- repo.RepoObject_gross::SysObject_query_executed_dt
 repo.RepoObject_QueryPlan::SysObject_query_plan <-- repo.RepoObject_gross::SysObject_query_plan

@@ -32,6 +32,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -70,6 +71,7 @@ entity repo.RepoObjectColumn << U >> {
   is_persistence_no_include : bit
   is_persistence_no_update : bit
   is_query_plan_expression : bit
+  is_required_ColumnMerge : bit
   is_SysObjectColumn_missing : bit
   persistence_source_RepoObjectColumn_guid : uniqueidentifier
   Referencing_Count : int
@@ -99,6 +101,7 @@ entity repo.RepoObjectColumn << U >> {
 }
 
 entity repo.RepoObjectColumn_MissingSource_TypeV << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
   --
   has_different_sys_names : bit
   is_query_plan_expression : bit
@@ -124,7 +127,6 @@ entity repo.RepoObjectColumn_MissingSource_TypeV << V >> {
   Repo_uses_database_collation : bit
   * RepoObject_fullname : nvarchar(261)
   * RepoObject_guid : uniqueidentifier
-  * RepoObjectColumn_guid : uniqueidentifier
   * RepoObjectColumn_name : nvarchar(128)
   * SysObject_fullname : nvarchar(261)
   SysObjectColumn_column_id : int

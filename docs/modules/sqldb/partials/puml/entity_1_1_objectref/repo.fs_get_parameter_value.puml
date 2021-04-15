@@ -23,10 +23,6 @@ skinparam class {
 }
 
 
-entity docs.RepoObject_Plantuml << V >> {
-  * **RepoObject_guid** : uniqueidentifier
-}
-
 entity docs.usp_AntoraExport_navigation << P >> {
 }
 
@@ -53,26 +49,20 @@ entity repo.Parameter << U >> {
   * **sub_Parameter** : nvarchar(128)
 }
 
-entity repo.RepoObject_SqlCreateTable << V >> {
-  * **RepoObject_guid** : uniqueidentifier
-}
-
 entity repo.usp_main << P >> {
 }
 
 entity repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id << P >> {
 }
 
-repo.fs_get_parameter_value <.. repo.RepoObject_SqlCreateTable
-repo.fs_get_parameter_value <.. repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id
-repo.fs_get_parameter_value <.. repo.usp_main
-repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPartialProperties
-repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPage
-repo.fs_get_parameter_value <.. docs.usp_AntoraExport_navigation
 repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPageTemplate
-repo.fs_get_parameter_value <.. docs.RepoObject_Plantuml
 repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPuml
 repo.fs_get_parameter_value <.. docs.usp_AntoraExport_Page_IndexSemanticGroup
+repo.fs_get_parameter_value <.. repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id
+repo.fs_get_parameter_value <.. docs.usp_AntoraExport_navigation
+repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPartialProperties
+repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPage
+repo.fs_get_parameter_value <.. repo.usp_main
 repo.Parameter <.. repo.fs_get_parameter_value
 repo.Parameter <.. docs.usp_AntoraExport_ObjectPageTemplate
 repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id <.. repo.usp_main

@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
 entity repo.ExtendedProperty_Repo2Sys_level1 << V >> {
   * **level0type** : nvarchar(6)
   * **level0name** : nvarchar(128)
@@ -41,9 +44,6 @@ entity repo.ExtendedProperty_Repo2Sys_level2_Union << V >> {
   * **property_name** : nvarchar(128)
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-}
-
 entity repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate << P >> {
 }
 
@@ -53,8 +53,8 @@ entity repo_sys.ExtendedProperties_ParameterForAddUpdateDrop << V >> {
 entity repo_sys.usp_AddOrUpdateExtendedProperty << P >> {
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate
 repo.ExtendedProperty_Repo2Sys_level1 <.. repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate
 repo.ExtendedProperty_Repo2Sys_level2_Union <.. repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate
-repo.usp_ExecutionLog_insert <.. repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate
 repo_sys.ExtendedProperties_ParameterForAddUpdateDrop <.. repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate
 repo_sys.usp_AddOrUpdateExtendedProperty <.. repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate

@@ -28,4 +28,8 @@ entity docs.ForeignKey_RelationScript << V >> {
   **referencing_RepoObject_guid** : uniqueidentifier
 }
 
+entity repo.ForeignKey_Indexes_union_T << U >> {
+  **ForeignKey_guid** : uniqueidentifier
+}
 
+repo.ForeignKey_Indexes_union_T <.. docs.ForeignKey_RelationScript

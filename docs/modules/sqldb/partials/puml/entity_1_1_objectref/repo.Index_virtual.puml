@@ -31,6 +31,10 @@ entity repo.Index_virtual << U >> {
   * **index_guid** : uniqueidentifier
 }
 
+entity repo.Index_virtual_ForUpdate << V >> {
+  * **index_guid** : uniqueidentifier
+}
+
 entity repo.Index_virtual_IndexPatternColumnGuid << V >> {
   * **index_guid** : uniqueidentifier
 }
@@ -40,7 +44,7 @@ entity repo.Index_virtual_SysObject << V >> {
 }
 
 entity repo.IndexColumn_virtual_gross << V >> {
-  * **index_guid** : uniqueidentifier
+  * **index_column_id** : int
 }
 
 entity repo.IndexColumn_virtual_referenced_setpoint << V >> {
@@ -59,21 +63,23 @@ entity repo.usp_Index_finish << P >> {
 entity repo.usp_index_inheritance << P >> {
 }
 
-entity repo.usp_Index_virtual_InsertUpdate << P >> {
+entity repo.usp_Index_virtual_set << P >> {
 }
 
-repo.Index_union <.. repo.IndexReferencedReferencing
 repo.Index_union <.. repo.usp_Index_finish
-repo.Index_virtual <.. repo.IndexColumn_virtual_gross
-repo.Index_virtual <.. repo.Index_virtual_SysObject
-repo.Index_virtual <.. repo.Index_union
+repo.Index_union <.. repo.IndexReferencedReferencing
 repo.Index_virtual <.. repo.IndexReferencedReferencing
-repo.Index_virtual <.. repo.IndexColumn_virtual_referenced_setpoint
-repo.Index_virtual <.. repo.usp_index_inheritance
-repo.Index_virtual <.. repo.usp_Index_virtual_InsertUpdate
 repo.Index_virtual <.. repo.Index_virtual_IndexPatternColumnGuid
+repo.Index_virtual <.. repo.usp_index_inheritance
+repo.Index_virtual <.. repo.Index_virtual_SysObject
+repo.Index_virtual <.. repo.IndexColumn_virtual_gross
+repo.Index_virtual <.. repo.IndexColumn_virtual_referenced_setpoint
 repo.Index_virtual <.. repo.usp_Index_finish
-repo.Index_virtual_IndexPatternColumnGuid <.. repo.Index_union
+repo.Index_virtual <.. repo.usp_Index_virtual_set
+repo.Index_virtual <.. repo.Index_virtual_ForUpdate
+repo.Index_virtual <.. repo.Index_union
+repo.Index_virtual_ForUpdate <.. repo.usp_index_inheritance
 repo.Index_virtual_IndexPatternColumnGuid <.. repo.usp_index_inheritance
+repo.Index_virtual_IndexPatternColumnGuid <.. repo.Index_union
 repo.IndexColumn_virtual_referenced_setpoint <.. repo.usp_index_inheritance
 repo.usp_Index_finish <.. repo.usp_index_inheritance

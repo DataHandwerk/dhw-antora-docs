@@ -68,6 +68,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -123,8 +124,8 @@ repo.RepoObject::RepoObject_guid <-- repo.ExtendedProperty_Repo2Sys_level2_RepoO
 repo.RepoObject::RepoObject_name <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::level2name
 repo.RepoObject::RepoObject_name <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::level1name
 repo.RepoObject::RepoObject_schema_name <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::level0name
-repo.RepoObject::RepoObject_type <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::parent_RepoObject_type
 repo.RepoObject::RepoObject_type <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::RepoObject_type
+repo.RepoObject::RepoObject_type <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::parent_RepoObject_type
 repo.RepoObjectProperty::property_name <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::property_name
 repo.RepoObjectProperty::property_value <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::property_value
 repo.RepoObjectProperty::RepoObject_guid <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::RepoObject_guid

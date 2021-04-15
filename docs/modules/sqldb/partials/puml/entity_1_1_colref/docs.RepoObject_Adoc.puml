@@ -43,7 +43,6 @@ entity docs.RepoObject_Adoc_T << U >> {
   * **RepoObject_guid** : uniqueidentifier
   --
   * AdocContent : nvarchar(max)
-  FE017F28-EB74-4D10-8A53-2A688FF0FB49 : int
   is_DocsOutput : int
   PropertyCount : int
   RepoObject_fullname : nvarchar(261)
@@ -112,6 +111,7 @@ entity repo.RepoObject_gross << V >> {
   is_persistence_update_changed : bit
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   * modify_dt : datetime
@@ -206,4 +206,5 @@ docs.RepoObject_Adoc::SysObject_fullname2 <-- docs.RepoObject_Adoc_T::SysObject_
 docs.RepoObject_Adoc::SysObject_schema_name <-- docs.RepoObject_Adoc_T::SysObject_schema_name
 docs.RepoObject_Adoc::SysObject_type <-- docs.RepoObject_Adoc_T::SysObject_type
 docs.RepoObject_Adoc::SysObject_type_name <-- docs.RepoObject_Adoc_T::SysObject_type_name
+repo.RepoObject_gross::is_DocsOutput <-- docs.RepoObject_Adoc::is_DocsOutput
 repo.RepoObject_gross::RepoObject_guid <-- docs.RepoObject_Adoc::RepoObject_guid

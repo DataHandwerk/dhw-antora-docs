@@ -1,2 +1,1 @@
-* xref:sys_self.ExtendedProperties.adoc[]
-* xref:sys_self.ExtendedProperties_ParameterForAddUpdateDrop.adoc[]
+* xref:workflow.ProcedureDependency_gross.adoc[]

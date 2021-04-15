@@ -23,8 +23,44 @@ skinparam class {
 }
 
 
+entity docs.ForeignKey_RelationScript << V >> {
+  **referenced_RepoObject_guid** : uniqueidentifier
+  **referencing_RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_PlantUml_FkRefList << V >> {
+  **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.ForeignKey_gross << V >> {
+  **ForeignKey_guid** : uniqueidentifier
+}
+
+entity repo.ForeignKey_Indexes_union << V >> {
+  **ForeignKey_guid** : uniqueidentifier
+}
+
 entity repo.ForeignKey_Indexes_union_T << U >> {
   **ForeignKey_guid** : uniqueidentifier
 }
 
+entity repo.RepoObject_related_FK_union << V >> {
+  **RepoObject_guid** : uniqueidentifier
+  **included_RepoObject_guid** : uniqueidentifier
+}
 
+entity repo.usp_Index_finish << P >> {
+}
+
+entity repo.usp_PERSIST_ForeignKey_Indexes_union_T << P >> {
+}
+
+repo.ForeignKey_Indexes_union <.. repo.ForeignKey_Indexes_union_T
+repo.ForeignKey_Indexes_union <.. repo.usp_PERSIST_ForeignKey_Indexes_union_T
+repo.ForeignKey_Indexes_union_T <.. repo.usp_PERSIST_ForeignKey_Indexes_union_T
+repo.ForeignKey_Indexes_union_T <.. repo.RepoObject_related_FK_union
+repo.ForeignKey_Indexes_union_T <.. docs.RepoObject_PlantUml_FkRefList
+repo.ForeignKey_Indexes_union_T <.. repo.ForeignKey_gross
+repo.ForeignKey_Indexes_union_T <.. docs.ForeignKey_RelationScript
+repo.ForeignKey_Indexes_union_T <.. repo.usp_Index_finish
+repo.RepoObject_related_FK_union <.. docs.RepoObject_PlantUml_FkRefList

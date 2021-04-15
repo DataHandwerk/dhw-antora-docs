@@ -23,6 +23,10 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+  --
+}
+
 entity repo.Index_gross << V >> {
   * **index_guid** : uniqueidentifier
   --
@@ -71,6 +75,29 @@ entity repo.Index_virtual << U >> {
   RowNumberInReferencing : int
 }
 
+entity repo.Index_virtual_ForUpdate << V >> {
+  * **index_guid** : uniqueidentifier
+  --
+  * has_managedName : bit
+  index_name : nvarchar(128)
+  * index_type : tinyint
+  IndexPatternColumnDatatype : nvarchar(4000)
+  IndexPatternColumnName : nvarchar(4000)
+  IndexSemanticGroup : nvarchar(512)
+  * is_index_disabled : bit
+  * is_index_primary_key : bit
+  * is_index_unique : bit
+  is_persistence : bit
+  is_repo_managed : bit
+  * parent_RepoObject_guid : uniqueidentifier
+  referenced_index_guid : uniqueidentifier
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_fullname2 : nvarchar(257)
+  RowNumberInReferencing : int
+  * SysObject_fullname : nvarchar(261)
+  * SysObject_fullname2 : nvarchar(257)
+}
+
 entity repo.Index_virtual_IndexPatternColumnGuid << V >> {
   * **index_guid** : uniqueidentifier
   --
@@ -111,10 +138,6 @@ entity repo.IndexReferencedReferencing_HasFullColumnsInReferencing << V >> {
   * source_index_type : tinyint
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-  --
-}
-
 entity repo.usp_Index_finish << P >> {
   --
 }
@@ -131,26 +154,38 @@ entity repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInRefere
   --
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_finish
+logs.usp_ExecutionLog_insert <.. repo.usp_main
+logs.usp_ExecutionLog_insert <.. repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T
+logs.usp_ExecutionLog_insert <.. repo.usp_index_inheritance
 repo.Index_gross <.. repo.usp_index_inheritance
 repo.Index_gross <.. repo.usp_Index_finish
+repo.Index_virtual <.. repo.Index_virtual_ForUpdate
 repo.Index_virtual <.. repo.IndexColumn_virtual_referenced_setpoint
+repo.Index_virtual <.. repo.usp_Index_finish
 repo.Index_virtual <.. repo.usp_index_inheritance
 repo.Index_virtual <.. repo.Index_virtual_IndexPatternColumnGuid
-repo.Index_virtual <.. repo.usp_Index_finish
+repo.Index_virtual_ForUpdate <.. repo.usp_index_inheritance
 repo.Index_virtual_IndexPatternColumnGuid <.. repo.usp_index_inheritance
-repo.IndexColumn_virtual <.. repo.usp_index_inheritance
 repo.IndexColumn_virtual <.. repo.Index_virtual_IndexPatternColumnGuid
+repo.IndexColumn_virtual <.. repo.usp_index_inheritance
 repo.IndexColumn_virtual <.. repo.usp_Index_finish
 repo.IndexColumn_virtual_referenced_setpoint <.. repo.usp_index_inheritance
 repo.IndexReferencedReferencing_HasFullColumnsInReferencing <.. repo.usp_index_inheritance
-repo.usp_ExecutionLog_insert <.. repo.usp_index_inheritance
-repo.usp_ExecutionLog_insert <.. repo.usp_main
-repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T
-repo.usp_ExecutionLog_insert <.. repo.usp_Index_finish
 repo.usp_Index_finish <.. repo.usp_index_inheritance
 repo.usp_index_inheritance <.. repo.usp_main
 repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T <.. repo.usp_index_inheritance
+repo.Index_virtual::has_managedName <-- repo.Index_virtual_ForUpdate::has_managedName
+repo.Index_virtual::index_guid <-- repo.Index_virtual_ForUpdate::index_guid
 repo.Index_virtual::index_guid <-- repo.IndexColumn_virtual_referenced_setpoint::index_guid
 repo.Index_virtual::index_guid <-- repo.Index_virtual_IndexPatternColumnGuid::index_guid
+repo.Index_virtual::index_name <-- repo.Index_virtual_ForUpdate::index_name
+repo.Index_virtual::index_type <-- repo.Index_virtual_ForUpdate::index_type
+repo.Index_virtual::is_index_disabled <-- repo.Index_virtual_ForUpdate::is_index_disabled
+repo.Index_virtual::is_index_primary_key <-- repo.Index_virtual_ForUpdate::is_index_primary_key
+repo.Index_virtual::is_index_unique <-- repo.Index_virtual_ForUpdate::is_index_unique
+repo.Index_virtual::parent_RepoObject_guid <-- repo.Index_virtual_ForUpdate::parent_RepoObject_guid
+repo.Index_virtual::referenced_index_guid <-- repo.Index_virtual_ForUpdate::referenced_index_guid
 repo.Index_virtual::referenced_index_guid <-- repo.IndexColumn_virtual_referenced_setpoint::referenced_index_guid
 repo.Index_virtual::RowNumberInReferencing <-- repo.IndexColumn_virtual_referenced_setpoint::RowNumberInReferencing
+repo.Index_virtual::RowNumberInReferencing <-- repo.Index_virtual_ForUpdate::RowNumberInReferencing

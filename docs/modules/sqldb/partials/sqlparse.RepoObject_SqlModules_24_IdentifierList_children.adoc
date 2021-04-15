@@ -1,0 +1,847 @@
+= [sqlparse].[RepoObject_SqlModules_24_IdentifierList_children]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--pk_index_guid:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--referencedobjectlist:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--FK:
+:ExistsProperty--AntoraIndexList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+3B90291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+V 
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+view
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+722817637
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-13 19:02:38
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-RepoObject_guid]]
+=== RepoObject_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*RepoObject_guid*
+|uniqueidentifier
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_20_statement_children.adoc#column-RepoObject_guid[sqlparse.RepoObject_SqlModules_20_statement_children.RepoObject_guid]
+--
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc#column-RepoObject_guid[sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.RepoObject_guid]
+--
+
+
+[[column-json_key]]
+=== json_key
+
+[cols="d,m,m,m,m,d"]
+|===
+|2
+|*json_key*
+|nvarchar(4000)
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_20_statement_children.adoc#column-json_key[sqlparse.RepoObject_SqlModules_20_statement_children.json_key]
+--
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc#column-json_key[sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.json_key]
+--
+
+
+[[column-T2_json_key]]
+=== T2_json_key
+
+[cols="d,m,m,m,m,d"]
+|===
+|3
+|*T2_json_key*
+|nvarchar(4000)
+|NOT NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc#column-T2_json_key[sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.T2_json_key]
+--
+
+
+[[column-class]]
+=== class
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|class
+|nvarchar(500)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_20_statement_children.adoc#column-class[sqlparse.RepoObject_SqlModules_20_statement_children.class]
+--
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc#column-class[sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.class]
+--
+
+
+[[column-Identifier_alias]]
+=== Identifier_alias
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Identifier_alias
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc#column-Identifier_alias[sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.Identifier_alias]
+--
+
+
+[[column-Identifier_source]]
+=== Identifier_source
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Identifier_source
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc#column-Identifier_source[sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.Identifier_source]
+--
+
+
+[[column-Identifier_source_children]]
+=== Identifier_source_children
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Identifier_source_children
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc#column-Identifier_source_children[sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.Identifier_source_children]
+--
+
+
+[[column-Identifier_source_class]]
+=== Identifier_source_class
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Identifier_source_class
+|nvarchar(500)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc#column-Identifier_source_class[sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.Identifier_source_class]
+--
+
+
+[[column-normalized]]
+=== normalized
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|normalized
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_20_statement_children.adoc#column-normalized[sqlparse.RepoObject_SqlModules_20_statement_children.normalized]
+--
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc#column-normalized[sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.normalized]
+--
+
+
+[[column-RowNumber_per_Object]]
+=== RowNumber_per_Object
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|RowNumber_per_Object
+|bigint
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_20_statement_children.adoc#column-RowNumber_per_Object[sqlparse.RepoObject_SqlModules_20_statement_children.RowNumber_per_Object]
+--
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc#column-RowNumber_per_Object[sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.RowNumber_per_Object]
+--
+
+
+[[column-SysObject_fullname]]
+=== SysObject_fullname
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|SysObject_fullname
+|nvarchar(261)
+|NULL
+|
+|
+|===
+
+.Description
+--
+(concat('[',[SysObject_schema_name],'].[',[SysObject_name],']'))
+--
+
+.Referenced Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_20_statement_children.adoc#column-SysObject_fullname[sqlparse.RepoObject_SqlModules_20_statement_children.SysObject_fullname]
+--
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc#column-SysObject_fullname[sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.SysObject_fullname]
+--
+
+
+[[column-T2_class]]
+=== T2_class
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|T2_class
+|nvarchar(500)
+|NULL
+|
+|
+|===
+
+.Referencing Columns
+--
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc#column-T2_class[sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.T2_class]
+--
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-RepoObject_guid>>*
+|uniqueidentifier
+|NOT NULL
+|
+|
+
+|2
+|*<<column-json_key>>*
+|nvarchar(4000)
+|NOT NULL
+|
+|
+
+|3
+|*<<column-T2_json_key>>*
+|nvarchar(4000)
+|NOT NULL
+|
+|
+
+
+
+
+
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+
+
+
+|
+|<<column-class>>
+|nvarchar(500)
+|NULL
+|
+|
+
+|
+|<<column-Identifier_alias>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-Identifier_source>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-Identifier_source_children>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-Identifier_source_class>>
+|nvarchar(500)
+|NULL
+|
+|
+
+|
+|<<column-normalized>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-RowNumber_per_Object>>
+|bigint
+|NULL
+|
+|
+
+|
+|<<column-SysObject_fullname>>
+|nvarchar(261)
+|NULL
+|
+|
+
+|
+|<<column-T2_class>>
+|nvarchar(500)
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+[[index-PK_RepoObject_SqlModules_24_IdentifierList_children]]
+=== PK_RepoObject_SqlModules_24_IdentifierList_children
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_no_group[no_group]
++
+--
+* <<column-RepoObject_guid>>; uniqueidentifier
+* <<column-json_key>>; nvarchar(4000)
+* <<column-T2_json_key>>; nvarchar(4000)
+--
+* PK, Unique, Real: 1, 1, 0
+
+
+[[index-idx_RepoObject_SqlModules_24_IdentifierList_children__2]]
+=== idx_RepoObject_SqlModules_24_IdentifierList_children__2
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_no_group[no_group]
++
+--
+* <<column-RepoObject_guid>>; uniqueidentifier
+* <<column-json_key>>; nvarchar(4000)
+--
+* PK, Unique, Real: 0, 0, 0
+
+
+[[index-idx_RepoObject_SqlModules_24_IdentifierList_children__3]]
+=== idx_RepoObject_SqlModules_24_IdentifierList_children__3
+
+* IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_repoobject_guid[RepoObject_guid]
++
+--
+* <<column-RepoObject_guid>>; uniqueidentifier
+--
+* PK, Unique, Real: 0, 0, 0
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::adocuspsteps[]
+
+// end::adocuspsteps[]
+
+
+== AntoraReferencedList
+
+// tag::antorareferencedlist[]
+* xref:sqlparse.ftv_sqlparse_with_some_children.adoc[]
+* xref:sqlparse.RepoObject_SqlModules_20_statement_children.adoc[]
+// end::antorareferencedlist[]
+
+
+== AntoraReferencingList
+
+// tag::antorareferencinglist[]
+* xref:sqlparse.RepoObject_SqlModules_25_IdentifierList_children_IdentifierSplit.adoc[]
+// end::antorareferencinglist[]
+
+
+== exampleUsage
+
+// tag::exampleusage[]
+
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::ms_description[]
+
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+23DEFC88-1196-EB11-84F4-A81E8446D5B0
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+uniqueidentifier,nvarchar(4000),nvarchar(4000)
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+RepoObject_guid,json_key,T2_json_key
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+* [sqlparse].[ftv_sqlparse_with_some_children]
+* [sqlparse].[RepoObject_SqlModules_20_statement_children]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+Create View [sqlparse].RepoObject_SqlModules_24_IdentifierList_children
+As
+--
+Select
+    T1.RepoObject_guid
+  , T1.json_key
+  , T2.json_key                As T2_json_key
+  , T1.SysObject_fullname
+  , T1.RowNumber_per_Object
+  , T1.class
+  --, [T1].[is_group]
+  --, [T1].[is_keyword]
+  --, [T1].[is_whitespace]
+  , T1.normalized
+  --, [T1].[children]
+  , T2_class                   = T2.class
+  , Identifier_alias           = Case T2.class
+                                     When 'Identifier'
+                                         Then
+                                         Case
+                                             When T2.child1_normalized Is Null
+                                                 Then
+                                                 T2.child0_normalized
+                                             When T2.child1_normalized = 'AS'
+                                                 Then
+                                                 T2.child2_normalized
+                                             When T2.child1_normalized = '.'
+                                                 Then
+                                                 T2.child2_normalized
+                                             When T2.child3_normalized = 'AS'
+                                                 Then
+                                                 T2.child4_normalized
+                                         End
+                                     When 'Comparison'
+                                         Then
+                                         Case
+                                             When T2.child1_normalized = '='
+                                                 Then
+                                                 T2.child0_normalized
+                                         End
+                                 End
+  , Identifier_source          = Case T2.class
+                                     When 'Identifier'
+                                         Then
+                                         Case T2.child0_class
+                                             When 'Token'
+                                                 Then
+                                                 T2.normalized
+                                             When 'Function'
+                                                 Then
+                                                 T2.child0_normalized
+                                         End
+                                     When 'Comparison'
+                                         Then
+                                         Case
+                                             When T2.child1_normalized = '='
+                                                 Then
+                                                 T2.child2_normalized
+                                         End
+                                 End
+  , Identifier_source_class    = Case T2.class
+                                     When 'Identifier'
+                                         Then
+                                         Case T2.child0_class
+                                             When 'Token'
+                                                 Then
+                                                 T2.class
+                                             When 'Function'
+                                                 Then
+                                                 T2.child0_class
+                                         End
+                                     When 'Comparison'
+                                         Then
+                                         Case
+                                             When T2.child1_normalized = '='
+                                                 Then
+                                                 T2.child2_class
+                                         End
+                                 End
+  , Identifier_source_children = Case T2.class
+                                     When 'Identifier'
+                                         Then
+                                         Case T2.child0_class
+                                             When 'Token'
+                                                 Then
+                                                 T2.children
+                                             When 'Function'
+                                                 Then
+                                                 T2.child0_children
+                                         End
+                                     When 'Comparison'
+                                         Then
+                                         Case
+                                             When T2.child1_normalized = '='
+                                                 Then
+                                                 T2.child2_children
+                                         End
+                                 End
+--, [T2].[is_group]
+--, [T2].[is_keyword]
+--, [T2].[is_whitespace]
+--, [T2].[normalized]
+--, [T2].[children]
+--, [T2].[child0_class]
+--, [T2].[child0_is_group]
+--, [T2].[child0_is_keyword]
+--, [T2].[child0_is_whitespace]
+--, [T2].[child0_normalized]
+--, [T2].[child0_children]
+--, [T2].[child1_class]
+--, [T2].[child1_is_group]
+--, [T2].[child1_is_keyword]
+--, [T2].[child1_is_whitespace]
+--, [T2].[child1_normalized]
+--, [T2].[child1_children]
+--, [T2].[child2_class]
+--, [T2].[child2_is_group]
+--, [T2].[child2_is_keyword]
+--, [T2].[child2_is_whitespace]
+--, [T2].[child2_normalized]
+--, [T2].[child2_children]
+--, [T2].[child3_class]
+--, [T2].[child3_is_group]
+--, [T2].[child3_is_keyword]
+--, [T2].[child3_is_whitespace]
+--, [T2].[child3_normalized]
+--, [T2].[child3_children]
+--, [T2].[child4_class]
+--, [T2].[child4_is_group]
+--, [T2].[child4_is_keyword]
+--, [T2].[child4_is_whitespace]
+--, [T2].[child4_normalized]
+--, [T2].[child4_children]
+From
+    [sqlparse].RepoObject_SqlModules_20_statement_children                 As T1
+    Cross Apply [sqlparse].ftv_sqlparse_with_some_children ( T1.children ) As T2
+Where
+    T1.class = 'IdentifierList'
+    And T2.class In
+        ( 'Identifier', 'Comparison' );
+----there was any reason for this filter
+----now we remove it, but we need to check the case of 'Identifier'
+-- AND [T2].[class] = 'Comparison'
+
+----
+// end::sql_modules_definition[]
+
+

@@ -1,0 +1,78 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.AntoraTemplate_examples << V >> {
+}
+
+entity docs.RepoObject_Adoc << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Adoc_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.usp_AntoraExport << P >> {
+}
+
+entity docs.usp_AntoraExport_ObjectPartialProperties << P >> {
+}
+
+entity docs.usp_PERSIST_RepoObject_Adoc_T << P >> {
+}
+
+entity repo.PropertyName_RepoObject << V >> {
+  * **property_name** : nvarchar(128)
+}
+
+entity repo.RepoObjectProperty_cross << V >> {
+}
+
+entity repo.RepoObjectProperty_InheritanceType_InheritanceDefinition << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **property_name** : nvarchar(128)
+}
+
+entity repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition << V >> {
+}
+
+entity repo.usp_main << P >> {
+}
+
+entity repo.usp_RepoObject_Inheritance << P >> {
+}
+
+docs.RepoObject_Adoc <.. docs.RepoObject_Adoc_T
+docs.RepoObject_Adoc <.. docs.usp_PERSIST_RepoObject_Adoc_T
+docs.RepoObject_Adoc_T <.. docs.usp_PERSIST_RepoObject_Adoc_T
+docs.usp_AntoraExport_ObjectPartialProperties <.. docs.usp_AntoraExport
+docs.usp_PERSIST_RepoObject_Adoc_T <.. docs.usp_AntoraExport_ObjectPartialProperties
+repo.PropertyName_RepoObject <.. repo.RepoObjectProperty_cross
+repo.PropertyName_RepoObject <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+repo.PropertyName_RepoObject <.. docs.AntoraTemplate_examples
+repo.RepoObjectProperty_cross <.. docs.RepoObject_Adoc
+repo.RepoObjectProperty_InheritanceType_InheritanceDefinition <.. repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition
+repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition <.. repo.usp_RepoObject_Inheritance
+repo.usp_RepoObject_Inheritance <.. repo.usp_main

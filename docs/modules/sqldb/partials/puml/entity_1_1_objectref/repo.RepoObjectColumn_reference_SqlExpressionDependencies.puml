@@ -29,6 +29,10 @@ entity repo.RepoObject_reference_union << V >> {
 }
 
 entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
+  * **referencing_id** : int
+  * **referencing_minor_id** : int
+  **referenced_id** : int
+  * **referenced_minor_id** : int
 }
 
 entity repo.RepoObjectColumn_reference_union << V >> {

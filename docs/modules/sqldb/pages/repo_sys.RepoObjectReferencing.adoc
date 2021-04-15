@@ -1,5 +1,6 @@
 
 include::partial$template/master-page-1.adoc[]
-include::partial$template/master-page-2.adoc[]
-include::partial$template/master-page-3.adoc[]
+include::partial$template/master-page-examples.adoc[]
+include::partial$template/master-page-4.adoc[]
+include::partial$template/master-page-5.adoc[]
 

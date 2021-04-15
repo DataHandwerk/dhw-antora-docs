@@ -23,7 +23,10 @@ skinparam class {
 }
 
 
+entity repo.RepoObjectProperty_Collect_source_sql_modules_definition << V >> {
+}
+
 entity tool.ftv_extract_substrings << IF >> {
 }
 
-
+tool.ftv_extract_substrings <.. repo.RepoObjectProperty_Collect_source_sql_modules_definition

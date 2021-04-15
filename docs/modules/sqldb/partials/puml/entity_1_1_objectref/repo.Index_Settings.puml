@@ -35,6 +35,10 @@ entity repo.Index_SqlConstraint_PkUq << V >> {
   **index_guid** : uniqueidentifier
 }
 
+entity repo.Index_virtual_ForUpdate << V >> {
+  * **index_guid** : uniqueidentifier
+}
+
 entity repo.Index_virtual_SysObject << V >> {
   * **index_guid** : uniqueidentifier
 }
@@ -50,11 +54,13 @@ entity repo.usp_Index_Settings << P >> {
 }
 
 repo.Index_gross <.. repo.usp_Index_finish
-repo.Index_Settings <.. repo.Index_virtual_SysObject
+repo.Index_Settings <.. repo.usp_Index_Settings
 repo.Index_Settings <.. repo.Index_SqlConstraint_PkUq
 repo.Index_Settings <.. repo.RepoObject_gross
-repo.Index_Settings <.. repo.Index_gross
-repo.Index_Settings <.. repo.usp_Index_Settings
 repo.Index_Settings <.. repo.usp_Index_finish
+repo.Index_Settings <.. repo.Index_virtual_SysObject
+repo.Index_Settings <.. repo.Index_gross
+repo.Index_Settings <.. repo.Index_virtual_ForUpdate
+repo.RepoObject_gross <.. repo.Index_virtual_ForUpdate
 repo.RepoObject_gross <.. repo.Index_gross
 repo.usp_Index_Settings <.. repo.usp_Index_finish

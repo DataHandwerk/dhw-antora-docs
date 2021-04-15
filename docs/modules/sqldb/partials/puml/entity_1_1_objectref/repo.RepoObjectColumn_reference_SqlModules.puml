@@ -27,20 +27,24 @@ entity repo.RepoObject << U >> {
   * **RepoObject_guid** : uniqueidentifier
 }
 
-entity repo.RepoObject_SqlModules_79_reference_union << V >> {
-}
-
 entity repo.RepoObjectColumn << U >> {
   * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumn_reference_SqlModules << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
 }
 
 entity repo.RepoObjectColumn_reference_union << V >> {
 }
 
+entity sqlparse.RepoObject_SqlModules_79_reference_union << V >> {
+}
+
 repo.RepoObject <.. repo.RepoObjectColumn_reference_SqlModules
-repo.RepoObject_SqlModules_79_reference_union <.. repo.RepoObjectColumn_reference_SqlModules
 repo.RepoObjectColumn <.. repo.RepoObjectColumn_reference_SqlModules
 repo.RepoObjectColumn_reference_SqlModules <.. repo.RepoObjectColumn_reference_union
+sqlparse.RepoObject_SqlModules_79_reference_union <.. repo.RepoObjectColumn_reference_SqlModules

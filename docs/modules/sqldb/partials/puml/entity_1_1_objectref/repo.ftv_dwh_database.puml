@@ -26,9 +26,19 @@ skinparam class {
 entity repo.ftv_dwh_database << IF >> {
 }
 
+entity repo.GeneratorUsp_SqlUsp << V >> {
+  * **usp_id** : int
+}
+
 entity repo.Parameter << U >> {
   * **Parameter_name** : varchar(100)
   * **sub_Parameter** : nvarchar(128)
+}
+
+entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
+}
+
+entity repo.usp_update_Referencing_Count << P >> {
 }
 
 entity repo_sys.ExtendedProperties << V >> {
@@ -40,9 +50,12 @@ entity repo_sys.sql_expression_dependencies << V >> {
 entity repo_sys.SysColumn << V >> {
 }
 
+repo.ftv_dwh_database <.. repo.GeneratorUsp_SqlUsp
+repo.ftv_dwh_database <.. repo.RepoObjectColumn_reference_QueryPlan
+repo.ftv_dwh_database <.. repo.usp_update_Referencing_Count
 repo.ftv_dwh_database <.. repo_sys.ExtendedProperties
-repo.ftv_dwh_database <.. repo_sys.SysColumn
 repo.ftv_dwh_database <.. repo_sys.sql_expression_dependencies
+repo.ftv_dwh_database <.. repo_sys.SysColumn
 repo.Parameter <.. repo.ftv_dwh_database
 repo_sys.ExtendedProperties <.. repo_sys.SysColumn
 repo_sys.SysColumn <.. repo_sys.sql_expression_dependencies

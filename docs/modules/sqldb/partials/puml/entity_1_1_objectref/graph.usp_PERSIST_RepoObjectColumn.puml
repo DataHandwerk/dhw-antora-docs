@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity graph.RepoObjectColumn << U >> {
+}
+
 entity graph.RepoObjectColumn_S << V >> {
   * **RepoObjectColumn_guid** : uniqueidentifier
 }
@@ -30,14 +33,17 @@ entity graph.RepoObjectColumn_S << V >> {
 entity graph.usp_PERSIST_RepoObjectColumn << P >> {
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
+entity logs.usp_ExecutionLog_insert << P >> {
 }
 
 entity repo.usp_sync_guid_RepoObjectColumn << P >> {
 }
 
-graph.RepoObjectColumn_S <.. repo.usp_sync_guid_RepoObjectColumn
+graph.RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
+graph.RepoObjectColumn <.. graph.usp_PERSIST_RepoObjectColumn
 graph.RepoObjectColumn_S <.. graph.usp_PERSIST_RepoObjectColumn
+graph.RepoObjectColumn_S <.. repo.usp_sync_guid_RepoObjectColumn
+graph.RepoObjectColumn_S <.. graph.RepoObjectColumn
 graph.usp_PERSIST_RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
-repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObjectColumn
-repo.usp_ExecutionLog_insert <.. graph.usp_PERSIST_RepoObjectColumn
+logs.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObjectColumn
+logs.usp_ExecutionLog_insert <.. graph.usp_PERSIST_RepoObjectColumn

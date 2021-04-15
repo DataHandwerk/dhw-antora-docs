@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -25,6 +25,12 @@ skinparam class {
 
 entity repo.RepoObject_RequiredRepoObjectMerge << V >> {
 - **PK_RepoObject_RequiredRepoObjectMerge**
+
+..
+RepoObject_guid; uniqueidentifier
+ro2_RepoObject_guid; uniqueidentifier
+--
+- UK_RepoObject_RequiredRepoObjectMerge__1
 {RepoObject_guid}
 ..
 RepoObject_guid; uniqueidentifier

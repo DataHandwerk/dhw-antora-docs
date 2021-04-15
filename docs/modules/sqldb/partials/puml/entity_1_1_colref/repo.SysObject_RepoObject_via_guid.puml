@@ -32,6 +32,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -122,8 +123,8 @@ entity repo_sys.SysObject << V >> {
 repo.RepoObject <.. repo.SysObject_RepoObject_via_guid
 repo.RepoObject <.. repo.usp_sync_guid_RepoObject
 repo.SysObject_RepoObject_via_guid <.. repo.usp_sync_guid_RepoObject
-repo_sys.SysObject <.. repo.SysObject_RepoObject_via_guid
 repo_sys.SysObject <.. repo.usp_sync_guid_RepoObject
+repo_sys.SysObject <.. repo.SysObject_RepoObject_via_guid
 repo.RepoObject::is_repo_managed <-- repo.SysObject_RepoObject_via_guid::is_repo_managed
 repo.RepoObject::is_RepoObject_name_uniqueidentifier <-- repo.SysObject_RepoObject_via_guid::is_RepoObject_name_uniqueidentifier
 repo.RepoObject::is_SysObject_name_uniqueidentifier <-- repo.SysObject_RepoObject_via_guid::is_SysObject_name_uniqueidentifier

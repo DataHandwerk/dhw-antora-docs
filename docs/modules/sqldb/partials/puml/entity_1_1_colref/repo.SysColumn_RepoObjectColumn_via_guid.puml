@@ -32,6 +32,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -70,6 +71,7 @@ entity repo.RepoObjectColumn << U >> {
   is_persistence_no_include : bit
   is_persistence_no_update : bit
   is_query_plan_expression : bit
+  is_required_ColumnMerge : bit
   is_SysObjectColumn_missing : bit
   persistence_source_RepoObjectColumn_guid : uniqueidentifier
   Referencing_Count : int
@@ -218,13 +220,13 @@ entity repo_sys.SysColumn << V >> {
   * xml_collection_id : int
 }
 
-repo.RepoObject <.. repo.SysColumn_RepoObjectColumn_via_guid
 repo.RepoObject <.. repo.usp_sync_guid_RepoObjectColumn
+repo.RepoObject <.. repo.SysColumn_RepoObjectColumn_via_guid
 repo.RepoObjectColumn <.. repo.SysColumn_RepoObjectColumn_via_guid
 repo.RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
 repo.SysColumn_RepoObjectColumn_via_guid <.. repo.usp_sync_guid_RepoObjectColumn
-repo_sys.SysColumn <.. repo.SysColumn_RepoObjectColumn_via_guid
 repo_sys.SysColumn <.. repo.usp_sync_guid_RepoObjectColumn
+repo_sys.SysColumn <.. repo.SysColumn_RepoObjectColumn_via_guid
 repo.RepoObject::is_repo_managed <-- repo.SysColumn_RepoObjectColumn_via_guid::is_repo_managed
 repo.RepoObject::RepoObject_fullname <-- repo.SysColumn_RepoObjectColumn_via_guid::RepoObject_fullname
 repo.RepoObject::SysObject_fullname <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_fullname

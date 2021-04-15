@@ -38,7 +38,7 @@ entity repo.IndexColumn_virtual << U >> {
 }
 
 entity repo.IndexColumn_virtual_gross << V >> {
-  * **index_guid** : uniqueidentifier
+  * **index_column_id** : int
 }
 
 entity repo.RepoObject << U >> {

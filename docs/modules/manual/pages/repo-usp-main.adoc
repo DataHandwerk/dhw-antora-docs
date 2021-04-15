@@ -4,7 +4,7 @@ xref:sqldb:repo.usp_main.adoc[]
 
 == Description
 
-include::sqldb:partial$repo.usp_main.adoc[tag=MS_Description]
+include::sqldb:partial$repo.usp_main.adoc[tag=ms_description]
 
 
 // [abstract]

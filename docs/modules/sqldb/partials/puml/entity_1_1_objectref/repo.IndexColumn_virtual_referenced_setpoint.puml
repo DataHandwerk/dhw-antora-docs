@@ -46,8 +46,8 @@ entity repo.IndexColumn_virtual_referenced_setpoint << V >> {
 entity repo.usp_index_inheritance << P >> {
 }
 
-repo.Index_virtual <.. repo.IndexColumn_virtual_referenced_setpoint
 repo.Index_virtual <.. repo.usp_index_inheritance
+repo.Index_virtual <.. repo.IndexColumn_virtual_referenced_setpoint
 repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T <.. repo.IndexColumn_virtual_referenced_setpoint
-repo.IndexColumn_virtual_referenced_setpoint <.. repo.check_IndexColumn_virtual_referenced_setpoint
 repo.IndexColumn_virtual_referenced_setpoint <.. repo.usp_index_inheritance
+repo.IndexColumn_virtual_referenced_setpoint <.. repo.check_IndexColumn_virtual_referenced_setpoint

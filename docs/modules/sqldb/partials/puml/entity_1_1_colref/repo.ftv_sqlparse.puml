@@ -34,7 +34,7 @@ entity repo.ftv_sqlparse << IF >> {
   normalized : nvarchar(max)
 }
 
-entity repo.RepoObject_SqlModules_22_identifier_alias_AS << V >> {
+entity sqlparse.RepoObject_SqlModules_22_identifier_alias_AS << V >> {
   * **RepoObject_guid** : uniqueidentifier
   * **json_key** : nvarchar(4000)
   **RowNumber** : bigint
@@ -44,5 +44,5 @@ entity repo.RepoObject_SqlModules_22_identifier_alias_AS << V >> {
   SysObject_fullname : nvarchar(261)
 }
 
-repo.ftv_sqlparse <.. repo.RepoObject_SqlModules_22_identifier_alias_AS
+repo.ftv_sqlparse <.. sqlparse.RepoObject_SqlModules_22_identifier_alias_AS
 

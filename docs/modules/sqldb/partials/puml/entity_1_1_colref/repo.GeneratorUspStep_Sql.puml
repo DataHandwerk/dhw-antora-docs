@@ -108,9 +108,9 @@ entity repo.GeneratorUspStep_Sql << V >> {
 repo.ftv_GeneratorUspStep_sql <.. repo.GeneratorUspStep_Sql
 repo.ftv_GeneratorUspStep_tree <.. repo.GeneratorUspStep_Sql
 repo.GeneratorUsp <.. repo.GeneratorUspStep_Sql
-repo.GeneratorUspStep <.. repo.ftv_GeneratorUspStep_tree
-repo.GeneratorUspStep <.. repo.ftv_GeneratorUspStep_sql
 repo.GeneratorUspStep <.. repo.GeneratorUspStep_Sql
+repo.GeneratorUspStep <.. repo.ftv_GeneratorUspStep_sql
+repo.GeneratorUspStep <.. repo.ftv_GeneratorUspStep_tree
 repo.GeneratorUspStep_Sql <.. repo.GeneratorUsp_StepList
 repo.GeneratorUsp::has_logging <-- repo.GeneratorUspStep_Sql::has_logging
 repo.GeneratorUsp::usp_fullname <-- repo.GeneratorUspStep_Sql::usp_fullname

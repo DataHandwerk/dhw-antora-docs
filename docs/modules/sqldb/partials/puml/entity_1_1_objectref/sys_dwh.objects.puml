@@ -35,8 +35,8 @@ entity repo_sys.SysObject << V >> {
 entity sys_dwh.objects << SN >> {
 }
 
-repo_sys.ExtendedProperties <.. repo_sys.ExtendedProperties_ParameterForAddUpdateDrop
 repo_sys.ExtendedProperties <.. repo_sys.SysObject
+repo_sys.ExtendedProperties <.. repo_sys.ExtendedProperties_ParameterForAddUpdateDrop
 sys_dwh.objects <.. repo_sys.ExtendedProperties
 sys_dwh.objects <.. repo_sys.ExtendedProperties_ParameterForAddUpdateDrop
 sys_dwh.objects <.. repo_sys.SysObject

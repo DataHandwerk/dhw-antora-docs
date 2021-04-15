@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -24,7 +24,7 @@ skinparam class {
 
 
 entity repo.Index_virtual_ForUpdate << V >> {
-- idx_Index_virtual_ForUpdate__1
+- **PK_Index_virtual_ForUpdate**
 {index_guid}
 ..
 index_guid; uniqueidentifier

@@ -23,6 +23,17 @@ skinparam class {
 }
 
 
+entity docs.RepoObject_Plantuml_ObjectRefList_0_30 << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml_ObjectRefList_30_0 << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity config.ftv_get_parameter_value << IF >> {
+}
+
 entity docs.ftv_RepoObject_Reference_PlantUml_EntityRefList << IF >> {
 }
 
@@ -34,19 +45,38 @@ entity docs.RepoObject_Plantuml_ColRefList << V >> {
   * **RepoObject_guid** : uniqueidentifier
 }
 
+entity docs.RepoObject_PlantUml_FkRefList << V >> {
+  **RepoObject_guid** : uniqueidentifier
+}
+
 entity docs.RepoObject_Plantuml_ObjectRefList << V >> {
   * **RepoObject_guid** : uniqueidentifier
 }
 
-entity repo.fs_get_parameter_value << FN >> {
+entity docs.RepoObject_PlantUml_PumlEntityFkList << V >> {
+  **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.usp_PERSIST_RepoObject_Plantuml_T << P >> {
 }
 
 entity repo.RepoObject_gross << V >> {
   * **RepoObject_guid** : uniqueidentifier
 }
 
+ <.. docs.RepoObject_Plantuml
+ <.. docs.RepoObject_Plantuml
+config.ftv_get_parameter_value <.. docs.RepoObject_Plantuml
 docs.ftv_RepoObject_Reference_PlantUml_EntityRefList <.. docs.RepoObject_Plantuml
+docs.RepoObject_Plantuml <.. docs.RepoObject_Plantuml_T
+docs.RepoObject_Plantuml <.. docs.usp_PERSIST_RepoObject_Plantuml_T
 docs.RepoObject_Plantuml_ColRefList <.. docs.RepoObject_Plantuml
+docs.RepoObject_PlantUml_FkRefList <.. docs.RepoObject_Plantuml
 docs.RepoObject_Plantuml_ObjectRefList <.. docs.RepoObject_Plantuml
-repo.fs_get_parameter_value <.. docs.RepoObject_Plantuml
+docs.RepoObject_PlantUml_PumlEntityFkList <.. docs.RepoObject_Plantuml
+docs.RepoObject_Plantuml_T <.. docs.usp_PERSIST_RepoObject_Plantuml_T
 repo.RepoObject_gross <.. docs.RepoObject_Plantuml

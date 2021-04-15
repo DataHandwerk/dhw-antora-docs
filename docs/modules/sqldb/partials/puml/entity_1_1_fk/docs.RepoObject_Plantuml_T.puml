@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity docs.RepoObject_Plantuml_T {
+entity docs.RepoObject_Plantuml_T << U >> {
 - **PK_RepoObject_Plantuml_T**
 {RepoObject_guid}
 ..

@@ -34,14 +34,16 @@ entity graph.usp_PERSIST_RepoObjectColumn << P >> {
 }
 
 entity repo.RepoObjectColumn_gross << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 entity repo.usp_sync_guid_RepoObjectColumn << P >> {
 }
 
 graph.RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
+graph.RepoObjectColumn <.. graph.usp_PERSIST_RepoObjectColumn
+graph.RepoObjectColumn_S <.. graph.usp_PERSIST_RepoObjectColumn
 graph.RepoObjectColumn_S <.. repo.usp_sync_guid_RepoObjectColumn
 graph.RepoObjectColumn_S <.. graph.RepoObjectColumn
-graph.RepoObjectColumn_S <.. graph.usp_PERSIST_RepoObjectColumn
 graph.usp_PERSIST_RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
 repo.RepoObjectColumn_gross <.. graph.RepoObjectColumn_S

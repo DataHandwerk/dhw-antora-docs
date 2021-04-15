@@ -27,9 +27,9 @@ entity config.join_type << V >> {
   * **join_type** : varchar(16)
 }
 
-entity repo.RepoObject_SqlModules_41_from << V >> {
+entity sqlparse.RepoObject_SqlModules_41_from << V >> {
   * **RepoObject_guid** : uniqueidentifier
   * **json_key** : nvarchar(4000)
 }
 
-config.join_type <.. repo.RepoObject_SqlModules_41_from
+config.join_type <.. sqlparse.RepoObject_SqlModules_41_from

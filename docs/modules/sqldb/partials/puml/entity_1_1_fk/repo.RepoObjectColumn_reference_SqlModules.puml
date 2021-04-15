@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -24,6 +24,14 @@ skinparam class {
 
 
 entity repo.RepoObjectColumn_reference_SqlModules << V >> {
+- **PK_RepoObjectColumn_reference_SqlModules**
+
+..
+referencing_id; int
+referencing_minor_id; int
+referenced_id; int
+referenced_minor_id; int
+--
 - idx_RepoObjectColumn_reference_SqlModules__1
 {schema_name,object_name}
 ..

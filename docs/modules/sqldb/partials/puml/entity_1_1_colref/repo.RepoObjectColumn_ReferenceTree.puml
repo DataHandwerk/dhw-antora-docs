@@ -29,24 +29,30 @@ entity repo.ftv_RepoObject_ColumReferenceRepoObject << IF >> {
   Parameter_RepoObject_guid : uniqueidentifier
   RepoObject_fullname : nvarchar(261)
   RepoObject_guid : uniqueidentifier
-  RepoObject_type : uniqueidentifier
+  RepoObject_type : char(2)
 }
 
 entity repo.ftv_RepoObjectColumn_ReferenceTree << IF >> {
   --
   Referenced_Depth : int
   Referenced_fullname : nvarchar(261)
+  Referenced_fullname2 : nvarchar(257)
   Referenced_guid : uniqueidentifier
   Referenced_RepoObject_guid : uniqueidentifier
   Referenced_type : char(2)
   ReferencedColumn_fullname : nvarchar(520)
+  ReferencedColumn_fullname2 : nvarchar(386)
+  ReferencedColumn_name : nvarchar(128)
   ReferencedColumn_type : nvarchar(128)
   Referencing_Depth : int
   Referencing_fullname : nvarchar(261)
+  Referencing_fullname2 : nvarchar(257)
   Referencing_guid : uniqueidentifier
   Referencing_RepoObject_guid : uniqueidentifier
   Referencing_type : char(2)
   ReferencingColumn_fullname : nvarchar(520)
+  ReferencingColumn_fullname2 : nvarchar(386)
+  ReferencingColumn_name : nvarchar(128)
   ReferencingColumn_type : nvarchar(128)
   RepoObjectColumn_guid : uniqueidentifier
 }
@@ -61,6 +67,7 @@ entity repo.RepoObjectColumn << U >> {
   is_persistence_no_include : bit
   is_persistence_no_update : bit
   is_query_plan_expression : bit
+  is_required_ColumnMerge : bit
   is_SysObjectColumn_missing : bit
   persistence_source_RepoObjectColumn_guid : uniqueidentifier
   Referencing_Count : int
@@ -93,17 +100,23 @@ entity repo.RepoObjectColumn_ReferenceTree << V >> {
   --
   Referenced_Depth : int
   Referenced_fullname : nvarchar(261)
+  Referenced_fullname2 : nvarchar(257)
   Referenced_guid : uniqueidentifier
   Referenced_RepoObject_guid : uniqueidentifier
   Referenced_type : char(2)
   ReferencedColumn_fullname : nvarchar(520)
+  ReferencedColumn_fullname2 : nvarchar(386)
+  ReferencedColumn_name : nvarchar(128)
   ReferencedColumn_type : nvarchar(128)
   Referencing_Depth : int
   Referencing_fullname : nvarchar(261)
+  Referencing_fullname2 : nvarchar(257)
   Referencing_guid : uniqueidentifier
   Referencing_RepoObject_guid : uniqueidentifier
   Referencing_type : char(2)
   ReferencingColumn_fullname : nvarchar(520)
+  ReferencingColumn_fullname2 : nvarchar(386)
+  ReferencingColumn_name : nvarchar(128)
   ReferencingColumn_type : nvarchar(128)
   RepoObjectColumn_guid : uniqueidentifier
 }

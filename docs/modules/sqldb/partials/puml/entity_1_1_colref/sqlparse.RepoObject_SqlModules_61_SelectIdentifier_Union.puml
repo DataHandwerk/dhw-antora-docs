@@ -1,0 +1,131 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity sqlparse.RepoObject_SqlModules_26_IdentifierList_children_IdentifierSplit_QuoteName << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+  * **T2_json_key** : nvarchar(4000)
+  --
+  class : nvarchar(500)
+  Identifier_alias : nvarchar(max)
+  Identifier_alias_QuoteName : nvarchar(max)
+  Identifier_source : nvarchar(max)
+  Identifier_source_children : nvarchar(max)
+  Identifier_source_class : nvarchar(500)
+  Identifier_source_column : nvarchar(4000)
+  Identifier_source_column_QuoteName : nvarchar(4000)
+  Identifier_source_table : nvarchar(4000)
+  Identifier_source_table_QuoteName : nvarchar(4000)
+  normalized : nvarchar(max)
+  RowNumber_per_Object : bigint
+  SysObject_fullname : nvarchar(261)
+  T2_class : nvarchar(500)
+}
+
+entity sqlparse.RepoObject_SqlModules_39_object << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  has_GroupBy : int
+  is_1_create : int
+  is_2_view : int
+  is_3_Identifier : int
+  is_4_as : int
+  is_5_select : int
+  is_6_Identifier : int
+  is_6_IdentifierList : int
+  is_7_from : int
+  is_7_IdentifierList : int
+  is_8_IdentifierList : int
+  is_create_view_Identifier_as_select : int
+  is_select_IdentifierList_from : int
+  is_union : int
+  Min_RowNumber_From : bigint
+  Min_RowNumber_GroupBy : bigint
+  Min_RowNumber_IdentifierList : bigint
+  Min_RowNumber_Where : bigint
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName << V >> {
+  --
+  child0_class : nvarchar(500)
+  children : nvarchar(max)
+  class : nvarchar(500)
+  is_group : bit
+  is_keyword : bit
+  is_whitespace : bit
+  * json_key : nvarchar(4000)
+  normalized : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  RowNumber_per_Object : bigint
+  source_column : nvarchar(max)
+  source_column_QuoteName : nvarchar(max)
+  source_table : nvarchar(max)
+  source_table_QuoteName : nvarchar(max)
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union << V >> {
+  --
+  alias_QuoteName : nvarchar(max)
+  class : nvarchar(500)
+  normalized : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  RowNumber_per_Object : bigint
+  source_column_QuoteName : nvarchar(max)
+  source_table_QuoteName : nvarchar(max)
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T << U >> {
+  --
+  alias_QuoteName : nvarchar(max)
+  class : nvarchar(500)
+  normalized : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  RowNumber_per_Object : bigint
+  source_column_QuoteName : nvarchar(max)
+  source_table_QuoteName : nvarchar(max)
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T << P >> {
+  --
+}
+
+sqlparse.RepoObject_SqlModules_26_IdentifierList_children_IdentifierSplit_QuoteName <.. sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union
+sqlparse.RepoObject_SqlModules_39_object <.. sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union
+sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName <.. sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union <.. sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union <.. sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T <.. sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::alias_QuoteName <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::alias_QuoteName
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::class <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::class
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::normalized <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::normalized
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::RepoObject_guid <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::RepoObject_guid
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::RowNumber_per_Object <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::RowNumber_per_Object
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::source_column_QuoteName <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::source_column_QuoteName
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::source_table_QuoteName <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::source_table_QuoteName
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::SysObject_fullname <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::SysObject_fullname

@@ -31,14 +31,19 @@ entity graph.ProcedureInstance_S << V >> {
   * **Instance** : varchar(500)
 }
 
-entity repo.ProcedureInstance << U >> {
-  * **id** : int
+entity graph.usp_PERSIST_ProcedureInstance << P >> {
 }
 
 entity repo.RepoObject << U >> {
   * **RepoObject_guid** : uniqueidentifier
 }
 
+entity workflow.ProcedureInstance << U >> {
+  * **id** : int
+}
+
+graph.ProcedureInstance <.. graph.usp_PERSIST_ProcedureInstance
 graph.ProcedureInstance_S <.. graph.ProcedureInstance
-repo.ProcedureInstance <.. graph.ProcedureInstance_S
+graph.ProcedureInstance_S <.. graph.usp_PERSIST_ProcedureInstance
 repo.RepoObject <.. graph.ProcedureInstance_S
+workflow.ProcedureInstance <.. graph.ProcedureInstance_S

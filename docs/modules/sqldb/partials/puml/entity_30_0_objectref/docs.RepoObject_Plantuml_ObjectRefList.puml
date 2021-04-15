@@ -1,0 +1,88 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.RepoObject_Plantuml_ObjectRefList << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity graph.ReferencedObject << U >> {
+}
+
+entity graph.ReferencingObject << U >> {
+}
+
+entity graph.RepoObject << U >> {
+}
+
+entity graph.RepoObject_S << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.ftv_RepoObject_ReferencedReferencing << IF >> {
+}
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_referenced_level << V >> {
+  **StartingNode_guid** : uniqueidentifier
+  **LastNode_guid** : uniqueidentifier
+  * **referenced_level** : int
+}
+
+entity repo.RepoObject_referenced_level_T << U >> {
+  **StartingNode_guid** : uniqueidentifier
+  **LastNode_guid** : uniqueidentifier
+  * **referenced_level** : int
+}
+
+entity repo.RepoObject_referencing_level << V >> {
+  **StartingNode_guid** : uniqueidentifier
+  **LastNode_guid** : uniqueidentifier
+  * **referencing_level** : int
+}
+
+entity repo.RepoObject_referencing_level_T << U >> {
+  **StartingNode_guid** : uniqueidentifier
+  **LastNode_guid** : uniqueidentifier
+  * **referencing_level** : int
+}
+
+graph.ReferencedObject <.. repo.RepoObject_referenced_level
+graph.ReferencedObject <.. docs.RepoObject_Plantuml_ObjectRefList
+graph.ReferencingObject <.. repo.RepoObject_referencing_level
+graph.RepoObject <.. docs.RepoObject_Plantuml_ObjectRefList
+graph.RepoObject <.. repo.RepoObject_referencing_level
+graph.RepoObject <.. repo.RepoObject_referenced_level
+graph.RepoObject_S <.. graph.RepoObject
+repo.ftv_RepoObject_ReferencedReferencing <.. docs.RepoObject_Plantuml_ObjectRefList
+repo.RepoObject <.. docs.RepoObject_Plantuml_ObjectRefList
+repo.RepoObject <.. repo.ftv_RepoObject_ReferencedReferencing
+repo.RepoObject <.. graph.RepoObject_S
+repo.RepoObject_referenced_level <.. repo.RepoObject_referenced_level_T
+repo.RepoObject_referenced_level_T <.. repo.ftv_RepoObject_ReferencedReferencing
+repo.RepoObject_referencing_level <.. repo.RepoObject_referencing_level_T
+repo.RepoObject_referencing_level_T <.. repo.ftv_RepoObject_ReferencedReferencing

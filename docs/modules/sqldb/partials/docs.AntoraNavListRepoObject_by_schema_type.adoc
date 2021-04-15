@@ -3,12 +3,13 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
 :ExistsProperty--pk_index_guid:
-:ExistsProperty--pk_IndexPatternColumnDatatype:
-:ExistsProperty--pk_IndexPatternColumnName:
-:ExistsProperty--pk_IndexSemanticGroup:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--pk_indexsemanticgroup:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
@@ -36,13 +37,13 @@ view
 == SysObject_id
 
 // tag::SysObject_id[]
-1824725553
+1650820943
 // end::SysObject_id[]
 
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-08 15:44:19
+2021-04-13 19:02:39
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -79,11 +80,6 @@ view
 |
 |
 |===
-
-.Referenced Columns
---
-* xref:docs.RepoObject_OutputFilter.adoc#column-SysObject_type[docs.RepoObject_OutputFilter.SysObject_type]
---
 
 
 [[column-nav_list]]
@@ -199,107 +195,58 @@ view
 
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
+// end::adocuspsteps[]
 
 
-== persistence_source_RepoObject_guid
+== AntoraReferencedList
 
-// tag::persistence_source_RepoObject_guid[]
-
-// end::persistence_source_RepoObject_guid[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
+// tag::antorareferencedlist[]
+* xref:docs.RepoObject_OutputFilter.adoc[]
+// end::antorareferencedlist[]
 
 
-== persistence_source_RepoObject_fullname
+== AntoraReferencingList
 
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
+// tag::antorareferencinglist[]
+* xref:docs.usp_AntoraExport_navigation.adoc[]
+// end::antorareferencinglist[]
 
 
-== microsoft_database_tools_support
+== exampleUsage
 
-// tag::microsoft_database_tools_support[]
+// tag::exampleusage[]
 
-// end::microsoft_database_tools_support[]
-
-
-== is_persistence_truncate
-
-// tag::is_persistence_truncate[]
-
-// end::is_persistence_truncate[]
+// end::exampleusage[]
 
 
-== is_persistence_update_changed
+== exampleUsage_2
 
-// tag::is_persistence_update_changed[]
+// tag::exampleusage_2[]
 
-// end::is_persistence_update_changed[]
-
-
-== is_persistence_delete_missing
-
-// tag::is_persistence_delete_missing[]
-
-// end::is_persistence_delete_missing[]
+// end::exampleusage_2[]
 
 
-== is_persistence_insert
+== exampleWrong_Usage
 
-// tag::is_persistence_insert[]
+// tag::examplewrong_usage[]
 
-// end::is_persistence_insert[]
-
-
-== is_persistence_check_for_empty_source
-
-// tag::is_persistence_check_for_empty_source[]
-
-// end::is_persistence_check_for_empty_source[]
+// end::examplewrong_usage[]
 
 
-== is_persistence_delete_changed
+== has_execution_plan_issue
 
-// tag::is_persistence_delete_changed[]
+// tag::has_execution_plan_issue[]
 
-// end::is_persistence_delete_changed[]
-
-
-== is_persistence
-
-// tag::is_persistence[]
-
-// end::is_persistence[]
+// end::has_execution_plan_issue[]
 
 
-== is_persistence_check_duplicate_per_pk
+== has_get_referenced_issue
 
-// tag::is_persistence_check_duplicate_per_pk[]
+// tag::has_get_referenced_issue[]
 
-// end::is_persistence_check_duplicate_per_pk[]
+// end::has_get_referenced_issue[]
 
 
 == has_history
@@ -316,88 +263,109 @@ view
 // end::has_history_columns[]
 
 
-== example4
+== is_persistence
 
-// tag::example4[]
+// tag::is_persistence[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_persistence[]
 
 
-== example2
+== is_persistence_check_duplicate_per_pk
 
-// tag::example2[]
+// tag::is_persistence_check_duplicate_per_pk[]
 
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
+// end::is_persistence_check_duplicate_per_pk[]
 
 
-== ReferencedObjectList
+== is_persistence_check_for_empty_source
 
-// tag::ReferencedObjectList[]
+// tag::is_persistence_check_for_empty_source[]
 
-// end::ReferencedObjectList[]
-
-
-== example1
-
-// tag::example1[]
-
-// end::example1[]
+// end::is_persistence_check_for_empty_source[]
 
 
-== UspParameters
+== is_persistence_delete_changed
 
-// tag::UspParameters[]
+// tag::is_persistence_delete_changed[]
 
-// end::UspParameters[]
-
-
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
+// end::is_persistence_delete_changed[]
 
 
-== UspExamples
+== is_persistence_delete_missing
 
-// tag::UspExamples[]
+// tag::is_persistence_delete_missing[]
 
-// end::UspExamples[]
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::ms_description[]
+
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
 
 
 == persistence_source_RepoObject_xref
 
-// tag::persistence_source_RepoObject_xref[]
+// tag::persistence_source_repoobject_xref[]
 
-// end::persistence_source_RepoObject_xref[]
-
-
-== AntoraReferencedList
-
-// tag::AntoraReferencedList[]
-* xref:docs.RepoObject_OutputFilter.adoc[]
-// end::AntoraReferencedList[]
-
-
-== AntoraReferencingList
-
-// tag::AntoraReferencingList[]
-* xref:docs.usp_AntoraExport_navigation.adoc[]
-// end::AntoraReferencingList[]
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -409,23 +377,44 @@ view
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 nvarchar(128),char(2)
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 RepoObject_schema_name,type
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
 
 
 == pk_IndexSemanticGroup
 
-// tag::pk_IndexSemanticGroup[]
+// tag::pk_indexsemanticgroup[]
 schema_name,object_type
-// end::pk_IndexSemanticGroup[]
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+* [docs].[RepoObject_OutputFilter]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -433,25 +422,27 @@ schema_name,object_type
 // tag::sql_modules_definition[]
 [source,sql]
 ----
-CREATE VIEW docs.AntoraNavListRepoObject_by_schema_type
-AS
-SELECT [RepoObject_schema_name]
- , [type] = [SysObject_type]
- , [type_name] = [SysObject_type_name]
- , nav_list = String_Agg(CONCAT (
-   --* xref:target-page-filename.adoc[link text]
-   --we need to convert to first argument nvarchar(max) to avoid the limit of 8000 byte
-   CAST('* xref:' AS NVARCHAR(MAX))
-   , ro.[RepoObject_fullname2]
-   , '.adoc[]'
-   ), CHAR(13) + CHAR(10)) WITHIN
-GROUP (
-  ORDER BY ro.[RepoObject_fullname2]
-  )
-FROM [docs].[RepoObject_OutputFilter] ro
-GROUP BY [RepoObject_schema_name]
- , [SysObject_type]
- , [SysObject_type_name]
+Create View docs.AntoraNavListRepoObject_by_schema_type
+As
+Select
+    RepoObject_schema_name
+  , type      = SysObject_type
+  , type_name = SysObject_type_name
+  , nav_list  = String_Agg (
+                               Concat (
+                                          --* xref:target-page-filename.adoc[link text]
+                                          --we need to convert to first argument nvarchar(max) to avoid the limit of 8000 byte
+                                          Cast('* xref:' As NVarchar(Max)), ro.RepoObject_fullname2, '.adoc[]'
+                                      )
+                             , Char ( 13 ) + Char ( 10 )
+                           ) Within Group(Order By
+                                              ro.RepoObject_fullname2)
+From
+    docs.RepoObject_OutputFilter ro
+Group By
+    RepoObject_schema_name
+  , SysObject_type
+  , SysObject_type_name;
 
 ----
 // end::sql_modules_definition[]

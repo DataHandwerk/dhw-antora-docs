@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
 entity repo.RepoObject << U >> {
   * **RepoObject_guid** : uniqueidentifier
 }
@@ -35,20 +38,17 @@ entity repo.RepoObject_QueryPlan << U >> {
   * **RepoObject_guid** : uniqueidentifier
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-}
-
 entity repo.usp_main << P >> {
 }
 
 entity repo.usp_RepoObject_update_SysObjectQueryPlan << P >> {
 }
 
-repo.RepoObject <.. repo.RepoObject_gross
+logs.usp_ExecutionLog_insert <.. repo.usp_RepoObject_update_SysObjectQueryPlan
+logs.usp_ExecutionLog_insert <.. repo.usp_main
 repo.RepoObject <.. repo.usp_RepoObject_update_SysObjectQueryPlan
+repo.RepoObject <.. repo.RepoObject_gross
 repo.RepoObject_gross <.. repo.usp_RepoObject_update_SysObjectQueryPlan
-repo.RepoObject_QueryPlan <.. repo.RepoObject_gross
 repo.RepoObject_QueryPlan <.. repo.usp_RepoObject_update_SysObjectQueryPlan
-repo.usp_ExecutionLog_insert <.. repo.usp_RepoObject_update_SysObjectQueryPlan
-repo.usp_ExecutionLog_insert <.. repo.usp_main
+repo.RepoObject_QueryPlan <.. repo.RepoObject_gross
 repo.usp_RepoObject_update_SysObjectQueryPlan <.. repo.usp_main

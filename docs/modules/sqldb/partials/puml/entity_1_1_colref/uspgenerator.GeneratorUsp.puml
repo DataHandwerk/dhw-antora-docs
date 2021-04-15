@@ -1,0 +1,129 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity uspgenerator.GeneratorUsp << U >> {
+  * **id** : int
+  --
+  * has_logging : tinyint
+  usp_Description : nvarchar(4000)
+  usp_Examples : nvarchar(4000)
+  * usp_name : nvarchar(128)
+  * usp_schema : nvarchar(128)
+  * {static} usp_fullname : nvarchar(261)
+}
+
+entity uspgenerator.GeneratorUsp_filter_persistence << V >> {
+  --
+  * has_logging : tinyint
+  * id : int
+  usp_Description : nvarchar(4000)
+  * usp_fullname : nvarchar(261)
+  * usp_name : nvarchar(128)
+  * usp_schema : nvarchar(128)
+}
+
+entity uspgenerator.GeneratorUsp_SqlUsp << V >> {
+  * **usp_id** : int
+  --
+  * AdocUspSteps : nvarchar(max)
+  * has_logging : tinyint
+  MS_Description : nvarchar(4000)
+  RepoObject_guid : uniqueidentifier
+  SqlStepList : nvarchar(max)
+  * SqlUsp : nvarchar(max)
+  usp_Description : nvarchar(4000)
+  * usp_fullname : nvarchar(261)
+  * usp_name : nvarchar(128)
+  * usp_schema : nvarchar(128)
+  * UspExamples : nvarchar(4000)
+  UspParameters : nvarchar(max)
+}
+
+entity uspgenerator.GeneratorUspStep_Persistence << V >> {
+  * **usp_id** : int
+  --
+  * has_logging : int
+  * is_condition : int
+  * is_inactive : int
+  * is_SubProcedure : int
+  log_flag_InsertUpdateDelete : varchar(1)
+  log_source_object : nvarchar(261)
+  log_target_object : nvarchar(261)
+  * Name : varchar(45)
+  * Number : int
+  Parent_Number : int
+  * RepoObject_guid : uniqueidentifier
+  Statement : nvarchar(max)
+  * usp_fullname : nvarchar(261)
+}
+
+entity uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint << V >> {
+  * **usp_id** : int
+  --
+  * is_inactive : int
+  * Number : int
+  source_pk_index_guid : uniqueidentifier
+}
+
+entity uspgenerator.GeneratorUspStep_Sql << V >> {
+  * **usp_id** : int
+  **Number** : int
+  --
+  * AdocStep : nvarchar(max)
+  * has_logging : tinyint
+  is_required_ELSE : int
+  required_Begin_count : int
+  required_End_count : int
+  RowNumber_PerUsp : bigint
+  * SqlStep : nvarchar(max)
+  * usp_fullname : nvarchar(261)
+}
+
+entity uspgenerator.usp_GeneratorUsp_insert_update_persistence << P >> {
+  --
+}
+
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUsp_filter_persistence
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUspStep_Sql
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUsp_SqlUsp
+uspgenerator.GeneratorUsp <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUspStep_Persistence
+uspgenerator.GeneratorUspStep_Persistence <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUsp::has_logging <-- uspgenerator.GeneratorUspStep_Sql::has_logging
+uspgenerator.GeneratorUsp::has_logging <-- uspgenerator.GeneratorUsp_SqlUsp::has_logging
+uspgenerator.GeneratorUsp::has_logging <-- uspgenerator.GeneratorUsp_filter_persistence::has_logging
+uspgenerator.GeneratorUsp::id <-- uspgenerator.GeneratorUsp_filter_persistence::id
+uspgenerator.GeneratorUsp::usp_Description <-- uspgenerator.GeneratorUsp_filter_persistence::usp_Description
+uspgenerator.GeneratorUsp::usp_Description <-- uspgenerator.GeneratorUsp_SqlUsp::usp_Description
+uspgenerator.GeneratorUsp::usp_Description <-- uspgenerator.GeneratorUsp_SqlUsp::MS_Description
+uspgenerator.GeneratorUsp::usp_fullname <-- uspgenerator.GeneratorUsp_SqlUsp::usp_fullname
+uspgenerator.GeneratorUsp::usp_fullname <-- uspgenerator.GeneratorUspStep_Sql::usp_fullname
+uspgenerator.GeneratorUsp::usp_fullname <-- uspgenerator.GeneratorUsp_filter_persistence::usp_fullname
+uspgenerator.GeneratorUsp::usp_name <-- uspgenerator.GeneratorUsp_filter_persistence::usp_name
+uspgenerator.GeneratorUsp::usp_name <-- uspgenerator.GeneratorUsp_SqlUsp::usp_name
+uspgenerator.GeneratorUsp::usp_schema <-- uspgenerator.GeneratorUsp_SqlUsp::usp_schema
+uspgenerator.GeneratorUsp::usp_schema <-- uspgenerator.GeneratorUsp_filter_persistence::usp_schema

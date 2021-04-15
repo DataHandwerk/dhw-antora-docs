@@ -39,6 +39,6 @@ entity repo.RepoObject_reference_union << V >> {
 entity repo_sys.sql_expression_dependencies << V >> {
 }
 
-repo.RepoObject_reference_SqlExpressionDependencies <.. repo.RepoObject_reference_union
 repo.RepoObject_reference_SqlExpressionDependencies <.. docs.visjs_EdgeList_object_test01
+repo.RepoObject_reference_SqlExpressionDependencies <.. repo.RepoObject_reference_union
 repo_sys.sql_expression_dependencies <.. repo.RepoObject_reference_SqlExpressionDependencies

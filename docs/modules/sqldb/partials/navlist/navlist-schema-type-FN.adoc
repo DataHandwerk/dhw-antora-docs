@@ -1,4 +1,2 @@
-* xref:repo.fs_dwh_database_name.adoc[]
-* xref:repo.fs_get_parameter_value.adoc[]
 * xref:repo.fs_get_RepoObjectColumnProperty_nvarchar.adoc[]
 * xref:repo.fs_get_RepoObjectProperty_nvarchar.adoc[]

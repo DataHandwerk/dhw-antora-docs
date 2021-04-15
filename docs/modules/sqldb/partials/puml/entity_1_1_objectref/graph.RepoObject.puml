@@ -23,6 +23,14 @@ skinparam class {
 }
 
 
+entity docs.RepoObject_Plantuml_ObjectRefList_0_30 << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml_ObjectRefList_30_0 << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
 entity docs.RepoObject_Plantuml_ObjectRefList << V >> {
   * **RepoObject_guid** : uniqueidentifier
 }
@@ -44,14 +52,12 @@ entity graph.RepoObject_S << V >> {
   * **RepoObject_guid** : uniqueidentifier
 }
 
+entity graph.usp_PERSIST_RepoObject << P >> {
+}
+
 entity repo.Match_RepoObject_referenced_UspPersistence << V >> {
   **FirstNode** : uniqueidentifier
   **LastNode** : uniqueidentifier
-}
-
-entity repo.RepoObject_reference_union_node_id << V >> {
-  **referenced_RepoObject_guid** : uniqueidentifier
-  **referencing_RepoObject_guid** : uniqueidentifier
 }
 
 entity repo.RepoObject_referenced_level << V >> {
@@ -72,14 +78,19 @@ entity repo.usp_main << P >> {
 entity repo.usp_sync_guid_RepoObject << P >> {
 }
 
-graph.RepoObject <.. repo.usp_sync_guid_RepoObject
-graph.RepoObject <.. repo.usp_main
-graph.RepoObject <.. repo.RepoObject_reference_union_node_id
-graph.RepoObject <.. repo.Match_RepoObject_referenced_UspPersistence
 graph.RepoObject <.. graph.RepoObject_ReferencingReferenced_u_v
 graph.RepoObject <.. graph.RepoObject_ReferencingReferenced
+graph.RepoObject <.. docs.RepoObject_Plantuml_ObjectRefList
 graph.RepoObject <.. repo.RepoObject_referenced_level
 graph.RepoObject <.. repo.RepoObject_referencing_level
-graph.RepoObject <.. docs.RepoObject_Plantuml_ObjectRefList
+graph.RepoObject <.. repo.usp_sync_guid_RepoObject
+graph.RepoObject <.. repo.usp_main
+graph.RepoObject <.. 
+graph.RepoObject <.. 
+graph.RepoObject <.. repo.Match_RepoObject_referenced_UspPersistence
+graph.RepoObject <.. graph.usp_PERSIST_RepoObject
+graph.RepoObject_S <.. graph.usp_PERSIST_RepoObject
 graph.RepoObject_S <.. repo.usp_sync_guid_RepoObject
 graph.RepoObject_S <.. graph.RepoObject
+graph.usp_PERSIST_RepoObject <.. repo.usp_sync_guid_RepoObject
+repo.Match_RepoObject_referenced_UspPersistence <.. repo.usp_main

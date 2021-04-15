@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
 entity repo.RepoObjectColumnProperty << U >> {
   * **RepoObjectColumnProperty_id** : int
 }
@@ -37,16 +40,13 @@ entity repo.RepoObjectProperty << U >> {
 entity repo.RepoObjectProperty_sys_repo << V >> {
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-}
-
 entity repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate << P >> {
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate
 repo.RepoObjectColumnProperty <.. repo.RepoObjectColumnProperty_sys_repo
 repo.RepoObjectColumnProperty <.. repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate
 repo.RepoObjectColumnProperty_sys_repo <.. repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate
-repo.RepoObjectProperty <.. repo.RepoObjectProperty_sys_repo
 repo.RepoObjectProperty <.. repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate
+repo.RepoObjectProperty <.. repo.RepoObjectProperty_sys_repo
 repo.RepoObjectProperty_sys_repo <.. repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate
-repo.usp_ExecutionLog_insert <.. repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate

@@ -49,6 +49,6 @@ entity docs.usp_PERSIST_RepoObject_Plantuml_Entity_T << P >> {
 docs.RepoObject_ColumnList <.. docs.RepoObject_Plantuml_Entity
 docs.RepoObject_IndexList_T <.. docs.RepoObject_Plantuml_Entity
 docs.RepoObject_OutputFilter <.. docs.RepoObject_Plantuml_Entity
-docs.RepoObject_Plantuml_Entity <.. docs.RepoObject_Plantuml_Entity_T
 docs.RepoObject_Plantuml_Entity <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
+docs.RepoObject_Plantuml_Entity <.. docs.RepoObject_Plantuml_Entity_T
 docs.RepoObject_Plantuml_Entity_T <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T

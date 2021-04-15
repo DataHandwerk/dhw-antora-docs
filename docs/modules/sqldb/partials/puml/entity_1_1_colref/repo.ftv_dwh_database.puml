@@ -29,6 +29,23 @@ entity repo.ftv_dwh_database << IF >> {
   dwh_database_name : nvarchar(128)
 }
 
+entity repo.GeneratorUsp_SqlUsp << V >> {
+  * **usp_id** : int
+  --
+  * AdocUspSteps : nvarchar(max)
+  * has_logging : tinyint
+  MS_Description : nvarchar(4000)
+  RepoObject_guid : uniqueidentifier
+  SqlStepList : nvarchar(max)
+  * SqlUsp : nvarchar(max)
+  usp_Description : nvarchar(4000)
+  * usp_fullname : nvarchar(261)
+  * usp_name : nvarchar(128)
+  * usp_schema : nvarchar(128)
+  * UspExamples : nvarchar(4000)
+  UspParameters : nvarchar(max)
+}
+
 entity repo.Parameter << U >> {
   * **Parameter_name** : varchar(100)
   * **sub_Parameter** : nvarchar(128)
@@ -38,6 +55,41 @@ entity repo.Parameter << U >> {
   Parameter_value : sql_variant
   {abstract} Parameter_value__result_int : int
   {abstract} Parameter_value__result_nvarchar : nvarchar(4000)
+}
+
+entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
+  --
+  definition : nvarchar(max)
+  * InformationSource : varchar(10)
+  is_computed : bit
+  is_referenced_object : bit
+  is_referencing_object_equal_referenced_object : bit
+  is_source_column_name_expression : bit
+  is_target_column_name_expression : bit
+  referenced_column_name : nvarchar(128)
+  referenced_entity_name : nvarchar(128)
+  referenced_id : int
+  referenced_minor_id : int
+  referenced_node_id : bigint
+  referenced_RepoObject_guid : uniqueidentifier
+  referenced_RepoObjectColumn_guid : uniqueidentifier
+  referenced_schema_name : nvarchar(128)
+  referenced_type : char(2)
+  referencing_column_name : nvarchar(128)
+  * referencing_entity_name : nvarchar(128)
+  referencing_id : int
+  referencing_minor_id : int
+  referencing_node_id : bigint
+  * referencing_RepoObject_guid : uniqueidentifier
+  referencing_RepoObjectColumn_guid : uniqueidentifier
+  * referencing_schema_name : nvarchar(128)
+  referencing_type : char(2)
+  source_schema_name_quoted : nvarchar(128)
+  source_table_name_quoted : nvarchar(128)
+}
+
+entity repo.usp_update_Referencing_Count << P >> {
+  --
 }
 
 entity repo_sys.ExtendedProperties << V >> {
@@ -153,9 +205,12 @@ entity repo_sys.SysColumn << V >> {
   * xml_collection_id : int
 }
 
+repo.ftv_dwh_database <.. repo.GeneratorUsp_SqlUsp
+repo.ftv_dwh_database <.. repo.RepoObjectColumn_reference_QueryPlan
+repo.ftv_dwh_database <.. repo.usp_update_Referencing_Count
 repo.ftv_dwh_database <.. repo_sys.ExtendedProperties
-repo.ftv_dwh_database <.. repo_sys.SysColumn
 repo.ftv_dwh_database <.. repo_sys.sql_expression_dependencies
+repo.ftv_dwh_database <.. repo_sys.SysColumn
 repo.Parameter <.. repo.ftv_dwh_database
 repo_sys.ExtendedProperties <.. repo_sys.SysColumn
 repo_sys.SysColumn <.. repo_sys.sql_expression_dependencies

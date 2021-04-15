@@ -43,7 +43,6 @@ entity docs.RepoObject_Adoc_T << U >> {
   * **RepoObject_guid** : uniqueidentifier
   --
   * AdocContent : nvarchar(max)
-  FE017F28-EB74-4D10-8A53-2A688FF0FB49 : int
   is_DocsOutput : int
   PropertyCount : int
   RepoObject_fullname : nvarchar(261)
@@ -64,16 +63,16 @@ entity docs.usp_PERSIST_RepoObject_Adoc_T << P >> {
   --
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
+entity logs.usp_ExecutionLog_insert << P >> {
   --
 }
 
-docs.RepoObject_Adoc <.. docs.RepoObject_Adoc_T
 docs.RepoObject_Adoc <.. docs.usp_PERSIST_RepoObject_Adoc_T
+docs.RepoObject_Adoc <.. docs.RepoObject_Adoc_T
 docs.RepoObject_Adoc_T <.. docs.usp_PERSIST_RepoObject_Adoc_T
 docs.usp_PERSIST_RepoObject_Adoc_T <.. docs.usp_AntoraExport_ObjectPartialProperties
-repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPartialProperties
-repo.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_Adoc_T
+logs.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPartialProperties
+logs.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_Adoc_T
 docs.RepoObject_Adoc::AdocContent <-- docs.RepoObject_Adoc_T::AdocContent
 docs.RepoObject_Adoc::is_DocsOutput <-- docs.RepoObject_Adoc_T::is_DocsOutput
 docs.RepoObject_Adoc::PropertyCount <-- docs.RepoObject_Adoc_T::PropertyCount

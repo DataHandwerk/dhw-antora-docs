@@ -94,8 +94,8 @@ entity repo.RepoObject_reference_union << V >> {
 }
 
 repo.Index_union <.. repo.IndexReferencedReferencing
-repo.Index_virtual <.. repo.Index_union
 repo.Index_virtual <.. repo.IndexReferencedReferencing
+repo.Index_virtual <.. repo.Index_union
 repo.IndexReferencedReferencing <.. repo.IndexReferencedReferencing_HasFullColumnsInReferencing
 repo.RepoObject_reference_union <.. repo.IndexReferencedReferencing
 repo.Index_virtual::referenced_index_guid <-- repo.IndexReferencedReferencing::referenced_index_guid

@@ -37,6 +37,7 @@ entity repo.Index_gross << V >> {
   * **index_guid** : uniqueidentifier
 }
 
-graph.Index_S <.. graph.Index
+graph.Index <.. graph.usp_PERSIST_Index
 graph.Index_S <.. graph.usp_PERSIST_Index
+graph.Index_S <.. graph.Index
 repo.Index_gross <.. graph.Index_S

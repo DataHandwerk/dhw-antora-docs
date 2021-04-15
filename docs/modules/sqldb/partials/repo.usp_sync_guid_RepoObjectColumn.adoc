@@ -3,12 +3,12 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AdocUspSteps:
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
-:ExistsProperty--MS_Description:
-:ExistsProperty--ReferencedObjectList:
-:ExistsProperty--UspExamples:
+:ExistsProperty--adocuspsteps:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--exampleusage:
+:ExistsProperty--ms_description:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--AntoraParameterList:
 // end::existing_properties[]
@@ -40,7 +40,7 @@ stored procedure
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-11 13:27:46
+2021-04-14 19:45:03
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -76,198 +76,9 @@ stored procedure
 * @parent_execution_log_id (bigint)
 // end::AntoraParameterList[]
 
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
-
-
-== microsoft_database_tools_support
-
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== example1
-
-// tag::example1[]
-
-// end::example1[]
-
-
-== example2
-
-// tag::example2[]
-
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
-
-
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
-
-
-== UspParameters
-
-// tag::UspParameters[]
-
-// end::UspParameters[]
-
-
-== persistence_source_RepoObject_xref
-
-// tag::persistence_source_RepoObject_xref[]
-
-// end::persistence_source_RepoObject_xref[]
-
-
-== pk_index_guid
-
-// tag::pk_index_guid[]
-
-// end::pk_index_guid[]
-
-
-== pk_IndexPatternColumnDatatype
-
-// tag::pk_IndexPatternColumnDatatype[]
-
-// end::pk_IndexPatternColumnDatatype[]
-
-
-== pk_IndexPatternColumnName
-
-// tag::pk_IndexPatternColumnName[]
-
-// end::pk_IndexPatternColumnName[]
-
-
-== pk_IndexSemanticGroup
-
-// tag::pk_IndexSemanticGroup[]
-
-// end::pk_IndexSemanticGroup[]
-
-
-== persistence_source_RepoObject_fullname
-
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
-
-
-== persistence_source_RepoObject_guid
-
-// tag::persistence_source_RepoObject_guid[]
-
-// end::persistence_source_RepoObject_guid[]
-
-
-== is_persistence_check_for_empty_source
-
-// tag::is_persistence_check_for_empty_source[]
-
-// end::is_persistence_check_for_empty_source[]
-
-
-== is_persistence_delete_changed
-
-// tag::is_persistence_delete_changed[]
-
-// end::is_persistence_delete_changed[]
-
-
-== is_persistence_delete_missing
-
-// tag::is_persistence_delete_missing[]
-
-// end::is_persistence_delete_missing[]
-
-
-== is_persistence_insert
-
-// tag::is_persistence_insert[]
-
-// end::is_persistence_insert[]
-
-
-== is_persistence_truncate
-
-// tag::is_persistence_truncate[]
-
-// end::is_persistence_truncate[]
-
-
-== is_persistence_update_changed
-
-// tag::is_persistence_update_changed[]
-
-// end::is_persistence_update_changed[]
-
-
-== example4
-
-// tag::example4[]
-
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
-
-
-== has_history
-
-// tag::has_history[]
-
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
-
-
-== is_persistence
-
-// tag::is_persistence[]
-
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
-
-
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 .Steps in [repo].[usp_sync_guid_RepoObjectColumn]
 [cols="d,15a,d"]
 |===
@@ -400,6 +211,16 @@ stored procedure
 
 |
 
+|1610
+|
+*merge columns, defined in repo.RepoObjectColumn_RequiredRepoObjectColumnMerge*
+
+* u
+* repo.RepoObjectColumn_RequiredRepoObjectColumnMerge
+* [repo].[RepoObjectColumn]
+
+|
+
 |2010
 |
 *write RepoObjectColumn_guid into extended properties of SysObjectColumn, Level2*
@@ -429,6 +250,16 @@ stored procedure
 
 |
 
+|2220
+|
+*DELETE from [repo].[IndexColumn_virtual] invalid columns*
+
+* d
+* [repo].[RepoObjectColumn]
+* [repo].[IndexColumn_virtual]
+
+|
+
 |5200
 |
 *[graph].[usp_PERSIST_RepoObjectColumn]*
@@ -445,64 +276,252 @@ stored procedure
 |
 |===
 
-// end::AdocUspSteps[]
+// end::adocuspsteps[]
 
 
 == AntoraReferencedList
 
-// tag::AntoraReferencedList[]
+// tag::antorareferencedlist[]
 * xref:config.type_level1type_level2type.adoc[]
 * xref:graph.RepoObjectColumn.adoc[]
 * xref:graph.RepoObjectColumn_S.adoc[]
 * xref:graph.usp_PERSIST_RepoObjectColumn.adoc[]
+* xref:logs.usp_ExecutionLog_insert.adoc[]
+* xref:repo.IndexColumn_virtual.adoc[]
 * xref:repo.RepoObject.adoc[]
 * xref:repo.RepoObject_persistence.adoc[]
 * xref:repo.RepoObjectColumn.adoc[]
 * xref:repo.RepoObjectColumn_HistValidColums_setpoint.adoc[]
+* xref:repo.RepoObjectColumn_RequiredRepoObjectColumnMerge.adoc[]
 * xref:repo.SysColumn_RepoObjectColumn_via_guid.adoc[]
 * xref:repo.SysColumn_RepoObjectColumn_via_name.adoc[]
-* xref:repo.usp_ExecutionLog_insert.adoc[]
 * xref:repo_sys.SysColumn.adoc[]
 * xref:repo_sys.usp_AddOrUpdateExtendedProperty.adoc[]
-// end::AntoraReferencedList[]
+// end::antorareferencedlist[]
 
 
 == AntoraReferencingList
 
-// tag::AntoraReferencingList[]
+// tag::antorareferencinglist[]
 * xref:repo.usp_sync_guid.adoc[]
-// end::AntoraReferencingList[]
+// end::antorareferencinglist[]
+
+
+== exampleUsage
+
+// tag::exampleusage[]
+EXEC [repo].[usp_sync_guid_RepoObjectColumn]
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
 
 
 == MS_Description
 
-// tag::MS_Description[]
+// tag::ms_description[]
 * synchronizes RepoObjectColumn_guid with extended properties "RepoObjectColumn_guid"
-// end::MS_Description[]
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
 * [config].[type_level1type_level2type]
+* [graph].[RepoObjectColumn]
+* [graph].[RepoObjectColumn_S]
 * [graph].[usp_PERSIST_RepoObjectColumn]
+* [logs].[usp_ExecutionLog_insert]
+* [repo].[IndexColumn_virtual]
 * [repo].[RepoObject]
 * [repo].[RepoObject_persistence]
 * [repo].[RepoObjectColumn]
 * [repo].[RepoObjectColumn_HistValidColums_setpoint]
+* [repo].[RepoObjectColumn_RequiredRepoObjectColumnMerge]
 * [repo].[SysColumn_RepoObjectColumn_via_guid]
 * [repo].[SysColumn_RepoObjectColumn_via_name]
-* [repo].[usp_ExecutionLog_insert]
 * [repo_sys].[SysColumn]
 * [repo_sys].[usp_AddOrUpdateExtendedProperty]
-// end::ReferencedObjectList[]
+// end::referencedobjectlist[]
 
 
-== UspExamples
+== usp_persistence_RepoObject_guid
 
-// tag::UspExamples[]
-EXEC [repo].[usp_sync_guid_RepoObjectColumn]
-// end::UspExamples[]
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -518,6 +537,7 @@ CREATE   PROCEDURE [repo].[usp_sync_guid_RepoObjectColumn]
 , @sub_execution_id INT = NULL --in case you log some sub_executions, for example in SSIS loops or sub packages
 , @parent_execution_log_id BIGINT = NULL --in case a sup procedure is called, the @current_execution_log_id of the parent procedure should be propagated here. It allowes call stack analyzing
 AS
+BEGIN
 DECLARE
  --
    @current_execution_log_id BIGINT --this variable should be filled only once per procedure call, it contains the first logging call for the step 'start'.
@@ -535,8 +555,9 @@ DECLARE
 --[event_info] get's only the information about the "outer" calling process
 --wenn the procedure calls sub procedures, the [event_info] will not change
 SET @event_info = (
-  SELECT [event_info]
+  SELECT TOP 1 [event_info]
   FROM sys.dm_exec_input_buffer(@@spid, CURRENT_REQUEST_ID())
+  ORDER BY [event_info]
   )
 
 IF @execution_instance_guid IS NULL
@@ -548,7 +569,7 @@ SET @step_name = 'start'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert
+EXEC logs.usp_ExecutionLog_insert
  --these parameters should be the same for all logging execution
    @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
@@ -621,7 +642,7 @@ SET @step_name = 'UPDATE repo_sys.SysColumn_RepoObjectColumn_via_RepoObjectColum
 SET @source_object = '[repo_sys].[SysColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -676,7 +697,7 @@ SET @step_name = 'SET [SysObjectColumn_name] = [RepoObjectColumn_guid] (to avoid
 SET @source_object = '[repo].[RepoObjectColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -761,7 +782,7 @@ SET @step_name = '[SysObject_RepoObjectColumn_guid] -> [RepoObjectColumn_guid] (
 SET @source_object = '[repo_sys].[SysColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -799,7 +820,7 @@ SET @step_name = 'DELETE repo.RepoObjectColumn, WHERE (RowNumberOverName > 1); v
 SET @source_object = '[repo_sys].[SysColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -881,7 +902,7 @@ SET @step_name = 'INSERT still missing Column'
 SET @source_object = '[repo_sys].[SysColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -945,7 +966,7 @@ SET @step_name = 'SET [RepoObjectColumn_name] = [SysObjectColumn_name] WHERE (ha
 SET @source_object = '[repo].[RepoObjectColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -1130,7 +1151,7 @@ SET @step_name = 'other properties, where (ISNULL(is_repo_managed, 0) = 0)'
 SET @source_object = '[repo_sys].[SysColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -1308,7 +1329,7 @@ SET @step_name = 'persistence: update RepoObjectColumn_name and repo attributes 
 SET @source_object = '[repo_sys].[SysColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -1359,7 +1380,7 @@ SET @step_name = 'persistence: [roc_p].[persistence_source_RepoObjectColumn_guid
 SET @source_object = '[repo].[RepoObjectColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -1423,7 +1444,7 @@ SET @step_name = 'persistence: add missing persistence columns existing in sourc
 SET @source_object = '[repo].[RepoObjectColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -1476,7 +1497,7 @@ SET @step_name = 'persistence: insert missing HistValidColumns'
 SET @source_object = '[repo].[RepoObject_persistence]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -1512,7 +1533,97 @@ SET @step_name = 'persistence: SET [persistence_source_RepoObjectColumn_guid] = 
 SET @source_object = '[repo].[RepoObjectColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @updated = @rows
+-- Logging END --
+
+/*{"ReportUspStep":[{"Number":1610,"Name":"merge columns, defined in repo.RepoObjectColumn_RequiredRepoObjectColumnMerge","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"repo.RepoObjectColumn_RequiredRepoObjectColumnMerge","log_target_object":"[repo].[RepoObjectColumn]","log_flag_InsertUpdateDelete":"u"}]}*/
+PRINT CONCAT('usp_id;Number;Parent_Number: ',6,';',1610,';',NULL);
+
+Begin Try
+    /*
+based on repo.RepoObjectColumn_RequiredRepoObjectColumnMerge
+keep roc1 (which has the right RepoObjectColumn_name)
+mark them set is_required_ColumnMerge = 1
+*/
+    Update
+        roc
+    Set
+        is_required_ColumnMerge = 1
+    From
+        repo.RepoObjectColumn                                   As roc
+        Inner Join
+            repo.RepoObjectColumn_RequiredRepoObjectColumnMerge As Filter
+                On
+                Filter.RepoObjectColumn_guid = roc.RepoObjectColumn_guid;
+
+    /*
+delete columns with RepoObjectColumn_guid in roc2_RepoObjectColumn_guid
+*/
+
+    Delete
+    roc
+    From
+        repo.RepoObjectColumn                                   As roc
+        Inner Join
+            repo.RepoObjectColumn_RequiredRepoObjectColumnMerge As Filter
+                On
+                Filter.roc2_RepoObjectColumn_guid = roc.RepoObjectColumn_guid;
+
+    /*
+set SysObjectColumn_name = RepoObjectColumn_name (for roc1, for marked columns)
+*/
+
+    Update
+        roc
+    Set
+        SysObjectColumn_name = RepoObjectColumn_name
+    From
+        repo.RepoObjectColumn As roc
+    Where
+        is_required_ColumnMerge = 1;
+
+    /*
+remove marker where SysObjectColumn_name = RepoObjectColumn_name
+*/
+    Update
+        roc
+    Set
+        is_required_ColumnMerge = NULL
+    From
+        repo.RepoObjectColumn As roc
+    Where
+        is_required_ColumnMerge  = 1
+        And SysObjectColumn_name = RepoObjectColumn_name;
+
+End Try
+Begin Catch
+    Print 'issue merging RepoObjectColumn';
+
+    Throw;
+End Catch;
+
+-- Logging START --
+SET @rows = @@ROWCOUNT
+SET @step_id = @step_id + 1
+SET @step_name = 'merge columns, defined in repo.RepoObjectColumn_RequiredRepoObjectColumnMerge'
+SET @source_object = 'repo.RepoObjectColumn_RequiredRepoObjectColumnMerge'
+SET @target_object = '[repo].[RepoObjectColumn]'
+
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -1532,7 +1643,7 @@ EXEC repo.usp_ExecutionLog_insert
 /*{"ReportUspStep":[{"Number":2010,"Name":"write RepoObjectColumn_guid into extended properties of SysObjectColumn, Level2","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[repo].[RepoObjectColumn]","log_target_object":"[repo_sys].[SysColumn]"}]}*/
 PRINT CONCAT('usp_id;Number;Parent_Number: ',6,';',2010,';',NULL);
 
-DECLARE property_cursor CURSOR READ_ONLY
+DECLARE property_cursor CURSOR Local Fast_Forward
 FOR
 --
 SELECT [T1].[RepoObjectColumn_guid]
@@ -1609,7 +1720,7 @@ SET @step_name = 'write RepoObjectColumn_guid into extended properties of SysObj
 SET @source_object = '[repo].[RepoObjectColumn]'
 SET @target_object = '[repo_sys].[SysColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -1650,7 +1761,7 @@ SET @step_name = 'SET [is_SysObjectColumn_missing] = 1'
 SET @source_object = '[repo_sys].[SysColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -1691,7 +1802,53 @@ SET @step_name = 'where is_SysObjectColumn_missing = 1, but not in objects which
 SET @source_object = '[repo_sys].[RepoObjectColumn]'
 SET @target_object = '[repo].[RepoObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @deleted = @rows
+-- Logging END --
+
+/*{"ReportUspStep":[{"Number":2220,"Name":"DELETE from [repo].[IndexColumn_virtual] invalid columns","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[repo].[RepoObjectColumn]","log_target_object":"[repo].[IndexColumn_virtual]","log_flag_InsertUpdateDelete":"d"}]}*/
+PRINT CONCAT('usp_id;Number;Parent_Number: ',6,';',2220,';',NULL);
+
+/*
+can't create FK on DELETE CASCADE, we will delete separately
+*/
+Delete
+icv
+From
+    repo.IndexColumn_virtual icv
+Where
+    Not Exists
+(
+    Select
+        1
+    From
+        repo.RepoObjectColumn roc
+    Where
+        roc.RepoObjectColumn_guid = icv.RepoObjectColumn_guid
+);
+
+
+-- Logging START --
+SET @rows = @@ROWCOUNT
+SET @step_id = @step_id + 1
+SET @step_name = 'DELETE from [repo].[IndexColumn_virtual] invalid columns'
+SET @source_object = '[repo].[RepoObjectColumn]'
+SET @target_object = '[repo].[IndexColumn_virtual]'
+
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -1741,7 +1898,7 @@ SET @step_name = 'UPDATE [graph].[RepoObjectColumn] - ensure current case'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -1770,7 +1927,7 @@ SET @step_name = 'end'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert
+EXEC logs.usp_ExecutionLog_insert
    @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -1784,6 +1941,8 @@ EXEC repo.usp_ExecutionLog_insert
  , @step_name = @step_name
  , @source_object = @source_object
  , @target_object = @target_object
+
+END
 
 
 ----

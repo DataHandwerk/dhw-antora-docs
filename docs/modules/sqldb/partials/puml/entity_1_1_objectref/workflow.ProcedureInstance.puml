@@ -1,0 +1,43 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity graph.ProcedureInstance_S << V >> {
+  * **Procedure_RepoObject_guid** : uniqueidentifier
+  * **Instance** : varchar(500)
+}
+
+entity repo.usp_sync_guid_RepoObject << P >> {
+}
+
+entity workflow.ProcedureInstance << U >> {
+  * **id** : int
+}
+
+entity workflow.ProcedureInstanceDependency_gross << V >> {
+}
+
+workflow.ProcedureInstance <.. repo.usp_sync_guid_RepoObject
+workflow.ProcedureInstance <.. graph.ProcedureInstance_S
+workflow.ProcedureInstance <.. workflow.ProcedureInstanceDependency_gross

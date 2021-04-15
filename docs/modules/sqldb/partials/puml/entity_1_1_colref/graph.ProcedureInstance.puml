@@ -32,14 +32,5 @@ entity graph.ProcedureInstance << U >> {
   * Procedure_RepoObject_guid : uniqueidentifier
 }
 
-entity graph.ProcedureInstance_S << V >> {
-  * **Procedure_RepoObject_guid** : uniqueidentifier
-  * **Instance** : varchar(500)
-  --
-  * Procedure_fullname : nvarchar(261)
-}
 
-graph.ProcedureInstance_S <.. graph.ProcedureInstance
-graph.ProcedureInstance_S::Instance <-- graph.ProcedureInstance::Instance
-graph.ProcedureInstance_S::Procedure_fullname <-- graph.ProcedureInstance::Procedure_fullname
-graph.ProcedureInstance_S::Procedure_RepoObject_guid <-- graph.ProcedureInstance::Procedure_RepoObject_guid
+

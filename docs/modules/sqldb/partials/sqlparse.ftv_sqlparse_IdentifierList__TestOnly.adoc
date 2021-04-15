@@ -1,0 +1,702 @@
+= [sqlparse].[ftv_sqlparse_IdentifierList__TestOnly]
+
+== existing_properties
+
+// tag::existing_properties[]
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--referencedobjectlist:
+:ExistsProperty--sql_modules_definition:
+:ExistsProperty--AntoraParameterList:
+:ExistsProperty--Columns:
+// end::existing_properties[]
+
+== RepoObject_guid
+
+// tag::RepoObject_guid[]
+5190291C-9D61-EB11-84DC-A81E8446D5B0
+// end::RepoObject_guid[]
+
+== SysObject_type
+
+// tag::SysObject_type[]
+IF
+// end::SysObject_type[]
+
+== SysObject_type_name
+
+// tag::SysObject_type_name[]
+inline function
+// end::SysObject_type_name[]
+
+== SysObject_id
+
+// tag::SysObject_id[]
+1106102981
+// end::SysObject_id[]
+
+== SysObject_modify_date
+
+// tag::SysObject_modify_date[]
+2021-04-13 19:02:38
+// end::SysObject_modify_date[]
+
+== AntoraColumnDetails
+
+// tag::AntoraColumnDetails[]
+[[column-Identifier_alias]]
+=== Identifier_alias
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Identifier_alias
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+
+[[column-Identifier_source]]
+=== Identifier_source
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Identifier_source
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+
+[[column-Identifier_source_children]]
+=== Identifier_source_children
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Identifier_source_children
+|nvarchar(max)
+|NULL
+|
+|
+|===
+
+
+[[column-Identifier_source_class]]
+=== Identifier_source_class
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|Identifier_source_class
+|nvarchar(500)
+|NULL
+|
+|
+|===
+
+
+[[column-T2_class]]
+=== T2_class
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|T2_class
+|nvarchar(500)
+|NULL
+|
+|
+|===
+
+
+// end::AntoraColumnDetails[]
+
+== AntoraPkColumnTableRows
+
+// tag::AntoraPkColumnTableRows[]
+
+
+
+
+
+// end::AntoraPkColumnTableRows[]
+
+== AntoraNonPkColumnTableRows
+
+// tag::AntoraNonPkColumnTableRows[]
+|
+|<<column-Identifier_alias>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-Identifier_source>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-Identifier_source_children>>
+|nvarchar(max)
+|NULL
+|
+|
+
+|
+|<<column-Identifier_source_class>>
+|nvarchar(500)
+|NULL
+|
+|
+
+|
+|<<column-T2_class>>
+|nvarchar(500)
+|NULL
+|
+|
+
+// end::AntoraNonPkColumnTableRows[]
+
+== AntoraIndexList
+
+// tag::AntoraIndexList[]
+
+// end::AntoraIndexList[]
+
+== AntoraParameterList
+
+// tag::AntoraParameterList[]
+* @jsonstr (nvarchar(max))
+// end::AntoraParameterList[]
+
+== AdocUspSteps
+
+// tag::adocuspsteps[]
+
+// end::adocuspsteps[]
+
+
+== AntoraReferencedList
+
+// tag::antorareferencedlist[]
+* xref:sqlparse.ftv_sqlparse_with_some_children.adoc[]
+// end::antorareferencedlist[]
+
+
+== AntoraReferencingList
+
+// tag::antorareferencinglist[]
+
+// end::antorareferencinglist[]
+
+
+== exampleUsage
+
+// tag::exampleusage[]
+
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::ms_description[]
+
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+* [sqlparse].[ftv_sqlparse_with_some_children]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
+
+
+== sql_modules_definition
+
+// tag::sql_modules_definition[]
+[source,sql]
+----
+/*
+soure
+
+SELECT
+       [T1].[RepoObject_guid]
+     , [T1].[key]
+     , [T1].[SysObject_fullname]
+     , [T1].[RowNumber_per_Object]
+     , [T1].[class]
+       --, [T1].[is_group]
+       --, [T1].[is_keyword]
+       --, [T1].[is_whitespace]
+     , [T1].[normalized]
+       --, [T1].[children]
+     , [T2_class] = [T2].[class]
+     , [Identifier_alias] = CASE [T2].[class]
+                                WHEN 'Identifier'
+                                THEN CASE
+                                         WHEN [T2].[child1_normalized] = 'AS'
+                                         THEN [T2].[child2_normalized]
+                                         WHEN [T2].[child3_normalized] = 'AS'
+                                         THEN [T2].[child4_normalized]
+                                     END
+                                WHEN 'Comparison'
+                                THEN CASE
+                                         WHEN [T2].[child1_normalized] = '='
+                                         THEN [T2].[child0_normalized]
+                                     END
+                            END
+     , [Identifier_source] = CASE [T2].[class]
+                                 WHEN 'Identifier'
+                                 THEN CASE [T2].[child0_class]
+                                          WHEN 'Token'
+                                          THEN [T2].[normalized]
+                                          WHEN 'Function'
+                                          THEN [T2].[child0_normalized]
+                                      END
+                                 WHEN 'Comparison'
+                                 THEN CASE
+                                          WHEN [T2].[child1_normalized] = '='
+                                          THEN [T2].[child2_normalized]
+                                      END
+                             END
+     , [Identifier_source_class] = CASE [T2].[class]
+                                       WHEN 'Identifier'
+                                       THEN CASE [T2].[child0_class]
+                                                WHEN 'Token'
+                                                THEN [T2].[class]
+                                                WHEN 'Function'
+                                                THEN [T2].[child0_class]
+                                            END
+                                       WHEN 'Comparison'
+                                       THEN CASE
+                                                WHEN [T2].[child1_normalized] = '='
+                                                THEN [T2].[child2_class]
+                                            END
+                                   END
+     , [Identifier_source_children] = CASE [T2].[class]
+                                          WHEN 'Identifier'
+                                          THEN CASE [T2].[child0_class]
+                                                   WHEN 'Token'
+                                                   THEN [T2].[children]
+                                                   WHEN 'Function'
+                                                   THEN [T2].[child0_children]
+                                               END
+                                          WHEN 'Comparison'
+                                          THEN CASE
+                                                   WHEN [T2].[child1_normalized] = '='
+                                                   THEN [T2].[child2_children]
+                                               END
+                                      END
+     , [T2].[json_key]
+     , [T2].[is_group]
+     , [T2].[is_keyword]
+     , [T2].[is_whitespace]
+     , [T2].[normalized]
+     , [T2].[children]
+     , [T2].[child0_class]
+     , [T2].[child0_is_group]
+     , [T2].[child0_is_keyword]
+     , [T2].[child0_is_whitespace]
+     , [T2].[child0_normalized]
+     , [T2].[child0_children]
+     , [T2].[child1_class]
+     , [T2].[child1_is_group]
+     , [T2].[child1_is_keyword]
+     , [T2].[child1_is_whitespace]
+     , [T2].[child1_normalized]
+     , [T2].[child1_children]
+     , [T2].[child2_class]
+     , [T2].[child2_is_group]
+     , [T2].[child2_is_keyword]
+     , [T2].[child2_is_whitespace]
+     , [T2].[child2_normalized]
+     , [T2].[child2_children]
+     , [T2].[child3_class]
+     , [T2].[child3_is_group]
+     , [T2].[child3_is_keyword]
+     , [T2].[child3_is_whitespace]
+     , [T2].[child3_normalized]
+     , [T2].[child3_children]
+     , [T2].[child4_class]
+     , [T2].[child4_is_group]
+     , [T2].[child4_is_keyword]
+     , [T2].[child4_is_whitespace]
+     , [T2].[child4_normalized]
+     , [T2].[child4_children]
+FROM
+     [repo].[RepoObject__sql_modules_20_statement_children] AS T1
+     CROSS APPLY
+     [repo].[ftv_sqlparse_with_some_children](T1.children) AS T2
+WHERE  [T1].[class] = 'IdentifierList'
+       AND [T2].[class] IN
+                           (
+                           'Identifier' , 'Comparison'
+                           )
+
+
+
+test:
+
+declare @jsonstr nvarchar(max)
+set @jsonstr =
+'
+[{"class": "Identifier", "ttype": null, "is_group": true, "str": "s.SupplierID", "normalized": "s.SupplierID", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "s", "normalized": "s", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ".", "normalized": ".", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Name"], "is_group": false, "str": "SupplierID", "normalized": "SupplierID", "is_keyword": false, "is_whitespace": false, "children": []}]}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ",", "normalized": ",", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "s.SupplierName", "normalized": "s.SupplierName", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "s", "normalized": "s", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ".", "normalized": ".", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Name"], "is_group": false, "str": "SupplierName", "normalized": "SupplierName", "is_keyword": false, "is_whitespace": false, "children": []}]}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ",", "normalized": ",", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "sc.SupplierCategoryName", "normalized": "sc.SupplierCategoryName", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "sc", "normalized": "sc", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ".", "normalized": ".", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Name"], "is_group": false, "str": "SupplierCategoryName", "normalized": "SupplierCategoryName", "is_keyword": false, "is_whitespace": false, "children": []}]}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ",", "normalized": ",", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "pp.FullName AS PrimaryContact", "normalized": "pp.FullName", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "pp", "normalized": "pp", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ".", "normalized": ".", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Name"], "is_group": false, "str": "FullName", "normalized": "FullName", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Keyword"], "is_group": false, "str": "AS", "normalized": "AS", "is_keyword": true, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "PrimaryContact", "normalized": "PrimaryContact", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "PrimaryContact", "normalized": "PrimaryContact", "is_keyword": false, "is_whitespace": false, "children": []}]}]}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ",", "normalized": ",", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "ap.FullName AS AlternateContact", "normalized": "ap.FullName", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "ap", "normalized": "ap", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ".", "normalized": ".", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Name"], "is_group": false, "str": "FullName", "normalized": "FullName", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Keyword"], "is_group": false, "str": "AS", "normalized": "AS", "is_keyword": true, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "AlternateContact", "normalized": "AlternateContact", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "AlternateContact", "normalized": "AlternateContact", "is_keyword": false, "is_whitespace": false, "children": []}]}]}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ",", "normalized": ",", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "s.PhoneNumber", "normalized": "s.PhoneNumber", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "s", "normalized": "s", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ".", "normalized": ".", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Name"], "is_group": false, "str": "PhoneNumber", "normalized": "PhoneNumber", "is_keyword": false, "is_whitespace": false, "children": []}]}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ",", "normalized": ",", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "s.FaxNumber", "normalized": "s.FaxNumber", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "s", "normalized": "s", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ".", "normalized": ".", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Name"], "is_group": false, "str": "FaxNumber", "normalized": "FaxNumber", "is_keyword": false, "is_whitespace": false, "children": []}]}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ",", "normalized": ",", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "s.WebsiteURL", "normalized": "s.WebsiteURL", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "s", "normalized": "s", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ".", "normalized": ".", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Name"], "is_group": false, "str": "WebsiteURL", "normalized": "WebsiteURL", "is_keyword": false, "is_whitespace": false, "children": []}]}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ",", "normalized": ",", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "dm.DeliveryMethodName AS DeliveryMethod", "normalized": "dm.DeliveryMethodName", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "dm", "normalized": "dm", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ".", "normalized": ".", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Name"], "is_group": false, "str": "DeliveryMethodName", "normalized": "DeliveryMethodName", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Keyword"], "is_group": false, "str": "AS", "normalized": "AS", "is_keyword": true, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "DeliveryMethod", "normalized": "DeliveryMethod", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "DeliveryMethod", "normalized": "DeliveryMethod", "is_keyword": false, "is_whitespace": false, "children": []}]}]}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ",", "normalized": ",", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "c.CityName AS CityName", "normalized": "c.CityName", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "c", "normalized": "c", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ".", "normalized": ".", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Name"], "is_group": false, "str": "CityName", "normalized": "CityName", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Keyword"], "is_group": false, "str": "AS", "normalized": "AS", "is_keyword": true, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "CityName", "normalized": "CityName", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "CityName", "normalized": "CityName", "is_keyword": false, "is_whitespace": false, "children": []}]}]}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ",", "normalized": ",", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "s.DeliveryLocation AS DeliveryLocation", "normalized": "s.DeliveryLocation", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "s", "normalized": "s", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ".", "normalized": ".", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Name"], "is_group": false, "str": "DeliveryLocation", "normalized": "DeliveryLocation", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Keyword"], "is_group": false, "str": "AS", "normalized": "AS", "is_keyword": true, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "DeliveryLocation", "normalized": "DeliveryLocation", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "DeliveryLocation", "normalized": "DeliveryLocation", "is_keyword": false, "is_whitespace": false, "children": []}]}]}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ",", "normalized": ",", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Identifier", "ttype": null, "is_group": true, "str": "s.SupplierReference", "normalized": "s.SupplierReference", "is_keyword": false, "is_whitespace": false, "children": [{"class": "Token", "ttype": ["Name"], "is_group": false, "str": "s", "normalized": "s", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Punctuation"], "is_group": false, "str": ".", "normalized": ".", "is_keyword": false, "is_whitespace": false, "children": []}, {"class": "Token", "ttype": ["Name"], "is_group": false, "str": "SupplierReference", "normalized": "SupplierReference", "is_keyword": false, "is_whitespace": false, "children": []}]}]
+'
+select *
+    FROM
+         OPENJSON(@jsonstr) AS j1
+
+select * from [repo].[ftv_sqlparse_IdentifierList](@jsonstr)
+
+select *
+FROM
+     [repo].[RepoObject__sql_modules_20_statement_children] AS T1
+     CROSS APPLY
+     [repo].[ftv_sqlparse_IdentifierList](T1.children) AS T2
+WHERE  [T1].[class] = 'IdentifierList'
+and isjson(T1.children) = 1
+
+
+
+*/
+--@jsonstr should be 'children' element of en entry class IdentifierList
+CREATE Function [sqlparse].ftv_sqlparse_IdentifierList__TestOnly
+(
+    @jsonstr NVarchar(Max)
+)
+Returns Table
+As
+Return
+(
+    Select
+        --j1.*
+        --,
+        --  [T1].[RepoObject_guid]
+        --, [T1].[key]
+        --, [T1].[SysObject_fullname]
+        --, [T1].[RowNumber_per_Object]
+        --, [T1].[class]
+        --  --, [T1].[is_group]
+        --  --, [T1].[is_keyword]
+        --  --, [T1].[is_whitespace]
+        --, [T1].[normalized]
+        --  --, [T1].[children]
+        --, 
+        T2_class                   = T2.class
+      , Identifier_alias           = Case T2.class
+                                         When 'Identifier'
+                                             Then
+                                             Case
+                                                 When T2.child1_normalized = 'AS'
+                                                     Then
+                                                     T2.child2_normalized
+                                                 When T2.child3_normalized = 'AS'
+                                                     Then
+                                                     T2.child4_normalized
+                                             End
+                                         When 'Comparison'
+                                             Then
+                                             Case
+                                                 When T2.child1_normalized = '='
+                                                     Then
+                                                     T2.child0_normalized
+                                             End
+                                     End
+      , Identifier_source          = Case T2.class
+                                         When 'Identifier'
+                                             Then
+                                             Case T2.child0_class
+                                                 When 'Token'
+                                                     Then
+                                                     T2.normalized
+                                                 When 'Function'
+                                                     Then
+                                                     T2.child0_normalized
+                                             End
+                                         When 'Comparison'
+                                             Then
+                                             Case
+                                                 When T2.child1_normalized = '='
+                                                     Then
+                                                     T2.child2_normalized
+                                             End
+                                     End
+      , Identifier_source_class    = Case T2.class
+                                         When 'Identifier'
+                                             Then
+                                             Case T2.child0_class
+                                                 When 'Token'
+                                                     Then
+                                                     T2.class
+                                                 When 'Function'
+                                                     Then
+                                                     T2.child0_class
+                                             End
+                                         When 'Comparison'
+                                             Then
+                                             Case
+                                                 When T2.child1_normalized = '='
+                                                     Then
+                                                     T2.child2_class
+                                             End
+                                     End
+      , Identifier_source_children = Case T2.class
+                                         When 'Identifier'
+                                             Then
+                                             Case T2.child0_class
+                                                 When 'Token'
+                                                     Then
+                                                     T2.children
+                                                 When 'Function'
+                                                     Then
+                                                     T2.child0_children
+                                             End
+                                         When 'Comparison'
+                                             Then
+                                             Case
+                                                 When T2.child1_normalized = '='
+                                                     Then
+                                                     T2.child2_children
+                                             End
+                                     End
+    --     , [T2].[json_key]
+    --     , [T2].[is_group]
+    --     , [T2].[is_keyword]
+    --     , [T2].[is_whitespace]
+    --     , [T2].[normalized]
+    --     , [T2].[children]
+    --     , [T2].[child0_class]
+    --     , [T2].[child0_is_group]
+    --     , [T2].[child0_is_keyword]
+    --     , [T2].[child0_is_whitespace]
+    --     , [T2].[child0_normalized]
+    --     , [T2].[child0_children]
+    --     , [T2].[child1_class]
+    --     , [T2].[child1_is_group]
+    --     , [T2].[child1_is_keyword]
+    --     , [T2].[child1_is_whitespace]
+    --     , [T2].[child1_normalized]
+    --     , [T2].[child1_children]
+    --     , [T2].[child2_class]
+    --     , [T2].[child2_is_group]
+    --     , [T2].[child2_is_keyword]
+    --     , [T2].[child2_is_whitespace]
+    --     , [T2].[child2_normalized]
+    --     , [T2].[child2_children]
+    --     , [T2].[child3_class]
+    --     , [T2].[child3_is_group]
+    --     , [T2].[child3_is_keyword]
+    --     , [T2].[child3_is_whitespace]
+    --     , [T2].[child3_normalized]
+    --     , [T2].[child3_children]
+    --     , [T2].[child4_class]
+    --     , [T2].[child4_is_group]
+    --     , [T2].[child4_is_keyword]
+    --     , [T2].[child4_is_whitespace]
+    --     , [T2].[child4_normalized]
+    --     , [T2].[child4_children]
+    ----FROM
+    ----     [repo].[RepoObject__sql_modules_20_statement_children] AS T1
+    From --
+        --     OPENJSON(@jsonstr) AS j1
+        --     CROSS APPLY
+        [sqlparse].ftv_sqlparse_with_some_children ( @jsonstr ) As T2
+    Where
+        T2.class In
+        ( 'Identifier', 'Comparison' )
+);
+
+----
+// end::sql_modules_definition[]
+
+

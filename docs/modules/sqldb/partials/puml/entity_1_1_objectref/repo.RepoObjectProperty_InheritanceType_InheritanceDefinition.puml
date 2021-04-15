@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.Parameter << U >> {
+entity config.Parameter << U >> {
   * **Parameter_name** : varchar(100)
   * **sub_Parameter** : nvarchar(128)
 }
@@ -48,10 +48,10 @@ entity repo.RepoObjectProperty_InheritanceType_InheritanceDefinition << V >> {
 entity repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition << V >> {
 }
 
-repo.Parameter <.. repo.PropertyName_RepoObject
-repo.Parameter <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+config.Parameter <.. repo.PropertyName_RepoObject
+config.Parameter <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
 repo.PropertyName_RepoObject <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
 repo.RepoObject <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
-repo.RepoObjectProperty <.. repo.PropertyName_RepoObject
 repo.RepoObjectProperty <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+repo.RepoObjectProperty <.. repo.PropertyName_RepoObject
 repo.RepoObjectProperty_InheritanceType_InheritanceDefinition <.. repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition

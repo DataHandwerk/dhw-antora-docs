@@ -1,0 +1,134 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObject_gross << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  AntoraReferencedList : nvarchar(max)
+  AntoraReferencingList : nvarchar(max)
+  CreateColumnList : nvarchar(max)
+  DbmlColumnList : nvarchar(max)
+  has_different_sys_names : bit
+  has_execution_plan_issue : bit
+  has_get_referenced_issue : bit
+  has_history : bit
+  has_history_columns : bit
+  history_schema_name : nvarchar(128)
+  history_table_name : nvarchar(128)
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_DocsOutput : int
+  * is_in_reference : int
+  is_persistence : bit
+  is_persistence_check_duplicate_per_pk : bit
+  is_persistence_check_for_empty_source : bit
+  is_persistence_delete_changed : bit
+  is_persistence_delete_missing : bit
+  is_persistence_insert : bit
+  is_persistence_truncate : bit
+  is_persistence_update_changed : bit
+  is_repo_managed : bit
+  * is_RepoObject_name_uniqueidentifier : int
+  is_required_ObjectMerge : bit
+  is_SysObject_missing : bit
+  * is_SysObject_name_uniqueidentifier : int
+  * modify_dt : datetime
+  node_id : bigint
+  persistence_source_RepoObject_fullname : nvarchar(261)
+  persistence_source_RepoObject_fullname2 : nvarchar(257)
+  persistence_source_RepoObject_guid : uniqueidentifier
+  persistence_source_RepoObject_xref : nvarchar(269)
+  persistence_source_SysObject_fullname : nvarchar(261)
+  persistence_source_SysObject_fullname2 : nvarchar(257)
+  persistence_source_SysObject_xref : nvarchar(269)
+  PersistenceCompareColumnList : nvarchar(max)
+  PersistenceInsertColumnList : nvarchar(max)
+  PersistenceUpdateColumnList : nvarchar(max)
+  pk_index_guid : uniqueidentifier
+  pk_IndexPatternColumnDatatype : nvarchar(4000)
+  pk_IndexPatternColumnName : nvarchar(4000)
+  pk_IndexPatternColumnName_new : nvarchar(4000)
+  pk_IndexSemanticGroup : nvarchar(512)
+  Property_ms_description : nvarchar(4000)
+  Repo_history_table_guid : uniqueidentifier
+  Repo_temporal_type : tinyint
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_fullname2 : nvarchar(257)
+  * RepoObject_name : nvarchar(128)
+  RepoObject_Referencing_Count : int
+  * RepoObject_schema_name : nvarchar(128)
+  * RepoObject_type : char(2)
+  RepoObject_type_name : nvarchar(128)
+  sql_modules_antora : nvarchar(max)
+  sql_modules_definition : nvarchar(max)
+  sql_modules_formatted : nvarchar(max)
+  sql_modules_formatted2 : nvarchar(max)
+  * SysObject_fullname : nvarchar(261)
+  * SysObject_fullname2 : nvarchar(257)
+  SysObject_id : int
+  SysObject_modify_date : datetime
+  * SysObject_name : nvarchar(128)
+  * SysObject_parent_object_id : int
+  SysObject_query_executed_dt : datetime
+  SysObject_query_plan : xml
+  * SysObject_query_sql : nvarchar(406)
+  * SysObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  SysObject_type_name : nvarchar(128)
+  temporal_type : tinyint
+  * usp_persistence_name : nvarchar(140)
+  usp_persistence_RepoObject_guid : uniqueidentifier
+}
+
+entity uspgenerator.GeneratorUsp << U >> {
+  * **id** : int
+  --
+  * has_logging : tinyint
+  usp_Description : nvarchar(4000)
+  usp_Examples : nvarchar(4000)
+  * usp_name : nvarchar(128)
+  * usp_schema : nvarchar(128)
+  * {static} usp_fullname : nvarchar(261)
+}
+
+entity uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint << V >> {
+  * **usp_id** : int
+  --
+  * is_inactive : int
+  * Number : int
+  source_pk_index_guid : uniqueidentifier
+}
+
+entity uspgenerator.usp_GeneratorUsp_insert_update_persistence << P >> {
+  --
+}
+
+repo.RepoObject_gross <.. uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint
+repo.RepoObject_gross <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUsp <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint
+uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+

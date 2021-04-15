@@ -33,6 +33,7 @@ entity repo.RepoObject_persistence << U >> {
 
 entity repo.RepoObject_persistence_column << V >> {
   * **target_RepoObject_guid** : uniqueidentifier
+  **RepoObjectColumn_guid_s** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumn << U >> {

@@ -131,6 +131,10 @@ entity repo.usp_RepoObject_Inheritance << P >> {
   --
 }
 
+entity repo.usp_RepoObjectProperty_collect << P >> {
+  --
+}
+
 entity repo.usp_RepoObjectProperty_set << P >> {
   --
 }
@@ -140,22 +144,23 @@ entity repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate << P >> {
 }
 
 repo.PropertyName_RepoObject <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
-repo.RepoObjectProperty <.. repo.RepoObjectProperty_sys_repo
-repo.RepoObjectProperty <.. repo.ExtendedProperty_Repo2Sys_level1
+repo.RepoObjectProperty <.. repo.usp_RepoObject_Inheritance
 repo.RepoObjectProperty <.. repo.ExtendedProperty_Repo2Sys_level2_RepoObject
 repo.RepoObjectProperty <.. repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate
-repo.RepoObjectProperty <.. repo.PropertyName_RepoObject
-repo.RepoObjectProperty <.. repo.usp_RepoObject_Inheritance
-repo.RepoObjectProperty <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
-repo.RepoObjectProperty <.. repo.fs_get_RepoObjectProperty_nvarchar
-repo.RepoObjectProperty <.. docs.RepoObject_Adoc
+repo.RepoObjectProperty <.. repo.RepoObjectProperty_sys_repo
+repo.RepoObjectProperty <.. repo.usp_RepoObjectProperty_collect
 repo.RepoObjectProperty <.. repo.usp_RepoObjectProperty_set
+repo.RepoObjectProperty <.. repo.ExtendedProperty_Repo2Sys_level1
+repo.RepoObjectProperty <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+repo.RepoObjectProperty <.. repo.PropertyName_RepoObject
+repo.RepoObjectProperty <.. docs.RepoObject_Adoc
+repo.RepoObjectProperty <.. repo.fs_get_RepoObjectProperty_nvarchar
 repo.RepoObjectProperty_sys_repo <.. repo.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate
 repo.PropertyName_RepoObject::property_name <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::property_name
-repo.RepoObjectProperty::property_name <-- repo.ExtendedProperty_Repo2Sys_level1::property_name
 repo.RepoObjectProperty::property_name <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::property_name
-repo.RepoObjectProperty::property_value <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::property_value
+repo.RepoObjectProperty::property_name <-- repo.ExtendedProperty_Repo2Sys_level1::property_name
 repo.RepoObjectProperty::property_value <-- repo.ExtendedProperty_Repo2Sys_level1::property_value
+repo.RepoObjectProperty::property_value <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::property_value
 repo.RepoObjectProperty::property_value <-- repo.RepoObjectProperty_InheritanceType_InheritanceDefinition::property_value
-repo.RepoObjectProperty::RepoObject_guid <-- repo.ExtendedProperty_Repo2Sys_level1::RepoObject_guid
 repo.RepoObjectProperty::RepoObject_guid <-- repo.ExtendedProperty_Repo2Sys_level2_RepoObject::RepoObject_guid
+repo.RepoObjectProperty::RepoObject_guid <-- repo.ExtendedProperty_Repo2Sys_level1::RepoObject_guid

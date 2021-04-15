@@ -71,9 +71,9 @@ entity repo.usp_PERSIST_RepoObject_referencing_level_T << P >> {
 
 repo.RepoObject_referencing_level <.. repo.usp_PERSIST_RepoObject_referencing_level_T
 repo.RepoObject_referencing_level <.. repo.RepoObject_referencing_level_T
+repo.RepoObject_referencing_level_T <.. docs.ftv_RepoObject_Reference_PlantUml_EntityRefList
 repo.RepoObject_referencing_level_T <.. repo.ftv_RepoObject_ReferencedReferencing
 repo.RepoObject_referencing_level_T <.. repo.usp_PERSIST_RepoObject_referencing_level_T
-repo.RepoObject_referencing_level_T <.. docs.ftv_RepoObject_Reference_PlantUml_EntityRefList
 repo.RepoObject_referencing_level::LastNode_fullname <-- repo.RepoObject_referencing_level_T::LastNode_fullname
 repo.RepoObject_referencing_level::LastNode_fullname2 <-- repo.RepoObject_referencing_level_T::LastNode_fullname2
 repo.RepoObject_referencing_level::LastNode_guid <-- repo.RepoObject_referencing_level_T::LastNode_guid

@@ -1,0 +1,47 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+  --
+  Parameter_default_value : sql_variant
+  Parameter_desciption : nvarchar(1000)
+  Parameter_value : sql_variant
+  {abstract} Parameter_value__result_int : int
+  {abstract} Parameter_value__result_nvarchar : nvarchar(4000)
+}
+
+entity config.usp_connect_database << P >> {
+  --
+}
+
+entity config.usp_parameter_set << P >> {
+  --
+}
+
+config.Parameter <.. config.usp_parameter_set
+config.usp_parameter_set <.. config.usp_connect_database
+

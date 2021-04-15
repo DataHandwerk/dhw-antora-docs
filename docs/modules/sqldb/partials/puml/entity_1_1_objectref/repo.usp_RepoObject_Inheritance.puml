@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
 entity repo.RepoObject_Inheritance_temp << U >> {
 }
 
@@ -33,13 +36,15 @@ entity repo.RepoObjectProperty << U >> {
 entity repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition << V >> {
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
+entity repo.usp_main << P >> {
 }
 
 entity repo.usp_RepoObject_Inheritance << P >> {
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_RepoObject_Inheritance
+logs.usp_ExecutionLog_insert <.. repo.usp_main
 repo.RepoObject_Inheritance_temp <.. repo.usp_RepoObject_Inheritance
 repo.RepoObjectProperty <.. repo.usp_RepoObject_Inheritance
 repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition <.. repo.usp_RepoObject_Inheritance
-repo.usp_ExecutionLog_insert <.. repo.usp_RepoObject_Inheritance
+repo.usp_RepoObject_Inheritance <.. repo.usp_main

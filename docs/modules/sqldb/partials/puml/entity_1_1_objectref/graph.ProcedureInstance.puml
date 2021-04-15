@@ -26,9 +26,4 @@ skinparam class {
 entity graph.ProcedureInstance << U >> {
 }
 
-entity graph.ProcedureInstance_S << V >> {
-  * **Procedure_RepoObject_guid** : uniqueidentifier
-  * **Instance** : varchar(500)
-}
 
-graph.ProcedureInstance_S <.. graph.ProcedureInstance

@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.ftv_dwh_database << IF >> {
+entity config.ftv_dwh_database << IF >> {
 }
 
 entity repo.RepoObjectColumnProperty_sys_repo << V >> {
@@ -59,16 +59,16 @@ entity sys_dwh.objects << SN >> {
 entity sys_dwh.parameters << SN >> {
 }
 
-repo.ftv_dwh_database <.. repo_sys.ExtendedProperties
-repo.ftv_dwh_database <.. repo_sys.SysColumn
+config.ftv_dwh_database <.. repo_sys.ExtendedProperties
+config.ftv_dwh_database <.. repo_sys.SysColumn
+repo_sys.ExtendedProperties <.. repo_sys.SysColumn
 repo_sys.ExtendedProperties <.. repo_sys.ExtendedProperties_ParameterForAddUpdateDrop
 repo_sys.ExtendedProperties <.. repo_sys.SysObject
-repo_sys.ExtendedProperties <.. repo.RepoObjectColumnProperty_sys_repo
 repo_sys.ExtendedProperties <.. repo.RepoObjectProperty_sys_repo
-repo_sys.ExtendedProperties <.. repo_sys.SysColumn
+repo_sys.ExtendedProperties <.. repo.RepoObjectColumnProperty_sys_repo
 repo_sys.SysObject <.. repo_sys.SysColumn
-sys_dwh.columns <.. repo_sys.ExtendedProperties
 sys_dwh.columns <.. repo_sys.SysColumn
+sys_dwh.columns <.. repo_sys.ExtendedProperties
 sys_dwh.extended_properties <.. repo_sys.ExtendedProperties
 sys_dwh.indexes <.. repo_sys.ExtendedProperties
 sys_dwh.objects <.. repo_sys.ExtendedProperties

@@ -38,12 +38,8 @@ entity graph.ReferencedObject << U >> {
 entity graph.RepoObject << U >> {
   --
   * $node_id_FAC3EF4690DB4CD6A98F097DAF0885CC : nvarchar(1000)
-  * 33091D88-929D-488C-B30F-7328A9D970B6 : char(2)
-  * 906BEFD3-76BA-432D-9792-128CEA80A6EE : nvarchar(257)
-  * 9D326C2A-F564-4176-B51F-7BE9FB6685B2 : nvarchar(261)
   * graph_id_60367FDA1A70430CA390F8144C223EC4 : bigint
   * RepoObject_fullname : nvarchar(261)
-  RepoObject_fullname2 : nvarchar(257)
   * RepoObject_guid : uniqueidentifier
   * RepoObject_type : char(2)
 }
@@ -54,19 +50,21 @@ entity repo.Match_RepoObject_referenced_UspPersistence << V >> {
   --
   First_usp_persistence_name : nvarchar(140)
   First_usp_persistence_RepoObject_guid : uniqueidentifier
+  FirstNode_schema_name : nvarchar(128)
   FirstNodeName : nvarchar(261)
   Last_usp_persistence_name : nvarchar(140)
   Last_usp_persistence_RepoObject_guid : uniqueidentifier
+  LastNode_schema_name : nvarchar(128)
   LastNodeName : nvarchar(261)
   ListNodeName : nvarchar(4000)
 }
 
 entity repo.Reference_UspPersistence << V >> {
+  **referenced_usp_RepoObject_guid** : uniqueidentifier
+  **referencing_usp_RepoObject_guid** : uniqueidentifier
   --
   referenced_usp_persistence_name : nvarchar(140)
-  referenced_usp_RepoObject_guid : uniqueidentifier
   referencing_usp_persistence_name : nvarchar(140)
-  referencing_usp_RepoObject_guid : uniqueidentifier
 }
 
 entity repo.RepoObject_gross << V >> {
@@ -98,6 +96,7 @@ entity repo.RepoObject_gross << V >> {
   is_persistence_update_changed : bit
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   * modify_dt : datetime
@@ -148,8 +147,15 @@ entity repo.RepoObject_gross << V >> {
   usp_persistence_RepoObject_guid : uniqueidentifier
 }
 
+entity repo.usp_main << P >> {
+  --
+}
+
+graph.ReferencedObject <.. repo.usp_main
 graph.ReferencedObject <.. repo.Match_RepoObject_referenced_UspPersistence
+graph.RepoObject <.. repo.usp_main
 graph.RepoObject <.. repo.Match_RepoObject_referenced_UspPersistence
 repo.Match_RepoObject_referenced_UspPersistence <.. repo.Reference_UspPersistence
+repo.Match_RepoObject_referenced_UspPersistence <.. repo.usp_main
 repo.RepoObject_gross <.. repo.Match_RepoObject_referenced_UspPersistence
 

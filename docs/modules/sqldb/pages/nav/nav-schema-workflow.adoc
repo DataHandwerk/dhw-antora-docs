@@ -1,0 +1,4 @@
+= workflow
+
+include::partial$navlist/navlist-schema-workflow.adoc[]
+

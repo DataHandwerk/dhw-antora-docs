@@ -23,11 +23,11 @@ skinparam class {
 }
 
 
-entity repo.fs_get_parameter_value << FN >> {
+entity config.fs_get_parameter_value << FN >> {
   --
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
+entity logs.usp_ExecutionLog_insert << P >> {
   --
 }
 
@@ -39,9 +39,9 @@ entity repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id << P >> {
   --
 }
 
-repo.fs_get_parameter_value <.. repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id
-repo.fs_get_parameter_value <.. repo.usp_main
-repo.usp_ExecutionLog_insert <.. repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id
-repo.usp_ExecutionLog_insert <.. repo.usp_main
+config.fs_get_parameter_value <.. repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id
+config.fs_get_parameter_value <.. repo.usp_main
+logs.usp_ExecutionLog_insert <.. repo.usp_main
+logs.usp_ExecutionLog_insert <.. repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id
 repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id <.. repo.usp_main
 

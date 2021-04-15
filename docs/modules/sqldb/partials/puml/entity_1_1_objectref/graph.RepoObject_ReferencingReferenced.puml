@@ -23,6 +23,12 @@ skinparam class {
 }
 
 
+entity repo.ftv_RepoObject_ReferenceTree_referenced << IF >> {
+}
+
+entity repo.ftv_RepoObject_ReferenceTree_referencing << IF >> {
+}
+
 entity graph.ReferencedObject << U >> {
 }
 
@@ -54,10 +60,12 @@ entity repo.RepoObject_ReferencingList << V >> {
 
 graph.ReferencedObject <.. graph.RepoObject_ReferencingReferenced
 graph.RepoObject <.. graph.RepoObject_ReferencingReferenced
-graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_gross
-graph.RepoObject_ReferencingReferenced <.. repo.ftv_RepoObject_ReferenceTree_via_fullname
-graph.RepoObject_ReferencingReferenced <.. repo.ftv_RepoObject_ReferenceTree
-graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_ReferencedList
 graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_ReferencingList
+graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_ReferencedList
+graph.RepoObject_ReferencingReferenced <.. repo.ftv_RepoObject_ReferenceTree
+graph.RepoObject_ReferencingReferenced <.. repo.ftv_RepoObject_ReferenceTree_via_fullname
+graph.RepoObject_ReferencingReferenced <.. 
+graph.RepoObject_ReferencingReferenced <.. 
+graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_gross
 repo.RepoObject_ReferencedList <.. repo.RepoObject_gross
 repo.RepoObject_ReferencingList <.. repo.RepoObject_gross

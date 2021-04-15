@@ -30,15 +30,28 @@ entity repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing << V >
 }
 
 entity repo.RepoObjectColumn_MissingSource_TypeV << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumn_reference_Persistence << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
 }
 
 entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
+  * **referencing_id** : int
+  * **referencing_minor_id** : int
+  **referenced_id** : int
+  * **referenced_minor_id** : int
 }
 
 entity repo.RepoObjectColumn_reference_SqlModules << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
 }
 
 entity repo.RepoObjectColumn_reference_union << V >> {
@@ -53,7 +66,7 @@ entity repo.usp_main << P >> {
 repo.RepoObjectColumn_reference_Persistence <.. repo.RepoObjectColumn_reference_union
 repo.RepoObjectColumn_reference_SqlExpressionDependencies <.. repo.RepoObjectColumn_reference_union
 repo.RepoObjectColumn_reference_SqlModules <.. repo.RepoObjectColumn_reference_union
-repo.RepoObjectColumn_reference_union <.. repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing
 repo.RepoObjectColumn_reference_union <.. repo.RepoObjectColumn_MissingSource_TypeV
+repo.RepoObjectColumn_reference_union <.. repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing
 repo.RepoObjectColumn_reference_union <.. repo.usp_main
 repo.RepoObjectColumn_reference_union <.. repo.RepoObjectColumn_RelationScript

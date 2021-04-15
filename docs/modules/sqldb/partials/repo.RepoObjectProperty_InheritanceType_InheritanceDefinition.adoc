@@ -3,12 +3,12 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
 :ExistsProperty--pk_index_guid:
-:ExistsProperty--pk_IndexPatternColumnDatatype:
-:ExistsProperty--pk_IndexPatternColumnName:
-:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
@@ -36,13 +36,13 @@ view
 == SysObject_id
 
 // tag::SysObject_id[]
-2043154324
+434816611
 // end::SysObject_id[]
 
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-06 11:32:33
+2021-04-13 19:02:37
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -109,6 +109,11 @@ view
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-Inheritance_StringAggSeparatorSql[repo.RepoObject.Inheritance_StringAggSeparatorSql]
+--
+
 .Referencing Columns
 --
 * xref:repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition.adoc#column-Inheritance_StringAggSeparatorSql[repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition.Inheritance_StringAggSeparatorSql]
@@ -166,9 +171,14 @@ view
 |
 |===
 
+.Description
+--
+(TRY_CAST(coalesce([Parameter_value],[Parameter_default_value]) AS [nvarchar](4000)))
+--
+
 .Referenced Columns
 --
-* xref:repo.Parameter.adoc#column-Parameter_value__result_nvarchar[repo.Parameter.Parameter_value__result_nvarchar]
+* xref:config.Parameter.adoc#column-Parameter_value__result_nvarchar[config.Parameter.Parameter_value__result_nvarchar]
 --
 
 
@@ -185,9 +195,14 @@ view
 |
 |===
 
+.Description
+--
+(TRY_CAST(coalesce([Parameter_value],[Parameter_default_value]) AS [nvarchar](4000)))
+--
+
 .Referenced Columns
 --
-* xref:repo.Parameter.adoc#column-Parameter_value__result_nvarchar[repo.Parameter.Parameter_value__result_nvarchar]
+* xref:config.Parameter.adoc#column-Parameter_value__result_nvarchar[config.Parameter.Parameter_value__result_nvarchar]
 --
 
 
@@ -204,9 +219,14 @@ view
 |
 |===
 
+.Description
+--
+(TRY_CAST(coalesce([Parameter_value],[Parameter_default_value]) AS [int]))
+--
+
 .Referenced Columns
 --
-* xref:repo.Parameter.adoc#column-Parameter_value__result_int[repo.Parameter.Parameter_value__result_int]
+* xref:config.Parameter.adoc#column-Parameter_value__result_int[config.Parameter.Parameter_value__result_int]
 --
 
 
@@ -247,6 +267,11 @@ view
 |
 |===
 
+.Description
+--
+(concat('[',[RepoObject_schema_name],'].[',[RepoObject_name],']'))
+--
+
 .Referenced Columns
 --
 * xref:repo.RepoObject.adoc#column-RepoObject_fullname[repo.RepoObject.RepoObject_fullname]
@@ -270,6 +295,11 @@ view
 |
 |
 |===
+
+.Description
+--
+reference in [repo_sys].[type]
+--
 
 .Referenced Columns
 --
@@ -352,9 +382,14 @@ view
 |
 |===
 
+.Description
+--
+(TRY_CAST(coalesce([Parameter_value],[Parameter_default_value]) AS [nvarchar](4000)))
+--
+
 .Referenced Columns
 --
-* xref:repo.Parameter.adoc#column-Parameter_value__result_nvarchar[repo.Parameter.Parameter_value__result_nvarchar]
+* xref:config.Parameter.adoc#column-Parameter_value__result_nvarchar[config.Parameter.Parameter_value__result_nvarchar]
 --
 
 
@@ -371,9 +406,14 @@ view
 |
 |===
 
+.Description
+--
+(TRY_CAST(coalesce([Parameter_value],[Parameter_default_value]) AS [nvarchar](4000)))
+--
+
 .Referenced Columns
 --
-* xref:repo.Parameter.adoc#column-Parameter_value__result_nvarchar[repo.Parameter.Parameter_value__result_nvarchar]
+* xref:config.Parameter.adoc#column-Parameter_value__result_nvarchar[config.Parameter.Parameter_value__result_nvarchar]
 --
 
 
@@ -390,9 +430,14 @@ view
 |
 |===
 
+.Description
+--
+(TRY_CAST(coalesce([Parameter_value],[Parameter_default_value]) AS [int]))
+--
+
 .Referenced Columns
 --
-* xref:repo.Parameter.adoc#column-Parameter_value__result_int[repo.Parameter.Parameter_value__result_int]
+* xref:config.Parameter.adoc#column-Parameter_value__result_int[config.Parameter.Parameter_value__result_int]
 --
 
 
@@ -589,95 +634,91 @@ view
 
 // end::AntoraParameterList[]
 
-== example1
+== AdocUspSteps
 
-// tag::example1[]
+// tag::adocuspsteps[]
 
-// end::example1[]
-
-
-== example2
-
-// tag::example2[]
-
-// end::example2[]
+// end::adocuspsteps[]
 
 
-== example3
+== AntoraReferencedList
 
-// tag::example3[]
-
-// end::example3[]
-
-
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
+// tag::antorareferencedlist[]
+* xref:config.Parameter.adoc[]
+* xref:repo.PropertyName_RepoObject.adoc[]
+* xref:repo.RepoObject.adoc[]
+* xref:repo.RepoObjectProperty.adoc[]
+// end::antorareferencedlist[]
 
 
-== UspExamples
+== AntoraReferencingList
 
-// tag::UspExamples[]
-
-// end::UspExamples[]
-
-
-== UspParameters
-
-// tag::UspParameters[]
-
-// end::UspParameters[]
+// tag::antorareferencinglist[]
+* xref:repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition.adoc[]
+// end::antorareferencinglist[]
 
 
-== persistence_source_RepoObject_xref
+== exampleUsage
 
-// tag::persistence_source_RepoObject_xref[]
+// tag::exampleusage[]
 
-// end::persistence_source_RepoObject_xref[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
+// end::exampleusage[]
 
 
-== microsoft_database_tools_support
+== exampleUsage_2
 
-// tag::microsoft_database_tools_support[]
+// tag::exampleusage_2[]
 
-// end::microsoft_database_tools_support[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
+// end::exampleusage_2[]
 
 
-== persistence_source_RepoObject_fullname
+== exampleWrong_Usage
 
-// tag::persistence_source_RepoObject_fullname[]
+// tag::examplewrong_usage[]
 
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
+// end::examplewrong_usage[]
 
 
-== persistence_source_RepoObject_guid
+== has_execution_plan_issue
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::has_execution_plan_issue[]
 
-// end::persistence_source_RepoObject_guid[]
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -722,77 +763,53 @@ view
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
+// end::microsoft_database_tools_support[]
 
 
-== is_persistence
+== MS_Description
 
-// tag::is_persistence[]
+// tag::ms_description[]
 
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
+// end::ms_description[]
 
 
-== pk_IndexSemanticGroup
+== persistence_source_RepoObject_fullname
 
-// tag::pk_IndexSemanticGroup[]
+// tag::persistence_source_repoobject_fullname[]
 
-// end::pk_IndexSemanticGroup[]
-
-
-== AdocUspSteps
-
-// tag::AdocUspSteps[]
-
-// end::AdocUspSteps[]
+// end::persistence_source_repoobject_fullname[]
 
 
-== AntoraReferencedList
+== persistence_source_RepoObject_fullname2
 
-// tag::AntoraReferencedList[]
-* xref:repo.Parameter.adoc[]
-* xref:repo.PropertyName_RepoObject.adoc[]
-* xref:repo.RepoObject.adoc[]
-* xref:repo.RepoObjectProperty.adoc[]
-// end::AntoraReferencedList[]
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
 
 
-== AntoraReferencingList
+== persistence_source_RepoObject_guid
 
-// tag::AntoraReferencingList[]
-* xref:repo.RepoObjectProperty_InheritanceType_resulting_InheritanceDefinition.adoc[]
-// end::AntoraReferencingList[]
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -804,26 +821,47 @@ view
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 uniqueidentifier,nvarchar(128)
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 RepoObject_guid,property_name
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
-* [repo].[Parameter]
+// tag::referencedobjectlist[]
+* [config].[Parameter]
 * [repo].[PropertyName_RepoObject]
 * [repo].[RepoObject]
 * [repo].[RepoObjectProperty]
-// end::ReferencedObjectList[]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -831,51 +869,83 @@ RepoObject_guid,property_name
 // tag::sql_modules_definition[]
 [source,sql]
 ----
+Create View repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+As
+Select
+    --
+    ro.RepoObject_guid
+  , pn.property_name
+  , rop.property_value
+  , Inheritance_StringAggSeparatorSql     = Coalesce (
+                                                         ro.Inheritance_StringAggSeparatorSql
+                                                       , par_sub_sep.Parameter_value__result_nvarchar
+                                                       , par_sep.Parameter_value__result_nvarchar
+                                                     )
+  , InheritanceDefinition                 = Coalesce (
+                                                         ro.InheritanceDefinition
+                                                       , par_sub_def.Parameter_value__result_nvarchar
+                                                       , par_def.Parameter_value__result_nvarchar
+                                                     )
+  , InheritanceType                       = Coalesce (
+                                                         ro.InheritanceType
+                                                       , par_sub.Parameter_value__result_int
+                                                       , par.Parameter_value__result_int
+                                                     )
+  , ro.RepoObject_fullname
+  , ro.RepoObject_type
+  , ro_InheritanceType                    = ro.InheritanceType
+  , sub_InheritanceType                   = par_sub.Parameter_value__result_int
+  , par_InheritanceType                   = par.Parameter_value__result_int
+  , ro_InheritanceDefinition              = ro.InheritanceDefinition
+  , sub_InheritanceDefintion              = par_sub_def.Parameter_value__result_nvarchar
+  , par_InheritanceDefintion              = par_def.Parameter_value__result_nvarchar
+  , ro_Inheritance_StringAggSeparatorSql  = ro.Inheritance_StringAggSeparatorSql
+  , sub_Inheritance_StringAggSeparatorSql = par_sub_sep.Parameter_value__result_nvarchar
+  , par_Inheritance_StringAggSeparatorSql = par_sep.Parameter_value__result_nvarchar
+From
+    repo.RepoObject                         As ro
+    Cross Join repo.PropertyName_RepoObject As pn
+    Left Join
+        repo.RepoObjectProperty As rop
+            On
+            rop.RepoObject_guid           = ro.RepoObject_guid
+            And rop.property_name         = pn.property_name
 
-CREATE VIEW [repo].[RepoObjectProperty_InheritanceType_InheritanceDefinition]
-AS
-SELECT
- --
- [ro].[RepoObject_guid]
- , [pn].[property_name]
- , [rop].[property_value]
- , [Inheritance_StringAggSeparatorSql] = COALESCE([ro].[Inheritance_StringAggSeparatorSql], [par_sub_sep].[Parameter_value__result_nvarchar], [par_sep].[Parameter_value__result_nvarchar])
- , [InheritanceDefinition] = COALESCE([ro].[InheritanceDefinition], [par_sub_def].[Parameter_value__result_nvarchar], [par_def].[Parameter_value__result_nvarchar])
- , [InheritanceType] = COALESCE([ro].[InheritanceType], [par_sub].[Parameter_value__result_int], [par].[Parameter_value__result_int])
- , [ro].[RepoObject_fullname]
- , [ro].[RepoObject_type]
- , [ro_InheritanceType] = [ro].[InheritanceType]
- , [sub_InheritanceType] = [par_sub].[Parameter_value__result_int]
- , [par_InheritanceType] = [par].[Parameter_value__result_int]
- , [ro_InheritanceDefinition] = [ro].[InheritanceDefinition]
- , [sub_InheritanceDefintion] = [par_sub_def].[Parameter_value__result_nvarchar]
- , [par_InheritanceDefintion] = [par_def].[Parameter_value__result_nvarchar]
- , [ro_Inheritance_StringAggSeparatorSql] = [ro].[Inheritance_StringAggSeparatorSql]
- , [sub_Inheritance_StringAggSeparatorSql] = [par_sub_sep].[Parameter_value__result_nvarchar]
- , [par_Inheritance_StringAggSeparatorSql] = [par_sep].[Parameter_value__result_nvarchar]
-FROM [repo].[RepoObject] AS ro
-CROSS JOIN [repo].[PropertyName_RepoObject] AS pn
-LEFT JOIN [repo].[RepoObjectProperty] AS rop
- ON rop.RepoObject_guid = [ro].[RepoObject_guid]
-  AND rop.property_name = [pn].[property_name]
-LEFT JOIN [repo].[Parameter] AS par_sub
- ON par_sub.[Parameter_name] = 'InheritanceType_object'
-  AND par_sub.[sub_Parameter] = [pn].[property_name]
-LEFT JOIN [repo].[Parameter] AS par
- ON par.[Parameter_name] = 'InheritanceType_object'
-  AND par.[sub_Parameter] = ''
-LEFT JOIN [repo].[Parameter] AS par_sub_def
- ON par_sub_def.[Parameter_name] = 'InheritanceDefinition_object'
-  AND par_sub_def.[sub_Parameter] = [pn].[property_name]
-LEFT JOIN [repo].[Parameter] AS par_def
- ON par_def.[Parameter_name] = 'InheritanceDefinition_object'
-  AND par_def.[sub_Parameter] = ''
-LEFT JOIN [repo].[Parameter] AS par_sub_sep
- ON par_sub_sep.[Parameter_name] = 'Inheritance_StringAggSeparatorSql_object'
-  AND par_sub_sep.[sub_Parameter] = [pn].[property_name]
-LEFT JOIN [repo].[Parameter] AS par_sep
- ON par_sep.[Parameter_name] = 'Inheritance_StringAggSeparatorSql_object'
-  AND par_sep.[sub_Parameter] = ''
+    Left Join
+        [config].Parameter          As par_sub
+            On
+            par_sub.Parameter_name        = 'InheritanceType_object'
+            And par_sub.sub_Parameter     = pn.property_name
+
+    Left Join
+        [config].Parameter          As par
+            On
+            par.Parameter_name            = 'InheritanceType_object'
+            And par.sub_Parameter         = ''
+
+    Left Join
+        [config].Parameter          As par_sub_def
+            On
+            par_sub_def.Parameter_name    = 'InheritanceDefinition_object'
+            And par_sub_def.sub_Parameter = pn.property_name
+
+    Left Join
+        [config].Parameter          As par_def
+            On
+            par_def.Parameter_name        = 'InheritanceDefinition_object'
+            And par_def.sub_Parameter     = ''
+
+    Left Join
+        [config].Parameter          As par_sub_sep
+            On
+            par_sub_sep.Parameter_name    = 'Inheritance_StringAggSeparatorSql_object'
+            And par_sub_sep.sub_Parameter = pn.property_name
+
+    Left Join
+        [config].Parameter          As par_sep
+            On
+            par_sep.Parameter_name        = 'Inheritance_StringAggSeparatorSql_object'
+            And par_sep.sub_Parameter     = '';
 
 ----
 // end::sql_modules_definition[]

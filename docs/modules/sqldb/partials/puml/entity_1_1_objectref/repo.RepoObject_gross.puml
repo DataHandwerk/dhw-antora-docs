@@ -23,6 +23,25 @@ skinparam class {
 }
 
 
+entity repo.RepoObject_ReferenceTree_referenced << V >> {
+  **RepoObject_guid** : uniqueidentifier
+  **Referenced_Depth** : int
+  **Referencing_Depth** : int
+  **Referenced_guid** : uniqueidentifier
+  **Referencing_guid** : uniqueidentifier
+}
+
+entity repo.RepoObject_ReferenceTree_referencing << V >> {
+  **RepoObject_guid** : uniqueidentifier
+  **Referenced_Depth** : int
+  **Referencing_Depth** : int
+  **Referenced_guid** : uniqueidentifier
+  **Referencing_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectProperty_Collect_source_ROGross << V >> {
+}
+
 entity config.type << V >> {
   **type** : nvarchar(128)
 }
@@ -47,19 +66,15 @@ entity graph.RepoObject_ReferencingReferenced << V >> {
 entity repo.fs_get_RepoObjectProperty_nvarchar << FN >> {
 }
 
-entity repo.GeneratorUspStep_Persistence << V >> {
-  * **usp_id** : int
-}
-
-entity repo.GeneratorUspStep_Persistence_IsInactive_setpoint << V >> {
-  * **usp_id** : int
-}
-
 entity repo.Index_gross << V >> {
   * **index_guid** : uniqueidentifier
 }
 
 entity repo.Index_Settings << U >> {
+  * **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_virtual_ForUpdate << V >> {
   * **index_guid** : uniqueidentifier
 }
 
@@ -108,12 +123,6 @@ entity repo.RepoObject_SqlCreateTable << V >> {
   * **RepoObject_guid** : uniqueidentifier
 }
 
-entity repo.RepoObject_SqlModules_Repo_Sys << V >> {
-}
-
-entity repo.usp_GeneratorUsp_insert_update_persistence << P >> {
-}
-
 entity repo.usp_RepoObject_update_SysObjectQueryPlan << P >> {
 }
 
@@ -123,40 +132,60 @@ entity repo.usp_RepoObjectSource_FirstResultSet << P >> {
 entity repo.usp_RepoObjectSource_QueryPlan << P >> {
 }
 
+entity sqlparse.RepoObject_SqlModules_Repo_Sys << V >> {
+}
+
+entity uspgenerator.GeneratorUspStep_Persistence << V >> {
+  * **usp_id** : int
+}
+
+entity uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint << V >> {
+  * **usp_id** : int
+}
+
+entity uspgenerator.usp_GeneratorUsp_insert_update_persistence << P >> {
+}
+
 config.type <.. repo.RepoObject_gross
+graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_gross
 graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_ReferencedList
 graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_ReferencingList
-graph.RepoObject_ReferencingReferenced <.. repo.RepoObject_gross
 repo.fs_get_RepoObjectProperty_nvarchar <.. repo.RepoObject_gross
-repo.GeneratorUspStep_Persistence <.. repo.usp_GeneratorUsp_insert_update_persistence
-repo.GeneratorUspStep_Persistence_IsInactive_setpoint <.. repo.usp_GeneratorUsp_insert_update_persistence
 repo.Index_gross <.. repo.RepoObject_SqlCreateTable
 repo.Index_Settings <.. repo.RepoObject_gross
+repo.Index_Settings <.. repo.Index_virtual_ForUpdate
 repo.Index_Settings <.. repo.Index_gross
-repo.RepoObject <.. repo.RepoObject_SqlModules_Repo_Sys
-repo.RepoObject <.. repo.usp_RepoObjectSource_FirstResultSet
-repo.RepoObject <.. repo.usp_RepoObject_update_SysObjectQueryPlan
-repo.RepoObject <.. repo.RepoObject_gross
-repo.RepoObject <.. repo.RepoObject_SqlCreateTable
 repo.RepoObject <.. repo.usp_RepoObjectSource_QueryPlan
-repo.RepoObject_ColumnList <.. repo.RepoObject_gross
+repo.RepoObject <.. repo.usp_RepoObject_update_SysObjectQueryPlan
+repo.RepoObject <.. repo.Index_virtual_ForUpdate
+repo.RepoObject <.. sqlparse.RepoObject_SqlModules_Repo_Sys
+repo.RepoObject <.. repo.RepoObject_gross
+repo.RepoObject <.. repo.usp_RepoObjectSource_FirstResultSet
+repo.RepoObject <.. repo.RepoObject_SqlCreateTable
 repo.RepoObject_ColumnList <.. repo.RepoObject_SqlCreateTable
+repo.RepoObject_ColumnList <.. repo.RepoObject_gross
+repo.RepoObject_gross <.. repo.RepoObject_SqlCreateTable
+repo.RepoObject_gross <.. repo.usp_RepoObjectSource_FirstResultSet
+repo.RepoObject_gross <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+repo.RepoObject_gross <.. repo.Index_virtual_ForUpdate
 repo.RepoObject_gross <.. docs.RepoObject_Plantuml
+repo.RepoObject_gross <.. 
+repo.RepoObject_gross <.. 
+repo.RepoObject_gross <.. 
+repo.RepoObject_gross <.. repo.usp_RepoObject_update_SysObjectQueryPlan
+repo.RepoObject_gross <.. uspgenerator.GeneratorUspStep_Persistence
+repo.RepoObject_gross <.. uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint
+repo.RepoObject_gross <.. repo.usp_RepoObjectSource_QueryPlan
+repo.RepoObject_gross <.. repo.Index_gross
+repo.RepoObject_gross <.. repo.Match_RepoObject_referenced_UspPersistence
+repo.RepoObject_gross <.. docs.RepoObject_OutputFilter
 repo.RepoObject_gross <.. repo.RepoObject_ReferenceTree
 repo.RepoObject_gross <.. docs.RepoObject_Adoc
-repo.RepoObject_gross <.. docs.RepoObject_OutputFilter
-repo.RepoObject_gross <.. repo.usp_RepoObjectSource_FirstResultSet
-repo.RepoObject_gross <.. repo.usp_RepoObject_update_SysObjectQueryPlan
-repo.RepoObject_gross <.. repo.usp_GeneratorUsp_insert_update_persistence
-repo.RepoObject_gross <.. repo.Match_RepoObject_referenced_UspPersistence
-repo.RepoObject_gross <.. repo.RepoObject_SqlCreateTable
-repo.RepoObject_gross <.. repo.GeneratorUspStep_Persistence_IsInactive_setpoint
-repo.RepoObject_gross <.. repo.GeneratorUspStep_Persistence
-repo.RepoObject_gross <.. repo.Index_gross
-repo.RepoObject_gross <.. repo.usp_RepoObjectSource_QueryPlan
 repo.RepoObject_persistence <.. repo.RepoObject_gross
-repo.RepoObject_QueryPlan <.. repo.usp_RepoObject_update_SysObjectQueryPlan
 repo.RepoObject_QueryPlan <.. repo.RepoObject_gross
+repo.RepoObject_QueryPlan <.. repo.usp_RepoObject_update_SysObjectQueryPlan
 repo.RepoObject_ReferencedList <.. repo.RepoObject_gross
 repo.RepoObject_ReferencingList <.. repo.RepoObject_gross
-repo.RepoObject_SqlModules_Repo_Sys <.. repo.RepoObject_gross
+sqlparse.RepoObject_SqlModules_Repo_Sys <.. repo.RepoObject_gross
+uspgenerator.GeneratorUspStep_Persistence <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence

@@ -50,7 +50,7 @@ entity repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate << P >> {
 }
 
 config.type_level1type_level2type <.. repo.ExtendedProperty_Repo2Sys_level1
-repo.ExtendedProperty_Repo2Sys_level1 <.. repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate
 repo.ExtendedProperty_Repo2Sys_level1 <.. repo.usp_sync_ExtendedProperties_Repo2Sys_Delete
+repo.ExtendedProperty_Repo2Sys_level1 <.. repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate
 repo.RepoObject <.. repo.ExtendedProperty_Repo2Sys_level1
 repo.RepoObjectProperty <.. repo.ExtendedProperty_Repo2Sys_level1

@@ -1,0 +1,122 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity sqlparse.RepoObject_SqlModules_20_statement_children << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+  --
+  child0_children : nvarchar(max)
+  child0_class : nvarchar(500)
+  child0_is_group : bit
+  child0_is_keyword : bit
+  child0_is_whitespace : bit
+  child0_normalized : nvarchar(max)
+  child1_children : nvarchar(max)
+  child1_class : nvarchar(500)
+  child1_is_group : bit
+  child1_is_keyword : bit
+  child1_is_whitespace : bit
+  child1_normalized : nvarchar(max)
+  child2_children : nvarchar(max)
+  child2_class : nvarchar(500)
+  child2_is_group : bit
+  child2_is_keyword : bit
+  child2_is_whitespace : bit
+  child2_normalized : nvarchar(max)
+  child3_children : nvarchar(max)
+  child3_class : nvarchar(500)
+  child3_is_group : bit
+  child3_is_keyword : bit
+  child3_is_whitespace : bit
+  child3_normalized : nvarchar(max)
+  child4_children : nvarchar(max)
+  child4_class : nvarchar(500)
+  child4_is_group : bit
+  child4_is_keyword : bit
+  child4_is_whitespace : bit
+  child4_normalized : nvarchar(max)
+  children : nvarchar(max)
+  class : nvarchar(500)
+  is_group : bit
+  is_keyword : bit
+  is_whitespace : bit
+  normalized : nvarchar(max)
+  RowNumber_per_Object : bigint
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_21_statement_children_helper << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+  --
+  children : nvarchar(max)
+  class : nvarchar(500)
+  * is_1_create : int
+  * is_2_view : int
+  * is_3_Identifier : int
+  * is_4_as : int
+  * is_5_select : int
+  * is_6_Identifier : int
+  * is_6_IdentifierList : int
+  * is_7_from : int
+  * is_7_IdentifierList : int
+  * is_8_IdentifierList : int
+  is_group : bit
+  is_keyword : bit
+  is_whitespace : bit
+  normalized : nvarchar(max)
+  RowNumber_per_Object : bigint
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_31_object << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  is_1_create : int
+  is_2_view : int
+  is_3_Identifier : int
+  is_4_as : int
+  is_5_select : int
+  is_6_Identifier : int
+  is_6_IdentifierList : int
+  is_7_from : int
+  is_7_IdentifierList : int
+  is_8_IdentifierList : int
+  SysObject_fullname : nvarchar(261)
+}
+
+sqlparse.RepoObject_SqlModules_20_statement_children <.. sqlparse.RepoObject_SqlModules_21_statement_children_helper
+sqlparse.RepoObject_SqlModules_21_statement_children_helper <.. sqlparse.RepoObject_SqlModules_31_object
+sqlparse.RepoObject_SqlModules_20_statement_children::children <-- sqlparse.RepoObject_SqlModules_21_statement_children_helper::children
+sqlparse.RepoObject_SqlModules_20_statement_children::class <-- sqlparse.RepoObject_SqlModules_21_statement_children_helper::class
+sqlparse.RepoObject_SqlModules_20_statement_children::is_group <-- sqlparse.RepoObject_SqlModules_21_statement_children_helper::is_group
+sqlparse.RepoObject_SqlModules_20_statement_children::is_keyword <-- sqlparse.RepoObject_SqlModules_21_statement_children_helper::is_keyword
+sqlparse.RepoObject_SqlModules_20_statement_children::is_whitespace <-- sqlparse.RepoObject_SqlModules_21_statement_children_helper::is_whitespace
+sqlparse.RepoObject_SqlModules_20_statement_children::json_key <-- sqlparse.RepoObject_SqlModules_21_statement_children_helper::json_key
+sqlparse.RepoObject_SqlModules_20_statement_children::normalized <-- sqlparse.RepoObject_SqlModules_21_statement_children_helper::normalized
+sqlparse.RepoObject_SqlModules_20_statement_children::RepoObject_guid <-- sqlparse.RepoObject_SqlModules_21_statement_children_helper::RepoObject_guid
+sqlparse.RepoObject_SqlModules_20_statement_children::RowNumber_per_Object <-- sqlparse.RepoObject_SqlModules_21_statement_children_helper::RowNumber_per_Object
+sqlparse.RepoObject_SqlModules_20_statement_children::SysObject_fullname <-- sqlparse.RepoObject_SqlModules_21_statement_children_helper::SysObject_fullname
+sqlparse.RepoObject_SqlModules_21_statement_children_helper::RepoObject_guid <-- sqlparse.RepoObject_SqlModules_31_object::RepoObject_guid

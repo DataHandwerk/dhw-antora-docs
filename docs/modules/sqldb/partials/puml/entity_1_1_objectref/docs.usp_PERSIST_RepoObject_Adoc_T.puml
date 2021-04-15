@@ -37,12 +37,12 @@ entity docs.usp_AntoraExport_ObjectPartialProperties << P >> {
 entity docs.usp_PERSIST_RepoObject_Adoc_T << P >> {
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
+entity logs.usp_ExecutionLog_insert << P >> {
 }
 
-docs.RepoObject_Adoc <.. docs.RepoObject_Adoc_T
 docs.RepoObject_Adoc <.. docs.usp_PERSIST_RepoObject_Adoc_T
+docs.RepoObject_Adoc <.. docs.RepoObject_Adoc_T
 docs.RepoObject_Adoc_T <.. docs.usp_PERSIST_RepoObject_Adoc_T
 docs.usp_PERSIST_RepoObject_Adoc_T <.. docs.usp_AntoraExport_ObjectPartialProperties
-repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPartialProperties
-repo.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_Adoc_T
+logs.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPartialProperties
+logs.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_Adoc_T

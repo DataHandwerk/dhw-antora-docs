@@ -1,0 +1,50 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.spt_values << U >> {
+}
+
+entity config.type << V >> {
+  **type** : nvarchar(128)
+}
+
+entity config.type_level1type_level2type << V >> {
+  **type** : nvarchar(128)
+}
+
+entity sys_self.ExtendedProperties << V >> {
+}
+
+entity sys_self.ExtendedProperties_ParameterForAddUpdateDrop << V >> {
+}
+
+entity sys_self.usp_dropextendedproperty_level_2 << P >> {
+}
+
+config.spt_values <.. config.type
+config.type <.. config.type_level1type_level2type
+config.type_level1type_level2type <.. sys_self.ExtendedProperties_ParameterForAddUpdateDrop
+sys_self.ExtendedProperties <.. sys_self.ExtendedProperties_ParameterForAddUpdateDrop
+sys_self.ExtendedProperties_ParameterForAddUpdateDrop <.. sys_self.usp_dropextendedproperty_level_2

@@ -1,0 +1,119 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  has_execution_plan_issue : bit
+  has_get_referenced_issue : bit
+  Inheritance_StringAggSeparatorSql : nvarchar(4000)
+  InheritanceDefinition : nvarchar(4000)
+  InheritanceType : tinyint
+  is_repo_managed : bit
+  is_required_ObjectMerge : bit
+  is_SysObject_missing : bit
+  * modify_dt : datetime
+  pk_index_guid : uniqueidentifier
+  pk_IndexPatternColumnName_new : nvarchar(4000)
+  Repo_history_table_guid : uniqueidentifier
+  Repo_temporal_type : tinyint
+  * RepoObject_name : nvarchar(128)
+  RepoObject_Referencing_Count : int
+  * RepoObject_schema_name : nvarchar(128)
+  * RepoObject_type : char(2)
+  SysObject_id : int
+  SysObject_modify_date : datetime
+  * SysObject_name : nvarchar(128)
+  * SysObject_parent_object_id : int
+  * SysObject_schema_name : nvarchar(128)
+  SysObject_type : char(2)
+  {abstract} has_different_sys_names : bit
+  * {static} is_RepoObject_name_uniqueidentifier : int
+  * {static} is_SysObject_name_uniqueidentifier : int
+  {abstract} node_id : bigint
+  * {static} RepoObject_fullname : nvarchar(261)
+  * {static} RepoObject_fullname2 : nvarchar(257)
+  * {static} SysObject_fullname : nvarchar(261)
+  * {static} SysObject_fullname2 : nvarchar(257)
+  * {abstract} SysObject_query_sql : nvarchar(406)
+  * {static} usp_persistence_name : nvarchar(140)
+}
+
+entity repo.RepoObject_persistence << U >> {
+  * **target_RepoObject_guid** : uniqueidentifier
+  --
+  * has_history : bit
+  * has_history_columns : bit
+  history_schema_name : nvarchar(128)
+  history_table_name : nvarchar(128)
+  * is_persistence_check_duplicate_per_pk : bit
+  * is_persistence_check_for_empty_source : bit
+  * is_persistence_delete_changed : bit
+  * is_persistence_delete_missing : bit
+  * is_persistence_insert : bit
+  * is_persistence_truncate : bit
+  * is_persistence_update_changed : bit
+  source_RepoObject_guid : uniqueidentifier
+  {abstract} is_persistence : bit
+  {abstract} temporal_type : tinyint
+}
+
+entity repo.RepoObject_persistence_ForUpdate << V >> {
+  * **target_RepoObject_guid** : uniqueidentifier
+  --
+  * has_history : bit
+  * has_history_columns : bit
+  history_schema_name : nvarchar(128)
+  history_table_name : nvarchar(128)
+  is_persistence : bit
+  * is_persistence_check_duplicate_per_pk : bit
+  * is_persistence_check_for_empty_source : bit
+  * is_persistence_delete_changed : bit
+  * is_persistence_delete_missing : bit
+  * is_persistence_insert : bit
+  * is_persistence_truncate : bit
+  * is_persistence_update_changed : bit
+  source_RepoObject_guid : uniqueidentifier
+  * target_RepoObject_fullname : nvarchar(261)
+  temporal_type : tinyint
+}
+
+repo.RepoObject <.. repo.RepoObject_persistence_ForUpdate
+repo.RepoObject_persistence <.. repo.RepoObject_persistence_ForUpdate
+repo.RepoObject_persistence::has_history <-- repo.RepoObject_persistence_ForUpdate::has_history
+repo.RepoObject_persistence::has_history_columns <-- repo.RepoObject_persistence_ForUpdate::has_history_columns
+repo.RepoObject_persistence::history_schema_name <-- repo.RepoObject_persistence_ForUpdate::history_schema_name
+repo.RepoObject_persistence::history_table_name <-- repo.RepoObject_persistence_ForUpdate::history_table_name
+repo.RepoObject_persistence::is_persistence <-- repo.RepoObject_persistence_ForUpdate::is_persistence
+repo.RepoObject_persistence::is_persistence_check_duplicate_per_pk <-- repo.RepoObject_persistence_ForUpdate::is_persistence_check_duplicate_per_pk
+repo.RepoObject_persistence::is_persistence_check_for_empty_source <-- repo.RepoObject_persistence_ForUpdate::is_persistence_check_for_empty_source
+repo.RepoObject_persistence::is_persistence_delete_changed <-- repo.RepoObject_persistence_ForUpdate::is_persistence_delete_changed
+repo.RepoObject_persistence::is_persistence_delete_missing <-- repo.RepoObject_persistence_ForUpdate::is_persistence_delete_missing
+repo.RepoObject_persistence::is_persistence_insert <-- repo.RepoObject_persistence_ForUpdate::is_persistence_insert
+repo.RepoObject_persistence::is_persistence_truncate <-- repo.RepoObject_persistence_ForUpdate::is_persistence_truncate
+repo.RepoObject_persistence::is_persistence_update_changed <-- repo.RepoObject_persistence_ForUpdate::is_persistence_update_changed
+repo.RepoObject_persistence::source_RepoObject_guid <-- repo.RepoObject_persistence_ForUpdate::source_RepoObject_guid
+repo.RepoObject_persistence::target_RepoObject_guid <-- repo.RepoObject_persistence_ForUpdate::target_RepoObject_guid
+repo.RepoObject_persistence::temporal_type <-- repo.RepoObject_persistence_ForUpdate::temporal_type

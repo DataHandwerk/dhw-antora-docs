@@ -1,0 +1,60 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity uspgenerator.GeneratorUsp << U >> {
+  * **id** : int
+}
+
+entity uspgenerator.GeneratorUsp_filter_persistence << V >> {
+}
+
+entity uspgenerator.GeneratorUsp_SqlUsp << V >> {
+  * **usp_id** : int
+}
+
+entity uspgenerator.GeneratorUspStep_Persistence << V >> {
+  * **usp_id** : int
+}
+
+entity uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint << V >> {
+  * **usp_id** : int
+}
+
+entity uspgenerator.GeneratorUspStep_Sql << V >> {
+  * **usp_id** : int
+  **Number** : int
+}
+
+entity uspgenerator.usp_GeneratorUsp_insert_update_persistence << P >> {
+}
+
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUsp_filter_persistence
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUspStep_Sql
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUsp_SqlUsp
+uspgenerator.GeneratorUsp <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUspStep_Persistence
+uspgenerator.GeneratorUspStep_Persistence <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence

@@ -84,6 +84,7 @@ entity repo.GeneratorUspStep_Persistence_IsInactive_setpoint << V >> {
   --
   * is_inactive : int
   * Number : int
+  source_pk_index_guid : uniqueidentifier
 }
 
 entity repo.GeneratorUspStep_Sql << V >> {
@@ -105,24 +106,24 @@ entity repo.usp_GeneratorUsp_insert_update_persistence << P >> {
 }
 
 repo.GeneratorUsp <.. repo.GeneratorUsp_filter_persistence
-repo.GeneratorUsp <.. repo.GeneratorUspStep_Sql
 repo.GeneratorUsp <.. repo.GeneratorUsp_SqlUsp
-repo.GeneratorUsp <.. repo.GeneratorUspStep_Persistence_IsInactive_setpoint
 repo.GeneratorUsp <.. repo.GeneratorUspStep_Persistence
+repo.GeneratorUsp <.. repo.GeneratorUspStep_Persistence_IsInactive_setpoint
+repo.GeneratorUsp <.. repo.GeneratorUspStep_Sql
 repo.GeneratorUsp <.. repo.usp_GeneratorUsp_insert_update_persistence
 repo.GeneratorUspStep_Persistence <.. repo.usp_GeneratorUsp_insert_update_persistence
 repo.GeneratorUspStep_Persistence_IsInactive_setpoint <.. repo.usp_GeneratorUsp_insert_update_persistence
 repo.GeneratorUsp::has_logging <-- repo.GeneratorUsp_filter_persistence::has_logging
-repo.GeneratorUsp::has_logging <-- repo.GeneratorUsp_SqlUsp::has_logging
 repo.GeneratorUsp::has_logging <-- repo.GeneratorUspStep_Sql::has_logging
+repo.GeneratorUsp::has_logging <-- repo.GeneratorUsp_SqlUsp::has_logging
 repo.GeneratorUsp::id <-- repo.GeneratorUsp_filter_persistence::id
 repo.GeneratorUsp::usp_Description <-- repo.GeneratorUsp_filter_persistence::usp_Description
 repo.GeneratorUsp::usp_Description <-- repo.GeneratorUsp_SqlUsp::usp_Description
 repo.GeneratorUsp::usp_Description <-- repo.GeneratorUsp_SqlUsp::MS_Description
-repo.GeneratorUsp::usp_fullname <-- repo.GeneratorUspStep_Sql::usp_fullname
 repo.GeneratorUsp::usp_fullname <-- repo.GeneratorUsp_SqlUsp::usp_fullname
 repo.GeneratorUsp::usp_fullname <-- repo.GeneratorUsp_filter_persistence::usp_fullname
+repo.GeneratorUsp::usp_fullname <-- repo.GeneratorUspStep_Sql::usp_fullname
 repo.GeneratorUsp::usp_name <-- repo.GeneratorUsp_filter_persistence::usp_name
 repo.GeneratorUsp::usp_name <-- repo.GeneratorUsp_SqlUsp::usp_name
-repo.GeneratorUsp::usp_schema <-- repo.GeneratorUsp_SqlUsp::usp_schema
 repo.GeneratorUsp::usp_schema <-- repo.GeneratorUsp_filter_persistence::usp_schema
+repo.GeneratorUsp::usp_schema <-- repo.GeneratorUsp_SqlUsp::usp_schema

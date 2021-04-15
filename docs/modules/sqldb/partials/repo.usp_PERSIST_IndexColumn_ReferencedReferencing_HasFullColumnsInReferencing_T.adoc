@@ -3,11 +3,11 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AdocUspSteps:
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
-:ExistsProperty--ReferencedObjectList:
-:ExistsProperty--UspExamples:
+:ExistsProperty--adocuspsteps:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--exampleusage:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--AntoraParameterList:
 // end::existing_properties[]
@@ -39,7 +39,7 @@ stored procedure
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-11 13:27:46
+2021-04-13 20:27:30
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -75,74 +75,114 @@ stored procedure
 * @parent_execution_log_id (bigint)
 // end::AntoraParameterList[]
 
-== example1
+== AdocUspSteps
 
-// tag::example1[]
+// tag::adocuspsteps[]
+.Steps in [repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]
+[cols="d,15a,d"]
+|===
+|Number|Name (Action, Source, Target)|Parent
 
-// end::example1[]
+|400
+|
+*truncate persistence target*
 
+* D
+* [repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]
 
-== example2
+|
 
-// tag::example2[]
+|800
+|
+*insert all*
 
-// end::example2[]
+* I
+* [repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing]
+* [repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]
 
+|
+|===
 
-== example3
-
-// tag::example3[]
-
-// end::example3[]
-
-
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
+// end::adocuspsteps[]
 
 
-== microsoft_database_tools_support
+== AntoraReferencedList
 
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
+// tag::antorareferencedlist[]
+* xref:logs.usp_ExecutionLog_insert.adoc[]
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing.adoc[]
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.adoc[]
+// end::antorareferencedlist[]
 
 
-== persistence_source_RepoObject_fullname
+== AntoraReferencingList
 
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
+// tag::antorareferencinglist[]
+* xref:repo.usp_index_inheritance.adoc[]
+// end::antorareferencinglist[]
 
 
-== persistence_source_RepoObject_guid
+== exampleUsage
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::exampleusage[]
+EXEC [repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]
+// end::exampleusage[]
 
-// end::persistence_source_RepoObject_guid[]
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -187,60 +227,53 @@ stored procedure
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
+// end::microsoft_database_tools_support[]
 
 
-== is_persistence
+== MS_Description
 
-// tag::is_persistence[]
+// tag::ms_description[]
 
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
+// end::ms_description[]
 
 
-== UspParameters
+== persistence_source_RepoObject_fullname
 
-// tag::UspParameters[]
+// tag::persistence_source_repoobject_fullname[]
 
-// end::UspParameters[]
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
 
 
 == persistence_source_RepoObject_xref
 
-// tag::persistence_source_RepoObject_xref[]
+// tag::persistence_source_repoobject_xref[]
 
-// end::persistence_source_RepoObject_xref[]
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -252,86 +285,46 @@ stored procedure
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
 
 
 == pk_IndexSemanticGroup
 
-// tag::pk_IndexSemanticGroup[]
+// tag::pk_indexsemanticgroup[]
 
-// end::pk_IndexSemanticGroup[]
-
-
-== AdocUspSteps
-
-// tag::AdocUspSteps[]
-.Steps in [repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]
-[cols="d,15a,d"]
-|===
-|Number|Name (Action, Source, Target)|Parent
-
-|400
-|
-*truncate persistence target*
-
-* D
-* [repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]
-
-|
-
-|800
-|
-*insert all*
-
-* I
-* [repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing]
-* [repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]
-
-|
-|===
-
-// end::AdocUspSteps[]
-
-
-== AntoraReferencedList
-
-// tag::AntoraReferencedList[]
-* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing.adoc[]
-* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T.adoc[]
-* xref:repo.usp_ExecutionLog_insert.adoc[]
-// end::AntoraReferencedList[]
-
-
-== AntoraReferencingList
-
-// tag::AntoraReferencingList[]
-* xref:repo.usp_index_inheritance.adoc[]
-// end::AntoraReferencingList[]
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
+* [logs].[usp_ExecutionLog_insert]
 * [repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing]
 * [repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]
-* [repo].[usp_ExecutionLog_insert]
-// end::ReferencedObjectList[]
+// end::referencedobjectlist[]
 
 
-== UspExamples
+== usp_persistence_RepoObject_guid
 
-// tag::UspExamples[]
-EXEC [repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]
-// end::UspExamples[]
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -347,6 +340,7 @@ CREATE   PROCEDURE [repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFull
 , @sub_execution_id INT = NULL --in case you log some sub_executions, for example in SSIS loops or sub packages
 , @parent_execution_log_id BIGINT = NULL --in case a sup procedure is called, the @current_execution_log_id of the parent procedure should be propagated here. It allowes call stack analyzing
 AS
+BEGIN
 DECLARE
  --
    @current_execution_log_id BIGINT --this variable should be filled only once per procedure call, it contains the first logging call for the step 'start'.
@@ -364,8 +358,9 @@ DECLARE
 --[event_info] get's only the information about the "outer" calling process
 --wenn the procedure calls sub procedures, the [event_info] will not change
 SET @event_info = (
-  SELECT [event_info]
+  SELECT TOP 1 [event_info]
   FROM sys.dm_exec_input_buffer(@@spid, CURRENT_REQUEST_ID())
+  ORDER BY [event_info]
   )
 
 IF @execution_instance_guid IS NULL
@@ -377,7 +372,7 @@ SET @step_name = 'start'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert
+EXEC logs.usp_ExecutionLog_insert
  --these parameters should be the same for all logging execution
    @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
@@ -417,7 +412,7 @@ SET @step_name = 'truncate persistence target'
 SET @source_object = NULL
 SET @target_object = '[repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -468,7 +463,7 @@ SET @step_name = 'insert all'
 SET @source_object = '[repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing]'
 SET @target_object = '[repo].[IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -497,7 +492,7 @@ SET @step_name = 'end'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert
+EXEC logs.usp_ExecutionLog_insert
    @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -511,6 +506,8 @@ EXEC repo.usp_ExecutionLog_insert
  , @step_name = @step_name
  , @source_object = @source_object
  , @target_object = @target_object
+
+END
 
 
 ----

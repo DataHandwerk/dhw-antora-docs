@@ -23,6 +23,18 @@ skinparam class {
 }
 
 
+entity docs.RepoObject_Plantuml << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ColRefList : nvarchar(max)
+  ObjectRefList : nvarchar(max)
+  * PlantumlEntity_1_1_ColRef : nvarchar(max)
+  * PlantumlEntity_1_1_FkRef : nvarchar(max)
+  * PlantumlEntity_1_1_ObjectRef : nvarchar(max)
+  PumlEntityList : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
 entity repo.ftv_get_parameter_value << IF >> {
   --
   Parameter_value__result_nvarchar : nvarchar(4000)
@@ -39,6 +51,18 @@ entity repo.Parameter << U >> {
   {abstract} Parameter_value__result_nvarchar : nvarchar(4000)
 }
 
+entity repo.RepoObject_SqlCreateTable << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ConList : nvarchar(max)
+  * DbmlTable : nvarchar(max)
+  persistence_source_RepoObject_fullname : nvarchar(261)
+  persistence_source_RepoObject_guid : uniqueidentifier
+  persistence_source_SysObject_fullname : nvarchar(261)
+  * RepoObject_fullname : nvarchar(261)
+  * SqlCreateTable : nvarchar(max)
+}
+
 entity repo.RepoObjectColumn_HistValidColums_setpoint << V >> {
   --
   * Repo_generated_always_type : int
@@ -49,6 +73,8 @@ entity repo.RepoObjectColumn_HistValidColums_setpoint << V >> {
   RepoObjectColumn_name : sysname
 }
 
+repo.ftv_get_parameter_value <.. docs.RepoObject_Plantuml
+repo.ftv_get_parameter_value <.. repo.RepoObject_SqlCreateTable
 repo.ftv_get_parameter_value <.. repo.RepoObjectColumn_HistValidColums_setpoint
 repo.Parameter <.. repo.ftv_get_parameter_value
 

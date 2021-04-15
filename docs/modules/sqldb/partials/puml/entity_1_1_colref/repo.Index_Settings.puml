@@ -73,6 +73,29 @@ entity repo.Index_SqlConstraint_PkUq << V >> {
   * SqlConstraint : nvarchar(max)
 }
 
+entity repo.Index_virtual_ForUpdate << V >> {
+  * **index_guid** : uniqueidentifier
+  --
+  * has_managedName : bit
+  index_name : nvarchar(128)
+  * index_type : tinyint
+  IndexPatternColumnDatatype : nvarchar(4000)
+  IndexPatternColumnName : nvarchar(4000)
+  IndexSemanticGroup : nvarchar(512)
+  * is_index_disabled : bit
+  * is_index_primary_key : bit
+  * is_index_unique : bit
+  is_persistence : bit
+  is_repo_managed : bit
+  * parent_RepoObject_guid : uniqueidentifier
+  referenced_index_guid : uniqueidentifier
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_fullname2 : nvarchar(257)
+  RowNumberInReferencing : int
+  * SysObject_fullname : nvarchar(261)
+  * SysObject_fullname2 : nvarchar(257)
+}
+
 entity repo.Index_virtual_SysObject << V >> {
   * **index_guid** : uniqueidentifier
   --
@@ -121,6 +144,7 @@ entity repo.RepoObject_gross << V >> {
   is_persistence_update_changed : bit
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   * modify_dt : datetime
@@ -180,23 +204,30 @@ entity repo.usp_Index_Settings << P >> {
 }
 
 repo.Index_gross <.. repo.usp_Index_finish
-repo.Index_Settings <.. repo.Index_virtual_SysObject
+repo.Index_Settings <.. repo.usp_Index_Settings
 repo.Index_Settings <.. repo.Index_SqlConstraint_PkUq
 repo.Index_Settings <.. repo.RepoObject_gross
-repo.Index_Settings <.. repo.Index_gross
-repo.Index_Settings <.. repo.usp_Index_Settings
 repo.Index_Settings <.. repo.usp_Index_finish
+repo.Index_Settings <.. repo.Index_virtual_SysObject
+repo.Index_Settings <.. repo.Index_gross
+repo.Index_Settings <.. repo.Index_virtual_ForUpdate
+repo.RepoObject_gross <.. repo.Index_virtual_ForUpdate
 repo.RepoObject_gross <.. repo.Index_gross
 repo.usp_Index_Settings <.. repo.usp_Index_finish
 repo.Index_Settings::index_guid <-- repo.Index_gross::index_guid
 repo.Index_Settings::IndexPatternColumnDatatype <-- repo.Index_gross::IndexPatternColumnDatatype
 repo.Index_Settings::IndexPatternColumnDatatype <-- repo.Index_virtual_SysObject::IndexPatternColumnDatatype
+repo.Index_Settings::IndexPatternColumnDatatype <-- repo.Index_virtual_ForUpdate::IndexPatternColumnDatatype
+repo.Index_Settings::IndexPatternColumnName <-- repo.Index_virtual_ForUpdate::IndexPatternColumnName
 repo.Index_Settings::IndexPatternColumnName <-- repo.Index_virtual_SysObject::IndexPatternColumnName
 repo.Index_Settings::IndexPatternColumnName <-- repo.Index_gross::IndexPatternColumnName
 repo.Index_Settings::IndexSemanticGroup <-- repo.Index_gross::IndexSemanticGroup
 repo.Index_Settings::IndexSemanticGroup <-- repo.Index_virtual_SysObject::IndexSemanticGroup
+repo.Index_Settings::IndexSemanticGroup <-- repo.Index_virtual_ForUpdate::IndexSemanticGroup
+repo.RepoObject_gross::is_persistence <-- repo.Index_virtual_ForUpdate::is_persistence
 repo.RepoObject_gross::is_persistence <-- repo.Index_gross::is_persistence
 repo.RepoObject_gross::is_repo_managed <-- repo.Index_gross::is_repo_managed
+repo.RepoObject_gross::is_repo_managed <-- repo.Index_virtual_ForUpdate::is_repo_managed
 repo.RepoObject_gross::RepoObject_fullname <-- repo.Index_gross::RepoObject_fullname
 repo.RepoObject_gross::RepoObject_fullname2 <-- repo.Index_gross::RepoObject_fullname2
 repo.RepoObject_gross::SysObject_fullname <-- repo.Index_gross::SysObject_fullname

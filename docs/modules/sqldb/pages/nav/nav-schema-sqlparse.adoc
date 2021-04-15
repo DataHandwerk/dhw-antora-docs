@@ -1,0 +1,4 @@
+= sqlparse
+
+include::partial$navlist/navlist-schema-sqlparse.adoc[]
+

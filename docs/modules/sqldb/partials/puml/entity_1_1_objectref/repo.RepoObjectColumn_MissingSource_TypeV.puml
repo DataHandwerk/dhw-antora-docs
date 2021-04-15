@@ -32,6 +32,7 @@ entity repo.RepoObjectColumn << U >> {
 }
 
 entity repo.RepoObjectColumn_MissingSource_TypeV << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumn_reference_union << V >> {

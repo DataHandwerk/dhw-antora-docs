@@ -23,6 +23,13 @@ skinparam class {
 }
 
 
+entity repo.RepoObjectProperty_Collect_source_sql_modules_definition << V >> {
+  --
+  property_name : nvarchar(128)
+  property_value : nvarchar(4000)
+  * RepoObject_guid : uniqueidentifier
+}
+
 entity tool.ftv_extract_substrings << IF >> {
   --
   len1 : int
@@ -36,5 +43,5 @@ entity tool.ftv_extract_substrings << IF >> {
   substring_netPreEol : nvarchar(max)
 }
 
-
+tool.ftv_extract_substrings <.. repo.RepoObjectProperty_Collect_source_sql_modules_definition
 

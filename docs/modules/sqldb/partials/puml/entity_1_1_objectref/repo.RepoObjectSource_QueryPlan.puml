@@ -24,6 +24,10 @@ skinparam class {
 
 
 entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
 }
 
 entity repo.RepoObjectSource_QueryPlan << U >> {

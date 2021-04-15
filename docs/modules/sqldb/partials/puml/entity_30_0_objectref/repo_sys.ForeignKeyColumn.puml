@@ -1,0 +1,119 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.ftv_dwh_database << IF >> {
+}
+
+entity config.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+}
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo_sys.ExtendedProperties << V >> {
+}
+
+entity repo_sys.ForeignKey << V >> {
+}
+
+entity repo_sys.ForeignKeyColumn << V >> {
+}
+
+entity repo_sys.SysColumn << V >> {
+}
+
+entity repo_sys.SysObject << V >> {
+}
+
+entity sys_dwh.columns << SN >> {
+}
+
+entity sys_dwh.computed_columns << SN >> {
+}
+
+entity sys_dwh.default_constraints << SN >> {
+}
+
+entity sys_dwh.extended_properties << SN >> {
+}
+
+entity sys_dwh.foreign_key_columns << SN >> {
+}
+
+entity sys_dwh.foreign_keys << SN >> {
+}
+
+entity sys_dwh.identity_columns << SN >> {
+}
+
+entity sys_dwh.indexes << SN >> {
+}
+
+entity sys_dwh.objects << SN >> {
+}
+
+entity sys_dwh.parameters << SN >> {
+}
+
+entity sys_dwh.schemas << SN >> {
+}
+
+entity sys_dwh.sql_modules << SN >> {
+}
+
+entity sys_dwh.tables << SN >> {
+}
+
+entity sys_dwh.types << SN >> {
+}
+
+config.ftv_dwh_database <.. repo_sys.ExtendedProperties
+config.ftv_dwh_database <.. repo_sys.SysColumn
+config.Parameter <.. config.ftv_dwh_database
+repo.RepoObject <.. repo_sys.ForeignKey
+repo_sys.ExtendedProperties <.. repo_sys.SysColumn
+repo_sys.ExtendedProperties <.. repo_sys.SysObject
+repo_sys.ForeignKey <.. repo_sys.ForeignKeyColumn
+repo_sys.SysColumn <.. repo_sys.ForeignKeyColumn
+repo_sys.SysObject <.. repo_sys.SysColumn
+sys_dwh.columns <.. repo_sys.SysColumn
+sys_dwh.columns <.. repo_sys.ExtendedProperties
+sys_dwh.computed_columns <.. repo_sys.SysColumn
+sys_dwh.default_constraints <.. repo_sys.SysColumn
+sys_dwh.extended_properties <.. repo_sys.ExtendedProperties
+sys_dwh.foreign_key_columns <.. repo_sys.ForeignKeyColumn
+sys_dwh.foreign_keys <.. repo_sys.ForeignKey
+sys_dwh.identity_columns <.. repo_sys.SysColumn
+sys_dwh.indexes <.. repo_sys.ExtendedProperties
+sys_dwh.objects <.. repo_sys.ExtendedProperties
+sys_dwh.objects <.. repo_sys.SysObject
+sys_dwh.parameters <.. repo_sys.ExtendedProperties
+sys_dwh.schemas <.. repo_sys.SysObject
+sys_dwh.sql_modules <.. repo_sys.SysObject
+sys_dwh.tables <.. repo_sys.SysObject
+sys_dwh.types <.. repo_sys.SysColumn

@@ -29,6 +29,8 @@ entity repo.Match_RepoObject_referenced_UspPersistence << V >> {
 }
 
 entity repo.Reference_UspPersistence << V >> {
+  **referenced_usp_RepoObject_guid** : uniqueidentifier
+  **referencing_usp_RepoObject_guid** : uniqueidentifier
 }
 
 repo.Match_RepoObject_referenced_UspPersistence <.. repo.Reference_UspPersistence

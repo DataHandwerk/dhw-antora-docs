@@ -1,0 +1,53 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity sqlparse.RepoObject_SqlModules_26_IdentifierList_children_IdentifierSplit_QuoteName << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+  * **T2_json_key** : nvarchar(4000)
+}
+
+entity sqlparse.RepoObject_SqlModules_39_object << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName << V >> {
+}
+
+entity sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union << V >> {
+}
+
+entity sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T << U >> {
+}
+
+entity sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T << P >> {
+}
+
+sqlparse.RepoObject_SqlModules_26_IdentifierList_children_IdentifierSplit_QuoteName <.. sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union
+sqlparse.RepoObject_SqlModules_39_object <.. sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union
+sqlparse.RepoObject_SqlModules_52_Identitfier_QuoteName <.. sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union <.. sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union <.. sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T <.. sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T

@@ -3,13 +3,13 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
 :ExistsProperty--pk_index_guid:
-:ExistsProperty--pk_IndexPatternColumnDatatype:
-:ExistsProperty--pk_IndexPatternColumnName:
-:ExistsProperty--pk_IndexSemanticGroup:
-:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--pk_indexsemanticgroup:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
@@ -37,13 +37,13 @@ view
 == SysObject_id
 
 // tag::SysObject_id[]
-1554104577
+1474820316
 // end::SysObject_id[]
 
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-08 15:44:18
+2021-04-13 19:02:39
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -72,6 +72,7 @@ view
 * xref:docs.RepoObject_Adoc.adoc#column-RepoObject_guid[docs.RepoObject_Adoc.RepoObject_guid]
 * xref:docs.RepoObject_OutputFilter.adoc#column-RepoObject_guid[docs.RepoObject_OutputFilter.RepoObject_guid]
 * xref:docs.RepoObject_Plantuml.adoc#column-RepoObject_guid[docs.RepoObject_Plantuml.RepoObject_guid]
+* xref:
 --
 
 
@@ -165,9 +166,9 @@ view
 |===
 
 .Description
-....
+--
 (CONVERT([bit],case when [RepoObject_schema_name]<>[SysObject_schema_name] OR [RepoObject_name]<>[SysObject_name] OR [RepoObject_type]<>[SysObject_type] then (1) else (0) end))
-....
+--
 
 .Referenced Columns
 --
@@ -226,6 +227,11 @@ view
 |
 |===
 
+.Description
+--
+temporal table should be created, it will also automatically create the columns required for the history
+--
+
 .Referenced Columns
 --
 * xref:repo.RepoObject_persistence.adoc#column-has_history[repo.RepoObject_persistence.has_history]
@@ -244,6 +250,11 @@ view
 |
 |
 |===
+
+.Description
+--
+history columns are created. Can be used if only these columns are required, but not the related history table
+--
 
 .Referenced Columns
 --
@@ -264,6 +275,12 @@ view
 |
 |===
 
+.Description
+--
+the final history_schema_name will be defined in xref:sqldb:repo.RepoObject_SqlCreateTable.adoc[] +
+it looks like this column here is currently not used and should or could be deleted
+--
+
 .Referenced Columns
 --
 * xref:repo.RepoObject_persistence.adoc#column-history_schema_name[repo.RepoObject_persistence.history_schema_name]
@@ -282,6 +299,12 @@ view
 |
 |
 |===
+
+.Description
+--
+the final history_table_name will be defined in xref:sqldb:repo.RepoObject_SqlCreateTable.adoc[] +
+it looks like this column here is currently not used and should or could be deleted
+--
 
 .Referenced Columns
 --
@@ -366,6 +389,7 @@ view
 
 .Referencing Columns
 --
+* xref:docs.RepoObject_Adoc.adoc#column-is_DocsOutput[docs.RepoObject_Adoc.is_DocsOutput]
 * xref:docs.RepoObject_OutputFilter.adoc#column-is_DocsOutput[docs.RepoObject_OutputFilter.is_DocsOutput]
 --
 
@@ -405,6 +429,7 @@ view
 .Referencing Columns
 --
 * xref:repo.Index_gross.adoc#column-is_persistence[repo.Index_gross.is_persistence]
+* xref:repo.Index_virtual_ForUpdate.adoc#column-is_persistence[repo.Index_virtual_ForUpdate.is_persistence]
 --
 
 
@@ -420,6 +445,12 @@ view
 |
 |
 |===
+
+.Description
+--
+persistence source should be checked for duplicates per entry in the primary key. +
+This requires a (real or virtual) PK defined in the source
+--
 
 .Referenced Columns
 --
@@ -440,6 +471,11 @@ view
 |
 |===
 
+.Description
+--
+persistence source should be checked empty source, empty source should not be persisted
+--
+
 .Referenced Columns
 --
 * xref:repo.RepoObject_persistence.adoc#column-is_persistence_check_for_empty_source[repo.RepoObject_persistence.is_persistence_check_for_empty_source]
@@ -458,6 +494,13 @@ view
 |
 |
 |===
+
+.Description
+--
+changed columns should be deleted in persistence target +
+An alternative option is 'is_persistence_update_changed' +
+This requires a (real or virtual) PK defined in the source
+--
 
 .Referenced Columns
 --
@@ -478,6 +521,12 @@ view
 |
 |===
 
+.Description
+--
+missing columns should be deleted in persistence target +
+This requires a (real or virtual) PK defined in the source
+--
+
 .Referenced Columns
 --
 * xref:repo.RepoObject_persistence.adoc#column-is_persistence_delete_missing[repo.RepoObject_persistence.is_persistence_delete_missing]
@@ -496,6 +545,16 @@ view
 |
 |
 |===
+
+.Description
+--
+missing columns or all columns should be inserted into persistence target +
+The final result depends on other settings
+
+* 'is_persistence_truncate' = 1 and 'is_persistence_insert' = 1 will just truncate the persistence target and insert all entries from persistence source
+* if a (real or virtual) PK is defined in the source, the insert can be combined with delete and update
+
+--
 
 .Referenced Columns
 --
@@ -535,6 +594,13 @@ view
 |
 |===
 
+.Description
+--
+changed columns should be updated in persistence target +
+An alternative option is 'is_persistence_delete_changed' +
+This requires a (real or virtual) PK defined in the source
+--
+
 .Referenced Columns
 --
 * xref:repo.RepoObject_persistence.adoc#column-is_persistence_update_changed[repo.RepoObject_persistence.is_persistence_update_changed]
@@ -562,6 +628,7 @@ view
 .Referencing Columns
 --
 * xref:repo.Index_gross.adoc#column-is_repo_managed[repo.Index_gross.is_repo_managed]
+* xref:repo.Index_virtual_ForUpdate.adoc#column-is_repo_managed[repo.Index_virtual_ForUpdate.is_repo_managed]
 --
 
 
@@ -579,13 +646,32 @@ view
 |===
 
 .Description
-....
+--
 (case when TRY_CAST([RepoObject_name] AS [uniqueidentifier]) IS NULL then (0) else (1) end)
-....
+--
 
 .Referenced Columns
 --
 * xref:repo.RepoObject.adoc#column-is_RepoObject_name_uniqueidentifier[repo.RepoObject.is_RepoObject_name_uniqueidentifier]
+--
+
+
+[[column-is_required_ObjectMerge]]
+=== is_required_ObjectMerge
+
+[cols="d,m,m,m,m,d"]
+|===
+|
+|is_required_ObjectMerge
+|bit
+|NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-is_required_ObjectMerge[repo.RepoObject.is_required_ObjectMerge]
 --
 
 
@@ -622,9 +708,9 @@ view
 |===
 
 .Description
-....
+--
 (case when TRY_CAST([SysObject_name] AS [uniqueidentifier]) IS NULL then (0) else (1) end)
-....
+--
 
 .Referenced Columns
 --
@@ -665,9 +751,9 @@ view
 |===
 
 .Description
-....
+--
 (CONVERT([bigint],[SysObject_id])*(10000))
-....
+--
 
 .Referenced Columns
 --
@@ -957,9 +1043,9 @@ view
 |===
 
 .Description
-....
+--
 reference in [repo_sys].[type]
-....
+--
 
 .Referenced Columns
 --
@@ -981,9 +1067,9 @@ reference in [repo_sys].[type]
 |===
 
 .Description
-....
+--
 (concat('[',[RepoObject_schema_name],'].[',[RepoObject_name],']'))
-....
+--
 
 .Referenced Columns
 --
@@ -1009,6 +1095,11 @@ reference in [repo_sys].[type]
 |
 |
 |===
+
+.Description
+--
+(concat([RepoObject_schema_name],'.',[RepoObject_name]))
+--
 
 .Referenced Columns
 --
@@ -1099,9 +1190,9 @@ reference in [repo_sys].[type]
 |===
 
 .Description
-....
+--
 reference in [repo_sys].[type]
-....
+--
 
 .Referenced Columns
 --
@@ -1152,7 +1243,7 @@ reference in [repo_sys].[type]
 
 .Referenced Columns
 --
-* xref:repo.RepoObject_SqlModules_Repo_Sys.adoc#column-sql_modules_definition[repo.RepoObject_SqlModules_Repo_Sys.sql_modules_definition]
+* xref:sqlparse.RepoObject_SqlModules_Repo_Sys.adoc#column-sql_modules_definition[sqlparse.RepoObject_SqlModules_Repo_Sys.sql_modules_definition]
 --
 
 
@@ -1171,7 +1262,7 @@ reference in [repo_sys].[type]
 
 .Referenced Columns
 --
-* xref:repo.RepoObject_SqlModules_Repo_Sys.adoc#column-sql_modules_formatted[repo.RepoObject_SqlModules_Repo_Sys.sql_modules_formatted]
+* xref:sqlparse.RepoObject_SqlModules_Repo_Sys.adoc#column-sql_modules_formatted[sqlparse.RepoObject_SqlModules_Repo_Sys.sql_modules_formatted]
 --
 
 
@@ -1190,7 +1281,7 @@ reference in [repo_sys].[type]
 
 .Referenced Columns
 --
-* xref:repo.RepoObject_SqlModules_Repo_Sys.adoc#column-sql_modules_formatted2[repo.RepoObject_SqlModules_Repo_Sys.sql_modules_formatted2]
+* xref:sqlparse.RepoObject_SqlModules_Repo_Sys.adoc#column-sql_modules_formatted2[sqlparse.RepoObject_SqlModules_Repo_Sys.sql_modules_formatted2]
 --
 
 
@@ -1208,9 +1299,9 @@ reference in [repo_sys].[type]
 |===
 
 .Description
-....
+--
 (concat('[',[SysObject_schema_name],'].[',[SysObject_name],']'))
-....
+--
 
 .Referenced Columns
 --
@@ -1235,6 +1326,11 @@ reference in [repo_sys].[type]
 |
 |
 |===
+
+.Description
+--
+(concat([SysObject_schema_name],'.',[SysObject_name]))
+--
 
 .Referenced Columns
 --
@@ -1385,9 +1481,9 @@ reference in [repo_sys].[type]
 |===
 
 .Description
-....
+--
 (concat('SELECT * FROM [',[repo].[fs_dwh_database_name](),'].[',[SysObject_schema_name],'].[',[SysObject_name],']'))
-....
+--
 
 .Referenced Columns
 --
@@ -1433,9 +1529,9 @@ reference in [repo_sys].[type]
 |===
 
 .Description
-....
+--
 reference in [repo_sys].[type]
-....
+--
 
 .Referenced Columns
 --
@@ -1482,9 +1578,9 @@ reference in [repo_sys].[type]
 |===
 
 .Description
-....
+--
 (CONVERT([tinyint],case [has_history] when (1) then (2) else (0) end))
-....
+--
 
 .Referenced Columns
 --
@@ -1506,9 +1602,9 @@ reference in [repo_sys].[type]
 |===
 
 .Description
-....
+--
 ('usp_PERSIST_'+[RepoObject_name])
-....
+--
 
 .Referenced Columns
 --
@@ -1541,6 +1637,7 @@ reference in [repo_sys].[type]
 |NOT NULL
 |
 |
+
 
 
 
@@ -1801,6 +1898,13 @@ reference in [repo_sys].[type]
 |<<column-is_RepoObject_name_uniqueidentifier>>
 |int
 |NOT NULL
+|
+|
+
+|
+|<<column-is_required_ObjectMerge>>
+|bit
+|NULL
 |
 |
 
@@ -2199,102 +2303,114 @@ reference in [repo_sys].[type]
 
 // end::AntoraParameterList[]
 
-== example1
-
-// tag::example1[]
-
-// end::example1[]
-
-
-== example2
-
-// tag::example2[]
-
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
-
-
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
-
-
-== UspExamples
-
-// tag::UspExamples[]
-
-// end::UspExamples[]
-
-
-== UspParameters
-
-// tag::UspParameters[]
-
-// end::UspParameters[]
-
-
-== persistence_source_RepoObject_xref
-
-// tag::persistence_source_RepoObject_xref[]
-
-// end::persistence_source_RepoObject_xref[]
-
-
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
+// end::adocuspsteps[]
 
 
-== microsoft_database_tools_support
+== AntoraReferencedList
 
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
-
-
-== persistence_source_RepoObject_fullname
-
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
+// tag::antorareferencedlist[]
+* xref:config.type.adoc[]
+* xref:graph.RepoObject_ReferencingReferenced.adoc[]
+* xref:repo.fs_get_RepoObjectProperty_nvarchar.adoc[]
+* xref:repo.Index_Settings.adoc[]
+* xref:repo.RepoObject.adoc[]
+* xref:repo.RepoObject_ColumnList.adoc[]
+* xref:repo.RepoObject_persistence.adoc[]
+* xref:repo.RepoObject_QueryPlan.adoc[]
+* xref:repo.RepoObject_ReferencedList.adoc[]
+* xref:repo.RepoObject_ReferencingList.adoc[]
+* xref:sqlparse.RepoObject_SqlModules_Repo_Sys.adoc[]
+// end::antorareferencedlist[]
 
 
-== persistence_source_RepoObject_fullname2
+== AntoraReferencingList
 
-// tag::persistence_source_RepoObject_fullname2[]
+// tag::antorareferencinglist[]
+* xref:docs.RepoObject_Adoc.adoc[]
+* xref:docs.RepoObject_OutputFilter.adoc[]
+* xref:docs.RepoObject_Plantuml.adoc[]
+* xref:repo.Index_gross.adoc[]
+* xref:repo.Index_virtual_ForUpdate.adoc[]
+* xref:repo.Match_RepoObject_referenced_UspPersistence.adoc[]
+* xref:repo.RepoObject_ReferenceTree.adoc[]
+* xref:.adoc[]
+* xref:.adoc[]
+* xref:repo.RepoObject_SqlCreateTable.adoc[]
+* xref:.adoc[]
+* xref:repo.usp_RepoObject_update_SysObjectQueryPlan.adoc[]
+* xref:repo.usp_RepoObjectSource_FirstResultSet.adoc[]
+* xref:repo.usp_RepoObjectSource_QueryPlan.adoc[]
+* xref:uspgenerator.GeneratorUspStep_Persistence.adoc[]
+* xref:uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint.adoc[]
+* xref:uspgenerator.usp_GeneratorUsp_insert_update_persistence.adoc[]
+// end::antorareferencinglist[]
 
-// end::persistence_source_RepoObject_fullname2[]
+
+== exampleUsage
+
+// tag::exampleusage[]
+
+// end::exampleusage[]
 
 
-== persistence_source_RepoObject_guid
+== exampleUsage_2
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::exampleusage_2[]
 
-// end::persistence_source_RepoObject_guid[]
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -2339,82 +2455,53 @@ reference in [repo_sys].[type]
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
+// end::microsoft_database_tools_support[]
 
 
-== is_persistence
+== MS_Description
 
-// tag::is_persistence[]
+// tag::ms_description[]
 
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
+// end::ms_description[]
 
 
-== AntoraReferencedList
+== persistence_source_RepoObject_fullname
 
-// tag::AntoraReferencedList[]
-* xref:config.type.adoc[]
-* xref:graph.RepoObject_ReferencingReferenced.adoc[]
-* xref:repo.fs_get_RepoObjectProperty_nvarchar.adoc[]
-* xref:repo.Index_Settings.adoc[]
-* xref:repo.RepoObject.adoc[]
-* xref:repo.RepoObject_ColumnList.adoc[]
-* xref:repo.RepoObject_persistence.adoc[]
-* xref:repo.RepoObject_QueryPlan.adoc[]
-* xref:repo.RepoObject_ReferencedList.adoc[]
-* xref:repo.RepoObject_ReferencingList.adoc[]
-* xref:repo.RepoObject_SqlModules_Repo_Sys.adoc[]
-// end::AntoraReferencedList[]
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
 
 
-== AntoraReferencingList
+== persistence_source_RepoObject_fullname2
 
-// tag::AntoraReferencingList[]
-* xref:docs.RepoObject_Adoc.adoc[]
-* xref:docs.RepoObject_OutputFilter.adoc[]
-* xref:docs.RepoObject_Plantuml.adoc[]
-* xref:repo.GeneratorUspStep_Persistence.adoc[]
-* xref:repo.GeneratorUspStep_Persistence_IsInactive_setpoint.adoc[]
-* xref:repo.Index_gross.adoc[]
-* xref:repo.Match_RepoObject_referenced_UspPersistence.adoc[]
-* xref:repo.RepoObject_ReferenceTree.adoc[]
-* xref:repo.RepoObject_SqlCreateTable.adoc[]
-* xref:repo.usp_GeneratorUsp_insert_update_persistence.adoc[]
-* xref:repo.usp_RepoObject_update_SysObjectQueryPlan.adoc[]
-* xref:repo.usp_RepoObjectSource_FirstResultSet.adoc[]
-* xref:repo.usp_RepoObjectSource_QueryPlan.adoc[]
-// end::AntoraReferencingList[]
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -2426,28 +2513,29 @@ reference in [repo_sys].[type]
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 uniqueidentifier
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 RepoObject_guid
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
 
 
 == pk_IndexSemanticGroup
 
-// tag::pk_IndexSemanticGroup[]
+// tag::pk_indexsemanticgroup[]
 RepoObject_guid
-// end::pk_IndexSemanticGroup[]
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
+* [config].[type]
 * [graph].[RepoObject_ReferencingReferenced]
 * [repo].[fs_get_RepoObjectProperty_nvarchar]
 * [repo].[Index_Settings]
@@ -2455,8 +2543,24 @@ RepoObject_guid
 * [repo].[RepoObject_ColumnList]
 * [repo].[RepoObject_persistence]
 * [repo].[RepoObject_QueryPlan]
-* [repo].[RepoObject_SqlModules_Repo_Sys]
-// end::ReferencedObjectList[]
+* [repo].[RepoObject_ReferencedList]
+* [repo].[RepoObject_ReferencingList]
+* [sqlparse].[RepoObject_SqlModules_Repo_Sys]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -2464,122 +2568,173 @@ RepoObject_guid
 // tag::sql_modules_definition[]
 [source,sql]
 ----
-
-CREATE VIEW [repo].[RepoObject_gross]
-AS
+Create View repo.RepoObject_gross
+As
 --
-SELECT
- --
- [ro].[RepoObject_guid]
- , [ro].[RepoObject_schema_name]
- , [ro].[RepoObject_name]
- , [ro].[RepoObject_type]
- , [repo_type].[type_desc] AS [RepoObject_type_name]
- , [ro].[has_different_sys_names]
- , [ro].[has_execution_plan_issue]
- , [ro].[has_get_referenced_issue]
- , [ro].[Inheritance_StringAggSeparatorSql]
- , [ro].[InheritanceDefinition]
- , [ro].[InheritanceType]
- , ty.[is_DocsOutput]
- , [is_in_reference] = CASE 
-  WHEN EXISTS (
-    SELECT 1
-    FROM [graph].[RepoObject_ReferencingReferenced] AS [ref]
-    WHERE [ref].[Referenced_guid] = [ro].[RepoObject_guid]
-     OR [ref].[Referencing_guid] = [ro].[RepoObject_guid]
-    )
-   THEN 1
-  ELSE 0
-  END
- , [ro].[is_repo_managed]
- , [ro].[is_RepoObject_name_uniqueidentifier]
- , [ro].[is_SysObject_missing]
- , [ro].[is_SysObject_name_uniqueidentifier]
- , [ro].[modify_dt]
- , [ro].[node_id]
- , [ro].[pk_index_guid]
- , [ipk].[IndexPatternColumnDatatype] AS [pk_IndexPatternColumnDatatype]
- , [ipk].[IndexPatternColumnName] AS [pk_IndexPatternColumnName]
- , [ro].[pk_IndexPatternColumnName_new]
- , [ipk].[IndexSemanticGroup] AS [pk_IndexSemanticGroup]
- , [ro].[Repo_history_table_guid]
- , [ro].[Repo_temporal_type]
- , [ro].[RepoObject_fullname]
- , [ro].[RepoObject_fullname2]
- , [ro].[RepoObject_Referencing_Count]
- , [ro].[SysObject_fullname]
- , [ro].[SysObject_fullname2]
- , [ro].[SysObject_id]
- , [ro].[SysObject_modify_date]
- , [ro].[SysObject_name]
- , [ro].[SysObject_parent_object_id]
- , [QueryPlan].[SysObject_query_executed_dt]
- , [QueryPlan].[SysObject_query_plan]
- , [ro].[SysObject_query_sql]
- , [ro].[SysObject_schema_name]
- , [ro].[SysObject_type]
- , [sys_type].[type_desc] AS [SysObject_type_name]
- , [ro].[usp_persistence_name]
- , [ro_usp_p].[RepoObject_guid] AS [usp_persistence_RepoObject_guid]
- , [ro_p].[source_RepoObject_guid] AS [persistence_source_RepoObject_guid]
- , [ro_p_s].[RepoObject_fullname] AS [persistence_source_RepoObject_fullname]
- , [ro_p_s].[RepoObject_fullname2] AS [persistence_source_RepoObject_fullname2]
- , 'xref:' + [ro_p_s].[RepoObject_fullname2] + '.adoc[]' AS [persistence_source_RepoObject_xref]
- , [ro_p_s].[SysObject_fullname] AS [persistence_source_SysObject_fullname]
- , [ro_p_s].[SysObject_fullname2] AS [persistence_source_SysObject_fullname2]
- , 'xref:' + [ro_p_s].[SysObject_fullname2] + '.adoc[]' AS [persistence_source_SysObject_xref]
- , [ro_p].[has_history]
- , [ro_p].[has_history_columns]
- , [ro_p].[is_persistence]
- , [ro_p].[is_persistence_check_duplicate_per_pk]
- , [ro_p].[is_persistence_check_for_empty_source]
- , [ro_p].[is_persistence_delete_missing]
- , [ro_p].[is_persistence_delete_changed]
- , [ro_p].[is_persistence_insert]
- , [ro_p].[is_persistence_truncate]
- , [ro_p].[is_persistence_update_changed]
- , [ro_p].[history_schema_name]
- , [ro_p].[history_table_name]
- , [ro_p].[temporal_type]
- , [ColumnList].[CreateColumnList]
- , [ColumnList].[DbmlColumnList]
- , [ColumnList].[PersistenceCompareColumnList]
- , [ColumnList].[PersistenceInsertColumnList]
- , [ColumnList].[PersistenceUpdateColumnList]
- , [Property_ms_description] = [repo].[fs_get_RepoObjectProperty_nvarchar]([ro].[RepoObject_guid], 'ms_description')
- , [SqlModules].[sql_modules_definition]
- , REPLACE(REPLACE(REPLACE([SqlModules].[sql_modules_definition], '\include::', '\\include::'), '\ifdef::', '\\ifdef::'), '\endif::', '\\endif::') AS [sql_modules_antora]
- , [SqlModules].[sql_modules_formatted]
- , [SqlModules].[sql_modules_formatted2]
- , [ro_referenced].[AntoraReferencedList]
- , [ro_referencing].[AntoraReferencingList]
-FROM repo.RepoObject AS ro
-LEFT OUTER JOIN repo.RepoObject_persistence AS ro_p
- ON ro_p.target_RepoObject_guid = ro.RepoObject_guid
-LEFT OUTER JOIN repo.RepoObject AS ro_p_s
- ON ro_p_s.RepoObject_guid = ro_p.source_RepoObject_guid
-LEFT OUTER JOIN repo.RepoObject AS ro_usp_p
- ON ro_usp_p.[RepoObject_name] = ro.[usp_persistence_name]
-  AND ro_usp_p.[RepoObject_schema_name] = ro.[RepoObject_schema_name]
-LEFT OUTER JOIN repo.RepoObject_ColumnList AS ColumnList
- ON ColumnList.RepoObject_guid = ro.RepoObject_guid
-LEFT OUTER JOIN [repo].[RepoObject_QueryPlan] AS QueryPlan
- ON QueryPlan.[RepoObject_guid] = ro.[RepoObject_guid]
-LEFT OUTER JOIN [repo].[RepoObject_SqlModules_Repo_Sys] AS SqlModules
- ON SqlModules.RepoObject_guid = [ro].[RepoObject_guid]
-LEFT JOIN [repo].[Index_Settings] AS ipk
- ON ipk.[index_guid] = [ro].[pk_index_guid]
-LEFT JOIN [repo].[RepoObject_ReferencedList] AS ro_referenced
- ON ro_referenced.[Referencing_guid] = [ro].[RepoObject_guid]
-LEFT JOIN [repo].[RepoObject_ReferencingList] AS ro_referencing
- ON ro_referencing.[Referenced_guid] = [ro].[RepoObject_guid]
-LEFT JOIN [config].[type] AS repo_type
- ON repo_type.[type] = ro.[RepoObject_type]
-LEFT JOIN [config].[type] AS sys_type
- ON sys_type.[type] = ro.SysObject_type
-LEFT JOIN [config].[type] ty
- ON ty.type = ro.RepoObject_type
+Select
+    --
+    ro.RepoObject_guid
+  , ro.RepoObject_schema_name
+  , ro.RepoObject_name
+  , ro.RepoObject_type
+  , repo_type.type_desc                               As RepoObject_type_name
+  , ro.has_different_sys_names
+  , ro.has_execution_plan_issue
+  , ro.has_get_referenced_issue
+  , ro.Inheritance_StringAggSeparatorSql
+  , ro.InheritanceDefinition
+  , ro.InheritanceType
+  , ty.is_DocsOutput
+  , is_in_reference                                   = Case
+                                                            When Exists
+                                                                 (
+                                                                     Select
+                                                                         1
+                                                                     From
+                                                                         graph.RepoObject_ReferencingReferenced As ref
+                                                                     Where
+                                                                         ref.Referenced_guid     = ro.RepoObject_guid
+                                                                         Or ref.Referencing_guid = ro.RepoObject_guid
+                                                                 )
+                                                                Then
+                                                                1
+                                                            Else
+                                                                0
+                                                        End
+  , ro.is_repo_managed
+  , ro.is_required_ObjectMerge
+  , ro.is_RepoObject_name_uniqueidentifier
+  , ro.is_SysObject_missing
+  , ro.is_SysObject_name_uniqueidentifier
+  , ro.modify_dt
+  , ro.node_id
+  , ro.pk_index_guid
+  , ipk.IndexPatternColumnDatatype                    As pk_IndexPatternColumnDatatype
+  , ipk.IndexPatternColumnName                        As pk_IndexPatternColumnName
+  , ro.pk_IndexPatternColumnName_new
+  , ipk.IndexSemanticGroup                            As pk_IndexSemanticGroup
+  , ro.Repo_history_table_guid
+  , ro.Repo_temporal_type
+  , ro.RepoObject_fullname
+  , ro.RepoObject_fullname2
+  , ro.RepoObject_Referencing_Count
+  , ro.SysObject_fullname
+  , ro.SysObject_fullname2
+  , ro.SysObject_id
+  , ro.SysObject_modify_date
+  , ro.SysObject_name
+  , ro.SysObject_parent_object_id
+  , QueryPlan.SysObject_query_executed_dt
+  , QueryPlan.SysObject_query_plan
+  , ro.SysObject_query_sql
+  , ro.SysObject_schema_name
+  , ro.SysObject_type
+  , sys_type.type_desc                                As SysObject_type_name
+  , ro.usp_persistence_name
+  , ro_usp_p.RepoObject_guid                          As usp_persistence_RepoObject_guid
+  , ro_p.source_RepoObject_guid                       As persistence_source_RepoObject_guid
+  , ro_p_s.RepoObject_fullname                        As persistence_source_RepoObject_fullname
+  , ro_p_s.RepoObject_fullname2                       As persistence_source_RepoObject_fullname2
+  , 'xref:' + ro_p_s.RepoObject_fullname2 + '.adoc[]' As persistence_source_RepoObject_xref
+  , ro_p_s.SysObject_fullname                         As persistence_source_SysObject_fullname
+  , ro_p_s.SysObject_fullname2                        As persistence_source_SysObject_fullname2
+  , 'xref:' + ro_p_s.SysObject_fullname2 + '.adoc[]'  As persistence_source_SysObject_xref
+  , ro_p.has_history
+  , ro_p.has_history_columns
+  , ro_p.is_persistence
+  , ro_p.is_persistence_check_duplicate_per_pk
+  , ro_p.is_persistence_check_for_empty_source
+  , ro_p.is_persistence_delete_missing
+  , ro_p.is_persistence_delete_changed
+  , ro_p.is_persistence_insert
+  , ro_p.is_persistence_truncate
+  , ro_p.is_persistence_update_changed
+  , ro_p.history_schema_name
+  , ro_p.history_table_name
+  , ro_p.temporal_type
+  , ColumnList.CreateColumnList
+  , ColumnList.DbmlColumnList
+  , ColumnList.PersistenceCompareColumnList
+  , ColumnList.PersistenceInsertColumnList
+  , ColumnList.PersistenceUpdateColumnList
+  , Property_ms_description                           = repo.fs_get_RepoObjectProperty_nvarchar ( ro.RepoObject_guid, 'ms_description' )
+  , SqlModules.sql_modules_definition
+  , Replace (
+                Replace (
+                            Replace ( SqlModules.sql_modules_definition, '\include::', '\\include::' )
+                          , '\ifdef::'
+                          , '\\ifdef::'
+                        )
+              , '\endif::'
+              , '\\endif::'
+            )                                         As sql_modules_antora
+  , SqlModules.sql_modules_formatted
+  , SqlModules.sql_modules_formatted2
+  , ro_referenced.AntoraReferencedList
+  , ro_referencing.AntoraReferencingList
+From
+    repo.RepoObject                         As ro
+    Left Outer Join
+        repo.RepoObject_persistence         As ro_p
+            On
+            ro_p.target_RepoObject_guid         = ro.RepoObject_guid
+
+    Left Outer Join
+        repo.RepoObject                     As ro_p_s
+            On
+            ro_p_s.RepoObject_guid              = ro_p.source_RepoObject_guid
+
+    Left Outer Join
+        repo.RepoObject                     As ro_usp_p
+            On
+            ro_usp_p.RepoObject_name            = ro.usp_persistence_name
+            And ro_usp_p.RepoObject_schema_name = ro.RepoObject_schema_name
+
+    Left Outer Join
+        repo.RepoObject_ColumnList          As ColumnList
+            On
+            ColumnList.RepoObject_guid          = ro.RepoObject_guid
+
+    Left Outer Join
+        repo.RepoObject_QueryPlan           As QueryPlan
+            On
+            QueryPlan.RepoObject_guid           = ro.RepoObject_guid
+
+    Left Outer Join
+        [sqlparse].RepoObject_SqlModules_Repo_Sys As SqlModules
+            On
+            SqlModules.RepoObject_guid          = ro.RepoObject_guid
+
+    Left Join
+        repo.Index_Settings                 As ipk
+            On
+            ipk.index_guid                      = ro.pk_index_guid
+
+    Left Join
+        repo.RepoObject_ReferencedList      As ro_referenced
+            On
+            ro_referenced.Referencing_guid      = ro.RepoObject_guid
+
+    Left Join
+        repo.RepoObject_ReferencingList     As ro_referencing
+            On
+            ro_referencing.Referenced_guid      = ro.RepoObject_guid
+
+    Left Join
+        config.type                         As repo_type
+            On
+            repo_type.type                      = ro.RepoObject_type
+
+    Left Join
+        config.type                         As sys_type
+            On
+            sys_type.type                       = ro.SysObject_type
+
+    Left Join
+        config.type                         ty
+            On
+            ty.type                             = ro.RepoObject_type;
+
 ----
 // end::sql_modules_definition[]
 

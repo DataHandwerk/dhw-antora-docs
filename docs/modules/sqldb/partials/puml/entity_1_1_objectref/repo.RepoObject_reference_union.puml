@@ -43,11 +43,6 @@ entity repo.RepoObject_reference_union << V >> {
   **referencing_RepoObject_guid** : uniqueidentifier
 }
 
-entity repo.RepoObject_reference_union_node_id << V >> {
-  **referenced_RepoObject_guid** : uniqueidentifier
-  **referencing_RepoObject_guid** : uniqueidentifier
-}
-
 entity repo.RepoObjectColumn_reference_BySamePredecessors << V >> {
 }
 
@@ -55,9 +50,17 @@ entity repo.RepoObjectColumn_reference_FirstResultSet << V >> {
 }
 
 entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
 }
 
 entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
+  * **referencing_id** : int
+  * **referencing_minor_id** : int
+  **referenced_id** : int
+  * **referenced_minor_id** : int
 }
 
 entity repo.usp_main << P >> {
@@ -71,5 +74,4 @@ repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_FirstResultS
 repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_QueryPlan
 repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_BySamePredecessors
 repo.RepoObject_reference_union <.. repo.usp_main
-repo.RepoObject_reference_union <.. repo.RepoObject_reference_union_node_id
 repo.RepoObjectColumn_reference_FirstResultSet <.. repo.RepoObjectColumn_reference_BySamePredecessors

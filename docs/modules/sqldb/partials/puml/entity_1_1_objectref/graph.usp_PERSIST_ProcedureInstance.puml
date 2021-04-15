@@ -23,15 +23,26 @@ skinparam class {
 }
 
 
+entity graph.ProcedureInstance << U >> {
+}
+
+entity graph.ProcedureInstance_S << V >> {
+  * **Procedure_RepoObject_guid** : uniqueidentifier
+  * **Instance** : varchar(500)
+}
+
 entity graph.usp_PERSIST_ProcedureInstance << P >> {
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
+entity logs.usp_ExecutionLog_insert << P >> {
 }
 
 entity repo.usp_sync_guid_RepoObject << P >> {
 }
 
+graph.ProcedureInstance <.. graph.usp_PERSIST_ProcedureInstance
+graph.ProcedureInstance_S <.. graph.ProcedureInstance
+graph.ProcedureInstance_S <.. graph.usp_PERSIST_ProcedureInstance
 graph.usp_PERSIST_ProcedureInstance <.. repo.usp_sync_guid_RepoObject
-repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObject
-repo.usp_ExecutionLog_insert <.. graph.usp_PERSIST_ProcedureInstance
+logs.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObject
+logs.usp_ExecutionLog_insert <.. graph.usp_PERSIST_ProcedureInstance

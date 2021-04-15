@@ -23,6 +23,10 @@ skinparam class {
 }
 
 
+entity docs.RepoObject_Plantuml << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
 entity repo.ftv_get_parameter_value << IF >> {
 }
 
@@ -31,8 +35,14 @@ entity repo.Parameter << U >> {
   * **sub_Parameter** : nvarchar(128)
 }
 
+entity repo.RepoObject_SqlCreateTable << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
 entity repo.RepoObjectColumn_HistValidColums_setpoint << V >> {
 }
 
+repo.ftv_get_parameter_value <.. docs.RepoObject_Plantuml
+repo.ftv_get_parameter_value <.. repo.RepoObject_SqlCreateTable
 repo.ftv_get_parameter_value <.. repo.RepoObjectColumn_HistValidColums_setpoint
 repo.Parameter <.. repo.ftv_get_parameter_value

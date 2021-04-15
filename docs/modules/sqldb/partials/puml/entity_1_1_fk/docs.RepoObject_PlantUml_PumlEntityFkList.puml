@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -24,7 +24,10 @@ skinparam class {
 
 
 entity docs.RepoObject_PlantUml_PumlEntityFkList << V >> {
+- **PK_RepoObject_PlantUml_PumlEntityFkList**
 
+..
+RepoObject_guid; uniqueidentifier
 }
 
 

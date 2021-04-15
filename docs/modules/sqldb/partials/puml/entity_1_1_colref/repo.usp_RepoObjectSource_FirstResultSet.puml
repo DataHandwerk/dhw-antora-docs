@@ -23,6 +23,10 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+  --
+}
+
 entity repo.RepoObject << U >> {
   * **RepoObject_guid** : uniqueidentifier
   --
@@ -32,6 +36,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -89,6 +94,7 @@ entity repo.RepoObject_gross << V >> {
   is_persistence_update_changed : bit
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   * modify_dt : datetime
@@ -155,10 +161,6 @@ entity repo.RepoObjectSource_FirstResultSet << U >> {
   target_column_name : nvarchar(128)
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-  --
-}
-
 entity repo.usp_main << P >> {
   --
 }
@@ -167,12 +169,12 @@ entity repo.usp_RepoObjectSource_FirstResultSet << P >> {
   --
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_main
+logs.usp_ExecutionLog_insert <.. repo.usp_RepoObjectSource_FirstResultSet
 repo.RepoObject <.. repo.RepoObject_gross
 repo.RepoObject <.. repo.usp_RepoObjectSource_FirstResultSet
 repo.RepoObject_gross <.. repo.usp_RepoObjectSource_FirstResultSet
 repo.RepoObjectSource_FirstResultSet <.. repo.usp_RepoObjectSource_FirstResultSet
-repo.usp_ExecutionLog_insert <.. repo.usp_RepoObjectSource_FirstResultSet
-repo.usp_ExecutionLog_insert <.. repo.usp_main
 repo.usp_RepoObjectSource_FirstResultSet <.. repo.usp_main
 repo.RepoObject::has_different_sys_names <-- repo.RepoObject_gross::has_different_sys_names
 repo.RepoObject::has_execution_plan_issue <-- repo.RepoObject_gross::has_execution_plan_issue
@@ -182,6 +184,7 @@ repo.RepoObject::InheritanceDefinition <-- repo.RepoObject_gross::InheritanceDef
 repo.RepoObject::InheritanceType <-- repo.RepoObject_gross::InheritanceType
 repo.RepoObject::is_repo_managed <-- repo.RepoObject_gross::is_repo_managed
 repo.RepoObject::is_RepoObject_name_uniqueidentifier <-- repo.RepoObject_gross::is_RepoObject_name_uniqueidentifier
+repo.RepoObject::is_required_ObjectMerge <-- repo.RepoObject_gross::is_required_ObjectMerge
 repo.RepoObject::is_SysObject_missing <-- repo.RepoObject_gross::is_SysObject_missing
 repo.RepoObject::is_SysObject_name_uniqueidentifier <-- repo.RepoObject_gross::is_SysObject_name_uniqueidentifier
 repo.RepoObject::modify_dt <-- repo.RepoObject_gross::modify_dt

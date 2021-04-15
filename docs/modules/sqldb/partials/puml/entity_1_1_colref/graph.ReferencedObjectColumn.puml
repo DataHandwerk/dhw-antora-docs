@@ -68,7 +68,7 @@ entity repo.usp_main << P >> {
   --
 }
 
-graph.ReferencedObjectColumn <.. repo.usp_main
 graph.ReferencedObjectColumn <.. graph.RepoObjectColumn_ReferencingReferenced
 graph.ReferencedObjectColumn <.. docs.RepoObject_Plantuml_ColRefList
+graph.ReferencedObjectColumn <.. repo.usp_main
 

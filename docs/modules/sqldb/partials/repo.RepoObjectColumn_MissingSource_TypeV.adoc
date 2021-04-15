@@ -3,8 +3,8 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
@@ -32,18 +32,37 @@ view
 == SysObject_id
 
 // tag::SysObject_id[]
-1650104919
+1490820373
 // end::SysObject_id[]
 
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-01-28 20:13:02
+2021-04-13 19:02:39
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
 
 // tag::AntoraColumnDetails[]
+[[column-RepoObjectColumn_guid]]
+=== RepoObjectColumn_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*RepoObjectColumn_guid*
+|uniqueidentifier
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.RepoObjectColumn.adoc#column-RepoObjectColumn_guid[repo.RepoObjectColumn.RepoObjectColumn_guid]
+--
+
+
 [[column-has_different_sys_names]]
 === has_different_sys_names
 
@@ -58,9 +77,9 @@ view
 |===
 
 .Description
-....
+--
 (CONVERT([bit],case when [RepoObjectColumn_name]<>[SysObjectColumn_name] then (1) else (0) end))
-....
+--
 
 .Referenced Columns
 --
@@ -101,9 +120,9 @@ view
 |===
 
 .Description
-....
+--
 (case when TRY_CAST([RepoObjectColumn_name] AS [uniqueidentifier]) IS NULL then (0) else (1) end)
-....
+--
 
 .Referenced Columns
 --
@@ -144,9 +163,9 @@ view
 |===
 
 .Description
-....
+--
 (case when TRY_CAST([SysObjectColumn_name] AS [uniqueidentifier]) IS NULL then (0) else (1) end)
-....
+--
 
 .Referenced Columns
 --
@@ -282,14 +301,14 @@ view
 |===
 
 .Description
-....
+--
 Applies to: SQL Server 2016 (13.x) and later, SQL Database.
 Identifies when the column value is generated (will always be 0 for columns in system tables):
 0 = NOT_APPLICABLE
 1 = AS_ROW_START
 2 = AS_ROW_END
 For more information, see Temporal Tables (Relational databases).
-....
+--
 
 .Referenced Columns
 --
@@ -311,7 +330,7 @@ For more information, see Temporal Tables (Relational databases).
 |===
 
 .Description
-....
+--
 https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-architecture
 
 The sys.columns view contains additional columns graph_type and graph_type_desc, that indicate the type of the column in node and edge tables.
@@ -333,7 +352,7 @@ Column Value	Description
 6	GRAPH_TO_ID
 7	GRAPH_TO_OBJ_ID
 8	GRAPH_TO_ID_COMPUTED
-....
+--
 
 .Referenced Columns
 --
@@ -526,9 +545,9 @@ Column Value	Description
 |===
 
 .Description
-....
+--
 (concat('[',[RepoObject_schema_name],'].[',[RepoObject_name],']'))
-....
+--
 
 .Referenced Columns
 --
@@ -555,25 +574,6 @@ Column Value	Description
 --
 
 
-[[column-RepoObjectColumn_guid]]
-=== RepoObjectColumn_guid
-
-[cols="d,m,m,m,m,d"]
-|===
-|
-|RepoObjectColumn_guid
-|uniqueidentifier
-|NOT NULL
-|
-|
-|===
-
-.Referenced Columns
---
-* xref:repo.RepoObjectColumn.adoc#column-RepoObjectColumn_guid[repo.RepoObjectColumn.RepoObjectColumn_guid]
---
-
-
 [[column-RepoObjectColumn_name]]
 === RepoObjectColumn_name
 
@@ -588,9 +588,9 @@ Column Value	Description
 |===
 
 .Description
-....
+--
 Name of the column. Is unique within the object.
-....
+--
 
 .Referenced Columns
 --
@@ -612,9 +612,9 @@ Name of the column. Is unique within the object.
 |===
 
 .Description
-....
+--
 (concat('[',[SysObject_schema_name],'].[',[SysObject_name],']'))
-....
+--
 
 .Referenced Columns
 --
@@ -636,10 +636,10 @@ Name of the column. Is unique within the object.
 |===
 
 .Description
-....
+--
 ID of the column. Is unique within the object.
 Column IDs might not be sequential.
-....
+--
 
 .Referenced Columns
 --
@@ -661,10 +661,10 @@ Column IDs might not be sequential.
 |===
 
 .Description
-....
+--
 Name of the column. Is unique within the object.
 if it not exists in the database, the RepoObject_guid or any other guid is used, because this column should not be empty
-....
+--
 
 .Referenced Columns
 --
@@ -677,6 +677,12 @@ if it not exists in the database, the RepoObject_guid or any other guid is used,
 == AntoraPkColumnTableRows
 
 // tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-RepoObjectColumn_guid>>*
+|uniqueidentifier
+|NOT NULL
+|
+|
 
 
 
@@ -711,6 +717,7 @@ if it not exists in the database, the RepoObject_guid or any other guid is used,
 == AntoraNonPkColumnTableRows
 
 // tag::AntoraNonPkColumnTableRows[]
+
 |
 |<<column-has_different_sys_names>>
 |bit
@@ -880,13 +887,6 @@ if it not exists in the database, the RepoObject_guid or any other guid is used,
 |
 
 |
-|<<column-RepoObjectColumn_guid>>
-|uniqueidentifier
-|NOT NULL
-|
-|
-
-|
 |<<column-RepoObjectColumn_name>>
 |nvarchar(128)
 |NOT NULL
@@ -920,15 +920,15 @@ if it not exists in the database, the RepoObject_guid or any other guid is used,
 
 // tag::AntoraIndexList[]
 
-[[index-idx_RepoObjectColumn_MissingSource_TypeV__1]]
-=== idx_RepoObjectColumn_MissingSource_TypeV__1
+[[index-PK_RepoObjectColumn_MissingSource_TypeV]]
+=== PK_RepoObjectColumn_MissingSource_TypeV
 
 * IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_repoobjectcolumn_guid[RepoObjectColumn_guid]
 +
 --
 * <<column-RepoObjectColumn_guid>>; uniqueidentifier
 --
-* PK, Unique, Real: 0, 0, 0
+* PK, Unique, Real: 1, 1, 0
 
 
 [[index-idx_RepoObjectColumn_MissingSource_TypeV__2]]
@@ -975,51 +975,88 @@ if it not exists in the database, the RepoObject_guid or any other guid is used,
 
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
+// end::adocuspsteps[]
 
 
-== microsoft_database_tools_support
+== AntoraReferencedList
 
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
+// tag::antorareferencedlist[]
+* xref:repo.RepoObject.adoc[]
+* xref:repo.RepoObjectColumn.adoc[]
+* xref:repo.RepoObjectColumn_reference_union.adoc[]
+// end::antorareferencedlist[]
 
 
-== persistence_source_RepoObject_fullname
+== AntoraReferencingList
 
-// tag::persistence_source_RepoObject_fullname[]
+// tag::antorareferencinglist[]
 
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
+// end::antorareferencinglist[]
 
 
-== persistence_source_RepoObject_guid
+== exampleUsage
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::exampleusage[]
 
-// end::persistence_source_RepoObject_guid[]
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -1064,102 +1101,53 @@ if it not exists in the database, the RepoObject_guid or any other guid is used,
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
+// end::microsoft_database_tools_support[]
 
 
-== is_persistence
+== MS_Description
 
-// tag::is_persistence[]
+// tag::ms_description[]
 
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
+// end::ms_description[]
 
 
-== AntoraReferencingList
+== persistence_source_RepoObject_fullname
 
-// tag::AntoraReferencingList[]
+// tag::persistence_source_repoobject_fullname[]
 
-// end::AntoraReferencingList[]
-
-
-== example1
-
-// tag::example1[]
-
-// end::example1[]
+// end::persistence_source_repoobject_fullname[]
 
 
-== example2
+== persistence_source_RepoObject_fullname2
 
-// tag::example2[]
+// tag::persistence_source_repoobject_fullname2[]
 
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
+// end::persistence_source_repoobject_fullname2[]
 
 
-== usp_persistence_RepoObject_guid
+== persistence_source_RepoObject_guid
 
-// tag::usp_persistence_RepoObject_guid[]
+// tag::persistence_source_repoobject_guid[]
 
-// end::usp_persistence_RepoObject_guid[]
-
-
-== UspExamples
-
-// tag::UspExamples[]
-
-// end::UspExamples[]
-
-
-== UspParameters
-
-// tag::UspParameters[]
-
-// end::UspParameters[]
+// end::persistence_source_repoobject_guid[]
 
 
 == persistence_source_RepoObject_xref
 
-// tag::persistence_source_RepoObject_xref[]
+// tag::persistence_source_repoobject_xref[]
 
-// end::persistence_source_RepoObject_xref[]
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -1171,41 +1159,46 @@ if it not exists in the database, the RepoObject_guid or any other guid is used,
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
 
 
 == pk_IndexSemanticGroup
 
-// tag::pk_IndexSemanticGroup[]
+// tag::pk_indexsemanticgroup[]
 
-// end::pk_IndexSemanticGroup[]
-
-
-== AntoraReferencedList
-
-// tag::AntoraReferencedList[]
-* xref:repo.RepoObject.adoc[]
-* xref:repo.RepoObjectColumn.adoc[]
-* xref:repo.RepoObjectColumn_reference_union.adoc[]
-// end::AntoraReferencedList[]
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
 * [repo].[RepoObject]
 * [repo].[RepoObjectColumn]
 * [repo].[RepoObjectColumn_reference_union]
-// end::ReferencedObjectList[]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -1213,54 +1206,64 @@ if it not exists in the database, the RepoObject_guid or any other guid is used,
 // tag::sql_modules_definition[]
 [source,sql]
 ----
-CREATE VIEW [repo].[RepoObjectColumn_MissingSource_TypeV]
-AS
+Create View repo.RepoObjectColumn_MissingSource_TypeV
+As
 --
-SELECT [roc].[RepoObjectColumn_guid]
- , [roc].[RepoObject_guid]
- , [roc].[RepoObjectColumn_name]
- , [roc].[SysObjectColumn_name]
- , [roc].[SysObjectColumn_column_id]
- , [roc].[Repo_default_definition]
- , [roc].[Repo_default_is_system_named]
- , [roc].[Repo_default_name]
- , [roc].[Repo_definition]
- , [roc].[Repo_generated_always_type]
- , [roc].[Repo_graph_type]
- , [roc].[Repo_is_computed]
- , [roc].[Repo_is_identity]
- , [roc].[Repo_is_nullable]
- , [roc].[Repo_is_persisted]
- , [roc].[Repo_seed_value]
- , [roc].[Repo_increment_value]
- , [roc].[Repo_user_type_name]
- , [roc].[Repo_user_type_fullname]
- , [roc].[Repo_uses_database_collation]
- , [roc].[is_SysObjectColumn_missing]
- , [roc].[persistence_source_RepoObjectColumn_guid]
- , [roc].[Referencing_Count]
- , [roc].[is_query_plan_expression]
- , [roc].[has_different_sys_names]
- , [roc].[is_RepoObjectColumn_name_uniqueidentifier]
- , [roc].[is_SysObjectColumn_name_uniqueidentifier]
- , [ro].[RepoObject_fullname]
- , [ro].[SysObject_fullname]
-FROM [repo].[RepoObjectColumn] AS roc
-INNER JOIN [repo].[RepoObject] AS ro
- ON ro.[RepoObject_guid] = roc.[RepoObject_guid]
-WHERE
- --view
- [ro].[SysObject_type] = 'V'
- AND NOT EXISTS (
-  SELECT 1
-  FROM [repo].[RepoObjectColumn_reference_union] AS [roc_r]
-  WHERE [roc_r].[referencing_RepoObject_guid] = [roc].[RepoObject_guid]
-   AND [roc_r].[referencing_RepoObjectColumn_guid] = [roc].[RepoObjectColumn_guid]
-   AND (
-    [roc_r].[is_referenced_object] = 1
-    OR [roc_r].[is_referencing_object_equal_referenced_object] = 1
-    )
-  )
+Select
+    roc.RepoObjectColumn_guid
+  , roc.RepoObject_guid
+  , roc.RepoObjectColumn_name
+  , roc.SysObjectColumn_name
+  , roc.SysObjectColumn_column_id
+  , roc.Repo_default_definition
+  , roc.Repo_default_is_system_named
+  , roc.Repo_default_name
+  , roc.Repo_definition
+  , roc.Repo_generated_always_type
+  , roc.Repo_graph_type
+  , roc.Repo_is_computed
+  , roc.Repo_is_identity
+  , roc.Repo_is_nullable
+  , roc.Repo_is_persisted
+  , roc.Repo_seed_value
+  , roc.Repo_increment_value
+  , roc.Repo_user_type_name
+  , roc.Repo_user_type_fullname
+  , roc.Repo_uses_database_collation
+  , roc.is_SysObjectColumn_missing
+  , roc.persistence_source_RepoObjectColumn_guid
+  , roc.Referencing_Count
+  , roc.is_query_plan_expression
+  , roc.has_different_sys_names
+  , roc.is_RepoObjectColumn_name_uniqueidentifier
+  , roc.is_SysObjectColumn_name_uniqueidentifier
+  , ro.RepoObject_fullname
+  , ro.SysObject_fullname
+From
+    repo.RepoObjectColumn As roc
+    Inner Join
+        repo.RepoObject   As ro
+            On
+            ro.RepoObject_guid = roc.RepoObject_guid
+Where
+    --view
+    ro.SysObject_type = 'V'
+    And Not Exists
+(
+    Select
+        1
+    From
+        repo.RepoObjectColumn_reference_union As roc_r
+    Where
+        roc_r.referencing_RepoObject_guid                          = roc.RepoObject_guid
+        And roc_r.referencing_RepoObjectColumn_guid                = roc.RepoObjectColumn_guid
+        And
+        (
+            roc_r.is_referenced_object                             = 1
+            Or roc_r.is_referencing_object_equal_referenced_object = 1
+        )
+);
+
 ----
 // end::sql_modules_definition[]
 

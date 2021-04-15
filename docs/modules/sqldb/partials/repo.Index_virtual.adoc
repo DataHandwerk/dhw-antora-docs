@@ -3,11 +3,11 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--antorareferencinglist:
 :ExistsProperty--pk_index_guid:
-:ExistsProperty--pk_IndexPatternColumnDatatype:
-:ExistsProperty--pk_IndexPatternColumnName:
-:ExistsProperty--pk_IndexSemanticGroup:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--pk_indexsemanticgroup:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
 :ExistsProperty--Columns:
@@ -40,7 +40,7 @@ user table
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-03-31 11:21:46
+2021-04-12 17:35:04
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -66,6 +66,7 @@ user table
 
 .Referencing Columns
 --
+* xref:repo.Index_virtual_ForUpdate.adoc#column-index_guid[repo.Index_virtual_ForUpdate.index_guid]
 * xref:repo.Index_virtual_IndexPatternColumnGuid.adoc#column-index_guid[repo.Index_virtual_IndexPatternColumnGuid.index_guid]
 * xref:repo.Index_virtual_SysObject.adoc#column-index_guid[repo.Index_virtual_SysObject.index_guid]
 * xref:repo.IndexColumn_virtual_referenced_setpoint.adoc#column-index_guid[repo.IndexColumn_virtual_referenced_setpoint.index_guid]
@@ -90,6 +91,11 @@ user table
 ((1))
 ....
 
+.Referencing Columns
+--
+* xref:repo.Index_virtual_ForUpdate.adoc#column-has_managedName[repo.Index_virtual_ForUpdate.has_managedName]
+--
+
 
 [[column-index_name]]
 === index_name
@@ -106,6 +112,7 @@ user table
 
 .Referencing Columns
 --
+* xref:repo.Index_virtual_ForUpdate.adoc#column-index_name[repo.Index_virtual_ForUpdate.index_name]
 * xref:repo.Index_virtual_SysObject.adoc#column-index_name[repo.Index_virtual_SysObject.index_name]
 * xref:repo.IndexColumn_virtual_gross.adoc#column-index_name[repo.IndexColumn_virtual_gross.index_name]
 --
@@ -125,7 +132,7 @@ user table
 |===
 
 .Description
-....
+--
 Type of index:
 0 = Heap
 1 = Clustered
@@ -135,12 +142,17 @@ Type of index:
 5 = Clustered columnstore index. Applies to: SQL Server 2014 (12.x) and later.
 6 = Nonclustered columnstore index. Applies to: SQL Server 2012 (11.x) and later.
 7 = Nonclustered hash index. Applies to: SQL Server 2014 (12.x) and later.
-....
+--
 
 .Default: DF__Index_vir__index__13F1F5EB
 ....
 ((0))
 ....
+
+.Referencing Columns
+--
+* xref:repo.Index_virtual_ForUpdate.adoc#column-index_type[repo.Index_virtual_ForUpdate.index_type]
+--
 
 
 [[column-is_index_disabled]]
@@ -163,6 +175,7 @@ Type of index:
 
 .Referencing Columns
 --
+* xref:repo.Index_virtual_ForUpdate.adoc#column-is_index_disabled[repo.Index_virtual_ForUpdate.is_index_disabled]
 * xref:repo.Index_virtual_SysObject.adoc#column-is_index_disabled[repo.Index_virtual_SysObject.is_index_disabled]
 --
 
@@ -187,6 +200,7 @@ Type of index:
 
 .Referencing Columns
 --
+* xref:repo.Index_virtual_ForUpdate.adoc#column-is_index_primary_key[repo.Index_virtual_ForUpdate.is_index_primary_key]
 * xref:repo.Index_virtual_SysObject.adoc#column-is_index_primary_key[repo.Index_virtual_SysObject.is_index_primary_key]
 * xref:repo.IndexColumn_virtual_gross.adoc#column-is_index_primary_key[repo.IndexColumn_virtual_gross.is_index_primary_key]
 --
@@ -212,6 +226,7 @@ Type of index:
 
 .Referencing Columns
 --
+* xref:repo.Index_virtual_ForUpdate.adoc#column-is_index_unique[repo.Index_virtual_ForUpdate.is_index_unique]
 * xref:repo.Index_virtual_SysObject.adoc#column-is_index_unique[repo.Index_virtual_SysObject.is_index_unique]
 * xref:repo.IndexColumn_virtual_gross.adoc#column-is_index_unique[repo.IndexColumn_virtual_gross.is_index_unique]
 --
@@ -232,6 +247,7 @@ Type of index:
 
 .Referencing Columns
 --
+* xref:repo.Index_virtual_ForUpdate.adoc#column-parent_RepoObject_guid[repo.Index_virtual_ForUpdate.parent_RepoObject_guid]
 * xref:repo.Index_virtual_SysObject.adoc#column-parent_RepoObject_guid[repo.Index_virtual_SysObject.parent_RepoObject_guid]
 * xref:repo.IndexColumn_virtual_gross.adoc#column-parent_RepoObject_guid[repo.IndexColumn_virtual_gross.parent_RepoObject_guid]
 --
@@ -252,6 +268,7 @@ Type of index:
 
 .Referencing Columns
 --
+* xref:repo.Index_virtual_ForUpdate.adoc#column-referenced_index_guid[repo.Index_virtual_ForUpdate.referenced_index_guid]
 * xref:repo.Index_virtual_SysObject.adoc#column-referenced_index_guid[repo.Index_virtual_SysObject.referenced_index_guid]
 * xref:repo.IndexColumn_virtual_referenced_setpoint.adoc#column-referenced_index_guid[repo.IndexColumn_virtual_referenced_setpoint.referenced_index_guid]
 * xref:repo.IndexReferencedReferencing.adoc#column-referenced_index_guid[repo.IndexReferencedReferencing.referenced_index_guid]
@@ -272,15 +289,16 @@ Type of index:
 |===
 
 .Description
-....
+--
 the same index can be inherited several times into the same referenced object, if a source is used several times
 for example
 SELECT A_A = A.A, B_A = B.A from source_1 as A LEFT JOIN source_1 as B ON ... 
 normaly these indexes should have different columns
-....
+--
 
 .Referencing Columns
 --
+* xref:repo.Index_virtual_ForUpdate.adoc#column-RowNumberInReferencing[repo.Index_virtual_ForUpdate.RowNumberInReferencing]
 * xref:repo.IndexColumn_virtual_referenced_setpoint.adoc#column-RowNumberInReferencing[repo.IndexColumn_virtual_referenced_setpoint.RowNumberInReferencing]
 --
 
@@ -413,116 +431,97 @@ referenced: xref:repo.RepoObject.adoc[], xref:repo.RepoObject.adoc#index-PK_Repo
 
 // end::AntoraParameterList[]
 
-== example1
-
-// tag::example1[]
-
-// end::example1[]
-
-
-== example2
-
-// tag::example2[]
-
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
-
-
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
-
-
-== UspExamples
-
-// tag::UspExamples[]
-
-// end::UspExamples[]
-
-
-== UspParameters
-
-// tag::UspParameters[]
-
-// end::UspParameters[]
-
-
-== persistence_source_RepoObject_xref
-
-// tag::persistence_source_RepoObject_xref[]
-
-// end::persistence_source_RepoObject_xref[]
-
-
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
+// end::adocuspsteps[]
 
 
 == AntoraReferencedList
 
-// tag::AntoraReferencedList[]
+// tag::antorareferencedlist[]
 
-// end::AntoraReferencedList[]
-
-
-== ReferencedObjectList
-
-// tag::ReferencedObjectList[]
-
-// end::ReferencedObjectList[]
+// end::antorareferencedlist[]
 
 
-== is_repo_managed
+== AntoraReferencingList
 
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
-
-
-== microsoft_database_tools_support
-
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
+// tag::antorareferencinglist[]
+* xref:repo.Index_union.adoc[]
+* xref:repo.Index_virtual_ForUpdate.adoc[]
+* xref:repo.Index_virtual_IndexPatternColumnGuid.adoc[]
+* xref:repo.Index_virtual_SysObject.adoc[]
+* xref:repo.IndexColumn_virtual_gross.adoc[]
+* xref:repo.IndexColumn_virtual_referenced_setpoint.adoc[]
+* xref:repo.IndexReferencedReferencing.adoc[]
+* xref:repo.usp_Index_finish.adoc[]
+* xref:repo.usp_index_inheritance.adoc[]
+* xref:repo.usp_Index_virtual_set.adoc[]
+// end::antorareferencinglist[]
 
 
-== persistence_source_RepoObject_fullname
+== exampleUsage
 
-// tag::persistence_source_RepoObject_fullname[]
+// tag::exampleusage[]
 
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
+// end::exampleusage[]
 
 
-== persistence_source_RepoObject_guid
+== exampleUsage_2
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::exampleusage_2[]
 
-// end::persistence_source_RepoObject_guid[]
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -567,61 +566,53 @@ referenced: xref:repo.RepoObject.adoc[], xref:repo.RepoObject.adoc#index-PK_Repo
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
+// end::microsoft_database_tools_support[]
 
 
-== is_persistence
+== MS_Description
 
-// tag::is_persistence[]
+// tag::ms_description[]
 
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
+// end::ms_description[]
 
 
-== AntoraReferencingList
+== persistence_source_RepoObject_fullname
 
-// tag::AntoraReferencingList[]
-* xref:repo.Index_union.adoc[]
-* xref:repo.Index_virtual_IndexPatternColumnGuid.adoc[]
-* xref:repo.Index_virtual_SysObject.adoc[]
-* xref:repo.IndexColumn_virtual_gross.adoc[]
-* xref:repo.IndexColumn_virtual_referenced_setpoint.adoc[]
-* xref:repo.IndexReferencedReferencing.adoc[]
-* xref:repo.usp_Index_finish.adoc[]
-* xref:repo.usp_index_inheritance.adoc[]
-* xref:repo.usp_Index_virtual_InsertUpdate.adoc[]
-// end::AntoraReferencingList[]
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -633,23 +624,44 @@ referenced: xref:repo.RepoObject.adoc[], xref:repo.RepoObject.adoc#index-PK_Repo
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 uniqueidentifier
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 index_guid
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
 
 
 == pk_IndexSemanticGroup
 
-// tag::pk_IndexSemanticGroup[]
+// tag::pk_indexsemanticgroup[]
 index_guid
-// end::pk_IndexSemanticGroup[]
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition

@@ -23,9 +23,61 @@ skinparam class {
 }
 
 
+entity repo.RepoObjectProperty_Collect_source_uspgenerator << V >> {
+  --
+  * property_name : varchar(14)
+  property_value : sql_variant
+  RepoObject_guid : uniqueidentifier
+}
+
+entity repo.RepoObjectProperty_Collect_source_ROGross << V >> {
+  --
+  * property_name : varchar(39)
+  property_value : sql_variant
+  * RepoObject_guid : uniqueidentifier
+}
+
+entity docs.usp_AntoraExport << P >> {
+  --
+}
+
+entity logs.usp_ExecutionLog_insert << P >> {
+  --
+}
+
+entity repo.RepoObjectProperty << U >> {
+  * **RepoObjectProperty_id** : int
+  --
+  inheritance : tinyint
+  * property_name : nvarchar(128)
+  property_value : sql_variant
+  * RepoObject_guid : uniqueidentifier
+  {abstract} property_basetype : sql_variant
+  {abstract} property_bigint : bigint
+  {abstract} property_float : float
+  {abstract} property_int : int
+  {abstract} property_money : money
+  {abstract} property_nvarchar : nvarchar(4000)
+  {abstract} property_real : real
+  {abstract} property_varchar : varchar(8000)
+}
+
+entity repo.RepoObjectProperty_Collect_source_sql_modules_definition << V >> {
+  --
+  property_name : nvarchar(128)
+  property_value : nvarchar(4000)
+  * RepoObject_guid : uniqueidentifier
+}
+
 entity repo.usp_RepoObjectProperty_collect << P >> {
   --
 }
 
-
+ <.. repo.usp_RepoObjectProperty_collect
+ <.. repo.usp_RepoObjectProperty_collect
+logs.usp_ExecutionLog_insert <.. docs.usp_AntoraExport
+logs.usp_ExecutionLog_insert <.. repo.usp_RepoObjectProperty_collect
+repo.RepoObjectProperty <.. repo.usp_RepoObjectProperty_collect
+repo.RepoObjectProperty_Collect_source_sql_modules_definition <.. repo.usp_RepoObjectProperty_collect
+repo.usp_RepoObjectProperty_collect <.. docs.usp_AntoraExport
 

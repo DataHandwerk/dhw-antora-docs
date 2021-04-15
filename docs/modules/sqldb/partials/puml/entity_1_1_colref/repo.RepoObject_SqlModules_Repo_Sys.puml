@@ -32,6 +32,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -89,6 +90,7 @@ entity repo.RepoObject_gross << V >> {
   is_persistence_update_changed : bit
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   * modify_dt : datetime
@@ -163,6 +165,13 @@ entity repo.RepoObject_SqlModules_Repo_Sys << V >> {
   SysObject_type : char(2)
 }
 
+entity repo.RepoObjectProperty_from_sql_modules_definition << V >> {
+  --
+  property_name : nvarchar(128)
+  property_value : nvarchar(4000)
+  * RepoObject_guid : uniqueidentifier
+}
+
 entity repo_sys.SysObject << V >> {
   --
   * create_date : datetime
@@ -192,6 +201,7 @@ repo.RepoObject <.. repo.RepoObject_SqlModules_Repo_Sys
 repo.RepoObject <.. repo.RepoObject_gross
 repo.RepoObject_SqlModules <.. repo.RepoObject_SqlModules_Repo_Sys
 repo.RepoObject_SqlModules_Repo_Sys <.. repo.RepoObject_gross
+repo.RepoObject_SqlModules_Repo_Sys <.. repo.RepoObjectProperty_from_sql_modules_definition
 repo_sys.SysObject <.. repo.RepoObject_SqlModules_Repo_Sys
 repo.RepoObject::has_different_sys_names <-- repo.RepoObject_gross::has_different_sys_names
 repo.RepoObject::has_execution_plan_issue <-- repo.RepoObject_gross::has_execution_plan_issue
@@ -201,6 +211,7 @@ repo.RepoObject::InheritanceDefinition <-- repo.RepoObject_gross::InheritanceDef
 repo.RepoObject::InheritanceType <-- repo.RepoObject_gross::InheritanceType
 repo.RepoObject::is_repo_managed <-- repo.RepoObject_gross::is_repo_managed
 repo.RepoObject::is_RepoObject_name_uniqueidentifier <-- repo.RepoObject_gross::is_RepoObject_name_uniqueidentifier
+repo.RepoObject::is_required_ObjectMerge <-- repo.RepoObject_gross::is_required_ObjectMerge
 repo.RepoObject::is_SysObject_missing <-- repo.RepoObject_gross::is_SysObject_missing
 repo.RepoObject::is_SysObject_name_uniqueidentifier <-- repo.RepoObject_gross::is_SysObject_name_uniqueidentifier
 repo.RepoObject::modify_dt <-- repo.RepoObject_gross::modify_dt
@@ -233,6 +244,7 @@ repo.RepoObject_SqlModules::sql_modules_dt <-- repo.RepoObject_SqlModules_Repo_S
 repo.RepoObject_SqlModules::sql_modules_formatted <-- repo.RepoObject_SqlModules_Repo_Sys::sql_modules_formatted
 repo.RepoObject_SqlModules::sql_modules_formatted2 <-- repo.RepoObject_SqlModules_Repo_Sys::sql_modules_formatted2
 repo.RepoObject_SqlModules::sql_modules_json <-- repo.RepoObject_SqlModules_Repo_Sys::sql_modules_json
+repo.RepoObject_SqlModules_Repo_Sys::RepoObject_guid <-- repo.RepoObjectProperty_from_sql_modules_definition::RepoObject_guid
 repo.RepoObject_SqlModules_Repo_Sys::sql_modules_definition <-- repo.RepoObject_gross::sql_modules_definition
 repo.RepoObject_SqlModules_Repo_Sys::sql_modules_formatted <-- repo.RepoObject_gross::sql_modules_formatted
 repo.RepoObject_SqlModules_Repo_Sys::sql_modules_formatted2 <-- repo.RepoObject_gross::sql_modules_formatted2

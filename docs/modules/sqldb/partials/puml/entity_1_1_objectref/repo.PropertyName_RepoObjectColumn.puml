@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.Parameter << U >> {
+entity config.Parameter << U >> {
   * **Parameter_name** : varchar(100)
   * **sub_Parameter** : nvarchar(128)
 }
@@ -32,15 +32,15 @@ entity repo.PropertyName_RepoObjectColumn << V >> {
   * **property_name** : nvarchar(128)
 }
 
-entity repo.RepoObjectColumn_InheritanceType_InheritanceDefinition << V >> {
-}
-
 entity repo.RepoObjectColumnProperty << U >> {
   * **RepoObjectColumnProperty_id** : int
 }
 
-repo.Parameter <.. repo.PropertyName_RepoObjectColumn
-repo.Parameter <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
-repo.PropertyName_RepoObjectColumn <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
+entity repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition << V >> {
+}
+
+config.Parameter <.. repo.PropertyName_RepoObjectColumn
+config.Parameter <.. repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition
+repo.PropertyName_RepoObjectColumn <.. repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition
+repo.RepoObjectColumnProperty <.. repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition
 repo.RepoObjectColumnProperty <.. repo.PropertyName_RepoObjectColumn
-repo.RepoObjectColumnProperty <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition

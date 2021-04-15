@@ -23,7 +23,26 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
+entity repo.ForeignKey_Indexes_union << V >> {
+  **ForeignKey_guid** : uniqueidentifier
+}
+
+entity repo.ForeignKey_Indexes_union_T << U >> {
+  **ForeignKey_guid** : uniqueidentifier
+}
+
+entity repo.usp_Index_ForeignKey << P >> {
+}
+
 entity repo.usp_PERSIST_ForeignKey_Indexes_union_T << P >> {
 }
 
-
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_ForeignKey
+logs.usp_ExecutionLog_insert <.. repo.usp_PERSIST_ForeignKey_Indexes_union_T
+repo.ForeignKey_Indexes_union <.. repo.usp_PERSIST_ForeignKey_Indexes_union_T
+repo.ForeignKey_Indexes_union <.. repo.ForeignKey_Indexes_union_T
+repo.ForeignKey_Indexes_union_T <.. repo.usp_PERSIST_ForeignKey_Indexes_union_T
+repo.usp_PERSIST_ForeignKey_Indexes_union_T <.. repo.usp_Index_ForeignKey

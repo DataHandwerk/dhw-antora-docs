@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
 entity repo.ftv_query_plan_extract_source << IF >> {
 }
 
@@ -44,22 +47,19 @@ entity repo.RepoObjectSource_QueryPlan << U >> {
 entity repo.SysObjectColumn_QueryPlanExpression << V >> {
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-}
-
 entity repo.usp_main << P >> {
 }
 
 entity repo.usp_RepoObjectSource_QueryPlan << P >> {
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_main
+logs.usp_ExecutionLog_insert <.. repo.usp_RepoObjectSource_QueryPlan
 repo.ftv_query_plan_extract_source <.. repo.usp_RepoObjectSource_QueryPlan
-repo.RepoObject <.. repo.RepoObject_gross
 repo.RepoObject <.. repo.usp_RepoObjectSource_QueryPlan
+repo.RepoObject <.. repo.RepoObject_gross
 repo.RepoObject_gross <.. repo.usp_RepoObjectSource_QueryPlan
 repo.RepoObjectColumn <.. repo.usp_RepoObjectSource_QueryPlan
 repo.RepoObjectSource_QueryPlan <.. repo.usp_RepoObjectSource_QueryPlan
 repo.SysObjectColumn_QueryPlanExpression <.. repo.usp_RepoObjectSource_QueryPlan
-repo.usp_ExecutionLog_insert <.. repo.usp_RepoObjectSource_QueryPlan
-repo.usp_ExecutionLog_insert <.. repo.usp_main
 repo.usp_RepoObjectSource_QueryPlan <.. repo.usp_main

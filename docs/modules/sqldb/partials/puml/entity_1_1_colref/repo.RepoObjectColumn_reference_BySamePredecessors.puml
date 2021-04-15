@@ -97,8 +97,8 @@ entity repo.RepoObjectColumn_reference_FirstResultSet << V >> {
   referencing_type : char(2)
 }
 
-repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_FirstResultSet
 repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_BySamePredecessors
+repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_FirstResultSet
 repo.RepoObjectColumn_reference_FirstResultSet <.. repo.RepoObjectColumn_reference_BySamePredecessors
 repo.RepoObject_reference_union::referenced_entity_name <-- repo.RepoObjectColumn_reference_BySamePredecessors::referenced_entity_name
 repo.RepoObject_reference_union::referenced_RepoObject_guid <-- repo.RepoObjectColumn_reference_BySamePredecessors::referenced_RepoObject_guid

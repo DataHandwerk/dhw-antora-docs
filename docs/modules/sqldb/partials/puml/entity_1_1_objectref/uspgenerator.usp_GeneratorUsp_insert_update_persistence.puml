@@ -1,0 +1,66 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
+entity repo.RepoObject_gross << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.usp_main << P >> {
+}
+
+entity uspgenerator.GeneratorUsp << U >> {
+  * **id** : int
+}
+
+entity uspgenerator.GeneratorUspStep << U >> {
+  * **id** : int
+}
+
+entity uspgenerator.GeneratorUspStep_Persistence << V >> {
+  * **usp_id** : int
+}
+
+entity uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint << V >> {
+  * **usp_id** : int
+}
+
+entity uspgenerator.usp_GeneratorUsp_insert_update_persistence << P >> {
+}
+
+logs.usp_ExecutionLog_insert <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+logs.usp_ExecutionLog_insert <.. repo.usp_main
+repo.RepoObject_gross <.. uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint
+repo.RepoObject_gross <.. uspgenerator.GeneratorUspStep_Persistence
+repo.RepoObject_gross <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUsp <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUspStep_Persistence
+uspgenerator.GeneratorUspStep <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUspStep_Persistence <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.GeneratorUspStep_Persistence_IsInactive_setpoint <.. uspgenerator.usp_GeneratorUsp_insert_update_persistence
+uspgenerator.usp_GeneratorUsp_insert_update_persistence <.. repo.usp_main

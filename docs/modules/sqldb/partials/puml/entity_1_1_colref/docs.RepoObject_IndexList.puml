@@ -42,10 +42,10 @@ entity docs.usp_PERSIST_RepoObject_IndexList_T << P >> {
 }
 
 entity repo.ForeignKey_gross << V >> {
+  **ForeignKey_guid** : uniqueidentifier
   --
   delete_referential_action : tinyint
   ForeignKey_fullname : nvarchar(517)
-  ForeignKey_guid : uniqueidentifier
   ForeignKey_name : nvarchar(128)
   * is_MatchingDatatypePattern : int
   * referenced_AntoraXref : nvarchar(951)
@@ -108,10 +108,10 @@ docs.RepoObject_IndexList <.. docs.RepoObject_IndexList_T
 docs.RepoObject_IndexList <.. docs.usp_PERSIST_RepoObject_IndexList_T
 docs.RepoObject_IndexList_T <.. docs.usp_PERSIST_RepoObject_IndexList_T
 repo.ForeignKey_gross <.. docs.RepoObject_IndexList
-repo.Index_gross <.. docs.RepoObject_IndexList
 repo.Index_gross <.. repo.ForeignKey_gross
+repo.Index_gross <.. docs.RepoObject_IndexList
 docs.RepoObject_IndexList::AntoraIndexList <-- docs.RepoObject_IndexList_T::AntoraIndexList
 docs.RepoObject_IndexList::PumlIndexList <-- docs.RepoObject_IndexList_T::PumlIndexList
 docs.RepoObject_IndexList::RepoObject_guid <-- docs.RepoObject_IndexList_T::RepoObject_guid
-repo.Index_gross::index_name <-- repo.ForeignKey_gross::referenced_index_name
 repo.Index_gross::index_name <-- repo.ForeignKey_gross::referencing_index_name
+repo.Index_gross::index_name <-- repo.ForeignKey_gross::referenced_index_name

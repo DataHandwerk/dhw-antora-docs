@@ -26,10 +26,10 @@ skinparam class {
 entity repo.ftv_sqlparse << IF >> {
 }
 
-entity repo.RepoObject_SqlModules_22_identifier_alias_AS << V >> {
+entity sqlparse.RepoObject_SqlModules_22_identifier_alias_AS << V >> {
   * **RepoObject_guid** : uniqueidentifier
   * **json_key** : nvarchar(4000)
   **RowNumber** : bigint
 }
 
-repo.ftv_sqlparse <.. repo.RepoObject_SqlModules_22_identifier_alias_AS
+repo.ftv_sqlparse <.. sqlparse.RepoObject_SqlModules_22_identifier_alias_AS

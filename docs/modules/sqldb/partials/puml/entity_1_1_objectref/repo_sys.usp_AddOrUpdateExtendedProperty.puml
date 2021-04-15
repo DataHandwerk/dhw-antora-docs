@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.fs_dwh_database_name << FN >> {
+entity config.fs_dwh_database_name << FN >> {
 }
 
 entity repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate << P >> {
@@ -38,7 +38,7 @@ entity repo.usp_sync_guid_RepoObjectColumn << P >> {
 entity repo_sys.usp_AddOrUpdateExtendedProperty << P >> {
 }
 
-repo.fs_dwh_database_name <.. repo_sys.usp_AddOrUpdateExtendedProperty
+config.fs_dwh_database_name <.. repo_sys.usp_AddOrUpdateExtendedProperty
 repo_sys.usp_AddOrUpdateExtendedProperty <.. repo.usp_sync_guid_RepoObject
 repo_sys.usp_AddOrUpdateExtendedProperty <.. repo.usp_sync_guid_RepoObjectColumn
 repo_sys.usp_AddOrUpdateExtendedProperty <.. repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate

@@ -24,6 +24,10 @@ skinparam class {
 
 
 entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
   --
   definition : nvarchar(max)
   * InformationSource : varchar(10)
@@ -34,8 +38,6 @@ entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
   is_target_column_name_expression : bit
   referenced_column_name : nvarchar(128)
   referenced_entity_name : nvarchar(128)
-  referenced_id : int
-  referenced_minor_id : int
   referenced_node_id : bigint
   referenced_RepoObject_guid : uniqueidentifier
   referenced_RepoObjectColumn_guid : uniqueidentifier
@@ -43,8 +45,6 @@ entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
   referenced_type : char(2)
   referencing_column_name : nvarchar(128)
   * referencing_entity_name : nvarchar(128)
-  referencing_id : int
-  referencing_minor_id : int
   referencing_node_id : bigint
   * referencing_RepoObject_guid : uniqueidentifier
   referencing_RepoObjectColumn_guid : uniqueidentifier

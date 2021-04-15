@@ -1,0 +1,4 @@
+= logs
+
+include::partial$navlist/navlist-schema-logs.adoc[]
+

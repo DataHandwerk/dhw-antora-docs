@@ -1,0 +1,74 @@
+
+
+== References
+
+ifdef::ExistsProperty--antorareferencedlist[]
+
+=== Referenced Objects
+
+include::partial${docname}.adoc[tag=antorareferencedlist]
+endif::ExistsProperty--antorareferencedlist[]
+
+ifdef::ExistsProperty--antorareferencinglist[]
+
+=== Referencing Objects
+
+include::partial${docname}.adoc[tag=antorareferencinglist]
+endif::ExistsProperty--antorareferencinglist[]
+
+=== Object Reference Diagram
+
+[plantuml, entity_1_1_objectref-{docname}, svg]
+....
+include::partial$puml/entity_1_1_objectref/{docname}.puml[]
+....
+
+=== Object Reference Diagram - Referenced
+
+[plantuml, entity_30_0_objectref-{docname}, svg]
+....
+include::partial$puml/entity_30_0_objectref/{docname}.puml[]
+....
+
+=== Object Reference Diagram - Referencing
+
+[plantuml, entity_0_30_objectref-{docname}, svg]
+....
+include::partial$puml/entity_0_30_objectref/{docname}.puml[]
+....
+
+ifdef::ExistsProperty--Columns[]
+
+=== Column Reference Diagram
+
+[plantuml, entity_1_1_colref-{docname}, svg]
+....
+include::partial$puml/entity_1_1_colref/{docname}.puml[]
+....
+
+endif::ExistsProperty--Columns[]
+
+ifdef::ExistsProperty--AntoraIndexList[]
+
+== Indexes
+
+include::partial${docname}.adoc[tag=AntoraIndexList]
+
+endif::ExistsProperty--AntoraIndexList[]
+
+ifdef::ExistsProperty--Columns[]
+
+== Column Details
+
+include::partial${docname}.adoc[tag=AntoraColumnDetails]
+
+endif::ExistsProperty--Columns[]
+
+ifdef::ExistsProperty--sql_modules_definition[]
+
+== sql_modules_definition
+
+.{docname} script
+include::partial${docname}.adoc[tag=sql_modules_definition]
+endif::ExistsProperty--sql_modules_definition[]
+

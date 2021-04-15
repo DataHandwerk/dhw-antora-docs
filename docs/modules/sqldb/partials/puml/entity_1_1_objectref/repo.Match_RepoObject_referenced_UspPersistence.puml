@@ -35,13 +35,21 @@ entity repo.Match_RepoObject_referenced_UspPersistence << V >> {
 }
 
 entity repo.Reference_UspPersistence << V >> {
+  **referenced_usp_RepoObject_guid** : uniqueidentifier
+  **referencing_usp_RepoObject_guid** : uniqueidentifier
 }
 
 entity repo.RepoObject_gross << V >> {
   * **RepoObject_guid** : uniqueidentifier
 }
 
+entity repo.usp_main << P >> {
+}
+
+graph.ReferencedObject <.. repo.usp_main
 graph.ReferencedObject <.. repo.Match_RepoObject_referenced_UspPersistence
+graph.RepoObject <.. repo.usp_main
 graph.RepoObject <.. repo.Match_RepoObject_referenced_UspPersistence
 repo.Match_RepoObject_referenced_UspPersistence <.. repo.Reference_UspPersistence
+repo.Match_RepoObject_referenced_UspPersistence <.. repo.usp_main
 repo.RepoObject_gross <.. repo.Match_RepoObject_referenced_UspPersistence

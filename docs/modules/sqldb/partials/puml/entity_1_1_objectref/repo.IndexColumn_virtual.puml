@@ -33,7 +33,7 @@ entity repo.IndexColumn_virtual << U >> {
 }
 
 entity repo.IndexColumn_virtual_gross << V >> {
-  * **index_guid** : uniqueidentifier
+  * **index_column_id** : int
 }
 
 entity repo.usp_Index_finish << P >> {
@@ -42,13 +42,17 @@ entity repo.usp_Index_finish << P >> {
 entity repo.usp_index_inheritance << P >> {
 }
 
-entity repo.usp_Index_virtual_InsertUpdate << P >> {
+entity repo.usp_Index_virtual_set << P >> {
+}
+
+entity repo.usp_sync_guid_RepoObjectColumn << P >> {
 }
 
 repo.Index_virtual_IndexPatternColumnGuid <.. repo.usp_index_inheritance
-repo.IndexColumn_virtual <.. repo.IndexColumn_virtual_gross
-repo.IndexColumn_virtual <.. repo.usp_index_inheritance
-repo.IndexColumn_virtual <.. repo.usp_Index_virtual_InsertUpdate
-repo.IndexColumn_virtual <.. repo.Index_virtual_IndexPatternColumnGuid
 repo.IndexColumn_virtual <.. repo.usp_Index_finish
+repo.IndexColumn_virtual <.. repo.IndexColumn_virtual_gross
+repo.IndexColumn_virtual <.. repo.Index_virtual_IndexPatternColumnGuid
+repo.IndexColumn_virtual <.. repo.usp_sync_guid_RepoObjectColumn
+repo.IndexColumn_virtual <.. repo.usp_Index_virtual_set
+repo.IndexColumn_virtual <.. repo.usp_index_inheritance
 repo.usp_Index_finish <.. repo.usp_index_inheritance

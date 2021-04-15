@@ -29,7 +29,7 @@ entity repo.ftv_RepoObject_ColumReferenceRepoObject << IF >> {
   Parameter_RepoObject_guid : uniqueidentifier
   RepoObject_fullname : nvarchar(261)
   RepoObject_guid : uniqueidentifier
-  RepoObject_type : uniqueidentifier
+  RepoObject_type : char(2)
 }
 
 entity repo.RepoObjectColumn << U >> {
@@ -42,6 +42,7 @@ entity repo.RepoObjectColumn << U >> {
   is_persistence_no_include : bit
   is_persistence_no_update : bit
   is_query_plan_expression : bit
+  is_required_ColumnMerge : bit
   is_SysObjectColumn_missing : bit
   persistence_source_RepoObjectColumn_guid : uniqueidentifier
   Referencing_Count : int

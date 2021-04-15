@@ -3,6 +3,9 @@
 == existing_properties
 
 // tag::existing_properties[]
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
@@ -30,18 +33,37 @@ view
 == SysObject_id
 
 // tag::SysObject_id[]
-925246351
+1890821798
 // end::SysObject_id[]
 
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-09 15:24:41
+2021-04-13 19:02:39
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
 
 // tag::AntoraColumnDetails[]
+[[column-index_guid]]
+=== index_guid
+
+[cols="d,m,m,m,m,d"]
+|===
+|1
+|*index_guid*
+|uniqueidentifier
+|NOT NULL
+|
+|
+|===
+
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-index_guid[repo.Index_virtual.index_guid]
+--
+
+
 [[column-has_managedName]]
 === has_managedName
 
@@ -55,19 +77,10 @@ view
 |
 |===
 
-
-[[column-index_guid]]
-=== index_guid
-
-[cols="d,m,m,m,m,d"]
-|===
-|
-|index_guid
-|uniqueidentifier
-|NOT NULL
-|
-|
-|===
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-has_managedName[repo.Index_virtual.has_managedName]
+--
 
 
 [[column-index_name]]
@@ -83,6 +96,11 @@ view
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-index_name[repo.Index_virtual.index_name]
+--
+
 
 [[column-index_type]]
 === index_type
@@ -96,6 +114,24 @@ view
 |
 |
 |===
+
+.Description
+--
+Type of index:
+0 = Heap
+1 = Clustered
+2 = Nonclustered
+3 = XML
+4 = Spatial
+5 = Clustered columnstore index. Applies to: SQL Server 2014 (12.x) and later.
+6 = Nonclustered columnstore index. Applies to: SQL Server 2012 (11.x) and later.
+7 = Nonclustered hash index. Applies to: SQL Server 2014 (12.x) and later.
+--
+
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-index_type[repo.Index_virtual.index_type]
+--
 
 
 [[column-IndexPatternColumnDatatype]]
@@ -111,6 +147,11 @@ view
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.Index_Settings.adoc#column-IndexPatternColumnDatatype[repo.Index_Settings.IndexPatternColumnDatatype]
+--
+
 
 [[column-IndexPatternColumnName]]
 === IndexPatternColumnName
@@ -124,6 +165,11 @@ view
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.Index_Settings.adoc#column-IndexPatternColumnName[repo.Index_Settings.IndexPatternColumnName]
+--
 
 
 [[column-IndexSemanticGroup]]
@@ -139,6 +185,11 @@ view
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.Index_Settings.adoc#column-IndexSemanticGroup[repo.Index_Settings.IndexSemanticGroup]
+--
+
 
 [[column-is_index_disabled]]
 === is_index_disabled
@@ -152,6 +203,11 @@ view
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-is_index_disabled[repo.Index_virtual.is_index_disabled]
+--
 
 
 [[column-is_index_primary_key]]
@@ -167,6 +223,11 @@ view
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-is_index_primary_key[repo.Index_virtual.is_index_primary_key]
+--
+
 
 [[column-is_index_unique]]
 === is_index_unique
@@ -180,6 +241,11 @@ view
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-is_index_unique[repo.Index_virtual.is_index_unique]
+--
 
 
 [[column-is_persistence]]
@@ -195,6 +261,11 @@ view
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-is_persistence[repo.RepoObject_gross.is_persistence]
+--
+
 
 [[column-is_repo_managed]]
 === is_repo_managed
@@ -208,6 +279,11 @@ view
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.RepoObject_gross.adoc#column-is_repo_managed[repo.RepoObject_gross.is_repo_managed]
+--
 
 
 [[column-parent_RepoObject_guid]]
@@ -223,6 +299,11 @@ view
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-parent_RepoObject_guid[repo.Index_virtual.parent_RepoObject_guid]
+--
+
 
 [[column-referenced_index_guid]]
 === referenced_index_guid
@@ -236,6 +317,11 @@ view
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-referenced_index_guid[repo.Index_virtual.referenced_index_guid]
+--
 
 
 [[column-RepoObject_fullname]]
@@ -251,6 +337,16 @@ view
 |
 |===
 
+.Description
+--
+(concat('[',[RepoObject_schema_name],'].[',[RepoObject_name],']'))
+--
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-RepoObject_fullname[repo.RepoObject.RepoObject_fullname]
+--
+
 
 [[column-RepoObject_fullname2]]
 === RepoObject_fullname2
@@ -264,6 +360,16 @@ view
 |
 |
 |===
+
+.Description
+--
+(concat([RepoObject_schema_name],'.',[RepoObject_name]))
+--
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-RepoObject_fullname2[repo.RepoObject.RepoObject_fullname2]
+--
 
 
 [[column-RowNumberInReferencing]]
@@ -279,6 +385,19 @@ view
 |
 |===
 
+.Description
+--
+the same index can be inherited several times into the same referenced object, if a source is used several times
+for example
+SELECT A_A = A.A, B_A = B.A from source_1 as A LEFT JOIN source_1 as B ON ... 
+normaly these indexes should have different columns
+--
+
+.Referenced Columns
+--
+* xref:repo.Index_virtual.adoc#column-RowNumberInReferencing[repo.Index_virtual.RowNumberInReferencing]
+--
+
 
 [[column-SysObject_fullname]]
 === SysObject_fullname
@@ -292,6 +411,16 @@ view
 |
 |
 |===
+
+.Description
+--
+(concat('[',[SysObject_schema_name],'].[',[SysObject_name],']'))
+--
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-SysObject_fullname[repo.RepoObject.SysObject_fullname]
+--
 
 
 [[column-SysObject_fullname2]]
@@ -307,12 +436,28 @@ view
 |
 |===
 
+.Description
+--
+(concat([SysObject_schema_name],'.',[SysObject_name]))
+--
+
+.Referenced Columns
+--
+* xref:repo.RepoObject.adoc#column-SysObject_fullname2[repo.RepoObject.SysObject_fullname2]
+--
+
 
 // end::AntoraColumnDetails[]
 
 == AntoraPkColumnTableRows
 
 // tag::AntoraPkColumnTableRows[]
+|1
+|*<<column-index_guid>>*
+|uniqueidentifier
+|NOT NULL
+|
+|
 
 
 
@@ -337,16 +482,10 @@ view
 == AntoraNonPkColumnTableRows
 
 // tag::AntoraNonPkColumnTableRows[]
+
 |
 |<<column-has_managedName>>
 |bit
-|NOT NULL
-|
-|
-
-|
-|<<column-index_guid>>
-|uniqueidentifier
 |NOT NULL
 |
 |
@@ -476,15 +615,15 @@ view
 
 // tag::AntoraIndexList[]
 
-[[index-idx_Index_virtual_ForUpdate__1]]
-=== idx_Index_virtual_ForUpdate__1
+[[index-PK_Index_virtual_ForUpdate]]
+=== PK_Index_virtual_ForUpdate
 
 * IndexSemanticGroup: xref:index/IndexSemanticGroup.adoc#_index_guid[index_guid]
 +
 --
 * <<column-index_guid>>; uniqueidentifier
 --
-* PK, Unique, Real: 0, 0, 0
+* PK, Unique, Real: 1, 1, 0
 
 
 [[index-idx_Index_virtual_ForUpdate__2]]
@@ -507,170 +646,68 @@ view
 
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
+// end::adocuspsteps[]
 
 
 == AntoraReferencedList
 
-// tag::AntoraReferencedList[]
-
-// end::AntoraReferencedList[]
+// tag::antorareferencedlist[]
+* xref:repo.Index_Settings.adoc[]
+* xref:repo.Index_virtual.adoc[]
+* xref:repo.RepoObject.adoc[]
+* xref:repo.RepoObject_gross.adoc[]
+// end::antorareferencedlist[]
 
 
 == AntoraReferencingList
 
-// tag::AntoraReferencingList[]
+// tag::antorareferencinglist[]
+* xref:repo.usp_index_inheritance.adoc[]
+// end::antorareferencinglist[]
 
-// end::AntoraReferencingList[]
 
+== exampleUsage
 
-== usp_persistence_RepoObject_guid
+// tag::exampleusage[]
 
-// tag::usp_persistence_RepoObject_guid[]
+// end::exampleusage[]
 
-// end::usp_persistence_RepoObject_guid[]
 
+== exampleUsage_2
 
-== UspExamples
+// tag::exampleusage_2[]
 
-// tag::UspExamples[]
+// end::exampleusage_2[]
 
-// end::UspExamples[]
 
+== exampleWrong_Usage
 
-== UspParameters
+// tag::examplewrong_usage[]
 
-// tag::UspParameters[]
+// end::examplewrong_usage[]
 
-// end::UspParameters[]
 
+== has_execution_plan_issue
 
-== pk_IndexPatternColumnName
+// tag::has_execution_plan_issue[]
 
-// tag::pk_IndexPatternColumnName[]
+// end::has_execution_plan_issue[]
 
-// end::pk_IndexPatternColumnName[]
 
+== has_get_referenced_issue
 
-== pk_IndexSemanticGroup
+// tag::has_get_referenced_issue[]
 
-// tag::pk_IndexSemanticGroup[]
+// end::has_get_referenced_issue[]
 
-// end::pk_IndexSemanticGroup[]
 
+== has_history
 
-== ReferencedObjectList
+// tag::has_history[]
 
-// tag::ReferencedObjectList[]
-
-// end::ReferencedObjectList[]
-
-
-== persistence_source_RepoObject_xref
-
-// tag::persistence_source_RepoObject_xref[]
-
-// end::persistence_source_RepoObject_xref[]
-
-
-== pk_index_guid
-
-// tag::pk_index_guid[]
-
-// end::pk_index_guid[]
-
-
-== pk_IndexPatternColumnDatatype
-
-// tag::pk_IndexPatternColumnDatatype[]
-
-// end::pk_IndexPatternColumnDatatype[]
-
-
-== persistence_source_RepoObject_fullname
-
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
-
-
-== persistence_source_RepoObject_guid
-
-// tag::persistence_source_RepoObject_guid[]
-
-// end::persistence_source_RepoObject_guid[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
-
-
-== microsoft_database_tools_support
-
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
-
-
-== is_persistence_insert
-
-// tag::is_persistence_insert[]
-
-// end::is_persistence_insert[]
-
-
-== is_persistence_truncate
-
-// tag::is_persistence_truncate[]
-
-// end::is_persistence_truncate[]
-
-
-== is_persistence_update_changed
-
-// tag::is_persistence_update_changed[]
-
-// end::is_persistence_update_changed[]
-
-
-== is_persistence_check_for_empty_source
-
-// tag::is_persistence_check_for_empty_source[]
-
-// end::is_persistence_check_for_empty_source[]
-
-
-== is_persistence_delete_changed
-
-// tag::is_persistence_delete_changed[]
-
-// end::is_persistence_delete_changed[]
-
-
-== is_persistence_delete_missing
-
-// tag::is_persistence_delete_missing[]
-
-// end::is_persistence_delete_missing[]
+// end::has_history[]
 
 
 == has_history_columns
@@ -694,46 +731,147 @@ view
 // end::is_persistence_check_duplicate_per_pk[]
 
 
-== example4
+== is_persistence_check_for_empty_source
 
-// tag::example4[]
+// tag::is_persistence_check_for_empty_source[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_persistence_check_for_empty_source[]
 
 
-== has_history
+== is_persistence_delete_changed
 
-// tag::has_history[]
+// tag::is_persistence_delete_changed[]
 
-// end::has_history[]
-
-
-== example1
-
-// tag::example1[]
-
-// end::example1[]
+// end::is_persistence_delete_changed[]
 
 
-== example2
+== is_persistence_delete_missing
 
-// tag::example2[]
+// tag::is_persistence_delete_missing[]
 
-// end::example2[]
+// end::is_persistence_delete_missing[]
 
 
-== example3
+== is_persistence_insert
 
-// tag::example3[]
+// tag::is_persistence_insert[]
 
-// end::example3[]
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::ms_description[]
+
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+* [repo].[Index_Settings]
+* [repo].[Index_virtual]
+* [repo].[RepoObject]
+* [repo].[RepoObject_gross]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -746,34 +884,44 @@ view
 can be used to update data in repo.Index_virtual
 the RepoObject names are shown, can be used for sorting
 */
-CREATE VIEW [repo].[Index_virtual_ForUpdate]
-AS
-SELECT iv.index_guid
- , iv.has_managedName
- , iv.index_name
- , iv.index_type
- , iv.is_index_disabled
- , iv.is_index_primary_key
- , iv.is_index_unique
- , iv.parent_RepoObject_guid
- , iv.referenced_index_guid
- , iv.RowNumberInReferencing
- , iset.IndexPatternColumnDatatype
- , iset.IndexPatternColumnName
- , iset.IndexSemanticGroup
- , ro.RepoObject_fullname
- , ro.RepoObject_fullname2
- , ro.SysObject_fullname
- , ro.SysObject_fullname2
- , parent.[is_persistence]
- , parent.[is_repo_managed]
-FROM repo.Index_virtual AS iv
-INNER JOIN repo.RepoObject AS ro
- ON ro.RepoObject_guid = iv.parent_RepoObject_guid
-LEFT JOIN [repo].[Index_Settings] iset
- ON iset.index_guid = iv.index_guid
-LEFT JOIN repo.RepoObject_gross AS parent
- ON parent.RepoObject_guid = iv.parent_RepoObject_guid
+Create View repo.Index_virtual_ForUpdate
+As
+Select
+    iv.index_guid
+  , iv.has_managedName
+  , iv.index_name
+  , iv.index_type
+  , iv.is_index_disabled
+  , iv.is_index_primary_key
+  , iv.is_index_unique
+  , iv.parent_RepoObject_guid
+  , iv.referenced_index_guid
+  , iv.RowNumberInReferencing
+  , iset.IndexPatternColumnDatatype
+  , iset.IndexPatternColumnName
+  , iset.IndexSemanticGroup
+  , ro.RepoObject_fullname
+  , ro.RepoObject_fullname2
+  , ro.SysObject_fullname
+  , ro.SysObject_fullname2
+  , parent.is_persistence
+  , parent.is_repo_managed
+From
+    repo.Index_virtual        As iv
+    Inner Join
+        repo.RepoObject       As ro
+            On
+            ro.RepoObject_guid     = iv.parent_RepoObject_guid
+
+    Left Join
+        repo.Index_Settings   iset
+            On
+            iset.index_guid        = iv.index_guid
+
+    Left Join
+        repo.RepoObject_gross As parent
+            On
+            parent.RepoObject_guid = iv.parent_RepoObject_guid;
 
 ----
 // end::sql_modules_definition[]

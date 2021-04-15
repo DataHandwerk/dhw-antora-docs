@@ -1,0 +1,53 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+}
+
+entity repo.PropertyName_RepoObject << V >> {
+  * **property_name** : nvarchar(128)
+}
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectProperty << U >> {
+  * **RepoObjectProperty_id** : int
+}
+
+entity repo.RepoObjectProperty_InheritanceType_InheritanceDefinition << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **property_name** : nvarchar(128)
+}
+
+config.Parameter <.. repo.PropertyName_RepoObject
+config.Parameter <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+repo.PropertyName_RepoObject <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+repo.RepoObject <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+repo.RepoObjectProperty <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+repo.RepoObjectProperty <.. repo.PropertyName_RepoObject

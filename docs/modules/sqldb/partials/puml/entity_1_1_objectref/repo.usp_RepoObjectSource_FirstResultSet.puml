@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
 entity repo.RepoObject << U >> {
   * **RepoObject_guid** : uniqueidentifier
 }
@@ -36,19 +39,16 @@ entity repo.RepoObjectSource_FirstResultSet << U >> {
   * **column_ordinal** : int
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-}
-
 entity repo.usp_main << P >> {
 }
 
 entity repo.usp_RepoObjectSource_FirstResultSet << P >> {
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_main
+logs.usp_ExecutionLog_insert <.. repo.usp_RepoObjectSource_FirstResultSet
 repo.RepoObject <.. repo.RepoObject_gross
 repo.RepoObject <.. repo.usp_RepoObjectSource_FirstResultSet
 repo.RepoObject_gross <.. repo.usp_RepoObjectSource_FirstResultSet
 repo.RepoObjectSource_FirstResultSet <.. repo.usp_RepoObjectSource_FirstResultSet
-repo.usp_ExecutionLog_insert <.. repo.usp_RepoObjectSource_FirstResultSet
-repo.usp_ExecutionLog_insert <.. repo.usp_main
 repo.usp_RepoObjectSource_FirstResultSet <.. repo.usp_main

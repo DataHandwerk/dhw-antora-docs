@@ -26,4 +26,15 @@ skinparam class {
 entity repo.RepoObjectProperty_from_sql_modules_definition << V >> {
 }
 
+entity repo.usp_RepoObjectProperty_collect << P >> {
+}
 
+entity sqlparse.RepoObject_SqlModules_Repo_Sys << V >> {
+}
+
+entity tool.ftv_extract_substrings << IF >> {
+}
+
+repo.RepoObjectProperty_from_sql_modules_definition <.. repo.usp_RepoObjectProperty_collect
+sqlparse.RepoObject_SqlModules_Repo_Sys <.. repo.RepoObjectProperty_from_sql_modules_definition
+tool.ftv_extract_substrings <.. repo.RepoObjectProperty_from_sql_modules_definition

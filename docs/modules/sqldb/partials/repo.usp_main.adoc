@@ -3,11 +3,11 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AdocUspSteps:
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--MS_Description:
-:ExistsProperty--ReferencedObjectList:
-:ExistsProperty--UspExamples:
+:ExistsProperty--adocuspsteps:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--exampleusage:
+:ExistsProperty--ms_description:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--AntoraParameterList:
 // end::existing_properties[]
@@ -39,7 +39,7 @@ stored procedure
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-11 13:27:43
+2021-04-15 12:52:36
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -75,205 +75,9 @@ stored procedure
 * @parent_execution_log_id (bigint)
 // end::AntoraParameterList[]
 
-== persistence_source_RepoObject_xref
-
-// tag::persistence_source_RepoObject_xref[]
-
-// end::persistence_source_RepoObject_xref[]
-
-
-== pk_index_guid
-
-// tag::pk_index_guid[]
-
-// end::pk_index_guid[]
-
-
-== pk_IndexPatternColumnDatatype
-
-// tag::pk_IndexPatternColumnDatatype[]
-
-// end::pk_IndexPatternColumnDatatype[]
-
-
-== persistence_source_RepoObject_fullname
-
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
-
-
-== persistence_source_RepoObject_guid
-
-// tag::persistence_source_RepoObject_guid[]
-
-// end::persistence_source_RepoObject_guid[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
-
-
-== microsoft_database_tools_support
-
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== is_persistence_insert
-
-// tag::is_persistence_insert[]
-
-// end::is_persistence_insert[]
-
-
-== is_persistence_truncate
-
-// tag::is_persistence_truncate[]
-
-// end::is_persistence_truncate[]
-
-
-== is_persistence_update_changed
-
-// tag::is_persistence_update_changed[]
-
-// end::is_persistence_update_changed[]
-
-
-== is_persistence_check_for_empty_source
-
-// tag::is_persistence_check_for_empty_source[]
-
-// end::is_persistence_check_for_empty_source[]
-
-
-== is_persistence_delete_changed
-
-// tag::is_persistence_delete_changed[]
-
-// end::is_persistence_delete_changed[]
-
-
-== is_persistence_delete_missing
-
-// tag::is_persistence_delete_missing[]
-
-// end::is_persistence_delete_missing[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
-
-
-== is_persistence
-
-// tag::is_persistence[]
-
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
-
-
-== example4
-
-// tag::example4[]
-
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
-
-
-== has_history
-
-// tag::has_history[]
-
-// end::has_history[]
-
-
-== example1
-
-// tag::example1[]
-
-// end::example1[]
-
-
-== example2
-
-// tag::example2[]
-
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
-
-
-== UspParameters
-
-// tag::UspParameters[]
-
-// end::UspParameters[]
-
-
-== pk_IndexPatternColumnName
-
-// tag::pk_IndexPatternColumnName[]
-
-// end::pk_IndexPatternColumnName[]
-
-
-== pk_IndexSemanticGroup
-
-// tag::pk_IndexSemanticGroup[]
-
-// end::pk_IndexSemanticGroup[]
-
-
-== AntoraReferencingList
-
-// tag::AntoraReferencingList[]
-
-// end::AntoraReferencingList[]
-
-
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
-
-
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 .Steps in [repo].[usp_main]
 [cols="d,15a,d"]
 |===
@@ -291,7 +95,7 @@ stored procedure
 |
 *(select [repo].[fs_get_parameter_value]('main enable usp_RepoObjectSource_FirstResultSet', DEFAULT)) = 1*
 
-* `IF (select [repo].[fs_get_parameter_value]('main enable usp_RepoObjectSource_FirstResultSet', DEFAULT)) = 1`
+* `IF (select [config].[fs_get_parameter_value]('main enable usp_RepoObjectSource_FirstResultSet', DEFAULT)) = 1`
 
 |
 
@@ -308,7 +112,7 @@ stored procedure
 |
 *(select [repo].[fs_get_parameter_value]('main enable usp_RepoObject_update_SysObjectQueryPlan', DEFAULT)) = 1*
 
-* `IF (select [repo].[fs_get_parameter_value]('main enable usp_RepoObject_update_SysObjectQueryPlan', DEFAULT)) = 1`
+* `IF (select [config].[fs_get_parameter_value]('main enable usp_RepoObject_update_SysObjectQueryPlan', DEFAULT)) = 1`
 
 |
 
@@ -325,7 +129,7 @@ stored procedure
 |
 *(select [repo].[fs_get_parameter_value]('main enable usp_RepoObjectSource_QueryPlan', DEFAULT)) = 1*
 
-* `IF (select [repo].[fs_get_parameter_value]('main enable usp_RepoObjectSource_QueryPlan', DEFAULT)) = 1`
+* `IF (select [config].[fs_get_parameter_value]('main enable usp_RepoObjectSource_QueryPlan', DEFAULT)) = 1`
 
 |
 
@@ -378,7 +182,7 @@ stored procedure
 |
 *[repo].[usp_GeneratorUsp_insert_update_persistence]*
 
-* `EXEC [repo].[usp_GeneratorUsp_insert_update_persistence]
+* `EXEC [uspgenerator].[usp_GeneratorUsp_insert_update_persistence]
 --RepoObjectColumn_column_id is required and should be updated before`
 
 |
@@ -422,39 +226,195 @@ stored procedure
 * [graph].[ReferencingObjectColumn]
 
 |
+
+|3110
+|
+*Merge Into [workflow].[ProcedureDependency] (Persistence)*
+
+* u
+* [repo].[Match_RepoObject_referenced_UspPersistence]
+* [workflow].[ProcedureDependency]
+
+|
+
+|4110
+|
+*[repo].[usp_RepoObject_Inheritance]*
+
+* `EXEC [repo].[usp_RepoObject_Inheritance]`
+
+|
+
+|4120
+|
+*[repo].[usp_RepoObjectColumn_Inheritance]*
+
+* `EXEC [repo].[usp_RepoObjectColumn_Inheritance]`
+
+|
 |===
 
-// end::AdocUspSteps[]
+// end::adocuspsteps[]
 
 
 == AntoraReferencedList
 
-// tag::AntoraReferencedList[]
+// tag::antorareferencedlist[]
+* xref:config.fs_get_parameter_value.adoc[]
 * xref:graph.ReferencedObject.adoc[]
 * xref:graph.ReferencedObjectColumn.adoc[]
 * xref:graph.ReferencingObject.adoc[]
 * xref:graph.ReferencingObjectColumn.adoc[]
 * xref:graph.RepoObject.adoc[]
 * xref:graph.RepoObjectColumn.adoc[]
-* xref:repo.fs_get_parameter_value.adoc[]
+* xref:logs.usp_ExecutionLog_insert.adoc[]
+* xref:repo.Match_RepoObject_referenced_UspPersistence.adoc[]
 * xref:repo.RepoObject_reference_union.adoc[]
 * xref:repo.RepoObjectColumn_reference_union.adoc[]
-* xref:repo.usp_ExecutionLog_insert.adoc[]
-* xref:repo.usp_GeneratorUsp_insert_update_persistence.adoc[]
 * xref:repo.usp_Index_ForeignKey.adoc[]
 * xref:repo.usp_index_inheritance.adoc[]
+* xref:repo.usp_RepoObject_Inheritance.adoc[]
 * xref:repo.usp_RepoObject_update_SysObjectQueryPlan.adoc[]
+* xref:repo.usp_RepoObjectColumn_Inheritance.adoc[]
 * xref:repo.usp_RepoObjectColumn_update_RepoObjectColumn_column_id.adoc[]
 * xref:repo.usp_RepoObjectSource_FirstResultSet.adoc[]
 * xref:repo.usp_RepoObjectSource_QueryPlan.adoc[]
 * xref:repo.usp_sync_guid.adoc[]
 * xref:repo.usp_update_Referencing_Count.adoc[]
-// end::AntoraReferencedList[]
+* xref:uspgenerator.usp_GeneratorUsp_insert_update_persistence.adoc[]
+* xref:.adoc[]
+// end::antorareferencedlist[]
+
+
+== AntoraReferencingList
+
+// tag::antorareferencinglist[]
+
+// end::antorareferencinglist[]
+
+
+== exampleUsage
+
+// tag::exampleusage[]
+EXEC [repo].[usp_main]
+// end::exampleusage[]
+
+
+== exampleUsage_2
+
+// tag::exampleusage_2[]
+
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
+
+
+== is_persistence_check_for_empty_source
+
+// tag::is_persistence_check_for_empty_source[]
+
+// end::is_persistence_check_for_empty_source[]
+
+
+== is_persistence_delete_changed
+
+// tag::is_persistence_delete_changed[]
+
+// end::is_persistence_delete_changed[]
+
+
+== is_persistence_delete_missing
+
+// tag::is_persistence_delete_missing[]
+
+// end::is_persistence_delete_missing[]
+
+
+== is_persistence_insert
+
+// tag::is_persistence_insert[]
+
+// end::is_persistence_insert[]
+
+
+== is_persistence_truncate
+
+// tag::is_persistence_truncate[]
+
+// end::is_persistence_truncate[]
+
+
+== is_persistence_update_changed
+
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
+
+
+== is_repo_managed
+
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
 
 
 == MS_Description
 
-// tag::MS_Description[]
+// tag::ms_description[]
 main procedure
 
 this central procedure must be executed regularly
@@ -470,39 +430,106 @@ this central procedure must be executed regularly
 * should be called very often
 * see xref:sqldb:repo.usp_main.adoc#_procdure_steps[Procedure steps] for details.
 * use links in xref:sqldb:repo.usp_main.adoc#_referenced_objects[Referenced objects] to get details of called sub procedures
-// end::MS_Description[]
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
+* [config].[fs_get_parameter_value]
 * [graph].[ReferencedObject]
 * [graph].[ReferencedObjectColumn]
 * [graph].[ReferencingObject]
 * [graph].[ReferencingObjectColumn]
 * [graph].[RepoObject]
 * [graph].[RepoObjectColumn]
-* [repo].[fs_get_parameter_value]
+* [logs].[usp_ExecutionLog_insert]
+* [repo].[Match_RepoObject_referenced_UspPersistence]
 * [repo].[RepoObject_reference_union]
 * [repo].[RepoObjectColumn_reference_union]
-* [repo].[usp_ExecutionLog_insert]
-* [repo].[usp_GeneratorUsp_insert_update_persistence]
 * [repo].[usp_Index_ForeignKey]
 * [repo].[usp_index_inheritance]
+* [repo].[usp_RepoObject_Inheritance]
 * [repo].[usp_RepoObject_update_SysObjectQueryPlan]
+* [repo].[usp_RepoObjectColumn_Inheritance]
 * [repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id]
 * [repo].[usp_RepoObjectSource_FirstResultSet]
 * [repo].[usp_RepoObjectSource_QueryPlan]
 * [repo].[usp_sync_guid]
 * [repo].[usp_update_Referencing_Count]
-// end::ReferencedObjectList[]
+* [uspgenerator].[usp_GeneratorUsp_insert_update_persistence]
+* [workflow].[ProcedureDependency]
+// end::referencedobjectlist[]
 
 
-== UspExamples
+== usp_persistence_RepoObject_guid
 
-// tag::UspExamples[]
-EXEC [repo].[usp_main]
-// end::UspExamples[]
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -518,6 +545,7 @@ CREATE   PROCEDURE [repo].[usp_main]
 , @sub_execution_id INT = NULL --in case you log some sub_executions, for example in SSIS loops or sub packages
 , @parent_execution_log_id BIGINT = NULL --in case a sup procedure is called, the @current_execution_log_id of the parent procedure should be propagated here. It allowes call stack analyzing
 AS
+BEGIN
 DECLARE
  --
    @current_execution_log_id BIGINT --this variable should be filled only once per procedure call, it contains the first logging call for the step 'start'.
@@ -535,8 +563,9 @@ DECLARE
 --[event_info] get's only the information about the "outer" calling process
 --wenn the procedure calls sub procedures, the [event_info] will not change
 SET @event_info = (
-  SELECT [event_info]
+  SELECT TOP 1 [event_info]
   FROM sys.dm_exec_input_buffer(@@spid, CURRENT_REQUEST_ID())
+  ORDER BY [event_info]
   )
 
 IF @execution_instance_guid IS NULL
@@ -548,7 +577,7 @@ SET @step_name = 'start'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert
+EXEC logs.usp_ExecutionLog_insert
  --these parameters should be the same for all logging execution
    @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
@@ -587,7 +616,7 @@ EXEC [repo].[usp_sync_guid]
 
 
 /*{"ReportUspStep":[{"Number":300,"Name":"(select [repo].[fs_get_parameter_value]('main enable usp_RepoObjectSource_FirstResultSet', DEFAULT)) = 1","has_logging":0,"is_condition":1,"is_inactive":0,"is_SubProcedure":0}]}*/
-IF (select [repo].[fs_get_parameter_value]('main enable usp_RepoObjectSource_FirstResultSet', DEFAULT)) = 1
+IF (select [config].[fs_get_parameter_value]('main enable usp_RepoObjectSource_FirstResultSet', DEFAULT)) = 1
 
 /*{"ReportUspStep":[{"Number":310,"Parent_Number":300,"Name":"[repo].[usp_RepoObjectSource_FirstResultSet]","has_logging":0,"is_condition":0,"is_inactive":0,"is_SubProcedure":1}]}*/
 BEGIN
@@ -603,7 +632,7 @@ EXEC [repo].[usp_RepoObjectSource_FirstResultSet]
 END;
 
 /*{"ReportUspStep":[{"Number":400,"Name":"(select [repo].[fs_get_parameter_value]('main enable usp_RepoObject_update_SysObjectQueryPlan', DEFAULT)) = 1","has_logging":0,"is_condition":1,"is_inactive":0,"is_SubProcedure":0}]}*/
-IF (select [repo].[fs_get_parameter_value]('main enable usp_RepoObject_update_SysObjectQueryPlan', DEFAULT)) = 1
+IF (select [config].[fs_get_parameter_value]('main enable usp_RepoObject_update_SysObjectQueryPlan', DEFAULT)) = 1
 
 /*{"ReportUspStep":[{"Number":410,"Parent_Number":400,"Name":"[repo].[usp_RepoObject_update_SysObjectQueryPlan]","has_logging":0,"is_condition":0,"is_inactive":0,"is_SubProcedure":1}]}*/
 BEGIN
@@ -619,7 +648,7 @@ EXEC [repo].[usp_RepoObject_update_SysObjectQueryPlan]
 END;
 
 /*{"ReportUspStep":[{"Number":500,"Name":"(select [repo].[fs_get_parameter_value]('main enable usp_RepoObjectSource_QueryPlan', DEFAULT)) = 1","has_logging":0,"is_condition":1,"is_inactive":0,"is_SubProcedure":0}]}*/
-IF (select [repo].[fs_get_parameter_value]('main enable usp_RepoObjectSource_QueryPlan', DEFAULT)) = 1
+IF (select [config].[fs_get_parameter_value]('main enable usp_RepoObjectSource_QueryPlan', DEFAULT)) = 1
 
 /*{"ReportUspStep":[{"Number":510,"Parent_Number":500,"Name":"[repo].[usp_RepoObjectSource_QueryPlan]\r\n--This can take a very long time","has_logging":0,"is_condition":0,"is_inactive":0,"is_SubProcedure":1}]}*/
 BEGIN
@@ -678,7 +707,7 @@ EXEC [repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id]
 
 
 /*{"ReportUspStep":[{"Number":910,"Name":"[repo].[usp_GeneratorUsp_insert_update_persistence]","has_logging":0,"is_condition":0,"is_inactive":0,"is_SubProcedure":1}]}*/
-EXEC [repo].[usp_GeneratorUsp_insert_update_persistence]
+EXEC [uspgenerator].[usp_GeneratorUsp_insert_update_persistence]
 --RepoObjectColumn_column_id is required and should be updated before
 --add your own parameters
 --logging parameters
@@ -731,7 +760,7 @@ SET @step_name = 'MERGE [graph].[ReferencedObject]'
 SET @source_object = '[repo].[RepoObject_reference_union]'
 SET @target_object = '[graph].[ReferencedObject]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -791,7 +820,7 @@ SET @step_name = 'MERGE [graph].[ReferencingObject]'
 SET @source_object = '[repo].[RepoObject_reference_union]'
 SET @target_object = '[graph].[ReferencingObject]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -853,7 +882,7 @@ SET @step_name = 'MERGE [graph].[ReferencedObjectColumn]'
 SET @source_object = '[repo].[RepoObjectColumn_reference_union]'
 SET @target_object = '[graph].[ReferencedObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -915,7 +944,7 @@ SET @step_name = 'MERGE [graph].[ReferencingObjectColumn]'
 SET @source_object = '[repo].[RepoObjectColumn_reference_union]'
 SET @target_object = '[graph].[ReferencingObjectColumn]'
 
-EXEC repo.usp_ExecutionLog_insert 
+EXEC logs.usp_ExecutionLog_insert 
  @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -932,6 +961,85 @@ EXEC repo.usp_ExecutionLog_insert
  , @updated = @rows
 -- Logging END --
 
+/*{"ReportUspStep":[{"Number":3110,"Name":"Merge Into [workflow].[ProcedureDependency] (Persistence)","has_logging":1,"is_condition":0,"is_inactive":0,"is_SubProcedure":0,"log_source_object":"[repo].[Match_RepoObject_referenced_UspPersistence]","log_target_object":"[workflow].[ProcedureDependency]","log_flag_InsertUpdateDelete":"u"}]}*/
+PRINT CONCAT('usp_id;Number;Parent_Number: ',2,';',3110,';',NULL);
+
+Merge Into workflow.ProcedureDependency T
+Using
+(
+    Select
+        First_usp_persistence_RepoObject_guid
+      , Last_usp_persistence_RepoObject_guid
+      , 1 As is_PersistenceDependency
+    From
+        repo.Match_RepoObject_referenced_UspPersistence T1
+) S
+On S.First_usp_persistence_RepoObject_guid = T.referenced_Procedure_RepoObject_guid
+   And S.Last_usp_persistence_RepoObject_guid = T.referencing_Procedure_RepoObject_guid
+When Matched And T.is_PersistenceDependency = 0
+    Then Update Set
+             is_PersistenceDependency = 1
+When Not Matched By Target
+    Then Insert
+         (
+             referenced_Procedure_RepoObject_guid
+           , referencing_Procedure_RepoObject_guid
+           , is_PersistenceDependency
+         )
+         Values
+             (
+                 S.First_usp_persistence_RepoObject_guid
+               , S.Last_usp_persistence_RepoObject_guid
+               , S.is_PersistenceDependency
+             )
+When Not Matched By Source And T.is_PersistenceDependency = 1
+    Then Delete;
+
+
+-- Logging START --
+SET @rows = @@ROWCOUNT
+SET @step_id = @step_id + 1
+SET @step_name = 'Merge Into [workflow].[ProcedureDependency] (Persistence)'
+SET @source_object = '[repo].[Match_RepoObject_referenced_UspPersistence]'
+SET @target_object = '[workflow].[ProcedureDependency]'
+
+EXEC logs.usp_ExecutionLog_insert 
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @parent_execution_log_id
+ , @current_execution_guid = @current_execution_guid
+ , @proc_id = @proc_id
+ , @proc_schema_name = @proc_schema_name
+ , @proc_name = @proc_name
+ , @event_info = @event_info
+ , @step_id = @step_id
+ , @step_name = @step_name
+ , @source_object = @source_object
+ , @target_object = @target_object
+ , @updated = @rows
+-- Logging END --
+
+/*{"ReportUspStep":[{"Number":4110,"Name":"[repo].[usp_RepoObject_Inheritance]","has_logging":0,"is_condition":0,"is_inactive":0,"is_SubProcedure":1}]}*/
+EXEC [repo].[usp_RepoObject_Inheritance]
+--add your own parameters
+--logging parameters
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @current_execution_log_id
+
+
+/*{"ReportUspStep":[{"Number":4120,"Name":"[repo].[usp_RepoObjectColumn_Inheritance]","has_logging":0,"is_condition":0,"is_inactive":0,"is_SubProcedure":1}]}*/
+EXEC [repo].[usp_RepoObjectColumn_Inheritance]
+--add your own parameters
+--logging parameters
+ @execution_instance_guid = @execution_instance_guid
+ , @ssis_execution_id = @ssis_execution_id
+ , @sub_execution_id = @sub_execution_id
+ , @parent_execution_log_id = @current_execution_log_id
+
+
 --
 --finish your own code here
 --keep the code between "END" and the end of the procedure unchanged!
@@ -944,7 +1052,7 @@ SET @step_name = 'end'
 SET @source_object = NULL
 SET @target_object = NULL
 
-EXEC repo.usp_ExecutionLog_insert
+EXEC logs.usp_ExecutionLog_insert
    @execution_instance_guid = @execution_instance_guid
  , @ssis_execution_id = @ssis_execution_id
  , @sub_execution_id = @sub_execution_id
@@ -958,6 +1066,8 @@ EXEC repo.usp_ExecutionLog_insert
  , @step_name = @step_name
  , @source_object = @source_object
  , @target_object = @target_object
+
+END
 
 
 ----

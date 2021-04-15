@@ -27,6 +27,10 @@ entity docs.usp_AntoraExport_ObjectPuml << P >> {
   --
 }
 
+entity logs.usp_ExecutionLog_insert << P >> {
+  --
+}
+
 entity repo.RepoObject_referencing_level << V >> {
   **StartingNode_guid** : uniqueidentifier
   **LastNode_guid** : uniqueidentifier
@@ -51,19 +55,15 @@ entity repo.RepoObject_referencing_level_T << U >> {
   StartingNode_fullname2 : nvarchar(257)
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-  --
-}
-
 entity repo.usp_PERSIST_RepoObject_referencing_level_T << P >> {
   --
 }
 
+logs.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPuml
+logs.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_referencing_level_T
 repo.RepoObject_referencing_level <.. repo.usp_PERSIST_RepoObject_referencing_level_T
 repo.RepoObject_referencing_level <.. repo.RepoObject_referencing_level_T
 repo.RepoObject_referencing_level_T <.. repo.usp_PERSIST_RepoObject_referencing_level_T
-repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_referencing_level_T
-repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPuml
 repo.usp_PERSIST_RepoObject_referencing_level_T <.. docs.usp_AntoraExport_ObjectPuml
 repo.RepoObject_referencing_level::LastNode_fullname <-- repo.RepoObject_referencing_level_T::LastNode_fullname
 repo.RepoObject_referencing_level::LastNode_fullname2 <-- repo.RepoObject_referencing_level_T::LastNode_fullname2

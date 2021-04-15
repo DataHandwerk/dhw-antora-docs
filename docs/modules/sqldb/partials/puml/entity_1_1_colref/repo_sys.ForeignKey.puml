@@ -46,6 +46,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -141,8 +142,8 @@ repo_sys.ForeignKeyColumn <.. repo.ForeignKey_IndexPattern
 sys_dwh.foreign_keys <.. repo_sys.ForeignKey
 repo.RepoObject::RepoObject_fullname <-- repo_sys.ForeignKey::parent_RepoObject_fullname
 repo.RepoObject::RepoObject_fullname <-- repo_sys.ForeignKey::ForeignKey_fullname
-repo.RepoObject::RepoObject_guid <-- repo_sys.ForeignKey::ForeignKey_guid
 repo.RepoObject::RepoObject_guid <-- repo_sys.ForeignKey::parent_RepoObject_guid
+repo.RepoObject::RepoObject_guid <-- repo_sys.ForeignKey::ForeignKey_guid
 repo.RepoObject::SysObject_fullname <-- repo_sys.ForeignKey::parent_SysObject_fullname
 repo_sys.ForeignKey::ForeignKey_fullname <-- repo_sys.ForeignKeyColumn::ForeignKey_fullname
 repo_sys.ForeignKey::ForeignKey_guid <-- repo_sys.ForeignKeyColumn::ForeignKey_guid

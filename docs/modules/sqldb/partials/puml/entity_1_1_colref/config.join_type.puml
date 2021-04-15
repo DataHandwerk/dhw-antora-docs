@@ -29,7 +29,7 @@ entity config.join_type << V >> {
   * join_type_variant : varchar(16)
 }
 
-entity repo.RepoObject_SqlModules_41_from << V >> {
+entity sqlparse.RepoObject_SqlModules_41_from << V >> {
   * **RepoObject_guid** : uniqueidentifier
   * **json_key** : nvarchar(4000)
   --
@@ -54,5 +54,5 @@ entity repo.RepoObject_SqlModules_41_from << V >> {
   SysObject_fullname : nvarchar(261)
 }
 
-config.join_type <.. repo.RepoObject_SqlModules_41_from
-config.join_type::join_type <-- repo.RepoObject_SqlModules_41_from::join_type
+config.join_type <.. sqlparse.RepoObject_SqlModules_41_from
+config.join_type::join_type <-- sqlparse.RepoObject_SqlModules_41_from::join_type

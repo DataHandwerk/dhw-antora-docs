@@ -1,0 +1,103 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity sqlparse.RepoObject_SqlModules_29_1_object_is_union << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  * is_union : int
+}
+
+entity sqlparse.RepoObject_SqlModules_41_from_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+  * **json_key** : nvarchar(4000)
+  --
+  children : nvarchar(max)
+  class : nvarchar(500)
+  identifier_alias : nvarchar(max)
+  identifier_name : nvarchar(max)
+  * is_from : int
+  is_group : bit
+  * is_join : int
+  is_keyword : bit
+  is_whitespace : bit
+  join_type : varchar(16)
+  Min_RowNumber_From : bigint
+  Min_RowNumber_GroupBy : bigint
+  Min_RowNumber_Where : bigint
+  normalized : nvarchar(max)
+  normalized_PatIndex_Select : bigint
+  normalized_wo_nolock : nvarchar(max)
+  patindex_nolock : bigint
+  RowNumber_per_Object : bigint
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_42_from_Identifier << V >> {
+  --
+  alias : nvarchar(max)
+  class : nvarchar(500)
+  * json_key : nvarchar(4000)
+  lag_normalized_wo_nolock : nvarchar(max)
+  name : nvarchar(max)
+  name_charindex_dot : bigint
+  * RepoObject_guid : uniqueidentifier
+  RowNumber_per_Object : bigint
+  SysObject_fullname : nvarchar(261)
+  T1_identifier_alias : nvarchar(max)
+}
+
+entity sqlparse.RepoObject_SqlModules_43_from_Identifier << V >> {
+  --
+  alias : nvarchar(max)
+  class : nvarchar(500)
+  * json_key : nvarchar(4000)
+  lag_normalized_wo_nolock : nvarchar(max)
+  name : nvarchar(max)
+  name_charindex_dot : bigint
+  name_PostDot : nvarchar(max)
+  name_PreDot : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  RowNumber_per_Object : bigint
+  SysObject_fullname : nvarchar(261)
+  T1_identifier_alias : nvarchar(max)
+}
+
+sqlparse.RepoObject_SqlModules_29_1_object_is_union <.. sqlparse.RepoObject_SqlModules_42_from_Identifier
+sqlparse.RepoObject_SqlModules_41_from_T <.. sqlparse.RepoObject_SqlModules_42_from_Identifier
+sqlparse.RepoObject_SqlModules_42_from_Identifier <.. sqlparse.RepoObject_SqlModules_43_from_Identifier
+sqlparse.RepoObject_SqlModules_41_from_T::class <-- sqlparse.RepoObject_SqlModules_42_from_Identifier::class
+sqlparse.RepoObject_SqlModules_41_from_T::identifier_alias <-- sqlparse.RepoObject_SqlModules_42_from_Identifier::T1_identifier_alias
+sqlparse.RepoObject_SqlModules_41_from_T::json_key <-- sqlparse.RepoObject_SqlModules_42_from_Identifier::json_key
+sqlparse.RepoObject_SqlModules_41_from_T::RepoObject_guid <-- sqlparse.RepoObject_SqlModules_42_from_Identifier::RepoObject_guid
+sqlparse.RepoObject_SqlModules_41_from_T::RowNumber_per_Object <-- sqlparse.RepoObject_SqlModules_42_from_Identifier::RowNumber_per_Object
+sqlparse.RepoObject_SqlModules_41_from_T::SysObject_fullname <-- sqlparse.RepoObject_SqlModules_42_from_Identifier::SysObject_fullname
+sqlparse.RepoObject_SqlModules_42_from_Identifier::json_key <-- sqlparse.RepoObject_SqlModules_43_from_Identifier::json_key
+sqlparse.RepoObject_SqlModules_42_from_Identifier::lag_normalized_wo_nolock <-- sqlparse.RepoObject_SqlModules_43_from_Identifier::lag_normalized_wo_nolock
+sqlparse.RepoObject_SqlModules_42_from_Identifier::name <-- sqlparse.RepoObject_SqlModules_43_from_Identifier::name
+sqlparse.RepoObject_SqlModules_42_from_Identifier::name_charindex_dot <-- sqlparse.RepoObject_SqlModules_43_from_Identifier::name_charindex_dot
+sqlparse.RepoObject_SqlModules_42_from_Identifier::RepoObject_guid <-- sqlparse.RepoObject_SqlModules_43_from_Identifier::RepoObject_guid
+sqlparse.RepoObject_SqlModules_42_from_Identifier::RowNumber_per_Object <-- sqlparse.RepoObject_SqlModules_43_from_Identifier::RowNumber_per_Object
+sqlparse.RepoObject_SqlModules_42_from_Identifier::SysObject_fullname <-- sqlparse.RepoObject_SqlModules_43_from_Identifier::SysObject_fullname
+sqlparse.RepoObject_SqlModules_42_from_Identifier::T1_identifier_alias <-- sqlparse.RepoObject_SqlModules_43_from_Identifier::T1_identifier_alias

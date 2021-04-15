@@ -102,8 +102,8 @@ entity repo_sys.sql_expression_dependencies << V >> {
   referencing_type_desciption : nvarchar(60)
 }
 
-repo.RepoObject_reference_SqlExpressionDependencies <.. repo.RepoObject_reference_union
 repo.RepoObject_reference_SqlExpressionDependencies <.. docs.visjs_EdgeList_object_test01
+repo.RepoObject_reference_SqlExpressionDependencies <.. repo.RepoObject_reference_union
 repo_sys.sql_expression_dependencies <.. repo.RepoObject_reference_SqlExpressionDependencies
 repo.RepoObject_reference_SqlExpressionDependencies::referenced_node_id <-- docs.visjs_EdgeList_object_test01::referenced_node_id
 repo.RepoObject_reference_SqlExpressionDependencies::referencing_node_id <-- docs.visjs_EdgeList_object_test01::referencing_node_id

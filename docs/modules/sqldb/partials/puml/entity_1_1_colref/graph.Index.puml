@@ -59,6 +59,12 @@ entity graph.Index_S << V >> {
   RepoObject_guid : uniqueidentifier
 }
 
+entity graph.usp_PERSIST_Index << P >> {
+  --
+}
+
+graph.Index <.. graph.usp_PERSIST_Index
+graph.Index_S <.. graph.usp_PERSIST_Index
 graph.Index_S <.. graph.Index
 graph.Index_S::Index_guid <-- graph.Index::Index_guid
 graph.Index_S::Index_name <-- graph.Index::Index_name

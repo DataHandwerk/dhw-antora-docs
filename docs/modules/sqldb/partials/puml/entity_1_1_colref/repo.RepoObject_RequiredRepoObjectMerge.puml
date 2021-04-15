@@ -32,6 +32,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -62,12 +63,12 @@ entity repo.RepoObject << U >> {
 
 entity repo.RepoObject_RequiredRepoObjectMerge << V >> {
   * **RepoObject_guid** : uniqueidentifier
+  * **ro2_RepoObject_guid** : uniqueidentifier
   --
   * RepoObject_fullname : nvarchar(261)
   * RepoObject_name : nvarchar(128)
   * RepoObject_schema_name : nvarchar(128)
   * ro2_RepoObject_fullname : nvarchar(261)
-  * ro2_RepoObject_guid : uniqueidentifier
   * ro2_RepoObject_name : nvarchar(128)
   * ro2_RepoObject_schema_name : nvarchar(128)
   * ro2_SysObject_fullname : nvarchar(261)
@@ -81,8 +82,8 @@ entity repo.usp_sync_guid_RepoObject << P >> {
   --
 }
 
-repo.RepoObject <.. repo.usp_sync_guid_RepoObject
 repo.RepoObject <.. repo.RepoObject_RequiredRepoObjectMerge
+repo.RepoObject <.. repo.usp_sync_guid_RepoObject
 repo.RepoObject_RequiredRepoObjectMerge <.. repo.usp_sync_guid_RepoObject
 repo.RepoObject::RepoObject_fullname <-- repo.RepoObject_RequiredRepoObjectMerge::RepoObject_fullname
 repo.RepoObject::RepoObject_guid <-- repo.RepoObject_RequiredRepoObjectMerge::RepoObject_guid

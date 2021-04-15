@@ -34,6 +34,6 @@ entity repo.RepoObjectColumn_reference_BySamePredecessors << V >> {
 entity repo.RepoObjectColumn_reference_FirstResultSet << V >> {
 }
 
-repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_FirstResultSet
 repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_BySamePredecessors
+repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_FirstResultSet
 repo.RepoObjectColumn_reference_FirstResultSet <.. repo.RepoObjectColumn_reference_BySamePredecessors

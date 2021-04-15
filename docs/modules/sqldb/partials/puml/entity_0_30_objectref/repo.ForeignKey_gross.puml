@@ -1,0 +1,114 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.ftv_RepoObject_Reference_PlantUml_EntityRefList << IF >> {
+}
+
+entity docs.RepoObject_Adoc << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Adoc_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_IndexList << V >> {
+  **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_IndexList_T << U >> {
+  **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml_Entity << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml_Entity_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_PlantUml_PumlEntityFkList << V >> {
+  **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.usp_AntoraExport << P >> {
+}
+
+entity docs.usp_AntoraExport_ObjectPartialProperties << P >> {
+}
+
+entity docs.usp_AntoraExport_ObjectPuml << P >> {
+}
+
+entity docs.usp_PERSIST_RepoObject_Adoc_T << P >> {
+}
+
+entity docs.usp_PERSIST_RepoObject_IndexList_T << P >> {
+}
+
+entity docs.usp_PERSIST_RepoObject_Plantuml_Entity_T << P >> {
+}
+
+entity docs.usp_PERSIST_RepoObject_Plantuml_T << P >> {
+}
+
+entity repo.ForeignKey_gross << V >> {
+  **ForeignKey_guid** : uniqueidentifier
+}
+
+docs.ftv_RepoObject_Reference_PlantUml_EntityRefList <.. docs.RepoObject_Plantuml
+docs.RepoObject_Adoc <.. docs.RepoObject_Adoc_T
+docs.RepoObject_Adoc <.. docs.usp_PERSIST_RepoObject_Adoc_T
+docs.RepoObject_Adoc_T <.. docs.usp_PERSIST_RepoObject_Adoc_T
+docs.RepoObject_IndexList <.. docs.RepoObject_IndexList_T
+docs.RepoObject_IndexList <.. docs.usp_PERSIST_RepoObject_IndexList_T
+docs.RepoObject_IndexList_T <.. docs.usp_PERSIST_RepoObject_IndexList_T
+docs.RepoObject_IndexList_T <.. docs.RepoObject_Plantuml_Entity
+docs.RepoObject_IndexList_T <.. docs.RepoObject_Adoc
+docs.RepoObject_Plantuml <.. docs.RepoObject_Plantuml_T
+docs.RepoObject_Plantuml <.. docs.usp_PERSIST_RepoObject_Plantuml_T
+docs.RepoObject_Plantuml_Entity <.. docs.RepoObject_Plantuml_Entity_T
+docs.RepoObject_Plantuml_Entity <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
+docs.RepoObject_Plantuml_Entity_T <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
+docs.RepoObject_Plantuml_Entity_T <.. docs.ftv_RepoObject_Reference_PlantUml_EntityRefList
+docs.RepoObject_Plantuml_Entity_T <.. docs.RepoObject_PlantUml_PumlEntityFkList
+docs.RepoObject_PlantUml_PumlEntityFkList <.. docs.RepoObject_Plantuml
+docs.RepoObject_Plantuml_T <.. docs.usp_PERSIST_RepoObject_Plantuml_T
+docs.usp_AntoraExport_ObjectPartialProperties <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_ObjectPuml <.. docs.usp_AntoraExport
+docs.usp_PERSIST_RepoObject_Adoc_T <.. docs.usp_AntoraExport_ObjectPartialProperties
+docs.usp_PERSIST_RepoObject_IndexList_T <.. docs.usp_AntoraExport_ObjectPartialProperties
+docs.usp_PERSIST_RepoObject_Plantuml_Entity_T <.. docs.usp_AntoraExport_ObjectPuml
+docs.usp_PERSIST_RepoObject_Plantuml_T <.. docs.usp_AntoraExport_ObjectPuml
+repo.ForeignKey_gross <.. docs.RepoObject_IndexList

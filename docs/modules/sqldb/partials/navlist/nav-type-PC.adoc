@@ -1,4 +1,0 @@
-= assembly stored procedure
-
-include::partial$navlist/navlist-type-PC.adoc[]
-

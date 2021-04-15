@@ -1,0 +1,63 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
+entity repo.Index_gross << V >> {
+  * **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_virtual << U >> {
+  * **index_guid** : uniqueidentifier
+}
+
+entity repo.IndexColumn_virtual << U >> {
+  * **index_guid** : uniqueidentifier
+  * **index_column_id** : int
+}
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn << U >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+}
+
+entity repo.usp_Index_ForeignKey << P >> {
+}
+
+entity repo.usp_Index_virtual_set << P >> {
+}
+
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_virtual_set
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_ForeignKey
+repo.Index_gross <.. repo.usp_Index_virtual_set
+repo.Index_virtual <.. repo.usp_Index_virtual_set
+repo.IndexColumn_virtual <.. repo.usp_Index_virtual_set
+repo.RepoObject <.. repo.usp_Index_virtual_set
+repo.RepoObjectColumn <.. repo.usp_Index_virtual_set
+repo.usp_Index_virtual_set <.. repo.usp_Index_ForeignKey

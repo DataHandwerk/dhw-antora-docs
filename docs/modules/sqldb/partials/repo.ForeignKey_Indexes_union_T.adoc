@@ -3,6 +3,8 @@
 == existing_properties
 
 // tag::existing_properties[]
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
 :ExistsProperty--has_history:
 :ExistsProperty--has_history_columns:
 :ExistsProperty--is_persistence:
@@ -14,14 +16,15 @@
 :ExistsProperty--is_persistence_truncate:
 :ExistsProperty--is_persistence_update_changed:
 :ExistsProperty--is_repo_managed:
-:ExistsProperty--persistence_source_RepoObject_fullname:
-:ExistsProperty--persistence_source_RepoObject_fullname2:
-:ExistsProperty--persistence_source_RepoObject_guid:
-:ExistsProperty--persistence_source_RepoObject_xref:
+:ExistsProperty--persistence_source_repoobject_fullname:
+:ExistsProperty--persistence_source_repoobject_fullname2:
+:ExistsProperty--persistence_source_repoobject_guid:
+:ExistsProperty--persistence_source_repoobject_xref:
 :ExistsProperty--pk_index_guid:
-:ExistsProperty--pk_IndexPatternColumnDatatype:
-:ExistsProperty--pk_IndexPatternColumnName:
-:ExistsProperty--usp_persistence_RepoObject_guid:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--referencedobjectlist:
+:ExistsProperty--usp_persistence_repoobject_guid:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
 :ExistsProperty--Columns:
@@ -73,33 +76,15 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-ForeignKey_guid[repo.ForeignKey_Indexes_union.ForeignKey_guid]
+--
 
-[[column-3538440E-D3CC-4C0E-8539-6B6AFC160AA7]]
-=== 3538440E-D3CC-4C0E-8539-6B6AFC160AA7
-
-[cols="d,m,m,m,m,d"]
-|===
-|
-|3538440E-D3CC-4C0E-8539-6B6AFC160AA7
-|nvarchar(128)
-|NULL
-|
-|
-|===
-
-
-[[column-DAD541B2-8E9B-4110-8055-60BDFC060C92]]
-=== DAD541B2-8E9B-4110-8055-60BDFC060C92
-
-[cols="d,m,m,m,m,d"]
-|===
-|
-|DAD541B2-8E9B-4110-8055-60BDFC060C92
-|nvarchar(128)
-|NULL
-|
-|
-|===
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-ForeignKey_guid[repo.ForeignKey_gross.ForeignKey_guid]
+--
 
 
 [[column-delete_referential_action]]
@@ -115,6 +100,16 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-delete_referential_action[repo.ForeignKey_Indexes_union.delete_referential_action]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-delete_referential_action[repo.ForeignKey_gross.delete_referential_action]
+--
+
 
 [[column-ForeignKey_fullname]]
 === ForeignKey_fullname
@@ -128,6 +123,16 @@ user table
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-ForeignKey_fullname[repo.ForeignKey_Indexes_union.ForeignKey_fullname]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-ForeignKey_fullname[repo.ForeignKey_gross.ForeignKey_fullname]
+--
 
 
 [[column-ForeignKey_name]]
@@ -143,6 +148,16 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-ForeignKey_name[repo.ForeignKey_Indexes_union.ForeignKey_name]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-ForeignKey_name[repo.ForeignKey_gross.ForeignKey_name]
+--
+
 
 [[column-is_MatchingDatatypePattern]]
 === is_MatchingDatatypePattern
@@ -156,6 +171,16 @@ user table
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-is_MatchingDatatypePattern[repo.ForeignKey_Indexes_union.is_MatchingDatatypePattern]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-is_MatchingDatatypePattern[repo.ForeignKey_gross.is_MatchingDatatypePattern]
+--
 
 
 [[column-referenced_index_guid]]
@@ -171,6 +196,16 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referenced_index_guid[repo.ForeignKey_Indexes_union.referenced_index_guid]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referenced_index_guid[repo.ForeignKey_gross.referenced_index_guid]
+--
+
 
 [[column-referenced_index_name]]
 === referenced_index_name
@@ -184,6 +219,11 @@ user table
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referenced_index_name[repo.ForeignKey_Indexes_union.referenced_index_name]
+--
 
 
 [[column-referenced_IndexPatternColumnDatatype]]
@@ -199,6 +239,16 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referenced_IndexPatternColumnDatatype[repo.ForeignKey_Indexes_union.referenced_IndexPatternColumnDatatype]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referenced_IndexPatternColumnDatatype[repo.ForeignKey_gross.referenced_IndexPatternColumnDatatype]
+--
+
 
 [[column-referenced_IndexPatternColumnName]]
 === referenced_IndexPatternColumnName
@@ -212,6 +262,16 @@ user table
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referenced_IndexPatternColumnName[repo.ForeignKey_Indexes_union.referenced_IndexPatternColumnName]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referenced_IndexPatternColumnName[repo.ForeignKey_gross.referenced_IndexPatternColumnName]
+--
 
 
 [[column-referenced_RepoObject_fullname]]
@@ -227,6 +287,17 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referenced_RepoObject_fullname[repo.ForeignKey_Indexes_union.referenced_RepoObject_fullname]
+--
+
+.Referencing Columns
+--
+* xref:docs.ForeignKey_RelationScript.adoc#column-referenced_RepoObject_fullname[docs.ForeignKey_RelationScript.referenced_RepoObject_fullname]
+* xref:repo.ForeignKey_gross.adoc#column-referenced_RepoObject_fullname[repo.ForeignKey_gross.referenced_RepoObject_fullname]
+--
+
 
 [[column-referenced_RepoObject_fullname2]]
 === referenced_RepoObject_fullname2
@@ -240,6 +311,16 @@ user table
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referenced_RepoObject_fullname2[repo.ForeignKey_Indexes_union.referenced_RepoObject_fullname2]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referenced_RepoObject_fullname2[repo.ForeignKey_gross.referenced_RepoObject_fullname2]
+--
 
 
 [[column-referenced_RepoObject_guid]]
@@ -255,6 +336,17 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referenced_RepoObject_guid[repo.ForeignKey_Indexes_union.referenced_RepoObject_guid]
+--
+
+.Referencing Columns
+--
+* xref:docs.ForeignKey_RelationScript.adoc#column-referenced_RepoObject_guid[docs.ForeignKey_RelationScript.referenced_RepoObject_guid]
+* xref:repo.ForeignKey_gross.adoc#column-referenced_RepoObject_guid[repo.ForeignKey_gross.referenced_RepoObject_guid]
+--
+
 
 [[column-referenced_SysObject_name]]
 === referenced_SysObject_name
@@ -268,6 +360,16 @@ user table
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referenced_SysObject_name[repo.ForeignKey_Indexes_union.referenced_SysObject_name]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referenced_SysObject_name[repo.ForeignKey_gross.referenced_SysObject_name]
+--
 
 
 [[column-referenced_SysObject_schema_name]]
@@ -283,6 +385,16 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referenced_SysObject_schema_name[repo.ForeignKey_Indexes_union.referenced_SysObject_schema_name]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referenced_SysObject_schema_name[repo.ForeignKey_gross.referenced_SysObject_schema_name]
+--
+
 
 [[column-referencing_index_guid]]
 === referencing_index_guid
@@ -296,6 +408,16 @@ user table
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referencing_index_guid[repo.ForeignKey_Indexes_union.referencing_index_guid]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referencing_index_guid[repo.ForeignKey_gross.referencing_index_guid]
+--
 
 
 [[column-referencing_index_name]]
@@ -311,6 +433,11 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referencing_index_name[repo.ForeignKey_Indexes_union.referencing_index_name]
+--
+
 
 [[column-referencing_IndexPatternColumnDatatype]]
 === referencing_IndexPatternColumnDatatype
@@ -324,6 +451,16 @@ user table
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referencing_IndexPatternColumnDatatype[repo.ForeignKey_Indexes_union.referencing_IndexPatternColumnDatatype]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referencing_IndexPatternColumnDatatype[repo.ForeignKey_gross.referencing_IndexPatternColumnDatatype]
+--
 
 
 [[column-referencing_IndexPatternColumnName]]
@@ -339,6 +476,16 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referencing_IndexPatternColumnName[repo.ForeignKey_Indexes_union.referencing_IndexPatternColumnName]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referencing_IndexPatternColumnName[repo.ForeignKey_gross.referencing_IndexPatternColumnName]
+--
+
 
 [[column-referencing_RepoObject_fullname]]
 === referencing_RepoObject_fullname
@@ -352,6 +499,17 @@ user table
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referencing_RepoObject_fullname[repo.ForeignKey_Indexes_union.referencing_RepoObject_fullname]
+--
+
+.Referencing Columns
+--
+* xref:docs.ForeignKey_RelationScript.adoc#column-referencing_RepoObject_fullname[docs.ForeignKey_RelationScript.referencing_RepoObject_fullname]
+* xref:repo.ForeignKey_gross.adoc#column-referencing_RepoObject_fullname[repo.ForeignKey_gross.referencing_RepoObject_fullname]
+--
 
 
 [[column-referencing_RepoObject_fullname2]]
@@ -367,6 +525,16 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referencing_RepoObject_fullname2[repo.ForeignKey_Indexes_union.referencing_RepoObject_fullname2]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referencing_RepoObject_fullname2[repo.ForeignKey_gross.referencing_RepoObject_fullname2]
+--
+
 
 [[column-referencing_RepoObject_guid]]
 === referencing_RepoObject_guid
@@ -380,6 +548,17 @@ user table
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referencing_RepoObject_guid[repo.ForeignKey_Indexes_union.referencing_RepoObject_guid]
+--
+
+.Referencing Columns
+--
+* xref:docs.ForeignKey_RelationScript.adoc#column-referencing_RepoObject_guid[docs.ForeignKey_RelationScript.referencing_RepoObject_guid]
+* xref:repo.ForeignKey_gross.adoc#column-referencing_RepoObject_guid[repo.ForeignKey_gross.referencing_RepoObject_guid]
+--
 
 
 [[column-referencing_SysObject_name]]
@@ -395,6 +574,16 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referencing_SysObject_name[repo.ForeignKey_Indexes_union.referencing_SysObject_name]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referencing_SysObject_name[repo.ForeignKey_gross.referencing_SysObject_name]
+--
+
 
 [[column-referencing_SysObject_schema_name]]
 === referencing_SysObject_schema_name
@@ -409,6 +598,16 @@ user table
 |
 |===
 
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-referencing_SysObject_schema_name[repo.ForeignKey_Indexes_union.referencing_SysObject_schema_name]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-referencing_SysObject_schema_name[repo.ForeignKey_gross.referencing_SysObject_schema_name]
+--
+
 
 [[column-update_referential_action]]
 === update_referential_action
@@ -422,6 +621,16 @@ user table
 |
 |
 |===
+
+.Referenced Columns
+--
+* xref:repo.ForeignKey_Indexes_union.adoc#column-update_referential_action[repo.ForeignKey_Indexes_union.update_referential_action]
+--
+
+.Referencing Columns
+--
+* xref:repo.ForeignKey_gross.adoc#column-update_referential_action[repo.ForeignKey_gross.update_referential_action]
+--
 
 
 // end::AntoraColumnDetails[]
@@ -459,27 +668,11 @@ user table
 
 
 
-
-
 // end::AntoraPkColumnTableRows[]
 
 == AntoraNonPkColumnTableRows
 
 // tag::AntoraNonPkColumnTableRows[]
-
-|
-|<<column-3538440E-D3CC-4C0E-8539-6B6AFC160AA7>>
-|nvarchar(128)
-|NULL
-|
-|
-
-|
-|<<column-DAD541B2-8E9B-4110-8055-60BDFC060C92>>
-|nvarchar(128)
-|NULL
-|
-|
 
 |
 |<<column-delete_referential_action>>
@@ -668,100 +861,63 @@ user table
 
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
+// end::adocuspsteps[]
 
 
 == AntoraReferencedList
 
-// tag::AntoraReferencedList[]
-
-// end::AntoraReferencedList[]
-
-
-== UspParameters
-
-// tag::UspParameters[]
-
-// end::UspParameters[]
-
-
-== UspExamples
-
-// tag::UspExamples[]
-
-// end::UspExamples[]
-
-
-== pk_IndexSemanticGroup
-
-// tag::pk_IndexSemanticGroup[]
-
-// end::pk_IndexSemanticGroup[]
-
-
-== ReferencedObjectList
-
-// tag::ReferencedObjectList[]
-
-// end::ReferencedObjectList[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
-
-
-== microsoft_database_tools_support
-
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== example4
-
-// tag::example4[]
-
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
-
-
-== example2
-
-// tag::example2[]
-
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
+// tag::antorareferencedlist[]
+* xref:repo.ForeignKey_Indexes_union.adoc[]
+// end::antorareferencedlist[]
 
 
 == AntoraReferencingList
 
-// tag::AntoraReferencingList[]
+// tag::antorareferencinglist[]
+* xref:docs.ForeignKey_RelationScript.adoc[]
+* xref:docs.RepoObject_PlantUml_FkRefList.adoc[]
+* xref:repo.ForeignKey_gross.adoc[]
+* xref:repo.RepoObject_related_FK_union.adoc[]
+* xref:repo.usp_Index_finish.adoc[]
+* xref:repo.usp_PERSIST_ForeignKey_Indexes_union_T.adoc[]
+// end::antorareferencinglist[]
 
-// end::AntoraReferencingList[]
+
+== exampleUsage
+
+// tag::exampleusage[]
+
+// end::exampleusage[]
 
 
-== example1
+== exampleUsage_2
 
-// tag::example1[]
+// tag::exampleusage_2[]
 
-// end::example1[]
+// end::exampleusage_2[]
+
+
+== exampleWrong_Usage
+
+// tag::examplewrong_usage[]
+
+// end::examplewrong_usage[]
+
+
+== has_execution_plan_issue
+
+// tag::has_execution_plan_issue[]
+
+// end::has_execution_plan_issue[]
+
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
 
 
 == has_history
@@ -841,32 +997,46 @@ user table
 // end::is_repo_managed[]
 
 
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::ms_description[]
+
+// end::ms_description[]
+
+
 == persistence_source_RepoObject_fullname
 
-// tag::persistence_source_RepoObject_fullname[]
+// tag::persistence_source_repoobject_fullname[]
 [repo].[ForeignKey_Indexes_union]
-// end::persistence_source_RepoObject_fullname[]
+// end::persistence_source_repoobject_fullname[]
 
 
 == persistence_source_RepoObject_fullname2
 
-// tag::persistence_source_RepoObject_fullname2[]
+// tag::persistence_source_repoobject_fullname2[]
 repo.ForeignKey_Indexes_union
-// end::persistence_source_RepoObject_fullname2[]
+// end::persistence_source_repoobject_fullname2[]
 
 
 == persistence_source_RepoObject_guid
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::persistence_source_repoobject_guid[]
 81170058-C073-EB11-84E3-A81E8446D5B0
-// end::persistence_source_RepoObject_guid[]
+// end::persistence_source_repoobject_guid[]
 
 
 == persistence_source_RepoObject_xref
 
-// tag::persistence_source_RepoObject_xref[]
+// tag::persistence_source_repoobject_xref[]
 xref:repo.ForeignKey_Indexes_union.adoc[]
-// end::persistence_source_RepoObject_xref[]
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -878,23 +1048,44 @@ DC90479F-A79A-EB11-84F5-A81E8446D5B0
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 uniqueidentifier
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 ForeignKey_guid
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+* [repo].[ForeignKey_Indexes_union]
+// end::referencedobjectlist[]
 
 
 == usp_persistence_RepoObject_guid
 
-// tag::usp_persistence_RepoObject_guid[]
+// tag::usp_persistence_repoobject_guid[]
 07C45691-A79A-EB11-84F5-A81E8446D5B0
-// end::usp_persistence_RepoObject_guid[]
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition

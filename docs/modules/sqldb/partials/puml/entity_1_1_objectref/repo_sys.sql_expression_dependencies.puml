@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.ftv_dwh_database << IF >> {
+entity config.ftv_dwh_database << IF >> {
 }
 
 entity repo.RepoObject_reference_SqlExpressionDependencies << V >> {
@@ -32,6 +32,10 @@ entity repo.RepoObject_reference_SqlExpressionDependencies << V >> {
 }
 
 entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
+  * **referencing_id** : int
+  * **referencing_minor_id** : int
+  **referenced_id** : int
+  * **referenced_minor_id** : int
 }
 
 entity repo_sys.sql_expression_dependencies << V >> {
@@ -46,8 +50,8 @@ entity repo_sys.SysObject << V >> {
 entity sys_dwh.sql_expression_dependencies << SN >> {
 }
 
-repo.ftv_dwh_database <.. repo_sys.SysColumn
-repo.ftv_dwh_database <.. repo_sys.sql_expression_dependencies
+config.ftv_dwh_database <.. repo_sys.sql_expression_dependencies
+config.ftv_dwh_database <.. repo_sys.SysColumn
 repo_sys.sql_expression_dependencies <.. repo.RepoObject_reference_SqlExpressionDependencies
 repo_sys.sql_expression_dependencies <.. repo.RepoObjectColumn_reference_SqlExpressionDependencies
 repo_sys.SysColumn <.. repo_sys.sql_expression_dependencies

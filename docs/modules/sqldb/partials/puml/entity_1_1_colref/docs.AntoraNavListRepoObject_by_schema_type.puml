@@ -49,5 +49,4 @@ entity docs.usp_AntoraExport_navigation << P >> {
 docs.AntoraNavListRepoObject_by_schema_type <.. docs.usp_AntoraExport_navigation
 docs.RepoObject_OutputFilter <.. docs.AntoraNavListRepoObject_by_schema_type
 docs.RepoObject_OutputFilter::RepoObject_schema_name <-- docs.AntoraNavListRepoObject_by_schema_type::RepoObject_schema_name
-docs.RepoObject_OutputFilter::SysObject_type <-- docs.AntoraNavListRepoObject_by_schema_type::type
 docs.RepoObject_OutputFilter::SysObject_type_name <-- docs.AntoraNavListRepoObject_by_schema_type::type_name

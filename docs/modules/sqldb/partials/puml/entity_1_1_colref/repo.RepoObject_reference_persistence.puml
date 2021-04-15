@@ -32,6 +32,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -125,8 +126,8 @@ repo.RepoObject::node_id <-- repo.RepoObject_reference_persistence::referenced_n
 repo.RepoObject::node_id <-- repo.RepoObject_reference_persistence::referencing_node_id
 repo.RepoObject::RepoObject_fullname <-- repo.RepoObject_reference_persistence::referencing_fullname
 repo.RepoObject::RepoObject_fullname <-- repo.RepoObject_reference_persistence::referenced_fullname
-repo.RepoObject::SysObject_id <-- repo.RepoObject_reference_persistence::referenced_id
 repo.RepoObject::SysObject_id <-- repo.RepoObject_reference_persistence::referencing_id
+repo.RepoObject::SysObject_id <-- repo.RepoObject_reference_persistence::referenced_id
 repo.RepoObject::SysObject_name <-- repo.RepoObject_reference_persistence::referenced_entity_name
 repo.RepoObject::SysObject_name <-- repo.RepoObject_reference_persistence::referencing_entity_name
 repo.RepoObject::SysObject_schema_name <-- repo.RepoObject_reference_persistence::referenced_schema_name

@@ -23,6 +23,10 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+  --
+}
+
 entity repo.Index_IndexPattern << V >> {
   **index_guid** : uniqueidentifier
   --
@@ -39,10 +43,6 @@ entity repo.Index_Settings << U >> {
   * is_create_constraint : bit
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-  --
-}
-
 entity repo.usp_Index_finish << P >> {
   --
 }
@@ -51,10 +51,10 @@ entity repo.usp_Index_Settings << P >> {
   --
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_Settings
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_finish
 repo.Index_IndexPattern <.. repo.usp_Index_Settings
-repo.Index_Settings <.. repo.usp_Index_Settings
 repo.Index_Settings <.. repo.usp_Index_finish
-repo.usp_ExecutionLog_insert <.. repo.usp_Index_Settings
-repo.usp_ExecutionLog_insert <.. repo.usp_Index_finish
+repo.Index_Settings <.. repo.usp_Index_Settings
 repo.usp_Index_Settings <.. repo.usp_Index_finish
 

@@ -3,10 +3,10 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
-:ExistsProperty--MS_Description:
-:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--ms_description:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 // end::existing_properties[]
 
@@ -37,7 +37,7 @@ stored procedure
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-10 18:53:01
+2021-04-13 21:21:09
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -72,121 +72,87 @@ stored procedure
 
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
+// end::adocuspsteps[]
 
 
-== example1
+== AntoraReferencedList
 
-// tag::example1[]
+// tag::antorareferencedlist[]
+* xref:config.Parameter.adoc[]
+* xref:config.Parameter_default.adoc[]
+// end::antorareferencedlist[]
 
-// end::example1[]
 
+== AntoraReferencingList
 
-== example2
+// tag::antorareferencinglist[]
+* xref:config.usp_connect_database.adoc[]
+// end::antorareferencinglist[]
 
-// tag::example2[]
 
-// end::example2[]
+== exampleUsage
 
+// tag::exampleusage[]
 
-== example3
+// end::exampleusage[]
 
-// tag::example3[]
 
-// end::example3[]
+== exampleUsage_2
 
+// tag::exampleusage_2[]
 
-== usp_persistence_RepoObject_guid
+// end::exampleusage_2[]
 
-// tag::usp_persistence_RepoObject_guid[]
 
-// end::usp_persistence_RepoObject_guid[]
+== exampleWrong_Usage
 
+// tag::examplewrong_usage[]
 
-== UspExamples
+// end::examplewrong_usage[]
 
-// tag::UspExamples[]
 
-// end::UspExamples[]
+== has_execution_plan_issue
 
+// tag::has_execution_plan_issue[]
 
-== UspParameters
+// end::has_execution_plan_issue[]
 
-// tag::UspParameters[]
 
-// end::UspParameters[]
+== has_get_referenced_issue
 
+// tag::has_get_referenced_issue[]
 
-== persistence_source_RepoObject_xref
+// end::has_get_referenced_issue[]
 
-// tag::persistence_source_RepoObject_xref[]
 
-// end::persistence_source_RepoObject_xref[]
+== has_history
 
+// tag::has_history[]
 
-== pk_index_guid
+// end::has_history[]
 
-// tag::pk_index_guid[]
 
-// end::pk_index_guid[]
+== has_history_columns
 
+// tag::has_history_columns[]
 
-== pk_IndexPatternColumnDatatype
+// end::has_history_columns[]
 
-// tag::pk_IndexPatternColumnDatatype[]
 
-// end::pk_IndexPatternColumnDatatype[]
+== is_persistence
 
+// tag::is_persistence[]
 
-== pk_IndexPatternColumnName
+// end::is_persistence[]
 
-// tag::pk_IndexPatternColumnName[]
 
-// end::pk_IndexPatternColumnName[]
+== is_persistence_check_duplicate_per_pk
 
+// tag::is_persistence_check_duplicate_per_pk[]
 
-== pk_IndexSemanticGroup
-
-// tag::pk_IndexSemanticGroup[]
-
-// end::pk_IndexSemanticGroup[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
-
-
-== microsoft_database_tools_support
-
-// tag::microsoft_database_tools_support[]
-
-// end::microsoft_database_tools_support[]
-
-
-== persistence_source_RepoObject_fullname
-
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
-
-
-== persistence_source_RepoObject_guid
-
-// tag::persistence_source_RepoObject_guid[]
-
-// end::persistence_source_RepoObject_guid[]
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -231,77 +197,104 @@ stored procedure
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
-
-
-== is_persistence
-
-// tag::is_persistence[]
-
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
-
-
-== AntoraReferencedList
-
-// tag::AntoraReferencedList[]
-* xref:config.Parameter_default.adoc[]
-* xref:repo.Parameter.adoc[]
-// end::AntoraReferencedList[]
-
-
-== AntoraReferencingList
-
-// tag::AntoraReferencingList[]
-* xref:repo.usp_connect_database.adoc[]
-// end::AntoraReferencingList[]
+// end::microsoft_database_tools_support[]
 
 
 == MS_Description
 
-// tag::MS_Description[]
+// tag::ms_description[]
 
-* merges default values for parameters from xref:sqldb:config.Parameter_default.adoc[] into xref:sqldb:repo.Parameter.adoc[]
-// end::MS_Description[]
+* merges default values for parameters from xref:sqldb:config.Parameter_default.adoc[] into xref:sqldb:config.Parameter.adoc[]
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
+
+
+== pk_index_guid
+
+// tag::pk_index_guid[]
+
+// end::pk_index_guid[]
+
+
+== pk_IndexPatternColumnDatatype
+
+// tag::pk_indexpatterncolumndatatype[]
+
+// end::pk_indexpatterncolumndatatype[]
+
+
+== pk_IndexPatternColumnName
+
+// tag::pk_indexpatterncolumnname[]
+
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
+* [config].[Parameter]
 * [config].[Parameter_default]
-* [repo].[Parameter]
-// end::ReferencedObjectList[]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -311,55 +304,74 @@ stored procedure
 ----
 /*
 <<property_start>>MS_Description
-* merges default values for parameters from xref:sqldb:config.Parameter_default.adoc[] into xref:sqldb:repo.Parameter.adoc[]
+* merges default values for parameters from xref:sqldb:config.Parameter_default.adoc[] into xref:sqldb:config.Parameter.adoc[]
 <<property_end>>
 */
-CREATE PROCEDURE [config].[usp_init_parameter]
-AS
+CREATE Procedure [config].[usp_init_parameter]
+As
 --
-INSERT INTO [repo].[Parameter] (
- [Parameter_name]
- , [sub_Parameter]
- , [Parameter_desciption]
- , [Parameter_default_value]
- )
-SELECT [Parameter_name]
- , [sub_Parameter]
- , [Parameter_desciption]
- , [Parameter_default_value]
-FROM [config].[Parameter_default] AS T1
-WHERE NOT EXISTS (
-  SELECT 1
-  FROM [repo].[Parameter] AS [target]
-  WHERE [target].[Parameter_name] = [T1].[Parameter_name]
-   AND [target].[sub_Parameter] = [T1].[sub_Parameter]
-  )
+Insert Into [config].Parameter
+(
+    Parameter_name
+  , sub_Parameter
+  , Parameter_desciption
+  , Parameter_default_value
+)
+Select
+    Parameter_name
+  , sub_Parameter
+  , Parameter_desciption
+  , Parameter_default_value
+From
+    config.Parameter_default As T1
+Where
+    Not Exists
+(
+    Select
+        1
+    From
+        [config].Parameter As target
+    Where
+        target.Parameter_name    = T1.Parameter_name
+        And target.sub_Parameter = T1.sub_Parameter
+);
 
-UPDATE T2
-SET [T2].[Parameter_desciption] = [source].[Parameter_desciption]
- , [T2].[Parameter_default_value] = [source].[Parameter_default_value]
-FROM [repo].[Parameter] AS [T2]
-INNER JOIN [config].[Parameter_default] AS [source]
- ON [source].[Parameter_name] = [T2].[Parameter_name]
-  AND [source].[sub_Parameter] = [T2].[sub_Parameter]
-WHERE [T2].[Parameter_desciption] <> [source].[Parameter_desciption]
- OR (
-  [T2].[Parameter_desciption] IS NULL
-  AND NOT [source].[Parameter_desciption] IS NULL
-  )
- OR (
-  NOT [T2].[Parameter_desciption] IS NULL
-  AND [source].[Parameter_desciption] IS NULL
-  )
- OR [T2].[Parameter_default_value] <> [source].[Parameter_default_value]
- OR (
-  [T2].[Parameter_default_value] IS NULL
-  AND NOT [source].[Parameter_default_value] IS NULL
-  )
- OR (
-  NOT [T2].[Parameter_default_value] IS NULL
-  AND [source].[Parameter_default_value] IS NULL
-  )
+Update
+    T2
+Set
+    T2.Parameter_desciption = source.Parameter_desciption
+  , T2.Parameter_default_value = source.Parameter_default_value
+From
+    [config].Parameter               As T2
+    Inner Join
+        config.Parameter_default As source
+            On
+            source.Parameter_name    = T2.Parameter_name
+            And source.sub_Parameter = T2.sub_Parameter
+Where
+    T2.Parameter_desciption       <> source.Parameter_desciption
+    Or
+    (
+        T2.Parameter_desciption Is Null
+        And Not source.Parameter_desciption Is Null
+    )
+    Or
+    (
+        Not T2.Parameter_desciption Is Null
+        And source.Parameter_desciption Is Null
+    )
+    Or T2.Parameter_default_value <> source.Parameter_default_value
+    Or
+    (
+        T2.Parameter_default_value Is Null
+        And Not source.Parameter_default_value Is Null
+    )
+    Or
+    (
+        Not T2.Parameter_default_value Is Null
+        And source.Parameter_default_value Is Null
+    );
+
 ----
 // end::sql_modules_definition[]
 

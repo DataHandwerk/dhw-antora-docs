@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.fs_dwh_database_name << FN >> {
+entity config.fs_dwh_database_name << FN >> {
   --
 }
 
@@ -49,6 +49,6 @@ entity sys_self.ExtendedProperties_ParameterForAddUpdateDrop << V >> {
   type_level2type : varchar(10)
 }
 
-repo.fs_dwh_database_name <.. repo_sys.usp_dropextendedproperty_level_2
+config.fs_dwh_database_name <.. repo_sys.usp_dropextendedproperty_level_2
 sys_self.ExtendedProperties_ParameterForAddUpdateDrop <.. repo_sys.usp_dropextendedproperty_level_2
 

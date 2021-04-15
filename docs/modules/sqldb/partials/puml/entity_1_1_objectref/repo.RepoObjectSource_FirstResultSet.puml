@@ -34,5 +34,5 @@ entity repo.RepoObjectSource_FirstResultSet << U >> {
 entity repo.usp_RepoObjectSource_FirstResultSet << P >> {
 }
 
-repo.RepoObjectSource_FirstResultSet <.. repo.RepoObjectColumn_reference_FirstResultSet
 repo.RepoObjectSource_FirstResultSet <.. repo.usp_RepoObjectSource_FirstResultSet
+repo.RepoObjectSource_FirstResultSet <.. repo.RepoObjectColumn_reference_FirstResultSet

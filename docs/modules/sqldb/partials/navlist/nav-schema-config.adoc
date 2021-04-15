@@ -1,4 +1,0 @@
-= 
-
-include::partial$navlist/navlist-schema-config.adoc[]
-

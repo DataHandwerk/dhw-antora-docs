@@ -26,22 +26,9 @@ skinparam class {
 entity repo.fs_dwh_database_name << FN >> {
 }
 
-entity repo.GeneratorUsp_SqlUsp << V >> {
-  * **usp_id** : int
-}
-
 entity repo.Parameter << U >> {
   * **Parameter_name** : varchar(100)
   * **sub_Parameter** : nvarchar(128)
-}
-
-entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
-}
-
-entity repo.usp_connect_database << P >> {
-}
-
-entity repo.usp_update_Referencing_Count << P >> {
 }
 
 entity repo_sys.usp_AddOrUpdateExtendedProperty << P >> {
@@ -53,11 +40,7 @@ entity repo_sys.usp_dropextendedproperty_level_1 << P >> {
 entity repo_sys.usp_dropextendedproperty_level_2 << P >> {
 }
 
-repo.fs_dwh_database_name <.. repo.GeneratorUsp_SqlUsp
-repo.fs_dwh_database_name <.. repo.RepoObjectColumn_reference_QueryPlan
-repo.fs_dwh_database_name <.. repo.usp_update_Referencing_Count
 repo.fs_dwh_database_name <.. repo_sys.usp_AddOrUpdateExtendedProperty
 repo.fs_dwh_database_name <.. repo_sys.usp_dropextendedproperty_level_1
 repo.fs_dwh_database_name <.. repo_sys.usp_dropextendedproperty_level_2
-repo.fs_dwh_database_name <.. repo.usp_connect_database
 repo.Parameter <.. repo.fs_dwh_database_name

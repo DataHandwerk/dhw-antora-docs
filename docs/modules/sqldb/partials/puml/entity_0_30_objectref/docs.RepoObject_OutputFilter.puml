@@ -1,0 +1,125 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity docs.AntoraNavListPage_by_type << V >> {
+  **type** : nvarchar(128)
+}
+
+entity docs.AntoraNavListRepoObject_by_schema << V >> {
+  * **RepoObject_schema_name** : nvarchar(128)
+}
+
+entity docs.AntoraNavListRepoObject_by_schema_type << V >> {
+  * **RepoObject_schema_name** : nvarchar(128)
+  **type** : char(2)
+}
+
+entity docs.AntoraNavListRepoObject_by_type << V >> {
+  **type** : char(2)
+}
+
+entity docs.AntoraPage_ObjectBySchema << V >> {
+}
+
+entity docs.AntoraPage_ObjectByType << V >> {
+}
+
+entity docs.ftv_RepoObject_Reference_PlantUml_EntityRefList << IF >> {
+}
+
+entity docs.RepoObject_OutputFilter << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml_Entity << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml_Entity_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_PlantUml_PumlEntityFkList << V >> {
+  **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.RepoObject_Plantuml_T << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity docs.usp_AntoraExport << P >> {
+}
+
+entity docs.usp_AntoraExport_navigation << P >> {
+}
+
+entity docs.usp_AntoraExport_ObjectPage << P >> {
+}
+
+entity docs.usp_AntoraExport_ObjectPartialProperties << P >> {
+}
+
+entity docs.usp_AntoraExport_ObjectPuml << P >> {
+}
+
+entity docs.usp_PERSIST_RepoObject_Plantuml_Entity_T << P >> {
+}
+
+entity docs.usp_PERSIST_RepoObject_Plantuml_T << P >> {
+}
+
+docs.AntoraNavListRepoObject_by_schema <.. docs.usp_AntoraExport_navigation
+docs.AntoraNavListRepoObject_by_schema <.. docs.AntoraPage_ObjectBySchema
+docs.AntoraNavListRepoObject_by_schema_type <.. docs.usp_AntoraExport_navigation
+docs.AntoraNavListRepoObject_by_type <.. docs.usp_AntoraExport_navigation
+docs.AntoraNavListRepoObject_by_type <.. docs.AntoraPage_ObjectByType
+docs.ftv_RepoObject_Reference_PlantUml_EntityRefList <.. docs.RepoObject_Plantuml
+docs.RepoObject_OutputFilter <.. docs.usp_AntoraExport_ObjectPuml
+docs.RepoObject_OutputFilter <.. docs.RepoObject_Plantuml_Entity
+docs.RepoObject_OutputFilter <.. docs.usp_AntoraExport_ObjectPartialProperties
+docs.RepoObject_OutputFilter <.. docs.usp_AntoraExport_ObjectPage
+docs.RepoObject_OutputFilter <.. docs.AntoraNavListRepoObject_by_type
+docs.RepoObject_OutputFilter <.. docs.AntoraNavListRepoObject_by_schema
+docs.RepoObject_OutputFilter <.. docs.AntoraNavListRepoObject_by_schema_type
+docs.RepoObject_OutputFilter <.. docs.AntoraNavListPage_by_type
+docs.RepoObject_Plantuml <.. docs.RepoObject_Plantuml_T
+docs.RepoObject_Plantuml <.. docs.usp_PERSIST_RepoObject_Plantuml_T
+docs.RepoObject_Plantuml_Entity <.. docs.RepoObject_Plantuml_Entity_T
+docs.RepoObject_Plantuml_Entity <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
+docs.RepoObject_Plantuml_Entity_T <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
+docs.RepoObject_Plantuml_Entity_T <.. docs.ftv_RepoObject_Reference_PlantUml_EntityRefList
+docs.RepoObject_Plantuml_Entity_T <.. docs.RepoObject_PlantUml_PumlEntityFkList
+docs.RepoObject_PlantUml_PumlEntityFkList <.. docs.RepoObject_Plantuml
+docs.RepoObject_Plantuml_T <.. docs.usp_PERSIST_RepoObject_Plantuml_T
+docs.usp_AntoraExport_navigation <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_ObjectPage <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_ObjectPartialProperties <.. docs.usp_AntoraExport
+docs.usp_AntoraExport_ObjectPuml <.. docs.usp_AntoraExport
+docs.usp_PERSIST_RepoObject_Plantuml_Entity_T <.. docs.usp_AntoraExport_ObjectPuml
+docs.usp_PERSIST_RepoObject_Plantuml_T <.. docs.usp_AntoraExport_ObjectPuml

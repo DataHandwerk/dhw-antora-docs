@@ -28,10 +28,16 @@ entity docs.RepoObject_Plantuml << V >> {
   --
   ColRefList : nvarchar(max)
   ObjectRefList : nvarchar(max)
+  ObjectRefList_0_30 : nvarchar(max)
+  ObjectRefList_30_0 : nvarchar(max)
+  * PlantumlEntity_0_30_ObjectRef : nvarchar(max)
   * PlantumlEntity_1_1_ColRef : nvarchar(max)
   * PlantumlEntity_1_1_FkRef : nvarchar(max)
   * PlantumlEntity_1_1_ObjectRef : nvarchar(max)
+  * PlantumlEntity_30_0_ObjectRef : nvarchar(max)
   PumlEntityList : nvarchar(max)
+  PumlEntityList_0_30 : nvarchar(max)
+  PumlEntityList_30_0 : nvarchar(max)
   * RepoObject_fullname2 : nvarchar(257)
 }
 
@@ -57,12 +63,8 @@ entity graph.ReferencedObject << U >> {
 entity graph.RepoObject << U >> {
   --
   * $node_id_FAC3EF4690DB4CD6A98F097DAF0885CC : nvarchar(1000)
-  * 33091D88-929D-488C-B30F-7328A9D970B6 : char(2)
-  * 906BEFD3-76BA-432D-9792-128CEA80A6EE : nvarchar(257)
-  * 9D326C2A-F564-4176-B51F-7BE9FB6685B2 : nvarchar(261)
   * graph_id_60367FDA1A70430CA390F8144C223EC4 : bigint
   * RepoObject_fullname : nvarchar(261)
-  RepoObject_fullname2 : nvarchar(257)
   * RepoObject_guid : uniqueidentifier
   * RepoObject_type : char(2)
 }
@@ -85,6 +87,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -117,6 +120,6 @@ docs.RepoObject_Plantuml_ObjectRefList <.. docs.RepoObject_Plantuml
 graph.ReferencedObject <.. docs.RepoObject_Plantuml_ObjectRefList
 graph.RepoObject <.. docs.RepoObject_Plantuml_ObjectRefList
 repo.ftv_RepoObject_ReferencedReferencing <.. docs.RepoObject_Plantuml_ObjectRefList
-repo.RepoObject <.. repo.ftv_RepoObject_ReferencedReferencing
 repo.RepoObject <.. docs.RepoObject_Plantuml_ObjectRefList
+repo.RepoObject <.. repo.ftv_RepoObject_ReferencedReferencing
 docs.RepoObject_Plantuml_ObjectRefList::ObjectRefList <-- docs.RepoObject_Plantuml::ObjectRefList

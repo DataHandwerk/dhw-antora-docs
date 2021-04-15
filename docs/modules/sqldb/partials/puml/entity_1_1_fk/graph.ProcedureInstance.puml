@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -24,16 +24,7 @@ skinparam class {
 
 
 entity graph.ProcedureInstance << U >> {
-UK_ProcedureInstance
-{PK_ProcedureInstance}
-..
-Procedure_RepoObject_guid; uniqueidentifier
-Instance; varchar(500)
---
-- idx_ProcedureInstance__1
-{RepoObject_guid}
-..
-Procedure_RepoObject_guid; uniqueidentifier
+
 }
 
 

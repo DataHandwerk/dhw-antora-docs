@@ -34,24 +34,12 @@ entity config.type_level1type_level2type << V >> {
 entity graph.RepoObjectColumn << U >> {
   --
   * $node_id_347F7C762E2642A98518838371CE6BB1 : nvarchar(1000)
-  033FA47C-4D2F-4D6A-8B50-43D42BB835EE : nvarchar(386)
-  * 3BEB9175-44B5-426B-8409-577C841C619B : uniqueidentifier
-  * 62AB1D86-A0D1-4DBF-B60C-4F4F0E6D1D35 : nvarchar(128)
-  AFC74650-9FE6-4EB8-871A-4F5868DC2FE1 : nvarchar(128)
-  * B1FCD5B8-85AB-48F2-B870-E85A25753638 : nvarchar(261)
-  D9A2A770-88F7-4CE2-A442-B33ABE6FA570 : nvarchar(257)
-  DCE6F0AF-8705-4010-9800-BDE64B3D9D44 : nvarchar(520)
-  * E59AE2FF-4777-4954-A263-436BB2E6C52D : char(2)
   * graph_id_58E017E29B684D7FBC6E4E880C609245 : bigint
   * RepoObject_fullname : nvarchar(261)
-  RepoObject_fullname2 : nvarchar(257)
   * RepoObject_guid : uniqueidentifier
   * RepoObject_type : char(2)
-  * RepoObjectColumn_fullname : nvarchar(520)
-  RepoObjectColumn_fullname2 : nvarchar(386)
   * RepoObjectColumn_guid : uniqueidentifier
   * RepoObjectColumn_name : nvarchar(128)
-  RepoObjectColumn_type : nvarchar(128)
 }
 
 entity graph.RepoObjectColumn_S << V >> {
@@ -71,6 +59,18 @@ entity graph.usp_PERSIST_RepoObjectColumn << P >> {
   --
 }
 
+entity logs.usp_ExecutionLog_insert << P >> {
+  --
+}
+
+entity repo.IndexColumn_virtual << U >> {
+  * **index_guid** : uniqueidentifier
+  * **index_column_id** : int
+  --
+  * is_descending_key : bit
+  * RepoObjectColumn_guid : uniqueidentifier
+}
+
 entity repo.RepoObject << U >> {
   * **RepoObject_guid** : uniqueidentifier
   --
@@ -80,6 +80,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -137,6 +138,7 @@ entity repo.RepoObjectColumn << U >> {
   is_persistence_no_include : bit
   is_persistence_no_update : bit
   is_query_plan_expression : bit
+  is_required_ColumnMerge : bit
   is_SysObjectColumn_missing : bit
   persistence_source_RepoObjectColumn_guid : uniqueidentifier
   Referencing_Count : int
@@ -166,13 +168,28 @@ entity repo.RepoObjectColumn << U >> {
 }
 
 entity repo.RepoObjectColumn_HistValidColums_setpoint << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  **RepoObjectColumn_name** : sysname
   --
   * Repo_generated_always_type : int
   * Repo_is_nullable : int
   * Repo_user_type_fullname : varchar(12)
   * Repo_user_type_name : varchar(9)
+}
+
+entity repo.RepoObjectColumn_RequiredRepoObjectColumnMerge << V >> {
+  --
+  * is_RepoObjectColumn_name_uniqueidentifier : int
+  * is_SysObjectColumn_name_uniqueidentifier : int
+  persistence_source_RepoObjectColumn_guid : uniqueidentifier
   * RepoObject_guid : uniqueidentifier
-  RepoObjectColumn_name : sysname
+  * RepoObjectColumn_guid : uniqueidentifier
+  * RepoObjectColumn_name : nvarchar(128)
+  roc2_persistence_source_RepoObjectColumn_guid : uniqueidentifier
+  * roc2_RepoObjectColumn_guid : uniqueidentifier
+  * roc2_RepoObjectColumn_name : nvarchar(128)
+  * roc2_SysObjectColumn_name : nvarchar(128)
+  * SysObjectColumn_name : nvarchar(128)
 }
 
 entity repo.SysColumn_RepoObjectColumn_via_guid << V >> {
@@ -291,10 +308,6 @@ entity repo.SysColumn_RepoObjectColumn_via_name << V >> {
   uses_database_collation : bit
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-  --
-}
-
 entity repo.usp_sync_guid << P >> {
   --
 }
@@ -367,54 +380,61 @@ entity repo_sys.usp_AddOrUpdateExtendedProperty << P >> {
 
 config.type_level1type_level2type <.. repo.usp_sync_guid_RepoObjectColumn
 graph.RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
-graph.RepoObjectColumn_S <.. graph.RepoObjectColumn
+graph.RepoObjectColumn <.. graph.usp_PERSIST_RepoObjectColumn
 graph.RepoObjectColumn_S <.. graph.usp_PERSIST_RepoObjectColumn
 graph.RepoObjectColumn_S <.. repo.usp_sync_guid_RepoObjectColumn
+graph.RepoObjectColumn_S <.. graph.RepoObjectColumn
 graph.usp_PERSIST_RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
+logs.usp_ExecutionLog_insert <.. repo.usp_sync_guid
+logs.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObjectColumn
+logs.usp_ExecutionLog_insert <.. graph.usp_PERSIST_RepoObjectColumn
+repo.IndexColumn_virtual <.. repo.usp_sync_guid_RepoObjectColumn
+repo.RepoObject <.. repo.usp_sync_guid_RepoObjectColumn
 repo.RepoObject <.. repo.SysColumn_RepoObjectColumn_via_guid
 repo.RepoObject <.. repo.SysColumn_RepoObjectColumn_via_name
-repo.RepoObject <.. repo.usp_sync_guid_RepoObjectColumn
-repo.RepoObject_persistence <.. repo.RepoObjectColumn_HistValidColums_setpoint
 repo.RepoObject_persistence <.. repo.usp_sync_guid_RepoObjectColumn
-repo.RepoObjectColumn <.. repo.SysColumn_RepoObjectColumn_via_guid
-repo.RepoObjectColumn <.. repo.SysColumn_RepoObjectColumn_via_name
+repo.RepoObject_persistence <.. repo.RepoObjectColumn_HistValidColums_setpoint
 repo.RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
+repo.RepoObjectColumn <.. repo.SysColumn_RepoObjectColumn_via_name
+repo.RepoObjectColumn <.. repo.SysColumn_RepoObjectColumn_via_guid
+repo.RepoObjectColumn <.. repo.RepoObjectColumn_RequiredRepoObjectColumnMerge
 repo.RepoObjectColumn_HistValidColums_setpoint <.. repo.usp_sync_guid_RepoObjectColumn
+repo.RepoObjectColumn_RequiredRepoObjectColumnMerge <.. repo.usp_sync_guid_RepoObjectColumn
 repo.SysColumn_RepoObjectColumn_via_guid <.. repo.usp_sync_guid_RepoObjectColumn
 repo.SysColumn_RepoObjectColumn_via_name <.. repo.usp_sync_guid_RepoObjectColumn
-repo.usp_ExecutionLog_insert <.. graph.usp_PERSIST_RepoObjectColumn
-repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid_RepoObjectColumn
-repo.usp_ExecutionLog_insert <.. repo.usp_sync_guid
 repo.usp_sync_guid_RepoObjectColumn <.. repo.usp_sync_guid
 repo_sys.SysColumn <.. repo.SysColumn_RepoObjectColumn_via_guid
 repo_sys.SysColumn <.. repo.SysColumn_RepoObjectColumn_via_name
 repo_sys.SysColumn <.. repo.usp_sync_guid_RepoObjectColumn
 repo_sys.usp_AddOrUpdateExtendedProperty <.. repo.usp_sync_guid_RepoObjectColumn
 graph.RepoObjectColumn_S::RepoObject_fullname <-- graph.RepoObjectColumn::RepoObject_fullname
-graph.RepoObjectColumn_S::RepoObject_fullname2 <-- graph.RepoObjectColumn::RepoObject_fullname2
+graph.RepoObjectColumn_S::RepoObject_fullname2 <-- ::RepoObject_fullname2
 graph.RepoObjectColumn_S::RepoObject_guid <-- graph.RepoObjectColumn::RepoObject_guid
 graph.RepoObjectColumn_S::RepoObject_type <-- graph.RepoObjectColumn::RepoObject_type
-graph.RepoObjectColumn_S::RepoObjectColumn_fullname <-- graph.RepoObjectColumn::RepoObjectColumn_fullname
-graph.RepoObjectColumn_S::RepoObjectColumn_fullname2 <-- graph.RepoObjectColumn::RepoObjectColumn_fullname2
+graph.RepoObjectColumn_S::RepoObjectColumn_fullname <-- ::RepoObjectColumn_fullname
+graph.RepoObjectColumn_S::RepoObjectColumn_fullname2 <-- ::RepoObjectColumn_fullname2
 graph.RepoObjectColumn_S::RepoObjectColumn_guid <-- graph.RepoObjectColumn::RepoObjectColumn_guid
 graph.RepoObjectColumn_S::RepoObjectColumn_name <-- graph.RepoObjectColumn::RepoObjectColumn_name
-graph.RepoObjectColumn_S::RepoObjectColumn_type <-- graph.RepoObjectColumn::RepoObjectColumn_type
+graph.RepoObjectColumn_S::RepoObjectColumn_type <-- ::RepoObjectColumn_type
 repo.RepoObject::is_repo_managed <-- repo.SysColumn_RepoObjectColumn_via_guid::is_repo_managed
 repo.RepoObject::is_repo_managed <-- repo.SysColumn_RepoObjectColumn_via_name::is_repo_managed
 repo.RepoObject::RepoObject_fullname <-- repo.SysColumn_RepoObjectColumn_via_name::RepoObject_fullname
 repo.RepoObject::RepoObject_fullname <-- repo.SysColumn_RepoObjectColumn_via_guid::RepoObject_fullname
 repo.RepoObject::SysObject_fullname <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObject_fullname
 repo.RepoObject::SysObject_fullname <-- repo.SysColumn_RepoObjectColumn_via_name::SysObject_fullname
-repo.RepoObjectColumn::has_different_sys_names <-- repo.SysColumn_RepoObjectColumn_via_guid::has_different_sys_names
 repo.RepoObjectColumn::has_different_sys_names <-- repo.SysColumn_RepoObjectColumn_via_name::has_different_sys_names
+repo.RepoObjectColumn::has_different_sys_names <-- repo.SysColumn_RepoObjectColumn_via_guid::has_different_sys_names
 repo.RepoObjectColumn::is_query_plan_expression <-- repo.SysColumn_RepoObjectColumn_via_guid::is_query_plan_expression
 repo.RepoObjectColumn::is_query_plan_expression <-- repo.SysColumn_RepoObjectColumn_via_name::is_query_plan_expression
 repo.RepoObjectColumn::is_RepoObjectColumn_name_uniqueidentifier <-- repo.SysColumn_RepoObjectColumn_via_name::is_RepoObjectColumn_name_uniqueidentifier
 repo.RepoObjectColumn::is_RepoObjectColumn_name_uniqueidentifier <-- repo.SysColumn_RepoObjectColumn_via_guid::is_RepoObjectColumn_name_uniqueidentifier
+repo.RepoObjectColumn::is_RepoObjectColumn_name_uniqueidentifier <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::is_RepoObjectColumn_name_uniqueidentifier
 repo.RepoObjectColumn::is_SysObjectColumn_missing <-- repo.SysColumn_RepoObjectColumn_via_guid::is_SysObjectColumn_missing
 repo.RepoObjectColumn::is_SysObjectColumn_missing <-- repo.SysColumn_RepoObjectColumn_via_name::is_SysObjectColumn_missing
 repo.RepoObjectColumn::is_SysObjectColumn_name_uniqueidentifier <-- repo.SysColumn_RepoObjectColumn_via_name::is_SysObjectColumn_name_uniqueidentifier
 repo.RepoObjectColumn::is_SysObjectColumn_name_uniqueidentifier <-- repo.SysColumn_RepoObjectColumn_via_guid::is_SysObjectColumn_name_uniqueidentifier
+repo.RepoObjectColumn::is_SysObjectColumn_name_uniqueidentifier <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::is_SysObjectColumn_name_uniqueidentifier
+repo.RepoObjectColumn::persistence_source_RepoObjectColumn_guid <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::persistence_source_RepoObjectColumn_guid
 repo.RepoObjectColumn::persistence_source_RepoObjectColumn_guid <-- repo.SysColumn_RepoObjectColumn_via_guid::persistence_source_RepoObjectColumn_guid
 repo.RepoObjectColumn::persistence_source_RepoObjectColumn_guid <-- repo.SysColumn_RepoObjectColumn_via_name::persistence_source_RepoObjectColumn_guid
 repo.RepoObjectColumn::Referencing_Count <-- repo.SysColumn_RepoObjectColumn_via_name::Referencing_Count
@@ -447,30 +467,34 @@ repo.RepoObjectColumn::Repo_user_type_fullname <-- repo.SysColumn_RepoObjectColu
 repo.RepoObjectColumn::Repo_user_type_fullname <-- repo.SysColumn_RepoObjectColumn_via_name::Repo_user_type_fullname
 repo.RepoObjectColumn::Repo_user_type_name <-- repo.SysColumn_RepoObjectColumn_via_name::Repo_user_type_name
 repo.RepoObjectColumn::Repo_user_type_name <-- repo.SysColumn_RepoObjectColumn_via_guid::Repo_user_type_name
-repo.RepoObjectColumn::Repo_uses_database_collation <-- repo.SysColumn_RepoObjectColumn_via_name::Repo_uses_database_collation
 repo.RepoObjectColumn::Repo_uses_database_collation <-- repo.SysColumn_RepoObjectColumn_via_guid::Repo_uses_database_collation
+repo.RepoObjectColumn::Repo_uses_database_collation <-- repo.SysColumn_RepoObjectColumn_via_name::Repo_uses_database_collation
 repo.RepoObjectColumn::RepoObject_guid <-- repo.SysColumn_RepoObjectColumn_via_name::RepoObject_guid
 repo.RepoObjectColumn::RepoObject_guid <-- repo.SysColumn_RepoObjectColumn_via_guid::RepoObject_guid
+repo.RepoObjectColumn::RepoObject_guid <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::RepoObject_guid
+repo.RepoObjectColumn::RepoObjectColumn_guid <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::RepoObjectColumn_guid
 repo.RepoObjectColumn::RepoObjectColumn_guid <-- repo.SysColumn_RepoObjectColumn_via_guid::RepoObjectColumn_guid
 repo.RepoObjectColumn::RepoObjectColumn_guid <-- repo.SysColumn_RepoObjectColumn_via_name::RepoObjectColumn_guid
 repo.RepoObjectColumn::RepoObjectColumn_name <-- repo.SysColumn_RepoObjectColumn_via_name::RepoObjectColumn_name
 repo.RepoObjectColumn::RepoObjectColumn_name <-- repo.SysColumn_RepoObjectColumn_via_guid::RepoObjectColumn_name
+repo.RepoObjectColumn::RepoObjectColumn_name <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::RepoObjectColumn_name
 repo.RepoObjectColumn::SysObjectColumn_column_id <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObjectColumn_column_id
 repo.RepoObjectColumn::SysObjectColumn_column_id <-- repo.SysColumn_RepoObjectColumn_via_name::SysObjectColumn_column_id
 repo.RepoObjectColumn::SysObjectColumn_name <-- repo.SysColumn_RepoObjectColumn_via_name::SysObjectColumn_name
 repo.RepoObjectColumn::SysObjectColumn_name <-- repo.SysColumn_RepoObjectColumn_via_guid::SysObjectColumn_name
-repo_sys.SysColumn::default_definition <-- repo.SysColumn_RepoObjectColumn_via_name::default_definition
+repo.RepoObjectColumn::SysObjectColumn_name <-- repo.RepoObjectColumn_RequiredRepoObjectColumnMerge::SysObjectColumn_name
 repo_sys.SysColumn::default_definition <-- repo.SysColumn_RepoObjectColumn_via_guid::default_definition
-repo_sys.SysColumn::default_is_system_named <-- repo.SysColumn_RepoObjectColumn_via_guid::default_is_system_named
+repo_sys.SysColumn::default_definition <-- repo.SysColumn_RepoObjectColumn_via_name::default_definition
 repo_sys.SysColumn::default_is_system_named <-- repo.SysColumn_RepoObjectColumn_via_name::default_is_system_named
-repo_sys.SysColumn::default_name <-- repo.SysColumn_RepoObjectColumn_via_name::default_name
+repo_sys.SysColumn::default_is_system_named <-- repo.SysColumn_RepoObjectColumn_via_guid::default_is_system_named
 repo_sys.SysColumn::default_name <-- repo.SysColumn_RepoObjectColumn_via_guid::default_name
-repo_sys.SysColumn::definition <-- repo.SysColumn_RepoObjectColumn_via_guid::definition
+repo_sys.SysColumn::default_name <-- repo.SysColumn_RepoObjectColumn_via_name::default_name
 repo_sys.SysColumn::definition <-- repo.SysColumn_RepoObjectColumn_via_name::definition
-repo_sys.SysColumn::generated_always_type <-- repo.SysColumn_RepoObjectColumn_via_name::generated_always_type
+repo_sys.SysColumn::definition <-- repo.SysColumn_RepoObjectColumn_via_guid::definition
 repo_sys.SysColumn::generated_always_type <-- repo.SysColumn_RepoObjectColumn_via_guid::generated_always_type
-repo_sys.SysColumn::graph_type <-- repo.SysColumn_RepoObjectColumn_via_guid::graph_type
+repo_sys.SysColumn::generated_always_type <-- repo.SysColumn_RepoObjectColumn_via_name::generated_always_type
 repo_sys.SysColumn::graph_type <-- repo.SysColumn_RepoObjectColumn_via_name::graph_type
+repo_sys.SysColumn::graph_type <-- repo.SysColumn_RepoObjectColumn_via_guid::graph_type
 repo_sys.SysColumn::increment_value <-- repo.SysColumn_RepoObjectColumn_via_guid::increment_value
 repo_sys.SysColumn::increment_value <-- repo.SysColumn_RepoObjectColumn_via_name::increment_value
 repo_sys.SysColumn::is_computed <-- repo.SysColumn_RepoObjectColumn_via_name::is_computed

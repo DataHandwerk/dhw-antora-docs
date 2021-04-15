@@ -23,23 +23,28 @@ skinparam class {
 }
 
 
-entity repo.RepoObjectColumn_Inheritance_temp << U >> {
+entity logs.usp_ExecutionLog_insert << P >> {
 }
 
-entity repo.RepoObjectColumn_InheritanceType_resulting_InheritanceDefinition << V >> {
+entity repo.RepoObjectColumn_Inheritance_temp << U >> {
 }
 
 entity repo.RepoObjectColumnProperty << U >> {
   * **RepoObjectColumnProperty_id** : int
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
+entity repo.RepoObjectColumnProperty_InheritanceType_resulting_InheritanceDefinition << V >> {
+}
+
+entity repo.usp_main << P >> {
 }
 
 entity repo.usp_RepoObjectColumn_Inheritance << P >> {
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_RepoObjectColumn_Inheritance
+logs.usp_ExecutionLog_insert <.. repo.usp_main
 repo.RepoObjectColumn_Inheritance_temp <.. repo.usp_RepoObjectColumn_Inheritance
-repo.RepoObjectColumn_InheritanceType_resulting_InheritanceDefinition <.. repo.usp_RepoObjectColumn_Inheritance
 repo.RepoObjectColumnProperty <.. repo.usp_RepoObjectColumn_Inheritance
-repo.usp_ExecutionLog_insert <.. repo.usp_RepoObjectColumn_Inheritance
+repo.RepoObjectColumnProperty_InheritanceType_resulting_InheritanceDefinition <.. repo.usp_RepoObjectColumn_Inheritance
+repo.usp_RepoObjectColumn_Inheritance <.. repo.usp_main

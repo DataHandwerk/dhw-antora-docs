@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -24,7 +24,7 @@ skinparam class {
 
 
 entity repo.RepoObjectColumn_ReferencingList << V >> {
-- idx_RepoObjectColumn_ReferencingList__1
+- **PK_RepoObjectColumn_ReferencingList**
 
 ..
 Referenced_guid; uniqueidentifier

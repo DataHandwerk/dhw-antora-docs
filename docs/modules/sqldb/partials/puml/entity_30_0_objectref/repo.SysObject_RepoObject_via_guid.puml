@@ -1,0 +1,84 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.ftv_dwh_database << IF >> {
+}
+
+entity config.Parameter << U >> {
+  * **Parameter_name** : varchar(100)
+  * **sub_Parameter** : nvarchar(128)
+}
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.SysObject_RepoObject_via_guid << V >> {
+}
+
+entity repo_sys.ExtendedProperties << V >> {
+}
+
+entity repo_sys.SysObject << V >> {
+}
+
+entity sys_dwh.columns << SN >> {
+}
+
+entity sys_dwh.extended_properties << SN >> {
+}
+
+entity sys_dwh.indexes << SN >> {
+}
+
+entity sys_dwh.objects << SN >> {
+}
+
+entity sys_dwh.parameters << SN >> {
+}
+
+entity sys_dwh.schemas << SN >> {
+}
+
+entity sys_dwh.sql_modules << SN >> {
+}
+
+entity sys_dwh.tables << SN >> {
+}
+
+config.ftv_dwh_database <.. repo_sys.ExtendedProperties
+config.Parameter <.. config.ftv_dwh_database
+repo.RepoObject <.. repo.SysObject_RepoObject_via_guid
+repo_sys.ExtendedProperties <.. repo_sys.SysObject
+repo_sys.SysObject <.. repo.SysObject_RepoObject_via_guid
+sys_dwh.columns <.. repo_sys.ExtendedProperties
+sys_dwh.extended_properties <.. repo_sys.ExtendedProperties
+sys_dwh.indexes <.. repo_sys.ExtendedProperties
+sys_dwh.objects <.. repo_sys.ExtendedProperties
+sys_dwh.objects <.. repo_sys.SysObject
+sys_dwh.parameters <.. repo_sys.ExtendedProperties
+sys_dwh.schemas <.. repo_sys.SysObject
+sys_dwh.sql_modules <.. repo_sys.SysObject
+sys_dwh.tables <.. repo_sys.SysObject

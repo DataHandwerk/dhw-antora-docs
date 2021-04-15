@@ -31,20 +31,15 @@ entity config.usp_init_spt_values << P >> {
   --
 }
 
-entity repo.fs_dwh_database_name << FN >> {
-  --
-}
-
 entity repo.usp_connect_database << P >> {
   --
 }
 
-entity repo.usp_parameter_insert_update << P >> {
+entity repo.usp_parameter_set << P >> {
   --
 }
 
 config.usp_init_parameter <.. repo.usp_connect_database
 config.usp_init_spt_values <.. repo.usp_connect_database
-repo.fs_dwh_database_name <.. repo.usp_connect_database
-repo.usp_parameter_insert_update <.. repo.usp_connect_database
+repo.usp_parameter_set <.. repo.usp_connect_database
 

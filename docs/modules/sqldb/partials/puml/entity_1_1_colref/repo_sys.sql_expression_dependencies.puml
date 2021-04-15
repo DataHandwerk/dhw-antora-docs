@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.ftv_dwh_database << IF >> {
+entity config.ftv_dwh_database << IF >> {
   --
   dwh_database_id : smallint
   dwh_database_name : nvarchar(128)
@@ -49,6 +49,10 @@ entity repo.RepoObject_reference_SqlExpressionDependencies << V >> {
 }
 
 entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
+  * **referencing_id** : int
+  * **referencing_minor_id** : int
+  **referenced_id** : int
+  * **referenced_minor_id** : int
   --
   definition : nvarchar(max)
   * InformationSource : varchar(31)
@@ -57,8 +61,6 @@ entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
   is_referencing_object_equal_referenced_object : bit
   referenced_column_name : sysname
   referenced_entity_name : nvarchar(128)
-  referenced_id : int
-  * referenced_minor_id : int
   referenced_node_id : bigint
   referenced_RepoObject_guid : uniqueidentifier
   referenced_RepoObjectColumn_guid : uniqueidentifier
@@ -66,8 +68,6 @@ entity repo.RepoObjectColumn_reference_SqlExpressionDependencies << V >> {
   referenced_type : char(2)
   referencing_column_name : sysname
   referencing_entity_name : nvarchar(128)
-  * referencing_id : int
-  * referencing_minor_id : int
   referencing_node_id : bigint
   referencing_RepoObject_guid : uniqueidentifier
   referencing_RepoObjectColumn_guid : uniqueidentifier
@@ -195,8 +195,8 @@ entity sys_dwh.sql_expression_dependencies << SN >> {
   --
 }
 
-repo.ftv_dwh_database <.. repo_sys.SysColumn
-repo.ftv_dwh_database <.. repo_sys.sql_expression_dependencies
+config.ftv_dwh_database <.. repo_sys.sql_expression_dependencies
+config.ftv_dwh_database <.. repo_sys.SysColumn
 repo_sys.sql_expression_dependencies <.. repo.RepoObject_reference_SqlExpressionDependencies
 repo_sys.sql_expression_dependencies <.. repo.RepoObjectColumn_reference_SqlExpressionDependencies
 repo_sys.SysColumn <.. repo_sys.sql_expression_dependencies

@@ -92,8 +92,8 @@ repo_sys.ExtendedProperties <.. repo_sys.ExtendedProperties_ParameterForAddUpdat
 repo_sys.ExtendedProperties_ParameterForAddUpdateDrop <.. repo_sys.usp_dropextendedproperty_level_1
 repo_sys.ExtendedProperties_ParameterForAddUpdateDrop <.. repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate
 repo_sys.ExtendedProperties_ParameterForAddUpdateDrop <.. repo.usp_sync_ExtendedProperties_Repo2Sys_Delete
-sys_dwh.objects <.. repo_sys.ExtendedProperties
 sys_dwh.objects <.. repo_sys.ExtendedProperties_ParameterForAddUpdateDrop
+sys_dwh.objects <.. repo_sys.ExtendedProperties
 config.type_level1type_level2type::level1type <-- repo_sys.ExtendedProperties_ParameterForAddUpdateDrop::type_level1type
 config.type_level1type_level2type::level2type <-- repo_sys.ExtendedProperties_ParameterForAddUpdateDrop::type_level2type
 repo_sys.ExtendedProperties::class <-- repo_sys.ExtendedProperties_ParameterForAddUpdateDrop::class

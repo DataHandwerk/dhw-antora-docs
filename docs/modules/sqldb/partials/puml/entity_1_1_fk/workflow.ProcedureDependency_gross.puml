@@ -1,0 +1,49 @@
+Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity workflow.ProcedureDependency_gross << V >> {
+- idx_ProcedureDependency_gross__1
+
+..
+id; int
+--
+- idx_ProcedureDependency_gross__2
+
+..
+referenced_Procedure_RepoObject_guid; uniqueidentifier
+referencing_Procedure_RepoObject_guid; uniqueidentifier
+--
+- idx_ProcedureDependency_gross__3
+{RepoObject_guid}
+..
+referenced_Procedure_RepoObject_guid; uniqueidentifier
+--
+- idx_ProcedureDependency_gross__4
+{RepoObject_guid}
+..
+referencing_Procedure_RepoObject_guid; uniqueidentifier
+}
+
+

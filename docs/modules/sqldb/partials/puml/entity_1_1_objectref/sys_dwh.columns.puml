@@ -33,5 +33,5 @@ entity sys_dwh.columns << SN >> {
 }
 
 repo_sys.ExtendedProperties <.. repo_sys.SysColumn
-sys_dwh.columns <.. repo_sys.ExtendedProperties
 sys_dwh.columns <.. repo_sys.SysColumn
+sys_dwh.columns <.. repo_sys.ExtendedProperties

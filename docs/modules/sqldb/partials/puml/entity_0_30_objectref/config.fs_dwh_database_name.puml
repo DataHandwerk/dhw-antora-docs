@@ -1,0 +1,65 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity config.fs_dwh_database_name << FN >> {
+}
+
+entity repo.usp_main << P >> {
+}
+
+entity repo.usp_persistence_set << P >> {
+}
+
+entity repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate << P >> {
+}
+
+entity repo.usp_sync_guid << P >> {
+}
+
+entity repo.usp_sync_guid_RepoObject << P >> {
+}
+
+entity repo.usp_sync_guid_RepoObjectColumn << P >> {
+}
+
+entity repo_sys.usp_AddOrUpdateExtendedProperty << P >> {
+}
+
+entity repo_sys.usp_dropextendedproperty_level_1 << P >> {
+}
+
+entity repo_sys.usp_dropextendedproperty_level_2 << P >> {
+}
+
+config.fs_dwh_database_name <.. repo_sys.usp_AddOrUpdateExtendedProperty
+config.fs_dwh_database_name <.. repo_sys.usp_dropextendedproperty_level_1
+config.fs_dwh_database_name <.. repo_sys.usp_dropextendedproperty_level_2
+repo.usp_sync_guid <.. repo.usp_persistence_set
+repo.usp_sync_guid <.. repo.usp_main
+repo.usp_sync_guid_RepoObject <.. repo.usp_sync_guid
+repo.usp_sync_guid_RepoObjectColumn <.. repo.usp_sync_guid
+repo_sys.usp_AddOrUpdateExtendedProperty <.. repo.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate
+repo_sys.usp_AddOrUpdateExtendedProperty <.. repo.usp_sync_guid_RepoObject
+repo_sys.usp_AddOrUpdateExtendedProperty <.. repo.usp_sync_guid_RepoObjectColumn

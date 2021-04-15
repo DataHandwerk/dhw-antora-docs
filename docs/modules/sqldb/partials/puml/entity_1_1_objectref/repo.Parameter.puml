@@ -54,7 +54,7 @@ entity repo.PropertyName_RepoObjectColumn << V >> {
   * **property_name** : nvarchar(128)
 }
 
-entity repo.RepoObjectColumn_InheritanceType_InheritanceDefinition << V >> {
+entity repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition << V >> {
 }
 
 entity repo.RepoObjectProperty_InheritanceType_InheritanceDefinition << V >> {
@@ -62,24 +62,24 @@ entity repo.RepoObjectProperty_InheritanceType_InheritanceDefinition << V >> {
   * **property_name** : nvarchar(128)
 }
 
-entity repo.usp_parameter_insert_update << P >> {
+entity repo.usp_parameter_set << P >> {
 }
 
-entity repo.usp_persistence_insert_update << P >> {
+entity repo.usp_persistence_set << P >> {
 }
 
 repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPageTemplate
+repo.Parameter <.. docs.usp_AntoraExport_ObjectPageTemplate
 repo.Parameter <.. repo.fs_dwh_database_name
 repo.Parameter <.. repo.fs_get_parameter_value
 repo.Parameter <.. repo.ftv_dwh_database
 repo.Parameter <.. repo.ftv_get_parameter_value
 repo.Parameter <.. config.usp_init_parameter
-repo.Parameter <.. docs.usp_AntoraExport_ObjectPageTemplate
-repo.Parameter <.. repo.usp_parameter_insert_update
-repo.Parameter <.. repo.usp_persistence_insert_update
+repo.Parameter <.. repo.usp_parameter_set
+repo.Parameter <.. repo.usp_persistence_set
 repo.Parameter <.. repo.PropertyName_RepoObject
 repo.Parameter <.. repo.PropertyName_RepoObjectColumn
 repo.Parameter <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
-repo.Parameter <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
+repo.Parameter <.. repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition
 repo.PropertyName_RepoObject <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
-repo.PropertyName_RepoObjectColumn <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
+repo.PropertyName_RepoObjectColumn <.. repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition

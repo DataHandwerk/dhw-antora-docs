@@ -23,10 +23,6 @@ skinparam class {
 }
 
 
-entity repo.GeneratorUspStep_Persistence << V >> {
-  * **usp_id** : int
-}
-
 entity repo.Index_ColumList << V >> {
   **index_guid** : uniqueidentifier
 }
@@ -44,7 +40,11 @@ entity repo.IndexColumn_union << V >> {
   * **index_column_id** : int
 }
 
+entity uspgenerator.GeneratorUspStep_Persistence << V >> {
+  * **usp_id** : int
+}
+
 repo.Index_ColumList <.. repo.Index_SqlConstraint_PkUq
-repo.Index_ColumList <.. repo.GeneratorUspStep_Persistence
+repo.Index_ColumList <.. uspgenerator.GeneratorUspStep_Persistence
 repo.Index_ColumList <.. repo.Index_gross
 repo.IndexColumn_union <.. repo.Index_ColumList

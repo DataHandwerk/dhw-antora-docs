@@ -1,0 +1,40 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity logs.ExecutionLog << U >> {
+  * **id** : bigint
+}
+
+entity logs.ExecutionLog_parent << V >> {
+  * **id** : bigint
+}
+
+entity logs.ExecutionLog_plantUML_Sequence_start_stop << V >> {
+  * **id** : bigint
+}
+
+logs.ExecutionLog <.. logs.ExecutionLog_parent
+logs.ExecutionLog <.. logs.ExecutionLog_plantUML_Sequence_start_stop
+logs.ExecutionLog_parent <.. logs.ExecutionLog_plantUML_Sequence_start_stop

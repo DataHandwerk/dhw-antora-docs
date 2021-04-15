@@ -1,0 +1,67 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObjectProperty_Collect_source_sql_modules_definition << V >> {
+  --
+  property_name : nvarchar(128)
+  property_value : nvarchar(4000)
+  * RepoObject_guid : uniqueidentifier
+}
+
+entity repo.usp_RepoObjectProperty_collect << P >> {
+  --
+}
+
+entity sqlparse.RepoObject_SqlModules_Repo_Sys << V >> {
+  --
+  is_json_sql_modules_json : int
+  is_outdated : bit
+  * modify_date : datetime
+  * RepoObject_guid : uniqueidentifier
+  sql_modules_definition : nvarchar(max)
+  sql_modules_dt : datetime
+  sql_modules_formatted : nvarchar(max)
+  sql_modules_formatted2 : nvarchar(max)
+  sql_modules_json : nvarchar(max)
+  SysObject_type : char(2)
+}
+
+entity tool.ftv_extract_substrings << IF >> {
+  --
+  len1 : int
+  len2 : int
+  pos1 : bigint
+  pos1eol : bigint
+  pos2 : bigint
+  substring_gross : nvarchar(max)
+  substring_net : nvarchar(max)
+  substring_netPostEol : nvarchar(max)
+  substring_netPreEol : nvarchar(max)
+}
+
+repo.RepoObjectProperty_Collect_source_sql_modules_definition <.. repo.usp_RepoObjectProperty_collect
+sqlparse.RepoObject_SqlModules_Repo_Sys <.. repo.RepoObjectProperty_Collect_source_sql_modules_definition
+tool.ftv_extract_substrings <.. repo.RepoObjectProperty_Collect_source_sql_modules_definition
+sqlparse.RepoObject_SqlModules_Repo_Sys::RepoObject_guid <-- repo.RepoObjectProperty_Collect_source_sql_modules_definition::RepoObject_guid

@@ -1,0 +1,53 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity uspgenerator.GeneratorUsp << U >> {
+  * **id** : int
+  --
+  * has_logging : tinyint
+  usp_Description : nvarchar(4000)
+  usp_Examples : nvarchar(4000)
+  * usp_name : nvarchar(128)
+  * usp_schema : nvarchar(128)
+  * {static} usp_fullname : nvarchar(261)
+}
+
+entity uspgenerator.GeneratorUsp_filter_persistence << V >> {
+  --
+  * has_logging : tinyint
+  * id : int
+  usp_Description : nvarchar(4000)
+  * usp_fullname : nvarchar(261)
+  * usp_name : nvarchar(128)
+  * usp_schema : nvarchar(128)
+}
+
+uspgenerator.GeneratorUsp <.. uspgenerator.GeneratorUsp_filter_persistence
+uspgenerator.GeneratorUsp::has_logging <-- uspgenerator.GeneratorUsp_filter_persistence::has_logging
+uspgenerator.GeneratorUsp::id <-- uspgenerator.GeneratorUsp_filter_persistence::id
+uspgenerator.GeneratorUsp::usp_Description <-- uspgenerator.GeneratorUsp_filter_persistence::usp_Description
+uspgenerator.GeneratorUsp::usp_fullname <-- uspgenerator.GeneratorUsp_filter_persistence::usp_fullname
+uspgenerator.GeneratorUsp::usp_name <-- uspgenerator.GeneratorUsp_filter_persistence::usp_name
+uspgenerator.GeneratorUsp::usp_schema <-- uspgenerator.GeneratorUsp_filter_persistence::usp_schema

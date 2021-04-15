@@ -43,18 +43,19 @@ entity repo.IndexColumn_union << V >> {
 }
 
 entity repo.IndexColumn_virtual_gross << V >> {
-  * **index_guid** : uniqueidentifier
+  * **index_column_id** : int
 }
 
 entity repo.RepoObjectColumn_gross << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 entity repo_sys.IndexColumn_unique << V >> {
 }
 
+repo.IndexColumn_union <.. repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing
 repo.IndexColumn_union <.. repo.Index_ColumList
 repo.IndexColumn_union <.. repo.RepoObjectColumn_gross
 repo.IndexColumn_union <.. repo.Index_IndexPattern
-repo.IndexColumn_union <.. repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing
 repo.IndexColumn_virtual_gross <.. repo.IndexColumn_union
 repo_sys.IndexColumn_unique <.. repo.IndexColumn_union

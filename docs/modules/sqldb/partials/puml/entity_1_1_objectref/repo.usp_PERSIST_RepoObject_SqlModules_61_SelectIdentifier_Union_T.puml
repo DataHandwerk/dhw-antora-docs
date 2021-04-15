@@ -23,19 +23,19 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
 entity repo.RepoObject_SqlModules_61_SelectIdentifier_Union << V >> {
 }
 
 entity repo.RepoObject_SqlModules_61_SelectIdentifier_Union_T << U >> {
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-}
-
 entity repo.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T << P >> {
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T
 repo.RepoObject_SqlModules_61_SelectIdentifier_Union <.. repo.RepoObject_SqlModules_61_SelectIdentifier_Union_T
 repo.RepoObject_SqlModules_61_SelectIdentifier_Union <.. repo.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T
 repo.RepoObject_SqlModules_61_SelectIdentifier_Union_T <.. repo.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T
-repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T

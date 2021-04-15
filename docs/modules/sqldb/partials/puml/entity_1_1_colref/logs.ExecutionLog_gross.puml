@@ -1,0 +1,196 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity logs.ExecutionLog << U >> {
+  * **id** : bigint
+  --
+  created_dt : datetime
+  current_execution_guid : uniqueidentifier
+  deleted : int
+  event_info : nvarchar(max)
+  * execution_instance_guid : uniqueidentifier
+  info_01 : sql_variant
+  info_02 : sql_variant
+  info_03 : sql_variant
+  info_04 : sql_variant
+  info_05 : sql_variant
+  info_06 : sql_variant
+  info_07 : sql_variant
+  info_08 : sql_variant
+  info_09 : sql_variant
+  inserted : int
+  parameter_01 : sql_variant
+  parameter_02 : sql_variant
+  parameter_03 : sql_variant
+  parameter_04 : sql_variant
+  parameter_05 : sql_variant
+  parameter_06 : sql_variant
+  parameter_07 : sql_variant
+  parameter_08 : sql_variant
+  parameter_09 : sql_variant
+  parameter_10 : sql_variant
+  parameter_11 : sql_variant
+  parameter_12 : sql_variant
+  parameter_13 : sql_variant
+  parameter_14 : sql_variant
+  parameter_15 : sql_variant
+  parameter_16 : sql_variant
+  parameter_17 : sql_variant
+  parameter_18 : sql_variant
+  parameter_19 : sql_variant
+  parameter_20 : sql_variant
+  parent_execution_log_id : bigint
+  proc_id : int
+  proc_name : nvarchar(128)
+  proc_schema_name : nvarchar(128)
+  source_object : nvarchar(261)
+  ssis_execution_id : bigint
+  step_id : int
+  step_name : nvarchar(1000)
+  sub_execution_id : int
+  target_object : nvarchar(261)
+  updated : int
+  * {abstract} proc_fullname : nvarchar(517)
+}
+
+entity logs.ExecutionLog_gross << V >> {
+  * **id** : bigint
+  --
+  created_dt : datetime
+  created_dt_max__execution_instance_guid : datetime
+  created_dt_min__execution_instance_guid : datetime
+  current_execution_guid : uniqueidentifier
+  deleted : int
+  duration__current_execution_guid : int
+  duration__execution_instance_guid : int
+  event_info : nvarchar(max)
+  * execution_instance_guid : uniqueidentifier
+  info_01 : sql_variant
+  info_02 : sql_variant
+  info_03 : sql_variant
+  info_04 : sql_variant
+  info_05 : sql_variant
+  info_06 : sql_variant
+  info_07 : sql_variant
+  info_08 : sql_variant
+  info_09 : sql_variant
+  inserted : int
+  parameter_01 : sql_variant
+  parameter_02 : sql_variant
+  parameter_03 : sql_variant
+  parameter_04 : sql_variant
+  parameter_05 : sql_variant
+  parameter_06 : sql_variant
+  parameter_07 : sql_variant
+  parameter_08 : sql_variant
+  parameter_09 : sql_variant
+  parameter_10 : sql_variant
+  parameter_11 : sql_variant
+  parameter_12 : sql_variant
+  parameter_13 : sql_variant
+  parameter_14 : sql_variant
+  parameter_15 : sql_variant
+  parameter_16 : sql_variant
+  parameter_17 : sql_variant
+  parameter_18 : sql_variant
+  parameter_19 : sql_variant
+  parameter_20 : sql_variant
+  parent_execution_log_id : bigint
+  * plantUML_Sequence : nvarchar(1550)
+  proc_id : int
+  proc_name : nvarchar(128)
+  proc_schema_name : nvarchar(128)
+  source_object : nvarchar(261)
+  ssis_execution_id : bigint
+  step_id : int
+  step_name : nvarchar(1000)
+  sub_execution_id : int
+  target_object : nvarchar(261)
+  updated : int
+}
+
+entity logs.ftv_ExecutionLog_tree << IF >> {
+  --
+  Depth : int
+  duration__current_execution_guid : int
+  execution_instance_guid : uniqueidentifier
+  id : bigint
+  parent_execution_log_id : bigint
+  * PlantUmlTree : nvarchar(4000)
+  * PlantUmlTreeTable : nvarchar(4000)
+  proc_name : nvarchar(128)
+  proc_schema_name : nvarchar(128)
+  step_id : int
+}
+
+logs.ExecutionLog <.. logs.ExecutionLog_gross
+logs.ExecutionLog_gross <.. logs.ftv_ExecutionLog_tree
+logs.ExecutionLog::created_dt <-- logs.ExecutionLog_gross::created_dt
+logs.ExecutionLog::current_execution_guid <-- logs.ExecutionLog_gross::current_execution_guid
+logs.ExecutionLog::deleted <-- logs.ExecutionLog_gross::deleted
+logs.ExecutionLog::event_info <-- logs.ExecutionLog_gross::event_info
+logs.ExecutionLog::execution_instance_guid <-- logs.ExecutionLog_gross::execution_instance_guid
+logs.ExecutionLog::id <-- logs.ExecutionLog_gross::id
+logs.ExecutionLog::info_01 <-- logs.ExecutionLog_gross::info_01
+logs.ExecutionLog::info_02 <-- logs.ExecutionLog_gross::info_02
+logs.ExecutionLog::info_03 <-- logs.ExecutionLog_gross::info_03
+logs.ExecutionLog::info_04 <-- logs.ExecutionLog_gross::info_04
+logs.ExecutionLog::info_05 <-- logs.ExecutionLog_gross::info_05
+logs.ExecutionLog::info_06 <-- logs.ExecutionLog_gross::info_06
+logs.ExecutionLog::info_07 <-- logs.ExecutionLog_gross::info_07
+logs.ExecutionLog::info_08 <-- logs.ExecutionLog_gross::info_08
+logs.ExecutionLog::info_09 <-- logs.ExecutionLog_gross::info_09
+logs.ExecutionLog::inserted <-- logs.ExecutionLog_gross::inserted
+logs.ExecutionLog::parameter_01 <-- logs.ExecutionLog_gross::parameter_01
+logs.ExecutionLog::parameter_02 <-- logs.ExecutionLog_gross::parameter_02
+logs.ExecutionLog::parameter_03 <-- logs.ExecutionLog_gross::parameter_03
+logs.ExecutionLog::parameter_04 <-- logs.ExecutionLog_gross::parameter_04
+logs.ExecutionLog::parameter_05 <-- logs.ExecutionLog_gross::parameter_05
+logs.ExecutionLog::parameter_06 <-- logs.ExecutionLog_gross::parameter_06
+logs.ExecutionLog::parameter_07 <-- logs.ExecutionLog_gross::parameter_07
+logs.ExecutionLog::parameter_08 <-- logs.ExecutionLog_gross::parameter_08
+logs.ExecutionLog::parameter_09 <-- logs.ExecutionLog_gross::parameter_09
+logs.ExecutionLog::parameter_10 <-- logs.ExecutionLog_gross::parameter_10
+logs.ExecutionLog::parameter_11 <-- logs.ExecutionLog_gross::parameter_11
+logs.ExecutionLog::parameter_12 <-- logs.ExecutionLog_gross::parameter_12
+logs.ExecutionLog::parameter_13 <-- logs.ExecutionLog_gross::parameter_13
+logs.ExecutionLog::parameter_14 <-- logs.ExecutionLog_gross::parameter_14
+logs.ExecutionLog::parameter_15 <-- logs.ExecutionLog_gross::parameter_15
+logs.ExecutionLog::parameter_16 <-- logs.ExecutionLog_gross::parameter_16
+logs.ExecutionLog::parameter_17 <-- logs.ExecutionLog_gross::parameter_17
+logs.ExecutionLog::parameter_18 <-- logs.ExecutionLog_gross::parameter_18
+logs.ExecutionLog::parameter_19 <-- logs.ExecutionLog_gross::parameter_19
+logs.ExecutionLog::parameter_20 <-- logs.ExecutionLog_gross::parameter_20
+logs.ExecutionLog::parent_execution_log_id <-- logs.ExecutionLog_gross::parent_execution_log_id
+logs.ExecutionLog::proc_id <-- logs.ExecutionLog_gross::proc_id
+logs.ExecutionLog::proc_name <-- logs.ExecutionLog_gross::proc_name
+logs.ExecutionLog::proc_schema_name <-- logs.ExecutionLog_gross::proc_schema_name
+logs.ExecutionLog::source_object <-- logs.ExecutionLog_gross::source_object
+logs.ExecutionLog::ssis_execution_id <-- logs.ExecutionLog_gross::ssis_execution_id
+logs.ExecutionLog::step_id <-- logs.ExecutionLog_gross::step_id
+logs.ExecutionLog::step_name <-- logs.ExecutionLog_gross::step_name
+logs.ExecutionLog::sub_execution_id <-- logs.ExecutionLog_gross::sub_execution_id
+logs.ExecutionLog::target_object <-- logs.ExecutionLog_gross::target_object
+logs.ExecutionLog::updated <-- logs.ExecutionLog_gross::updated

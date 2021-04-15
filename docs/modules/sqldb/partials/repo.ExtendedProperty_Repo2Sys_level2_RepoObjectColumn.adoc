@@ -3,12 +3,12 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
 :ExistsProperty--pk_index_guid:
-:ExistsProperty--pk_IndexPatternColumnDatatype:
-:ExistsProperty--pk_IndexPatternColumnName:
-:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
@@ -36,13 +36,13 @@ view
 == SysObject_id
 
 // tag::SysObject_id[]
-875150163
+114815471
 // end::SysObject_id[]
 
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-06 19:53:27
+2021-04-13 19:02:37
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -146,6 +146,11 @@ view
 |
 |===
 
+.Description
+--
+Name of the column. Is unique within the object.
+--
+
 .Referenced Columns
 --
 * xref:repo.RepoObjectColumn.adoc#column-RepoObjectColumn_name[repo.RepoObjectColumn.RepoObjectColumn_name]
@@ -202,6 +207,11 @@ view
 |
 |
 |===
+
+.Description
+--
+reference in [repo_sys].[type]
+--
 
 .Referenced Columns
 --
@@ -459,102 +469,70 @@ view
 
 // end::AntoraParameterList[]
 
-== pk_IndexSemanticGroup
+== AdocUspSteps
 
-// tag::pk_IndexSemanticGroup[]
+// tag::adocuspsteps[]
 
-// end::pk_IndexSemanticGroup[]
-
-
-== persistence_source_RepoObject_xref
-
-// tag::persistence_source_RepoObject_xref[]
-
-// end::persistence_source_RepoObject_xref[]
+// end::adocuspsteps[]
 
 
-== persistence_source_RepoObject_fullname
+== AntoraReferencedList
 
-// tag::persistence_source_RepoObject_fullname[]
-
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
+// tag::antorareferencedlist[]
+* xref:config.type_level1type_level2type.adoc[]
+* xref:repo.RepoObject.adoc[]
+* xref:repo.RepoObjectColumn.adoc[]
+* xref:repo.RepoObjectColumnProperty.adoc[]
+// end::antorareferencedlist[]
 
 
-== persistence_source_RepoObject_guid
+== AntoraReferencingList
 
-// tag::persistence_source_RepoObject_guid[]
-
-// end::persistence_source_RepoObject_guid[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
+// tag::antorareferencinglist[]
+* xref:repo.ExtendedProperty_Repo2Sys_level2_Union.adoc[]
+// end::antorareferencinglist[]
 
 
-== microsoft_database_tools_support
+== exampleUsage
 
-// tag::microsoft_database_tools_support[]
+// tag::exampleusage[]
 
-// end::microsoft_database_tools_support[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
+// end::exampleusage[]
 
 
-== is_persistence_insert
+== exampleUsage_2
 
-// tag::is_persistence_insert[]
+// tag::exampleusage_2[]
 
-// end::is_persistence_insert[]
-
-
-== is_persistence_truncate
-
-// tag::is_persistence_truncate[]
-
-// end::is_persistence_truncate[]
+// end::exampleusage_2[]
 
 
-== is_persistence_update_changed
+== exampleWrong_Usage
 
-// tag::is_persistence_update_changed[]
+// tag::examplewrong_usage[]
 
-// end::is_persistence_update_changed[]
-
-
-== is_persistence_check_for_empty_source
-
-// tag::is_persistence_check_for_empty_source[]
-
-// end::is_persistence_check_for_empty_source[]
+// end::examplewrong_usage[]
 
 
-== is_persistence_delete_changed
+== has_execution_plan_issue
 
-// tag::is_persistence_delete_changed[]
+// tag::has_execution_plan_issue[]
 
-// end::is_persistence_delete_changed[]
+// end::has_execution_plan_issue[]
 
 
-== is_persistence_delete_missing
+== has_get_referenced_issue
 
-// tag::is_persistence_delete_missing[]
+// tag::has_get_referenced_issue[]
 
-// end::is_persistence_delete_missing[]
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
 
 
 == has_history_columns
@@ -578,91 +556,95 @@ view
 // end::is_persistence_check_duplicate_per_pk[]
 
 
-== example4
+== is_persistence_check_for_empty_source
 
-// tag::example4[]
+// tag::is_persistence_check_for_empty_source[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_persistence_check_for_empty_source[]
 
 
-== has_history
+== is_persistence_delete_changed
 
-// tag::has_history[]
+// tag::is_persistence_delete_changed[]
 
-// end::has_history[]
-
-
-== example1
-
-// tag::example1[]
-
-// end::example1[]
+// end::is_persistence_delete_changed[]
 
 
-== example2
+== is_persistence_delete_missing
 
-// tag::example2[]
+// tag::is_persistence_delete_missing[]
 
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
+// end::is_persistence_delete_missing[]
 
 
-== usp_persistence_RepoObject_guid
+== is_persistence_insert
 
-// tag::usp_persistence_RepoObject_guid[]
+// tag::is_persistence_insert[]
 
-// end::usp_persistence_RepoObject_guid[]
-
-
-== UspExamples
-
-// tag::UspExamples[]
-
-// end::UspExamples[]
+// end::is_persistence_insert[]
 
 
-== UspParameters
+== is_persistence_truncate
 
-// tag::UspParameters[]
+// tag::is_persistence_truncate[]
 
-// end::UspParameters[]
-
-
-== AdocUspSteps
-
-// tag::AdocUspSteps[]
-
-// end::AdocUspSteps[]
+// end::is_persistence_truncate[]
 
 
-== AntoraReferencedList
+== is_persistence_update_changed
 
-// tag::AntoraReferencedList[]
-* xref:config.type_level1type_level2type.adoc[]
-* xref:repo.RepoObject.adoc[]
-* xref:repo.RepoObjectColumn.adoc[]
-* xref:repo.RepoObjectColumnProperty.adoc[]
-// end::AntoraReferencedList[]
+// tag::is_persistence_update_changed[]
+
+// end::is_persistence_update_changed[]
 
 
-== AntoraReferencingList
+== is_repo_managed
 
-// tag::AntoraReferencingList[]
-* xref:repo.ExtendedProperty_Repo2Sys_level2_Union.adoc[]
-// end::AntoraReferencingList[]
+// tag::is_repo_managed[]
+
+// end::is_repo_managed[]
+
+
+== microsoft_database_tools_support
+
+// tag::microsoft_database_tools_support[]
+
+// end::microsoft_database_tools_support[]
+
+
+== MS_Description
+
+// tag::ms_description[]
+
+// end::ms_description[]
+
+
+== persistence_source_RepoObject_fullname
+
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
+
+
+== persistence_source_RepoObject_fullname2
+
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -674,26 +656,47 @@ D7B7CBB0-0596-EB11-84F4-A81E8446D5B0
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 nvarchar(6),nvarchar(128),varchar(9),nvarchar(128),nvarchar(6),nvarchar(128),nvarchar(128)
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 level0type,level0name,level1type,level1name,level2type,level2name,property_name
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
 * [config].[type_level1type_level2type]
 * [repo].[RepoObject]
 * [repo].[RepoObjectColumn]
 * [repo].[RepoObjectColumnProperty]
-// end::ReferencedObjectList[]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -701,31 +704,41 @@ level0type,level0name,level1type,level1name,level2type,level2name,property_name
 // tag::sql_modules_definition[]
 [source,sql]
 ----
+Create View repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn
+As
+Select
+    prop.property_name
+  , prop.property_value
+  , level0type             = N'Schema'
+  , level0name             = ro_parent.RepoObject_schema_name
+  , lev_parent.level1type
+  , level1name             = ro_parent.RepoObject_name
+  , level2type             = N'COLUMN'
+  , level2name             = roc.RepoObjectColumn_name
+  , prop.RepoObjectColumn_guid
+  , roc.Repo_user_type_fullname
+  , parent_RepoObject_guid = ro_parent.RepoObject_guid
+  , parent_RepoObject_type = ro_parent.RepoObject_type
+From
+    repo.RepoObjectColumnProperty         As prop
+    Inner Join
+        repo.RepoObjectColumn             As roc
+            On
+            roc.RepoObjectColumn_guid = prop.RepoObjectColumn_guid
 
-CREATE VIEW [repo].[ExtendedProperty_Repo2Sys_level2_RepoObjectColumn]
-AS
-SELECT [prop].[property_name]
- , [prop].[property_value]
- , [level0type] = N'Schema'
- , [level0name] = [ro_parent].[RepoObject_schema_name]
- , [lev_parent].[level1type]
- , [level1name] = [ro_parent].[RepoObject_name]
- , [level2type] = N'COLUMN'
- , [level2name] = [roc].[RepoObjectColumn_name]
- , [prop].[RepoObjectColumn_guid]
- , [roc].[Repo_user_type_fullname]
- , [parent_RepoObject_guid] = [ro_parent].[RepoObject_guid]
- , [parent_RepoObject_type] = [ro_parent].[RepoObject_type]
-FROM [repo].[RepoObjectColumnProperty] AS prop
-INNER JOIN [repo].[RepoObjectColumn] AS roc
- ON roc.[RepoObjectColumn_guid] = prop.[RepoObjectColumn_guid]
-INNER JOIN repo.RepoObject AS ro_parent
- ON ro_parent.[RepoObject_guid] = roc.[RepoObject_guid]
-INNER JOIN [config].[type_level1type_level2type] AS lev_parent
- ON lev_parent.type = ro_parent.RepoObject_type
-WHERE [is_RepoObjectColumn_name_uniqueidentifier] = 0
- --SchemaCompare has issues comparing extended properties for graph table columns, we need to exclude them
- AND roc.Repo_graph_type IS NULL
+    Inner Join
+        repo.RepoObject                   As ro_parent
+            On
+            ro_parent.RepoObject_guid = roc.RepoObject_guid
+
+    Inner Join
+        config.type_level1type_level2type As lev_parent
+            On
+            lev_parent.type           = ro_parent.RepoObject_type
+Where
+    is_RepoObjectColumn_name_uniqueidentifier = 0
+    --SchemaCompare has issues comparing extended properties for graph table columns, we need to exclude them
+    And roc.Repo_graph_type Is Null;
 
 ----
 // end::sql_modules_definition[]

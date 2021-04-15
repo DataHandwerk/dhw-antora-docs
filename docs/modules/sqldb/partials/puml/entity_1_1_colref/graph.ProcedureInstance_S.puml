@@ -39,12 +39,8 @@ entity graph.ProcedureInstance_S << V >> {
   * Procedure_fullname : nvarchar(261)
 }
 
-entity repo.ProcedureInstance << U >> {
-  * **id** : int
+entity graph.usp_PERSIST_ProcedureInstance << P >> {
   --
-  Description : nvarchar(4000)
-  * Instance : varchar(500)
-  * Procedure_RepoObject_guid : uniqueidentifier
 }
 
 entity repo.RepoObject << U >> {
@@ -56,6 +52,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -84,12 +81,22 @@ entity repo.RepoObject << U >> {
   * {static} usp_persistence_name : nvarchar(140)
 }
 
+entity workflow.ProcedureInstance << U >> {
+  * **id** : int
+  --
+  Description : nvarchar(4000)
+  * Instance : varchar(500)
+  * Procedure_RepoObject_guid : uniqueidentifier
+}
+
+graph.ProcedureInstance <.. graph.usp_PERSIST_ProcedureInstance
 graph.ProcedureInstance_S <.. graph.ProcedureInstance
-repo.ProcedureInstance <.. graph.ProcedureInstance_S
+graph.ProcedureInstance_S <.. graph.usp_PERSIST_ProcedureInstance
 repo.RepoObject <.. graph.ProcedureInstance_S
+workflow.ProcedureInstance <.. graph.ProcedureInstance_S
 graph.ProcedureInstance_S::Instance <-- graph.ProcedureInstance::Instance
 graph.ProcedureInstance_S::Procedure_fullname <-- graph.ProcedureInstance::Procedure_fullname
 graph.ProcedureInstance_S::Procedure_RepoObject_guid <-- graph.ProcedureInstance::Procedure_RepoObject_guid
-repo.ProcedureInstance::Instance <-- graph.ProcedureInstance_S::Instance
-repo.ProcedureInstance::Procedure_RepoObject_guid <-- graph.ProcedureInstance_S::Procedure_RepoObject_guid
 repo.RepoObject::RepoObject_fullname <-- graph.ProcedureInstance_S::Procedure_fullname
+workflow.ProcedureInstance::Instance <-- graph.ProcedureInstance_S::Instance
+workflow.ProcedureInstance::Procedure_RepoObject_guid <-- graph.ProcedureInstance_S::Procedure_RepoObject_guid

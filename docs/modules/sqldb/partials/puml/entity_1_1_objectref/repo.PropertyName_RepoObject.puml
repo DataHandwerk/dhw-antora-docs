@@ -23,9 +23,12 @@ skinparam class {
 }
 
 
-entity repo.Parameter << U >> {
+entity config.Parameter << U >> {
   * **Parameter_name** : varchar(100)
   * **sub_Parameter** : nvarchar(128)
+}
+
+entity docs.AntoraTemplate_examples << V >> {
 }
 
 entity repo.PropertyName_RepoObject << V >> {
@@ -44,9 +47,10 @@ entity repo.RepoObjectProperty_InheritanceType_InheritanceDefinition << V >> {
   * **property_name** : nvarchar(128)
 }
 
-repo.Parameter <.. repo.PropertyName_RepoObject
-repo.Parameter <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+config.Parameter <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
+config.Parameter <.. repo.PropertyName_RepoObject
 repo.PropertyName_RepoObject <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition
 repo.PropertyName_RepoObject <.. repo.RepoObjectProperty_cross
+repo.PropertyName_RepoObject <.. docs.AntoraTemplate_examples
 repo.RepoObjectProperty <.. repo.PropertyName_RepoObject
 repo.RepoObjectProperty <.. repo.RepoObjectProperty_InheritanceType_InheritanceDefinition

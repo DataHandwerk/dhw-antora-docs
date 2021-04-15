@@ -50,8 +50,8 @@ entity dbo.sysdiagrams << U >> {
 
 dbo.sysdiagrams <.. dbo.sp_upgraddiagrams
 dbo.sysdiagrams <.. dbo.sp_helpdiagrams
+dbo.sysdiagrams <.. dbo.sp_dropdiagram
 dbo.sysdiagrams <.. dbo.sp_helpdiagramdefinition
 dbo.sysdiagrams <.. dbo.sp_creatediagram
 dbo.sysdiagrams <.. dbo.sp_renamediagram
 dbo.sysdiagrams <.. dbo.sp_alterdiagram
-dbo.sysdiagrams <.. dbo.sp_dropdiagram

@@ -69,6 +69,6 @@ entity repo.usp_RepoObjectSource_FirstResultSet << P >> {
   --
 }
 
-repo.RepoObjectSource_FirstResultSet <.. repo.RepoObjectColumn_reference_FirstResultSet
 repo.RepoObjectSource_FirstResultSet <.. repo.usp_RepoObjectSource_FirstResultSet
+repo.RepoObjectSource_FirstResultSet <.. repo.RepoObjectColumn_reference_FirstResultSet
 repo.RepoObjectSource_FirstResultSet::is_hidden <-- repo.RepoObjectColumn_reference_FirstResultSet::is_hidden

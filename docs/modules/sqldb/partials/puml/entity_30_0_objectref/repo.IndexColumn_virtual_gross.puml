@@ -1,0 +1,50 @@
+'Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.Index_virtual << U >> {
+  * **index_guid** : uniqueidentifier
+}
+
+entity repo.IndexColumn_virtual << U >> {
+  * **index_guid** : uniqueidentifier
+  * **index_column_id** : int
+}
+
+entity repo.IndexColumn_virtual_gross << V >> {
+  * **index_column_id** : int
+}
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn << U >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+}
+
+repo.Index_virtual <.. repo.IndexColumn_virtual_gross
+repo.IndexColumn_virtual <.. repo.IndexColumn_virtual_gross
+repo.RepoObject <.. repo.IndexColumn_virtual_gross
+repo.RepoObjectColumn <.. repo.IndexColumn_virtual_gross

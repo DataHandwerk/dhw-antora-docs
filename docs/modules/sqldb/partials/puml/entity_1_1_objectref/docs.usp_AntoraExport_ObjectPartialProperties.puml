@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity config.fs_get_parameter_value << FN >> {
+}
+
 entity docs.RepoObject_OutputFilter << V >> {
   * **RepoObject_guid** : uniqueidentifier
 }
@@ -39,18 +42,15 @@ entity docs.usp_PERSIST_RepoObject_Adoc_T << P >> {
 entity docs.usp_PERSIST_RepoObject_IndexList_T << P >> {
 }
 
-entity repo.fs_get_parameter_value << FN >> {
+entity logs.usp_ExecutionLog_insert << P >> {
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-}
-
+config.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPartialProperties
 docs.RepoObject_OutputFilter <.. docs.usp_AntoraExport_ObjectPartialProperties
 docs.usp_AntoraExport_ObjectPartialProperties <.. docs.usp_AntoraExport
 docs.usp_PERSIST_RepoObject_Adoc_T <.. docs.usp_AntoraExport_ObjectPartialProperties
 docs.usp_PERSIST_RepoObject_IndexList_T <.. docs.usp_AntoraExport_ObjectPartialProperties
-repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPartialProperties
-repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPartialProperties
-repo.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_Adoc_T
-repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport
-repo.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_IndexList_T
+logs.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_Adoc_T
+logs.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPartialProperties
+logs.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_IndexList_T
+logs.usp_ExecutionLog_insert <.. docs.usp_AntoraExport

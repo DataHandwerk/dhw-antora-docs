@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity graph.Index << U >> {
+}
+
 entity graph.Index_S << V >> {
   * **Index_guid** : uniqueidentifier
 }
@@ -30,13 +33,15 @@ entity graph.Index_S << V >> {
 entity graph.usp_PERSIST_Index << P >> {
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
+entity logs.usp_ExecutionLog_insert << P >> {
 }
 
 entity repo.usp_Index_finish << P >> {
 }
 
+graph.Index <.. graph.usp_PERSIST_Index
 graph.Index_S <.. graph.usp_PERSIST_Index
+graph.Index_S <.. graph.Index
 graph.usp_PERSIST_Index <.. repo.usp_Index_finish
-repo.usp_ExecutionLog_insert <.. repo.usp_Index_finish
-repo.usp_ExecutionLog_insert <.. graph.usp_PERSIST_Index
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_finish
+logs.usp_ExecutionLog_insert <.. graph.usp_PERSIST_Index

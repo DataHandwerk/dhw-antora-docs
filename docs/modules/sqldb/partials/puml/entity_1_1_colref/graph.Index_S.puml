@@ -97,8 +97,9 @@ entity repo.Index_gross << V >> {
   SysObject_type : char(2)
 }
 
-graph.Index_S <.. graph.Index
+graph.Index <.. graph.usp_PERSIST_Index
 graph.Index_S <.. graph.usp_PERSIST_Index
+graph.Index_S <.. graph.Index
 repo.Index_gross <.. graph.Index_S
 graph.Index_S::Index_guid <-- graph.Index::Index_guid
 graph.Index_S::Index_name <-- graph.Index::Index_name

@@ -67,6 +67,6 @@ docs.RepoObject_OutputFilter <.. docs.AntoraNavListRepoObject_by_type
 docs.RepoObject_OutputFilter <.. docs.AntoraNavListRepoObject_by_schema
 docs.RepoObject_OutputFilter <.. docs.AntoraNavListRepoObject_by_schema_type
 docs.RepoObject_OutputFilter <.. docs.RepoObject_Plantuml_Entity
-docs.RepoObject_OutputFilter <.. docs.usp_AntoraExport_ObjectPuml
 docs.RepoObject_OutputFilter <.. docs.AntoraNavListPage_by_type
+docs.RepoObject_OutputFilter <.. docs.usp_AntoraExport_ObjectPuml
 repo.RepoObject_gross <.. docs.RepoObject_OutputFilter

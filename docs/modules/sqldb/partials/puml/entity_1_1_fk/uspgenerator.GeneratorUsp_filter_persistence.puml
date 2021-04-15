@@ -1,0 +1,39 @@
+Left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity uspgenerator.GeneratorUsp_filter_persistence << V >> {
+- idx_GeneratorUsp_filter_persistence__1
+{usp_id}
+..
+id; int
+--
+- idx_GeneratorUsp_filter_persistence__2
+{usp_schema,usp_name}
+..
+usp_schema; nvarchar(128)
+usp_name; nvarchar(128)
+}
+
+

@@ -23,6 +23,22 @@ skinparam class {
 }
 
 
+entity repo.RepoObjectColumnProperty_ForUpdate << V >> {
+  --
+  inheritance : tinyint
+  property_basetype : sql_variant
+  * property_name : nvarchar(128)
+  * property_value : sql_variant
+  * RepoObject_fullname : nvarchar(261)
+  * RepoObject_fullname2 : nvarchar(257)
+  * RepoObject_guid : uniqueidentifier
+  * RepoObjectColumn_fullname : nvarchar(520)
+  * RepoObjectColumn_fullname2 : nvarchar(386)
+  * RepoObjectColumn_guid : uniqueidentifier
+  * RepoObjectColumn_name : nvarchar(128)
+  * RepoObjectColumnProperty_id : int
+}
+
 entity docs.RepoObject_ColumnList << V >> {
   * **RepoObject_guid** : uniqueidentifier
   --
@@ -77,6 +93,7 @@ entity repo.RepoObject << U >> {
   InheritanceDefinition : nvarchar(4000)
   InheritanceType : tinyint
   is_repo_managed : bit
+  is_required_ObjectMerge : bit
   is_SysObject_missing : bit
   * modify_dt : datetime
   pk_index_guid : uniqueidentifier
@@ -125,6 +142,7 @@ entity repo.RepoObjectColumn << U >> {
   is_persistence_no_include : bit
   is_persistence_no_update : bit
   is_query_plan_expression : bit
+  is_required_ColumnMerge : bit
   is_SysObjectColumn_missing : bit
   persistence_source_RepoObjectColumn_guid : uniqueidentifier
   Referencing_Count : int
@@ -154,6 +172,7 @@ entity repo.RepoObjectColumn << U >> {
 }
 
 entity repo.RepoObjectColumn_gross << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
   --
   AntoraReferencedColumnList : nvarchar(max)
   AntoraReferencingColumnList : nvarchar(max)
@@ -172,6 +191,7 @@ entity repo.RepoObjectColumn_gross << V >> {
   is_repo_managed : bit
   * is_RepoObject_name_uniqueidentifier : int
   * is_RepoObjectColumn_name_uniqueidentifier : int
+  is_required_ColumnMerge : bit
   is_SysObject_missing : bit
   * is_SysObject_name_uniqueidentifier : int
   is_SysObjectColumn_missing : bit
@@ -207,7 +227,6 @@ entity repo.RepoObjectColumn_gross << V >> {
   RepoObjectColumn_column_id : int
   * RepoObjectColumn_fullname : nvarchar(520)
   * RepoObjectColumn_fullname2 : nvarchar(386)
-  * RepoObjectColumn_guid : uniqueidentifier
   * RepoObjectColumn_name : nvarchar(128)
   * SysObject_fullname : nvarchar(261)
   * SysObject_fullname2 : nvarchar(257)
@@ -248,6 +267,10 @@ entity repo.RepoObjectColumn_reference_FirstResultSet << V >> {
 }
 
 entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
   --
   definition : nvarchar(max)
   * InformationSource : varchar(10)
@@ -258,8 +281,6 @@ entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
   is_target_column_name_expression : bit
   referenced_column_name : nvarchar(128)
   referenced_entity_name : nvarchar(128)
-  referenced_id : int
-  referenced_minor_id : int
   referenced_node_id : bigint
   referenced_RepoObject_guid : uniqueidentifier
   referenced_RepoObjectColumn_guid : uniqueidentifier
@@ -267,8 +288,6 @@ entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
   referenced_type : char(2)
   referencing_column_name : nvarchar(128)
   * referencing_entity_name : nvarchar(128)
-  referencing_id : int
-  referencing_minor_id : int
   referencing_node_id : bigint
   * referencing_RepoObject_guid : uniqueidentifier
   referencing_RepoObjectColumn_guid : uniqueidentifier
@@ -279,22 +298,22 @@ entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
 }
 
 entity repo.RepoObjectColumn_ReferencedList << V >> {
+  **Referencing_guid** : uniqueidentifier
   --
   AntoraReferencedColumnList : nvarchar(max)
   Referencing_fullname : nvarchar(261)
   Referencing_fullname2 : nvarchar(257)
-  Referencing_guid : uniqueidentifier
   Referencing_type : char(2)
   ReferencingColumn_fullname : nvarchar(520)
   ReferencingColumn_fullname2 : nvarchar(386)
 }
 
 entity repo.RepoObjectColumn_ReferencingList << V >> {
+  **Referenced_guid** : uniqueidentifier
   --
   AntoraReferencingColumnList : nvarchar(max)
   Referenced_fullname : nvarchar(261)
   Referenced_fullname2 : nvarchar(257)
-  Referenced_guid : uniqueidentifier
   Referenced_type : char(2)
   ReferencedColumn_fullname : nvarchar(520)
   ReferencedColumn_fullname2 : nvarchar(386)
@@ -311,6 +330,7 @@ repo.RepoObjectColumn_gross <.. repo.RepoObjectColumn_reference_QueryPlan
 repo.RepoObjectColumn_gross <.. repo.RepoObject_ColumnList
 repo.RepoObjectColumn_gross <.. graph.RepoObjectColumn_S
 repo.RepoObjectColumn_gross <.. docs.RepoObject_ColumnList
+repo.RepoObjectColumn_gross <.. 
 repo.RepoObjectColumn_ReferencedList <.. repo.RepoObjectColumn_gross
 repo.RepoObjectColumn_ReferencingList <.. repo.RepoObjectColumn_gross
 repo.IndexColumn_union::index_column_id <-- repo.RepoObjectColumn_gross::index_column_id
@@ -347,6 +367,7 @@ repo.RepoObjectColumn::is_persistence_no_include <-- repo.RepoObjectColumn_gross
 repo.RepoObjectColumn::is_persistence_no_update <-- repo.RepoObjectColumn_gross::is_persistence_no_update
 repo.RepoObjectColumn::is_query_plan_expression <-- repo.RepoObjectColumn_gross::is_query_plan_expression
 repo.RepoObjectColumn::is_RepoObjectColumn_name_uniqueidentifier <-- repo.RepoObjectColumn_gross::is_RepoObjectColumn_name_uniqueidentifier
+repo.RepoObjectColumn::is_required_ColumnMerge <-- repo.RepoObjectColumn_gross::is_required_ColumnMerge
 repo.RepoObjectColumn::is_SysObjectColumn_missing <-- repo.RepoObjectColumn_gross::is_SysObjectColumn_missing
 repo.RepoObjectColumn::is_SysObjectColumn_name_uniqueidentifier <-- repo.RepoObjectColumn_gross::is_SysObjectColumn_name_uniqueidentifier
 repo.RepoObjectColumn::persistence_source_RepoObjectColumn_guid <-- repo.RepoObjectColumn_gross::persistence_source_RepoObjectColumn_guid
@@ -373,12 +394,18 @@ repo.RepoObjectColumn::RepoObjectColumn_name <-- repo.RepoObjectColumn_gross::Re
 repo.RepoObjectColumn::SysObjectColumn_column_id <-- repo.RepoObjectColumn_gross::SysObjectColumn_column_id
 repo.RepoObjectColumn::SysObjectColumn_name <-- repo.RepoObjectColumn_gross::SysObjectColumn_name
 repo.RepoObjectColumn_gross::RepoObject_fullname <-- graph.RepoObjectColumn_S::RepoObject_fullname
-repo.RepoObjectColumn_gross::RepoObject_guid <-- graph.RepoObjectColumn_S::RepoObject_guid
+repo.RepoObjectColumn_gross::RepoObject_fullname <-- ::RepoObject_fullname
+repo.RepoObjectColumn_gross::RepoObject_fullname2 <-- ::RepoObject_fullname2
+repo.RepoObjectColumn_gross::RepoObject_guid <-- ::RepoObject_guid
 repo.RepoObjectColumn_gross::RepoObject_guid <-- docs.RepoObject_ColumnList::RepoObject_guid
+repo.RepoObjectColumn_gross::RepoObject_guid <-- graph.RepoObjectColumn_S::RepoObject_guid
 repo.RepoObjectColumn_gross::RepoObject_guid <-- repo.RepoObject_ColumnList::RepoObject_guid
 repo.RepoObjectColumn_gross::RepoObject_type <-- graph.RepoObjectColumn_S::RepoObject_type
 repo.RepoObjectColumn_gross::RepoObjectColumn_fullname <-- graph.RepoObjectColumn_S::RepoObjectColumn_fullname
+repo.RepoObjectColumn_gross::RepoObjectColumn_fullname <-- ::RepoObjectColumn_fullname
+repo.RepoObjectColumn_gross::RepoObjectColumn_fullname2 <-- ::RepoObjectColumn_fullname2
 repo.RepoObjectColumn_gross::RepoObjectColumn_guid <-- graph.RepoObjectColumn_S::RepoObjectColumn_guid
 repo.RepoObjectColumn_gross::RepoObjectColumn_name <-- graph.RepoObjectColumn_S::RepoObjectColumn_name
+repo.RepoObjectColumn_gross::RepoObjectColumn_name <-- ::RepoObjectColumn_name
 repo.RepoObjectColumn_ReferencedList::AntoraReferencedColumnList <-- repo.RepoObjectColumn_gross::AntoraReferencedColumnList
 repo.RepoObjectColumn_ReferencingList::AntoraReferencingColumnList <-- repo.RepoObjectColumn_gross::AntoraReferencingColumnList

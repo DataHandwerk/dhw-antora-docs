@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -24,7 +24,7 @@ skinparam class {
 
 
 entity repo.ForeignKey_gross << V >> {
-- idx_ForeignKey_gross__1
+- **PK_ForeignKey_gross**
 
 ..
 ForeignKey_guid; uniqueidentifier

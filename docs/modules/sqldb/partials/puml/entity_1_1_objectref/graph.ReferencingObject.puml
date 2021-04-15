@@ -35,5 +35,5 @@ entity repo.RepoObject_referencing_level << V >> {
 entity repo.usp_main << P >> {
 }
 
-graph.ReferencingObject <.. repo.usp_main
 graph.ReferencingObject <.. repo.RepoObject_referencing_level
+graph.ReferencingObject <.. repo.usp_main

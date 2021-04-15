@@ -48,14 +48,22 @@ entity docs.RepoObject_Plantuml_Entity_T << U >> {
   * RepoObject_PumlOnlyPK : nvarchar(max)
 }
 
+entity docs.RepoObject_PlantUml_PumlEntityFkList << V >> {
+  **RepoObject_guid** : uniqueidentifier
+  --
+  PumlEntityFkList : nvarchar(max)
+  RepoObject_fullname2 : nvarchar(257)
+}
+
 entity docs.usp_PERSIST_RepoObject_Plantuml_Entity_T << P >> {
   --
 }
 
-docs.RepoObject_Plantuml_Entity <.. docs.RepoObject_Plantuml_Entity_T
 docs.RepoObject_Plantuml_Entity <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
+docs.RepoObject_Plantuml_Entity <.. docs.RepoObject_Plantuml_Entity_T
 docs.RepoObject_Plantuml_Entity_T <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
 docs.RepoObject_Plantuml_Entity_T <.. docs.ftv_RepoObject_Reference_PlantUml_EntityRefList
+docs.RepoObject_Plantuml_Entity_T <.. docs.RepoObject_PlantUml_PumlEntityFkList
 docs.RepoObject_Plantuml_Entity::RepoObject_guid <-- docs.RepoObject_Plantuml_Entity_T::RepoObject_guid
 docs.RepoObject_Plantuml_Entity::RepoObject_Puml <-- docs.RepoObject_Plantuml_Entity_T::RepoObject_Puml
 docs.RepoObject_Plantuml_Entity::RepoObject_PumlOnlyIndex <-- docs.RepoObject_Plantuml_Entity_T::RepoObject_PumlOnlyIndex

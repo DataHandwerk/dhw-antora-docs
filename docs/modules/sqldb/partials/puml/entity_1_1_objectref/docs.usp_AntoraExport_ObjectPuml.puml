@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity config.fs_get_parameter_value << FN >> {
+}
+
 entity docs.RepoObject_OutputFilter << V >> {
   * **RepoObject_guid** : uniqueidentifier
 }
@@ -36,10 +39,10 @@ entity docs.usp_AntoraExport_ObjectPuml << P >> {
 entity docs.usp_PERSIST_RepoObject_Plantuml_Entity_T << P >> {
 }
 
-entity repo.fs_get_parameter_value << FN >> {
+entity docs.usp_PERSIST_RepoObject_Plantuml_T << P >> {
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
+entity logs.usp_ExecutionLog_insert << P >> {
 }
 
 entity repo.usp_PERSIST_RepoObject_referenced_level_T << P >> {
@@ -48,14 +51,16 @@ entity repo.usp_PERSIST_RepoObject_referenced_level_T << P >> {
 entity repo.usp_PERSIST_RepoObject_referencing_level_T << P >> {
 }
 
+config.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPuml
 docs.RepoObject_OutputFilter <.. docs.usp_AntoraExport_ObjectPuml
 docs.usp_AntoraExport_ObjectPuml <.. docs.usp_AntoraExport
 docs.usp_PERSIST_RepoObject_Plantuml_Entity_T <.. docs.usp_AntoraExport_ObjectPuml
-repo.fs_get_parameter_value <.. docs.usp_AntoraExport_ObjectPuml
-repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_referenced_level_T
-repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_referencing_level_T
-repo.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
-repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPuml
-repo.usp_ExecutionLog_insert <.. docs.usp_AntoraExport
+docs.usp_PERSIST_RepoObject_Plantuml_T <.. docs.usp_AntoraExport_ObjectPuml
+logs.usp_ExecutionLog_insert <.. docs.usp_AntoraExport
+logs.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_Plantuml_T
+logs.usp_ExecutionLog_insert <.. docs.usp_AntoraExport_ObjectPuml
+logs.usp_ExecutionLog_insert <.. docs.usp_PERSIST_RepoObject_Plantuml_Entity_T
+logs.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_referenced_level_T
+logs.usp_ExecutionLog_insert <.. repo.usp_PERSIST_RepoObject_referencing_level_T
 repo.usp_PERSIST_RepoObject_referenced_level_T <.. docs.usp_AntoraExport_ObjectPuml
 repo.usp_PERSIST_RepoObject_referencing_level_T <.. docs.usp_AntoraExport_ObjectPuml

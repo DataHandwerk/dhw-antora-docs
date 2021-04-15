@@ -1,0 +1,97 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity sqlparse.RepoObject_SqlModules << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  * sql_modules_dt : datetime
+  sql_modules_formatted : nvarchar(max)
+  sql_modules_formatted2 : nvarchar(max)
+  sql_modules_json : nvarchar(max)
+  {static} is_json_sql_modules_json : int
+}
+
+entity sqlparse.RepoObject_SqlModules_10_statement << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  children : nvarchar(max)
+  class : nvarchar(500)
+  is_group : bit
+  is_keyword : bit
+  is_whitespace : bit
+  normalized : nvarchar(max)
+  sql_modules_json : nvarchar(max)
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_39_object << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  has_GroupBy : int
+  is_1_create : int
+  is_2_view : int
+  is_3_Identifier : int
+  is_4_as : int
+  is_5_select : int
+  is_6_Identifier : int
+  is_6_IdentifierList : int
+  is_7_from : int
+  is_7_IdentifierList : int
+  is_8_IdentifierList : int
+  is_create_view_Identifier_as_select : int
+  is_select_IdentifierList_from : int
+  is_union : int
+  Min_RowNumber_From : bigint
+  Min_RowNumber_GroupBy : bigint
+  Min_RowNumber_IdentifierList : bigint
+  Min_RowNumber_Where : bigint
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_Repo_Sys << V >> {
+  --
+  is_json_sql_modules_json : int
+  is_outdated : bit
+  * modify_date : datetime
+  * RepoObject_guid : uniqueidentifier
+  sql_modules_definition : nvarchar(max)
+  sql_modules_dt : datetime
+  sql_modules_formatted : nvarchar(max)
+  sql_modules_formatted2 : nvarchar(max)
+  sql_modules_json : nvarchar(max)
+  SysObject_type : char(2)
+}
+
+sqlparse.RepoObject_SqlModules <.. sqlparse.RepoObject_SqlModules_Repo_Sys
+sqlparse.RepoObject_SqlModules <.. sqlparse.RepoObject_SqlModules_39_object
+sqlparse.RepoObject_SqlModules <.. sqlparse.RepoObject_SqlModules_10_statement
+sqlparse.RepoObject_SqlModules::is_json_sql_modules_json <-- sqlparse.RepoObject_SqlModules_Repo_Sys::is_json_sql_modules_json
+sqlparse.RepoObject_SqlModules::RepoObject_guid <-- sqlparse.RepoObject_SqlModules_39_object::RepoObject_guid
+sqlparse.RepoObject_SqlModules::RepoObject_guid <-- sqlparse.RepoObject_SqlModules_10_statement::RepoObject_guid
+sqlparse.RepoObject_SqlModules::sql_modules_dt <-- sqlparse.RepoObject_SqlModules_Repo_Sys::sql_modules_dt
+sqlparse.RepoObject_SqlModules::sql_modules_formatted <-- sqlparse.RepoObject_SqlModules_Repo_Sys::sql_modules_formatted
+sqlparse.RepoObject_SqlModules::sql_modules_formatted2 <-- sqlparse.RepoObject_SqlModules_Repo_Sys::sql_modules_formatted2
+sqlparse.RepoObject_SqlModules::sql_modules_json <-- sqlparse.RepoObject_SqlModules_Repo_Sys::sql_modules_json
+sqlparse.RepoObject_SqlModules::sql_modules_json <-- sqlparse.RepoObject_SqlModules_10_statement::sql_modules_json

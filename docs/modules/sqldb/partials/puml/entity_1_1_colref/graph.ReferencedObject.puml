@@ -23,6 +23,20 @@ skinparam class {
 }
 
 
+entity docs.RepoObject_Plantuml_ObjectRefList_0_30 << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ObjectRefList : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
+entity docs.RepoObject_Plantuml_ObjectRefList_30_0 << V >> {
+  * **RepoObject_guid** : uniqueidentifier
+  --
+  ObjectRefList : nvarchar(max)
+  * RepoObject_fullname2 : nvarchar(257)
+}
+
 entity docs.RepoObject_Plantuml_ObjectRefList << V >> {
   * **RepoObject_guid** : uniqueidentifier
   --
@@ -70,9 +84,11 @@ entity repo.Match_RepoObject_referenced_UspPersistence << V >> {
   --
   First_usp_persistence_name : nvarchar(140)
   First_usp_persistence_RepoObject_guid : uniqueidentifier
+  FirstNode_schema_name : nvarchar(128)
   FirstNodeName : nvarchar(261)
   Last_usp_persistence_name : nvarchar(140)
   Last_usp_persistence_RepoObject_guid : uniqueidentifier
+  LastNode_schema_name : nvarchar(128)
   LastNodeName : nvarchar(261)
   ListNodeName : nvarchar(4000)
 }
@@ -93,10 +109,13 @@ entity repo.usp_main << P >> {
   --
 }
 
-graph.ReferencedObject <.. repo.usp_main
 graph.ReferencedObject <.. repo.Match_RepoObject_referenced_UspPersistence
-graph.ReferencedObject <.. graph.RepoObject_ReferencingReferenced_u_v
 graph.ReferencedObject <.. graph.RepoObject_ReferencingReferenced
+graph.ReferencedObject <.. graph.RepoObject_ReferencingReferenced_u_v
 graph.ReferencedObject <.. repo.RepoObject_referenced_level
 graph.ReferencedObject <.. docs.RepoObject_Plantuml_ObjectRefList
+graph.ReferencedObject <.. 
+graph.ReferencedObject <.. 
+graph.ReferencedObject <.. repo.usp_main
+repo.Match_RepoObject_referenced_UspPersistence <.. repo.usp_main
 

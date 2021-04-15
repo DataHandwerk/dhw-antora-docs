@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -25,6 +25,11 @@ skinparam class {
 
 entity repo.IndexColumn_virtual_gross << V >> {
 - **PK_IndexColumn_virtual_gross**
+
+..
+index_column_id; int
+--
+- UK_IndexColumn_virtual_gross__3
 {index_guid}
 ..
 index_guid; uniqueidentifier

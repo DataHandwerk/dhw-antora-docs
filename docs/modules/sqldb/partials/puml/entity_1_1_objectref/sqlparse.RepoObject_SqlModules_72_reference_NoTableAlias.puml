@@ -1,0 +1,50 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity repo.RepoObject << U >> {
+  * **RepoObject_guid** : uniqueidentifier
+}
+
+entity repo.RepoObjectColumn << U >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
+}
+
+entity sqlparse.RepoObject_SqlModules_44_from_Identifier_QuoteName << V >> {
+}
+
+entity sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T << U >> {
+}
+
+entity sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias << V >> {
+}
+
+entity sqlparse.RepoObject_SqlModules_79_reference_union << V >> {
+}
+
+repo.RepoObject <.. sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias
+repo.RepoObjectColumn <.. sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias
+sqlparse.RepoObject_SqlModules_44_from_Identifier_QuoteName <.. sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T <.. sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias
+sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias <.. sqlparse.RepoObject_SqlModules_79_reference_union

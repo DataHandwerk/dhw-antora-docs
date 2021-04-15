@@ -39,15 +39,21 @@ entity graph.RepoObjectColumn_S << V >> {
   * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
+entity graph.usp_PERSIST_RepoObjectColumn << P >> {
+}
+
 entity repo.usp_main << P >> {
 }
 
 entity repo.usp_sync_guid_RepoObjectColumn << P >> {
 }
 
-graph.RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
 graph.RepoObjectColumn <.. repo.usp_main
-graph.RepoObjectColumn <.. graph.RepoObjectColumn_ReferencingReferenced
+graph.RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
 graph.RepoObjectColumn <.. docs.RepoObject_Plantuml_ColRefList
+graph.RepoObjectColumn <.. graph.RepoObjectColumn_ReferencingReferenced
+graph.RepoObjectColumn <.. graph.usp_PERSIST_RepoObjectColumn
+graph.RepoObjectColumn_S <.. graph.usp_PERSIST_RepoObjectColumn
 graph.RepoObjectColumn_S <.. repo.usp_sync_guid_RepoObjectColumn
 graph.RepoObjectColumn_S <.. graph.RepoObjectColumn
+graph.usp_PERSIST_RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn

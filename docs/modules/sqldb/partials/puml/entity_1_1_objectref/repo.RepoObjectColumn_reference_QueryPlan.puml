@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.fs_dwh_database_name << FN >> {
+entity config.ftv_dwh_database << IF >> {
 }
 
 entity repo.RepoObject << U >> {
@@ -36,9 +36,14 @@ entity repo.RepoObject_reference_union << V >> {
 }
 
 entity repo.RepoObjectColumn_gross << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
 }
 
 entity repo.RepoObjectSource_QueryPlan << U >> {
@@ -47,9 +52,9 @@ entity repo.RepoObjectSource_QueryPlan << U >> {
 entity repo.SysObjectColumn_QueryPlanExpression << V >> {
 }
 
-repo.fs_dwh_database_name <.. repo.RepoObjectColumn_reference_QueryPlan
-repo.RepoObject <.. repo.RepoObjectColumn_gross
+config.ftv_dwh_database <.. repo.RepoObjectColumn_reference_QueryPlan
 repo.RepoObject <.. repo.RepoObjectColumn_reference_QueryPlan
+repo.RepoObject <.. repo.RepoObjectColumn_gross
 repo.RepoObject_reference_union <.. repo.RepoObjectColumn_reference_QueryPlan
 repo.RepoObjectColumn_gross <.. repo.RepoObjectColumn_reference_QueryPlan
 repo.RepoObjectColumn_reference_QueryPlan <.. repo.SysObjectColumn_QueryPlanExpression

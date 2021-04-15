@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.aaa_test_sql_table_column << V >> {
+entity repo.usp_RepoObjectColumnProperty_set << P >> {
 }
 
 entity repo.check_IndexColumn_virtual_referenced_setpoint << V >> {
@@ -48,21 +48,16 @@ entity repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing << V >
 }
 
 entity repo.IndexColumn_virtual_gross << V >> {
-  * **index_guid** : uniqueidentifier
+  * **index_column_id** : int
 }
 
 entity repo.RepoObject_persistence_column << V >> {
   * **target_RepoObject_guid** : uniqueidentifier
+  **RepoObjectColumn_guid_s** : uniqueidentifier
 }
 
 entity repo.RepoObject_SqlCreateTable << V >> {
   * **RepoObject_guid** : uniqueidentifier
-}
-
-entity repo.RepoObject_SqlModules_71_reference_ExpliciteTableAlias << V >> {
-}
-
-entity repo.RepoObject_SqlModules_72_reference_NoTableAlias << V >> {
 }
 
 entity repo.RepoObjectColumn << U >> {
@@ -70,24 +65,37 @@ entity repo.RepoObjectColumn << U >> {
 }
 
 entity repo.RepoObjectColumn_gross << V >> {
-}
-
-entity repo.RepoObjectColumn_InheritanceType_InheritanceDefinition << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumn_MissingSource_TypeV << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumn_reference_Persistence << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
 }
 
 entity repo.RepoObjectColumn_reference_SqlModules << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
 }
 
 entity repo.RepoObjectColumn_ReferenceTree << V >> {
 }
 
 entity repo.RepoObjectColumn_RelationScript << V >> {
+}
+
+entity repo.RepoObjectColumn_RequiredRepoObjectColumnMerge << V >> {
+}
+
+entity repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition << V >> {
 }
 
 entity repo.RepoObjectColumnProperty_sys_repo << V >> {
@@ -99,7 +107,7 @@ entity repo.SysColumn_RepoObjectColumn_via_guid << V >> {
 entity repo.SysColumn_RepoObjectColumn_via_name << V >> {
 }
 
-entity repo.usp_Index_virtual_InsertUpdate << P >> {
+entity repo.usp_Index_virtual_set << P >> {
 }
 
 entity repo.usp_RepoObjectSource_QueryPlan << P >> {
@@ -111,28 +119,36 @@ entity repo.usp_sync_guid_RepoObjectColumn << P >> {
 entity repo.usp_update_Referencing_Count << P >> {
 }
 
-repo.RepoObjectColumn <.. repo.RepoObjectColumn_reference_Persistence
-repo.RepoObjectColumn <.. repo.RepoObject_persistence_column
-repo.RepoObjectColumn <.. repo.IndexColumn_virtual_gross
-repo.RepoObjectColumn <.. repo.RepoObjectColumnProperty_sys_repo
-repo.RepoObjectColumn <.. repo.SysColumn_RepoObjectColumn_via_guid
-repo.RepoObjectColumn <.. repo.RepoObject_SqlModules_72_reference_NoTableAlias
-repo.RepoObjectColumn <.. repo.RepoObjectColumn_reference_SqlModules
-repo.RepoObjectColumn <.. repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn
-repo.RepoObjectColumn <.. repo.RepoObjectColumn_InheritanceType_InheritanceDefinition
-repo.RepoObjectColumn <.. repo.RepoObjectColumn_RelationScript
-repo.RepoObjectColumn <.. repo.RepoObjectColumn_ReferenceTree
+entity sqlparse.RepoObject_SqlModules_71_reference_ExpliciteTableAlias << V >> {
+}
+
+entity sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias << V >> {
+}
+
+repo.RepoObjectColumn <.. sqlparse.RepoObject_SqlModules_71_reference_ExpliciteTableAlias
+repo.RepoObjectColumn <.. sqlparse.RepoObject_SqlModules_72_reference_NoTableAlias
+repo.RepoObjectColumn <.. repo.usp_Index_virtual_set
+repo.RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
+repo.RepoObjectColumn <.. repo.RepoObjectColumn_MissingSource_TypeV
+repo.RepoObjectColumn <.. repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing
+repo.RepoObjectColumn <.. repo.check_IndexColumn_virtual_referenced_setpoint
 repo.RepoObjectColumn <.. repo.usp_RepoObjectSource_QueryPlan
 repo.RepoObjectColumn <.. repo.usp_update_Referencing_Count
-repo.RepoObjectColumn <.. repo.usp_Index_virtual_InsertUpdate
-repo.RepoObjectColumn <.. repo.usp_sync_guid_RepoObjectColumn
-repo.RepoObjectColumn <.. repo.aaa_test_sql_table_column
-repo.RepoObjectColumn <.. repo.RepoObject_SqlModules_71_reference_ExpliciteTableAlias
-repo.RepoObjectColumn <.. repo.SysColumn_RepoObjectColumn_via_name
 repo.RepoObjectColumn <.. repo.RepoObjectColumn_gross
+repo.RepoObjectColumn <.. repo.SysColumn_RepoObjectColumn_via_name
 repo.RepoObjectColumn <.. repo.RepoObject_SqlCreateTable
-repo.RepoObjectColumn <.. repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing
-repo.RepoObjectColumn <.. repo.RepoObjectColumn_MissingSource_TypeV
-repo.RepoObjectColumn <.. repo.check_IndexColumn_virtual_referenced_setpoint
+repo.RepoObjectColumn <.. repo.SysColumn_RepoObjectColumn_via_guid
+repo.RepoObjectColumn <.. repo.RepoObjectColumnProperty_sys_repo
+repo.RepoObjectColumn <.. repo.RepoObject_persistence_column
+repo.RepoObjectColumn <.. repo.RepoObjectColumn_reference_Persistence
+repo.RepoObjectColumn <.. repo.IndexColumn_virtual_gross
+repo.RepoObjectColumn <.. repo.RepoObjectColumn_RelationScript
+repo.RepoObjectColumn <.. repo.RepoObjectColumn_ReferenceTree
+repo.RepoObjectColumn <.. repo.ExtendedProperty_Repo2Sys_level2_RepoObjectColumn
+repo.RepoObjectColumn <.. repo.RepoObjectColumnProperty_InheritanceType_InheritanceDefinition
+repo.RepoObjectColumn <.. repo.RepoObjectColumn_reference_SqlModules
+repo.RepoObjectColumn <.. repo.RepoObjectColumn_RequiredRepoObjectColumnMerge
+repo.RepoObjectColumn <.. 
+repo.RepoObjectColumn_RequiredRepoObjectColumnMerge <.. repo.usp_sync_guid_RepoObjectColumn
 repo.SysColumn_RepoObjectColumn_via_guid <.. repo.usp_sync_guid_RepoObjectColumn
 repo.SysColumn_RepoObjectColumn_via_name <.. repo.usp_sync_guid_RepoObjectColumn

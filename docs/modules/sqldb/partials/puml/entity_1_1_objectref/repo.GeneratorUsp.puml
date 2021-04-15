@@ -53,10 +53,10 @@ entity repo.usp_GeneratorUsp_insert_update_persistence << P >> {
 }
 
 repo.GeneratorUsp <.. repo.GeneratorUsp_filter_persistence
-repo.GeneratorUsp <.. repo.GeneratorUspStep_Sql
 repo.GeneratorUsp <.. repo.GeneratorUsp_SqlUsp
-repo.GeneratorUsp <.. repo.GeneratorUspStep_Persistence_IsInactive_setpoint
 repo.GeneratorUsp <.. repo.GeneratorUspStep_Persistence
+repo.GeneratorUsp <.. repo.GeneratorUspStep_Persistence_IsInactive_setpoint
+repo.GeneratorUsp <.. repo.GeneratorUspStep_Sql
 repo.GeneratorUsp <.. repo.usp_GeneratorUsp_insert_update_persistence
 repo.GeneratorUspStep_Persistence <.. repo.usp_GeneratorUsp_insert_update_persistence
 repo.GeneratorUspStep_Persistence_IsInactive_setpoint <.. repo.usp_GeneratorUsp_insert_update_persistence

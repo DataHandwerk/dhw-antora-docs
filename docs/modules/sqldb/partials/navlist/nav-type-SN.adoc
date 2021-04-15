@@ -1,4 +1,0 @@
-= synonym
-
-include::partial$navlist/navlist-type-SN.adoc[]
-

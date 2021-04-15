@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -42,24 +42,6 @@ index_guid; uniqueidentifier
 parent_RepoObject_guid; uniqueidentifier
 }
 
-entity repo.ProcedureInstance << U >> {
-**PK_ProcedureInstance**
-{ProcedureInstance_id}
-..
-id; int
---
-UK_ProcedureInstance
-{PK_ProcedureInstance}
-..
-Procedure_RepoObject_guid; uniqueidentifier
-Instance; varchar(500)
---
-- idx_ProcedureInstance__1
-{RepoObject_guid}
-..
-Procedure_RepoObject_guid; uniqueidentifier
-}
-
 entity repo.RepoObject << U >> {
 **PK_RepoObject**
 {RepoObject_guid}
@@ -93,13 +75,6 @@ target_RepoObject_guid; uniqueidentifier
 
 entity repo.RepoObject_QueryPlan << U >> {
 **PK_RepoObject_QueryPlan**
-{RepoObject_guid}
-..
-RepoObject_guid; uniqueidentifier
-}
-
-entity repo.RepoObject_SqlModules << U >> {
-**PK_RepoObject_SqlModules**
 {RepoObject_guid}
 ..
 RepoObject_guid; uniqueidentifier
@@ -167,13 +142,68 @@ entity repo.RepoObjectSource_QueryPlan << U >> {
 RepoObject_guid; uniqueidentifier
 }
 
+entity sqlparse.RepoObject_SqlModules << U >> {
+**PK_RepoObject_SqlModules**
+{RepoObject_guid}
+..
+RepoObject_guid; uniqueidentifier
+}
+
+entity workflow.ProcedureDependency << U >> {
+**PK_ProcedureDependency**
+
+..
+id; int
+--
+UK_ProcedureDependency
+
+..
+referenced_Procedure_RepoObject_guid; uniqueidentifier
+referencing_Procedure_RepoObject_guid; uniqueidentifier
+--
+- idx_ProcedureDependency__1
+{RepoObject_guid}
+..
+referenced_Procedure_RepoObject_guid; uniqueidentifier
+--
+- idx_ProcedureDependency__2
+{RepoObject_guid}
+..
+referencing_Procedure_RepoObject_guid; uniqueidentifier
+}
+
+entity workflow.WorkflowStep << U >> {
+**PK_WorkflowStep**
+{WorkflowStep_id}
+..
+id; int
+--
+UK_WorkflowStep
+{UK_WorkflowStep}
+..
+Workflow_id; int
+Procedure_RepoObject_guid; uniqueidentifier
+--
+- idx_WorkflowStep__1
+{Workflow_id}
+..
+Workflow_id; int
+--
+- idx_WorkflowStep__2
+{RepoObject_guid}
+..
+Procedure_RepoObject_guid; uniqueidentifier
+}
+
 repo.Index_Settings::PK_Index_Settings <-- repo.RepoObject::idx_RepoObject__1
 repo.RepoObject::PK_RepoObject <-- repo.Index_virtual::idx_Index_virtual__1
-repo.RepoObject::PK_RepoObject <-- repo.ProcedureInstance::idx_ProcedureInstance__1
 repo.RepoObject::PK_RepoObject <-- repo.RepoObject_persistence::PK_RepoObject_persistence
 repo.RepoObject::PK_RepoObject <-- repo.RepoObject_QueryPlan::PK_RepoObject_QueryPlan
-repo.RepoObject::PK_RepoObject <-- repo.RepoObject_SqlModules::PK_RepoObject_SqlModules
 repo.RepoObject::PK_RepoObject <-- repo.RepoObjectColumn::idx_RepoObjectColumn__1
 repo.RepoObject::PK_RepoObject <-- repo.RepoObjectProperty::idx_RepoObjectProperty__1
 repo.RepoObject::PK_RepoObject <-- repo.RepoObjectSource_FirstResultSet::idx_RepoObjectSource_FirstResultSet__1
 repo.RepoObject::PK_RepoObject <-- repo.RepoObjectSource_QueryPlan::idx_RepoObjectSource_QueryPlan__1
+repo.RepoObject::PK_RepoObject <-- sqlparse.RepoObject_SqlModules::PK_RepoObject_SqlModules
+repo.RepoObject::PK_RepoObject <-- workflow.ProcedureDependency::idx_ProcedureDependency__2
+repo.RepoObject::PK_RepoObject <-- workflow.ProcedureDependency::idx_ProcedureDependency__1
+repo.RepoObject::PK_RepoObject <-- workflow.WorkflowStep::idx_WorkflowStep__2

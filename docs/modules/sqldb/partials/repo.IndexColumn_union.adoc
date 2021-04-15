@@ -3,12 +3,13 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
+:ExistsProperty--has_execution_plan_issue:
 :ExistsProperty--pk_index_guid:
-:ExistsProperty--pk_IndexPatternColumnDatatype:
-:ExistsProperty--pk_IndexPatternColumnName:
-:ExistsProperty--ReferencedObjectList:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
@@ -36,13 +37,13 @@ view
 == SysObject_id
 
 // tag::SysObject_id[]
-1378103950
+1138819119
 // end::SysObject_id[]
 
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-02-20 11:56:40
+2021-04-13 19:02:38
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -419,95 +420,92 @@ view
 
 // end::AntoraParameterList[]
 
-== example1
+== AdocUspSteps
 
-// tag::example1[]
+// tag::adocuspsteps[]
 
-// end::example1[]
-
-
-== example2
-
-// tag::example2[]
-
-// end::example2[]
+// end::adocuspsteps[]
 
 
-== example3
+== AntoraReferencedList
 
-// tag::example3[]
-
-// end::example3[]
-
-
-== usp_persistence_RepoObject_guid
-
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
+// tag::antorareferencedlist[]
+* xref:repo.IndexColumn_virtual_gross.adoc[]
+* xref:repo_sys.IndexColumn_unique.adoc[]
+// end::antorareferencedlist[]
 
 
-== UspExamples
+== AntoraReferencingList
 
-// tag::UspExamples[]
-
-// end::UspExamples[]
-
-
-== UspParameters
-
-// tag::UspParameters[]
-
-// end::UspParameters[]
+// tag::antorareferencinglist[]
+* xref:repo.Index_ColumList.adoc[]
+* xref:repo.Index_IndexPattern.adoc[]
+* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing.adoc[]
+* xref:repo.RepoObjectColumn_gross.adoc[]
+// end::antorareferencinglist[]
 
 
-== persistence_source_RepoObject_xref
+== exampleUsage
 
-// tag::persistence_source_RepoObject_xref[]
+// tag::exampleusage[]
 
-// end::persistence_source_RepoObject_xref[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
+// end::exampleusage[]
 
 
-== microsoft_database_tools_support
+== exampleUsage_2
 
-// tag::microsoft_database_tools_support[]
+// tag::exampleusage_2[]
 
-// end::microsoft_database_tools_support[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
+// end::exampleusage_2[]
 
 
-== persistence_source_RepoObject_fullname
+== exampleWrong_Usage
 
-// tag::persistence_source_RepoObject_fullname[]
+// tag::examplewrong_usage[]
 
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
+// end::examplewrong_usage[]
 
 
-== persistence_source_RepoObject_guid
+== has_execution_plan_issue
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::has_execution_plan_issue[]
+1
+// end::has_execution_plan_issue[]
 
-// end::persistence_source_RepoObject_guid[]
+
+== has_get_referenced_issue
+
+// tag::has_get_referenced_issue[]
+
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -552,78 +550,53 @@ view
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
+// end::microsoft_database_tools_support[]
 
 
-== is_persistence
+== MS_Description
 
-// tag::is_persistence[]
+// tag::ms_description[]
 
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
+// end::ms_description[]
 
 
-== AdocUspSteps
+== persistence_source_RepoObject_fullname
 
-// tag::AdocUspSteps[]
+// tag::persistence_source_repoobject_fullname[]
 
-// end::AdocUspSteps[]
-
-
-== pk_IndexSemanticGroup
-
-// tag::pk_IndexSemanticGroup[]
-
-// end::pk_IndexSemanticGroup[]
+// end::persistence_source_repoobject_fullname[]
 
 
-== AntoraReferencedList
+== persistence_source_RepoObject_fullname2
 
-// tag::AntoraReferencedList[]
-* xref:repo.IndexColumn_virtual_gross.adoc[]
-* xref:repo_sys.IndexColumn_unique.adoc[]
-// end::AntoraReferencedList[]
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
 
 
-== AntoraReferencingList
+== persistence_source_RepoObject_guid
 
-// tag::AntoraReferencingList[]
-* xref:repo.Index_ColumList.adoc[]
-* xref:repo.Index_IndexPattern.adoc[]
-* xref:repo.IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing.adoc[]
-* xref:repo.RepoObjectColumn_gross.adoc[]
-// end::AntoraReferencingList[]
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -635,24 +608,45 @@ FD0EFFE1-0896-EB11-84F4-A81E8446D5B0
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 uniqueidentifier,int
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 index_guid,index_column_id
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
+
+
+== pk_IndexSemanticGroup
+
+// tag::pk_indexsemanticgroup[]
+
+// end::pk_indexsemanticgroup[]
 
 
 == ReferencedObjectList
 
-// tag::ReferencedObjectList[]
+// tag::referencedobjectlist[]
 * [repo].[IndexColumn_virtual_gross]
 * [repo_sys].[IndexColumn_unique]
-// end::ReferencedObjectList[]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -660,43 +654,45 @@ index_guid,index_column_id
 // tag::sql_modules_definition[]
 [source,sql]
 ----
-
-CREATE VIEW [repo].[IndexColumn_union]
-AS
+Create View repo.IndexColumn_union
+As
 --
-SELECT [index_guid]
- , [index_column_id]
- , [is_descending_key]
- , [RepoObjectColumn_guid]
- , [parent_RepoObject_guid]
- , [index_name]
- , [parent_schema_name]
- , [parent_SysObject_name]
- , [SysObject_column_name]
- , [SysObject_column_user_type_fullname]
- , [is_index_unique]
- , [is_index_primary_key]
- , [is_index_real]
- , [parent_SysObject_fullname]
-FROM repo_sys.[IndexColumn_unique] AS T1
+Select
+    index_guid
+  , index_column_id
+  , is_descending_key
+  , RepoObjectColumn_guid
+  , parent_RepoObject_guid
+  , index_name
+  , parent_schema_name
+  , parent_SysObject_name
+  , SysObject_column_name
+  , SysObject_column_user_type_fullname
+  , is_index_unique
+  , is_index_primary_key
+  , is_index_real
+  , parent_SysObject_fullname
+From
+    repo_sys.IndexColumn_unique As T1
+Union All
+Select
+    index_guid
+  , index_column_id
+  , is_descending_key
+  , RepoObjectColumn_guid
+  , parent_RepoObject_guid
+  , index_name
+  , parent_schema_name
+  , parent_Object_name
+  , Object_column_name
+  , column_user_type_fullname
+  , is_index_unique
+  , is_index_primary_key
+  , is_index_real
+  , parent_Object_fullname
+From
+    repo.IndexColumn_virtual_gross As T2;
 
-UNION ALL
-
-SELECT [index_guid]
- , [index_column_id]
- , [is_descending_key]
- , [RepoObjectColumn_guid]
- , [parent_RepoObject_guid]
- , [index_name]
- , [parent_schema_name]
- , [parent_Object_name]
- , [Object_column_name]
- , [column_user_type_fullname]
- , [is_index_unique]
- , [is_index_primary_key]
- , [is_index_real]
- , [parent_Object_fullname]
-FROM repo.IndexColumn_virtual_gross AS T2
 ----
 // end::sql_modules_definition[]
 

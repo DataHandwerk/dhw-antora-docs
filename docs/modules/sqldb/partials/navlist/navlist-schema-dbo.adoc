@@ -8,3 +8,4 @@
 * xref:dbo.sp_renamediagram.adoc[]
 * xref:dbo.sp_upgraddiagrams.adoc[]
 * xref:dbo.sysdiagrams.adoc[]
+* xref:dbo.zzz.adoc[]

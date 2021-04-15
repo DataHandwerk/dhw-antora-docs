@@ -36,8 +36,9 @@ entity docs.RepoObject_Plantuml_Entity << V >> {
 }
 
 entity repo.RepoObjectColumn_gross << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
-docs.RepoObject_ColumnList <.. docs.RepoObject_Adoc
 docs.RepoObject_ColumnList <.. docs.RepoObject_Plantuml_Entity
+docs.RepoObject_ColumnList <.. docs.RepoObject_Adoc
 repo.RepoObjectColumn_gross <.. docs.RepoObject_ColumnList

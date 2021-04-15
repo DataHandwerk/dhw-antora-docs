@@ -31,13 +31,41 @@ entity docs.RepoObject_IndexList << V >> {
 }
 
 entity repo.ForeignKey_gross << V >> {
+  **ForeignKey_guid** : uniqueidentifier
   --
   delete_referential_action : tinyint
   ForeignKey_fullname : nvarchar(517)
-  ForeignKey_guid : uniqueidentifier
   ForeignKey_name : nvarchar(128)
   * is_MatchingDatatypePattern : int
   * referenced_AntoraXref : nvarchar(951)
+  referenced_index_guid : uniqueidentifier
+  referenced_index_name : nvarchar(128)
+  referenced_IndexPatternColumnDatatype : nvarchar(4000)
+  referenced_IndexPatternColumnName : nvarchar(4000)
+  referenced_RepoObject_fullname : nvarchar(261)
+  referenced_RepoObject_fullname2 : nvarchar(257)
+  referenced_RepoObject_guid : uniqueidentifier
+  referenced_SysObject_name : nvarchar(128)
+  referenced_SysObject_schema_name : nvarchar(128)
+  referencing_index_guid : uniqueidentifier
+  referencing_index_name : nvarchar(128)
+  referencing_IndexPatternColumnDatatype : nvarchar(4000)
+  referencing_IndexPatternColumnName : nvarchar(4000)
+  referencing_RepoObject_fullname : nvarchar(261)
+  referencing_RepoObject_fullname2 : nvarchar(257)
+  referencing_RepoObject_guid : uniqueidentifier
+  referencing_SysObject_name : nvarchar(128)
+  referencing_SysObject_schema_name : nvarchar(128)
+  update_referential_action : tinyint
+}
+
+entity repo.ForeignKey_Indexes_union_T << U >> {
+  **ForeignKey_guid** : uniqueidentifier
+  --
+  delete_referential_action : tinyint
+  ForeignKey_fullname : nvarchar(517)
+  ForeignKey_name : nvarchar(128)
+  * is_MatchingDatatypePattern : int
   referenced_index_guid : uniqueidentifier
   referenced_index_name : nvarchar(128)
   referenced_IndexPatternColumnDatatype : nvarchar(4000)
@@ -94,7 +122,30 @@ entity repo.Index_gross << V >> {
 }
 
 repo.ForeignKey_gross <.. docs.RepoObject_IndexList
-repo.Index_gross <.. docs.RepoObject_IndexList
+repo.ForeignKey_Indexes_union_T <.. repo.ForeignKey_gross
 repo.Index_gross <.. repo.ForeignKey_gross
-repo.Index_gross::index_name <-- repo.ForeignKey_gross::referenced_index_name
+repo.Index_gross <.. docs.RepoObject_IndexList
+repo.ForeignKey_Indexes_union_T::delete_referential_action <-- repo.ForeignKey_gross::delete_referential_action
+repo.ForeignKey_Indexes_union_T::ForeignKey_fullname <-- repo.ForeignKey_gross::ForeignKey_fullname
+repo.ForeignKey_Indexes_union_T::ForeignKey_guid <-- repo.ForeignKey_gross::ForeignKey_guid
+repo.ForeignKey_Indexes_union_T::ForeignKey_name <-- repo.ForeignKey_gross::ForeignKey_name
+repo.ForeignKey_Indexes_union_T::is_MatchingDatatypePattern <-- repo.ForeignKey_gross::is_MatchingDatatypePattern
+repo.ForeignKey_Indexes_union_T::referenced_index_guid <-- repo.ForeignKey_gross::referenced_index_guid
+repo.ForeignKey_Indexes_union_T::referenced_IndexPatternColumnDatatype <-- repo.ForeignKey_gross::referenced_IndexPatternColumnDatatype
+repo.ForeignKey_Indexes_union_T::referenced_IndexPatternColumnName <-- repo.ForeignKey_gross::referenced_IndexPatternColumnName
+repo.ForeignKey_Indexes_union_T::referenced_RepoObject_fullname <-- repo.ForeignKey_gross::referenced_RepoObject_fullname
+repo.ForeignKey_Indexes_union_T::referenced_RepoObject_fullname2 <-- repo.ForeignKey_gross::referenced_RepoObject_fullname2
+repo.ForeignKey_Indexes_union_T::referenced_RepoObject_guid <-- repo.ForeignKey_gross::referenced_RepoObject_guid
+repo.ForeignKey_Indexes_union_T::referenced_SysObject_name <-- repo.ForeignKey_gross::referenced_SysObject_name
+repo.ForeignKey_Indexes_union_T::referenced_SysObject_schema_name <-- repo.ForeignKey_gross::referenced_SysObject_schema_name
+repo.ForeignKey_Indexes_union_T::referencing_index_guid <-- repo.ForeignKey_gross::referencing_index_guid
+repo.ForeignKey_Indexes_union_T::referencing_IndexPatternColumnDatatype <-- repo.ForeignKey_gross::referencing_IndexPatternColumnDatatype
+repo.ForeignKey_Indexes_union_T::referencing_IndexPatternColumnName <-- repo.ForeignKey_gross::referencing_IndexPatternColumnName
+repo.ForeignKey_Indexes_union_T::referencing_RepoObject_fullname <-- repo.ForeignKey_gross::referencing_RepoObject_fullname
+repo.ForeignKey_Indexes_union_T::referencing_RepoObject_fullname2 <-- repo.ForeignKey_gross::referencing_RepoObject_fullname2
+repo.ForeignKey_Indexes_union_T::referencing_RepoObject_guid <-- repo.ForeignKey_gross::referencing_RepoObject_guid
+repo.ForeignKey_Indexes_union_T::referencing_SysObject_name <-- repo.ForeignKey_gross::referencing_SysObject_name
+repo.ForeignKey_Indexes_union_T::referencing_SysObject_schema_name <-- repo.ForeignKey_gross::referencing_SysObject_schema_name
+repo.ForeignKey_Indexes_union_T::update_referential_action <-- repo.ForeignKey_gross::update_referential_action
 repo.Index_gross::index_name <-- repo.ForeignKey_gross::referencing_index_name
+repo.Index_gross::index_name <-- repo.ForeignKey_gross::referenced_index_name

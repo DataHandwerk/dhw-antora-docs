@@ -3,12 +3,13 @@
 == existing_properties
 
 // tag::existing_properties[]
-:ExistsProperty--AntoraReferencedList:
-:ExistsProperty--AntoraReferencingList:
+:ExistsProperty--antorareferencedlist:
+:ExistsProperty--antorareferencinglist:
 :ExistsProperty--pk_index_guid:
-:ExistsProperty--pk_IndexPatternColumnDatatype:
-:ExistsProperty--pk_IndexPatternColumnName:
-:ExistsProperty--pk_IndexSemanticGroup:
+:ExistsProperty--pk_indexpatterncolumndatatype:
+:ExistsProperty--pk_indexpatterncolumnname:
+:ExistsProperty--pk_indexsemanticgroup:
+:ExistsProperty--referencedobjectlist:
 :ExistsProperty--sql_modules_definition:
 :ExistsProperty--FK:
 :ExistsProperty--AntoraIndexList:
@@ -36,13 +37,13 @@ view
 == SysObject_id
 
 // tag::SysObject_id[]
-509244869
+514816896
 // end::SysObject_id[]
 
 == SysObject_modify_date
 
 // tag::SysObject_modify_date[]
-2021-04-05 08:30:23
+2021-04-13 19:02:37
 // end::SysObject_modify_date[]
 
 == AntoraColumnDetails
@@ -155,107 +156,89 @@ view
 
 == AdocUspSteps
 
-// tag::AdocUspSteps[]
+// tag::adocuspsteps[]
 
-// end::AdocUspSteps[]
-
-
-== example1
-
-// tag::example1[]
-
-// end::example1[]
+// end::adocuspsteps[]
 
 
-== example2
+== AntoraReferencedList
 
-// tag::example2[]
-
-// end::example2[]
-
-
-== example3
-
-// tag::example3[]
-
-// end::example3[]
+// tag::antorareferencedlist[]
+* xref:graph.ReferencedObjectColumn.adoc[]
+* xref:graph.RepoObjectColumn.adoc[]
+* xref:repo.ftv_RepoObject_ReferencedReferencing.adoc[]
+* xref:repo.RepoObject.adoc[]
+// end::antorareferencedlist[]
 
 
-== usp_persistence_RepoObject_guid
+== AntoraReferencingList
 
-// tag::usp_persistence_RepoObject_guid[]
-
-// end::usp_persistence_RepoObject_guid[]
-
-
-== UspExamples
-
-// tag::UspExamples[]
-
-// end::UspExamples[]
+// tag::antorareferencinglist[]
+* xref:docs.RepoObject_Plantuml.adoc[]
+// end::antorareferencinglist[]
 
 
-== UspParameters
+== exampleUsage
 
-// tag::UspParameters[]
+// tag::exampleusage[]
 
-// end::UspParameters[]
-
-
-== persistence_source_RepoObject_xref
-
-// tag::persistence_source_RepoObject_xref[]
-
-// end::persistence_source_RepoObject_xref[]
+// end::exampleusage[]
 
 
-== ReferencedObjectList
+== exampleUsage_2
 
-// tag::ReferencedObjectList[]
+// tag::exampleusage_2[]
 
-// end::ReferencedObjectList[]
-
-
-== is_repo_managed
-
-// tag::is_repo_managed[]
-
-// end::is_repo_managed[]
+// end::exampleusage_2[]
 
 
-== microsoft_database_tools_support
+== exampleWrong_Usage
 
-// tag::microsoft_database_tools_support[]
+// tag::examplewrong_usage[]
 
-// end::microsoft_database_tools_support[]
-
-
-== MS_Description
-
-// tag::MS_Description[]
-
-// end::MS_Description[]
+// end::examplewrong_usage[]
 
 
-== persistence_source_RepoObject_fullname
+== has_execution_plan_issue
 
-// tag::persistence_source_RepoObject_fullname[]
+// tag::has_execution_plan_issue[]
 
-// end::persistence_source_RepoObject_fullname[]
-
-
-== persistence_source_RepoObject_fullname2
-
-// tag::persistence_source_RepoObject_fullname2[]
-
-// end::persistence_source_RepoObject_fullname2[]
+// end::has_execution_plan_issue[]
 
 
-== persistence_source_RepoObject_guid
+== has_get_referenced_issue
 
-// tag::persistence_source_RepoObject_guid[]
+// tag::has_get_referenced_issue[]
 
-// end::persistence_source_RepoObject_guid[]
+// end::has_get_referenced_issue[]
+
+
+== has_history
+
+// tag::has_history[]
+
+// end::has_history[]
+
+
+== has_history_columns
+
+// tag::has_history_columns[]
+
+// end::has_history_columns[]
+
+
+== is_persistence
+
+// tag::is_persistence[]
+
+// end::is_persistence[]
+
+
+== is_persistence_check_duplicate_per_pk
+
+// tag::is_persistence_check_duplicate_per_pk[]
+
+// end::is_persistence_check_duplicate_per_pk[]
 
 
 == is_persistence_check_for_empty_source
@@ -300,63 +283,53 @@ view
 // end::is_persistence_update_changed[]
 
 
-== example4
+== is_repo_managed
 
-// tag::example4[]
+// tag::is_repo_managed[]
 
-// end::example4[]
-
-
-== example5
-
-// tag::example5[]
-
-// end::example5[]
+// end::is_repo_managed[]
 
 
-== has_history
+== microsoft_database_tools_support
 
-// tag::has_history[]
+// tag::microsoft_database_tools_support[]
 
-// end::has_history[]
-
-
-== has_history_columns
-
-// tag::has_history_columns[]
-
-// end::has_history_columns[]
+// end::microsoft_database_tools_support[]
 
 
-== is_persistence
+== MS_Description
 
-// tag::is_persistence[]
+// tag::ms_description[]
 
-// end::is_persistence[]
-
-
-== is_persistence_check_duplicate_per_pk
-
-// tag::is_persistence_check_duplicate_per_pk[]
-
-// end::is_persistence_check_duplicate_per_pk[]
+// end::ms_description[]
 
 
-== AntoraReferencedList
+== persistence_source_RepoObject_fullname
 
-// tag::AntoraReferencedList[]
-* xref:graph.ReferencedObjectColumn.adoc[]
-* xref:graph.RepoObjectColumn.adoc[]
-* xref:repo.ftv_RepoObject_ReferencedReferencing.adoc[]
-* xref:repo.RepoObject.adoc[]
-// end::AntoraReferencedList[]
+// tag::persistence_source_repoobject_fullname[]
+
+// end::persistence_source_repoobject_fullname[]
 
 
-== AntoraReferencingList
+== persistence_source_RepoObject_fullname2
 
-// tag::AntoraReferencingList[]
-* xref:docs.RepoObject_Plantuml.adoc[]
-// end::AntoraReferencingList[]
+// tag::persistence_source_repoobject_fullname2[]
+
+// end::persistence_source_repoobject_fullname2[]
+
+
+== persistence_source_RepoObject_guid
+
+// tag::persistence_source_repoobject_guid[]
+
+// end::persistence_source_repoobject_guid[]
+
+
+== persistence_source_RepoObject_xref
+
+// tag::persistence_source_repoobject_xref[]
+
+// end::persistence_source_repoobject_xref[]
 
 
 == pk_index_guid
@@ -368,23 +341,47 @@ D724023E-FE95-EB11-84F4-A81E8446D5B0
 
 == pk_IndexPatternColumnDatatype
 
-// tag::pk_IndexPatternColumnDatatype[]
+// tag::pk_indexpatterncolumndatatype[]
 uniqueidentifier
-// end::pk_IndexPatternColumnDatatype[]
+// end::pk_indexpatterncolumndatatype[]
 
 
 == pk_IndexPatternColumnName
 
-// tag::pk_IndexPatternColumnName[]
+// tag::pk_indexpatterncolumnname[]
 RepoObject_guid
-// end::pk_IndexPatternColumnName[]
+// end::pk_indexpatterncolumnname[]
 
 
 == pk_IndexSemanticGroup
 
-// tag::pk_IndexSemanticGroup[]
+// tag::pk_indexsemanticgroup[]
 RepoObject_guid
-// end::pk_IndexSemanticGroup[]
+// end::pk_indexsemanticgroup[]
+
+
+== ReferencedObjectList
+
+// tag::referencedobjectlist[]
+* [graph].[ReferencedObjectColumn]
+* [graph].[RepoObjectColumn]
+* [repo].[ftv_RepoObject_ReferencedReferencing]
+* [repo].[RepoObject]
+// end::referencedobjectlist[]
+
+
+== usp_persistence_RepoObject_guid
+
+// tag::usp_persistence_repoobject_guid[]
+
+// end::usp_persistence_repoobject_guid[]
+
+
+== UspParameters
+
+// tag::uspparameters[]
+
+// end::uspparameters[]
 
 
 == sql_modules_definition
@@ -392,56 +389,65 @@ RepoObject_guid
 // tag::sql_modules_definition[]
 [source,sql]
 ----
-
-
-CREATE VIEW [docs].[RepoObject_Plantuml_ColRefList]
-AS
-SELECT ro.RepoObject_guid
- , ro.RepoObject_fullname2
- , ColRefList = String_agg(CONCAT (
-   cast(N'' AS NVARCHAR(max))
-   --, REPLACE(colref.Referenced_ro_fullname2, '.', '___')
-   , colref.Referenced_ro_fullname2
-   , '::'
-   , colref.Referenced_ro_ColumnName
-   , ' <-- '
-   --, REPLACE(colref.Referencing_ro_fullname2, '.', '___')
-   , colref.Referencing_ro_fullname2
-   , '::'
-   , colref.Referencing_ro_ColumnName
-   ), CHAR(13) + CHAR(10)) WITHIN
-GROUP (
-  ORDER BY colref.Referenced_ro_fullname2
-   , colref.Referenced_ro_ColumnName
-  )
-FROM (
- SELECT ro.RepoObject_guid
+Create View docs.RepoObject_Plantuml_ColRefList
+As
+Select
+    ro.RepoObject_guid
   , ro.RepoObject_fullname2
-  , T1.Node_guid AS Node_guid_1
-  , T2.Node_guid AS Node_guid_2
- FROM repo.RepoObject AS ro
- CROSS APPLY [repo].[ftv_RepoObject_ReferencedReferencing](ro.RepoObject_guid, 1, 1) AS T1
- CROSS APPLY [repo].[ftv_RepoObject_ReferencedReferencing](ro.RepoObject_guid, 1, 1) AS T2
- ) ro
-INNER JOIN (
- SELECT Object1.[RepoObject_fullname2] AS Referencing_ro_fullname2
-  , Object1.[RepoObject_guid] AS Referencing_ro_guid
-  , Object1.[RepoObjectColumn_name] AS Referencing_ro_ColumnName
-  , Object2.[RepoObject_fullname2] AS Referenced_ro_fullname2
-  , Object2.[RepoObject_guid] AS Referenced_ro_guid
-  , Object2.[RepoObjectColumn_name] AS Referenced_ro_ColumnName
- FROM [graph].[RepoObjectColumn] AS Object1
-  , [graph].[ReferencedObjectColumn] AS referenced
-  , [graph].[RepoObjectColumn] AS Object2
- WHERE MATCH(Object1 - (referenced) - > Object2)
- ) colref
- ON colref.Referencing_ro_guid = ro.Node_guid_1
-  AND colref.Referenced_ro_guid = ro.Node_guid_2
-  --exclude column references inside object (calculated columns):
-  AND colref.Referencing_ro_guid <> colref.Referenced_ro_guid
-GROUP BY ro.RepoObject_guid
- , ro.RepoObject_fullname2
- --ORDER BY ro.RepoObject_fullname2
+  , ColRefList = String_Agg (
+                                Concat (
+                                           Cast(N'' As NVarchar(Max))
+                                         --, REPLACE(colref.Referenced_ro_fullname2, '.', '___')
+                                         , colref.Referenced_ro_fullname2
+                                         , '::'
+                                         , colref.Referenced_ro_ColumnName
+                                         , ' <-- '
+                                         --, REPLACE(colref.Referencing_ro_fullname2, '.', '___')
+                                         , colref.Referencing_ro_fullname2
+                                         , '::'
+                                         , colref.Referencing_ro_ColumnName
+                                       )
+                              , Char ( 13 ) + Char ( 10 )
+                            ) Within Group(Order By
+                                               colref.Referenced_ro_fullname2
+                                             , colref.Referenced_ro_ColumnName)
+From
+(
+    Select
+        ro.RepoObject_guid
+      , ro.RepoObject_fullname2
+      , T1.Node_guid As Node_guid_1
+      , T2.Node_guid As Node_guid_2
+    From
+        repo.RepoObject                                                                    As ro
+        Cross Apply repo.ftv_RepoObject_ReferencedReferencing ( ro.RepoObject_guid, 1, 1 ) As T1
+        Cross Apply repo.ftv_RepoObject_ReferencedReferencing ( ro.RepoObject_guid, 1, 1 ) As T2
+)     ro
+    Inner Join
+    (
+        Select
+            Object1.RepoObject_fullname2  As Referencing_ro_fullname2
+          , Object1.RepoObject_guid       As Referencing_ro_guid
+          , Object1.RepoObjectColumn_name As Referencing_ro_ColumnName
+          , Object2.RepoObject_fullname2  As Referenced_ro_fullname2
+          , Object2.RepoObject_guid       As Referenced_ro_guid
+          , Object2.RepoObjectColumn_name As Referenced_ro_ColumnName
+        From
+            graph.RepoObjectColumn As Object1
+          , graph.ReferencedObjectColumn As referenced
+          , graph.RepoObjectColumn As Object2
+        Where Match(
+            Object1-(referenced)->Object2)
+    ) colref
+        On
+        colref.Referencing_ro_guid     = ro.Node_guid_1
+        And colref.Referenced_ro_guid  = ro.Node_guid_2
+        --exclude column references inside object (calculated columns):
+        And colref.Referencing_ro_guid <> colref.Referenced_ro_guid
+Group By
+    ro.RepoObject_guid
+  , ro.RepoObject_fullname2;
+--ORDER BY ro.RepoObject_fullname2
 
 ----
 // end::sql_modules_definition[]

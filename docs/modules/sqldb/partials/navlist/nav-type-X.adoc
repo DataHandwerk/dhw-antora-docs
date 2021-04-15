@@ -1,4 +1,0 @@
-= extended stored proc
-
-include::partial$navlist/navlist-type-X.adoc[]
-

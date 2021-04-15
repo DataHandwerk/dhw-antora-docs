@@ -1,0 +1,69 @@
+left to right direction
+hide circle
+'avoide "." issues:
+set namespaceSeparator none
+
+
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+}
+
+
+entity logs.usp_ExecutionLog_insert << P >> {
+  --
+}
+
+entity sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union << V >> {
+  --
+  alias_QuoteName : nvarchar(max)
+  class : nvarchar(500)
+  normalized : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  RowNumber_per_Object : bigint
+  source_column_QuoteName : nvarchar(max)
+  source_table_QuoteName : nvarchar(max)
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T << U >> {
+  --
+  alias_QuoteName : nvarchar(max)
+  class : nvarchar(500)
+  normalized : nvarchar(max)
+  * RepoObject_guid : uniqueidentifier
+  RowNumber_per_Object : bigint
+  source_column_QuoteName : nvarchar(max)
+  source_table_QuoteName : nvarchar(max)
+  SysObject_fullname : nvarchar(261)
+}
+
+entity sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T << P >> {
+  --
+}
+
+logs.usp_ExecutionLog_insert <.. sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union <.. sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union <.. sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T <.. sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::alias_QuoteName <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::alias_QuoteName
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::class <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::class
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::normalized <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::normalized
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::RepoObject_guid <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::RepoObject_guid
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::RowNumber_per_Object <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::RowNumber_per_Object
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::source_column_QuoteName <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::source_column_QuoteName
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::source_table_QuoteName <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::source_table_QuoteName
+sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union::SysObject_fullname <-- sqlparse.RepoObject_SqlModules_61_SelectIdentifier_Union_T::SysObject_fullname

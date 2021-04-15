@@ -40,10 +40,11 @@ entity repo.RepoObject << U >> {
 entity repo.usp_sync_guid_RepoObject << P >> {
 }
 
+graph.RepoObject <.. graph.usp_PERSIST_RepoObject
 graph.RepoObject <.. repo.usp_sync_guid_RepoObject
 graph.RepoObject_S <.. repo.usp_sync_guid_RepoObject
-graph.RepoObject_S <.. graph.RepoObject
 graph.RepoObject_S <.. graph.usp_PERSIST_RepoObject
+graph.RepoObject_S <.. graph.RepoObject
 graph.usp_PERSIST_RepoObject <.. repo.usp_sync_guid_RepoObject
 repo.RepoObject <.. repo.usp_sync_guid_RepoObject
 repo.RepoObject <.. graph.RepoObject_S

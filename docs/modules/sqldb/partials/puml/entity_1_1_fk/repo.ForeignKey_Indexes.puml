@@ -1,4 +1,4 @@
-left to right direction
+Left to right direction
 hide circle
 'avoide "." issues:
 set namespaceSeparator none
@@ -37,7 +37,7 @@ referenced_index_guid; uniqueidentifier
 - idx_ForeignKey_Indexes__3
 {schema_name,object_name}
 ..
-referencing_SysObject_schema_name; nvarchar(128)
+referenced_SysObject_schema_name; nvarchar(128)
 referencing_SysObject_name; nvarchar(128)
 }
 

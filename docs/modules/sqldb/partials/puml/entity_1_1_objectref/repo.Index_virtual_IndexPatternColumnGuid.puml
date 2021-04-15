@@ -44,8 +44,8 @@ entity repo.usp_index_inheritance << P >> {
 }
 
 repo.Index_virtual <.. repo.Index_union
-repo.Index_virtual <.. repo.usp_index_inheritance
 repo.Index_virtual <.. repo.Index_virtual_IndexPatternColumnGuid
+repo.Index_virtual <.. repo.usp_index_inheritance
 repo.Index_virtual_IndexPatternColumnGuid <.. repo.Index_union
 repo.Index_virtual_IndexPatternColumnGuid <.. repo.usp_index_inheritance
 repo.IndexColumn_virtual <.. repo.usp_index_inheritance

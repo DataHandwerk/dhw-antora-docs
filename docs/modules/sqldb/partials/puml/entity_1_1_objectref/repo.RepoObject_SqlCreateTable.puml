@@ -23,7 +23,7 @@ skinparam class {
 }
 
 
-entity repo.fs_get_parameter_value << FN >> {
+entity config.ftv_get_parameter_value << IF >> {
 }
 
 entity repo.ftv_RepoObject_ColumReferenceRepoObject << IF >> {
@@ -57,14 +57,14 @@ entity repo.RepoObjectColumn << U >> {
   * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
-repo.fs_get_parameter_value <.. repo.RepoObject_SqlCreateTable
+config.ftv_get_parameter_value <.. repo.RepoObject_SqlCreateTable
 repo.Index_gross <.. repo.RepoObject_SqlCreateTable
 repo.Index_SqlConstraint_PkUq <.. repo.RepoObject_SqlCreateTable
-repo.RepoObject <.. repo.RepoObject_gross
 repo.RepoObject <.. repo.RepoObject_SqlCreateTable
+repo.RepoObject <.. repo.RepoObject_gross
 repo.RepoObject_ColumnList <.. repo.RepoObject_gross
 repo.RepoObject_ColumnList <.. repo.RepoObject_SqlCreateTable
-repo.RepoObject_gross <.. repo.RepoObject_SqlCreateTable
 repo.RepoObject_gross <.. repo.Index_gross
+repo.RepoObject_gross <.. repo.RepoObject_SqlCreateTable
 repo.RepoObject_SqlCreateTable <.. repo.ftv_RepoObject_ColumReferenceRepoObject
 repo.RepoObjectColumn <.. repo.RepoObject_SqlCreateTable

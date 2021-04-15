@@ -23,6 +23,9 @@ skinparam class {
 }
 
 
+entity repo.RepoObjectColumnProperty_ForUpdate << V >> {
+}
+
 entity docs.RepoObject_ColumnList << V >> {
   * **RepoObject_guid** : uniqueidentifier
 }
@@ -52,18 +55,25 @@ entity repo.RepoObjectColumn << U >> {
 }
 
 entity repo.RepoObjectColumn_gross << V >> {
+  * **RepoObjectColumn_guid** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumn_reference_FirstResultSet << V >> {
 }
 
 entity repo.RepoObjectColumn_reference_QueryPlan << V >> {
+  **referencing_id** : int
+  **referencing_minor_id** : int
+  **referenced_id** : int
+  **referenced_minor_id** : int
 }
 
 entity repo.RepoObjectColumn_ReferencedList << V >> {
+  **Referencing_guid** : uniqueidentifier
 }
 
 entity repo.RepoObjectColumn_ReferencingList << V >> {
+  **Referenced_guid** : uniqueidentifier
 }
 
 repo.fs_get_RepoObjectColumnProperty_nvarchar <.. repo.RepoObjectColumn_gross
@@ -77,5 +87,6 @@ repo.RepoObjectColumn_gross <.. repo.RepoObjectColumn_reference_QueryPlan
 repo.RepoObjectColumn_gross <.. repo.RepoObject_ColumnList
 repo.RepoObjectColumn_gross <.. graph.RepoObjectColumn_S
 repo.RepoObjectColumn_gross <.. docs.RepoObject_ColumnList
+repo.RepoObjectColumn_gross <.. 
 repo.RepoObjectColumn_ReferencedList <.. repo.RepoObjectColumn_gross
 repo.RepoObjectColumn_ReferencingList <.. repo.RepoObjectColumn_gross

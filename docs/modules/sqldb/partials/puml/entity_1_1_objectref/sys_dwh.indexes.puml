@@ -35,6 +35,6 @@ entity repo_sys.IndexColumn_unique << V >> {
 entity sys_dwh.indexes << SN >> {
 }
 
+sys_dwh.indexes <.. repo_sys.IndexColumn_unique
 sys_dwh.indexes <.. repo_sys.Index_unique
 sys_dwh.indexes <.. repo_sys.ExtendedProperties
-sys_dwh.indexes <.. repo_sys.IndexColumn_unique

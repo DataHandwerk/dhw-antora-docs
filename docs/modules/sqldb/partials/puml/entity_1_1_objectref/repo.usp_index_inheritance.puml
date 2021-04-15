@@ -23,11 +23,18 @@ skinparam class {
 }
 
 
+entity logs.usp_ExecutionLog_insert << P >> {
+}
+
 entity repo.Index_gross << V >> {
   * **index_guid** : uniqueidentifier
 }
 
 entity repo.Index_virtual << U >> {
+  * **index_guid** : uniqueidentifier
+}
+
+entity repo.Index_virtual_ForUpdate << V >> {
   * **index_guid** : uniqueidentifier
 }
 
@@ -50,9 +57,6 @@ entity repo.IndexReferencedReferencing_HasFullColumnsInReferencing << V >> {
   **referencing_RepoObject_guid** : uniqueidentifier
 }
 
-entity repo.usp_ExecutionLog_insert << P >> {
-}
-
 entity repo.usp_Index_finish << P >> {
 }
 
@@ -65,22 +69,24 @@ entity repo.usp_main << P >> {
 entity repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T << P >> {
 }
 
+logs.usp_ExecutionLog_insert <.. repo.usp_Index_finish
+logs.usp_ExecutionLog_insert <.. repo.usp_main
+logs.usp_ExecutionLog_insert <.. repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T
+logs.usp_ExecutionLog_insert <.. repo.usp_index_inheritance
 repo.Index_gross <.. repo.usp_index_inheritance
 repo.Index_gross <.. repo.usp_Index_finish
+repo.Index_virtual <.. repo.Index_virtual_ForUpdate
 repo.Index_virtual <.. repo.IndexColumn_virtual_referenced_setpoint
+repo.Index_virtual <.. repo.usp_Index_finish
 repo.Index_virtual <.. repo.usp_index_inheritance
 repo.Index_virtual <.. repo.Index_virtual_IndexPatternColumnGuid
-repo.Index_virtual <.. repo.usp_Index_finish
+repo.Index_virtual_ForUpdate <.. repo.usp_index_inheritance
 repo.Index_virtual_IndexPatternColumnGuid <.. repo.usp_index_inheritance
-repo.IndexColumn_virtual <.. repo.usp_index_inheritance
 repo.IndexColumn_virtual <.. repo.Index_virtual_IndexPatternColumnGuid
+repo.IndexColumn_virtual <.. repo.usp_index_inheritance
 repo.IndexColumn_virtual <.. repo.usp_Index_finish
 repo.IndexColumn_virtual_referenced_setpoint <.. repo.usp_index_inheritance
 repo.IndexReferencedReferencing_HasFullColumnsInReferencing <.. repo.usp_index_inheritance
-repo.usp_ExecutionLog_insert <.. repo.usp_index_inheritance
-repo.usp_ExecutionLog_insert <.. repo.usp_main
-repo.usp_ExecutionLog_insert <.. repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T
-repo.usp_ExecutionLog_insert <.. repo.usp_Index_finish
 repo.usp_Index_finish <.. repo.usp_index_inheritance
 repo.usp_index_inheritance <.. repo.usp_main
 repo.usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T <.. repo.usp_index_inheritance
