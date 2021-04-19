@@ -63,7 +63,8 @@ Where
     And sub_Parameter = '';
 ----
 ====
-* your source repositories should contain a file `antora.yml` in the same folder, where the folder `modules` is located. Our main `antora.yml` is located in `D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs` and has this content
+* your source repositories should contain a file `antora.yml` in the same folder, where the folder `modules` is located. Read about `antora.yml` in https://docs.antora.org/antora/2.3/component-version-descriptor/ +
+Our main `antora.yml` is located in `D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs` and has this content
 +
 ====
 [source,yaml]
@@ -74,10 +75,12 @@ version: 0.1.0
 nav: <2>
 - modules/ROOT/nav.adoc
 - modules/arc/nav.adoc
+- modules/sqldb/nav.adoc <3>
 - modules/manual/nav.adoc
 ....
 <1> this project name is used in the playbooks
 <2> 3 navigation files for 3 modules are included
+<3> include the navigation file for `sqldb` module in the main `antora.yml`
 ====
 +
 but we have two (2) source repositories. The `title` should be contained only in one `antora.yml`. But you should use the same `version`.
@@ -88,13 +91,13 @@ but we have two (2) source repositories. The `title` should be contained only in
 name: dhw <1>
 # title: DataHandwerk <2>
 version: 0.1.0 <3>
-nav:
-- modules/sqldb/nav.adoc <4>
+# nav:
+# - modules/sqldb/nav.adoc <4>
 ....
 <1> use the same project name in all `antora.yml`
-<2> define a title only once
+<2> don't define a title here, but define it only once in the main `antora.yml`
 <3> use the same version(s) to get a consistent documentation
-<4> include only the `sqldb` navigation file from the current source repository. You could also create and use this file in the "main" source repository.
+<4> don't include the `sqldb` navigation file here, but use the main `antora.yml` to define the whole navigation in one place!
 ====
 
 
@@ -120,7 +123,7 @@ Some content explained:
 ** they are different in the `kroki-fetch-diagram: true` option. It takes a lot of time to generate all diagrams and this option is used only to create the final site.
 ** They could be also different in sources for testing
 +
-____
+====
 [source,yaml]
 ....
 site:
@@ -167,9 +170,10 @@ runtime:
 <4> put the output dir for the local playbook into `.gitignore` to exclude from version control
 <5> the antora-ui-default needs to be adapted a bit to show your own menu content
 <6> force source repository fetch in General instead of using it every time in the antora command
-____
+====
 * the ".gitignore" file should contain some entries to avoid commiting then to the final site
 +
+====
 ....
 /local <1>
 node_modules
@@ -178,6 +182,7 @@ npm
 package-lock.json
 build
 ....
+====
 <1> exclude the site generated from the local-target playbook from source control
 * D:\Repos\GitHub\DataHandwerk\datahandwerk.github.io\supplemental-ui\partials\header-content.hbs +
 contains the customer menu and customer search. It overwrites the default in antora-ui-default

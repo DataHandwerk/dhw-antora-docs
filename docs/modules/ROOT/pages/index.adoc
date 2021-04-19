@@ -10,7 +10,8 @@ CAUTION: The project was launched at the beginning of 2021 and is in the alpha s
 
 // DHW. Handwerk statt Massenproduktion. Craft instead of mass production. MSSQL based tools for data craftsmen. Individual customization instead of assembly line.
 
-TIP: Read the xref:arc:architecture.adoc[] documentation to learn why DataHandwerk exists, how it works and is built. Some key includes from the architecture documentaion:
+TIP: Read the xref:arc:architecture.adoc[] documentation to learn why DataHandwerk exists, how it works and is built. +
+Some key content from the architecture documentaion:
 
 include::arc:partial$01_introduction_and_goals.adoc[tag=introduction]
 
@@ -25,16 +26,18 @@ include::arc:partial$c4_dsl/puml/structurizr-DWHBDevelopment-RepositorydbProject
 
 == Learn first steps
 
-* xref:manual:create-update-connect-repo-db.adoc[].
+* xref:manual:create-update-connect-repo-db.adoc[]
+* xref:manual:documentation-generator.adoc[]
 
 == database documentation
 
-The *database documentation* was created with the Documentation Generator: xref:sqldb:docs.usp_AntoraExport.adoc[]. The documentation also shows
+The *database documentation* was created with the Documentation Generator: xref:sqldb:docs.usp_AntoraExport.adoc[] +
+The documentation also contains
 
-* the combination of real and virtual PK (only for tables and views)
-* column references extracted and used with SqlParse (only for tables and views)
-* Visualizations of FK, object and column references with https://plantuml.com/[PlantUML]
-* formalized "Procedure steps" for procedures, created with the Procedure Generator
+* real and *virtual* PK (only for tables and views)
+* *column references* extracted and used with *SqlParse* (only for tables and views)
+* *Visualizations* of FK, object and column references with https://plantuml.com/[PlantUML]
+* formalized Procedure steps for procedures, created with the *Procedure Generator*
 
 '''
 
