@@ -1,2 +1,0 @@
-* xref:repo.fs_get_RepoObjectColumnProperty_nvarchar.adoc[]
-* xref:repo.fs_get_RepoObjectProperty_nvarchar.adoc[]

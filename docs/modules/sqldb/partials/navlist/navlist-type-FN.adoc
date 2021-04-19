@@ -1,5 +1,0 @@
-* xref:config.fs_dwh_database_name.adoc[]
-* xref:config.fs_get_parameter_value.adoc[]
-* xref:dbo.fn_diagramobjects.adoc[]
-* xref:repo.fs_get_RepoObjectColumnProperty_nvarchar.adoc[]
-* xref:repo.fs_get_RepoObjectProperty_nvarchar.adoc[]

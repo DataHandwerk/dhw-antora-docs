@@ -13,65 +13,65 @@ top to bottom direction
 skinparam rectangle<<1>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
+}
+skinparam folder<<35>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #dddddd
 }
 skinparam rectangle<<2>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
-}
-skinparam rectangle<<25>> {
-  BackgroundColor #dddddd
-  FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<3>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<4>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
-}
-skinparam folder<<27>> {
-  BackgroundColor #dddddd
-  FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<28>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
-skinparam rectangle<<29>> {
+skinparam folder<<30>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
-skinparam folder<<32>> {
+skinparam rectangle<<31>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
-rectangle "==DHW Developer\n<size:10>[Person]</size>\n\nDeveloper of DataHandwerk Toolkit" <<28>> as 28
-rectangle "==DataHandwerk Development\n<size:10>[Software System]</size>" <<29>> as 29
-folder "==DataHandwerk git\n<size:10>[Software System]</size>\n\nCode of DataHandwerk in Version Control" <<32>> as 32
+skinparam rectangle<<32>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #dddddd
+}
+rectangle "==DHW Developer\n<size:10>[Person]</size>\n\nDeveloper of DataHandwerk Toolkit" <<31>> as 31
+rectangle "==DataHandwerk Development\n<size:10>[Software System]</size>" <<32>> as 32
+folder "==DataHandwerk git\n<size:10>[Software System]</size>\n\nCode of DataHandwerk in Version Control" <<35>> as 35
 package "Customer" {
   rectangle "==DWH Developer\n<size:10>[Person]</size>\n\nDeveloper of some DWH" <<1>> as 1
   rectangle "==Deployment Team\n<size:10>[Person]</size>" <<2>> as 2
   rectangle "==Project B DWH User\n<size:10>[Person]</size>\n\nuser of DWH (Project B)" <<3>> as 3
   rectangle "==DWH B Development\n<size:10>[Software System]</size>" <<4>> as 4
-  rectangle "==DWH B Production\n<size:10>[Software System]</size>" <<25>> as 25
-  folder "==DWH B git\n<size:10>[Software System]</size>\n\nCode of Project B in Version Control (git, subversion, ...)" <<27>> as 27
+  rectangle "==DWH B Production\n<size:10>[Software System]</size>" <<28>> as 28
+  folder "==DWH B git\n<size:10>[Software System]</size>\n\nCode of Project B in Version Control (git, subversion, ...)" <<30>> as 30
 }
-28 .[#707070].> 29 : "uses for testing and development"
-28 .[#707070].> 32 : "uses"
-1 .[#707070].> 4 : "developes"
-1 .[#707070].> 27 : "uses"
-1 .[#707070].> 32 : "takes code or builds"
-2 .[#707070].> 25 : "deployes on production system"
-2 .[#707070].> 27 : "takes code or builds"
-3 .[#707070].> 25 : "uses"
+31 .[#707070,thickness=2].> 32 : "uses for testing and development"
+31 .[#707070,thickness=2].> 35 : "uses"
+1 .[#707070,thickness=2].> 4 : "developes"
+1 .[#707070,thickness=2].> 30 : "uses"
+1 .[#707070,thickness=2].> 35 : "takes code or builds"
+2 .[#707070,thickness=2].> 28 : "deployes on production system"
+2 .[#707070,thickness=2].> 30 : "takes code or builds"
+3 .[#707070,thickness=2].> 28 : "uses"
 @enduml

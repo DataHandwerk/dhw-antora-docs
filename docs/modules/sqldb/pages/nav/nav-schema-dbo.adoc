@@ -1,4 +1,0 @@
-= dbo
-
-include::partial$navlist/navlist-schema-dbo.adoc[]
-

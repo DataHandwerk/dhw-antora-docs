@@ -13,23 +13,23 @@ top to bottom direction
 skinparam rectangle<<1>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
-skinparam rectangle<<28>> {
+skinparam folder<<35>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
-skinparam folder<<32>> {
+skinparam rectangle<<31>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
-rectangle "==DHW Developer\n<size:10>[Person]</size>\n\nDeveloper of DataHandwerk Toolkit" <<28>> as 28
-folder "==DataHandwerk git\n<size:10>[Software System]</size>\n\nCode of DataHandwerk in Version Control" <<32>> as 32
+rectangle "==DHW Developer\n<size:10>[Person]</size>\n\nDeveloper of DataHandwerk Toolkit" <<31>> as 31
+folder "==DataHandwerk git\n<size:10>[Software System]</size>\n\nCode of DataHandwerk in Version Control" <<35>> as 35
 package "Customer" {
   rectangle "==DWH Developer\n<size:10>[Person]</size>\n\nDeveloper of some DWH" <<1>> as 1
 }
-28 .[#707070].> 32 : "uses"
-1 .[#707070].> 32 : "takes code or builds"
+31 .[#707070,thickness=2].> 35 : "uses"
+1 .[#707070,thickness=2].> 35 : "takes code or builds"
 @enduml

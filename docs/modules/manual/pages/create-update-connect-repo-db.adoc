@@ -30,6 +30,7 @@ reconnect the repo database to the right dwh database after using publish or dac
 
 First we need to create a "repository database" and connect it with the "dwh database". +
 Here are some excerpts from the architectur description:
+
 ____
 include::arc:partial$02_architecture_constraints.adoc[]
 ____

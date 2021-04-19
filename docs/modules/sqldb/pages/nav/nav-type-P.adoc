@@ -1,4 +1,0 @@
-= stored procedure
-
-include::partial$navlist/navlist-type-P.adoc[]
-

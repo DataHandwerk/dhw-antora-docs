@@ -31,7 +31,7 @@ DataHandwerk provides the code for a persistence stored procedure for each manag
 * the columns of the persistence source
 * settings in xref:sqldb:repo.RepoObject_persistence.adoc[]
 
-The code is available in xref:sqldb:repo.GeneratorUsp_SqlUsp.adoc#column-SqlUsp[repo.GeneratorUsp_SqlUsp.SqlUsp]
+The code is available in xref:sqldb:uspgenerator.GeneratorUsp_SqlUsp.adoc#column-SqlUsp[uspgenerator.GeneratorUsp_SqlUsp.SqlUsp]
 
 [WARNING] 
 --

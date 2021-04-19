@@ -13,16 +13,16 @@ top to bottom direction
 skinparam rectangle<<1>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<4>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 package "Customer" {
   rectangle "==DWH Developer\n<size:10>[Person]</size>\n\nDeveloper of some DWH" <<1>> as 1
   rectangle "==DWH B Development\n<size:10>[Software System]</size>" <<4>> as 4
 }
-1 .[#707070].> 4 : "developes"
+1 .[#707070,thickness=2].> 4 : "developes"
 @enduml

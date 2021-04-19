@@ -1,2 +1,0 @@
-* xref:repo.RepoObject__after_delete.adoc[]
-* xref:repo.RepoObject__after_update.adoc[]

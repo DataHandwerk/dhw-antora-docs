@@ -10,83 +10,89 @@ skinparam {
 }
 hide stereotype
 top to bottom direction
-skinparam rectangle<<22>> {
-  BackgroundColor #dddddd
-  FontColor #000000
-  BorderColor #9A9A9A
-}
 skinparam rectangle<<11>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
+}
+skinparam rectangle<<22>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #dddddd
 }
 skinparam rectangle<<12>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<13>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<14>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
+}
+skinparam rectangle<<25>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #dddddd
 }
 skinparam rectangle<<15>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<16>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<17>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam database<<18>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<6>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<7>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<8>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<9>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<10>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 database "==DWH db Development (Project B)\n<size:10>[Container: Database]</size>" <<18>> as 18
-rectangle "==GUI\n<size:10>[Container: GUI]</size>\n\nGraphical User Interface" <<22>> as 22
+rectangle "==GUI\n<size:10>[Container: GUI]</size>\n\nGraphical User Interface. Not yet implemented" <<22>> as 22
+rectangle "==documentation\n<size:10>[Container: documentation]</size>\n\ndatabase documentation" <<25>> as 25
 package "Repository db (Project B)\n[Container: Database]" {
   rectangle "==Configuration\n<size:10>[Component]</size>\n\nConnection with DWH database and various settings for the behavior of the processes in the repository." <<7>> as 7
   rectangle "==Documentation Generator\n<size:10>[Component]</size>\n\nNot yet implemented" <<15>> as 15
-  rectangle "==Inheritance\n<size:10>[Component]</size>\n\nInheritance or determination of extended properties for RepoObjects or RepoObject columns, based on references" <<11>> as 11
   rectangle "==Persistence Generator\n<size:10>[Component]</size>\n\nViews or tables can be persisted in tables, with or without history with temporal tables. Code for performing the persistations is created." <<13>> as 13
+  rectangle "==Properties and Inheritance\n<size:10>[Component]</size>\n\nInheritance or determination of extended properties for RepoObjects or RepoObject columns, based on references" <<11>> as 11
   rectangle "==Reference\n<size:10>[Component]</size>\n\nDetermination and management of references (dependencies) between RepoObjects or RepoObject columns" <<10>> as 10
   rectangle "==RepoObject\n<size:10>[Component]</size>\n\nCentral construct to represent objects (tables, views, procedures, functions, index, ...) and their subunits (columns, index columns, procedure parameters, ...), their properties and relationships between them." <<8>> as 8
   rectangle "==SqlParser\n<size:10>[Component]</size>\n\nParse the code of views to extract column-level references or other logic from them" <<9>> as 9
@@ -96,24 +102,28 @@ package "Repository db (Project B)\n[Container: Database]" {
   rectangle "==Visualization\n<size:10>[Component]</size>\n\npreparation for Visualization of data lineage (references), real and virtual PK, FK-PK" <<17>> as 17
   rectangle "==Workflow\n<size:10>[Component]</size>\n\nA workflow executes procedures in a specific and necessary order." <<16>> as 16
 }
-18 .[#707070].> 8 : "RepoObject correspond with extended properties"
-15 .[#707070].> 10 : ""
-15 .[#707070].> 8 : ""
-22 .[#707070].> 17 : "uses"
-11 .[#707070].> 10 : ""
-11 .[#707070].> 8 : ""
-13 .[#707070].> 10 : ""
-13 .[#707070].> 8 : ""
-13 .[#707070].> 12 : ""
-10 .[#707070].> 8 : ""
-10 .[#707070].> 9 : ""
-8 .[#707070].> 18 : ""
-8 .[#707070].> 6 : ""
-9 .[#707070].> 6 : ""
-6 .[#707070].> 18 : "Synonyms link to DWH System Views"
-12 .[#707070].> 8 : ""
-14 .[#707070].> 8 : ""
-14 .[#707070].> 9 : ""
-17 .[#707070].> 10 : ""
-16 .[#707070].> 10 : ""
+18 .[#707070,thickness=2].> 8 : "RepoObject correspond with extended properties"
+15 .[#707070,thickness=2].> 11 : ""
+15 .[#707070,thickness=2].> 10 : ""
+15 .[#707070,thickness=2].> 8 : ""
+15 .[#707070,thickness=2].> 17 : ""
+22 .[#707070,thickness=2].> 8 : ""
+13 .[#707070,thickness=2].> 10 : ""
+13 .[#707070,thickness=2].> 8 : ""
+13 .[#707070,thickness=2].> 12 : ""
+11 .[#707070,thickness=2].> 10 : ""
+11 .[#707070,thickness=2].> 8 : ""
+11 .[#707070,thickness=2].> 12 : ""
+10 .[#707070,thickness=2].> 8 : ""
+10 .[#707070,thickness=2].> 9 : ""
+8 .[#707070,thickness=2].> 18 : ""
+8 .[#707070,thickness=2].> 6 : ""
+9 .[#707070,thickness=2].> 6 : ""
+6 .[#707070,thickness=2].> 18 : "Synonyms link to DWH System Views"
+12 .[#707070,thickness=2].> 8 : ""
+14 .[#707070,thickness=2].> 8 : ""
+14 .[#707070,thickness=2].> 9 : ""
+17 .[#707070,thickness=2].> 10 : ""
+16 .[#707070,thickness=2].> 10 : ""
+25 .[#707070,thickness=2].> 15 : "content generated by"
 @enduml

@@ -10,17 +10,17 @@ skinparam {
 }
 hide stereotype
 top to bottom direction
-skinparam rectangle<<28>> {
+skinparam rectangle<<31>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
-skinparam rectangle<<29>> {
+skinparam rectangle<<32>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
-rectangle "==DHW Developer\n<size:10>[Person]</size>\n\nDeveloper of DataHandwerk Toolkit" <<28>> as 28
-rectangle "==DataHandwerk Development\n<size:10>[Software System]</size>" <<29>> as 29
-28 .[#707070].> 29 : "uses for testing and development"
+rectangle "==DHW Developer\n<size:10>[Person]</size>\n\nDeveloper of DataHandwerk Toolkit" <<31>> as 31
+rectangle "==DataHandwerk Development\n<size:10>[Software System]</size>" <<32>> as 32
+31 .[#707070,thickness=2].> 32 : "uses for testing and development"
 @enduml

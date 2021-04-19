@@ -13,22 +13,22 @@ top to bottom direction
 skinparam database<<5>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<19>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<20>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 skinparam rectangle<<21>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #9A9A9A
+  BorderColor #dddddd
 }
 database "==Repository db (Project B)\n<size:10>[Container: Database]</size>" <<5>> as 5
 package "DWH db Development (Project B)\n[Container: Database]" {
@@ -36,9 +36,9 @@ package "DWH db Development (Project B)\n[Container: Database]" {
   rectangle "==SQL Server objects\n<size:10>[Component]</size>" <<21>> as 21
   rectangle "==System views and procedures\n<size:10>[Component]</size>" <<19>> as 19
 }
-20 .[#707070].> 5 : "RepoObject correspond with extended properties"
-20 .[#707070].> 21 : "enrich them with additional information"
-5 .[#707070].> 20 : ""
-5 .[#707070].> 19 : "Synonyms link to DWH System Views"
-19 .[#707070].> 21 : "describe"
+20 .[#707070,thickness=2].> 5 : "RepoObject correspond with extended properties"
+20 .[#707070,thickness=2].> 21 : "enrich them with additional information"
+5 .[#707070,thickness=2].> 20 : ""
+5 .[#707070,thickness=2].> 19 : "Synonyms link to DWH System Views"
+19 .[#707070,thickness=2].> 21 : "describe"
 @enduml

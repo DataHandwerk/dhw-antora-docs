@@ -6,13 +6,37 @@
 
 image::DatenHandwerk-toolkit-mssql.svg[dhw]
 
-DHW. Handwerk statt Massenproduktion. Craft instead of mass production. MSSQL based tools for data craftsmen. Individual customization instead of assembly line.
+CAUTION: The project was launched at the beginning of 2021 and is in the alpha stage. The main focus is currently the implementation. Various refactorings are still taking place in the database. The documentation is being created and is still very incomplete.
 
-Read the xref:arc:architecture.adoc[] documentation to learn why DataHandwerk exists, how it works and is built.
+// DHW. Handwerk statt Massenproduktion. Craft instead of mass production. MSSQL based tools for data craftsmen. Individual customization instead of assembly line.
 
-Learn first steps:
+TIP: Read the xref:arc:architecture.adoc[] documentation to learn why DataHandwerk exists, how it works and is built. Some key includes from the architecture documentaion:
+
+include::arc:partial$01_introduction_and_goals.adoc[tag=introduction]
+
+include::arc:partial$01_introduction_and_goals.adoc[leveloffset=-1,tag=alternatives]
+
+== Repository database components
+
+[plantuml, structurizr-DWHBDevelopment-RepositorydbProjectB-Component, svg]
+....
+include::arc:partial$c4_dsl/puml/structurizr-DWHBDevelopment-RepositorydbProjectB-Component.puml[]
+....
+
+== Learn first steps
 
 * xref:manual:create-update-connect-repo-db.adoc[].
+
+== database documentation
+
+The *database documentation* was created with the Documentation Generator: xref:sqldb:docs.usp_AntoraExport.adoc[]. The documentation also shows
+
+* the combination of real and virtual PK (only for tables and views)
+* column references extracted and used with SqlParse (only for tables and views)
+* Visualizations of FK, object and column references with https://plantuml.com/[PlantUML]
+* formalized "Procedure steps" for procedures, created with the Procedure Generator
+
+'''
 
 Azure Boards - Feature board
 

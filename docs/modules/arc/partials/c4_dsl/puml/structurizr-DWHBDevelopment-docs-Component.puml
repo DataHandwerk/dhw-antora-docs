@@ -1,0 +1,27 @@
+@startuml(id=DWHBDevelopment-docs-Component)
+title DWH B Development - docs - Components
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+hide stereotype
+top to bottom direction
+skinparam rectangle<<26>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #dddddd
+}
+skinparam rectangle<<27>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #dddddd
+}
+package "docs\n[Container: docs]" {
+  rectangle "==Index documentation\n<size:10>[Component: Antora]</size>\n\nIndexes by Semantic Group" <<27>> as 27
+  rectangle "==Object documentation\n<size:10>[Component: Antora]</size>\n\npage per object; docs including descriptions, examples, columns, data lineage (references), real and virtual PK, FK-PK, code" <<26>> as 26
+}
+@enduml

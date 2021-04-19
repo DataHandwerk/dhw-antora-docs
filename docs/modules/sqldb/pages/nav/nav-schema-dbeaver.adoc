@@ -1,4 +1,0 @@
-= dbeaver
-
-include::partial$navlist/navlist-schema-dbeaver.adoc[]
-

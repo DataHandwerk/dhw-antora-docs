@@ -5,6 +5,8 @@
 :sectnums:
 // include::_feedback.adoc[]
 
+// tag::introduction[]
+
 kbd:[DHW] (**D**ata**H**and**w**erk) is designed to support BI and DWH developers working with the Microsoft BI platform (MS SQL Server).
 
 Handwerk statt Massenproduktion. - Craft instead of mass production. +
@@ -41,10 +43,12 @@ Craft is the term used to describe numerous commercial activities that manufactu
 The project's key stakeholders are DWH developers who see their work as a *craft*.
 
 * A toolkit is created for these data craftsmen and gradually filled and expanded with tools.
-* The data craftsmen are given the *possibility to work faster and better* with the toolkit and *to automate parts* if (and only if) they wish to do so.
+* The data craftsmen are given the *possibility to work faster and better* with the toolkit and *to automate parts* if (_and only if_) they wish to do so.
 * Tools and methods can be used individually and independently *optional*. They do not have to be used in a mandatory way.
 * The toolbox should always be *perceived as an enrichment and aid*, gladly as a supportive, never as a constricting corset. +
 A developer is not undesirably restricted by the use of tools and methods. He allows himself to be partially and consciously restricted if the advantages subjectively outweigh the disadvantages for him.
+
+// end::introduction[]
 
 === Requirements Overview
 
@@ -171,15 +175,24 @@ A developer is not undesirably restricted by the use of tools and methods. He al
 | wants a well documented DWH
 |===
 
+// tag::alternatives[]
+
 === Alternatives
 
-==== Repository based database generators
+==== Data Warehouse Automation, repository based database generators
 
 // Es gibt kommerzielle Werkzeuge, mit denen Struktur und Funktion von relationalen und analytischen Datenbanken über ein Repository definiert werden, um daraus den Code dieser Datenbanken zu generieren. Bei diesen Werkzeugen handelt es sich um Einbahnstraßen Repository => Zieldatenbank. Man kann mit diesen Werkzeugen sehr erfolgreich arbeiten, wenn man die vorgesehenen Methoden und Ansätze akzeptiert. Mein subjektives Loblied auf den AnalyticsCreator gibt es hier (auf Deutsch): http://analyticscreator.aisberg.de/2020-04-26-warum-analyticscreator/[Warum ich seit 2017 den AnalyticsCreator verwende].
 
-There are commercial tools that define the structure and function of relational and analytical databases via a repository in order to generate the code of these databases. These tools are _one-way_: repository => target database. One can work very successfully with these tools if one accepts the methods and approaches provided. My subjective praise of AnalyticsCreator can be found here (in German): http://analyticscreator.aisberg.de/2020-04-26-warum-analyticscreator/[Warum ich seit 2017 den AnalyticsCreator verwende].
+// Man kann diese Tools mit Schienennetzen vergleichen. Solange man mit diesen Netzen und den angebundenen Orten zufrieden ist, kann man mit der einen oder anderen Bahn in dem einen oder anderen Netzwerk mehr oder weniger effektiv und effizient fahren. Probleme gibt es erst dann, wenn Orte oder Strecken fehlen oder die Verbindung zwischen Orten umständlicher wird, als man es will. Daher haben auch Straßen, Lkw und PKW eine große Berechtigung und Bedeutung. Manchmal gibt es sogar nur Fußwege.
+
+There are commercial tools that define the structure and function of relational and analytical databases via a repository in order to generate the code of these databases. These tools are _one-way_: repository => target database. One can work very successfully with these tools if one accepts the methods and approaches provided.
+
+You can compare these tools with *rail networks*. As long as you are satisfied with these networks and the places connected to them, you can travel more or less effectively and efficiently with one or the other railroad in one or the other rail network. Problems arise when places or routes are missing or the connection between places becomes more cumbersome than one would like. *Therefore, roads, trucks and cars also have great justification and importance.* Sometimes there are even only *footpaths*.
+
+My subjective praise of AnalyticsCreator can be found here (in German): http://datahandwerk.aisberg.de/2020-04-26-warum-analyticscreator/[Warum ich seit 2017 den AnalyticsCreator verwende].
 
 - https://www.analyticscreator.com/[AnalyticsCreator]
 - Deltamaster Modeler (Additional program for the https://www.bissantz.de/software/?lang=en[Delta Master])
 - https://www.wherescape.com/[Wherescape]
 
+// end::alternatives[]
