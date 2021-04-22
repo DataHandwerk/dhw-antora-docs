@@ -17,13 +17,12 @@ We recommend using at least two git repositories, one for the documentation cont
 Antora can collect the content from different repositories. So, if you want to combine the database documentation with other content, you can also distribute this content to different repositories. For example, the DataHandwerk documentation combines architecture, manual, and database documentation in a common and interlinked documentation. And we use two source repositories:
 
 * https://github.com/DataHandwerk/DataHandwerk-docs contains manually created content like architecture, manual
-* https://github.com/DataHandwerk/sqldb-docs contains automatically created content, created using xref:sqldb.docs.usp_AntoraExport[]
+* https://github.com/DataHandwerk/sqldb-docs contains automatically created content, created using xref:sqldb:docs.usp_AntoraExport.adoc[]
 
-setup sqldb-docs +
-replace "D:\Repos\GitHub\DataHandwerk\sqldb-docs" by your own folder and repository name
+in the following steps replace "D:\Repos\GitHub\DataHandwerk\sqldb-docs" by your own folder and repository name
 
 * create a new git repository, in our case this is https://github.com/DataHandwerk/sqldb-docs
-* you can also just create and use local repositories
+** you can also create and use local repositories
 * at least one commit is required to enable Antora to use the repository
 * create required folder structure
 ** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\attachments (optional)
@@ -42,7 +41,7 @@ replace "D:\Repos\GitHub\DataHandwerk\sqldb-docs" by your own folder and reposit
 **** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\partials\puml\entity_1_1_fk
 **** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\partials\puml\entity_1_1_objectref
 **** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\partials\puml\entity_30_0_objectref
-* create the navigation file:
+* create the Antora navigation file:
 ** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\nav.adoc
 ** file content (remove the '/' infront of 'include')
 +
@@ -79,11 +78,11 @@ nav: <2>
 - modules/manual/nav.adoc
 ....
 <1> this project name is used in the playbooks
-<2> 3 navigation files for 3 modules are included
+<2> 4 navigation files for 4 modules are included
 <3> include the navigation file for `sqldb` module in the main `antora.yml`
 ====
 +
-but we have two (2) source repositories. The `title` should be contained only in one `antora.yml`. But you should use the same `version`.
+We have two (2) source repositories and we need the `antora.yml` in each source repository. The `title` should be contained only in the main `antora.yml`.
 +
 ====
 [source,yaml]
@@ -171,7 +170,7 @@ runtime:
 <5> the antora-ui-default needs to be adapted a bit to show your own menu content
 <6> force source repository fetch in General instead of using it every time in the antora command
 ====
-* the ".gitignore" file should contain some entries to avoid commiting then to the final site
+* the ".gitignore" file should contain some entries to avoid commiting some content into the repository.
 +
 ====
 ....
@@ -218,7 +217,7 @@ include::sqldb:partial$docs.usp_AntoraExport.adoc[tag=ms_description]
 
 == generate the static site
 
-IMPORTANT: Antora Export will not delete any content. After Antora Export and before creating the site you should check the `D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\pages` for outdated files and delete them to avoid them to be generated. Just order the folder by file creation date. +
+IMPORTANT: Antora Export will not delete any content. After Antora Export and before creating the site you should check the `D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\pages` for outdated files and delete them to avoid them to be generated. Just sort the folder by file creation date. +
 You can also clean up the partials. But this is not so important, because these files are only used when they are included into the pages.
 
 In the Antora Playbook project call Antora to build the local or the final site. You can use the prepared scripts.

@@ -11,7 +11,7 @@ CAUTION: The project was launched at the beginning of 2021 and is in the alpha s
 // DHW. Handwerk statt Massenproduktion. Craft instead of mass production. MSSQL based tools for data craftsmen. Individual customization instead of assembly line.
 
 TIP: Read the xref:arc:architecture.adoc[] documentation to learn why DataHandwerk exists, how it works and is built. +
-Some key content from the architecture documentaion:
+Some key content from the architecture documentation:
 
 include::arc:partial$01_introduction_and_goals.adoc[tag=introduction]
 

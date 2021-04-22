@@ -1,4 +1,7 @@
 .Manual
 * xref:create-update-connect-repo-db.adoc[]
+* xref:sqlparse-to-get-col-references.adoc[]
+** xref:sqlparser.adoc[]
 * xref:documentation-generator.adoc[]
 * xref:persistence-generator.adoc[]
+* xref:sql-server-bug-sys-views-references.adoc[]

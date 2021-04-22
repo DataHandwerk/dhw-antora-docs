@@ -20,6 +20,16 @@
 include::sqldb:partial$config.usp_connect_database.adoc[tag=exampleusage]
 ----
 ====
+* check and edit the content of xref:sqldb:config.Parameter.adoc[]
+* synchronize repository with dwh database extended properties
++
+.synchronize repository with dwh database extended properties
+====
+[source,sql]
+----
+include::sqldb:partial$repo.usp_main.adoc[tag=exampleusage]
+----
+====
 
 
 IMPORTANT: using *publish* or *dacpac* deployment to update the repo database will reset synonyms. +
@@ -132,3 +142,25 @@ include::sqldb:partial$config.usp_connect_database.adoc[tag=exampleusage]
 ====
 
 // include::sqldb:example$/dbdhw/repo/Stored Procedures/usp_connect_database.sql[tag=example]
+
+== check config.Parameter
+
+check and edit the content of xref:sqldb:config.Parameter.adoc[]
+
+include::sqldb:partial$config.Parameter.adoc[tag=ms_description]
+
+== synchronize repository with dwh database extended properties
+
+=== Description
+
+include::sqldb:partial$repo.usp_main.adoc[tag=ms_description]
+
+.synchronize repository with dwh database extended properties
+====
+[source,sql]
+----
+include::sqldb:partial$repo.usp_main.adoc[tag=exampleusage]
+----
+====
+
+See details: xref:sqldb:repo.usp_main.adoc[]

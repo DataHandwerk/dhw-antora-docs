@@ -1,0 +1,36 @@
+= FAQ other
+
+== How to add columns to graph tables and use them as a target of a persistence?
+
+I want to use a graph table as persistence target. I created a source view containing the required structure. But now I want to add a column to the source and to the source. Visual Studio Schema compare can't create valid SQL because I use restrictions. What should I do?
+
+Use TSQL to add columns:
+
+[source,sql]
+....
+ALTER TABLE [graph].[RepoObject]
+ADD RepoObject_fullname2 nvarchar(257) NULL;
+
+ALTER TABLE [graph].[RepoObjectColumn]
+ADD 
+RepoObject_fullname2 nvarchar(257) NULL,
+ RepoObjectColumn_fullname2 nvarchar(386) NULL
+;
+....
+
+Das funktioniert nicht, da es gerade bei graph tables Probleme gibt
+
+
+in repo.RepoObject mark them as is_repo_managed = 0
+
+Sie müssen also is_repo_managed = 1 sein
+
+und man muss die Spalten markieren, die null-bar sind.
+
+[qanda]
+What is the answer?::
+This is the answer. No blocks are aupported?
+
+sss::
+ssss
+

@@ -1,0 +1,177 @@
+= SQL Server bug in sys-views for references
+
+== sys.dm_sql_referenced_entities - error in usp_id;Number;Parent_Number: 19;310;
+
+Sometimes we get an error like:
+
+____
+The dependencies reported for entity "*[repo].[ftv_RepoObject_ReferenceTree]*" might not include references to all columns.
+____
+
+The reason is a SQL Server bug.
+
+In detail
+
+Executing [repo].[usp_main], I get this error:
+
+....
+usp_id;Number;Parent_Number: 19;310;
+Msg 205, Level 16, State 1, Procedure ftv_RepoObject_ReferenceTree_via_fullname, Line 41 [Batch Start Line 2]
+All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
+Msg 205, Level 16, State 1, Procedure ftv_RepoObject_ReferenceTree_via_fullname, Line 41 [Batch Start Line 2]
+All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
+Msg 2020, Level 16, State 1, Procedure repo.usp_update_Referencing_Count, Line 109 [Batch Start Line 2]
+The dependencies reported for entity "[repo].[ftv_RepoObject_ReferenceTree_via_fullname]" might not include references to all columns. This is either because the entity references an object that does not exist or because of an error in one or more statements in the entity.  Before rerunning the query, ensure that there are no errors in the entity and that all objects referenced by the entity exist.
+Msg 205, Level 16, State 1, Procedure ftv_RepoObject_ReferenceTree, Line 41 [Batch Start Line 2]
+All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
+Msg 205, Level 16, State 1, Procedure ftv_RepoObject_ReferenceTree, Line 41 [Batch Start Line 2]
+All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
+Msg 2020, Level 16, State 1, Procedure repo.usp_update_Referencing_Count, Line 109 [Batch Start Line 2]
+The dependencies reported for entity "[repo].[ftv_RepoObject_ReferenceTree]" might not include references to all columns. This is either because the entity references an object that does not exist or because of an error in one or more statements in the entity.  Before rerunning the query, ensure that there are no errors in the entity and that all objects referenced by the entity exist.
+Msg 205, Level 16, State 1, Procedure ftv_RepoObject_ReferenceTree, Line 41 [Batch Start Line 2]
+All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
+Msg 205, Level 16, State 1, Procedure ftv_RepoObject_ReferenceTree, Line 41 [Batch Start Line 2]
+All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
+Msg 2020, Level 16, State 1, Procedure repo.usp_update_Referencing_Count, Line 109 [Batch Start Line 2]
+The dependencies reported for entity "[repo].[RepoObject_ReferenceTree]" might not include references to all columns. This is either because the entity references an object that does not exist or because of an error in one or more statements in the entity.  Before rerunning the query, ensure that there are no errors in the entity and that all objects referenced by the entity exist.
+
+(1 row affected)
+....
+
+usp_id 19 - usp_update_Referencing_Count
+
+Number 310
+
+[source,sql]
+....
+UPDATE repo.RepoObjectColumn
+SET [Referencing_Count] = [rorc].[Referencing_Count]
+FROM [repo].[RepoObjectColumn]
+LEFT OUTER JOIN [repo].[RepoObject] [ro]
+ ON [repo].[RepoObjectColumn].[RepoObject_guid] = [ro].[RepoObject_guid]
+LEFT OUTER JOIN (
+ SELECT [referenced_schema_name]
+  , [referenced_entity_name]
+  , [referenced_minor_name]
+  , COUNT(DISTINCT [RepoObject_guid]) AS [Referencing_Count]
+ FROM [repo_sys].[RepoObjectReferenced] AS [ror]
+ WHERE [referenced_database_name] = [repo].[fs_dwh_database_name]()
+  OR [referenced_database_name] IS NULL
+ GROUP BY [referenced_schema_name]
+  , [referenced_entity_name]
+  , [referenced_minor_name]
+ ) AS [rorc]
+ ON [repo].[RepoObjectColumn].[SysObjectColumn_name] = [rorc].[referenced_minor_name]
+  AND [ro].[SysObject_name] = [rorc].[referenced_entity_name]
+  AND [ro].[SysObject_schema_name] = [referenced_schema_name]
+WHERE ISNULL([repo].[RepoObjectColumn].[Referencing_Count], 0) <> ISNULL([rorc].[Referencing_Count], 0)
+....
+
+
+the issue is related to `[repo_sys].[RepoObjectReferenced]`
+
+there is a bug in SQL Server, and somtimes the usage of this system procedure causes an error:
+
+....
+FROM repo.RepoObject AS ro
+CROSS APPLY sys_dwh.dm_sql_referenced_entities(SysObject_fullname, 'OBJECT') AS referenced
+WHERE ISNULL([ro].[has_get_referenced_issue], 0) = 0
+....
+
+That's why we use `[ro].[has_get_referenced_issue]`
+
+it is required to find out the problematic RepoObject and to set +
+`repo.RepoObject.[has_get_referenced_issue] = 1`
+
+
+Lets check the error message:
+
+____
+#The dependencies reported for entity "*[repo].[ftv_RepoObject_ReferenceTree]*" might not include references to all columns.# This is either because the entity references an object that does not exist or because of an error in one or more statements in the entity.  Before rerunning the query, ensure that there are no errors in the entity and that all objects referenced by the entity exist.
+____
+
+____
+#The dependencies reported for entity "*[repo].[RepoObject_ReferenceTree]*" might not include references to all columns.# This is either because the entity references an object that does not exist or because of an error in one or more statements in the entity.  Before rerunning the query, ensure that there are no errors in the entity and that all objects referenced by the entity exist.
+____
+
+=== solution: mark RepoObjects with has_get_referenced_issue = 1
+
+We can't solve the SQL Server bug, we can only avoid to get references for some problematic objects.
+
+[source,sql]
+....
+UPDATE [repo].[RepoObject]
+SET [has_get_referenced_issue] = 1
+WHERE [RepoObject_fullname] IN (
+  '[repo].[ftv_RepoObject_ReferenceTree]'
+  , '[repo].[RepoObject_ReferenceTree]'
+  )
+....
+
+let's check:
+
+[source,sql]
+....
+SELECT
+*
+FROM [repo_sys].[RepoObjectReferenced]
+ORDER BY [RepoObject_fullname]
+....
+
+Maybe you need to exclude more objects, until the view will work again.
+
+
+
+// Experiment with TOP X in the following query to find out the objects causing the error
+
+// [source,sql]
+// ....
+// SELECT 
+// TOP 2000
+// [RepoObject_guid]
+//       ,[RepoObject_fullname]
+//       ,[SysObject_id]
+//       ,[SysObject_type]
+//       ,[SysObject_modify_date]
+//       ,[is_repo_managed]
+//       ,[has_different_sys_names]
+//       ,[SysObject_fullname]
+//       ,[referencing_minor_id]
+//       ,[referenced_server_name]
+//       ,[referenced_database_name]
+//       ,[referenced_schema_name]
+//       ,[referenced_entity_name]
+//       ,[referenced_minor_name]
+//       ,[referenced_id]
+//       ,[referenced_minor_id]
+//       ,[referenced_class]
+//       ,[referenced_class_desc]
+//       ,[is_caller_dependent]
+//       ,[is_ambiguous]
+//       ,[is_selected]
+//       ,[is_updated]
+//       ,[is_select_all]
+//       ,[is_all_columns_found]
+//       ,[is_insert_all]
+//       ,[is_incomplete]
+//   FROM [repo_sys].[RepoObjectReferenced]
+//   order by [RepoObject_fullname]
+// ....
+
+// For example Top 627 is OK, Top 628 causes an error
+
+// When using Top 627, what is the last [RepoObject_fullname]?
+
+// In my case it is: [repo].[ftv_RepoObject_DbmlColumnRelation]
+
+// Now lets check in [repo].[RepoObject], which RepoObject is the following one:
+
+// [source,sql]
+// ....
+// SELECT [RepoObject_guid]
+//  , [RepoObject_fullname]
+// FROM [repo].[RepoObject]
+// ORDER BY [RepoObject_fullname]
+// ....
+
+

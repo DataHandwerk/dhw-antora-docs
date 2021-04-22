@@ -2,7 +2,7 @@
 
 IMPORTANT: The procedure xref:sqldb:repo.usp_persistence_set.adoc[] is not called automatically. If a persistence is to be created or changed, this must be done manually!
 
-IMPORTANT: Before you execute the procedure xref:sqldb:repo.usp_persistence_set.adoc[], check, if the persistence source should have a real or virtual PK. Some persistence actions are not available, if no PK is defined in the source. Execute xref:sqldb:repo.usp_Index_virtual_set[] to define virtual PK, whenever this is possible.
+IMPORTANT: Before you execute the procedure xref:sqldb:repo.usp_persistence_set.adoc[], check, if the persistence source should have a real or virtual PK. Some persistence actions are not available, if no PK is defined in the source. Execute xref:sqldb:repo.usp_Index_virtual_set.adoc[] to define virtual PK, whenever this is possible.
 
 ====
 [source,sql]
@@ -35,15 +35,14 @@ The code is available in xref:sqldb:uspgenerator.GeneratorUsp_SqlUsp.adoc#column
 
 [WARNING] 
 --
-Currently it could be tricky to rename columns in persistence source and to promote this into the target. The target could be used. It still needs some testing and investigation to suggest the best practice. It looks like you sould:
+Currently it could be tricky to rename columns in persistence source and to promote this into the target. It still needs some testing and investigation to suggest the best practice. It looks like you should:
 
 * start to change the source
-* then EXEC repo.[usp_persistence_set]
+* `EXEC repo.[usp_persistence_set]`
 * check [repo].[RepoObjectColumn_gross]
-* exec [repo].[usp_main]
+* `EXEC [repo].[usp_main]`
 * check [repo].[RepoObjectColumn_gross]
-* maybe you need edit the content of the column [persistence_source_RepoObjectColumn_guid]
-* todo: improve the usp
+* maybe you need to edit the content of the column [persistence_source_RepoObjectColumn_guid]
 --
 
 
@@ -67,200 +66,3 @@ Currently it could be tricky to rename columns in persistence source and to prom
 
 // * die neuen Spalten müssen zwischen DWH und Repo synchronisiert werden
 // * [RepoObjectColumn_column_id] muss einen Wert bekommen, das passiert erst im zweiten Durchlauf
-
-
-== FAQ
-
-=== error in usp_id;Number;Parent_Number: 19;310; (SQL Server bug in system views)
-
-Executing [repo].[usp_main], I get this error:
-
-....
-usp_id;Number;Parent_Number: 19;310;
-Msg 205, Level 16, State 1, Procedure ftv_RepoObject_ReferenceTree_via_fullname, Line 41 [Batch Start Line 2]
-All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
-Msg 205, Level 16, State 1, Procedure ftv_RepoObject_ReferenceTree_via_fullname, Line 41 [Batch Start Line 2]
-All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
-Msg 2020, Level 16, State 1, Procedure repo.usp_update_Referencing_Count, Line 109 [Batch Start Line 2]
-The dependencies reported for entity "[repo].[ftv_RepoObject_ReferenceTree_via_fullname]" might not include references to all columns. This is either because the entity references an object that does not exist or because of an error in one or more statements in the entity.  Before rerunning the query, ensure that there are no errors in the entity and that all objects referenced by the entity exist.
-Msg 205, Level 16, State 1, Procedure ftv_RepoObject_ReferenceTree, Line 41 [Batch Start Line 2]
-All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
-Msg 205, Level 16, State 1, Procedure ftv_RepoObject_ReferenceTree, Line 41 [Batch Start Line 2]
-All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
-Msg 2020, Level 16, State 1, Procedure repo.usp_update_Referencing_Count, Line 109 [Batch Start Line 2]
-The dependencies reported for entity "[repo].[ftv_RepoObject_ReferenceTree]" might not include references to all columns. This is either because the entity references an object that does not exist or because of an error in one or more statements in the entity.  Before rerunning the query, ensure that there are no errors in the entity and that all objects referenced by the entity exist.
-Msg 205, Level 16, State 1, Procedure ftv_RepoObject_ReferenceTree, Line 41 [Batch Start Line 2]
-All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
-Msg 205, Level 16, State 1, Procedure ftv_RepoObject_ReferenceTree, Line 41 [Batch Start Line 2]
-All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
-Msg 2020, Level 16, State 1, Procedure repo.usp_update_Referencing_Count, Line 109 [Batch Start Line 2]
-The dependencies reported for entity "[repo].[RepoObject_ReferenceTree]" might not include references to all columns. This is either because the entity references an object that does not exist or because of an error in one or more statements in the entity.  Before rerunning the query, ensure that there are no errors in the entity and that all objects referenced by the entity exist.
-
-(1 row affected)
-....
-
-usp_id 19 - usp_update_Referencing_Count
-
-Number 310
-
-[source,sql]
-....
-UPDATE repo.RepoObjectColumn
-SET [Referencing_Count] = [rorc].[Referencing_Count]
-FROM [repo].[RepoObjectColumn]
-LEFT OUTER JOIN [repo].[RepoObject] [ro]
- ON [repo].[RepoObjectColumn].[RepoObject_guid] = [ro].[RepoObject_guid]
-LEFT OUTER JOIN (
- SELECT [referenced_schema_name]
-  , [referenced_entity_name]
-  , [referenced_minor_name]
-  , COUNT(DISTINCT [RepoObject_guid]) AS [Referencing_Count]
- FROM [repo_sys].[RepoObjectReferenced] AS [ror]
- WHERE [referenced_database_name] = [repo].[fs_dwh_database_name]()
-  OR [referenced_database_name] IS NULL
- GROUP BY [referenced_schema_name]
-  , [referenced_entity_name]
-  , [referenced_minor_name]
- ) AS [rorc]
- ON [repo].[RepoObjectColumn].[SysObjectColumn_name] = [rorc].[referenced_minor_name]
-  AND [ro].[SysObject_name] = [rorc].[referenced_entity_name]
-  AND [ro].[SysObject_schema_name] = [referenced_schema_name]
-WHERE ISNULL([repo].[RepoObjectColumn].[Referencing_Count], 0) <> ISNULL([rorc].[Referencing_Count], 0)
-....
-
-
-the issue is related to `[repo_sys].[RepoObjectReferenced]`
-
-there is a bug in SQL Server, and somtimes the usage of this system procedure causes an error:
-
-....
-FROM repo.RepoObject AS ro
-CROSS APPLY sys_dwh.dm_sql_referenced_entities(SysObject_fullname, 'OBJECT') AS referenced
-WHERE ISNULL([ro].[has_get_referenced_issue], 0) = 0
-....
-
-That's why we use `[ro].[has_get_referenced_issue]`
-
-it is required to find out the problematic RepoObject and to set +
-`repo.RepoObject.[has_get_referenced_issue] = 1`
-
-
-Lets check the error message
-
-#The dependencies reported for entity "*[repo].[ftv_RepoObject_ReferenceTree]*" might not include references to all columns.# This is either because the entity references an object that does not exist or because of an error in one or more statements in the entity.  Before rerunning the query, ensure that there are no errors in the entity and that all objects referenced by the entity exist.
-
-#The dependencies reported for entity "*[repo].[RepoObject_ReferenceTree]*" might not include references to all columns.# This is either because the entity references an object that does not exist or because of an error in one or more statements in the entity.  Before rerunning the query, ensure that there are no errors in the entity and that all objects referenced by the entity exist.
-
-we will mark these RepoObject
-
-[source,sql]
-....
-UPDATE [repo].[RepoObject]
-SET [has_get_referenced_issue] = 1
-WHERE [RepoObject_fullname] IN (
-  '[repo].[ftv_RepoObject_ReferenceTree]'
-  , '[repo].[RepoObject_ReferenceTree]'
-  )
-....
-
-let's check:
-
-[source,sql]
-....
-SELECT
-*
-FROM [repo_sys].[RepoObjectReferenced]
-ORDER BY [RepoObject_fullname]
-....
-
-Maybe you need to exclude more objects, until the view will work again.
-
-
-
-// Experiment with TOP X in the following query to find out the objects causing the error
-
-// [source,sql]
-// ....
-// SELECT 
-// TOP 2000
-// [RepoObject_guid]
-//       ,[RepoObject_fullname]
-//       ,[SysObject_id]
-//       ,[SysObject_type]
-//       ,[SysObject_modify_date]
-//       ,[is_repo_managed]
-//       ,[has_different_sys_names]
-//       ,[SysObject_fullname]
-//       ,[referencing_minor_id]
-//       ,[referenced_server_name]
-//       ,[referenced_database_name]
-//       ,[referenced_schema_name]
-//       ,[referenced_entity_name]
-//       ,[referenced_minor_name]
-//       ,[referenced_id]
-//       ,[referenced_minor_id]
-//       ,[referenced_class]
-//       ,[referenced_class_desc]
-//       ,[is_caller_dependent]
-//       ,[is_ambiguous]
-//       ,[is_selected]
-//       ,[is_updated]
-//       ,[is_select_all]
-//       ,[is_all_columns_found]
-//       ,[is_insert_all]
-//       ,[is_incomplete]
-//   FROM [repo_sys].[RepoObjectReferenced]
-//   order by [RepoObject_fullname]
-// ....
-
-// For example Top 627 is OK, Top 628 causes an error
-
-// When using Top 627, what is the last [RepoObject_fullname]?
-
-// In my case it is: [repo].[ftv_RepoObject_DbmlColumnRelation]
-
-// Now lets check in [repo].[RepoObject], which RepoObject is the following one:
-
-// [source,sql]
-// ....
-// SELECT [RepoObject_guid]
-//  , [RepoObject_fullname]
-// FROM [repo].[RepoObject]
-// ORDER BY [RepoObject_fullname]
-// ....
-
-
-=== How to add columns to graph tables and use them as a target of a persistence?
-
-I want to use a graph table as persistence target. I created a source view containing the required structure. But now I want to add a column to the source and to the source. Visual Studio Schema compare can't create valid SQL because I use restrictions. What should I do?
-
-Use TSQl to add columns:
-
-[source,sql]
-....
-ALTER TABLE [graph].[RepoObject]
-ADD RepoObject_fullname2 nvarchar(257) NULL;
-
-ALTER TABLE [graph].[RepoObjectColumn]
-ADD 
-RepoObject_fullname2 nvarchar(257) NULL,
- RepoObjectColumn_fullname2 nvarchar(386) NULL
-;
-....
-
-Das funktioniert nicht, da es gerade bei graph tables Probleme gibt
-
-
-in repo.RepoObject mark them as is_repo_managed = 0
-
-Sie müssen also is_repo_managed = 1 sein
-
-und man muss die Spalten markieren, die null-bar sind.
-
-[qanda]
-What is the answer?::
-This is the answer. No blocks are aupported?
-
-sss::
-ssss
-
