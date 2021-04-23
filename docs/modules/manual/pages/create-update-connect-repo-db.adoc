@@ -11,7 +11,7 @@
 * create a new repo database
 * clone github repository from project https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql[]
 * deploy the database project db_DataHandwerk to your database
-* connect repo datatabase to dwh database using synonyms executing the storred procedure xref:sqldb:config.usp_connect_database.adoc[]
+* connect repo datatabase to dwh database using synonyms executing the stored procedure xref:sqldb:config.usp_connect_database.adoc[]
 +
 .connect repository database to the dwh database 'WideWorldImporters'
 ====

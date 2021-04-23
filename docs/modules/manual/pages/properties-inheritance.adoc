@@ -1,3 +1,132 @@
 = Properties Inheritance
 
-todo
+Object references and column references are used to inherit xref:properties.adoc[] along these references.
+
+The type of property inheritance is determined by the xref:sqldb:config.InheritanceType.adoc#column-InheritanceType[config.InheritanceType.InheritanceType]:
+
+.InheritanceType
+[cols="1,10"]
+|===
+|InheritanceType|InheritanceTypeDescription
+
+|0 |No inheritance from predecessor
+
+|11|Inheritance from first (or all) predecessor, if current value is NULL
+
+|12|Inheritance from first (or all) predecessor, if current value is NULL or empty ('')
+
+|13|Inheritance from first (or all) predecessor, forced, only when source is not empty
+
+|14|Inheritance from first (or all) predecessor, forced without exception (dangerous!)
+|===
+
+Global InheritanceType are defined in xref:sqldb:config.Parameter.adoc[]
+
+.Inheritance parameters
+[source,sql]
+----
+Select
+    Parameter_name
+  , sub_Parameter
+  , Parameter_desciption
+  , Parameter_default_value
+  , Parameter_value
+  , Parameter_value__result_nvarchar
+  , Parameter_value__result_int
+From
+    config.Parameter
+Where
+    Parameter_name Like 'Inheritance%'
+Order By
+    Parameter_name
+  , sub_Parameter;
+----
+
+image::properties_01.png[]
+
+`sub_parameter` corresponds to the `property_name`. If a value has been defined for a `property_name`, then this value applies, otherwise the value with `sub_Parameter = ''` applies.
+
+Inheritance_StringAggSeparatorSql_column:: if NULL then only one source is used for inheritance; if not NULL then STRING_AGG( expression, separator ) is used to aggregate all sources. Content is interpreted as TSQL. Good values are 'CHAR(13)+CHAR(10)' or '';''
+Inheritance_StringAggSeparatorSql_object:: if NULL then only one source is used for inheritance; if not NULL then STRING_AGG( expression, separator ) is used to aggregate all sources. Content is interpreted as TSQL. Good values are 'CHAR(13)+CHAR(10)' or '';''
+InheritanceDefinition_column:: CONCAT arguments to be used with some specific values in [config].[InheritanceType], for example: '[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion('MS_Description')'
+InheritanceDefinition_object:: CONCAT arguments to be used with some specific values in [config].[InheritanceType], for example: '[RepoObject_name],CHAR(13),CHAR(10),EineNochZuDefinierendeFunktion('MS_Description')'
+InheritanceType_column:: TINYINT; InheritanceType for column: possible values in [config].[InheritanceType]
+InheritanceType_object:: TINYINT; InheritanceType for object: possible values in [config].[InheritanceType]
+
+.Property ReferencedObjectList
+====
+* sub_Parameter = `ReferencedObjectList`
+** Parameter_name = `Inheritance_StringAggSeparatorSql_object`
+*** resulting value = +
+`CHAR(13)+CHAR(10)`
+*** The value is not NULL. (the value is not so good visible in the screenshot, it looks like an empty string): +
+`STRING_AGG( expression, CHAR(13)+CHAR(10) )` is used to aggregate all sources
+** Parameter_name = `InheritanceDefinition_object`
+*** resulting value = +
+`'* ' + referenced.[RepoObject_fullname]`
+*** the expression for STRING_AGG is defined +
+`STRING_AGG( '* ' + referenced.[RepoObject_fullname], CHAR(13)+CHAR(10) )` is used to aggregate all sources. +
+in other words: all referenced objects are used to create a list containing one referenced objects per line
+** Parameter_name = `InheritanceType_object`
+*** resulting value = +
+`14`
+*** The value (the list of referenced objects) will be recalculated every time
+====
+
+.Property MS_Description
+====
+* sub_Parameter = `MS_Description`
+** Parameter_name = `InheritanceDefinition_column`
+*** resulting value = +
+`CAST(COALESCE(referencing.[Repo_definition], property.fs_get_RepoObjectColumnProperty_nvarchar(referenced.[RepoObjectColumn_guid], 'MS_Description')) AS NVARCHAR(4000))`
+*** if the current column (referencing) has any value in `[Repo_definition]`, then this value is used. `[Repo_definition]` normaly contains the calculation of a calculated column. +
+Otherwise the value of the 'MS_Description' property is inherited from the first referenced column. +
+only the first referenced column is used, because the default value for `Inheritance_StringAggSeparatorSql_column` is `NULL`. +
+In other words: "Use the calculations definition of the current column, if it is a calculation, otherwise inherit the description from the first referenced column.""
+** Parameter_name = `InheritanceType_column`
+*** resulting value = +
+`12`
+*** The property will only be calculated, if current value is NULL or empty ('')
+====
+
+// .InheritanceType Table
+// ====
+// [cols="1,1,4m,4"]
+// |===
+// |Parameter_name|sub_Parameter|Parameter_value__result_nvarchar|Meaning
+
+// |Inheritance_StringAggSeparatorSql_object
+// |ReferencedObjectList
+// |
+// |The value is empty, but not NULL. 
+
+// |InheritanceDefinition_object
+// |ReferencedObjectList
+// |'* ' + referenced.[RepoObject_fullname]
+// |
+// a leading '* ' will be combined with [RepoObject_fullname] of the referenced object(s), for example +
+// `* [Schema].[Object]`
+
+// |InheritanceType_object
+// |ReferencedObjectList
+// |14
+// |The value will be recalculated every time
+
+// |===
+// ====
+
+It is possible to overwrite inheritance instructions for individual objects or columns, using:
+
+* xref:sqldb:repo.RepoObject.adoc#column-Inheritance_StringAggSeparatorSql[repo.RepoObject.Inheritance_StringAggSeparatorSql]
+* xref:sqldb:repo.RepoObject.adoc#column-InheritanceDefinition[repo.RepoObject.InheritanceDefinition]
+* xref:sqldb:repo.RepoObject.adoc#column-InheritanceType[repo.RepoObject.InheritanceType]
+* xref:sqldb:repo.RepoObjectColumn.adoc#column-Inheritance_StringAggSeparatorSql[repo.RepoObjectColumn.Inheritance_StringAggSeparatorSql]
+* xref:sqldb:repo.RepoObjectColumn.adoc#column-InheritanceDefinition[repo.RepoObjectColumn.InheritanceDefinition]
+* xref:sqldb:repo.RepoObjectColumn.adoc#column-InheritanceType[repo.RepoObjectColumn.InheritanceType]
+
+The inheritance is done with these procedures
+
+* xref:sqldb:property.usp_RepoObject_Inheritance.adoc[]
+* xref:sqldb:property.usp_RepoObjectColumn_Inheritance.adoc[]
+
+They are called by xref:sqldb:repo.usp_main.adoc[]

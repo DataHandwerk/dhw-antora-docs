@@ -1,3 +1,80 @@
 = Properties
 
-todo
+Each object and column can have properties, which can also be inherited along the object references or along the column references. Properties are defined in
+
+* xref:sqldb:property.RepoObjectProperty.adoc[]
+* xref:sqldb:property.RepoObjectColumnProperty.adoc[]
+
+The following properties are not defined in these tables, because the *mandatory synchronization* of the RepoObjects with the dwh is done via these properties:
+
+* RepoSchema_guid
+* RepoObject_guid
+* RepoObjectColumn_guid
+
+For schemas is currently implemented only to set the property `MS_Description`. The definition is made in xref:sqldb:repo.RepoSchema.adoc#column-RepoSchema_ms_description[repo.RepoSchema.RepoSchema_ms_description].
+
+== optional synchronization of properties between repository and dwh
+
+Above properties are the only mandatory synchronized properties. Other properties can be optionally synchronized if it is desired to manifest them also in the database in the code of objects.
+
+In SQL Server, extended properties have no creation or modification date. Therefore, it is not possible to determine if and when there were changes. For synchronization of mandatory properties there is a complicated process to allow changes in both repository and dwh in parallel and merge them. With "normal" properties this effort is not made. The database developer must decide for himself if and when he wants to synchronize the optional properties and in which direction.
+
+It is highly recommended to transfer existing properties from the dwh to the repository after "xref:manual:create-update-connect-repo-db.adoc[]". For this purpose there is the procedure
+
+* xref:sqldb:property.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate.adoc[]
+
+And it is recommended that after this initial transfer of the extended properties from the dwh to the repository, they should only be managed in the repository.
+
+It is possible, but not necessary, to synchronize the properties from the repository to the dwh extended properties:
+
+* xref:sqldb:property.usp_sync_ExtendedProperties_Repo2Sys_InsertUpdate.adoc[]
+* xref:sqldb:property.usp_sync_ExtendedProperties_Repo2Sys_Delete.adoc[]
++
+WARNING: deletes all extended properties in the dwh, not defined in the repository!
+
+== How to define properties
+
+* You can insert, update and delete properties directly in the tables. +
+But this could be complicated if you want to enter multi-line-content or if you don't know the guid.
+** xref:sqldb:property.RepoObjectProperty.adoc[]
+** xref:sqldb:property.RepoObjectColumnProperty.adoc[]
+* You can use the procedures +
+This makes it easier to create new entries, use the names of objects and columns, and assign multi-line values.
+** xref:sqldb:property.usp_RepoObjectProperty_set.adoc[]
+** xref:sqldb:property.usp_RepoObjectColumnProperty_set.adoc[]
+* The usp generator contains extra columns for some properties
+** xref:sqldb:uspgenerator.GeneratorUsp.adoc#column-usp_Description[uspgenerator.GeneratorUsp.usp_Description]
+** xref:sqldb:uspgenerator.GeneratorUsp.adoc#column-usp_Examples[uspgenerator.GeneratorUsp.usp_Examples]
+** xref:sqldb:uspgenerator.GeneratorUspParameter.adoc#column-Description[uspgenerator.GeneratorUspParameter.Description]
+* Objects of type P, RF, V, TR, FN, IF, TF, and R have an associated SQL module. +
+You can use comments in these objects to define properties
++
+.define properties in SQL module comment
+====
+[source,sql]
+----
+/*
+<<property_start>>MS_Description <1>
+* connect repo datatabase to dwh database using synonyms executing <2>
+* see details in xref:manual:create-update-connect-repo-db.adoc[]
+<<property_end>> <3>
+
+<<property_start>>exampleUsage <1>
+EXEC [config].[usp_connect_database] <2>
+@dwh_database_name = 'WideWorldImporters'
+<<property_end>> <3>
+*/
+CREATE Procedure [config].[usp_connect_database]
+( @dwh_database_name NVarchar(128))
+As
+Begin
+...
+----
+<1> start a new line with `\<<property_start>>` followed by the property_name to mark the start of a property definition
+<2> use the line(s) between `\<<property_start>>` and `\<<property_end>>` to define the property_value
+<3> start a new line with `\<<property_end>>` to mark the end
+====
++
+These properties will be imported (collected) into xref:sqldb:property.RepoObjectProperty.adoc[] by the procedure xref:sqldb:property.usp_RepoObjectProperty_collect.adoc[] which is also called by xref:sqldb:docs.usp_AntoraExport.adoc[] to ensure that your generated database documentation contains all defined properties.
+
+Properties are used and changed by xref:properties-inheritance.adoc[].

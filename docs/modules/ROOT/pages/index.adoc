@@ -31,7 +31,7 @@ include::arc:partial$c4_dsl/puml/structurizr-DWHBDevelopment-RepositorydbProject
 
 == database documentation
 
-The *database documentation* was created with the Documentation Generator: xref:sqldb:docs.usp_AntoraExport.adoc[] +
+The *database documentation* was created with the xref:manual:documentation-generator.adoc[]: xref:sqldb:docs.usp_AntoraExport.adoc[] +
 The documentation also contains
 
 * real and *virtual* PK (only for tables and views)
