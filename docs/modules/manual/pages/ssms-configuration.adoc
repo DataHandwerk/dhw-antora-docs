@@ -1,3 +1,12 @@
-= usp generator
+= SSMS configuration
 
-todo
+Some views create code to be copied and executed. This requires that line breaks are preserved and the code is not truncated.
+
+If SSMS is to be used, then some settings should be adjusted:
+
+* Query Results > SQL Server > Results to Grid
+** enable `Retain CR/LF on copy or save`
+** `Maximum Characters Retrieved` > `Non XML data` - set a much higher value than default, for example `200000`
+
+image::image-ssms-setting-result-grid.png[]
+

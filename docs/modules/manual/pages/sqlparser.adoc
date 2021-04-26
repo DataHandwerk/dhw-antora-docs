@@ -1,9 +1,9 @@
 = SqlParser.py
 
 // tag::shortdescription[]
-The Python project https://pypi.org/project/sqlparse/[sqlparse] will be used, to extract column references from database views sql code.
+The Python project https://pypi.org/project/sqlparse/[sqlparse] will be used, to extract column references from database views SQL code.
 
-A pyhton script `SqlParser.py` was created
+A Python script `SqlParser.py` was created.
 
 * to read sql_modules_definition
 * to write the parsed view definition back into the repository database
@@ -28,7 +28,7 @@ and the `SqlParser.ini` contains your server and database, then you can just cal
 `py sqlparser.py`
 ====
 
-or you can use paramaters:
+or you can use parameters:
 
 ====
 `py sqlparser.py --server localhost\sql2019 --database dhw_master`
@@ -37,11 +37,12 @@ or you can use paramaters:
 In case _Python is not installed on your PC_ the generated *windows executable* can be used
 
 ====
-```
+[source]
+----
 D:\Repos\GitHub\DataHandwerk\DataHandwerk-toolkit-mssql\python\SqlParser\dist\SqlParser>SqlParser.exe
 usage: SqlParser.exe [-h] --server SERVER --database DATABASE [-c MY_CONFIG] [-v]
 SqlParser.exe: error: the following arguments are required: --server, --database
-```
+----
 ====
 
 example, when you are in the folder, where the `SqlParser.exe` is located:
@@ -56,9 +57,10 @@ example, when you are in the folder, where the `SqlParser.exe` is located:
 
 == what does it do
 
-The folowing query is used to read the [sql_modules_definition] for views, but only in case it was changed since last parsing
+The following query is used to read the [sql_modules_definition] for views, but only in case it was changed since last parsing
 
-```sql
+[source,sql]
+----
 SELECT
     [RepoObject_guid]
     , [sql_modules_definition]
@@ -67,11 +69,12 @@ FROM
 WHERE
     is_outdated = 1
     AND sysobject_type = 'V'
-```
+----
 
 the sqlparse results are written into [sqlparse].[RepoObject_SqlModules]
 
-```sql
+[source,sql]
+----
 INSERT INTO [sqlparse].[RepoObject_SqlModules]
 ([RepoObject_guid]
 ,[sql_modules_formatted]
@@ -79,7 +82,7 @@ INSERT INTO [sqlparse].[RepoObject_SqlModules]
 ,[sql_modules_json])
 VALUES
 (?, ?, ?, ?)
-```
+----
 
 == How to freeze the script (create exe executable)
 

@@ -24,12 +24,20 @@ include::arc:partial$01_introduction_and_goals.adoc[leveloffset=-1,tag=alternati
 include::arc:partial$c4_dsl/puml/structurizr-DWHBDevelopment-RepositorydbProjectB-Component.puml[]
 ....
 
-== Learn first steps
+== Manual (partially)
+
+// == Learn first steps
 
 * xref:manual:create-update-connect-repo-db.adoc[]
+* xref:manual:sqlparse-to-get-col-references.adoc[]
+** xref:manual:sqlparser.adoc[]
+* xref:manual:properties.adoc[]
+* xref:manual:properties-inheritance.adoc[]
 * xref:manual:documentation-generator.adoc[]
+* xref:manual:persistence-generator.adoc[]
+// * xref:manual:sql-server-bug-sys-views-references.adoc[]
 
-== database documentation
+== Database documentation
 
 The *database documentation* was created with the xref:manual:documentation-generator.adoc[]: xref:sqldb:docs.usp_AntoraExport.adoc[] +
 The documentation also contains

@@ -2,7 +2,7 @@
 
 == How to add columns to graph tables and use them as a target of a persistence?
 
-I want to use a graph table as persistence target. I created a source view containing the required structure. But now I want to add a column to the source and to the source. Visual Studio Schema compare can't create valid SQL because I use restrictions. What should I do?
+I want to use a graph table as a persistence target. I created a source view containing the required structure. But now I want to add a column to the source and to the source. Visual Studio Schema compare can't create valid SQL because I use restrictions. What should I do?
 
 Use TSQL to add columns:
 
@@ -18,19 +18,21 @@ RepoObject_fullname2 nvarchar(257) NULL,
 ;
 ....
 
-Das funktioniert nicht, da es gerade bei graph tables Probleme gibt
+Renaming columns in graph tables can be difficult or impossible, especially when https://docs.microsoft.com/en-us/sql/relational-databases/tables/graph-edge-constraints?view=sql-server-ver15[Edge Constraints] are used.
 
-
-in repo.RepoObject mark them as is_repo_managed = 0
-
-Sie müssen also is_repo_managed = 1 sein
-
-und man muss die Spalten markieren, die null-bar sind.
-
-[qanda]
-What is the answer?::
-This is the answer. No blocks are aupported?
-
-sss::
-ssss
+//Das funktioniert nicht, da es gerade bei graph tables Probleme gibt
+//
+//
+//in repo.RepoObject mark them as is_repo_managed = 0
+//
+//Sie müssen also is_repo_managed = 1 sein
+//
+//und man muss die Spalten markieren, die null-bar sind.
+//
+//[qanda]
+//What is the answer?::
+//This is the answer. No blocks are aupported?
+//
+//sss::
+//ssss
 

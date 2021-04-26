@@ -10,7 +10,7 @@
 kbd:[DHW] (**D**ata**H**and**w**erk) is designed to support BI and DWH developers working with the Microsoft BI platform (MS SQL Server).
 
 Handwerk statt Massenproduktion. - Craft instead of mass production. +
-MSSQL based tools for data craftsmen.  - Individual customization instead of assembly line.
+MSSQL based tools for data craftsmen. - Individual customization instead of assembly line.
 
 // [role="arc42help"]
 // ****
@@ -185,7 +185,11 @@ A developer is not undesirably restricted by the use of tools and methods. He al
 
 // Man kann diese Tools mit Schienennetzen vergleichen. Solange man mit diesen Netzen und den angebundenen Orten zufrieden ist, kann man mit der einen oder anderen Bahn in dem einen oder anderen Netzwerk mehr oder weniger effektiv und effizient fahren. Probleme gibt es erst dann, wenn Orte oder Strecken fehlen oder die Verbindung zwischen Orten umständlicher wird, als man es will. Daher haben auch Straßen, Lkw und PKW eine große Berechtigung und Bedeutung. Manchmal gibt es sogar nur Fußwege.
 
-There are commercial tools that define the structure and function of relational and analytical databases via a repository in order to generate the code of these databases. These tools are _one-way_: repository => target database. One can work very successfully with these tools if one accepts the methods and approaches provided.
+There are commercial tools that define the structure and function of relational and analytical databases via a repository in order to generate the code of these databases.
+
+CAUTION: These tools are _one-way_: repository => target database.
+
+One can work very successfully with these tools if one accepts the methods and approaches provided.
 
 You can compare these tools with *rail networks*. As long as you are satisfied with these networks and the places connected to them, you can travel more or less effectively and efficiently with one or the other railroad in one or the other rail network. Problems arise when places or routes are missing or the connection between places becomes more cumbersome than one would like. *Therefore, roads, trucks and cars also have great justification and importance.* Sometimes there are even only *footpaths*.
 

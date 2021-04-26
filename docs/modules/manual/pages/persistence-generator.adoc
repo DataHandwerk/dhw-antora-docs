@@ -4,6 +4,12 @@ IMPORTANT: The procedure xref:sqldb:repo.usp_persistence_set.adoc[] is not calle
 
 IMPORTANT: Before you execute the procedure xref:sqldb:repo.usp_persistence_set.adoc[], check, if the persistence source should have a real or virtual PK. Some persistence actions are not available, if no PK is defined in the source. Execute xref:sqldb:repo.usp_Index_virtual_set.adoc[] to define virtual PK, whenever this is possible.
 
+TIP: If SSMS is used to retrieve the generated code, then the xref:manual:ssms-configuration.adoc[] should be checked and adjusted.
+
+== Persistence definition
+
+use xref:sqldb:repo.usp_persistence_set.adoc[] to define (or change) a persistence.
+
 ====
 [source,sql]
 ----
@@ -13,29 +19,35 @@ include::sqldb:partial$repo.usp_persistence_set.adoc[tag=exampleusage]
 
 * This will insert new required entries into xref:sqldb:repo.RepoObjectColumn.adoc[]. 
 * It will update properties for entries of existing target columns
-* It will not delete entries for columns in the persistence target, which have been added to the persistence table definition (it is possible to have additional columns, for example calculated columns or just additional columns to input some data independently from the source)
+* It will not delete entries for columns in the persistence target, which have been added to the persistence table definition (it is possible to have additional columns, for example calculated columns or just additional columns to input some data independently of the source)
 
 In order for the persistence to be updated correctly, one (or sometimes two) execution(s) of xref:sqldb:repo.usp_main.adoc[] are required:
 
-* the new or changed columns have to be synchronized between DWH and repo
+* the new or changed columns have to be synchronized between DWH and repository database
 * xref:sqldb:repo.RepoObjectColumn.adoc#column-RepoObjectColumn_column_id[repo.RepoObjectColumn.RepoObjectColumn_column_id] must get a value, this happens depending on the fulfilled prerequisites already in the first or only in the second pass
 
 The SQL code for the persistence target table is located in xref:sqldb:repo.RepoObject_SqlCreateTable.adoc#column-SqlCreateTable[repo.RepoObject_SqlCreateTable.SqlCreateTable]
 
-IMPORTANT: A change script is not yet created! You need to compare the generated code and the existing code.
+== Persistence procedure code generation
 
-TIP: You could use the generated code in a Visual Studio database project and deploy it to the database using Schema compare.
-
-DataHandwerk provides the code for a persistence stored procedure for each managed persistence. The code of this procedure will change depending on
+DataHandwerk provides the code for a persistence stored procedure for each managed persistence. The code of this procedure will change depending on:
 
 * the columns of the persistence source
 * settings in xref:sqldb:repo.RepoObject_persistence.adoc[]
 
-The code is available in xref:sqldb:uspgenerator.GeneratorUsp_SqlUsp.adoc#column-SqlUsp[uspgenerator.GeneratorUsp_SqlUsp.SqlUsp]
+The xref:manual:persistence-generator.adoc[] is used to create the persistence procedure code. Depending on changed settings in xref:sqldb:repo.RepoObject_persistence.adoc[] the generated code will change. After changing settings it is required to execute xref:sqldb:repo.usp_main.adoc[]
 
-[WARNING] 
+The final code of the procedure is available in xref:sqldb:uspgenerator.GeneratorUsp_SqlUsp.adoc#column-SqlUsp[uspgenerator.GeneratorUsp_SqlUsp.SqlUsp]
+
+== change exisisting persistence
+
+IMPORTANT: A change script for existing tables is not yet created! You need to compare the generated code and the existing code!
+
+TIP: You could use the generated code in a Visual Studio database project and deploy it to the database using Schema compare.
+
+[WARNING]
 --
-Currently it could be tricky to rename columns in persistence source and to promote this into the target. It still needs some testing and investigation to suggest the best practice. It looks like you should:
+Currently, it could be tricky to rename columns in persistence source and to promote this into the target. It still needs some testing and investigation to suggest the best practice. It looks like you should:
 
 * start to change the source
 * `EXEC repo.[usp_persistence_set]`
@@ -45,6 +57,10 @@ Currently it could be tricky to rename columns in persistence source and to prom
 * maybe you need to edit the content of the column [persistence_source_RepoObjectColumn_guid]
 --
 
+[WARNING]
+--
+It can be very difficult to change the design of graph tables in SQL Server, especially when https://docs.microsoft.com/en-us/sql/relational-databases/tables/graph-edge-constraints?view=sql-server-ver15[Edge Constraints] are used. The code created by SSMS or by Visual Studio code is then unusable and does not work. I Azure Data Studio it is even worse.
+--
 
 // New source columns have been added for persistence source. Why are these columns not updated in 
 // [repo].[RepoObject_SqlCreateTable].[SqlCreateTable]?
@@ -53,16 +69,5 @@ Currently it could be tricky to rename columns in persistence source and to prom
 
 // [repo].[usp_persistence_set] 
 
-
-
 // New columns have been added for a persistence target. And why they are not included into 
-
-
-
 // by the persistence?
-
-
-// In order for the persistence procedure to be updated correctly, several executions of [repo].[usp_main] are required:
-
-// * die neuen Spalten müssen zwischen DWH und Repo synchronisiert werden
-// * [RepoObjectColumn_column_id] muss einen Wert bekommen, das passiert erst im zweiten Durchlauf

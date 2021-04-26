@@ -8,7 +8,7 @@
 // include::_feedback.adoc[]
 
 . The project is based on Microsoft SQL Server (mssql): +
-SQL Server 2019 or above
+SQL Server 2019 or above.
 . It must *always* be possible for BI developers to use *all* mssql and Azure features in DWH databases.
 . a minimally invasive *repository database* _supplements_ DWH database metadata
 ** A repository database is externally connected to a DWH database via *synonyms to system catalog views* of the DWH database.

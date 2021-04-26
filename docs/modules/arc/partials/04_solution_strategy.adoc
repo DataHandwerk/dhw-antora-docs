@@ -7,6 +7,18 @@
 // :filename: src/04_solution_strategy.adoc
 // // include::_feedback.adoc[]
 
+
+* The toolkit should fit into the usual working environment of a DWH developer. Therefore, the toolkit is based on repositories in the form of **SQL Server databases**. A developer can work with these databases the same way he works with other databases: with SSMS, Azure Data Studio = ADS, Visual Studio database projects and other tools.
+* There is **one (1) repository per target DWH**.
+* Repository database and DWH database are **separate databases** so that a DWH database is not unnecessarily filled up with ballast. This is especially important when the structure of the database is transferred to a production system.
+* all repository databases have the **same structure**, they differ per DWH database only in content. This simplifies maintenance and upgrades.
+* Repository databases are connected via **synonyms** on system views and procedures of the DWH database. These system views always have the same structure (within an SQL Server version). Synonyms can be easily deleted by script and created with reference to another database.
+* The current development is based on **SQL Server version 2019**. One reason is the improved support of **graph databases**. According to the current concept, the dependencies of objects should also be stored in graph databases.
+* It seems reasonable to add missing functionality of standard SQL Server tools (SSMS, ADS, VS) via one or more different **additional GUI**.
+** better input of multi-line strings
+** linking of tables during data entry (filters and lookup tables)
+** graphical interactive display of references (dependencies)
+
 // * Das Toolkit soll sich in die gewohnte Arbeitsumgebung eines DWH Entwicklers einpassen. Daher basiert das Toolkit auf Repositories in Form von **SQL Server Datenbanken**. Mit diesen Datenbanken kann ein Entwickler so arbeiten, wie er mit anderen Datenbanken arbeitet: mit SSMS, Azure Data Studio = ADS, Visual Studio Datenbankprojekten und anderen Werkzeugen.
 // * Es gibt **ein (1) Repository pro Ziel-DWH**
 // * Repository-Datenbank und DWH-Datenbank sind **getrennte Datenbanken**, damit eine DWH-Datenbank nicht unnötig mit Ballast aufgefüllt wird. Dass ist insbesondere wichtig, wenn die Struktur der Datanbank auf ein produktives System übertragen wird.
@@ -17,16 +29,4 @@
 // ** bessere Eingabe mehrzeiliger Zeichenketten
 // ** Verknüpfung von Tabellen bei der Dateneingabe (Filter und Nachschlage-Tabellen)
 // ** graphische interaktive Anzeige von Referenzen (Abhängikeiten)
-
-
-* The toolkit should fit into the usual working environment of a DWH developer. Therefore, the toolkit is based on repositories in the form of **SQL Server databases**. A developer can work with these databases the same way he works with other databases: with SSMS, Azure Data Studio = ADS, Visual Studio database projects and other tools.
-* There is **one (1) repository per target DWH**.
-* Repository database and DWH database are **separate databases** so that a DWH database is not unnecessarily filled up with ballast. This is especially important when the structure of the database is transferred to a production system.
-* all repository databases have the **same structure**, they differ per DWH database only in content. This simplifies maintenance and upgrades.
-* Repository databases are connected via **synonyms** on system views and procedures of the DWH database. These system views always have the same structure (within a SQL Server version). Synomyms can be easily deleted by script and created with reference to another database.
-* The current development is based on **SQL Server version 2019**. One reason is the improved support of **graph databases**. According to the current concept, the dependencies of objects should also be stored in graph databases.
-* It seems reasonable to add missing functionality of standard SQL Server tools (SSMS, ADS, VS) via one or more different **additional GUI**.
-** better input of multi-line strings
-** linking of tables during data entry (filters and lookup tables)
-** graphical interactive display of references (dependencies)
 

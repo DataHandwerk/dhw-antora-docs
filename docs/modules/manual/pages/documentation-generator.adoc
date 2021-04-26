@@ -19,12 +19,26 @@ Antora can collect the content from different repositories. So, if you want to c
 * https://github.com/DataHandwerk/DataHandwerk-docs contains manually created content like architecture, manual
 * https://github.com/DataHandwerk/sqldb-docs contains automatically created content, created using xref:sqldb:docs.usp_AntoraExport.adoc[]
 
-in the following steps replace "D:\Repos\GitHub\DataHandwerk\sqldb-docs" by your own folder and repository name
+steps
 
 * create a new git repository, in our case this is https://github.com/DataHandwerk/sqldb-docs
 ** you can also create and use local repositories
 * at least one commit is required to enable Antora to use the repository
-* create required folder structure
+* create required folder structure +
+On Windows you can use `xcopy` to copy an existing folder structure without files
++
+[source]
+----
+xcopy C:\SourceFolder D:\TargetFolder /t /e
+----
++
+[source]
+----
+xcopy D:\Repos\GitHub\DataHandwerk\sqldb-docs D:\Repos\aaa\bbb\MyDataBase_sqldb /t /e
+----
++
+in the following steps replace "D:\Repos\GitHub\DataHandwerk\sqldb-docs" by your own folder and repository name
++
 ** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\attachments (optional)
 ** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\examples (optional)
 ** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\images (optional)
@@ -43,7 +57,7 @@ in the following steps replace "D:\Repos\GitHub\DataHandwerk\sqldb-docs" by your
 **** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\partials\puml\entity_30_0_objectref
 * create the Antora navigation file:
 ** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\nav.adoc
-** file content (remove the '/' infront of 'include')
+** file content (Remove the `/` at the beginning of the line before the `include`.)
 +
 ....
 /include::partial$navlist/nav-by-schema.adoc[]
@@ -53,6 +67,7 @@ in the following steps replace "D:\Repos\GitHub\DataHandwerk\sqldb-docs" by your
 ====
 [source,sql]
 ----
+--keep the "\" at the end of the Parameter_value!
 Update
     [config].[Parameter]
 Set
@@ -82,7 +97,7 @@ nav: <2>
 <3> include the navigation file for `sqldb` module in the main `antora.yml`
 ====
 +
-We have two (2) source repositories and we need the `antora.yml` in each source repository. The `title` should be contained only in the main `antora.yml`.
+We have two (2) source repositories, and we need the `antora.yml` in each source repository. The `title` should be contained only in the main `antora.yml`.
 +
 ====
 [source,yaml]
@@ -118,7 +133,7 @@ It is also the output for the generated documentation.
 Some content explained:
 
 * two (2) playbooks are included, one to create local output, one to create the final site.
-** They are different in the output dir.
+** They are different in the output folder.
 ** they are different in the `kroki-fetch-diagram: true` option. It takes a lot of time to generate all diagrams and this option is used only to create the final site.
 ** They could be also different in sources for testing
 +
@@ -163,14 +178,14 @@ urls:
 runtime:
   fetch: true <6>
 ....
-<1> in case you have only the database documentation you need to set the start_page to some page in your modul (for example 'myproject:sqldb:dbo.MyTable.adoc'). 'dhw' or 'myproject' is the project name defined in the `antora.yml`
-<2> requird to render diagrams
-<3> kroki-fetch-diagram is required for the final site, but it takes a lot of time and should be disables if you want to check the results localy. Keep in mind that some big digrams will not be shown if this option is disabled, but they will be rendered for the final site if enabled
+<1> in case you have only the database documentation you need to set the `start_page` to some page in your module (for example 'myproject:sqldb:dbo.MyTable.adoc'). 'dhw' or 'myproject' is the project name defined in the `antora.yml`
+<2> required to render diagrams
+<3> kroki-fetch-diagram is required for the final site, but it takes a lot of time and should be disabled if you want to check the results locally. Keep in mind that some big diagrams will not be shown if this option is disabled, but they will be rendered for the final site if enabled
 <4> put the output dir for the local playbook into `.gitignore` to exclude from version control
 <5> the antora-ui-default needs to be adapted a bit to show your own menu content
 <6> force source repository fetch in General instead of using it every time in the antora command
 ====
-* the ".gitignore" file should contain some entries to avoid commiting some content into the repository.
+* the ".gitignore" file should contain some entries to avoid committing some content into the repository.
 +
 ====
 ....
@@ -209,7 +224,7 @@ https://gitlab.com/antora/xref-validator/
 antora --fetch playbook.yml
 New-Item .\docs\.nojekyll -ItemType file -Force <1>
 ....
-<1> the file `.nojekyll` needs to be created if the site should be published as github page. See: https://docs.antora.org/antora/2.3/publish-to-github-pages/#nojekyll
+<1> the file `.nojekyll` needs to be created if the site should be published as GitHub page. See: https://docs.antora.org/antora/2.3/publish-to-github-pages/#nojekyll
 
 == Export files for Antora
 
@@ -218,10 +233,15 @@ include::sqldb:partial$docs.usp_AntoraExport.adoc[tag=ms_description]
 == generate the static site
 
 IMPORTANT: Antora Export will not delete any content. After Antora Export and before creating the site you should check the `D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\pages` for outdated files and delete them to avoid them to be generated. Just sort the folder by file creation date. +
-You can also clean up the partials. But this is not so important, because these files are only used when they are included into the pages.
+You can also clean up the partials. This is not so important, because these files are only used when they are included into the pages.
 
-In the Antora Playbook project call Antora to build the local or the final site. You can use the prepared scripts.
+In the Antora Playbook project call Antora to build the local or the final site. You can use the prepared scripts:
 
-The result is a static site. You can browse the content localy on the PC where you created the documentation.
+[source,powershell]
+....
+./local-playbook.ps1
+....
 
-If you want to publish the site as github page, you need to create `.nojekyll`: https://docs.antora.org/antora/2.3/publish-to-github-pages/#nojekyll
+The result is a static site. You can browse the content locally on the PC where you created the documentation.
+
+If you want to publish the site as GitHub page, you need to create `.nojekyll`: https://docs.antora.org/antora/2.3/publish-to-github-pages/#nojekyll

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DataHandwerk-docs.iml" filepath="$PROJECT_DIR$/.idea/DataHandwerk-docs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../DataHandwerk-toolkit-mssql/db_DataHandwerk/db_DataHandwerk.iml" filepath="$PROJECT_DIR$/../DataHandwerk-toolkit-mssql/db_DataHandwerk/db_DataHandwerk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sqldb-docs/sqldb-docs.iml" filepath="$PROJECT_DIR$/../sqldb-docs/sqldb-docs.iml" />
     </modules>
   </component>
 </project>

@@ -8,9 +8,9 @@ ____
 The dependencies reported for entity "*[repo].[ftv_RepoObject_ReferenceTree]*" might not include references to all columns.
 ____
 
-The reason is a SQL Server bug.
+The reason is an SQL Server bug.
 
-In detail
+In detail:
 
 Executing [repo].[usp_main], I get this error:
 
@@ -68,9 +68,9 @@ WHERE ISNULL([repo].[RepoObjectColumn].[Referencing_Count], 0) <> ISNULL([rorc].
 ....
 
 
-the issue is related to `[repo_sys].[RepoObjectReferenced]`
+The issue is related to `[repo_sys].[RepoObjectReferenced]`
 
-there is a bug in SQL Server, and somtimes the usage of this system procedure causes an error:
+there is a bug in SQL Server, and sometimes the usage of this system procedure causes an error:
 
 ....
 FROM repo.RepoObject AS ro
@@ -80,11 +80,10 @@ WHERE ISNULL([ro].[has_get_referenced_issue], 0) = 0
 
 That's why we use `[ro].[has_get_referenced_issue]`
 
-it is required to find out the problematic RepoObject and to set +
+It is required to find out the problematic RepoObject and to set +
 `repo.RepoObject.[has_get_referenced_issue] = 1`
 
-
-Lets check the error message:
+Let's check the error message:
 
 ____
 #The dependencies reported for entity "*[repo].[ftv_RepoObject_ReferenceTree]*" might not include references to all columns.# This is either because the entity references an object that does not exist or because of an error in one or more statements in the entity.  Before rerunning the query, ensure that there are no errors in the entity and that all objects referenced by the entity exist.
@@ -96,7 +95,7 @@ ____
 
 === solution: mark RepoObjects with has_get_referenced_issue = 1
 
-We can't solve the SQL Server bug, we can only avoid to get references for some problematic objects.
+We can't solve the SQL Server bug, we can only avoid getting references for some problematic objects.
 
 [source,sql]
 ....

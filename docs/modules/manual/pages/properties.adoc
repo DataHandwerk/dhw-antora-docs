@@ -1,11 +1,11 @@
 = Properties
 
-Each object and column can have properties, which can also be inherited along the object references or along the column references. Properties are defined in
+Each object and column can have properties, which can also be inherited along the object references or along the column references. Properties are defined in:
 
 * xref:sqldb:property.RepoObjectProperty.adoc[]
 * xref:sqldb:property.RepoObjectColumnProperty.adoc[]
 
-The following properties are not defined in these tables, because the *mandatory synchronization* of the RepoObjects with the dwh is done via these properties:
+The following properties are not defined in these tables, because the *mandatory synchronization* of the RepoObjects with the dwh database is done via these properties:
 
 * RepoSchema_guid
 * RepoObject_guid
@@ -15,11 +15,11 @@ For schemas is currently implemented only to set the property `MS_Description`. 
 
 == optional synchronization of properties between repository and dwh
 
-Above properties are the only mandatory synchronized properties. Other properties can be optionally synchronized if it is desired to manifest them also in the database in the code of objects.
+The properties listed above are the only ones that are mandatorily synchronized. Other properties can be optionally synchronized if it is desired to manifest them also in the database in the code of objects.
 
 In SQL Server, extended properties have no creation or modification date. Therefore, it is not possible to determine if and when there were changes. For synchronization of mandatory properties there is a complicated process to allow changes in both repository and dwh in parallel and merge them. With "normal" properties this effort is not made. The database developer must decide for himself if and when he wants to synchronize the optional properties and in which direction.
 
-It is highly recommended to transfer existing properties from the dwh to the repository after "xref:manual:create-update-connect-repo-db.adoc[]". For this purpose there is the procedure
+It is highly recommended to transfer existing properties from the dwh to the repository after "xref:manual:create-update-connect-repo-db.adoc[]". For this purpose there is the procedure:
 
 * xref:sqldb:property.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate.adoc[]
 
@@ -35,7 +35,7 @@ WARNING: deletes all extended properties in the dwh, not defined in the reposito
 == How to define properties
 
 * You can insert, update and delete properties directly in the tables. +
-But this could be complicated if you want to enter multi-line-content or if you don't know the guid.
+And this could be complicated if you want to enter multi-line-content or if you don't know the guid.
 ** xref:sqldb:property.RepoObjectProperty.adoc[]
 ** xref:sqldb:property.RepoObjectColumnProperty.adoc[]
 * You can use the procedures +

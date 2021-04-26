@@ -1,0 +1,223 @@
+= Execution log
+
+In many projects it has proven useful to have detailed logs for the execution of procedures or processes. DataHandwerk offers the possibility of a formal logging into the table xref:sqldb:logs.ExecutionLog.adoc[].
+
+The table appears somewhat bloated at first glance with its many columns. The additional formal and optional information enables better evaluations. For example, activity diagrams can be created.
+
+xref:manual:uspgenerator.adoc[] can be used to create procedures that can log the execution of the procedure, and the procedure steps in the log.
+
+There are no updates in the xref:sqldb:logs.ExecutionLog.adoc[] table, only inserts.
+
+== generate PlantUML diagrams
+
+.get plantUML procedure execution tree
+====
+include::sqldb:partial$logs.ftv_ExecutionLog_puml_tree_per_execution.adoc[tag=ms_description]
+====
+
+The following PlantUML diagram can be generated using xref:sqldb:logs.ftv_ExecutionLog_puml_sequence_start_stop_per_execution.adoc[]
+
+.get plantUML procedure execution sequence diagram
+====
+[plantuml, dhw-sequence-usp_main, svg]
+....
+@startuml
+ -> "[repo].[usp_main]"
+activate "[repo].[usp_main]"
+"[repo].[usp_main]" -> "[repo].[usp_sync_guid]"
+activate "[repo].[usp_sync_guid]"
+"[repo].[usp_sync_guid]" -> "[repo].[usp_sync_guid_RepoSchema]"
+activate "[repo].[usp_sync_guid_RepoSchema]"
+"[repo].[usp_sync_guid]" <- "[repo].[usp_sync_guid_RepoSchema]"
+deactivate "[repo].[usp_sync_guid_RepoSchema]"
+"[repo].[usp_sync_guid]" -> "[repo].[usp_sync_guid_RepoObject]"
+activate "[repo].[usp_sync_guid_RepoObject]"
+"[repo].[usp_sync_guid_RepoObject]" -> "[graph].[usp_PERSIST_RepoObject]"
+activate "[graph].[usp_PERSIST_RepoObject]"
+"[repo].[usp_sync_guid_RepoObject]" <- "[graph].[usp_PERSIST_RepoObject]"
+deactivate "[graph].[usp_PERSIST_RepoObject]"
+"[repo].[usp_sync_guid]" <- "[repo].[usp_sync_guid_RepoObject]"
+deactivate "[repo].[usp_sync_guid_RepoObject]"
+"[repo].[usp_sync_guid]" -> "[repo].[usp_sync_guid_RepoObjectColumn]"
+activate "[repo].[usp_sync_guid_RepoObjectColumn]"
+"[repo].[usp_sync_guid_RepoObjectColumn]" -> "[graph].[usp_PERSIST_RepoObjectColumn]"
+activate "[graph].[usp_PERSIST_RepoObjectColumn]"
+"[repo].[usp_sync_guid_RepoObjectColumn]" <- "[graph].[usp_PERSIST_RepoObjectColumn]"
+deactivate "[graph].[usp_PERSIST_RepoObjectColumn]"
+"[repo].[usp_sync_guid]" <- "[repo].[usp_sync_guid_RepoObjectColumn]"
+deactivate "[repo].[usp_sync_guid_RepoObjectColumn]"
+"[repo].[usp_main]" <- "[repo].[usp_sync_guid]"
+deactivate "[repo].[usp_sync_guid]"
+"[repo].[usp_main]" -> "[reference].[usp_update_Referencing_Count]"
+activate "[reference].[usp_update_Referencing_Count]"
+"[repo].[usp_main]" <- "[reference].[usp_update_Referencing_Count]"
+deactivate "[reference].[usp_update_Referencing_Count]"
+"[repo].[usp_main]" -> "[repo].[usp_index_inheritance]"
+activate "[repo].[usp_index_inheritance]"
+"[repo].[usp_index_inheritance]" -> "[repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]"
+activate "[repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]"
+"[repo].[usp_index_inheritance]" <- "[repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]"
+deactivate "[repo].[usp_PERSIST_IndexColumn_ReferencedReferencing_HasFullColumnsInReferencing_T]"
+"[repo].[usp_index_inheritance]" -> "[repo].[usp_Index_finish]"
+activate "[repo].[usp_Index_finish]"
+"[repo].[usp_Index_finish]" -> "[repo].[usp_Index_Settings]"
+activate "[repo].[usp_Index_Settings]"
+"[repo].[usp_Index_finish]" <- "[repo].[usp_Index_Settings]"
+deactivate "[repo].[usp_Index_Settings]"
+"[repo].[usp_Index_finish]" -> "[graph].[usp_PERSIST_Index]"
+activate "[graph].[usp_PERSIST_Index]"
+"[repo].[usp_Index_finish]" <- "[graph].[usp_PERSIST_Index]"
+deactivate "[graph].[usp_PERSIST_Index]"
+"[repo].[usp_index_inheritance]" <- "[repo].[usp_Index_finish]"
+deactivate "[repo].[usp_Index_finish]"
+"[repo].[usp_main]" <- "[repo].[usp_index_inheritance]"
+deactivate "[repo].[usp_index_inheritance]"
+"[repo].[usp_main]" -> "[repo].[usp_Index_ForeignKey]"
+activate "[repo].[usp_Index_ForeignKey]"
+"[repo].[usp_Index_ForeignKey]" -> "[repo].[usp_PERSIST_ForeignKey_Indexes_union_T]"
+activate "[repo].[usp_PERSIST_ForeignKey_Indexes_union_T]"
+"[repo].[usp_Index_ForeignKey]" <- "[repo].[usp_PERSIST_ForeignKey_Indexes_union_T]"
+deactivate "[repo].[usp_PERSIST_ForeignKey_Indexes_union_T]"
+"[repo].[usp_Index_ForeignKey]" -> "[repo].[usp_Index_finish]"
+activate "[repo].[usp_Index_finish]"
+"[repo].[usp_Index_finish]" -> "[repo].[usp_Index_Settings]"
+activate "[repo].[usp_Index_Settings]"
+"[repo].[usp_Index_finish]" <- "[repo].[usp_Index_Settings]"
+deactivate "[repo].[usp_Index_Settings]"
+"[repo].[usp_Index_finish]" -> "[graph].[usp_PERSIST_Index]"
+activate "[graph].[usp_PERSIST_Index]"
+"[repo].[usp_Index_finish]" <- "[graph].[usp_PERSIST_Index]"
+deactivate "[graph].[usp_PERSIST_Index]"
+"[repo].[usp_Index_ForeignKey]" <- "[repo].[usp_Index_finish]"
+deactivate "[repo].[usp_Index_finish]"
+"[repo].[usp_main]" <- "[repo].[usp_Index_ForeignKey]"
+deactivate "[repo].[usp_Index_ForeignKey]"
+"[repo].[usp_main]" -> "[repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id]"
+activate "[repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id]"
+"[repo].[usp_main]" <- "[repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id]"
+deactivate "[repo].[usp_RepoObjectColumn_update_RepoObjectColumn_column_id]"
+"[repo].[usp_main]" -> "[uspgenerator].[usp_GeneratorUsp_insert_update_persistence]"
+activate "[uspgenerator].[usp_GeneratorUsp_insert_update_persistence]"
+"[repo].[usp_main]" <- "[uspgenerator].[usp_GeneratorUsp_insert_update_persistence]"
+deactivate "[uspgenerator].[usp_GeneratorUsp_insert_update_persistence]"
+"[repo].[usp_main]" -> "[property].[usp_RepoObject_Inheritance]"
+activate "[property].[usp_RepoObject_Inheritance]"
+"[repo].[usp_main]" <- "[property].[usp_RepoObject_Inheritance]"
+deactivate "[property].[usp_RepoObject_Inheritance]"
+"[repo].[usp_main]" -> "[property].[usp_RepoObjectColumn_Inheritance]"
+activate "[property].[usp_RepoObjectColumn_Inheritance]"
+"[repo].[usp_main]" <- "[property].[usp_RepoObjectColumn_Inheritance]"
+deactivate "[property].[usp_RepoObjectColumn_Inheritance]"
+ <- "[repo].[usp_main]"
+deactivate "[repo].[usp_main]"
+@enduml
+....
+====
+
+.get plantUML detailed sequence diagram
+====
+The following detailed sequence diagram is created using
+
+[source,sql]
+----
+Select
+    id
+  , puml_Sequence
+  , execution_instance_guid
+  , parent_execution_log_id
+  , proc_schema_name
+  , proc_name
+  , step_id
+  , step_name
+  , created_dt
+  , source_object
+  , target_object
+  , inserted
+  , updated
+  , deleted
+From
+    logs.ExecutionLog_gross
+Where
+    id
+Between 33386 And 33404
+Order By
+    id;
+----
+
+////
+Select
+    id
+  , plantUML_Sequence
+  , execution_instance_guid
+  , parent_execution_log_id
+  , proc_schema_name
+  , proc_name
+  , step_id
+  , step_name
+  , created_dt
+  , source_object
+  , target_object
+  , inserted
+  , updated
+  , deleted
+From
+    logs.ExecutionLog_gross
+Where
+    id
+Between 33386 And 33404
+Order By
+    id;
+////
+
+[plantuml, dhw-sequence-usp_sync_guid_RepoObject, svg]
+....
+'skinparam maxmessagesize 220
+
+== [repo].[usp_sync_guid_RepoObject] - start ==
+
+"[repo_sys].[SysObject]" ->O "[repo].[RepoObject]" : SET several RepoObject_SysObject_...
+rnote right:1
+"[repo_sys].[SysObject]" ->O "[repo].[RepoObject]" : SET [SysObject_name] = [repo].[RepoObject].[RepoObject_guid]
+rnote right:0
+"[repo_sys].[SysObject]" -> "[repo].[RepoObject]" : [SysObject_RepoObject_guid] -> [RepoObject_guid]; some name, type, …
+rnote right:0
+"[repo_sys].[SysObject]" -> "[repo].[RepoObject]" : INSERT still missing Object
+rnote right:0
+"[repo].[RepoObject]" ->O "[repo].[RepoObject]" : SET [RepoObject_schema_name] = [SysObject_schema_name] , [RepoObject_name] = [SysObject_name]
+rnote right:0
+"[repo].[RepoObject]" --> "[repo_sys].[SysObject]" : write RepoObject_guid into extended properties of SysObject
+rnote right:
+"[repo].[RepoObject]" ->O "[repo].[RepoObject]" : SET is_SysObject_missing = 1
+rnote right:0
+"[repo].[RepoObject]" ->x "[repo].[RepoObject]" : DELETE; marked missing SysObject, but not is_repo_managed  = 1
+rnote right:0
+"[repo_sys].[SysObject]" ->O "[repo].[RepoObject]" : UPDATE other properties, where not is_repo_managed  = 1
+rnote right:0
+"[repo].[RepoObject]" ->x "[reference].[RepoObjectSource_virtual]" : DELETE [reference].[RepoObjectSource_virtual] missing Source_RepoObject_guid
+rnote right:0
+"[repo].[RepoObject_persistence]" ->O "[repo].[RepoObject]" : SET [Repo_temporal_type]
+rnote right:0
+
+== [graph].[usp_PERSIST_RepoObject] - start ==
+
+"[graph].[RepoObject_S]" ->x "[graph].[RepoObject]" : delete persistence target missing in source
+rnote right:0
+"[graph].[RepoObject_S]" ->O "[graph].[RepoObject]" : update changed
+rnote right:0
+"[graph].[RepoObject_S]" -> "[graph].[RepoObject]" : insert missing
+rnote right:0
+
+== [graph].[usp_PERSIST_RepoObject] - end ==
+
+
+== [repo].[usp_sync_guid_RepoObject] - UPDATE [graph].[RepoObject] - ensure current case ==
+
+
+== [repo].[usp_sync_guid_RepoObject] - end ==
+
+....
+====
+
+== use logging in your own dwh database
+
+To use logging in your own dwh database, the `logs` schema and its objects must be created there. This is especially useful if the xref:manual:uspgenerator.adoc[] is also to be used to populate the log.

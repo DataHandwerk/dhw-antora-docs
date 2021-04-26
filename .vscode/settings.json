@@ -1,3 +1,10 @@
 {
-  "pasteImage.path": "../images"
+  "pasteImage.path": "../images",
+  "languageToolLinter.languageTool.ignoredWordsInWorkspace": [
+    "adoc",
+    "dhw",
+    "pyinstaller",
+    "sqldb",
+    "sqlparser"
+  ]
 }

@@ -79,15 +79,17 @@ in other words: all referenced objects are used to create a list containing one 
 ** Parameter_name = `InheritanceDefinition_column`
 *** resulting value = +
 `CAST(COALESCE(referencing.[Repo_definition], property.fs_get_RepoObjectColumnProperty_nvarchar(referenced.[RepoObjectColumn_guid], 'MS_Description')) AS NVARCHAR(4000))`
-*** if the current column (referencing) has any value in `[Repo_definition]`, then this value is used. `[Repo_definition]` normaly contains the calculation of a calculated column. +
-Otherwise the value of the 'MS_Description' property is inherited from the first referenced column. +
+*** if the current column (referencing) has any value in `[Repo_definition]`, then this value is used. `[Repo_definition]` normally contains the calculation of a calculated column. +
+Otherwise, the value of the 'MS_Description' property is inherited from the first referenced column. +
 only the first referenced column is used, because the default value for `Inheritance_StringAggSeparatorSql_column` is `NULL`. +
-In other words: "Use the calculations definition of the current column, if it is a calculation, otherwise inherit the description from the first referenced column.""
+In other words: "Use the calculation's definition of the current column, if it is a calculation, otherwise inherit the description from the first referenced column."
 ** Parameter_name = `InheritanceType_column`
 *** resulting value = +
 `12`
 *** The property will only be calculated, if current value is NULL or empty ('')
 ====
+
+TIP: for ('InheritanceType_column', 'MS_Description') Set `Parameter_value  = 12`, to enable inheritance for column descriptions.
 
 // .InheritanceType Table
 // ====
