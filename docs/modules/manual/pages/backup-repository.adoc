@@ -1,0 +1,43 @@
+= Backup repository database
+
+The repository database contains important data and should be backed up regularly.
+
+== SQL Server backup
+
+One simple way is to create SQL Server backups. However, the drives of the server on which the backups are created are often not shared. Secondly, a backup cannot be restored with an older version of SQL Server.
+
+== Data-tier Applications - DACPAC and BACPAC
+
+https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications?view=sql-server-ver15[Data-tier Applications]
+
+
+BACPAC, which are created by an "export", cannot be created from the repository database, because a validation is mandatory before the creation. This validation fails because the database is connected to other databases via synonyms and refers to system objects.
+
+However, it is possible to "extract" DACPAC with data if database validation is turned off in the process.
+
+This is not possible in SSMS or Azure Data Studio. SSMS does not allow you to turn off validation. ADS has validation turned off, but does not allow creating DACPAC with data. Only BACPAC can be created with data.
+
+The contents of a DACPAC can also be viewed (and extracted) with a program that can browse zip archives.
+
+=== Create DACPAC with Visual Studio
+
+It is possible to create a DACPAC with data using Visual Studio and disable validation. This works via the context menu of the "SQL Server Object Explorer".
+
+=== Command Line - sqlpackage.exe
+
+Alle oben genannten GUI verwenden letztendlich sqlpackage.exe, man kann dieses Programm also auch direkt verwenden.
+
+https://docs.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage?view=sql-server-ver15[sqlpackage.exe]
+
+sqlpackage can be downloaded from the Internet. However, it is usually already included one or more times on the developer's machine, since it is also provided with SSMS or the database projects for Visual Studio.
+
+* `/Action:Extract` sorgt dafür, dass ein DACPAC extrahiert wird (`Export` zum Erstellen eines BACPAC funktioniert nicht!)
+* `/p:ExtractAllTableData=TRUE` extrahiert die Daten aller Tabellen
+
+====
+----
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150\sqlpackage.exe" /TargetFile:"C:\Users\GoerGer\Documents\dacpac\dhw_BudgetControlling.dacpac" /Action:Extract /SourceServerName:"hahnbidev04" /SourceDatabaseName:"dhw_BudgetControlling"
+----
+====
+
+
