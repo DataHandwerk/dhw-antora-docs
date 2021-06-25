@@ -1,5 +1,6 @@
 .Manual
 * xref:manual:create-update-connect-repo-db.adoc[]
+* xref:manual:backup-repo-db.adoc[]
 * xref:manual:sqlparse-to-get-col-references.adoc[]
 ** xref:manual:sqlparser.adoc[]
 * xref:manual:properties.adoc[]
