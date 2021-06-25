@@ -1,0 +1,95 @@
+= Import from AnalyticsCreator
+
+If the existing database was created with AnalyticsCreator, then some metadata can be taken from an AnalyticsCreator repository.
+
+NOTE: If a synchronization is performed with the AnalyticsCreator, then all extended properties created externally are deleted, i.e. also the connection to the DHW repository database. Therefore, an +
+`Exec repo.usp_main;` +
+must be executed afterwards.
+
+== Import descriptions
+
+AnalyticsCreator can be used to create descriptions in the DWH database created by the AC. After connecting DataHandwerk to this database and an initial synchronization, the descriptions can be imported.
+
+[source,sql]
+----
+EXEC [property].[usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate]
+----
+
+== Import PK
+
+Primary keys are available in the CFG.COLUMNS table of the AnalyticsCreator repository database.
+
+[source,sql]
+----
+With
+ColList
+As
+    (
+    Select
+        CFG.SCHEMAS.Schema_Name
+      , t.Table_Name
+      , ColumnList = String_Agg ( c.Column_Name, ',' ) Within Group(Order By
+                                                                        c.PK_Ordinal_Position)
+    From
+        CFG.COLUMNS    As c
+        Inner Join
+            CFG.TABLES As t
+                On
+                c.TableID  = t.TableID
+
+        Inner Join
+            CFG.SCHEMAS
+                On
+                t.SchemaID = CFG.SCHEMAS.SchemaID
+    Where
+        ( Not ( c.PK_Ordinal_Position Is Null ))
+    Group By
+        CFG.SCHEMAS.Schema_Name
+      , t.Table_Name
+    )
+Select
+    Schema_Name
+  , Table_Name
+  , sql = Concat (
+                     'EXEC repo.usp_Index_virtual_set @RepoObject_fullname2 = '''
+                   , Schema_Name + '.' + ColList.Table_Name
+                   , ''' , @IndexPatternColumnName = '''
+                   , ColumnList
+                   , ''' , @is_index_primary_key = 1;'
+                 )
+From
+    ColList;
+----
+
+== Import Persistence Source
+
+Relations between persistence source and target are available in the CFG.COLUMNS table of the AnalyticsCreator repository database.
+
+[source,sql]
+----
+Select
+    s.Schema_Name
+  , t.Transformation_Name
+  , t.PersistTable_Name
+  , sql = Concat (
+                     'EXEC reference.usp_RepoObjectSource_virtual_set @RepoObject_fullname2 = '''
+                   , s.Schema_Name + '.' + t.PersistTable_Name
+                   , ''' , @Source_RepoObject_fullname2 = '''
+                   , s.Schema_Name + '.' + t.Transformation_Name
+                   , ''''
+                 )
+From
+    CFG.PERS_TABLE_REFERENCES As ptr
+    Inner Join
+        CFG.TRANSFORMATIONS   As t
+            On
+            ptr.TransformationID = t.TransformationID
+
+    Inner Join
+        CFG.SCHEMAS           As s
+            On
+            t.SchemaID           = s.SchemaID
+Order By
+    s.Schema_Name
+  , t.Transformation_Name;
+----

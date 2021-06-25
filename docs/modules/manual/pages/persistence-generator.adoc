@@ -59,7 +59,7 @@ Currently, it could be tricky to rename columns in persistence source and to pro
 
 [WARNING]
 --
-It can be very difficult to change the design of graph tables in SQL Server, especially when https://docs.microsoft.com/en-us/sql/relational-databases/tables/graph-edge-constraints?view=sql-server-ver15[Edge Constraints] are used. The code created by SSMS or by Visual Studio code is then unusable and does not work. I Azure Data Studio it is even worse.
+It can be very difficult to change the design of graph tables in SQL Server, especially when https://docs.microsoft.com/en-us/sql/relational-databases/tables/graph-edge-constraints?view=sql-server-ver15[Edge Constraints] are used. The code created by SSMS or by Visual Studio code is then unusable and does not work. And Azure Data Studio it is even worse.
 --
 
 // New source columns have been added for persistence source. Why are these columns not updated in 

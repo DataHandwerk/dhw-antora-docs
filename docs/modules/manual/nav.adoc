@@ -9,4 +9,5 @@
 * xref:manual:uspgenerator.adoc[]
 * xref:manual:persistence-generator.adoc[]
 * xref:manual:ssms-configuration.adoc[]
-* xref:manual:sql-server-bug-sys-views-references.adoc[]
+* xref:manual:analyticscreator.adoc[]
+* xref:manual:sql-server-issue-sys-views-references.adoc[]

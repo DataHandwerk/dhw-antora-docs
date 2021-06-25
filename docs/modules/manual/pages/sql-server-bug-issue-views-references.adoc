@@ -1,4 +1,4 @@
-= SQL Server bug in sys-views for references
+= SQL Server issue with sys-views for references
 
 == sys.dm_sql_referenced_entities - error in usp_id;Number;Parent_Number: 19;310;
 
@@ -7,8 +7,6 @@ Sometimes we get an error like:
 ____
 The dependencies reported for entity "*[repo].[ftv_RepoObject_ReferenceTree]*" might not include references to all columns.
 ____
-
-The reason is an SQL Server bug.
 
 In detail:
 
