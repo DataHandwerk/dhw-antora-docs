@@ -10,3 +10,5 @@ If SSMS is to be used, then some settings should be adjusted:
 
 image::image-ssms-setting-result-grid.png[]
 
+// tag::to-do[]
+// end::to-do[]

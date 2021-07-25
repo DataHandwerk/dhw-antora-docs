@@ -71,3 +71,6 @@ It can be very difficult to change the design of graph tables in SQL Server, esp
 
 // New columns have been added for a persistence target. And why they are not included into 
 // by the persistence?
+
+// tag::to-do[]
+// end::to-do[]

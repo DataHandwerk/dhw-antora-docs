@@ -61,9 +61,83 @@ From
     ColList;
 ----
 
+== Import Historization Source
+
+[source,sql]
+----
+Select
+    S.Schema_Name       As Target_Schema_Name
+  , T.Table_Name        As Target_Table_Name
+  , SourceS.Schema_Name As Source_Schema_Name
+  , SourceT.Table_Name  As Source_Table_Name
+  , sql                 = Concat (
+                                     'EXEC reference.usp_RepoObjectSource_virtual_set @RepoObject_fullname2 = '''
+                                   , S.Schema_Name + '.' + T.Table_Name
+                                   , ''' , @Source_RepoObject_fullname2 = '''
+                                   , SourceS.Schema_Name + '.' + SourceT.Table_Name
+                                   , ''''
+                                 )
+From
+    CFG.TABLES      As T
+    Inner Join
+        CFG.TABLES  As SourceT
+            On
+            T.HistOfTableID  = SourceT.TableID
+
+    Inner Join
+        CFG.SCHEMAS As S
+            On
+            T.SchemaID       = S.SchemaID
+
+    Inner Join
+        CFG.SCHEMAS As SourceS
+            On
+            SourceT.SchemaID = SourceS.SchemaID
+Order By
+    S.Schema_Name
+  , T.Table_Name;
+----
+
 == Import Persistence Source
 
-Relations between persistence source and target are available in the CFG.COLUMNS table of the AnalyticsCreator repository database.
+[source,sql]
+----
+Select
+    S.Schema_Name       As Target_Schema_Name
+  , T.Table_Name        As Target_Table_Name
+  , SourceS.Schema_Name As Source_Schema_Name
+  , SourceT.Table_Name  As Source_Table_Name
+  , sql                 = Concat (
+                                     'EXEC reference.usp_RepoObjectSource_virtual_set @RepoObject_fullname2 = '''
+                                   , S.Schema_Name + '.' + T.Table_Name
+                                   , ''' , @Source_RepoObject_fullname2 = '''
+                                   , SourceS.Schema_Name + '.' + SourceT.Table_Name
+                                   , ''''
+                                 )
+From
+    CFG.TABLES      As T
+    Inner Join
+        CFG.TABLES  As SourceT
+            On
+            T.PersistOfTableID  = SourceT.TableID
+
+    Inner Join
+        CFG.SCHEMAS As S
+            On
+            T.SchemaID       = S.SchemaID
+
+    Inner Join
+        CFG.SCHEMAS As SourceS
+            On
+            SourceT.SchemaID = SourceS.SchemaID
+Order By
+    S.Schema_Name
+  , T.Table_Name;
+----
+
+////
+Relations between persistence source and target are available in the `CFG.PERS_TABLE_REFERENCES` or `CFG.TRANSFORMATIONS` table of the AnalyticsCreator repository database. +
+Alternatively, they could be extracted from CFG.TABLES.PersistOfTableID.
 
 [source,sql]
 ----
@@ -93,3 +167,10 @@ Order By
     s.Schema_Name
   , t.Transformation_Name;
 ----
+////
+
+// tag::to-do[]
+* [ ] Import from AnalyticsCreator Repository
+** [ ] column references for historizations
+** [ ] column references for persistence
+// end::to-do[]

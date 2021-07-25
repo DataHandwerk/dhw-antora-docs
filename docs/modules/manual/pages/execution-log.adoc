@@ -221,3 +221,6 @@ rnote right:0
 == use logging in your own dwh database
 
 To use logging in your own dwh database, the `logs` schema and its objects must be created there. This is especially useful if the xref:manual:uspgenerator.adoc[] is also to be used to populate the log.
+
+// tag::to-do[]
+// end::to-do[]

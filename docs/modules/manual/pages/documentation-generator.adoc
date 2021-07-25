@@ -6,6 +6,7 @@
 * setup Antora (one time task)
 * setup sqldb-docs repository (one time per project task)
 * setup Antora Playbook project (one time per project task)
+* setup _optional_ additional docs repositories containing additional documentation (one time per project task)
 * recurring steps
 ** Export files for Antora
 +
@@ -56,6 +57,8 @@ ____
 
 We recommend using at least two git repositories, one for the documentation content, another for the playbooks and the final generated documentation.
 
+It is a good idea to use additional docs repositories for additional manually created documentation.
+
 === setup sqldb-docs repository
 
 Antora can collect the content from different repositories. So, if you want to combine the database documentation with other content, you can also distribute this content to different repositories. For example, the DataHandwerk documentation combines architecture, manual, and database documentation in a common and interlinked documentation. And we use two source repositories:
@@ -81,6 +84,7 @@ xcopy C:\SourceFolder D:\TargetFolder /t /e
 xcopy D:\Repos\GitHub\DataHandwerk\sqldb-docs D:\Repos\aaa\bbb\MyDataBase_sqldb /t /e
 ----
 +
+////
 in the following steps replace "D:\Repos\GitHub\DataHandwerk\sqldb-docs" by your own folder and repository name
 +
 ** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\attachments (optional)
@@ -99,7 +103,9 @@ in the following steps replace "D:\Repos\GitHub\DataHandwerk\sqldb-docs" by your
 **** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\partials\puml\entity_1_1_fk
 **** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\partials\puml\entity_1_1_objectref
 **** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\partials\puml\entity_30_0_objectref
-* create the Antora navigation file:
+////
+* create the Antora navigation file +
+You can copy an existing file (and adapt if required)
 ** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\nav.adoc
 ** file content (Remove the `/` at the beginning of the line before the `include`.)
 +
@@ -121,27 +127,11 @@ Where
     And sub_Parameter = '';
 ----
 ====
-* your source repositories should contain a file `antora.yml` in the same folder, where the folder `modules` is located. Read about `antora.yml` in https://docs.antora.org/antora/2.3/component-version-descriptor/ +
-Our main `antora.yml` is located in `D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs` and has this content
+* your source repositories should contain a file `antora.yml` in the same folder, where the folder `modules` is located. Read about `antora.yml` in https://docs.antora.org/antora/2.3/component-version-descriptor/
 +
-====
-[source,yaml]
-....
-name: dhw <1>
-title: DataHandwerk
-version: 0.1.0
-nav: <2>
-- modules/ROOT/nav.adoc
-- modules/arc/nav.adoc
-- modules/sqldb/nav.adoc <3>
-- modules/manual/nav.adoc
-....
-<1> this project name is used in the playbooks
-<2> 4 navigation files for 4 modules are included
-<3> include the navigation file for `sqldb` module in the main `antora.yml`
-====
+In DataHandwerk We use two (2) docs source repositories, and we need the `antora.yml` in each source repository. The `title` should be contained only in the main `antora.yml`.
 +
-We have two (2) source repositories, and we need the `antora.yml` in each source repository. The `title` should be contained only in the main `antora.yml`.
+The DataHandwerk content of `"D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\antora.yml"` is
 +
 ====
 [source,yaml]
@@ -158,6 +148,36 @@ version: 0.1.0 <3>
 <4> don't include the `sqldb` navigation file here, but use the main `antora.yml` to define the whole navigation in one place!
 ====
 
+=== setup additional docs source repository
+
+DataHandwerk `sqldb-docs` contains only automatically generated documentation. Additional manual documentation is located in an additional repository `DataHandwerk-docs`
+
+you can use xcopy to get a folder structure to start your own documentation: +
+[source]
+----
+xcopy D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs D:\Repos\aaa\bbb\MyDataBase-docs /t /e
+----
+
+DataHandwerk main `antora.yml` is located in `D:\Repos\GitHub\DataHandwerk\DataHandwerk-docs\docs` and has this content
+
+====
+[source,yaml]
+....
+name: dhw <1>
+title: DataHandwerk
+version: 0.1.0
+nav: <2>
+- modules/ROOT/nav.adoc
+- modules/arc/nav.adoc
+- modules/sqldb/nav.adoc <3>
+- modules/manual/nav.adoc
+....
+<1> this project name is used in the playbooks
+<2> 4 navigation files for 4 modules are included
+<3> include the navigation file for `sqldb` module in the main `antora.yml`
+====
+
+You could copy this file and modify.
 
 === setup Antora Playbook project
 
@@ -170,6 +190,22 @@ ____
 ____
 A playbook is usually located in a playbook project. A playbook project repository is responsible for generating a documentation site. It’s strictly a _configuration as code_ repository—​it does not contain any content. Instead, it contains a playbook file, and, in certain situations, supplemental UI files and extension code.
 ____
+
+Create a new project folder, for example
+`D:\Repos\aaa\bbb\MyProject-site`
+
+Copy some files and folders from the DataHandwerk project and adapt them:
+
+* `supplemental-ui` (Folder)
+* local-playbook.bat
+* local-playbook.ps1
+* local-playbook.yml
+* playbook.bat
+* playbook.ps1
+* playbook.yml
+* local-playbook-validate.ps1
+* .gitignore
+
 
 DataHandwerk documentation uses the following Playbook project: https://github.com/DataHandwerk/datahandwerk.github.io +
 It is also the output for the generated documentation.
@@ -292,8 +328,39 @@ include::sqldb:partial$docs.usp_AntoraExport.adoc[tag=exampleusage]
 
 == generate the static site
 
+NOTE: The parameter 'dwh_readonly' is 0 by default. +
+No guid will be written as extended properties into the connected DWH database. This parameter should and can remain 0 if a database should only be documented but not modified.
+
+IMPORTANT: Antora uses git repositories as sources. You must put the source repositories under Git version control, there must be at least one commit.
+
 IMPORTANT: Antora Export will not delete any content. After Antora Export and before creating the site you should check the `D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\pages` for outdated files and delete them to avoid them to be generated. Just sort the folder by file creation date. +
 You can also clean up the partials. This is not so important, because these files are only used when they are included into the pages.
+
+export the automated documentation
+[source,sql]
+----
+--initial setup
+Exec repo.usp_main;
+
+--use the sqlparser
+--...
+--after using the sqlparser persist the results
+
+Exec sqlparse.usp_PERSIST_RepoObject_SqlModules_41_from_T;
+Exec sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T;
+
+--process the sqlparser results
+Exec repo.usp_main;
+
+--import extended properties from source database into repository
+Exec [property].[usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate]
+
+--export files for automated documentation
+Exec docs.usp_AntoraExport
+
+----
+
+
 
 In the Antora Playbook project call Antora to build the local or the final site.
 
@@ -333,3 +400,6 @@ https://plantuml.com/server
 
 https://sourceforge.net/projects/plantuml/ +
 here you can download a plantuml.war file to be used in a local webserver lice tomcat.
+
+// tag::to-do[]
+// end::to-do[]

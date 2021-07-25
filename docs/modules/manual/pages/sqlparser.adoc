@@ -99,3 +99,6 @@ this will create one-folder-executable in `.\dist\SqlParser`
 It is also possible to create a onefile-executable, but the "Bundling to One Folder" has some advantages (read the usage documentation for pyinstaller)
 
 `pyinstaller --onefile --windowed SqlParser.py`
+
+// tag::to-do[]
+// end::to-do[]

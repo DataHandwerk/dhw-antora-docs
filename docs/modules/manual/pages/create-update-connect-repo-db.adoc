@@ -33,8 +33,9 @@ include::sqldb:partial$repo.usp_main.adoc[tag=exampleusage]
 * optional: import extended_properties from dwh database into repository properties
 ** xref:sqldb:property.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate.adoc[]
 
-IMPORTANT: using *publish* or *dacpac* deployment to update the repo database will reset synonyms. +
-reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing xref:sqldb:config.usp_connect_database.adoc[]
+//IMPORTANT: using *publish* or *dacpac* deployment to update the repo database will reset synonyms. +
+//reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing xref:sqldb:config.usp_connect_database.adoc[]
+
 // --
 
 == Architecture background
@@ -105,24 +106,24 @@ Your folder could be another
 *** image:create-update-connect-repo-db-sc-01.png[]
 *** image:create-update-connect-repo-db-sc-02.png[]
 
-WARNING: using *publish* or *dacpac* deployment to update the repo database will reset synonyms. +
-reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing xref:sqldb:config.usp_connect_database.adoc[]
+//WARNING: using *publish* or *dacpac* deployment to update the repo database will reset synonyms. +
+//reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing xref:sqldb:config.usp_connect_database.adoc[]
 
-=== post deployment
-
-After the database is created, some tables need to be populated with data. For this purpose, a post deployment script is included in the project.
-
-This is a one-time process that usually does not need to be repeated later.
-
-The post deployment script will be executed, if you use publish or build, but it is not executed, when using schema compare. You can also just copy the code from here and execute it. +
-Or you can skip the execution at all, because and as long as the content of this script is also called in the procedure xref:sqldb:config.usp_connect_database.adoc[].
-
-
-.postdeployment script
-[source,sql]
-----
-include::sqldb:example$/db_DataHandwerk/Script.PostDeployment1.sql[]
-----
+//=== post deployment
+//
+//After the database is created, some tables need to be populated with data. For this purpose, a post deployment script is included in the project.
+//
+//This is a one-time process that usually does not need to be repeated later.
+//
+//The post deployment script will be executed, if you use publish or build, but it is not executed, when using schema compare. You can also just copy the code from here and execute it. +
+//Or you can skip the execution at all, because and as long as the content of this script is also called in the procedure xref:sqldb:config.usp_connect_database.adoc[].
+//
+//
+//.postdeployment script
+//[source,sql]
+//----
+//include::sqldb:example$/db_DataHandwerk/Script.PostDeployment1.sql[]
+//----
 
 == connect repository database to dwh database, using synonyms
 
@@ -164,4 +165,15 @@ See details: xref:sqldb:repo.usp_main.adoc[]
 
 == optional: import extended_properties from dwh database into repository properties
 
-xref:sqldb:property.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate.adoc[]
+.synchronize repository with dwh database extended properties
+====
+[source,sql]
+----
+include::sqldb:partial$property.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate.adoc[tag=exampleusage]
+----
+====
+
+See details: xref:sqldb:property.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate.adoc[]
+
+// tag::to-do[]
+// end::to-do[]

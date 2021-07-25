@@ -78,3 +78,6 @@ Begin
 These properties will be imported (collected) into xref:sqldb:property.RepoObjectProperty.adoc[] by the procedure xref:sqldb:property.usp_RepoObjectProperty_collect.adoc[] which is also called by xref:sqldb:docs.usp_AntoraExport.adoc[] to ensure that your generated database documentation contains all defined properties.
 
 Properties are used and changed by xref:properties-inheritance.adoc[].
+
+// tag::to-do[]
+// end::to-do[]
