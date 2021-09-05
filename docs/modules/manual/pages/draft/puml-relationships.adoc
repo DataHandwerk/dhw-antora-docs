@@ -1,0 +1,111 @@
+= PUML Relationships
+
+== Possibilities of representation
+
+[plantuml]
+----
+@startuml
+title Bracketed line style without label
+class foo
+class bar
+bar1 : [bold]
+bar2 : [dashed]
+bar3 : [dotted]
+bar4 : [hidden]
+bar5 : [plain] 
+
+foo --> bar
+foo -[bold]-> bar1
+foo -[dashed]-> bar2
+foo -[dotted]-> bar3
+foo -[hidden]-> bar4
+foo -[plain]-> bar5
+@enduml
+----
+
+// [plantuml]
+// ----
+// @startuml
+// Entity01 }|..|| Entity02
+// Entity03 }o..o| Entity04
+// Entity05 ||--o{ Entity06
+// Entity07 |o--|| Entity08
+// Entity11 }|-[dotted]-|| Entity12
+// Entity21 }|-[dashed]-|| Entity22
+// Entity31 }|-[plain]-|| Entity32
+// Entity41 }|-[bold]-|| Entity42
+// @enduml
+// ----
+
+=== Information Engineering Relations
+
+// [cols="1,l"]
+|===
+| Type | Symbol
+
+| Zero or One
+| `+\|o--+`
+
+| Exactly One
+| `+\|\|--+`
+
+| Zero or Many
+| `+}o--+`
+
+| One or Many
+| `+}\|--+`
+
+|===
+
+Examples:
+
+[plantuml]
+----
+@startuml
+Entity01 }|..|| Entity02
+Entity03 }o..o| Entity04
+Entity05 ||--o{ Entity06
+Entity07 |o--|| Entity08
+@enduml
+----
+
+[plantuml]
+----
+@startuml
+Entity11 }|-[dotted]-|| Entity12
+Entity21 }|-[dashed]-|| Entity22
+Entity31 }|-[plain]-|| Entity32
+Entity41 }|-[bold]-|| Entity42
+@enduml
+----
+
+== necessary representation of SSAS Relationships
+
+* isActive
+** 0 +
+=> dotted, dashed
+** 1 +
+=> plain, bold
+* CrossFilteringBehavior
++
+--
+* 2 - two side +
+bold, dashed
+* 1 - one side +
+plain, dotted
+--
++
+--
+[plantuml]
+----
+@startuml
+Entity31 }|-[plain]-|| Entity32
+Entity41 }|-[bold]-|| Entity42
+Entity61 }|-[dotted]-|| Entity62
+Entity51 }|-[dashed]-|| Entity52
+@enduml
+----
+--
+* Type
+** 1
+
