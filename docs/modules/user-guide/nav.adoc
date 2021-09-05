@@ -11,4 +11,4 @@
 * xref:manual:persistence-generator.adoc[]
 * xref:manual:ssms-configuration.adoc[]
 * xref:manual:analyticscreator.adoc[]
-* xref:manual:sql-server-issue-sys-views-references.adoc[]
+//* xref:manual:sql-server-issue-sys-views-references.adoc[]

@@ -4,7 +4,7 @@
 == Abstract
 
 * setup Antora (one time task)
-* setup sqldb-docs repository (one time per project task)
+* setup sqldb-docs repository (one time per database task)
 * setup Antora Playbook project (one time per project task)
 * setup _optional_ additional docs repositories containing additional documentation (one time per project task)
 * recurring steps
@@ -59,7 +59,7 @@ We recommend using at least two git repositories, one for the documentation cont
 
 It is a good idea to use additional docs repositories for additional manually created documentation.
 
-=== setup sqldb-docs repository
+=== setup sqldb-docs repositories
 
 Antora can collect the content from different repositories. So, if you want to combine the database documentation with other content, you can also distribute this content to different repositories. For example, the DataHandwerk documentation combines architecture, manual, and database documentation in a common and interlinked documentation. And we use two source repositories:
 
@@ -68,9 +68,10 @@ Antora can collect the content from different repositories. So, if you want to c
 
 steps
 
-* create a new git repository, in our case this is https://github.com/DataHandwerk/sqldb-docs
-** you can also create and use local repositories
-* at least one commit is required to enable Antora to use the repository
+* create a new git repositories per database, in our case this is https://github.com/DataHandwerk/sqldb-docs
+** you can create and use local repositories
+** if you want to combine the documentation for several databases in one documentation project, and you want to link between them, then you should use different Settings in the Parameter "AntoraModulName" for each database (for example "sqldbedw", "sqldbdm") and related different repositories like "MyProject-sqldbedw-docs" and "MyProject-sqldbdm-docs"
+* *at least one commit is required to enable Antora to use any repository*
 * create required folder structure +
 On Windows you can use `xcopy` to copy an existing folder structure without files
 +
@@ -104,6 +105,7 @@ in the following steps replace "D:\Repos\GitHub\DataHandwerk\sqldb-docs" by your
 **** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\partials\puml\entity_1_1_objectref
 **** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\partials\puml\entity_30_0_objectref
 ////
+* if you don't use the default AntoraFolderName "sqldb" then rename the folder to your AntoraFolderName
 * create the Antora navigation file +
 You can copy an existing file (and adapt if required)
 ** D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\nav.adoc
@@ -117,13 +119,13 @@ You can copy an existing file (and adapt if required)
 ====
 [source,sql]
 ----
---keep the "\" at the end of the Parameter_value!
+--avoid "\" at the end of the Parameter_value!
 Update
     [config].[Parameter]
 Set
-    [Parameter_value] = 'D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules\sqldb\'
+    [Parameter_value] = 'D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\modules'
 Where
-    [Parameter_name]  = 'Adoc_AntoraDocModulFolder'
+    [Parameter_name]  = 'AntoraModulFolder'
     And sub_Parameter = '';
 ----
 ====
@@ -136,8 +138,8 @@ The DataHandwerk content of `"D:\Repos\GitHub\DataHandwerk\sqldb-docs\docs\antor
 ====
 [source,yaml]
 ....
-name: dhw <1>
-# title: DataHandwerk <2>
+name: myproject <1>
+# title: My Project <2>
 version: 0.1.0 <3>
 # nav:
 # - modules/sqldb/nav.adoc <4>
@@ -163,8 +165,8 @@ DataHandwerk main `antora.yml` is located in `D:\Repos\GitHub\DataHandwerk\DataH
 ====
 [source,yaml]
 ....
-name: dhw <1>
-title: DataHandwerk
+name: myproject <1>
+title: My Project
 version: 0.1.0
 nav: <2>
 - modules/ROOT/nav.adoc
@@ -178,6 +180,10 @@ nav: <2>
 ====
 
 You could copy this file and modify.
+
+==== add index.adoc to be used as starting point
+
+It is useful to create a file `index.adoc` and define this file as the entry point of a documentation project. Place this file in `pages` of the `ROOT` module of the docs repository. Of course, you can also define a different entry point.
 
 === setup Antora Playbook project
 
@@ -210,7 +216,7 @@ Copy some files and folders from the DataHandwerk project and adapt them:
 DataHandwerk documentation uses the following Playbook project: https://github.com/DataHandwerk/datahandwerk.github.io +
 It is also the output for the generated documentation.
 
-Some content explained:
+==== Some content explained
 
 * two (2) playbooks are included, one to create local output, one to create the final site.
 ** They are different in the output folder.
@@ -278,8 +284,22 @@ build
 ....
 ====
 <1> exclude the site generated from the local-target playbook from source control
-* D:\Repos\GitHub\DataHandwerk\datahandwerk.github.io\supplemental-ui\partials\header-content.hbs +
-contains the customer menu and customer search. It overwrites the default in antora-ui-default
+* D:\Repos\GitHub\DataHandwerk\datahandwerk.github.io\supplemental-ui
++
+--
+Before creating a completely custom Antora UI, you can use the default UI within certain limits and overwrite some components.
+
+To do this, you can look at the https://gitlab.com/antora/antora-ui-default[repository of the Antora Default UI] and try to understand its elements to overwrite individual files. The structure used is located in the `src` folder.
+
+* `\partials\header-content.hbs` +
+this file should be customized to adapt menu structure in the header
+* `\partials\head-styles.hbs` +
+one line is added to use `\css\custom.css` to overwrite some css styles
+* `\css\custom.css` +
+some changes to enlarge the wight of navigation bar, TOC section and maximum content with. +
+The font size of the navigation bar was decreased to avoid too much line breaks for long object names.
+--
++
 * some scripts to simplify the call of Antora (optional)
 ** local-playbook.ps1
 +
