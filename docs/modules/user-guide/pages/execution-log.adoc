@@ -4,7 +4,7 @@ In many projects it has proven useful to have detailed logs for the execution of
 
 The table appears somewhat bloated at first glance with its many columns. The additional formal and optional information enables better evaluations. For example, activity diagrams can be created.
 
-xref:manual:uspgenerator.adoc[] can be used to create procedures that can log the execution of the procedure, and the procedure steps in the log.
+xref:user-guide:uspgenerator.adoc[] can be used to create procedures that can log the execution of the procedure, and the procedure steps in the log.
 
 There are no updates in the xref:sqldb:logs.ExecutionLog.adoc[] table, only inserts.
 
@@ -220,7 +220,7 @@ rnote right:0
 
 == use logging in your own dwh database
 
-To use logging in your own dwh database, the `logs` schema and its objects must be created there. This is especially useful if the xref:manual:uspgenerator.adoc[] is also to be used to populate the log.
+To use logging in your own dwh database, the `logs` schema and its objects must be created there. This is especially useful if the xref:user-guide:uspgenerator.adoc[] is also to be used to populate the log.
 
 // tag::to-do[]
 // end::to-do[]

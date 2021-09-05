@@ -1,8 +1,8 @@
 = SqlParse to detect column references
 
-include::manual:page$sqlparser.adoc[tag=shortdescription]
+include::user-guide:page$sqlparser.adoc[tag=shortdescription]
 
-see more details (and how to run): xref:manual:sqlparser.adoc[]
+see more details (and how to run): xref:user-guide:sqlparser.adoc[]
 
 After parsing, the results are available in xref:sqldb:sqlparse.RepoObject_SqlModules.adoc[]
 
@@ -12,8 +12,7 @@ It's a good idea to also execute `repo.usp_main` to use the parsed content.
 
 [source,sql]
 ----
-Exec sqlparse.usp_PERSIST_RepoObject_SqlModules_41_from_T;
-Exec sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T;
+EXEC [sqlparse].[usp_sqlparse]
 
 Exec repo.usp_main;
 ----
@@ -22,7 +21,7 @@ Finally, column references are available in xref:sqldb:reference.RepoObjectColum
 
 They will be combined with other column reference sources in xref:sqldb:reference.RepoObjectColumn_reference_union.adoc[].
 
-xref:manual:properties-inheritance.adoc[] and xref:manual:documentation-generator.adoc[] are also based on column references.
+xref:user-guide:properties-inheritance.adoc[] and xref:user-guide:documentation-generator.adoc[] are also based on column references.
 
 // tag::to-do[]
 // end::to-do[]

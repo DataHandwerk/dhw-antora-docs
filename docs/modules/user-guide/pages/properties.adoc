@@ -19,7 +19,7 @@ The properties listed above are the only ones that are mandatorily synchronized.
 
 In SQL Server, extended properties have no creation or modification date. Therefore, it is not possible to determine if and when there were changes. For synchronization of mandatory properties there is a complicated process to allow changes in both repository and dwh in parallel and merge them. With "normal" properties this effort is not made. The database developer must decide for himself if and when he wants to synchronize the optional properties and in which direction.
 
-It is highly recommended to transfer existing properties from the dwh to the repository after "xref:manual:create-update-connect-repo-db.adoc[]". For this purpose there is the procedure:
+It is highly recommended to transfer existing properties from the dwh to the repository after "xref:user-guide:create-update-connect-repo-db.adoc[]". For this purpose there is the procedure:
 
 * xref:sqldb:property.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate.adoc[]
 
@@ -56,7 +56,7 @@ You can use comments in these objects to define properties
 /*
 <<property_start>>MS_Description <1>
 * connect repo datatabase to dwh database using synonyms executing <2>
-* see details in xref:manual:create-update-connect-repo-db.adoc[]
+* see details in xref:user-guide:create-update-connect-repo-db.adoc[]
 <<property_end>> <3>
 
 <<property_start>>exampleUsage <1>

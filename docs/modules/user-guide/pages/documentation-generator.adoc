@@ -113,7 +113,7 @@ You can copy an existing file (and adapt if required)
 +
 ....
 /include::partial$navlist/nav-by-schema.adoc[]
-* xref:index/IndexSemanticGroup.adoc[]
+* xref:other/IndexSemanticGroup.adoc[]
 ....
 * update the parameter 'Adoc_AntoraDocModulFolder'
 ====

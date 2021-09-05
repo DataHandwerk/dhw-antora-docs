@@ -5,4 +5,4 @@ nav:
 - modules/ROOT/nav.adoc
 - modules/arc/nav.adoc
 - modules/sqldb/nav.adoc
-- modules/manual/nav.adoc
+- modules/user-guide/nav.adoc

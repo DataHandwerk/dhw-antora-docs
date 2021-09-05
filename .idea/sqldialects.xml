@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/docs/modules/manual/pages/create-update-connect-repo-db.adoc" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/docs/modules/user-guide/pages/create-update-connect-repo-db.adoc" dialect="GenericSQL" />
   </component>
 </project>

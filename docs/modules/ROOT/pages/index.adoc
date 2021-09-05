@@ -22,22 +22,22 @@ include::arc:partial$01_introduction_and_goals.adoc[leveloffset=-0,tag=alternati
 include::arc:partial$c4_dsl/puml/structurizr-DWHBDevelopment-RepositorydbProjectB-Component.puml[]
 ....
 
-== Manual (partially)
+== User Guide (partially)
 
 // == Learn first steps
 
-* xref:manual:create-update-connect-repo-db.adoc[]
-* xref:manual:sqlparse-to-get-col-references.adoc[]
-** xref:manual:sqlparser.adoc[]
-* xref:manual:properties.adoc[]
-* xref:manual:properties-inheritance.adoc[]
-* xref:manual:documentation-generator.adoc[]
-* xref:manual:persistence-generator.adoc[]
-// * xref:manual:sql-server-bug-issue-views-references.adoc[]
+* xref:user-guide:create-update-connect-repo-db.adoc[]
+* xref:user-guide:sqlparse-to-get-col-references.adoc[]
+** xref:user-guide:sqlparser.adoc[]
+* xref:user-guide:properties.adoc[]
+* xref:user-guide:properties-inheritance.adoc[]
+* xref:user-guide:documentation-generator.adoc[]
+* xref:user-guide:persistence-generator.adoc[]
+// * xref:user-guide:sql-server-issue-views-references.adoc[]
 
 == Database documentation
 
-The *database documentation* was created with the xref:manual:documentation-generator.adoc[]: xref:sqldb:docs.usp_AntoraExport.adoc[] +
+The *database documentation* was created with the xref:user-guide:documentation-generator.adoc[]: xref:sqldb:docs.usp_AntoraExport.adoc[] +
 The documentation also contains
 
 * real and *virtual* PK (only for tables and views)

@@ -2,7 +2,7 @@
 
 Object references and column references are used to inherit xref:properties.adoc[] along these references.
 
-The type of property inheritance is determined by the xref:sqldb:config.InheritanceType.adoc#column-InheritanceType[config.InheritanceType.InheritanceType]:
+The type of property inheritance is determined by the xref:sqldb:configT.InheritanceType.adoc#column-InheritanceType[config.InheritanceType.InheritanceType]:
 
 .InheritanceType
 [cols="1,10"]

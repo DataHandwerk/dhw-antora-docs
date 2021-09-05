@@ -27,9 +27,9 @@ MSSQL based tools for data craftsmen. - Individual customization instead of asse
 Handwerk = craft +
 Handwerker = craftsmen
 
-// Als Handwerk werden zahlreiche gewerbliche Tätigkeiten bezeichnet, die Produkte meist auf Bestellung fertigen oder Dienstleistungen auf Nachfrage erbringen. Die handwerkliche Tätigkeit steht der industriellen Massenproduktion gegenüber.
-
 Craft is the term used to describe numerous commercial activities that manufacture products mostly to order or provide services on demand. Craft activities are contrasted with industrial mass production.
+
+Als Handwerk werden zahlreiche gewerbliche Tätigkeiten bezeichnet, die Produkte meist auf Bestellung fertigen oder Dienstleistungen auf Nachfrage erbringen. Die handwerkliche Tätigkeit steht der industriellen Massenproduktion gegenüber.
 ====
 
 // Die wichtigsten Stakeholder des Projekts sind DWH-Entwickler, die ihre Arbeit als *Handwerk* verstehen.

@@ -4,7 +4,7 @@ IMPORTANT: The procedure xref:sqldb:repo.usp_persistence_set.adoc[] is not calle
 
 IMPORTANT: Before you execute the procedure xref:sqldb:repo.usp_persistence_set.adoc[], check, if the persistence source should have a real or virtual PK. Some persistence actions are not available, if no PK is defined in the source. Execute xref:sqldb:repo.usp_Index_virtual_set.adoc[] to define virtual PK, whenever this is possible.
 
-TIP: If SSMS is used to retrieve the generated code, then the xref:manual:ssms-configuration.adoc[] should be checked and adjusted.
+TIP: If SSMS is used to retrieve the generated code, then the xref:user-guide:ssms-configuration.adoc[] should be checked and adjusted.
 
 == Persistence definition
 
@@ -35,7 +35,7 @@ DataHandwerk provides the code for a persistence stored procedure for each manag
 * the columns of the persistence source
 * settings in xref:sqldb:repo.RepoObject_persistence.adoc[]
 
-The xref:manual:persistence-generator.adoc[] is used to create the persistence procedure code. Depending on changed settings in xref:sqldb:repo.RepoObject_persistence.adoc[] the generated code will change. After changing settings it is required to execute xref:sqldb:repo.usp_main.adoc[]
+The xref:user-guide:persistence-generator.adoc[] is used to create the persistence procedure code. Depending on changed settings in xref:sqldb:repo.RepoObject_persistence.adoc[] the generated code will change. After changing settings it is required to execute xref:sqldb:repo.usp_main.adoc[]
 
 The final code of the procedure is available in xref:sqldb:uspgenerator.GeneratorUsp_SqlUsp.adoc#column-SqlUsp[uspgenerator.GeneratorUsp_SqlUsp.SqlUsp]
 

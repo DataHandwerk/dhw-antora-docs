@@ -1,6 +1,6 @@
 = usp generator
 
-A generator for the formalized definition of usp (user defined procedures) which use xref:manual:execution-log.adoc[].
+A generator for the formalized definition of usp (user defined procedures) which use xref:user-guide:execution-log.adoc[].
 
 If logging is to be used, then the code for logging is repeated several times. This can be simplified by separating the user code from the logging code. Logging can be switched on and off per procedure and per step.
 
@@ -10,11 +10,11 @@ usp generator procedures are defined in 3 tables:
 * xref:sqldb:uspgenerator.GeneratorUspParameter.adoc[]
 * xref:sqldb:uspgenerator.GeneratorUspStep.adoc[]
 
-A special case of the procedures created by the usp generator are the procedures for xref:manual:persistence-generator.adoc[]. These procedures are defined by the persistence settings in xref:sqldb:repo.RepoObject_persistence.adoc[].
+A special case of the procedures created by the usp generator are the procedures for xref:user-guide:persistence-generator.adoc[]. These procedures are defined by the persistence settings in xref:sqldb:repo.RepoObject_persistence.adoc[].
 
 The final code of the generated procedures is available in xref:sqldb:uspgenerator.GeneratorUsp_SqlUsp.adoc#column-SqlUsp[uspgenerator.GeneratorUsp_SqlUsp.SqlUsp]
 
-TIP: If SSMS is used to retrieve the generated code, then the xref:manual:ssms-configuration.adoc[] should be checked and adjusted.
+TIP: If SSMS is used to retrieve the generated code, then the xref:user-guide:ssms-configuration.adoc[] should be checked and adjusted.
 
 == Challenges when using the usp generator
 
