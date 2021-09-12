@@ -45,6 +45,246 @@ local-playbook.bat
 playbook.bat
 ....
 
+== Why Datahandwerk Documentation Generator?
+
+=== Unique selling propositions and requirements
+
+* It's *free and open source*
+** It can be used anywhere where it is allowed and possible to install Antora
+* *Combination of business and technical documentation*
+** It should be possible to combine business and technical content in one (or more) holistic documentation(s).
+** There should be *links* between the documentation of technical database objects and domain-oriented articles.
+* *Common data source* for optionally different documentation.
+** It's possible to create different documentations for different purposes: a user potentially has different interests than a auditor or a database developer.
+** There should be common data sources for the documentations so that changes in the documentation sources have the same effect wherever they are used. A measure, KPI, column, or concept should be documented in one place.
+* Documentation under *version control*
+** The secondary data sources of the documentation(s) created from different primary sources and combined should also be under version control. From this, different documentation can be created in different versions and from different components.
+* Easy *switching between different versions of the documentation*
+** While some users are only interested in the documentation of the current version, for other users it may be important to have several versions documented together and to be able to switch between the versions.
+* Use of *plain text formats (markup languages)*
+** For optimal version control of the content, it makes sense to use plain-text formats for the sources of the documentation, such as Markdown or Asciidoc.
+* portable documentation
+** If documentation is created as a *static website* with relative links, then it will work in any location on a filesystem as well as on a web server.
+* *Docs as Code*
++
+--
+What does "Docs as Code" mean?
+
+Create and manage documentation like code:
+
+* under *version control*
+* with tests
+* and a build system for build and deployment.
+
+One key is to use a _plain text format_ for documentation. Here are some links to websites that describe the concept in a bit more detail.
+
+* https://www.writethedocs.org/guide/docs-as-code/[Docs as Code]
+* https://docs-as-co.de/[Documentation As Code]
+* https://www.informatik-aktuell.de/entwicklung/methoden/docs-as-code-die-grundlagen.html[Docs-as-Code -- Die Grundlagen]
+--
+
+=== special requirements for technical database documentation
+
+* Use of *extended properties*
+* *Virtual indexes, PK and FK*
++
+--
+In SQL Server, only real indexes, PK and FK can be stored, and only to tables.
+
+On the other hand there are important virtual relations between objects, which should be defined and documented
+
+** virtual PK of views (or also tables)
+** virtual foreign key relationships
+** virtual indexes, for example the combination of different columns with the same functional meaning. These indexes of the same meaning can be assigned to the same "index semantics group" to map a domain-oriented relationship.
+--
+* *virtual references*
++
+--
+Information about referenced and referencing objects can be taken from the metadata of databases.
+
+With columns this looks rather bad and is only possible under certain conditions.
+
+In an associated repository you can store virtual references:
+
+* References between tables whose data flow results from procedures. +
+The SQL Server only shows that the procedure depends on tables. However, it does not know from where to where data flows.
+* virtual references between columns of different objects can be
+** by analyzing the code of views with a sqlparser
+** add them manually or by code
+--
+* *Data-Lineage*
++
+--
+The documentation should contain https://de.wikipedia.org/wiki/Data-Lineage[Data-Lineage] on object level and on column level. For this purpose, the information that can be taken directly from the SQL Server (referenced and referencing objects) is to be used.
+
+Especially important and valuable is the use of additional virtual column references.
+--
+* *Inheritance of properties along a data lineage*
++
+--
+It should be possible to define functional descriptions of tables and columns at exactly one point and to inherit these descriptions along the column data lineage. One must be able to force this inheritance on the one hand, one must be able to cancel it also consciously, if at a certain place the description is to be changed.
+
+It is possible to store descriptions for objects or columns already in the "Source" (or to import them from their source), which are inherited up to the "Datamart". They are also taken over from there into the subsequent SSAS model.
+--
+* Take over code of calculated columns into description
++
+--
+For calculated columns it should be possible to take over the code of the calculation as description. If possible, the code could contain descriptions in comments.
+
+Unfortunately, this is not possible in calculated columns of tables, because SQL Server reformats calculated columns when saving them.
+--
+* Extracting documentation from comments of views and procedures
++
+--
+All SQL servers, which can be created by code, allow the use of comments. It should be possible to extract specially marked areas from comments and use them in the documentation. This can be descriptions, application examples, etc.
+
+Here an example, how in the code of a procedure in the comment different additional information is deposited and extracted as description and examples:
+
+xref:dhw:sqldb:repo.usp_persistence_set.adoc[]
+--
+
+=== Alternatives for technical documentation of databases
+
+https://dbmstools.com/categories/database-documentation-tools/sqlserver[database-documentation-tools/sqlserver]
+
+If it is "only" about a technical documentation of databases, then you can find very good and usable tools here. However, these tools *are not suitable for a combined business and technical documentation*. Nevertheless, I have practiced this for many years, trying to place all technical descriptions somehow in the database (for example in extended properties), so that there is _one_ source for the documentation. You can get quite far with this, especially
+
+* if you find a mechanism to inherit descriptions along dependencies
+* if one can enrich the databases with further metadata:
+** virtual PK
+** virtual PK-FK relations
+** virtual relations (dependencies)
+
+Most of these products *do not support the use of markup languages* like Markdown or Asciidoc in descriptions, except for these, supporting Markdown:
+
+* SchemaSpy
+* SentryOne Database Mapper
+
+The best tool seems to be:
+
+* SentryOne Database Mapper
+* by far: Datadeo
+* then the rest with often comparable features (no diagrams, output only as tables, dependencies only on object level)
+
+=== Markup language Asciidoc
+
+My clear recommendation of an markup language is *Asciidoc*. Why, I have briefly described in a blog article (in German):
+
+http://datahandwerk.aisberg.de/2021-04-20-docs-code-mit-asciidoc-und-antora/
+
+*Markdown* is the most widely used, but there is not one Markdown, but several "dialects". A major disadvantage of Markdown is that you cannot include content from other files as "include". A Markdown file is always a single entity and can only reference (include) images (and maybe videos).
+
+*reStructuredText* offers no advantages over Markdown or Asciidoc, in my opinion.
+
+*Asciidoc* convinced me as the clear winner in the comparison:
+
+* Especially valuable is the possibility to include content from other documents as `includes`.
+* Variables can be used.
+* There is _one_ syntax, and not dozens of dialects.
+* The syntax is as simple as Markdown.
+* The possibilities of the formatting are substantially more extensive, than those of Markdown.
+* With https://github.com/asciidoctor/kramdown-asciidoc[Kramdown AsciiDoc (Markdown to AsciiDoc)] you can convert Markdown to Asciidoc.
+
+Links to Asciidoc
+
+* https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+=== Antora - Docs-As-Code with Asciidoc
+
+Since I decided to use the more powerful markup language Asciidoc and against Markdown, as justified above, the best framework for _docs-as-code with Asciidoc_ in my opinion is https://antora.org/[Antora]. This tool is created and maintained by the same developers who develop AsciiDoctor. I have come to the conclusion that if you want to run Docs-as-Code with Asciidoc, it will be hard to find anything better.
+
+== How does it work?
+
+In the repository database, the xref:dhw:sqldb:configT.type.adoc[] view hard-codes which object types are exported to the documentation. In xref:dhw:sqldb:repo.RepoObject.adoc[] it can be defined in the column `is_DocsExclude` that individual RepoObject should be additionally excluded from the documentation.
+
+The basic idea is based on the use of `include` in asciidoc documents.
+
+* For each object to be documented, different files are exported to different folders, which always have the same file name. The pattern for this is `SchemaName.ObjectName.adoc`
+** folder `pages`
++
+--
+Each file has the same content, an include of one or more template files.
+
+The exact content is specified in xref:dhw:sqldb:config.Parameter.adoc[] and can be customized for specific projects.
+
+====
+ include::partial$template/master-page-1.adoc[]
+ include::partial$template/master-page-examples.adoc[]
+ include::partial$template/master-page-4.adoc[]
+ include::partial$template/master-page-5_references.adoc[]
+ include::partial$template/master-page-6.adoc[]
+====
+--
+** folder `partials\template`
++
+--
+contains the templates that define the concrete contents. +
+(The real content has no spaces at the beginning of each line. These are necessary here to prevent an `include`).
+
+====
+----
+    = {docname} <1>
+
+    include::partial${docname}.adoc[tag=existing_properties] <3>
+    include::partial${docname}.adoc[tag=boolean_attributes]
+
+    type:
+    include::partial${docname}.adoc[tag=SysObject_type]
+    (
+    include::partial${docname}.adoc[tag=SysObject_type_name]
+    ), modify_date:
+    include::partial${docname}.adoc[tag=SysObject_modify_date]
+
+    RepoObject_guid:
+    include::partial${docname}.adoc[tag=RepoObject_guid]
+
+    ifdef::is_repo_managed[] <2>
+    is_repo_managed: 1
+    endif::is_repo_managed[] <2>
+
+    ifdef::is_ssas[] <2>
+    is_ssas: 1
+    endif::is_ssas[] <2>
+
+    ifdef::ExistsProperty--MS_Description[] <2>
+
+    == Description
+
+    include::partial${docname}.adoc[tag=ms_description]
+
+    endif::ExistsProperty--ms_description[] <2>
+----
+<1> By using `\{docname}` the name of the file corresponding to the object ("SchemaName.ObjectName") is applied in the template.
+<2> using `ifdef`, `ifndef`, `endif` it is possible to include content only if certain conditions are met.
+<3> include object specific content from the objects main partial file, using tags +
+See: https://docs.asciidoctor.org/asciidoc/latest/directives/include-tagged-regions/[Include Content by Tagged Regions]
+====
+--
+** folder `partials\puml`
++
+--
+contains different sub folders with different PlantUML diagrams per object
+--
+** folder `partials\navlist`
++
+--
+contains different Antora navigation lists
+--
+** folder `partials\docsnippet`
++
+--
+contains optional additional partial documents which could be used in project specific documentation
+--
+** folder `partials` (no subfolder)
++
+--
+contains one partial document for each object, containing all object specific content, which should or could be used in the documentation for this object.
+
+See: https://docs.asciidoctor.org/asciidoc/latest/directives/include-tagged-regions/[Include Content by Tagged Regions]
+
+The content is addressed and used via the template files.
+--
+
 == Setup for Antora usage
 
 https://docs.antora.org/antora/2.3/install-and-run-quickstart/[Install and Run Antora Quickstart]
