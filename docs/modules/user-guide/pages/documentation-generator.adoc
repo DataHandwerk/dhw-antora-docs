@@ -185,13 +185,13 @@ http://datahandwerk.aisberg.de/2021-04-20-docs-code-mit-asciidoc-und-antora/
 * The possibilities of the formatting are substantially more extensive, than those of Markdown.
 * With https://github.com/asciidoctor/kramdown-asciidoc[Kramdown AsciiDoc (Markdown to AsciiDoc)] you can convert Markdown to Asciidoc.
 
-Links to Asciidoc
+Links to Asciidoc:
 
-* https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+* https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[]
 
 === Antora - Docs-As-Code with Asciidoc
 
-Since I decided to use the more powerful markup language Asciidoc and against Markdown, as justified above, the best framework for _docs-as-code with Asciidoc_ in my opinion is https://antora.org/[Antora]. This tool is created and maintained by the same developers who develop AsciiDoctor. I have come to the conclusion that if you want to run Docs-as-Code with Asciidoc, it will be hard to find anything better.
+Since I decided to use the more powerful markup language https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[Asciidoc] and against Markdown, as justified above, the best framework for _docs-as-code with Asciidoc_ in my opinion is https://antora.org/[Antora]. This tool is created and maintained by the same developers who develop AsciiDoctor. I have come to the conclusion that if you want to run Docs-as-Code with Asciidoc, it will be hard to find anything better.
 
 == How does it work?
 
