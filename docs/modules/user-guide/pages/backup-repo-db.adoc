@@ -1,4 +1,4 @@
-= Backup repository database
+= Backup and restore repository database
 
 The repository database contains important data and should be backed up regularly.
 
@@ -42,15 +42,15 @@ If the data of the graph tables have already been extracted, then you can open t
 image::backup-repo-db_2021-07-14-16-36-43.png[]
 
 ====
-----
+....
 "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150\sqlpackage.exe" /TargetFile:"D:\Repos\GitHub\DataHandwerk\DataHandwerk-toolkit-mssql\db_DataHandwerk\Snapshots\dhw_self.dacpac" /Action:Extract /SourceServerName:"localhost\sql2019" /SourceDatabaseName:"dhw_self" /p:ExtractAllTableData=TRUE
-----
+....
 ====
 
 ====
-----
+....
 "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150\sqlpackage.exe" /TargetFile:"C:\Users\GoerGer\Documents\dacpac\dhw_BudgetControlling.dacpac" /Action:Extract /SourceServerName:"hahnbidev04" /SourceDatabaseName:"dhw_BudgetControlling" /p:ExtractAllTableData=TRUE
-----
+....
 ====
 
 === deploy DACPAC including data
@@ -58,12 +58,12 @@ image::backup-repo-db_2021-07-14-16-36-43.png[]
 It is possible to restore the database including data using SSMS. When trying to restore data from graph tables, an error occurs. The error messages are more visible if `sqlpackage.exe` is used with `publish` action.
 
 ====
-----
+....
 "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150\sqlpackage.exe" /SourceFile:"D:\Repos\GitHub\DataHandwerk\DataHandwerk-toolkit-mssql\db_DataHandwerk\Snapshots\dhw_self.dacpac" /Action:Publish /TargetServerName:"localhost\sql2019" /TargetDatabaseName:"dhw_self_v4"
-----
+....
 ====
 
-If the DACPAC contains data for graph tables, the database data cannot be restored.
+If the DACPAC contains data for graph tables using edge constraints, then the database data cannot be restored, because `TRUNCATE` is not allowed in this case. (This is a bug in sqlpackage.exe)
 
 ----
 Updating database (Failed)
@@ -74,7 +74,7 @@ Error SQL72045: Script execution error.  The executed script:
 TRUNCATE TABLE [graph].[RepoObject];
 ----
 
-If this error occurs (and it occurs when you extract all data of all tables), then the data of the tables in the schema `graph` must be deleted from DACPAC. See above.
+If this error occurs (and it occurs when you extract all data of all tables, and there is content for graph tables), then the data of the tables in the schema `graph` must be deleted from DACPAC. See above.
 
 // tag::to-do[]
 // end::to-do[]

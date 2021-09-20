@@ -47,6 +47,10 @@ The documentation also contains
 
 == Development status
 
+primary project location: https://gitlab.com/datahandwerk/DataHandwerk-toolkit-mssql[]
+
+https://gitlab.com/datahandwerk/DataHandwerk-toolkit-mssql/-/boards[issue board]
+
 You can read why the project exists and how it developed in the following blog posts (in German):
 
 * http://datahandwerk.aisberg.de/2021-01-06-meine-vision-eines-werkzeugkastens-fur-daten-handwerker/
@@ -55,8 +59,7 @@ You can read why the project exists and how it developed in the following blog p
 
 CAUTION: The project was launched at the beginning of 2021 and is in the alpha stage. The main focus is currently the implementation. Various refactorings are still taking place in the database. The documentation is being created and is still very incomplete.
 
-//'''
-
+////
 Azure Boards - Feature board
 
 image::https://dev.azure.com/DataHandwerk/89a7b008-69b9-42e4-b31f-4c2dfb6bd49a/f3077374-71b6-4a5b-bfd6-24a792bbc352/_apis/work/boardbadge/d4f2ae6d-a5e0-439d-9068-67ea1027f7b5?columnOptions=1[link= "https://dev.azure.com/DataHandwerk/89a7b008-69b9-42e4-b31f-4c2dfb6bd49a/_boards/board/t/f3077374-71b6-4a5b-bfd6-24a792bbc352/Microsoft.FeatureCategory/", window=_blank]
@@ -67,6 +70,8 @@ image::https://dev.azure.com/DataHandwerk/89a7b008-69b9-42e4-b31f-4c2dfb6bd49a/f
 
 
 // [![Board Status](https://dev.azure.com/DataHandwerk/89a7b008-69b9-42e4-b31f-4c2dfb6bd49a/f3077374-71b6-4a5b-bfd6-24a792bbc352/_apis/work/boardbadge/d4f2ae6d-a5e0-439d-9068-67ea1027f7b5?columnOptions=1)](https://dev.azure.com/DataHandwerk/89a7b008-69b9-42e4-b31f-4c2dfb6bd49a/_boards/board/t/f3077374-71b6-4a5b-bfd6-24a792bbc352/Microsoft.FeatureCategory/)
+
+////
 
 == Project communication
 

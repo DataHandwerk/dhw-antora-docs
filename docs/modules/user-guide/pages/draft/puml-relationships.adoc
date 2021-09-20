@@ -103,3 +103,125 @@ Entity51 }|-[dashed]-|| Entity52
 --
 * Type
 
+== Verschiedenes
+
+=== Use generics
+
+You can also use bracket < and > to define generics usage in a class.
+
+[plantuml]
+----
+@startuml
+
+class Foo<? extends Element> {
+  int size()
+}
+Foo *- Element
+
+@enduml
+----
+
+can be used to mark external source component
+
+=== Change class color and style (inline style)
+
+You can change the color or style of individual class using the two following notations:
+
+* `#color ##[style]color`
+* With background color first (#color), then line style and line color (##[style]color )
+
+[plantuml]
+----
+@startuml
+abstract   abstract
+annotation annotation #pink ##[bold]red
+class      class      #palegreen ##[dashed]green
+interface  interface  #aliceblue ##[dotted]blue
+@enduml
+----
+
+* `#[color|back:color];header:color;line:color;line.[bold|dashed|dotted];text:color`
+
+[plantuml]
+----
+@startuml
+abstract   abstract
+annotation annotation #pink;line:red;line.bold;text:red
+class      class      #palegreen;line:green;line.dashed;text:green
+interface  interface  #aliceblue;line:blue;line.dotted;text:blue
+@enduml
+----
+
+First original example:
+
+[plantuml]
+----
+@startuml
+class bar #line:green;back:lightblue
+class bar2 #lightblue;line:green
+
+class Foo1 #back:red;line:00FFFF
+class FooDashed #line.dashed:blue
+class FooDotted #line.dotted:blue
+class FooBold #line.bold
+class Demo1 #back:lightgreen|yellow;header:blue/red
+@enduml
+----
+
+`[dotted]` could be used for external entities
+
+=== externe Objekte
+
+<<EXTERN>>
+<DatenbankName>
+
+
+[plantuml]
+----
+skinparam class {
+  BackgroundColor White
+  BackgroundColor<<FN>> Yellow
+  BackgroundColor<<FS>> Yellow
+  BackgroundColor<<FT>> LightGray
+  BackgroundColor<<IF>> Yellow
+  BackgroundColor<<IS>> Yellow
+  BackgroundColor<<P>> Aqua
+  BackgroundColor<<PC>> Aqua
+  BackgroundColor<<SN>> Yellow
+  BackgroundColor<<SO>> SlateBlue
+  BackgroundColor<<TF>> LightGray
+  BackgroundColor<<TR>> Tomato
+  BackgroundColor<<U>> White
+  BackgroundColor<<V>> WhiteSmoke
+  BackgroundColor<<X>> Aqua
+  BackgroundColor<<EXTERN>> AliceBlue
+}
+
+entity "puml-link:docs.RepoObject_Adoc.adoc[prefix=..]" as docs.RepoObject_Adoc <DatenbankName> << EXTERN >> #line.dotted {
+  ..
+}
+
+entity "puml-link:aaa:bbb:ccc.ddd.adoc[prefix=..]" as aaa.bbb.ccc.ddd <DatenbankName> << EXTERN >> #line.dotted {
+  ..
+}
+----
+
+[plantuml]
+----
+----
+
+[plantuml]
+----
+----
+
+[plantuml]
+----
+----
+
+[plantuml]
+----
+----
+
+[plantuml]
+----
+----
