@@ -19,7 +19,10 @@ The Python Script `SqlParser.py` can be executed with parameters or with an ini-
 
 When you are in the folder, where the script is located, for example here
 ====
-D:\Repos\GitHub\DataHandwerk\DataHandwerk-toolkit-mssql\python\SqlParser\
+....
+D:
+cd D:\Repos\gitlab\DataHandwerk\DataHandwerk-toolkit-mssql\python\SqlParser
+....
 ====
 
 and the `SqlParser.ini` contains your server and database, then you can just call the script:
@@ -37,22 +40,19 @@ or you can use parameters:
 In case _Python is not installed on your PC_ the generated *windows executable* can be used
 
 ====
-[source]
+....
+D:
+cd D:\Repos\gitlab\DataHandwerk\DataHandwerk-toolkit-mssql\python\SqlParser\dist\SqlParser
+SqlParser --server localhost\sql2019 --database dhw_self
+....
+====
+
+====
 ----
-D:\Repos\GitHub\DataHandwerk\DataHandwerk-toolkit-mssql\python\SqlParser\dist\SqlParser>SqlParser.exe
+D:\Repos\gitlab\DataHandwerk\DataHandwerk-toolkit-mssql\python\SqlParser\dist\SqlParser>SqlParser.exe
 usage: SqlParser.exe [-h] --server SERVER --database DATABASE [-c MY_CONFIG] [-v]
 SqlParser.exe: error: the following arguments are required: --server, --database
 ----
-====
-
-example, when you are in the folder, where the `SqlParser.exe` is located:
-
-====
-`SqlParser --server localhost\sql2019 --database dhw_master`
-====
-
-====
-`SqlParser --server localhost\sql2019 --database dhw_self`
 ====
 
 == what does it do
