@@ -19,32 +19,40 @@ The Python Script `SqlParser.py` can be executed with parameters or with an ini-
 
 When you are in the folder, where the script is located, for example here
 ====
-....
+[source]
+----
 D:
 cd D:\Repos\gitlab\DataHandwerk\DataHandwerk-toolkit-mssql\python\SqlParser
-....
+----
 ====
 
 and the `SqlParser.ini` contains your server and database, then you can just call the script:
 
 ====
-`py sqlparser.py`
+[source]
+----
+py sqlparser.py
+----
 ====
 
 or you can use parameters:
 
 ====
-`py sqlparser.py --server localhost\sql2019 --database dhw_master`
+[source]
+----
+py sqlparser.py --server localhost\sql2019 --database dhw_master
+----
 ====
 
 In case _Python is not installed on your PC_ the generated *windows executable* can be used
 
 ====
-....
+[source]
+----
 D:
 cd D:\Repos\gitlab\DataHandwerk\DataHandwerk-toolkit-mssql\python\SqlParser\dist\SqlParser
 SqlParser --server localhost\sql2019 --database dhw_self
-....
+----
 ====
 
 ====

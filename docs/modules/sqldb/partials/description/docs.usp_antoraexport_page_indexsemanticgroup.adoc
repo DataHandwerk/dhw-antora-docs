@@ -1,0 +1,4 @@
+one special page is exported into +
+@outputDir + 'IndexSemanticGroup.adoc'
+
+include::partial$docsnippet/antora-export-prerequisites.adoc[]

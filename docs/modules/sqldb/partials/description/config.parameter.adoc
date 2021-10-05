@@ -1,0 +1,7 @@
+* default parameter values are defined (hard coded) in xref:sqldb:configt.parameter_default.adoc[] and available in xref:sqldb:config.parameter.adoc#column-parameter_default_value[]
+* default parameter values can be overwritten by project specific content using xref:sqldb:config.parameter.adoc#column-parameter_value[]
+* resulting content is available in
+** xref:sqldb:config.parameter.adoc#column-parameter_value_result[]
+** xref:sqldb:config.parameter.adoc#column-parameter_value_result_date[]
+** xref:sqldb:config.parameter.adoc#column-parameter_value_result_datetime[]
+** xref:sqldb:config.parameter.adoc#column-parameter_value_result_int[]

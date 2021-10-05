@@ -1,21 +1,21 @@
 = Execution log
 
-In many projects it has proven useful to have detailed logs for the execution of procedures or processes. DataHandwerk offers the possibility of a formal logging into the table xref:sqldb:logs.ExecutionLog.adoc[].
+In many projects it has proven useful to have detailed logs for the execution of procedures or processes. DataHandwerk offers the possibility of a formal logging into the table xref:sqldb:logs.executionlog.adoc[].
 
 The table appears somewhat bloated at first glance with its many columns. The additional formal and optional information enables better evaluations. For example, activity diagrams can be created.
 
 xref:user-guide:uspgenerator.adoc[] can be used to create procedures that can log the execution of the procedure, and the procedure steps in the log.
 
-There are no updates in the xref:sqldb:logs.ExecutionLog.adoc[] table, only inserts.
+There are no updates in the xref:sqldb:logs.executionlog.adoc[] table, only inserts.
 
 == generate PlantUML diagrams
 
 .get plantUML procedure execution tree
 ====
-include::sqldb:partial$logs.ftv_ExecutionLog_puml_tree_per_execution.adoc[tag=ms_description]
+include::sqldb:partial$logs.ftv_executionlog_puml_tree_per_execution.adoc[tag=ms_description]
 ====
 
-The following PlantUML diagram can be generated using xref:sqldb:logs.ftv_ExecutionLog_puml_sequence_start_stop_per_execution.adoc[]
+The following PlantUML diagram can be generated using xref:sqldb:logs.ftv_executionlog_puml_sequence_start_stop_per_execution.adoc[]
 
 .get plantUML procedure execution sequence diagram
 ====

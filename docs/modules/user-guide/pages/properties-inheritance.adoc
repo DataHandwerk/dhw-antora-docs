@@ -2,7 +2,7 @@
 
 Object references and column references are used to inherit xref:properties.adoc[] along these references.
 
-The type of property inheritance is determined by the xref:sqldb:configT.InheritanceType.adoc#column-InheritanceType[config.InheritanceType.InheritanceType]:
+The type of property inheritance is determined by the xref:sqldb:configt.inheritancetype.adoc#column-inheritancetype[config.InheritanceType.InheritanceType]:
 
 .InheritanceType
 [cols="1,10"]
@@ -20,7 +20,7 @@ The type of property inheritance is determined by the xref:sqldb:configT.Inherit
 |14|Inheritance from first (or all) predecessor, forced without exception (dangerous!)
 |===
 
-Global InheritanceType are defined in xref:sqldb:config.Parameter.adoc[]
+Global InheritanceType are defined in xref:sqldb:config.parameter.adoc[]
 
 .Inheritance parameters
 [source,sql]
@@ -119,17 +119,17 @@ TIP: for ('InheritanceType_column', 'MS_Description') Set `Parameter_value  = 12
 
 It is possible to overwrite inheritance instructions for individual objects or columns, using:
 
-* xref:sqldb:repo.RepoObject.adoc#column-Inheritance_StringAggSeparatorSql[repo.RepoObject.Inheritance_StringAggSeparatorSql]
-* xref:sqldb:repo.RepoObject.adoc#column-InheritanceDefinition[repo.RepoObject.InheritanceDefinition]
-* xref:sqldb:repo.RepoObject.adoc#column-InheritanceType[repo.RepoObject.InheritanceType]
-* xref:sqldb:repo.RepoObjectColumn.adoc#column-Inheritance_StringAggSeparatorSql[repo.RepoObjectColumn.Inheritance_StringAggSeparatorSql]
-* xref:sqldb:repo.RepoObjectColumn.adoc#column-InheritanceDefinition[repo.RepoObjectColumn.InheritanceDefinition]
-* xref:sqldb:repo.RepoObjectColumn.adoc#column-InheritanceType[repo.RepoObjectColumn.InheritanceType]
+* xref:sqldb:repo.repoobject.adoc#column-inheritance_stringaggseparatorsql[repo.RepoObject.Inheritance_StringAggSeparatorSql]
+* xref:sqldb:repo.repoobject.adoc#column-inheritancedefinition[repo.RepoObject.InheritanceDefinition]
+* xref:sqldb:repo.repoobject.adoc#column-inheritancetype[repo.RepoObject.InheritanceType]
+* xref:sqldb:repo.repoobjectcolumn.adoc#column-inheritance_stringaggseparatorsql[repo.RepoObjectColumn.Inheritance_StringAggSeparatorSql]
+* xref:sqldb:repo.repoobjectcolumn.adoc#column-inheritancedefinition[repo.RepoObjectColumn.InheritanceDefinition]
+* xref:sqldb:repo.repoobjectcolumn.adoc#column-inheritancetype[repo.RepoObjectColumn.InheritanceType]
 
 The inheritance is done with these procedures
 
-* xref:sqldb:property.usp_RepoObject_Inheritance.adoc[]
-* xref:sqldb:property.usp_RepoObjectColumn_Inheritance.adoc[]
+* xref:sqldb:property.usp_repoobject_inheritance.adoc[]
+* xref:sqldb:property.usp_repoobjectcolumn_inheritance.adoc[]
 
 They are called by xref:sqldb:repo.usp_main.adoc[]
 

@@ -1,0 +1,5 @@
+* the documentation contains diagrams. These diagrams are defined using https://plantuml.com/[plantUML]
+** export procedure: xref:docs.usp_antoraexport_objectpuml.adoc[]
+** individual diagrams per object are exported into (AntoraModuleFolder)``/``(AntoraModuleName)``/partials/puml/``
+
+include::partial$docsnippet/antora-export-prerequisites.adoc[]

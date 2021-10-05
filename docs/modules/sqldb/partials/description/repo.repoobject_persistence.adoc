@@ -1,0 +1,8 @@
+contains settings for persistence.
+
+See: xref:user-guide:persistence-generator.adoc[]
+
+extra table is required to allow FK with
+
+* ON UPDATE CASCADE
+* ON DELETE CASCADE

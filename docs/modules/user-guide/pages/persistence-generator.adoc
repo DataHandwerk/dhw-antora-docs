@@ -2,7 +2,7 @@
 
 IMPORTANT: The procedure xref:sqldb:repo.usp_persistence_set.adoc[] is not called automatically. If a persistence is to be created or changed, this must be done manually!
 
-IMPORTANT: Before you execute the procedure xref:sqldb:repo.usp_persistence_set.adoc[], check, if the persistence source should have a real or virtual PK. Some persistence actions are not available, if no PK is defined in the source. Execute xref:sqldb:repo.usp_Index_virtual_set.adoc[] to define virtual PK, whenever this is possible.
+IMPORTANT: Before you execute the procedure xref:sqldb:repo.usp_persistence_set.adoc[], check, if the persistence source should have a real or virtual PK. Some persistence actions are not available, if no PK is defined in the source. Execute xref:sqldb:repo.usp_index_virtual_set.adoc[] to define virtual PK, whenever this is possible.
 
 TIP: If SSMS is used to retrieve the generated code, then the xref:user-guide:ssms-configuration.adoc[] should be checked and adjusted.
 
@@ -17,27 +17,27 @@ include::sqldb:partial$repo.usp_persistence_set.adoc[tag=exampleusage]
 ----
 ====
 
-* This will insert new required entries into xref:sqldb:repo.RepoObjectColumn.adoc[]. 
+* This will insert new required entries into xref:sqldb:repo.repoobjectcolumn.adoc[]. 
 * It will update properties for entries of existing target columns
 * It will not delete entries for columns in the persistence target, which have been added to the persistence table definition (it is possible to have additional columns, for example calculated columns or just additional columns to input some data independently of the source)
 
 In order for the persistence to be updated correctly, one (or sometimes two) execution(s) of xref:sqldb:repo.usp_main.adoc[] are required:
 
 * the new or changed columns have to be synchronized between DWH and repository database
-* xref:sqldb:repo.RepoObjectColumn.adoc#column-RepoObjectColumn_column_id[repo.RepoObjectColumn.RepoObjectColumn_column_id] must get a value, this happens depending on the fulfilled prerequisites already in the first or only in the second pass
+* xref:sqldb:repo.repoobjectcolumn.adoc#column-RepoObjectColumn_column_id[repo.RepoObjectColumn.RepoObjectColumn_column_id] must get a value, this happens depending on the fulfilled prerequisites already in the first or only in the second pass
 
-The SQL code for the persistence target table is located in xref:sqldb:repo.RepoObject_SqlCreateTable.adoc#column-SqlCreateTable[repo.RepoObject_SqlCreateTable.SqlCreateTable]
+The SQL code for the persistence target table is located in xref:sqldb:repo.repoobject_sqlcreatetable.adoc#column-SqlCreateTable[repo.RepoObject_SqlCreateTable.SqlCreateTable]
 
 == Persistence procedure code generation
 
 DataHandwerk provides the code for a persistence stored procedure for each managed persistence. The code of this procedure will change depending on:
 
 * the columns of the persistence source
-* settings in xref:sqldb:repo.RepoObject_persistence.adoc[]
+* settings in xref:sqldb:repo.repoobject_persistence.adoc[]
 
-The xref:user-guide:persistence-generator.adoc[] is used to create the persistence procedure code. Depending on changed settings in xref:sqldb:repo.RepoObject_persistence.adoc[] the generated code will change. After changing settings it is required to execute xref:sqldb:repo.usp_main.adoc[]
+The xref:user-guide:persistence-generator.adoc[] is used to create the persistence procedure code. Depending on changed settings in xref:sqldb:repo.repoobject_persistence.adoc[] the generated code will change. After changing settings it is required to execute xref:sqldb:repo.usp_main.adoc[]
 
-The final code of the procedure is available in xref:sqldb:uspgenerator.GeneratorUsp_SqlUsp.adoc#column-SqlUsp[uspgenerator.GeneratorUsp_SqlUsp.SqlUsp]
+The final code of the procedure is available in xref:sqldb:uspgenerator.generatorusp_sqlusp.adoc#column-SqlUsp[uspgenerator.GeneratorUsp_SqlUsp.SqlUsp]
 
 == change exisisting persistence
 

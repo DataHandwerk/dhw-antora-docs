@@ -20,7 +20,7 @@
 include::sqldb:partial$config.usp_connect_database.adoc[tag=exampleusage]
 ----
 ====
-* check and edit the content of xref:sqldb:config.Parameter.adoc[]
+* check and edit the content of xref:sqldb:config.parameter.adoc[]
 * synchronize repository with dwh database extended properties
 +
 .synchronize repository with dwh database extended properties
@@ -31,7 +31,7 @@ include::sqldb:partial$repo.usp_main.adoc[tag=exampleusage]
 ----
 ====
 * optional: import extended_properties from dwh database into repository properties
-** xref:sqldb:property.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate.adoc[]
+** xref:sqldb:property.usp_sync_extendedproperties_sys2repo_insertupdate.adoc[]
 
 //IMPORTANT: using *publish* or *dacpac* deployment to update the repo database will reset synonyms. +
 //reconnect the repo database to the right dwh database after using publish or dacpac deployment by executing xref:sqldb:config.usp_connect_database.adoc[]
@@ -89,10 +89,16 @@ ____
 Your folder could be another
 * Now there are several options
 ** use publish
-*** image:create-update-connect-repo-db-publish-1.png[]
-*** image:create-update-connect-repo-db-publish-2.png[]
-*** image:create-update-connect-repo-db-publish-3.png[]
-*** image:create-update-connect-repo-db-publish-4.png[]
+*** select "publish..." in context menu +
+image:create-update-connect-repo-db-publish-1.png[]
+*** Edit connection
+**** image:create-update-connect-repo-db-publish-2.png[]
+**** image:create-update-connect-repo-db-publish-3.png[]
+*** check "Advanced..."
+**** exclude extended properties +
+image:create-update-connect-repo-db-publish-6.png[]
+*** publish
+**** image:create-update-connect-repo-db-publish-4.png[]
 *** image:create-update-connect-repo-db-publish-5.png[]
 ** use an existing dacpac (under snapshots) or create a dacpac
 *** image:create-update-connect-repo-db-dacpac-1.png[]
@@ -143,9 +149,9 @@ include::sqldb:partial$config.usp_connect_database.adoc[tag=exampleusage]
 
 == check config.Parameter
 
-check and edit the content of xref:sqldb:config.Parameter.adoc[]
+check and edit the content of xref:sqldb:config.parameter.adoc[]
 
-include::sqldb:partial$config.Parameter.adoc[tag=ms_description]
+include::sqldb:partial$config.parameter.adoc[tag=ms_description]
 
 == synchronize repository with dwh database extended properties
 
@@ -169,11 +175,11 @@ See details: xref:sqldb:repo.usp_main.adoc[]
 ====
 [source,sql]
 ----
-include::sqldb:partial$property.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate.adoc[tag=exampleusage]
+include::sqldb:partial$property.usp_sync_extendedproperties_sys2repo_insertupdate.adoc[tag=exampleusage]
 ----
 ====
 
-See details: xref:sqldb:property.usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate.adoc[]
+See details: xref:sqldb:property.usp_sync_extendedproperties_sys2repo_insertupdate.adoc[]
 
 // tag::to-do[]
 // end::to-do[]

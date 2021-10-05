@@ -4,7 +4,7 @@ include::user-guide:page$sqlparser.adoc[tag=shortdescription]
 
 see more details (and how to run): xref:user-guide:sqlparser.adoc[]
 
-After parsing, the results are available in xref:sqldb:sqlparse.RepoObject_SqlModules.adoc[]
+After parsing, the results are available in xref:sqldb:sqlparse.repoobject_sqlmodules.adoc[]
 
 Some views and persistences on top of this table are build to extract column references: +
 You need to execute 2 persistence procedures after each import of the parsing results. +
@@ -17,9 +17,9 @@ EXEC [sqlparse].[usp_sqlparse]
 Exec repo.usp_main;
 ----
 
-Finally, column references are available in xref:sqldb:reference.RepoObjectColumn_reference_SqlModules.adoc[]
+Finally, column references are available in xref:sqldb:reference.repoobjectcolumn_reference_sqlmodules.adoc[]
 
-They will be combined with other column reference sources in xref:sqldb:reference.RepoObjectColumn_reference_union.adoc[].
+They will be combined with other column reference sources in xref:sqldb:reference.repoobjectcolumn_reference_union.adoc[].
 
 xref:user-guide:properties-inheritance.adoc[] and xref:user-guide:documentation-generator.adoc[] are also based on column references.
 

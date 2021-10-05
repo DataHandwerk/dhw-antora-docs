@@ -6,13 +6,13 @@ If logging is to be used, then the code for logging is repeated several times. T
 
 usp generator procedures are defined in 3 tables:
 
-* xref:sqldb:uspgenerator.GeneratorUsp.adoc[]
-* xref:sqldb:uspgenerator.GeneratorUspParameter.adoc[]
-* xref:sqldb:uspgenerator.GeneratorUspStep.adoc[]
+* xref:sqldb:uspgenerator.generatorusp.adoc[]
+* xref:sqldb:uspgenerator.generatoruspparameter.adoc[]
+* xref:sqldb:uspgenerator.generatoruspstep.adoc[]
 
-A special case of the procedures created by the usp generator are the procedures for xref:user-guide:persistence-generator.adoc[]. These procedures are defined by the persistence settings in xref:sqldb:repo.RepoObject_persistence.adoc[].
+A special case of the procedures created by the usp generator are the procedures for xref:user-guide:persistence-generator.adoc[]. These procedures are defined by the persistence settings in xref:sqldb:repo.repoobject_persistence.adoc[].
 
-The final code of the generated procedures is available in xref:sqldb:uspgenerator.GeneratorUsp_SqlUsp.adoc#column-SqlUsp[uspgenerator.GeneratorUsp_SqlUsp.SqlUsp]
+The final code of the generated procedures is available in xref:sqldb:uspgenerator.generatorusp_sqlusp.adoc#column-sqlusp[uspgenerator.GeneratorUsp_SqlUsp.SqlUsp]
 
 TIP: If SSMS is used to retrieve the generated code, then the xref:user-guide:ssms-configuration.adoc[] should be checked and adjusted.
 
@@ -20,13 +20,13 @@ TIP: If SSMS is used to retrieve the generated code, then the xref:user-guide:ss
 
 === multiline data
 
-The entries in xref:sqldb:uspgenerator.GeneratorUspStep.adoc#column-Statement[uspgenerator.GeneratorUspStep.Statement] are usually multi-line. But SSMS and Azure Data Studio do not have usable support for multi-line data entry.
+The entries in xref:sqldb:uspgenerator.generatoruspstep.adoc#column-statement[uspgenerator.GeneratorUspStep.Statement] are usually multi-line. But SSMS and Azure Data Studio do not have usable support for multi-line data entry.
 
 One possibility is to use the https://dbeaver.com/[DBeaver].
 
 image::image-dbeaver-uspsteps.png[]
 
-However, DBeaver does not currently allow new entries in tables with calculated columns. It is not possible to create new entries in xref:sqldb:uspgenerator.GeneratorUsp.adoc[]:
+However, DBeaver does not currently allow new entries in tables with calculated columns. It is not possible to create new entries in xref:sqldb:uspgenerator.generatorusp.adoc[]:
 
 * https://github.com/dbeaver/dbeaver/issues/11900[mssql - it is not possible to insert new lines into tables containing calculated columns]
 
@@ -37,7 +37,7 @@ Other options would be:
 
 === refactoring
 
-If refactoring is used to rename objects or columns, then the code of the procedures can be changed with it. However, since the code of the procedures is ultimately created by the definitions in xref:sqldb:uspgenerator.GeneratorUspStep.adoc[], these changes must primarily be entered there.
+If refactoring is used to rename objects or columns, then the code of the procedures can be changed with it. However, since the code of the procedures is ultimately created by the definitions in xref:sqldb:uspgenerator.generatoruspstep.adoc[], these changes must primarily be entered there.
 
 // tag::to-do[]
 // end::to-do[]
