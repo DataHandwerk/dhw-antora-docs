@@ -1,3 +1,0 @@
-references on column level
-
-* source: sys.dm_exec_describe_first_result_set

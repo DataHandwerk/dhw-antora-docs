@@ -1,9 +1,0 @@
-https://antora.org/[Antora] uses https://docs.antora.org/antora/2.3/navigation/files-and-lists/[Navigation Files and Lists]. Content for these files is exported
-
-* check and correct xref:config.parameter.adoc#column-parameter_value[config.Parameter.Parameter_value] for ('AntoraModuleFolder', ''), a possible parameter is
-+
-====
-D:\Repos\GitHub\MyOrganisation\MyProject-docs\docs\modules
-====
-
-include::partial$docsnippet/antora-export-prerequisites.adoc[]

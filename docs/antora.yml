@@ -1,6 +1,6 @@
 name: dhw
 title: DataHandwerk
-version: 0.1.0
+version: ~
 nav:
 - modules/ROOT/nav.adoc
 - modules/arc/nav.adoc

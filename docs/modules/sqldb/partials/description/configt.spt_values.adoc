@@ -1,3 +1,0 @@
-* Equivalent to undocumented master.dbo.spt_values
-* But the database should not depend on this undocumented feature
-* See details in xref:user-guide:create-update-connect-repo-db.adoc[]
