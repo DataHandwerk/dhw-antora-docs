@@ -12,7 +12,7 @@ There are no updates in the xref:sqldb:logs.executionlog.adoc[] table, only inse
 
 .get plantUML procedure execution tree
 ====
-include::sqldb:partial$logs.ftv_executionlog_puml_tree_per_execution.adoc[tag=ms_description]
+include::sqldb:partial$content/logs.ftv_executionlog_puml_tree_per_execution.adoc[tag=ms_description]
 ====
 
 The following PlantUML diagram can be generated using xref:sqldb:logs.ftv_executionlog_puml_sequence_start_stop_per_execution.adoc[]

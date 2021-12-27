@@ -8,8 +8,8 @@
 [abstract]
 == Abstract
 // --
+* clone GitHub repository from project https://gitlab.com/datahandwerk/DataHandwerk-toolkit-mssql/-/tree/main[]
 * create a new repo database
-* clone GitHub repository from project https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql[]
 * deploy the database project db_DataHandwerk to your database
 * connect repo database to dwh database using synonyms executing the stored procedure xref:sqldb:config.usp_connect_database.adoc[]
 +
@@ -17,7 +17,7 @@
 ====
 [source,sql]
 ----
-include::sqldb:partial$config.usp_connect_database.adoc[tag=exampleusage]
+include::sqldb:partial$content/config.usp_connect_database.adoc[tag=exampleusage]
 ----
 ====
 * check and edit the content of xref:sqldb:config.parameter.adoc[]
@@ -27,7 +27,7 @@ include::sqldb:partial$config.usp_connect_database.adoc[tag=exampleusage]
 ====
 [source,sql]
 ----
-include::sqldb:partial$repo.usp_main.adoc[tag=exampleusage]
+include::sqldb:partial$content/repo.usp_main.adoc[tag=exampleusage]
 ----
 ====
 * optional: import extended_properties from dwh database into repository properties
@@ -73,7 +73,9 @@ As an example, we use `WideWorldImporters` as dwh database.
  `dhw` is an abbreviation for **D**ata**H**and**w**erk. `WideWorldImporters` is used to mark that it is a repository for `WideWorldImporters`. +
  You can also use any other name for your repository database, for example `repo_WideWorldImporters`.
 
-== update repo database from database project db_DataHandwerk
+TIP: You can skip creating a new database and use the `publish` function from the database project.
+
+== update repo database or publish from database project db_DataHandwerk
 
 The structure of the repo database must be updated from the dhw git (database project: db_DataHandwerk).
 ____
@@ -83,7 +85,7 @@ include::arc:partial$c4_dsl/puml/structurizr-DataHandwerkgit-SystemContext.puml[
 ....
 ____
 
-* clone the project https://github.com/DataHandwerk/DataHandwerk-toolkit-mssql[]
+* clone the project https://gitlab.com/datahandwerk/DataHandwerk-toolkit-mssql/-/tree/main[]
 * using https://visualstudio.microsoft.com/vs/features/ssdt/[SQL Server Data Tools for Visual Studio], open the database project: +
 "D:\Repos\GitHub\DataHandwerk\DataHandwerk-toolkit-mssql\db_DataHandwerk\db_DataHandwerk.sqlproj" +
 Your folder could be another
@@ -143,7 +145,7 @@ reconnect the repo database to the right dwh database after using publish or dac
 ====
 [source,sql]
 ----
-include::sqldb:partial$config.usp_connect_database.adoc[tag=exampleusage]
+include::sqldb:partial$content/config.usp_connect_database.adoc[tag=exampleusage]
 ----
 ====
 
@@ -151,19 +153,27 @@ include::sqldb:partial$config.usp_connect_database.adoc[tag=exampleusage]
 
 check and edit the content of xref:sqldb:config.parameter.adoc[]
 
-include::sqldb:partial$config.parameter.adoc[tag=ms_description]
+include::sqldb:partial$content/config.parameter.adoc[tag=ms_description]
+
+[NOTE]
+====
+the parameter ('dwh_readonly', '') is set to `1` by default to avoid write back of extended properties into the dwh. This works fine for
+
+* creating database documentation  - xref:documentation-generator.adoc[]
+* adding virtual PK on views and creating persistence procedures - xref:persistence-generator.adoc[]
+====
 
 == synchronize repository with dwh database extended properties
 
 === Description
 
-include::sqldb:partial$repo.usp_main.adoc[tag=ms_description]
+include::sqldb:partial$content/repo.usp_main.adoc[tag=ms_description]
 
 .synchronize repository with dwh database extended properties
 ====
 [source,sql]
 ----
-include::sqldb:partial$repo.usp_main.adoc[tag=exampleusage]
+include::sqldb:partial$content/repo.usp_main.adoc[tag=exampleusage]
 ----
 ====
 
@@ -175,7 +185,7 @@ See details: xref:sqldb:repo.usp_main.adoc[]
 ====
 [source,sql]
 ----
-include::sqldb:partial$property.usp_sync_extendedproperties_sys2repo_insertupdate.adoc[tag=exampleusage]
+include::sqldb:partial$content/property.usp_sync_extendedproperties_sys2repo_insertupdate.adoc[tag=exampleusage]
 ----
 ====
 

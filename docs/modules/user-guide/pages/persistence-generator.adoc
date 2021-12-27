@@ -13,7 +13,7 @@ use xref:sqldb:repo.usp_persistence_set.adoc[] to define (or change) a persisten
 ====
 [source,sql]
 ----
-include::sqldb:partial$repo.usp_persistence_set.adoc[tag=exampleusage]
+include::sqldb:partial$content/repo.usp_persistence_set.adoc[tag=exampleusage]
 ----
 ====
 

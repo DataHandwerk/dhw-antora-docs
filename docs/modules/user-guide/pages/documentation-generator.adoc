@@ -4,9 +4,8 @@
 == Abstract
 
 * setup Antora (one time task)
-* setup sqldb-docs repository (one time per database task)
-* setup Antora Playbook project (one time per project task)
-* setup _optional_ additional docs repositories containing additional documentation (one time per project task)
+* setup xxx-antora-sqldb and optional xxx-antora-docs repositories
+* setup Antora Playbook project repository
 * recurring steps
 ** Export files for Antora
 +
@@ -14,36 +13,36 @@
 ====
 [source,sql]
 ----
-include::sqldb:partial$docs.usp_antoraexport.adoc[tag=exampleusage]
+include::sqldb:partial$content/docs.usp_antoraexport.adoc[tag=exampleusage]
 ----
 ====
 +
 ** generate the static site
 +
 In the Antora Playbook project call Antora to build the local or the final site.
-+
-*** You can use the prepared PowerShell scripts
-+
-[source,powershell]
-....
-./local-playbook.ps1
-....
-+
-[source,powershell]
-....
-./playbook.ps1
-....
-*** you can also use Windows bat files:
-+
-[source]
-....
-local-playbook.bat
-....
-+
-[source]
-....
-playbook.bat
-....
+//+
+//*** You can use the prepared PowerShell scripts
+//+
+//[source,powershell]
+//....
+//./local-playbook.ps1
+//....
+//+
+//[source,powershell]
+//....
+//./playbook.ps1
+//....
+//*** you can also use Windows bat files:
+//+
+//[source]
+//....
+//local-playbook.bat
+//....
+//+
+//[source]
+//....
+//playbook.bat
+//....
 
 == Why Datahandwerk Documentation Generator?
 
@@ -62,7 +61,7 @@ playbook.bat
 * Easy *switching between different versions of the documentation*
 ** While some users are only interested in the documentation of the current version, for other users it may be important to have several versions documented together and to be able to switch between the versions.
 * Use of *plain text formats (markup languages)*
-** For optimal version control of the content, it makes sense to use plain-text formats for the sources of the documentation, such as Markdown or Asciidoc.
+** For optimal version control of the content, it makes sense to use plain-text formats for the sources of the documentation, such as Markdown or *Asciidoc*.
 * portable documentation
 ** If documentation is created as a *static website* with relative links, then it will work in any location on a filesystem as well as on a web server.
 * *Docs as Code*
@@ -85,7 +84,6 @@ One key is to use a _plain text format_ for documentation. Here are some links t
 
 === special requirements for technical database documentation
 
-* Use of *extended properties*
 * *Virtual indexes, PK and FK*
 +
 --
@@ -111,6 +109,7 @@ The SQL Server only shows that the procedure depends on tables. However, it does
 * virtual references between columns of different objects can be
 ** by analyzing the code of views with a sqlparser
 ** add them manually or by code
+* *cross-database references*
 --
 * *Data-Lineage*
 +
@@ -142,6 +141,8 @@ Here an example, how in the code of a procedure in the comment different additio
 
 xref:dhw:sqldb:repo.usp_persistence_set.adoc[]
 --
+* *Combination of descriptions stored in the databases with descriptions that can be stored and maintained externally*
+* Use of extended properties
 
 === Alternatives for technical documentation of databases
 
@@ -207,12 +208,16 @@ Each file has the same content, an include of one or more template files.
 
 The exact content is specified in xref:dhw:sqldb:config.parameter.adoc[] and can be customized for specific projects.
 
+.page template content
 ====
+[source,adoc,indent=0]
+----
  include::partial$template/master-page-1.adoc[]
  include::partial$template/master-page-examples.adoc[]
  include::partial$template/master-page-4.adoc[]
  include::partial$template/master-page-5_references.adoc[]
  include::partial$template/master-page-6.adoc[]
+----
 ====
 --
 ** folder `partials\template`
@@ -222,37 +227,38 @@ contains the templates that define the concrete contents. +
 (The real content has no spaces at the beginning of each line. These are necessary here to prevent an `include`).
 
 ====
+[source,adoc,indent=0]
 ----
-    = {docname} <1>
-
-    include::partial${docname}.adoc[tag=existing_properties] <3>
-    include::partial${docname}.adoc[tag=boolean_attributes]
-
-    type:
-    include::partial${docname}.adoc[tag=SysObject_type]
-    (
-    include::partial${docname}.adoc[tag=SysObject_type_name]
-    ), modify_date:
-    include::partial${docname}.adoc[tag=SysObject_modify_date]
-
-    RepoObject_guid:
-    include::partial${docname}.adoc[tag=RepoObject_guid]
-
-    ifdef::is_repo_managed[] <2>
-    is_repo_managed: 1
-    endif::is_repo_managed[] <2>
-
-    ifdef::is_ssas[] <2>
-    is_ssas: 1
-    endif::is_ssas[] <2>
-
-    ifdef::ExistsProperty--MS_Description[] <2>
-
-    == Description
-
-    include::partial${docname}.adoc[tag=ms_description]
-
-    endif::ExistsProperty--ms_description[] <2>
+ = {docname} <1>
+ 
+ include::partial${docname}.adoc[tag=existing_properties] <3>
+ include::partial${docname}.adoc[tag=boolean_attributes]
+ 
+ type:
+ include::partial${docname}.adoc[tag=SysObject_type]
+ (
+ include::partial${docname}.adoc[tag=SysObject_type_name]
+ ), modify_date:
+ include::partial${docname}.adoc[tag=SysObject_modify_date]
+ 
+ RepoObject_guid:
+ include::partial${docname}.adoc[tag=RepoObject_guid]
+ 
+ ifdef::is_repo_managed[] <2>
+ is_repo_managed: 1
+ endif::is_repo_managed[] <2>
+ 
+ ifdef::is_ssas[] <2>
+ is_ssas: 1
+ endif::is_ssas[] <2>
+ 
+ ifdef::ExistsProperty--MS_Description[] <2>
+ 
+ == Description
+ 
+ include::partial${docname}.adoc[tag=ms_description]
+ 
+ endif::ExistsProperty--ms_description[] <2>
 ----
 <1> By using `\{docname}` the name of the file corresponding to the object ("SchemaName.ObjectName") is applied in the template.
 <2> using `ifdef`, `ifndef`, `endif` it is possible to include content only if certain conditions are met.
@@ -260,22 +266,7 @@ contains the templates that define the concrete contents. +
 See: https://docs.asciidoctor.org/asciidoc/latest/directives/include-tagged-regions/[Include Content by Tagged Regions]
 ====
 --
-** folder `partials\puml`
-+
---
-contains different sub folders with different PlantUML diagrams per object
---
-** folder `partials\navlist`
-+
---
-contains different Antora navigation lists
---
-** folder `partials\docsnippet`
-+
---
-contains optional additional partial documents which could be used in project specific documentation
---
-** folder `partials` (no subfolder)
+** folder `partials\content`
 +
 --
 contains one partial document for each object, containing all object specific content, which should or could be used in the documentation for this object.
@@ -284,6 +275,21 @@ See: https://docs.asciidoctor.org/asciidoc/latest/directives/include-tagged-regi
 
 The content is addressed and used via the template files.
 --
+//** folder `partials\puml`
+//+
+//--
+//contains different sub folders with different PlantUML diagrams per object
+//--
+** folder `partials\navlist`
++
+--
+contains different Antora navigation lists
+--
+//** folder `partials\docsnippet`
+//+
+//--
+//contains optional additional partial documents which could be used in project specific documentation
+//--
 
 == Setup for Antora usage
 
@@ -299,50 +305,113 @@ We recommend using at least two git repositories, one for the documentation cont
 
 It is a good idea to use additional docs repositories for additional manually created documentation.
 
+[TIP]
+====
+The Antora documentation explains how to install Antora globally. But it is recommended to install it locally in the repository where the documentation should be created. +
+In the following code adapt the antora version.
+
+=====
+....
+node -e "require('fs').writeFileSync('package.json', '{}')"
+npm i -D @antora/cli@3.0.0-beta.2 @antora/site-generator-default@3.0.0-beta.2
+npm i -D asciidoctor asciidoctor-kroki
+....
+=====
+====
+
 === setup sqldb-docs repositories
 
-Antora can collect the content from different repositories. So, if you want to combine the database documentation with other content, you can also distribute this content to different repositories. For example, the DataHandwerk documentation combines architecture, manual, and database documentation in a common and interlinked documentation. And we use two source repositories:
+Antora can collect the content from different repositories. So, if you want to combine the database documentation with other content, you can (and should) distribute this content to different repositories. For example, the DataHandwerk documentation combines architecture, user guid, and database documentation in a common and interlinked documentation. And we use multiple source repositories:
 
-* https://gitlab.com/datahandwerk/dhw-antora-docs[] contains manually created content like architecture, manual
-* https://gitlab.com/datahandwerk/dhw-antora-sqldb[] contains automatically created content, created using xref:sqldb:docs.usp_antoraexport.adoc[]
+* https://gitlab.com/datahandwerk/dhw-antora-docs[] contains manually created content like architecture, user guide
+* https://gitlab.com/datahandwerk/dhw-antora-sqldb[] contains automatically created content, created using xref:sqldb:docs.usp_antoraexport.adoc[], under a second start path 'docsmanual' additional manual content is added, for example descriptions.
 
-steps
+//[discrete]
+==== steps to create a new source repository
 
-* create a new git repositories per database, for example https://gitlab.com/mygroup/dhw-antora-sqldb[]
+* create a new git repositories per dwh database, for example https://gitlab.com/mygroup/dhw-antora-sqldb[]
 ** you can create and use local repositories
-** you can combine different documentation sources in one documentation
-*** each dwh database has its own repository database
+** you can combine different documentation source repositories in one documentation
+*** each dwh database has its own repository database (because of possible naming conflicts)
 *** for different database use different parameter settings in xref:dhw:sqldb:config.parameter.adoc[] for `AntoraComponent` and `AntoraModule` +
-You can document each database as a separate component or as different modules of a common component. Each component has its own navigation bar, switching between components is done with a component selector, by default in the lower left corner.
+As you prefer, you can document each database as a separate component or as different modules of a common component. Each component has its own navigation bar, switching between components is done with a component selector, by default in the lower left corner.
 * *at least one commit is required to enable Antora to use any repository*
+//begin copy from https://gitlab.com/datahandwerk/DataHandwerk-toolkit-mssql/-/blob/main/template-antora-db/readme.adoc
 * create required folder structure
-** copy the template for an Antora-component-folder from `DataHandwerk-toolkit-mssql\antora-template\docs` (including all content) into your target repository 
-*** On Windows you can also use `xcopy` to copy an existing folder structure without files
+** copy the required folder structure including all basic content from https://gitlab.com/datahandwerk/DataHandwerk-toolkit-mssql/-/tree/main/template-antora-db[] into into your target repository.
+** rename the folder, in our example 'dhw-antora-ssas'
+** check and update the content of some files and rename some folders
+** create a local git repository and do a first commit
+
+the template structure:
+
+* 'docs' and 'docsmanual' are two (2) start_paths, used in the Antora Playbook yaml files
+** 'docs' should be filled using the export procedure [docs].[usp_AntoraExport] +
+when exporting the files in subfolders 'partials' and 'pages' are deleted, that's why you should not add manuell context into these folder
+** 'docsmanual' contains additional manual created and updated content. We use this separate start_path to avoid automatic deletion of files by [docs].[usp_AntoraExport]
+* the next level folder in both start_path is the folder 'modules', containing Antora modules
+* parallel to the folder 'modules' a file 'antora.yml' is required to define the Antora component. See https://docs.antora.org/antora/2.3/component-version/[What’s a Component Version?] and https://docs.antora.org/antora/2.3/component-version-descriptor/[What’s antora.yml?]
 +
-[source]
-----
-xcopy C:\SourceFolder D:\TargetFolder /t /e
-----
-+
-[source]
-----
-xcopy D:\Repos\gitlab\DataHandwerk\DataHandwerk-toolkit-mssql\antora-template\docs D:\Repos\aaa\bbb\MyDataBase_sqldb\docs /t /e
-----
-+
-** copy the folder `docs\modules\template` into a folder `docs\modules\sqldb`, if you use the default AntoraModule name "sqldb"
-** if you don't use the default AntoraModule "sqldb" then rename the folder to match your 'AntoraModule' parameter settings in xref:dhw:sqldb:config.parameter.adoc[]
-** check and change the Antora navigation files for each module
-*** `docs\modules\sqldb\nav.adoc`
-*** example file content (Remove the `/` at the beginning of the line before the `include`.)
+IMPORTANT: Both 'antora.yml' files in 'docs' and 'docsmanual' needs to match.
 +
 ====
+[source,yaml]
 ....
-/include::partial$navlist/nav-by-schema.adoc[]
-* xref:other/objectrefcyclic.adoc[]
+name: mycomponent <1>
+title: My Project <2>
+version: 0.1.0 <3>
+nav:
+- modules/sqldb/nav.adoc <4>
+....
+<1> use the same component name in multiple `antora.yml` to combine them in one component
+<2> define the component `title` _only in one file_, not in both
+<3> use the same version(s) in related `antora.yml` to get a consistent documentation, +
+use `~` to https://docs.antora.org/antora/3.0/component-with-no-version/[Define a Component with No Version]
+<4> define the `nav` (Navigation structure) _only in one file_, not in both
+====
+* the default module in both start_path is 'sqldb'. if you don't use the default AntoraModule 'sqldb' then rename the folder to match your 'AntoraModule' parameter settings in config.parameter.adoc[]. You also need to adapt the `nav` entry in 'antora.yml' to match
+* the start_path 'docsmanual' contains an additional component ROOT. The file 'index.adoc' in the folder 'pages' defines the *home page* of the component. You need to update the content.
+* 'nav.adoc' - each module needs one (1) file 'nav.adoc' to define the navigation structure. See: https://docs.antora.org/antora/2.3/navigation/files-and-lists/[Navigation Files and Lists]
+** if a module has multiple source folders, for example the module 'sqldb' is included under both start_path 'docs' and 'docsmanual' you need to care about _having only one 'nav.adoc'_ under 'docs\modules\sqldb' or 'docsmanual\modules\sqldb' +
+We suggest using the 'docs\modules\sqldb\nav.adoc' because it contains the links to automated exported content.
+*** When you document *relational databases* then you should keep the `include::partial$navlist/nav-by-schema.adoc[]`
+*** to document *SSAS Tabular models*, uncomment
++
+----
+* xref:objectrefcyclic.adoc[]
 * xref:other/indexsemanticgroup.adoc[]
+----
+** example file content (unindent the content, if you want to use it, the indent should avoild `include` processing.)
++
+====
+....
+ include::partial$navlist/nav-by-schema.adoc[]
+ * xref:objectrefcyclic.adoc[]
+ * xref:other/indexsemanticgroup.adoc[]
 ....
 ====
-* setup your 'AntoraComponentFolder' parameter settings in xref:dhw:sqldb:config.parameter.adoc[]
+
+//end copy from https://gitlab.com/datahandwerk/DataHandwerk-toolkit-mssql/-/blob/main/template-antora-db/readme.adoc
+
+//** rename the folder, in our example 'dhw-antora-ssas' +
+//image:image-2021-11-20-12-51-38-884.png[]
+//*** On Windows you can also use `xcopy` to copy an existing folder structure without files
+//+
+//[source]
+//----
+//xcopy C:\SourceFolder D:\TargetFolder /t /e
+//----
+//+
+//[source]
+//----
+//xcopy D:\Repos\gitlab\DataHandwerk\DataHandwerk-toolkit-mssql\template-antora-db\docs D:\Repos\gitlab\iconcare\eventanalytics\antora-sqldb\docs /t /e
+//
+// xcopy D:\Repos\gitlab\DataHandwerk\DataHandwerk-toolkit-mssql\template-antora-db\docs\modules\sqldb D:\Repos\gitlab\iconcare\eventanalytics\antora-ssasdb\docs\modules\ssasdb /t /e
+//----
+//+
+//** copy the folder `docs\modules\template` into a folder `docs\modules\sqldb`, if you use the default AntoraModule name "sqldb"
+* setup 'AntoraComponent', 'AntoraModule' and 'AntoraComponentFolder' parameter settings in xref:dhw:sqldb:config.parameter.adoc[] +
+You can direct edit the table content or you can use tsql
 ====
 [source,sql]
 ----
@@ -356,63 +425,45 @@ Where
     And sub_Parameter = '';
 ----
 ====
-* set your 'AntoraDeleteFilesInModuleFolders' parameter settings in xref:dhw:sqldb:config.parameter.adoc[] to '1' +
+* set ('AntoraDeleteFilesInModuleFolders', '') parameter settings in xref:dhw:sqldb:config.parameter.adoc[] to '1' +
 it is '0' by default to avoid uncontrolled deletion of data
-* your source repositories should contain a file `antora.yml` in the same folder, where the folder `modules` is located. Read about `antora.yml` in https://docs.antora.org/antora/2.3/component-version-descriptor/
-+
-In DataHandwerk We use two (2) docs source repositories, and we need the `antora.yml` in each source repository. The `title` should be contained only in one `antora.yml`.
-+
-The content could be
-+
-====
-[source,yaml]
-....
-name: myproject <1>
-# title: My Project <2>
-version: 0.1.0 <3>
-# nav:
-# - modules/sqldb/nav.adoc <4>
-....
-<1> use the same project name in all `antora.yml`
-<2> don't define a title here, but define it only once in the main `antora.yml`
-<3> use the same version(s) to get a consistent documentation
-<4> don't include the `sqldb` navigation file here, but use the main `antora.yml` to define the whole navigation in one place!
-====
 
 === setup optional docs source repository
 
-DataHandwerk `dhw-antora-sqldb` contains only automatically generated documentation. Additional manual documentation is located in an additional repository `dhw-antora-docs`
+DataHandwerk `dhw-antora-sqldb` contains automatically generated documentation (under 'doc') and additonal manual content (under 'docsmanual') related to the database documentation. Other documentation (architecture, user guid) is located in an additional repository `dhw-antora-docs`
 
-you can use xcopy to get a folder structure to start your own documentation: +
+you could use the template folder 'docsmanual' from https://gitlab.com/datahandwerk/DataHandwerk-toolkit-mssql/-/tree/main/template-antora-db/docsmanual[] to get the required structure
+
+you can also use xcopy to get a folder structure to start your own documentation: +
 [source]
 ----
 xcopy D:\Repos\gitlab\DataHandwerk\dhw-antora-docs D:\Repos\aaa\bbb\antora-docs /t /e
 ----
 
-DataHandwerk main `antora.yml` is located in `D:\Repos\gitlab\DataHandwerk\dhw-antora-docs\docs` and has this content
-
-====
-[source,yaml]
-....
-name: myproject <1>
-title: My Project
-version: 0.1.0
-nav: <2>
-- modules/ROOT/nav.adoc
-- modules/arc/nav.adoc
-- modules/sqldb/nav.adoc <3>
-- modules/manual/nav.adoc
-....
-<1> this project name is used in the playbooks
-<2> 4 navigation files for 4 modules are included
-<3> include the navigation file for `sqldb` module in the main `antora.yml`
-====
-
-You could copy this file and modify.
+//DataHandwerk main `antora.yml` is located in `D:\Repos\gitlab\DataHandwerk\dhw-antora-docs\docs` and has this content
+//
+//====
+//[source,yaml]
+//....
+//name: myproject <1>
+//title: My Project
+//version: 0.1.0
+//nav: <2>
+//- modules/ROOT/nav.adoc
+//- modules/arc/nav.adoc
+//- modules/sqldb/nav.adoc <3>
+//- modules/manual/nav.adoc
+//....
+//<1> this project name is used in the playbooks
+//<2> 4 navigation files for 4 modules are included
+//<3> include the navigation file for `sqldb` module in the main `antora.yml`
+//====
+//
+//You could copy this file and modify.
 
 ==== add index.adoc to be used as starting point
 
-It is useful to create a file `index.adoc` and define this file as the entry point of a documentation project. Place this file in `pages` of the `ROOT` module of the docs repository. Of course, you can also define a different entry point.
+It is useful to have one (1) file `index.adoc` per Antora component. Create this file in `pages` of the `ROOT` module of each used Antora component.
 
 === setup Antora Playbook project
 
@@ -433,25 +484,25 @@ Copy some files and folders from the DataHandwerk project and adapt them:
 
 * `supplemental-ui` (Folder)
 * `lib` (Folder)
-* antora-playbook-local.bat
-* antora-playbook-local.ps1
+//* antora-playbook-local.bat
+//* antora-playbook-local.ps1
 * antora-playbook-local.yml
-* antora-playbook-local-validate.ps1
-* antora-playbook-public.bat
-* antora-playbook-public.ps1
+//* antora-playbook-local-validate.ps1
+//* antora-playbook-public.bat
+//* antora-playbook-public.ps1
 * antora-playbook-public.yml
 * .gitignore
-
 
 DataHandwerk documentation uses the following Playbook project: https://gitlab.com/DataHandwerk/datahandwerk.gitlab.io +
 It is also the output for the generated documentation.
 
 ==== Some content explained
 
-* two (2) playbooks are included, one to create local output, one to create the final site.
+* two (2) playbooks are included, one to create _local output_, one to create the final _public site_.
 ** They are different in the output folder.
-** they are different in the `kroki-fetch-diagram: true` option. It takes a lot of time to generate all diagrams and this option is used only to create the final site.
-** They could be also different in sources for testing
+*** the 'local' folder is included into .gitignore to exclude from git repository
+** both playbooks are different in the `kroki-fetch-diagram: true` option. It takes a lot of time to generate all diagrams and this option is used only to create the final public site.
+** both could be also different in sources for testing
 +
 ====
 [source,yaml]
@@ -465,12 +516,19 @@ site:
     google_analytics: 'G-abcdefghij'
 content:
   sources:
-  - url: D:\Repos\gitlab\DataHandwerk\DataHandwerk-docs
-    branches: HEAD
+  - url: D:\Repos\gitlab\DataHandwerk\dhw-antora-docs
+    branches:
+    - HEAD
+    # - v*
     start_path: docs
-  - url: D:\Repos\gitlab\DataHandwerk\sqldb-docs
-    branches: HEAD
-    start_path: docs
+  - url: D:\Repos\gitlab\DataHandwerk\dhw-antora-sqldb
+    branches:
+    - HEAD
+    # - v*
+    start_paths: docs, docsmanual
+  # - url: https://github.com/DataHandwerk/DataHandwerk-docs
+  #   branches: main
+  #   start_path: docs
 asciidoc:
   attributes:
     page-pagination: ''
@@ -529,112 +587,128 @@ one line is added to use `\css\custom.css` to overwrite some css styles
 some changes to enlarge the wight of navigation bar, TOC section and maximum content with. +
 The font size of the navigation bar was decreased to avoid too much line breaks for long object names.
 --
-+
-* some scripts to simplify the call of Antora (optional)
-** local-playbook.ps1
-+
-[source,powershell]
-....
-antora --fetch local-playbook.yml
-....
-** local-playbook-validate.ps1
-+
-[source,powershell]
-....
-antora --generator @antora/xref-validator local-playbook.yml
-....
-+
-https://gitlab.com/antora/xref-validator/
-+
-`$ npm install -g gitlab:antora/xref-validator`
-** playbook.ps1
-+
-[source,powershell]
-....
-antora --fetch playbook.yml
-New-Item .\docs\.nojekyll -ItemType file -Force <1>
-....
-<1> the file `.nojekyll` needs to be created if the site should be published as GitHub page. See: https://docs.antora.org/antora/2.3/publish-to-github-pages/#nojekyll
-** playbook.bat
-+
-[source]
-....
-antora --fetch playbook.yml
-copy /y NUL .\docs\.nojekyll <1>
-....
-<1> the file `.nojekyll` needs to be created if the site should be published as GitHub page. See: https://docs.antora.org/antora/2.3/publish-to-github-pages/#nojekyll
+//+
+//* some scripts to simplify the call of globally installed Antora (optional)
+//** local-playbook.ps1
+//+
+//[source,powershell]
+//....
+//antora --fetch local-playbook.yml
+//....
+//** local-playbook-validate.ps1
+//+
+//[source,powershell]
+//....
+//antora --generator @antora/xref-validator local-playbook.yml
+//....
+//+
+//https://gitlab.com/antora/xref-validator/
+//+
+//`$ npm install -g gitlab:antora/xref-validator`
+//** playbook.ps1
+//+
+//[source,powershell]
+//....
+//antora --fetch playbook.yml
+//New-Item .\docs\.nojekyll -ItemType file -Force <1>
+//....
+//<1> the file `.nojekyll` needs to be created if the site should be published as GitHub page. See: https://docs.antora.org/antora/2.3/publish-to-github-pages/#nojekyll
+//** playbook.bat
+//+
+//[source]
+//....
+//antora --fetch playbook.yml
+//copy /y NUL .\docs\.nojekyll <1>
+//....
+//<1> the file `.nojekyll` needs to be created if the site should be published as GitHub page. See: https://docs.antora.org/antora/2.3/publish-to-github-pages/#nojekyll
 
 == Export files for Antora
 
-include::sqldb:partial$docs.usp_antoraexport.adoc[tag=ms_description]
+include::sqldb:partial$content/docs.usp_antoraexport.adoc[tag=ms_description]
 
 .Usage
 ====
 [source,sql]
 ----
-include::sqldb:partial$docs.usp_antoraexport.adoc[tag=exampleusage]
+include::sqldb:partial$content/docs.usp_antoraexport.adoc[tag=exampleusage]
 ----
 ====
 
 == generate the static site
 
 NOTE: The parameter 'dwh_readonly' is 0 by default. +
-No guid will be written as extended properties into the connected DWH database. This parameter should and can remain 0 if a database should only be documented but not modified.
+In this case no Schema_guid, RepoObject_guid or RepoObjectColumn_guid will be written as extended properties into the connected DWH database. +
+This parameter should and can remain 0 if a database should only be documented but not modified.
 
 IMPORTANT: Antora uses git repositories as sources. You must put the source repositories under Git version control, there must be at least one commit.
 
 NOTE: Antora Export can delete any content in the target folders. You can set this in xref:dhw:sqldb:config.parameter.adoc[] setting 'AntoraDeleteFilesInModuleFolders' to 1.
 
 export the automated documentation
+
+====
 [source,sql]
 ----
 --initial setup
 Exec repo.usp_main;
 
---use the sqlparser
+--use the sqlparser to extract column references
 --...
 --after using the sqlparser persist the results
 
-Exec sqlparse.usp_PERSIST_RepoObject_SqlModules_41_from_T;
-Exec sqlparse.usp_PERSIST_RepoObject_SqlModules_61_SelectIdentifier_Union_T;
+Exec sqlparse.usp_sqlparse
 
 --process the sqlparser results
 Exec repo.usp_main;
-
---import extended properties from source database into repository
-Exec [property].[usp_sync_ExtendedProperties_Sys2Repo_InsertUpdate]
 
 --export files for automated documentation
 Exec docs.usp_AntoraExport
 
 ----
-
-
+====
 
 In the Antora Playbook project call Antora to build the local or the final site.
 
-* You can use the prepared PowerShell scripts
-+
-[source,powershell]
+====
 ....
-./local-playbook.ps1
+npx antora antora-playbook-local.yml --stacktrace
 ....
-+
-[source,powershell]
+
 ....
-./playbook.ps1
+npx antora antora-playbook-public.yml --stacktrace
 ....
-* you can also use Windows bat files:
-+
-[source]
+
 ....
-local-playbook.bat
+npx antora antora-playbook-local.yml --stacktrace --log-file antora-local.log
 ....
-+
-[source]
+
 ....
-playbook.bat
+npx antora antora-playbook-public.yml --stacktrace --log-file antora-public.log
 ....
+====
+
+//* You can use the prepared PowerShell scripts
+//+
+//[source,powershell]
+//....
+//./local-playbook.ps1
+//....
+//+
+//[source,powershell]
+//....
+//./playbook.ps1
+//....
+//* you can also use Windows bat files:
+//+
+//[source]
+//....
+//local-playbook.bat
+//....
+//+
+//[source]
+//....
+//playbook.bat
+//....
 
 
 The result is a static site. You can browse the content locally on the PC where you created the documentation.
@@ -652,3 +726,381 @@ here you can download a plantuml.war file to be used in a local webserver lice t
 
 // tag::to-do[]
 // end::to-do[]
+
+== document additional and external references
+
+See examples: 
+
+* xref:aw:ssasdb:adventureworks.date.adoc#_references[]
+* xref:aw:sqldwdb:dbo.dimdate.adoc#_references[]
+
+
+It is possible to store additional and external references in order to document them. This is especially useful if there are references between different relational databases and these databases are part of the documentation. Likewise, relationships between SSAS Tabular models and a relational source database can be documented.
+
+*Additional references can be entered in the xref:dhw:sqldb:reference.additional_reference.adoc[] table.*
+
+* There are columns for the referenced and for the referencing objects and columns.
+* The entry of the columns is optional; AntoraComponent, AntoraModule, Schema and Object are mandatory.
+* the content of the table xref:dhw:sqldb:reference.additional_reference.adoc[] is used by xref:dhw:sqldb:reference.usp_additional_reference.adoc[] and this procedure is called by xref:dhw:sqldb:repo.usp_main.adoc[]. Thus, additional references are used automatically.
+* *in the table xref:dhw:sqldb:reference.additional_reference_database_t.adoc[] you need to enter values* into the columns
+** 'RepoDatabaseName' +
+  the current repository needs information about the corresponding repository
+** 'DatabaseName' +
+  this information is used in the documentation generator as the database name of the referenced or referencing databases.
+
+=== Synchronization of cross-repository references
+
+// tag::sync-cross-repository-references[]
+If cross-repository references are defined in different repositories in xref:dhw:sqldb:reference.additional_reference.adoc[], then they should be able to be synchronized between these repositories. It should be possible to use the references in both repositories (for example for documentation) without having to enter the references twice.
+
+Several steps are required:
+
+* Because a repository cannot readily know in which other repositories references are entered with itself, and because we cannot or do not want to scan all repository databases, we need to enter metadata about the correspondig repository databases.
+** cross-repository references are entered in one repository in xref:dhw:sqldb:reference.additional_reference.adoc[].
+** *at least one entry must also be copied to the same table in the corresponding repository*, to let them know about referenced and referencing repositories.
+* xref:dhw:sqldb:reference.usp_additional_reference.adoc[] (or the parent procedure xref:dhw:sqldb:repo.usp_main.adoc[]) must be executed in the second repository.
+* *in the table xref:dhw:sqldb:reference.additional_reference_database_t.adoc[] you need to enter values into the columns 'DatabaseName' and 'RepoDatabaseName'* to link to the corresponding repository
+* The procedure xref:dhw:sqldb:property.usp_external_property_import.adoc[] (which is also called in the parent procedure xref:dhw:sqldb:repo.usp_main.adoc[])
+** imports other corresponding entries into xref:dhw:sqldb:reference.additional_reference.adoc[]
+** imports properties from corresponding repository, if the PropertyName is marked for inheritance.
+*** condition for RepoObject properties: +
+`WHERE property.PropertyName_RepoObject_T.has_inheritance = 1`
+*** condition for RepoObjectColumn properties: +
+`WHERE property.PropertyName_RepoObjectColumn_T.has_inheritance = 1`
+// end::sync-cross-repository-references[]
+
+== document SSAS Tabular models
+
+See example: xref:aw:ssasdb:nav/objects-by-schema.adoc[]
+
+Create a new dhw repository and don't try to mix relational db documentation and SSAS Tabular documentation. Maybe it is possible to combine them in one repository, but there could be naming conflicts between relational table names and SSAS Tabular table names. Anyway we did not test.
+
+SSAS Tabular databases are documented as similar as if they were relational databases, so that broadly the same logic can be used. And there are differences as well.
+
+* SSAS Model Name => Schema Name
+** This way it is possible to document multiple SSAS Models in one component and one module, if the model names are different
+** we can use *one repository for all ssas models* instead of the required one repository per relational dwh database
+* SSAS Table Name => Table Name
+* SSAS Measures are documented twice
+** in the table where they are defined
+** in a pseudo table '_measures' where all measures of the model are documented in one place
+* Translations: one extra Antora Module per translation is used
++
+====
+if the SSAS model contains the translation (cultures) 'en-us' and 'de-de' then 2 additional modules are used, where the suffix is defined by the culture. I this example the main Antora module is 'ssasdb'
+
+* ssasdb
+* ssasdb-de-DE
+* ssasdb-en-US
+====
+** to distinguish between sql server database and ssas database don't use 'sqldb' as Antora module name, but use for example 'ssasdb'
+
+[IMPORTANT]
+====
+* set the Parameters in xref:dhw:sqldb:config.parameter.adoc[]
+** ('AntoraComponent', '') and adapt 'antora.yml' `name`; for example 'ssas'
+** ('AntoraComponentFolder', '')
+** ('AntoraDeleteFilesInModuleFolders', '') => '1'
+** ('AntoraModule', '') => for example 'ssasdb'
+** ('sync enable', 'dwh') => '0'
+** ('sync enable', 'ssas') => '1'
+** ('sync enable', 'ssis') => '0'
+* ensure the existence of one Antora module per used translation (for example 'ssas' and 'ssas-de-DE')
+====
+
+Define the SSAS Models you wan't to document.
+
+in xref:dhw:sqldb:ssas.model_json.adoc[]
+
+* create one row per ssas model
+** enter the model name to be used in the documentation in 'databasename', for example 'AdventureWorks'
+** enter the local file location of the model into 'model_filename', for example 'D:\Repos\local\AdventureWorks\AdventureWorks_models\de-de\Model.bim'
+** if you want to document multiple SSAS models, you can add multiple entries into the table
+* get the sql to import data, using
++
+====
+[source,sql]
+....
+Select
+    ImportModelSql
+  , databasename
+  , model_filename
+  , model_utf8
+  , isModelJson
+From
+    ssas.model_json_ImportModelSql
+....
+====
++
+Copy the content from column 'ImportModelSql' and execute it. this content could be
+====
+[source,sql]
+....
+Update ssas.model_json Set model_utf8 =
+(
+Select BulkColumn
+From
+OpenRowset ( Bulk 'D:\Repos\local\AdventureWorks\AdventureWorks_models\de-de\Model.bim', Single_Blob )
+As j
+)
+Where databasename = 'AdventureWorks'
+GO
+....
+====
+* execute the query on 'ssas.model_json_ImportModelSql' again to check, if 'isModelJson' = 1. If this is not the case, then you have an issue.
+* execute repo.usp_main
++
+====
+[source,sql]
+....
+Exec repo.usp_main
+....
+====
+** check the output. Any errors?
+** check xref:dhw:sqldb:repo.repoobject.adoc[]
+*** do you see the SSAS tables? And do you see only them? +
+Fine
+*** do you see some strange tables, for example objects containing in the repodatabase? +
+You forgot to set the parameter ('sync enable', 'dwh') => '0' +
+Correct this, remove unwanted RepoObjects
+** check the table xref:dhw:sqldb:repo.repoobjectcolumn.adoc[]
+** check the view xref:dhw:sqldb:repo.measure.adoc[]
+
+[TIP]
+====
+If you want to export not only the main model documentation, but also *translations*, you need to configure this in xref:dhw:sqldb:ssas.model_json_3411_cultures_translations_model_t.adoc[]!
+
+`set  is_CultureDocsOutput = 1` +
+for the Cultures, you want to export
+
+the case of the culture in 'cultures_name' and in the export folder should match. That's why we use 'de-DE' but not 'de-de'.
+
+* [ ] the implementation could be changed to use only lower case.
+====
+* execute repo.usp_main a second time! +
+it is important to execute this procedure several times, because some tables are filled in the first execution which are required in the next execution: translation settings and some other content.
++
+====
+[source,sql]
+....
+Exec repo.usp_main
+....
+====
+
+* execute docs.usp_AntoraExport
++
+====
+[source,sql]
+....
+Exec docs.usp_AntoraExport
+....
+====
+* check the exported content
+* create a git repository and do an initial commit
+* update your Antora playbook and create the documentation
+
+=== optional: add relations to the relational data source
+
+See example: xref:aw:ssasdb:adventureworks.date.adoc#_references[]
+
+* in the table xref:dhw:sqldb:ssas.model_json_33_datasources_t.adoc[] you need to enter values into the columns 'referenced_AntoraComponent' and 'referenced_AntoraModule'
+* `Exec repo.usp_main` => to get the next table filled
+* in the table xref:dhw:sqldb:reference.additional_reference_database_t.adoc[] you need to enter values into the columns 'DatabaseName' and 'RepoDatabaseName'
+* `Exec repo.usp_main` => to get the next table filled
+* SSAS models contain metadata about the data sources, these are extracted, combined with the entries of the two tables above and inserted into the xref:dhw:sqldb:reference.additional_reference.adoc[] table.
+
+=== optional: document measure properties
+
+By default, only the description and expression are documented per measure.
+
+Additional properties can be entered into the xref:sqldb:property.measureproperty.adoc[] table, for example via import from external sources.
+
+Whether and how these properties are used in the generated documentation is controlled in the xref:sqldb:property.propertyname_measure_t.adoc[] table:
+
+* In the `OrderInAntoraMeasureDetails` column, the order is specified. Only `property_name` with `OrderInAntoraMeasureDetails > 0` will appear in the documentation.
+* In the following columns the formatting of the content can be specified
+** `NoOfCollapsibleChars` +
+a `[%collapsible]` can be defined +
+reasonable values are 0 (no collapsible) or values >= 5 +
+a variable value is used to avoid conflicts with nested blocks
+** `NoOfExampleChars` +
+an example block `====` can be defined +
+reasonable values are 0 (no example block) or values >= 4 +
+a variable value is used to avoid conflicts with nested blocks
+** `NoOfListingChars` +
+a listing block `----` can be defined +
+reasonable values are 0 (no listing block) or values >= 4 +
+a variable value is used to avoid conflicts with nested blocks
+
+== document SSIS projects
+
+See example: xref:ssis:servicenow:workflowblankpackage.adoc[]
+
+Multiple SSIS projects can be combined into one DHW repository.
+
+SSIS projects are documented differently than relational databases and SSAS tabular models:
+
+* several SSIS projects can be combined in one Antora component
+* each SSIS project is documented as a separate Antora module
+* each SSIS package is documented as a separate page
+
+Create a new dhw repository to document SSIS projects. It should be possible to combine SSIS projects with relational databases or SSAS tabular models in one repository, but this was not tested.
+
+
+[IMPORTANT]
+====
+* set the Parameters in xref:dhw:sqldb:config.parameter.adoc[]
+** ('AntoraComponent', '') and adapt 'antora.yml' `name`; for example 'ssis'
+** ('AntoraComponentFolder', '')
+** ('AntoraDeleteFilesInModuleFolders', '') => '1'
+** ('AntoraModule', '') => *value is ignored for ssis documentation*
+** ('sync enable', 'dwh') => '0'
+** ('sync enable', 'ssas') => '0'
+** ('sync enable', 'ssis') => '1'
+====
+
+Define the SSIS projects you wan't to document.
+
+in xref:dhw:sqldb:ssis.project.adoc[]
+
+* 'AntoraModule' - define the Antora Module to used per project
+* 'ProjectPath' - enter the project path containing SSIS packages and connections
+* if you want to document multiple SSIS projects, you can add multiple entries into the table
+* use the column 'sql_import' to get the sql to import data from 'ProjectPath' into the repository. It looks like
++
+====
+[source,sql]
+....
+Exec ssis_t.usp_GetPackageDetails 'D:\Repos\aaa\bbb\ServiceNow\SSIS\SSIS_ServiceNow'
+Exec ssis_t.usp_GetProjectConnection 'D:\Repos\aaa\bbb\ServiceNow\SSIS\SSIS_ServiceNow'
+Exec ssis.usp_import
+....
+====
+* execute this code
+* now several tables in schema 'ssis' should contain data
+* adapt the content of the Antora component folders
+** create required component folders (copy from template)
+** check and update 'antora.yml' files in start_path 'docs' and 'docsmanual'
++
+====
+[source,yaml]
+....
+name: ssis
+title: Demo SSIS
+version: ~
+nav:
+- modules/performanceanalytics/nav.adoc
+- modules/servicenow/nav.adoc
+....
+====
+** update the content of the startpage (`.\docsmanual\modules\ROOT\pages\index.adoc`)
+** create / update 'nav.adoc' per Antora Module
++
+====
+[source,adoc,indent=0]
+....
+ .ServiceNow
+ include::ssis:servicenow:partial$navlist/navlist-package.adoc[]
+....
+====
++
+====
+[source,adoc,indent=0]
+....
+ .PerformanceAnalytics
+ include::ssis:performanceanalytics:partial$navlist/navlist-package.adoc[]
+....
+====
+
+
+* process the repository and export the sources for the documentation
++
+====
+[source,sql]
+....
+Exec repo.usp_main
+Exec docs.usp_AntoraExport
+....
+====
+
+* check the exported content
+* create a git repository and do an initial commit
+* update your Antora playbook and create documentation
+
+
+
+[NOTE]
+====
+Logic and implementation is based on this blog article https://www.sqlservercentral.com/articles/ssis-package-documentor[SSIS Package documentor] +
+from 2016-11-04 (first published: 2015-09-01) +
+author: https://www.sqlservercentral.com/author/Divya-Agrawal
+
+the article explains how does it work and provides a link for a procedure script: 
+https://www.sqlservercentral.com/wp-content/uploads/2019/05/CodeReviewAcceleratior_v10.sql
+
+The original procedure has been modified and extended, tables and steps have been moved into separate steps and objects. Adaptations were made for newer SSIS versions and for contents that were not considered by the original procedure.
+====
+
+== external descriptions
+
+In principle, it is possible and useful to use AsciiDoc `include` directives in descriptions stored in the repository databases to include external content. This content is usually located in the Antora data source git repositories for the domain-oriented descriptions. This allows objects, columns, etc. to be described outside of the repository databases. This has several advantages:
+
+* Easy editing with text editors.
+* Possibility of version control ('docs-as-code').
+
+If the 'description' property of objects or columns contains an `include`, then this content can also be inherited along the xref:user-guide:properties-inheritance.adoc[]. This can be especially useful for columns to specify the descriptions of the columns only once.
+
+====
+ <<property_start>>Description
+ include::partial$docsnippet/reference-from-persistence.adoc[]
+ <<property_end>>
+====
+
+=== descriptiontags
+
+In addition, there is a formal method to store descriptions for tables and SSAS measures outside the repository database directly in the git repositories used by Antora as data sources. This makes it possible to define these optional descriptions and use them in the documentation without having to explicitly store the descriptions as `include`.
+
+However, this requires that the file names and the tags used follow a precise syntax.
+
+Since it can be difficult to use the filenames and tags correctly, a template is exported for each RepoObject. The export is done in AntoraExport in the `docs` startpath under `partial$_descriptiontags/schemaname.objectname.adoc`. Note the prefix '_' (underscore) of the foldername. These files are deleted and recreated on each export. Therefore, the contents cannot be added at this point, with the next AntoraExport the contents would be overwritten.
+
+Um diese Templates auszufüllen, können einzelne (oder alle) Dateien in den startpath `docsmanual` in den Ordner `partial$descriptiontags/schemaname.objectname.adoc` kopiert werden - ohne den Prefix '_'. Hier können diese Dateien nun mit Inhalt gefüllt werden und diese Inhalte bleiben beim AntoraExport erhalten.
+
+.descriptiontags content for config.Parameter
+====
+[source,adoc]
+----
+include::sqldb:partial$descriptiontags/config.parameter.adoc[]
+----
+====
+
+[qanda]
+What is the ':hide-exported-description:' attribute for?::
+There could be external descriptions and those exported via AntoraExport at the same time.
+
+* Without this attribute (if it is left commented out), both external and exported descriptions are used.
+* If the attribute is set (as in the example), then exported descriptions for the concrete object or measure are not used in the documentation.
+
+Why is this so complicated?::
+* we need different locations for content that is recreated with each AntoraExport and for content that must not be deleted during AntoraExport.
+** in the startpath `docs` the contents of `pages` and `partials` will be deleted and recreated each time
+** in the startpath `docsmanual` the contents of `pages` and `partials` are preserved
+** since both startpaths belong to the same Antora module, the file paths within the module must be unique. +
+Therefore we need two different folder names and decided to use 'descriptiontags' and '_descriptiontags'.
+
+Is there a way to make this simpler?::
+Maybe, we are open to constructive suggestions and improvements.
+
+TIP: These formal files are a _technical_ interface for the documentation. They _may_ contain the descriptions. However, it is also possible to maintain the actual descriptions elsewhere and reference them here via `includes`. This is especially useful if the domain is responsible for the contents of the descriptions and these descriptions are maintained in other repositories or simply elsewhere. This is where the technical documentation takes place.
+
+NOTE: Since the `descriptiontags` descriptions are defined externally and are not known in the repository database, these descriptions cannot be xref:user-guide:properties-inheritance.adoc[inherited].
+
+Nevertheless, it is possible and useful to use these descriptions on other objects. In the following example, an external description for xref:sqldb:config.parameter.adoc[] is also used in the xref:sqldb:configt.parameter_default.adoc[] view by including an `include` in a commented out section of this view.
+
+====
+ <<property_start>>Description
+ include::sqldb:partial$descriptiontags/config.parameter.adoc[tag=description,opts=optional]
+ <<property_end>>
+====
+
+In this case, these descriptions are again subject to possible inheritance.

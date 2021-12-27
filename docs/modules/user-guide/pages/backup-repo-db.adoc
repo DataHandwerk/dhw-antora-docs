@@ -11,11 +11,14 @@ One simple way is to create SQL Server backups. However, the drives of the serve
 https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications?view=sql-server-ver15[Data-tier Applications]
 
 
-BACPAC, which are created by an "export", cannot be created from the repository database, because a validation is mandatory before the creation. This validation fails because the database is connected to other databases via synonyms and refers to system objects.
+*BACPAC*, which are created by an "export", *cannot be created from the repository database*, because a validation is mandatory before the creation. This validation fails because the database is connected to other databases via synonyms and refers to system objects.
 
-However, it is possible to "extract" DACPAC with data if database validation is turned off in the process.
+However, *it is possible to "extract" DACPAC with data* if database validation is turned off in the process.
 
-This is not possible in SSMS or Azure Data Studio. SSMS does not allow you to turn off validation. ADS has validation turned off, but does not allow creating DACPAC with data. Only BACPAC can be created with data.
+This is not possible in SSMS or Azure Data Studio.
+
+* SSMS does not allow you to turn off validation.
+* ADS has validation turned off, but does not allow creating DACPAC with data. Only BACPAC can be created with data.
 
 The contents of a DACPAC can also be viewed (and extracted) with a program that can browse zip archives.
 
@@ -25,7 +28,7 @@ It is possible to create a DACPAC with data using Visual Studio and disable vali
 
 === Command Line - sqlpackage.exe
 
-Alle oben genannten GUI verwenden letztendlich sqlpackage.exe, man kann dieses Programm also auch direkt verwenden.
+All the above GUI eventually use sqlpackage.exe, so you can use this program directly.
 
 https://docs.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage?view=sql-server-ver15[sqlpackage.exe]
 
@@ -35,28 +38,38 @@ sqlpackage can be downloaded from the Internet. However, it is usually already i
 * `/p:ExtractAllTableData=TRUE` extracts the data of all tables
 * `/Action:Publish` Incrementally updates a database schema to match the schema of a source .dacpac file. If the database does not exist on the server, the publish operation creates it. Otherwise, an existing database is updated.
 
-It is necessary to prevent the extraction of the data of the graph tables, otherwise there will be problems with the recovery of the data. Instead of using `/p:ExtractAllTableData=TRUE`, one could list all tables individually, using `/p:TableData=(STRING)`. Alternatively, all data for all tables is extracted and the data for the graph tables is then manually deleted from DACPAC: 
+Create DACPAC
 
-If the data of the graph tables have already been extracted, then you can open the DACPAC like a ZIP archive and delete these data there.
+to get the required command, use xref:sqldb:config.usp_extract_dacpac.adoc[]. When you execute this procedure you get this kind of code.
 
+.sqlpackage.exe /Action:Extract
+====
+....
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150\sqlpackage.exe" /TargetFile:"D:\Repos\gitlab\DataHandwerk\DataHandwerk-toolkit-mssql\dhw_dacpac\dhw_self.dacpac" /Action:Extract /SourceServerName:"ACER-F17\SQL2019" /SourceDatabaseName:"dhw_self" /p:IgnorePermissions=TRUE /p:IgnoreUserLoginMappings=TRUE /p:TableData=[config].[Parameter] /p:TableData=[config].[SsasDatabasename] /p:TableData=[configT].[spt_values] /p:TableData=[property].[external_RepoObjectColumnProperty] /p:TableData=[property].[external_RepoObjectProperty] /p:TableData=[property].[PropertyName_RepoObject_T] /p:TableData=[property].[PropertyName_RepoObjectColumn_T] /p:TableData=[property].[RepoObjectColumnProperty] /p:TableData=[property].[RepoObjectProperty] /p:TableData=[property].[RepoSchemaProperty] /p:TableData=[reference].[additional_Reference] /p:TableData=[reference].[additional_Reference_database_T] /p:TableData=[reference].[additional_Reference_Object_T] /p:TableData=[reference].[additional_Reference_ObjectColumn_T] /p:TableData=[reference].[RepoObject_QueryPlan] /p:TableData=[reference].[RepoObject_reference_T] /p:TableData=[reference].[RepoObject_ReferenceTree] /p:TableData=[reference].[RepoObjectColumn_reference_T] /p:TableData=[reference].[RepoObjectColumnSource_virtual] /p:TableData=[reference].[RepoObjectSource_FirstResultSet] /p:TableData=[reference].[RepoObjectSource_QueryPlan] /p:TableData=[reference].[RepoObjectSource_virtual] /p:TableData=[repo].[ForeignKey_Indexes_union_T] /p:TableData=[repo].[ForeignKey_virtual] /p:TableData=[repo].[Index_ColumList_T] /p:TableData=[repo].[Index_Settings] /p:TableData=[repo].[Index_ssas_T] /p:TableData=[repo].[Index_virtual] /p:TableData=[repo].[IndexColumn_ssas_T] /p:TableData=[repo].[IndexColumn_union_T] /p:TableData=[repo].[IndexColumn_virtual] /p:TableData=[repo].[RepoObject] /p:TableData=[repo].[RepoObject_persistence] /p:TableData=[repo].[RepoObjectColumn] /p:TableData=[repo].[RepoSchema] /p:TableData=[sqlparse].[RepoObject_SqlModules] /p:TableData=[sqlparse].[RepoObject_SqlModules_41_from_T] /p:TableData=[sqlparse].[RepoObject_SqlModules_61_SelectIdentifier_Union_T] /p:TableData=[ssas].[Measures_translation_T] /p:TableData=[ssas].[model_json] /p:TableData=[ssas].[model_json_31_tables_T] /p:TableData=[ssas].[model_json_311_tables_columns_T] /p:TableData=[ssas].[model_json_312_tables_measures_T] /p:TableData=[ssas].[model_json_32_relationships_T] /p:TableData=[ssas].[model_json_33_dataSources_T] /p:TableData=[ssas].[model_json_3411_cultures_translations_model_T] /p:TableData=[ssas].[RepoObjectColumn_translation_T] /p:TableData=[ssis].[Package] /p:TableData=[ssis].[PackageConnection] /p:TableData=[ssis].[PackageFlow] /p:TableData=[ssis].[PackageParameter] /p:TableData=[ssis].[PackageTask] /p:TableData=[ssis].[PackageTask_Dft_Component] /p:TableData=[ssis].[PackageTask_Dft_Component_input] /p:TableData=[ssis].[PackageTask_Dft_Component_input_externalMetadataColumn] /p:TableData=[ssis].[PackageTask_Dft_Component_input_inputColumn] /p:TableData=[ssis].[PackageTask_Dft_Component_output] /p:TableData=[ssis].[PackageTask_Dft_Component_output_externalMetadataColumn] /p:TableData=[ssis].[PackageTask_Dft_Component_output_outputcolumn] /p:TableData=[ssis].[PackageTask_Dft_SrcDest] /p:TableData=[ssis].[PackageTask_Sql_Parameter] /p:TableData=[ssis].[PackageVariable] /p:TableData=[ssis].[Project] /p:TableData=[ssis].[ProjectConnection] /p:TableData=[uspgenerator].[GeneratorUsp] /p:TableData=[uspgenerator].[GeneratorUspParameter] /p:TableData=[uspgenerator].[GeneratorUspStep] /p:TableData=[workflow].[Connection] /p:TableData=[workflow].[ProcedureDependency] /p:TableData=[workflow].[Workflow] /p:TableData=[workflow].[Workflow_ProcedureDependency_T] /p:TableData=[workflow].[Workflow_ProcedureDependency_T_bidirectional_T] /p:TableData=[workflow].[WorkflowStep] /p:TableData=[workflow].[WorkflowStep_Sortorder]
+....
+====
+
+execute this command in a Command Prompt or Powershell terminal.
+
+// ====
+// ....
+// "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150\sqlpackage.exe" /TargetFile:"C:\Users\GoerGer\Documents\dacpac\dhw_BudgetControlling.dacpac" /Action:Extract /SourceServerName:"hahnbidev04" /SourceDatabaseName:"dhw_BudgetControlling" /p:ExtractAllTableData=TRUE
+// ....
+// ====
+
+Graph tables are no longer used because the handling is too complex. The following note is therefore obsolete.
+
+* It is necessary to prevent the extraction of the data of the graph tables, otherwise there will be problems with the recovery of the data. Instead of using `/p:ExtractAllTableData=TRUE`, one could list all tables individually, using `/p:TableData=(STRING)`. Alternatively, all data for all tables is extracted and the data for the graph tables is then manually deleted from DACPAC: 
+* If the data of the graph tables have already been extracted, then you can open the DACPAC like a ZIP archive and delete these data there. +
 image::backup-repo-db_2021-07-14-16-36-43.png[]
-
-====
-....
-"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150\sqlpackage.exe" /TargetFile:"D:\Repos\GitHub\DataHandwerk\DataHandwerk-toolkit-mssql\db_DataHandwerk\Snapshots\dhw_self.dacpac" /Action:Extract /SourceServerName:"localhost\sql2019" /SourceDatabaseName:"dhw_self" /p:ExtractAllTableData=TRUE
-....
-====
-
-====
-....
-"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150\sqlpackage.exe" /TargetFile:"C:\Users\GoerGer\Documents\dacpac\dhw_BudgetControlling.dacpac" /Action:Extract /SourceServerName:"hahnbidev04" /SourceDatabaseName:"dhw_BudgetControlling" /p:ExtractAllTableData=TRUE
-....
-====
 
 === deploy DACPAC including data
 
-It is possible to restore the database including data using SSMS. When trying to restore data from graph tables, an error occurs. The error messages are more visible if `sqlpackage.exe` is used with `publish` action.
+It is possible to restore the database including data using SSMS. When trying to restore data from graph tables, an error occurs.
 
+The error messages are better visible if `sqlpackage.exe` is used with `publish` action.
+
+.sqlpackage.exe /Action:Publish
 ====
 ....
 "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150\sqlpackage.exe" /SourceFile:"D:\Repos\GitHub\DataHandwerk\DataHandwerk-toolkit-mssql\db_DataHandwerk\Snapshots\dhw_self.dacpac" /Action:Publish /TargetServerName:"localhost\sql2019" /TargetDatabaseName:"dhw_self_v4"
@@ -65,6 +78,7 @@ It is possible to restore the database including data using SSMS. When trying to
 
 If the DACPAC contains data for graph tables using edge constraints, then the database data cannot be restored, because `TRUNCATE` is not allowed in this case. (This is a bug in sqlpackage.exe)
 
+.sqlpackage error output
 ----
 Updating database (Failed)
 *** Could not deploy package.
@@ -74,7 +88,7 @@ Error SQL72045: Script execution error.  The executed script:
 TRUNCATE TABLE [graph].[RepoObject];
 ----
 
-If this error occurs (and it occurs when you extract all data of all tables, and there is content for graph tables), then the data of the tables in the schema `graph` must be deleted from DACPAC. See above.
+If this error occurs (and it occurs when you extract data of graph tables), then the data of the tables in the schema `graph` must be deleted from DACPAC. See above.
 
 // tag::to-do[]
 // end::to-do[]

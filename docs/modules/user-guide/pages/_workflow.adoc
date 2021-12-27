@@ -1,0 +1,104 @@
+= Workflow
+
+
+Workflow ::
+
+A workflow is a set of WorkflowSteps (usually procedures) that are to be executed in a specific order.
++
+Workflows can be defined in xref:sqldb:workflow.workflow.adoc[].
+
+WorkflowStep ::
+
+automatische Befüllung: Persistierungen
+
+default `is_active = 0`
+
+Wie und wo können zusätzliche steps eingetragen werden?
+
+Sollte man alle Prozeduren aus dem usp-Generator übernehmen?
+
+Sollte man irgendein Kennzeichen am RepoObjekt und an einer generierten usp dafür haben?
+
+
+Each workflow can consist of none, one or more *active* WorkflowSteps. These steps are to be executed in a certain order. This sequence should be determined as automatically as possible by evaluating the references / dependencies of the WorkflowSteps.
++
+WorkflowSteps can be defined in xref:sqldb:workflow.workflowstep.adoc[].
+
+
+Zur Zeit werden nur Persistierungen berücksichtigt, die mit dem Persistence Generator erstellt werden.
+
+Vorgehensweise
+
+* In xref:sqldb:workflow.workflow.adoc[] können Workflows eingetragen werden.
+** einzelne Workflows können durch Setzen von `is_active = 1` aktiviert werden, um die nachfolgende Logik auf diese Workflows anzuwenden.
+* Durch Ausführen der der Prozedur xref:sqldb:workflow.usp_workflow.adoc[] werden in der Sicht ref:sqldb:workflowstep_src.usp_workflow.adoc[] potentielle Workflow steps identifiziert (zur Zeit werden nur Persistierungen berücksichtigt): Jeder (!) potentielle Schritt wird für für jeden _aktiven_ Workflow in die die Tabelle ref:sqldb:workflow.workflowstep.adoc[] eingetragen. Bei 3 aktiven Workflows und 20 Persistierungen ergeben sich somit 3 * 20 Datensätze. Dabei wird jeder neu hinzugefügte Schritt mit dem Default `is_active = 0` auf inaktive gesetzt.
+* Nun kann der Datenbankentwickler einzele Schritte in unterschiedlichen Workflows aktivieren.
+** So wäre es möglich, in einen übergreifenden Workflow alle Schritte zu aktivieren und in einzelnen Workflows nur bestimmte inhaltlich zusammengehörende Schritte.
+** Da xref:sqldb:workflow.workflowstep.adoc[] die `Procedure_RepoObject_guid` der Schritte enthält, ist es einfacher, die Sicht xref:sqldb:workflow.workflowstep_forupdate.adoc[] zu verwenden. Alle überhaupt möglichen Schritte werden automatisch eingetragen, in dieser Sicht kann nun die Spalte `is_active` geändert werden.
+* xref:sqldb:workflow.usp_workflow.adoc[] muss erneut ausgeführt werden.
+* Ziel dieses Aufrufes ist es, in xref:sqldb:workflow.workflowstep_sortorder.adoc[] pro aktivem Workflow die aktiven Schritte mit der richtigen `Sortorder` einzutragen, in der die Persistierungs-Prozeduren aufgerufen werden sollen.
+* Die Sicht xref:sqldb:workflow.workflow_proceduredependency_t_notinsortorder_check.adoc[] muss leer sein. Wenn das der Fall ist, dann konnten alle Schritte in xref:sqldb:workflow.workflowstep_sortorder.adoc[] eingetragen werden. Wenn das nicht der Fall ist, dann liegt das an zyklischen Objekt-Referenzen.
+* Die Sicht xref:sqldb:workflow.workflow_sqlusp.adoc[] liefert letztendlich den fertigen Code einer usp pro Workflow, welche die Schritte (die Persistierungen) in der ermittelten Reihenfolge aufruft.
+
+Zyklische Objekt-Referenzen
+
+Es ist möglich, dass im DWH zyklische Referencen hinterlegt sind. Das kann insbesondere dann passieren, wenn das Ergebnis einer Persistierung irgendwo als Filter verwendet wird.
+
+Wenn die Datenbank mit dem Dokumentations-Generator dokumentiert wird, dann werden zyklische Objekt-Referenzen auf der automatisch generierten Seite xref:sqldb:objectrefcyclic.adoc[] angezeigt.
+
+Zum anderen werden durch xref:sqldb:workflow.usp_workflow.adoc[] auch bidiretionale Referenzen in die Tabelle xref:sqldb:workflow.workflow_proceduredependency_t_bidirectional_t.adoc[] eingetragen. Dort müssen einige Datensätze auf `is_inactive = 1` gesetzt werden, bis xref:sqldb:workflow.usp_workflow.adoc[], xref:sqldb:workflow.workflowstep_sortorder.adoc[] zu befüllen, bis also xref:sqldb:workflow.workflow_proceduredependency_t_notinsortorder_check.adoc[] leer ist.
+
+
+
+
+
+
+Biml ::
+
+https://en.wikipedia.org/wiki/Business_Intelligence_Markup_Language[Business Intelligence Markup Language]
++
+____
+Business Intelligence Markup Language (Biml) is a domain-specific XML dialect for defining business intelligence (BI) assets. Biml authored BI assets can currently be used by the BIDS Helper add-on for Microsoft SQL Server Business Intelligence Development Studio (BIDS) and the Varigence Mist (now called BimlStudio) integrated development environment; both tools translate Biml metadata into SQL Server Integration Services (SSIS) and SQL Server Analysis Services (SSAS) assets for the Microsoft SQL Server platform. However, emitters can be created to compile Biml for any desired BI platform.
+____
++
+https://varigence.com/biml[]
++
+* [ ] maybe it would be possible to create biml files from the workflows to export them to SSIS packages. There were some attempts to do this, but they were aborted
+** xref:sqldb:workflow.biml_connection.adoc[]
+** xref:sqldb:workflow.biml_package.adoc[]
+** xref:sqldb:workflow.biml_precedenceconstraints.adoc[]
+** xref:sqldb:workflow.biml_project.adoc[]
+** xref:sqldb:workflow.biml_task.adoc[]
+** xref:sqldb:workflow.connection.adoc[]
+
+
+
+
+
+
+
+[workflow].[Connection]
+
+wozu?
+
+[workflow].[ProcedureDependency]
+
+wozu und wie befüllt?
+
+[workflow].[Workflow_ProcedureDependency_T]
+
+was ist mit dem is_redundant?
+
+[workflow].[Workflow_ProcedureDependency_T_bidirectional_T]
+
+was ist mit dem is_inactive?
+
+
+rename workflow.WorkflowStep_S in workflow.WorkflowStep_src, aber das ist eine Quelle einer Persistierung.
+Vielleicht eine usp erstellen zum umbenennen einer Persistierungs-Quelle?
+Oder einfach die Quelle kopieren, PK festlegen und dann die bestehende Persistierung überschreiben (andere Quelle, gleiches Ziel)
+
+
+EXEC [workflow].[usp_workflow]
+
+wird aktuell nicht automatisch aufgerufen.
