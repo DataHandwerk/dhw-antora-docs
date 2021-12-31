@@ -1,0 +1,44 @@
+@startuml
+title DWH B Development - SSAS Models (Project B) - Components
+
+top to bottom direction
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam database<<DWHBDevelopment.RepositorydbProjectB>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<DWHBDevelopment.SSASModelsProjectB.SSASModel1>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<DWHBDevelopment.SSASModelsProjectB.SSASModel2>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+
+database "==Repository db (Project B)\n<size:10>[Container: Database]</size>" <<DWHBDevelopment.RepositorydbProjectB>> as DWHBDevelopment.RepositorydbProjectB
+
+package "SSAS Models (Project B)\n[Container: SSAS Model]" <<DWHBDevelopment.SSASModelsProjectB>> {
+  skinparam PackageBorderColor<<DWHBDevelopment.SSASModelsProjectB>> #444444
+  skinparam PackageFontColor<<DWHBDevelopment.SSASModelsProjectB>> #444444
+
+  rectangle "==SSAS Model 1\n<size:10>[Component: SSAS Model]</size>" <<DWHBDevelopment.SSASModelsProjectB.SSASModel1>> as DWHBDevelopment.SSASModelsProjectB.SSASModel1
+  rectangle "==SSAS Model 2\n<size:10>[Component: SSAS Model]</size>" <<DWHBDevelopment.SSASModelsProjectB.SSASModel2>> as DWHBDevelopment.SSASModelsProjectB.SSASModel2
+}
+
+DWHBDevelopment.RepositorydbProjectB .[#707070,thickness=2].> DWHBDevelopment.SSASModelsProjectB.SSASModel1 : "<color:#707070>imports"
+DWHBDevelopment.RepositorydbProjectB .[#707070,thickness=2].> DWHBDevelopment.SSASModelsProjectB.SSASModel2 : "<color:#707070>imports"
+@enduml

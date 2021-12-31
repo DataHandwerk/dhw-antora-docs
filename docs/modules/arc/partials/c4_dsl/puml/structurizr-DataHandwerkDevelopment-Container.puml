@@ -1,5 +1,7 @@
-@startuml(id=DataHandwerkDevelopment-Container)
+@startuml
 title DataHandwerk Development - Containers
+
+top to bottom direction
 
 skinparam {
   shadowing false
@@ -8,20 +10,26 @@ skinparam {
   wrapWidth 200
   maxMessageSize 100
 }
+
 hide stereotype
-top to bottom direction
-skinparam database<<33>> {
+
+skinparam database<<DataHandwerkDevelopment.DWHdbProjectA>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam database<<34>> {
+skinparam database<<DataHandwerkDevelopment.RepositorydbProjectA>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-package "DataHandwerk Development\n[Software System]" {
-  database "==DWH db (Project A)\n<size:10>[Container: Database]</size>" <<34>> as 34
-  database "==Repository db (Project A)\n<size:10>[Container: Database]</size>" <<33>> as 33
+
+package "DataHandwerk Development\n[Software System]" <<DataHandwerkDevelopment>> {
+  skinparam PackageBorderColor<<DataHandwerkDevelopment>> #444444
+  skinparam PackageFontColor<<DataHandwerkDevelopment>> #444444
+
+  database "==Repository db (Project A)\n<size:10>[Container: Database]</size>" <<DataHandwerkDevelopment.RepositorydbProjectA>> as DataHandwerkDevelopment.RepositorydbProjectA
+  database "==DWH db (Project A)\n<size:10>[Container: Database]</size>" <<DataHandwerkDevelopment.DWHdbProjectA>> as DataHandwerkDevelopment.DWHdbProjectA
 }
+
 @enduml

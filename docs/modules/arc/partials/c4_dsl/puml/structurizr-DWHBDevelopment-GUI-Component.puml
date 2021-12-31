@@ -1,5 +1,7 @@
-@startuml(id=DWHBDevelopment-GUI-Component)
+@startuml
 title DWH B Development - GUI - Components
+
+top to bottom direction
 
 skinparam {
   shadowing false
@@ -8,27 +10,34 @@ skinparam {
   wrapWidth 200
   maxMessageSize 100
 }
+
 hide stereotype
-top to bottom direction
-skinparam rectangle<<23>> {
+
+skinparam rectangle<<DWHBDevelopment.GUI.CRUDGUI>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<24>> {
+skinparam database<<DWHBDevelopment.RepositorydbProjectB>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam database<<5>> {
+skinparam rectangle<<DWHBDevelopment.GUI.VisualizationGUI>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-database "==Repository db (Project B)\n<size:10>[Container: Database]</size>" <<5>> as 5
-package "GUI\n[Container: GUI]" {
-  rectangle "==CRUD GUI\n<size:10>[Component: ?]</size>\n\nCRUD - Create, Read, Update, Delete" <<24>> as 24
-  rectangle "==Visualization GUI\n<size:10>[Component: ?]</size>\n\nVisualization of data lineage (references), real and virtual PK, FK-PK" <<23>> as 23
+
+database "==Repository db (Project B)\n<size:10>[Container: Database]</size>" <<DWHBDevelopment.RepositorydbProjectB>> as DWHBDevelopment.RepositorydbProjectB
+
+package "GUI\n[Container: GUI]" <<DWHBDevelopment.GUI>> {
+  skinparam PackageBorderColor<<DWHBDevelopment.GUI>> #444444
+  skinparam PackageFontColor<<DWHBDevelopment.GUI>> #444444
+
+  rectangle "==Visualization GUI\n<size:10>[Component: ?]</size>\n\nVisualization of data lineage (references), real and virtual PK, FK-PK" <<DWHBDevelopment.GUI.VisualizationGUI>> as DWHBDevelopment.GUI.VisualizationGUI
+  rectangle "==CRUD GUI\n<size:10>[Component: ?]</size>\n\nCRUD - Create, Read, Update, Delete" <<DWHBDevelopment.GUI.CRUDGUI>> as DWHBDevelopment.GUI.CRUDGUI
 }
-24 .[#707070,thickness=2].> 5 : ""
+
+DWHBDevelopment.GUI.CRUDGUI .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB : "<color:#707070>"
 @enduml

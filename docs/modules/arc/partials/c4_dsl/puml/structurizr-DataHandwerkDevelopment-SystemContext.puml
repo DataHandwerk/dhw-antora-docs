@@ -1,5 +1,7 @@
-@startuml(id=DataHandwerkDevelopment-SystemContext)
+@startuml
 title DataHandwerk Development - System Context
+
+top to bottom direction
 
 skinparam {
   shadowing false
@@ -8,19 +10,22 @@ skinparam {
   wrapWidth 200
   maxMessageSize 100
 }
+
 hide stereotype
-top to bottom direction
-skinparam rectangle<<31>> {
+
+skinparam person<<DHWDeveloper>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<32>> {
+skinparam rectangle<<DataHandwerkDevelopment>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-rectangle "==DHW Developer\n<size:10>[Person]</size>\n\nDeveloper of DataHandwerk Toolkit" <<31>> as 31
-rectangle "==DataHandwerk Development\n<size:10>[Software System]</size>" <<32>> as 32
-31 .[#707070,thickness=2].> 32 : "uses for testing and development"
+
+person "==DHW Developer\n<size:10>[Person]</size>\n\nDeveloper of DataHandwerk Toolkit" <<DHWDeveloper>> as DHWDeveloper
+rectangle "==DataHandwerk Development\n<size:10>[Software System]</size>" <<DataHandwerkDevelopment>> as DataHandwerkDevelopment
+
+DHWDeveloper .[#707070,thickness=2].> DataHandwerkDevelopment : "<color:#707070>uses for testing and development"
 @enduml

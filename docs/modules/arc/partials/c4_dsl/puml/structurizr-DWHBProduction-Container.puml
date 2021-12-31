@@ -1,5 +1,7 @@
-@startuml(id=DWHBProduction-Container)
+@startuml
 title DWH B Production - Containers
+
+top to bottom direction
 
 skinparam {
   shadowing false
@@ -8,28 +10,35 @@ skinparam {
   wrapWidth 200
   maxMessageSize 100
 }
+
 hide stereotype
-top to bottom direction
-skinparam rectangle<<2>> {
+
+skinparam database<<DWHBProduction.DWHdbProductionProjectB>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<3>> {
+skinparam person<<DeploymentTeam>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam database<<29>> {
+skinparam person<<ProjectBDWHUser>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-rectangle "==Deployment Team\n<size:10>[Person]</size>" <<2>> as 2
-rectangle "==Project B DWH User\n<size:10>[Person]</size>\n\nuser of DWH (Project B)" <<3>> as 3
-package "DWH B Production\n[Software System]" {
-  database "==DWH db Production (Project B)\n<size:10>[Container: Database]</size>" <<29>> as 29
+
+person "==Deployment Team\n<size:10>[Person]</size>" <<DeploymentTeam>> as DeploymentTeam
+person "==Project B DWH User\n<size:10>[Person]</size>\n\nuser of DWH (Project B)" <<ProjectBDWHUser>> as ProjectBDWHUser
+
+package "DWH B Production\n[Software System]" <<DWHBProduction>> {
+  skinparam PackageBorderColor<<DWHBProduction>> #444444
+  skinparam PackageFontColor<<DWHBProduction>> #444444
+
+  database "==DWH db Production (Project B)\n<size:10>[Container: Database]</size>" <<DWHBProduction.DWHdbProductionProjectB>> as DWHBProduction.DWHdbProductionProjectB
 }
-2 .[#707070,thickness=2].> 29 : "deployes on production system"
-3 .[#707070,thickness=2].> 29 : "uses"
+
+DeploymentTeam .[#707070,thickness=2].> DWHBProduction.DWHdbProductionProjectB : "<color:#707070>deployes on production system"
+ProjectBDWHUser .[#707070,thickness=2].> DWHBProduction.DWHdbProductionProjectB : "<color:#707070>uses"
 @enduml

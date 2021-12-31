@@ -1,5 +1,7 @@
-@startuml(id=DWHBDevelopment-RepositorydbProjectB-Component)
+@startuml
 title DWH B Development - Repository db (Project B) - Components
+
+top to bottom direction
 
 skinparam {
   shadowing false
@@ -8,122 +10,167 @@ skinparam {
   wrapWidth 200
   maxMessageSize 100
 }
+
 hide stereotype
-top to bottom direction
-skinparam rectangle<<11>> {
+
+skinparam rectangle<<DWHBDevelopment.Businessandtechnicaldocumentation>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<22>> {
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.Configuration>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<12>> {
+skinparam database<<DWHBDevelopment.DWHdbDevelopmentProjectB>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<13>> {
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.DocumentationGenerator>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<14>> {
+skinparam rectangle<<DWHBDevelopment.GUI>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<25>> {
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.PersistenceGenerator>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<15>> {
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.Properties>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<16>> {
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.PropertiesInheritance>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<17>> {
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.Reference>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam database<<18>> {
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.RepoObject>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<6>> {
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.SSAS>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<7>> {
+skinparam rectangle<<DWHBDevelopment.SSASModelsProjectB>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<8>> {
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.SSIS>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<9>> {
+skinparam rectangle<<DWHBDevelopment.SSISProjectsProjectB>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<10>> {
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.SqlParser>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-database "==DWH db Development (Project B)\n<size:10>[Container: Database]</size>" <<18>> as 18
-rectangle "==GUI\n<size:10>[Container: GUI]</size>\n\nGraphical User Interface. Not yet implemented" <<22>> as 22
-rectangle "==documentation\n<size:10>[Container: documentation]</size>\n\ndatabase documentation" <<25>> as 25
-package "Repository db (Project B)\n[Container: Database]" {
-  rectangle "==Configuration\n<size:10>[Component]</size>\n\nConnection with DWH database and various settings for the behavior of the processes in the repository." <<7>> as 7
-  rectangle "==Documentation Generator\n<size:10>[Component]</size>\n\nNot yet implemented" <<15>> as 15
-  rectangle "==Persistence Generator\n<size:10>[Component]</size>\n\nViews or tables can be persisted in tables, with or without history with temporal tables. Code for performing the persistations is created." <<13>> as 13
-  rectangle "==Properties and Inheritance\n<size:10>[Component]</size>\n\nInheritance or determination of extended properties for RepoObjects or RepoObject columns, based on references" <<11>> as 11
-  rectangle "==Reference\n<size:10>[Component]</size>\n\nDetermination and management of references (dependencies) between RepoObjects or RepoObject columns" <<10>> as 10
-  rectangle "==RepoObject\n<size:10>[Component]</size>\n\nCentral construct to represent objects (tables, views, procedures, functions, index, ...) and their subunits (columns, index columns, procedure parameters, ...), their properties and relationships between them." <<8>> as 8
-  rectangle "==SqlParser\n<size:10>[Component]</size>\n\nParse the code of views to extract column-level references or other logic from them" <<9>> as 9
-  rectangle "==Synonyms\n<size:10>[Component]</size>\n\nSynonyms are used to connect the repository database with the corresponding DWH database" <<6>> as 6
-  rectangle "==USP Generator\n<size:10>[Component]</size>\n\nusp (userdefined stored procedures) can be generated in a formalized way: containing optional logging and some workflow elements (sub procedures, conditions, parent-child logic)" <<12>> as 12
-  rectangle "==View Generator\n<size:10>[Component]</size>\n\nNot yet implemented" <<14>> as 14
-  rectangle "==Visualization\n<size:10>[Component]</size>\n\npreparation for Visualization of data lineage (references), real and virtual PK, FK-PK" <<17>> as 17
-  rectangle "==Workflow\n<size:10>[Component]</size>\n\nA workflow executes procedures in a specific and necessary order." <<16>> as 16
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.Synonyms>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
 }
-18 .[#707070,thickness=2].> 8 : "RepoObject correspond with extended properties"
-15 .[#707070,thickness=2].> 11 : ""
-15 .[#707070,thickness=2].> 10 : ""
-15 .[#707070,thickness=2].> 8 : ""
-15 .[#707070,thickness=2].> 17 : ""
-22 .[#707070,thickness=2].> 8 : ""
-13 .[#707070,thickness=2].> 10 : ""
-13 .[#707070,thickness=2].> 8 : ""
-13 .[#707070,thickness=2].> 12 : ""
-11 .[#707070,thickness=2].> 10 : ""
-11 .[#707070,thickness=2].> 8 : ""
-11 .[#707070,thickness=2].> 12 : ""
-10 .[#707070,thickness=2].> 8 : ""
-10 .[#707070,thickness=2].> 9 : ""
-8 .[#707070,thickness=2].> 18 : ""
-8 .[#707070,thickness=2].> 6 : ""
-9 .[#707070,thickness=2].> 6 : ""
-6 .[#707070,thickness=2].> 18 : "Synonyms link to DWH System Views"
-12 .[#707070,thickness=2].> 8 : ""
-14 .[#707070,thickness=2].> 8 : ""
-14 .[#707070,thickness=2].> 9 : ""
-17 .[#707070,thickness=2].> 10 : ""
-16 .[#707070,thickness=2].> 10 : ""
-25 .[#707070,thickness=2].> 15 : "content generated by"
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.USPGenerator>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.ViewGenerator>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.Visualization>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<DWHBDevelopment.RepositorydbProjectB.Workflow>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+
+rectangle "==Business and technical documentation\n<size:10>[Container: documentation]</size>\n\nstatic website" <<DWHBDevelopment.Businessandtechnicaldocumentation>> as DWHBDevelopment.Businessandtechnicaldocumentation
+rectangle "==SSAS Models (Project B)\n<size:10>[Container: SSAS Model]</size>" <<DWHBDevelopment.SSASModelsProjectB>> as DWHBDevelopment.SSASModelsProjectB
+rectangle "==SSIS Projects (Project B)\n<size:10>[Container: SSIS Folder]</size>" <<DWHBDevelopment.SSISProjectsProjectB>> as DWHBDevelopment.SSISProjectsProjectB
+rectangle "==GUI\n<size:10>[Container: GUI]</size>\n\nGraphical User Interface. Not yet implemented" <<DWHBDevelopment.GUI>> as DWHBDevelopment.GUI
+database "==DWH db Development (Project B)\n<size:10>[Container: Database]</size>" <<DWHBDevelopment.DWHdbDevelopmentProjectB>> as DWHBDevelopment.DWHdbDevelopmentProjectB
+
+package "Repository db (Project B)\n[Container: Database]" <<DWHBDevelopment.RepositorydbProjectB>> {
+  skinparam PackageBorderColor<<DWHBDevelopment.RepositorydbProjectB>> #444444
+  skinparam PackageFontColor<<DWHBDevelopment.RepositorydbProjectB>> #444444
+
+  rectangle "==Reference\n<size:10>[Component]</size>\n\nDetermination and management of references (dependencies) between RepoObjects or RepoObject columns" <<DWHBDevelopment.RepositorydbProjectB.Reference>> as DWHBDevelopment.RepositorydbProjectB.Reference
+  rectangle "==Properties\n<size:10>[Component]</size>\n\nProperties for RepoObjects or RepoObject columns" <<DWHBDevelopment.RepositorydbProjectB.Properties>> as DWHBDevelopment.RepositorydbProjectB.Properties [[https://datahandwerk.gitlab.io/dhw/user-guide/properties.html]]
+  rectangle "==Properties Inheritance\n<size:10>[Component]</size>\n\nInheritance or determination of properties, based on references" <<DWHBDevelopment.RepositorydbProjectB.PropertiesInheritance>> as DWHBDevelopment.RepositorydbProjectB.PropertiesInheritance [[https://datahandwerk.gitlab.io/dhw/user-guide/properties-inheritance.html]]
+  rectangle "==USP Generator\n<size:10>[Component]</size>\n\nusp (userdefined stored procedures) can be generated in a formalized way: containing optional logging and some workflow elements (sub procedures, conditions, parent-child logic)" <<DWHBDevelopment.RepositorydbProjectB.USPGenerator>> as DWHBDevelopment.RepositorydbProjectB.USPGenerator [[https://datahandwerk.gitlab.io/dhw/user-guide/uspgenerator.html]]
+  rectangle "==Persistence Generator\n<size:10>[Component]</size>\n\nViews or tables can be persisted in tables, with or without history with temporal tables. Code for performing the persistations is created." <<DWHBDevelopment.RepositorydbProjectB.PersistenceGenerator>> as DWHBDevelopment.RepositorydbProjectB.PersistenceGenerator [[https://datahandwerk.gitlab.io/dhw/user-guide/persistence-generator.html]]
+  rectangle "==View Generator\n<size:10>[Component]</size>\n\nNot yet implemented" <<DWHBDevelopment.RepositorydbProjectB.ViewGenerator>> as DWHBDevelopment.RepositorydbProjectB.ViewGenerator
+  rectangle "==Documentation Generator\n<size:10>[Component]</size>\n\nAntora, AsciiDoc" <<DWHBDevelopment.RepositorydbProjectB.DocumentationGenerator>> as DWHBDevelopment.RepositorydbProjectB.DocumentationGenerator [[https://datahandwerk.gitlab.io/dhw/user-guide/documentation-generator.html]]
+  rectangle "==SSAS\n<size:10>[Component]</size>\n\nImport and parse SSAS Tabular models for documenation" <<DWHBDevelopment.RepositorydbProjectB.SSAS>> as DWHBDevelopment.RepositorydbProjectB.SSAS
+  rectangle "==SSIS\n<size:10>[Component]</size>\n\nImport and parse SSIS projects for documenation" <<DWHBDevelopment.RepositorydbProjectB.SSIS>> as DWHBDevelopment.RepositorydbProjectB.SSIS
+  rectangle "==Workflow\n<size:10>[Component]</size>\n\nA workflow executes procedures in a specific and necessary order." <<DWHBDevelopment.RepositorydbProjectB.Workflow>> as DWHBDevelopment.RepositorydbProjectB.Workflow
+  rectangle "==Visualization\n<size:10>[Component]</size>\n\npreparation for PlantUML Visualization of data lineage (references), real and virtual PK, FK-PK" <<DWHBDevelopment.RepositorydbProjectB.Visualization>> as DWHBDevelopment.RepositorydbProjectB.Visualization
+  rectangle "==Synonyms\n<size:10>[Component]</size>\n\nSynonyms are used to connect the repository database with the corresponding DWH database" <<DWHBDevelopment.RepositorydbProjectB.Synonyms>> as DWHBDevelopment.RepositorydbProjectB.Synonyms
+  rectangle "==Configuration\n<size:10>[Component]</size>\n\nConnection with DWH database and various settings for the behavior of the processes in the repository." <<DWHBDevelopment.RepositorydbProjectB.Configuration>> as DWHBDevelopment.RepositorydbProjectB.Configuration
+  rectangle "==RepoObject\n<size:10>[Component]</size>\n\nCentral construct to represent objects (tables, views, procedures, functions, index, ...) and their subunits (columns, index columns, procedure parameters, ...), their properties and relationships between them." <<DWHBDevelopment.RepositorydbProjectB.RepoObject>> as DWHBDevelopment.RepositorydbProjectB.RepoObject
+  rectangle "==SqlParser\n<size:10>[Component]</size>\n\nParse the code of views to extract column-level references or other logic from them" <<DWHBDevelopment.RepositorydbProjectB.SqlParser>> as DWHBDevelopment.RepositorydbProjectB.SqlParser [[https://datahandwerk.gitlab.io/dhw/user-guide/sqlparse-to-get-col-references.html]]
+}
+
+DWHBDevelopment.RepositorydbProjectB.DocumentationGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.USPGenerator : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.DocumentationGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.Properties : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.DocumentationGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.SSAS : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.DocumentationGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.SSIS : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.DocumentationGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.Visualization : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.Properties .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.USPGenerator : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.PersistenceGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.USPGenerator : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.ViewGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.SqlParser : "<color:#707070>"
+DWHBDevelopment.GUI .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.RepoObject : "<color:#707070>"
+DWHBDevelopment.Businessandtechnicaldocumentation .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.DocumentationGenerator : "<color:#707070>generated by"
+DWHBDevelopment.RepositorydbProjectB.Synonyms .[#707070,thickness=2].> DWHBDevelopment.DWHdbDevelopmentProjectB : "<color:#707070>Synonyms link to DWH System Views"
+DWHBDevelopment.DWHdbDevelopmentProjectB .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.RepoObject : "<color:#707070>RepoObject correspond with extended properties"
+DWHBDevelopment.RepositorydbProjectB.RepoObject .[#707070,thickness=2].> DWHBDevelopment.DWHdbDevelopmentProjectB : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.SSAS .[#707070,thickness=2].> DWHBDevelopment.SSASModelsProjectB : "<color:#707070>imports"
+DWHBDevelopment.RepositorydbProjectB.SSIS .[#707070,thickness=2].> DWHBDevelopment.SSISProjectsProjectB : "<color:#707070>imports"
+DWHBDevelopment.RepositorydbProjectB.RepoObject .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.SSAS : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.RepoObject .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.Synonyms : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.SqlParser .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.Synonyms : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.Reference .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.RepoObject : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.Properties .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.RepoObject : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.USPGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.RepoObject : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.PersistenceGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.RepoObject : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.ViewGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.RepoObject : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.PropertiesInheritance .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.Properties : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.Properties .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.PropertiesInheritance : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.Reference .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.SqlParser : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.PropertiesInheritance .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.Reference : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.Workflow .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.Reference : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.PersistenceGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.Reference : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.Visualization .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.Reference : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.DocumentationGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.RepoObject : "<color:#707070>"
+DWHBDevelopment.RepositorydbProjectB.DocumentationGenerator .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB.Reference : "<color:#707070>"
 @enduml

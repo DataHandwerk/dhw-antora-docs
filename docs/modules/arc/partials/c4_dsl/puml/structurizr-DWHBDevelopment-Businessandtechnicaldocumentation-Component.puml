@@ -1,0 +1,41 @@
+@startuml
+title DWH B Development - Business and technical documentation - Components
+
+top to bottom direction
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<DWHBDevelopment.Businessandtechnicaldocumentation.Businessdocumentation>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<DWHBDevelopment.Businessandtechnicaldocumentation.Indexdocumentation>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<DWHBDevelopment.Businessandtechnicaldocumentation.Objectdocumentation>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+
+package "Business and technical documentation\n[Container: documentation]" <<DWHBDevelopment.Businessandtechnicaldocumentation>> {
+  skinparam PackageBorderColor<<DWHBDevelopment.Businessandtechnicaldocumentation>> #444444
+  skinparam PackageFontColor<<DWHBDevelopment.Businessandtechnicaldocumentation>> #444444
+
+  rectangle "==Business documentation\n<size:10>[Component: Antora]</size>" <<DWHBDevelopment.Businessandtechnicaldocumentation.Businessdocumentation>> as DWHBDevelopment.Businessandtechnicaldocumentation.Businessdocumentation
+  rectangle "==Object documentation\n<size:10>[Component: Antora]</size>\n\npage per object; docs including descriptions, examples, columns, data lineage (references), real and virtual PK, FK-PK, code" <<DWHBDevelopment.Businessandtechnicaldocumentation.Objectdocumentation>> as DWHBDevelopment.Businessandtechnicaldocumentation.Objectdocumentation
+  rectangle "==Index documentation\n<size:10>[Component: Antora]</size>\n\nIndexes by Semantic Group" <<DWHBDevelopment.Businessandtechnicaldocumentation.Indexdocumentation>> as DWHBDevelopment.Businessandtechnicaldocumentation.Indexdocumentation
+}
+
+@enduml

@@ -8,9 +8,10 @@
 // include::_feedback.adoc[]
 
 . The project is based on Microsoft SQL Server (mssql):
-** initial restriction: SQL Server 2019 or above. +
+** current restriction: SQL Server 2017 or above. +
+*** initial restriction: SQL Server 2019 or above. +
 because features of the Graph database were used, which are only available in SQL Server 2019.
-** Features of graph database are no longer used due to insufficient support by Visual Studio database projects and by DACPAC containing data. It should therefore be possible to use older versions of SQL Server (not tested).
+*** Features of graph database are no longer used due to insufficient support by Visual Studio database projects and by DACPAC containing data. It should therefore be possible to use SQL Server 2017 (not tested).
 . It must *always* be possible for BI developers to use *all* mssql and Azure features in DWH databases.
 . a minimally invasive *repository database* _supplements_ DWH database metadata
 ** A repository database is externally connected to a DWH database via *synonyms to system catalog views* of the DWH database.
@@ -20,6 +21,7 @@ because features of the Graph database were used, which are only available in SQ
 ** The DWH database works without the repository and all traces of a repository can be removed (extended properties can be dropped).
 ** It is possible to connect to the DWH database in *read-only mode*, without writing back and using extended properties. In this case, the database can be documented, for example.
 ** *SSAS Tabular* databases can only be documented. This requires at least compatibility level 1200, since from this version on the model definition is expressed in JSON.
+** *SSIS projects* can only be documented.
 
 // === Technical Constraints
 

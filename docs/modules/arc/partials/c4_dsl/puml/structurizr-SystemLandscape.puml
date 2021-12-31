@@ -1,5 +1,7 @@
-@startuml(id=SystemLandscape)
+@startuml
 title System Landscape for Customer
+
+top to bottom direction
 
 skinparam {
   shadowing false
@@ -8,70 +10,78 @@ skinparam {
   wrapWidth 200
   maxMessageSize 100
 }
+
 hide stereotype
-top to bottom direction
-skinparam rectangle<<1>> {
+
+skinparam person<<DHWDeveloper>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam folder<<35>> {
+skinparam rectangle<<DWHBDevelopment>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<2>> {
+skinparam rectangle<<DWHBProduction>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<3>> {
+skinparam folder<<DWHBgit>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<4>> {
+skinparam person<<DWHDeveloper>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<28>> {
+skinparam rectangle<<DataHandwerkDevelopment>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam folder<<30>> {
+skinparam folder<<DataHandwerkgit>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<31>> {
+skinparam person<<DeploymentTeam>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<32>> {
+skinparam person<<ProjectBDWHUser>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-rectangle "==DHW Developer\n<size:10>[Person]</size>\n\nDeveloper of DataHandwerk Toolkit" <<31>> as 31
-rectangle "==DataHandwerk Development\n<size:10>[Software System]</size>" <<32>> as 32
-folder "==DataHandwerk git\n<size:10>[Software System]</size>\n\nCode of DataHandwerk in Version Control" <<35>> as 35
-package "Customer" {
-  rectangle "==DWH Developer\n<size:10>[Person]</size>\n\nDeveloper of some DWH" <<1>> as 1
-  rectangle "==Deployment Team\n<size:10>[Person]</size>" <<2>> as 2
-  rectangle "==Project B DWH User\n<size:10>[Person]</size>\n\nuser of DWH (Project B)" <<3>> as 3
-  rectangle "==DWH B Development\n<size:10>[Software System]</size>" <<4>> as 4
-  rectangle "==DWH B Production\n<size:10>[Software System]</size>" <<28>> as 28
-  folder "==DWH B git\n<size:10>[Software System]</size>\n\nCode of Project B in Version Control (git, subversion, ...)" <<30>> as 30
+
+package "Customer" <<enterprise>> {
+  skinparam PackageBorderColor<<enterprise>> #444444
+  skinparam PackageFontColor<<enterprise>> #444444
+
+  person "==DWH Developer\n<size:10>[Person]</size>\n\nDeveloper of some DWH" <<DWHDeveloper>> as DWHDeveloper
+  person "==Deployment Team\n<size:10>[Person]</size>" <<DeploymentTeam>> as DeploymentTeam
+  person "==Project B DWH User\n<size:10>[Person]</size>\n\nuser of DWH (Project B)" <<ProjectBDWHUser>> as ProjectBDWHUser
+  rectangle "==DWH B Production\n<size:10>[Software System]</size>" <<DWHBProduction>> as DWHBProduction
+  rectangle "==DWH B Development\n<size:10>[Software System]</size>" <<DWHBDevelopment>> as DWHBDevelopment
+  folder "==DWH B git\n<size:10>[Software System]</size>\n\nCode of Project B in Version Control (git, subversion, ...)" <<DWHBgit>> as DWHBgit
 }
-31 .[#707070,thickness=2].> 32 : "uses for testing and development"
-31 .[#707070,thickness=2].> 35 : "uses"
-1 .[#707070,thickness=2].> 4 : "developes"
-1 .[#707070,thickness=2].> 30 : "uses"
-1 .[#707070,thickness=2].> 35 : "takes code or builds"
-2 .[#707070,thickness=2].> 28 : "deployes on production system"
-2 .[#707070,thickness=2].> 30 : "takes code or builds"
-3 .[#707070,thickness=2].> 28 : "uses"
+
+person "==DHW Developer\n<size:10>[Person]</size>\n\nDeveloper of DataHandwerk Toolkit" <<DHWDeveloper>> as DHWDeveloper
+rectangle "==DataHandwerk Development\n<size:10>[Software System]</size>" <<DataHandwerkDevelopment>> as DataHandwerkDevelopment
+folder "==DataHandwerk git\n<size:10>[Software System]</size>\n\nCode of DataHandwerk in Version Control" <<DataHandwerkgit>> as DataHandwerkgit
+
+DHWDeveloper .[#707070,thickness=2].> DataHandwerkDevelopment : "<color:#707070>uses for testing and development"
+DHWDeveloper .[#707070,thickness=2].> DataHandwerkgit : "<color:#707070>uses"
+DWHDeveloper .[#707070,thickness=2].> DataHandwerkgit : "<color:#707070>takes code or builds"
+DWHDeveloper .[#707070,thickness=2].> DWHBDevelopment : "<color:#707070>developes"
+DWHDeveloper .[#707070,thickness=2].> DWHBgit : "<color:#707070>uses"
+DeploymentTeam .[#707070,thickness=2].> DWHBgit : "<color:#707070>takes code or builds"
+DeploymentTeam .[#707070,thickness=2].> DWHBProduction : "<color:#707070>deployes on production system"
+ProjectBDWHUser .[#707070,thickness=2].> DWHBProduction : "<color:#707070>uses"
+ProjectBDWHUser .[#707070,thickness=2].> DWHBDevelopment : "<color:#707070>uses"
 @enduml

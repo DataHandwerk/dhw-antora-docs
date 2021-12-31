@@ -1,5 +1,7 @@
-@startuml(id=DWHBDevelopment-DWHdbDevelopmentProjectB-Component)
+@startuml
 title DWH B Development - DWH db Development (Project B) - Components
+
+top to bottom direction
 
 skinparam {
   shadowing false
@@ -8,37 +10,44 @@ skinparam {
   wrapWidth 200
   maxMessageSize 100
 }
+
 hide stereotype
-top to bottom direction
-skinparam database<<5>> {
+
+skinparam rectangle<<DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<19>> {
+skinparam database<<DWHBDevelopment.RepositorydbProjectB>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<20>> {
+skinparam rectangle<<DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<21>> {
+skinparam rectangle<<DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-database "==Repository db (Project B)\n<size:10>[Container: Database]</size>" <<5>> as 5
-package "DWH db Development (Project B)\n[Container: Database]" {
-  rectangle "==Extended Properties\n<size:10>[Component]</size>" <<20>> as 20
-  rectangle "==SQL Server objects\n<size:10>[Component]</size>" <<21>> as 21
-  rectangle "==System views and procedures\n<size:10>[Component]</size>" <<19>> as 19
+
+database "==Repository db (Project B)\n<size:10>[Container: Database]</size>" <<DWHBDevelopment.RepositorydbProjectB>> as DWHBDevelopment.RepositorydbProjectB
+
+package "DWH db Development (Project B)\n[Container: Database]" <<DWHBDevelopment.DWHdbDevelopmentProjectB>> {
+  skinparam PackageBorderColor<<DWHBDevelopment.DWHdbDevelopmentProjectB>> #444444
+  skinparam PackageFontColor<<DWHBDevelopment.DWHdbDevelopmentProjectB>> #444444
+
+  rectangle "==System views and procedures\n<size:10>[Component]</size>" <<DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures>> as DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures
+  rectangle "==Extended Properties\n<size:10>[Component]</size>" <<DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties>> as DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties
+  rectangle "==SQL Server objects\n<size:10>[Component]</size>" <<DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects>> as DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects
 }
-20 .[#707070,thickness=2].> 5 : "RepoObject correspond with extended properties"
-20 .[#707070,thickness=2].> 21 : "enrich them with additional information"
-5 .[#707070,thickness=2].> 20 : ""
-5 .[#707070,thickness=2].> 19 : "Synonyms link to DWH System Views"
-19 .[#707070,thickness=2].> 21 : "describe"
+
+DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures .[#707070,thickness=2].> DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects : "<color:#707070>describe"
+DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties .[#707070,thickness=2].> DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects : "<color:#707070>enrich them with additional information"
+DWHBDevelopment.RepositorydbProjectB .[#707070,thickness=2].> DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures : "<color:#707070>Synonyms link to DWH System Views"
+DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB : "<color:#707070>RepoObject correspond with extended properties"
+DWHBDevelopment.RepositorydbProjectB .[#707070,thickness=2].> DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties : "<color:#707070>"
 @enduml

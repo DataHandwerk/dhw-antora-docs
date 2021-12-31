@@ -1,5 +1,7 @@
-@startuml(id=DWHBDevelopment-documentation-Component)
+@startuml
 title DWH B Development - documentation - Components
+
+top to bottom direction
 
 skinparam {
   shadowing false
@@ -8,20 +10,26 @@ skinparam {
   wrapWidth 200
   maxMessageSize 100
 }
+
 hide stereotype
-top to bottom direction
-skinparam rectangle<<26>> {
+
+skinparam rectangle<<DWHBDevelopment.documentation.Indexdocumentation>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<27>> {
+skinparam rectangle<<DWHBDevelopment.documentation.Objectdocumentation>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-package "documentation\n[Container: documentation]" {
-  rectangle "==Index documentation\n<size:10>[Component: Antora]</size>\n\nIndexes by Semantic Group" <<27>> as 27
-  rectangle "==Object documentation\n<size:10>[Component: Antora]</size>\n\npage per object; docs including descriptions, examples, columns, data lineage (references), real and virtual PK, FK-PK, code" <<26>> as 26
+
+package "documentation\n[Container: documentation]" <<DWHBDevelopment.documentation>> {
+  skinparam PackageBorderColor<<DWHBDevelopment.documentation>> #444444
+  skinparam PackageFontColor<<DWHBDevelopment.documentation>> #444444
+
+  rectangle "==Object documentation\n<size:10>[Component: Antora]</size>\n\npage per object; docs including descriptions, examples, columns, data lineage (references), real and virtual PK, FK-PK, code" <<DWHBDevelopment.documentation.Objectdocumentation>> as DWHBDevelopment.documentation.Objectdocumentation
+  rectangle "==Index documentation\n<size:10>[Component: Antora]</size>\n\nIndexes by Semantic Group" <<DWHBDevelopment.documentation.Indexdocumentation>> as DWHBDevelopment.documentation.Indexdocumentation
 }
+
 @enduml

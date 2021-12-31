@@ -1,5 +1,7 @@
-@startuml(id=DWHBProduction-SystemContext)
+@startuml
 title DWH B Production - System Context
+
+top to bottom direction
 
 skinparam {
   shadowing false
@@ -8,28 +10,35 @@ skinparam {
   wrapWidth 200
   maxMessageSize 100
 }
+
 hide stereotype
-top to bottom direction
-skinparam rectangle<<2>> {
+
+skinparam rectangle<<DWHBProduction>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<3>> {
+skinparam person<<DeploymentTeam>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-skinparam rectangle<<28>> {
+skinparam person<<ProjectBDWHUser>> {
   BackgroundColor #dddddd
   FontColor #000000
-  BorderColor #dddddd
+  BorderColor #9a9a9a
 }
-package "Customer" {
-  rectangle "==Deployment Team\n<size:10>[Person]</size>" <<2>> as 2
-  rectangle "==Project B DWH User\n<size:10>[Person]</size>\n\nuser of DWH (Project B)" <<3>> as 3
-  rectangle "==DWH B Production\n<size:10>[Software System]</size>" <<28>> as 28
+
+package "Customer" <<enterprise>> {
+  skinparam PackageBorderColor<<enterprise>> #444444
+  skinparam PackageFontColor<<enterprise>> #444444
+
+  person "==Deployment Team\n<size:10>[Person]</size>" <<DeploymentTeam>> as DeploymentTeam
+  person "==Project B DWH User\n<size:10>[Person]</size>\n\nuser of DWH (Project B)" <<ProjectBDWHUser>> as ProjectBDWHUser
+  rectangle "==DWH B Production\n<size:10>[Software System]</size>" <<DWHBProduction>> as DWHBProduction
 }
-2 .[#707070,thickness=2].> 28 : "deployes on production system"
-3 .[#707070,thickness=2].> 28 : "uses"
+
+
+DeploymentTeam .[#707070,thickness=2].> DWHBProduction : "<color:#707070>deployes on production system"
+ProjectBDWHUser .[#707070,thickness=2].> DWHBProduction : "<color:#707070>uses"
 @enduml
