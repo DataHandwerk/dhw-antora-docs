@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="451px" preserveAspectRatio="none" style="width:583px;height:451px;background:#FFFFFF;" version="1.1" viewBox="0 0 583 451" width="583px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="574" x="2" y="17.9999">DWH B Development - DWH db Development (Project B) - Components</text><!--MD5=[4b4f8ad22437660fd1462362fba788f0]
+cluster DWH db Development (Project B)\n[Container: Database]--><polygon fill="#FFFFFF" points="92.5,170.5999,324.5,170.5999,331.5,210.1997,497.5,210.1997,497.5,444.5999,92.5,444.5999,92.5,170.5999" style="stroke:#444444;stroke-width:1.5;"/><line style="stroke:#444444;stroke-width:1.5;" x1="92.5" x2="331.5" y1="210.1997" y2="210.1997"/><text fill="#444444" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="226" x="96.5" y="186.5998">DWH db Development (Project B)</text><text fill="#444444" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="148" x="135.5" y="203.3997">[Container: Database]</text><!--MD5=[3b8fdb9edc723037c5880196e686a131]
+entity DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures--><rect fill="#DDDDDD" height="70.4001" style="stroke:#9A9A9A;stroke-width:1.5;" width="161" x="109" y="222.5999"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="137" x="119" y="248.5999">System views and</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="88" x="145.5" y="267.7999">procedures</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="55" x="162" y="280.9999">[Component]</text><!--MD5=[98439464c0dc9fabb9598d191c45d75e]
+entity DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties--><rect fill="#DDDDDD" height="51.2" style="stroke:#9A9A9A;stroke-width:1.5;" width="176" x="305.5" y="232.0999"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="156" x="315.5" y="258.0999">Extended Properties</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="55" x="366" y="271.2999">[Component]</text><!--MD5=[ba869284a575791ffe2239e04ad33083]
+entity DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects--><rect fill="#DDDDDD" height="51.2" style="stroke:#9A9A9A;stroke-width:1.5;" width="168" x="176.5" y="377.5999"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="148" x="186.5" y="403.5999">SQL Server objects</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="55" x="233" y="416.7999">[Component]</text><!--MD5=[c0256a197df995b999bbd515e3b94ce1]
+entity DWHBDevelopment.RepositorydbProjectB--><path d="M243,37.5999 C243,27.5999 348.5,27.5999 348.5,27.5999 C348.5,27.5999 454,27.5999 454,37.5999 L454,77.7999 C454,87.7999 348.5,87.7999 348.5,87.7999 C348.5,87.7999 243,87.7999 243,77.7999 L243,37.5999 " fill="#DDDDDD" style="stroke:#9A9A9A;stroke-width:1.5;"/><path d="M243,37.5999 C243,47.5999 348.5,47.5999 348.5,47.5999 C348.5,47.5999 454,47.5999 454,37.5999 " fill="none" style="stroke:#9A9A9A;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="191" x="253" y="67.5999">Repository db (Project B)</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="92" x="302.5" y="80.7999">[Container: Database]</text><!--MD5=[77fcbd91a62cb3a2cf83a0648ad2f6a7]
+link DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures to DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects--><path d="M206.33,292.6099 C218.4,317.0099 234.5,349.5399 246,372.7999 " fill="none" id="DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures-to-DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="248.24,377.3199,247.8431,367.479,246.0268,372.8364,240.6695,371.0201,248.24,377.3199" style="stroke:#707070;stroke-width:2.0;"/><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="37" x="234.5" y="339.5999">describe</text><!--MD5=[32fff7484fc6b0f6705e369d7b227a4c]
+link DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties to DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects--><path d="M370.64,283.2699 C347.42,308.3199 311.49,347.0799 287.03,373.4699 " fill="none" id="DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties-to-DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="283.51,377.2699,292.5676,373.402,286.9144,373.6079,286.7085,367.9548,283.51,377.2699" style="stroke:#707070;stroke-width:2.0;"/><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="69" x="341.5" y="333.5999">enrich them with</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="90" x="332.5" y="345.5998">additional information</text><!--MD5=[f30b2f098291fff55066ba7c58972510]
+link DWHBDevelopment.RepositorydbProjectB to DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures--><path d="M277.72,87.6599 C264.02,95.7699 250.75,105.6999 240.5,117.5999 C215.99,146.0399 202.85,187.2699 196.08,217.4399 " fill="none" id="DWHBDevelopment.RepositorydbProjectB-to-DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="194.97,222.5599,200.7829,214.6093,196.0274,217.673,192.9638,212.9175,194.97,222.5599" style="stroke:#707070;stroke-width:2.0;"/><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="99" x="241.5" y="134.5999">Synonyms link to DWH</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="61" x="260.5" y="146.5998">System Views</text><!--MD5=[75c5152681331daa52ce78154c063298]
+link DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties to DWHBDevelopment.RepositorydbProjectB--><path d="M387.9,231.9599 C379.94,196.9599 365.34,132.6899 356.32,93.0099 " fill="none" id="DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties-to-DWHBDevelopment.RepositorydbProjectB" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="355.14,87.8199,353.2475,97.4852,356.2549,92.694,361.0461,95.7014,355.14,87.8199" style="stroke:#707070;stroke-width:2.0;"/><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="387" y="128.5999">RepoObject</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="68" x="379" y="140.5998">correspond with</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="86" x="371.5" y="152.5998">extended properties</text><!--MD5=[6cfcad6701333334b6e04b45d094fa01]
+link DWHBDevelopment.RepositorydbProjectB to DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties--><path d="M347.6,87.9099 C347.61,107.0899 348.74,132.5799 353.5,154.5999 C358.97,179.8999 369.93,207.1299 378.99,227.0799 " fill="none" id="DWHBDevelopment.RepositorydbProjectB-to-DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="381.13,231.7399,381.01,221.8917,379.0438,227.1959,373.7396,225.2297,381.13,231.7399" style="stroke:#707070;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="0" x="357.5" y="140.5999"/><!--MD5=[939d6ad707f6886223b48f2923c53fec]
+@startuml
+title DWH B Development - DWH db Development (Project B) - Components
+
+top to bottom direction
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam database<<DWHBDevelopment.RepositorydbProjectB>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+
+database "==Repository db (Project B)\n<size:10>[Container: Database]</size>" <<DWHBDevelopment.RepositorydbProjectB>> as DWHBDevelopment.RepositorydbProjectB
+
+package "DWH db Development (Project B)\n[Container: Database]" <<DWHBDevelopment.DWHdbDevelopmentProjectB>> {
+  skinparam PackageBorderColor<<DWHBDevelopment.DWHdbDevelopmentProjectB>> #444444
+  skinparam PackageFontColor<<DWHBDevelopment.DWHdbDevelopmentProjectB>> #444444
+
+  rectangle "==System views and procedures\n<size:10>[Component]</size>" <<DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures>> as DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures
+  rectangle "==Extended Properties\n<size:10>[Component]</size>" <<DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties>> as DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties
+  rectangle "==SQL Server objects\n<size:10>[Component]</size>" <<DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects>> as DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects
+}
+
+DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures .[#707070,thickness=2].> DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects : "<color:#707070>describe"
+DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties .[#707070,thickness=2].> DWHBDevelopment.DWHdbDevelopmentProjectB.SQLServerobjects : "<color:#707070>enrich them with additional information"
+DWHBDevelopment.RepositorydbProjectB .[#707070,thickness=2].> DWHBDevelopment.DWHdbDevelopmentProjectB.Systemviewsandprocedures : "<color:#707070>Synonyms link to DWH System Views"
+DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB : "<color:#707070>RepoObject correspond with extended properties"
+DWHBDevelopment.RepositorydbProjectB .[#707070,thickness=2].> DWHBDevelopment.DWHdbDevelopmentProjectB.ExtendedProperties : "<color:#707070>"
+@enduml
+
+PlantUML version 1.2021.16(Wed Dec 08 17:25:22 GMT 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

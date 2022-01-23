@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="563px" preserveAspectRatio="none" style="width:1086px;height:563px;background:#FFFFFF;" version="1.1" viewBox="0 0 1086 563" width="1086px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="274" x="399.75" y="17.9999">DWH B Development - Containers</text><!--MD5=[255faa2be7dd1589dace60483080b12d]
+cluster DWH B Development\n[Software System]--><polygon fill="#FFFFFF" points="191.5,27.5999,339.5,27.5999,346.5,67.1997,892.5,67.1997,892.5,556.5999,191.5,556.5999,191.5,27.5999" style="stroke:#444444;stroke-width:1.5;"/><line style="stroke:#444444;stroke-width:1.5;" x1="191.5" x2="346.5" y1="67.1997" y2="67.1997"/><text fill="#444444" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="142" x="195.5" y="43.5998">DWH B Development</text><text fill="#444444" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="127" x="203" y="60.3997">[Software System]</text><!--MD5=[2bbfd388689ed32eecee8a37dc22c1b1]
+entity DWHBDevelopment.DWHdbDevelopmentProjectB--><path d="M684.5,102.0999 C684.5,92.0999 780.5,92.0999 780.5,92.0999 C780.5,92.0999 876.5,92.0999 876.5,102.0999 L876.5,161.4999 C876.5,171.4999 780.5,171.4999 780.5,171.4999 C780.5,171.4999 684.5,171.4999 684.5,161.4999 L684.5,102.0999 " fill="#DDDDDD" style="stroke:#9A9A9A;stroke-width:1.5;"/><path d="M684.5,102.0999 C684.5,112.0999 780.5,112.0999 780.5,112.0999 C780.5,112.0999 876.5,112.0999 876.5,102.0999 " fill="none" style="stroke:#9A9A9A;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="168" x="694.5" y="132.0999">DWH db Development</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="79" x="741" y="151.2999">(Project B)</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="92" x="734.5" y="164.4999">[Container: Database]</text><!--MD5=[7a20b4fa32bd056d07ebeb0e764014dd]
+entity DWHBDevelopment.SSASModelsProjectB--><rect fill="#DDDDDD" height="51.2" style="stroke:#9A9A9A;stroke-width:1.5;" width="207" x="451" y="489.5999"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="187" x="461" y="515.5999">SSAS Models (Project B)</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="108" x="500.5" y="528.7999">[Container: SSAS Model]</text><!--MD5=[ef6b05f79ac9cdc7f7867d62f78d04b2]
+entity DWHBDevelopment.SSISProjectsProjectB--><rect fill="#DDDDDD" height="51.2" style="stroke:#9A9A9A;stroke-width:1.5;" width="208" x="207.5" y="489.5999"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="188" x="217.5" y="515.5999">SSIS Projects (Project B)</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="105" x="259" y="528.7999">[Container: SSIS Folder]</text><!--MD5=[ab227f04458fea950df44a5075c63ab4]
+entity DWHBDevelopment.GUI--><rect fill="#DDDDDD" height="101.5998" style="stroke:#9A9A9A;stroke-width:1.5;" width="205" x="444" y="80.5999"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="29" x="532" y="106.5999">GUI</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="69" x="512" y="119.7999">[Container: GUI]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="548.5" y="135.7998"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="454" y="152.5998">Graphical User Interface. Not</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="497" y="169.3997">yet implemented</text><!--MD5=[fd2b79406ac0a9cda256240910af452a]
+entity DWHBDevelopment.Businessandtechnicaldocumentation--><rect fill="#DDDDDD" height="103.9999" style="stroke:#9A9A9A;stroke-width:1.5;" width="201" x="208" y="79.5999"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="177" x="218" y="105.5999">Business and technical</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="115" x="251" y="124.7999">documentation</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="113" x="252" y="137.9999">[Container: documentation]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="310.5" y="153.9999"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="267" y="170.7998">static website</text><!--MD5=[c0256a197df995b999bbd515e3b94ce1]
+entity DWHBDevelopment.RepositorydbProjectB--><path d="M444,328.5999 C444,318.5999 549.5,318.5999 549.5,318.5999 C549.5,318.5999 655,318.5999 655,328.5999 L655,368.7999 C655,378.7999 549.5,378.7999 549.5,378.7999 C549.5,378.7999 444,378.7999 444,368.7999 L444,328.5999 " fill="#DDDDDD" style="stroke:#9A9A9A;stroke-width:1.5;"/><path d="M444,328.5999 C444,338.5999 549.5,338.5999 549.5,338.5999 C549.5,338.5999 655,338.5999 655,328.5999 " fill="none" style="stroke:#9A9A9A;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="191" x="454" y="358.5999">Repository db (Project B)</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="92" x="503.5" y="371.7999">[Container: Database]</text><!--MD5=[dd71a9e030373119297f87b6629d43aa]
+entity DWHDeveloper--><ellipse cx="91.5" cy="306.2396" fill="#DDDDDD" rx="25.1397" ry="25.1397" style="stroke:#9A9A9A;stroke-width:1.5;"/><rect fill="#DDDDDD" height="84.7999" rx="25.1397" ry="25.1397" style="stroke:#9A9A9A;stroke-width:1.5;" width="169" x="7" y="331.3793"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="121" x="31" y="357.3793">DWH Developer</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="36" x="73.5" y="370.5793">[Person]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="93.5" y="386.5793"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="149" x="17" y="403.3792">Developer of some DWH</text><!--MD5=[69070bbbec72de5a7f1ee54d1842b073]
+entity ProjectBDWHUser--><ellipse cx="994.5" cy="305.9617" fill="#DDDDDD" rx="25.3619" ry="25.3619" style="stroke:#9A9A9A;stroke-width:1.5;"/><rect fill="#DDDDDD" height="84.7999" rx="25.3619" ry="25.3619" style="stroke:#9A9A9A;stroke-width:1.5;" width="172" x="908.5" y="331.3236"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="152" x="918.5" y="357.3236">Project B DWH User</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="36" x="976.5" y="370.5236">[Person]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="996.5" y="386.5236"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148" x="920.5" y="403.3235">user of DWH (Project B)</text><!--MD5=[bad8a8e2ad0a15009495649184c02daf]
+link DWHBDevelopment.GUI to DWHBDevelopment.RepositorydbProjectB--><path d="M547.2,182.7399 C547.76,222.9499 548.53,278.2999 549.02,313.5199 " fill="none" id="DWHBDevelopment.GUI-to-DWHBDevelopment.RepositorydbProjectB" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="549.09,318.5699,552.9607,309.5135,549.0184,313.5704,544.9615,309.6281,549.09,318.5699" style="stroke:#707070;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="0" x="551.5" y="236.5999"/><!--MD5=[912da7fc87466995cdfd30da2e895eba]
+link DWHBDevelopment.Businessandtechnicaldocumentation to DWHBDevelopment.RepositorydbProjectB--><path d="M365.92,183.8199 C411.46,224.4499 473.73,280.0099 512.78,314.8399 " fill="none" id="DWHBDevelopment.Businessandtechnicaldocumentation-to-DWHBDevelopment.RepositorydbProjectB" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="516.95,318.5599,512.8999,309.5823,513.2201,315.2301,507.5723,315.5502,516.95,318.5599" style="stroke:#707070;stroke-width:2.0;"/><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="57" x="436.5" y="236.5999">generated by</text><!--MD5=[4b9f8f056a7de96b58ad1edc041b7b78]
+link DWHDeveloper to DWHBDevelopment.SSASModelsProjectB--><path d="M176.12,408.8099 C181.24,411.5899 186.38,414.2199 191.5,416.5999 C236.5,437.5399 356.2,468.0299 445.93,489.3099 " fill="none" id="DWHDeveloper-to-DWHBDevelopment.SSASModelsProjectB" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="450.99,490.5099,443.1454,484.5548,446.1229,489.3647,441.3131,492.3422,450.99,490.5099" style="stroke:#707070;stroke-width:2.0;"/><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44" x="322.5" y="457.5999">developes</text><!--MD5=[e02d56f6551a46edef8fff2e18ed3571]
+link DWHDeveloper to DWHBDevelopment.SSISProjectsProjectB--><path d="M154.64,416.1399 C170.78,431.3699 188.64,446.8199 206.5,459.5999 C220.58,469.6699 236.77,479.0199 252.15,487.0299 " fill="none" id="DWHDeveloper-to-DWHBDevelopment.SSISProjectsProjectB" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="256.9,489.4699,250.7169,481.8037,252.4509,487.1883,247.0664,488.9223,256.9,489.4699" style="stroke:#707070;stroke-width:2.0;"/><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44" x="207.5" y="457.5999">developes</text><!--MD5=[8edd0e2d406958e6ac4ddccf41300f36]
+link ProjectBDWHUser to DWHBDevelopment.SSASModelsProjectB--><path d="M908.43,408.6299 C903.13,411.4799 897.79,414.1699 892.5,416.5999 C819.09,450.3599 731.28,475.2599 663.56,491.4499 " fill="none" id="ProjectBDWHUser-to-DWHBDevelopment.SSASModelsProjectB" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="658.31,492.6999,667.9908,494.5116,663.1746,491.5443,666.1419,486.7282,658.31,492.6999" style="stroke:#707070;stroke-width:2.0;"/><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="20" x="812.5" y="457.5999">uses</text><!--MD5=[57fca0d3819ad2c344d87f61a3d5f774]
+link DWHBDevelopment.RepositorydbProjectB to DWHBDevelopment.DWHdbDevelopmentProjectB--><path d="M617.91,318.5899 C650.66,302.1899 688.7,279.2199 716.5,250.5999 C737.13,229.3599 753.04,200.1499 763.84,176.0999 " fill="none" id="DWHBDevelopment.RepositorydbProjectB-to-DWHBDevelopment.DWHdbDevelopmentProjectB" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="765.93,171.3599,758.6406,177.9829,763.9139,175.9354,765.9615,181.2087,765.93,171.3599" style="stroke:#707070;stroke-width:2.0;"/><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="99" x="743.5" y="230.5999">Synonyms link to DWH</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="61" x="762.5" y="242.5998">System Views</text><!--MD5=[c9e468ceffa44080bb0c9ba2acec10ab]
+link DWHBDevelopment.DWHdbDevelopmentProjectB to DWHBDevelopment.RepositorydbProjectB--><path d="M693.07,171.1199 C662.29,185.8699 632.39,201.9299 620.5,213.5999 C591.82,241.7599 572.09,283.9899 560.84,313.4899 " fill="none" id="DWHBDevelopment.DWHdbDevelopmentProjectB-to-DWHBDevelopment.RepositorydbProjectB" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="558.98,318.4799,565.8854,311.4574,560.7356,313.7982,558.3948,308.6484,558.98,318.4799" style="stroke:#707070;stroke-width:2.0;"/><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="637" y="224.5999">RepoObject</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="68" x="629" y="236.5998">correspond with</text><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="86" x="621.5" y="248.5998">extended properties</text><!--MD5=[0849dc63703acb6afb62f009edbb2060]
+link DWHBDevelopment.RepositorydbProjectB to DWHBDevelopment.SSASModelsProjectB--><path d="M550.38,378.6299 C551.29,408.3599 552.68,454.3599 553.6,484.3499 " fill="none" id="DWHBDevelopment.RepositorydbProjectB-to-DWHBDevelopment.SSASModelsProjectB" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="553.75,489.3899,557.4653,480.2687,553.5929,484.3923,549.4693,480.52,553.75,489.3899" style="stroke:#707070;stroke-width:2.0;"/><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="32" x="553.5" y="457.5999">imports</text><!--MD5=[78d79ff2eb8e0e60a7d2292a67252793]
+link DWHBDevelopment.RepositorydbProjectB to DWHBDevelopment.SSISProjectsProjectB--><path d="M507.5,378.6299 C463.5,409.0399 394.9,456.4499 351.62,486.3699 " fill="none" id="DWHBDevelopment.RepositorydbProjectB-to-DWHBDevelopment.SSISProjectsProjectB" style="stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#707070" points="347.26,489.3899,356.9382,487.5645,351.3735,486.5475,352.3905,480.9828,347.26,489.3899" style="stroke:#707070;stroke-width:2.0;"/><text fill="#707070" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="32" x="402.5" y="457.5999">imports</text><!--MD5=[1e410eee6fe066847101cba529bc8143]
+@startuml
+title DWH B Development - Containers
+
+top to bottom direction
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<DWHBDevelopment.Businessandtechnicaldocumentation>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam person<<DWHDeveloper>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam database<<DWHBDevelopment.DWHdbDevelopmentProjectB>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<DWHBDevelopment.GUI>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam person<<ProjectBDWHUser>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam database<<DWHBDevelopment.RepositorydbProjectB>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<DWHBDevelopment.SSASModelsProjectB>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+skinparam rectangle<<DWHBDevelopment.SSISProjectsProjectB>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+}
+
+person "==DWH Developer\n<size:10>[Person]</size>\n\nDeveloper of some DWH" <<DWHDeveloper>> as DWHDeveloper
+person "==Project B DWH User\n<size:10>[Person]</size>\n\nuser of DWH (Project B)" <<ProjectBDWHUser>> as ProjectBDWHUser
+
+package "DWH B Development\n[Software System]" <<DWHBDevelopment>> {
+  skinparam PackageBorderColor<<DWHBDevelopment>> #444444
+  skinparam PackageFontColor<<DWHBDevelopment>> #444444
+
+  database "==DWH db Development (Project B)\n<size:10>[Container: Database]</size>" <<DWHBDevelopment.DWHdbDevelopmentProjectB>> as DWHBDevelopment.DWHdbDevelopmentProjectB
+  rectangle "==SSAS Models (Project B)\n<size:10>[Container: SSAS Model]</size>" <<DWHBDevelopment.SSASModelsProjectB>> as DWHBDevelopment.SSASModelsProjectB
+  rectangle "==SSIS Projects (Project B)\n<size:10>[Container: SSIS Folder]</size>" <<DWHBDevelopment.SSISProjectsProjectB>> as DWHBDevelopment.SSISProjectsProjectB
+  rectangle "==GUI\n<size:10>[Container: GUI]</size>\n\nGraphical User Interface. Not yet implemented" <<DWHBDevelopment.GUI>> as DWHBDevelopment.GUI
+  rectangle "==Business and technical documentation\n<size:10>[Container: documentation]</size>\n\nstatic website" <<DWHBDevelopment.Businessandtechnicaldocumentation>> as DWHBDevelopment.Businessandtechnicaldocumentation
+  database "==Repository db (Project B)\n<size:10>[Container: Database]</size>" <<DWHBDevelopment.RepositorydbProjectB>> as DWHBDevelopment.RepositorydbProjectB
+}
+
+DWHBDevelopment.GUI .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB : "<color:#707070>"
+DWHBDevelopment.Businessandtechnicaldocumentation .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB : "<color:#707070>generated by"
+DWHDeveloper .[#707070,thickness=2].> DWHBDevelopment.SSASModelsProjectB : "<color:#707070>developes"
+DWHDeveloper .[#707070,thickness=2].> DWHBDevelopment.SSISProjectsProjectB : "<color:#707070>developes"
+ProjectBDWHUser .[#707070,thickness=2].> DWHBDevelopment.SSASModelsProjectB : "<color:#707070>uses"
+DWHBDevelopment.RepositorydbProjectB .[#707070,thickness=2].> DWHBDevelopment.DWHdbDevelopmentProjectB : "<color:#707070>Synonyms link to DWH System Views"
+DWHBDevelopment.DWHdbDevelopmentProjectB .[#707070,thickness=2].> DWHBDevelopment.RepositorydbProjectB : "<color:#707070>RepoObject correspond with extended properties"
+DWHBDevelopment.RepositorydbProjectB .[#707070,thickness=2].> DWHBDevelopment.SSASModelsProjectB : "<color:#707070>imports"
+DWHBDevelopment.RepositorydbProjectB .[#707070,thickness=2].> DWHBDevelopment.SSISProjectsProjectB : "<color:#707070>imports"
+@enduml
+
+PlantUML version 1.2021.16(Wed Dec 08 17:25:22 GMT 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

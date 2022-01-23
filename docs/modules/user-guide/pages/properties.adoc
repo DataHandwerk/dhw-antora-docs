@@ -68,7 +68,7 @@ You can use comments in these objects to define properties
 [source,sql]
 ----
 /*
-<<property_start>>MS_Description <1>
+<<property_start>>Description <1>
 * connect repo datatabase to dwh database using synonyms executing <2>
 * see details in xref:user-guide:create-update-connect-repo-db.adoc[]
 <<property_end>> <3>
