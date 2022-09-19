@@ -61,7 +61,7 @@ In the Antora Playbook project call Antora to build the local or the final site.
 * Easy *switching between different versions of the documentation*
 ** While some users are only interested in the documentation of the current version, for other users it may be important to have several versions documented together and to be able to switch between the versions.
 * Use of *plain text formats (markup languages)*
-** For optimal version control of the content, it makes sense to use plain-text formats for the sources of the documentation, such as Markdown or *Asciidoc*.
+** For optimal version control of the content, it makes sense to use plain-text formats for the sources of the documentation, such as Markdown or https://asciidoc.org/[*AsciiDoc*].
 * portable documentation
 ** If documentation is created as a *static website* with relative links, then it will work in any location on a filesystem as well as on a web server.
 * *Docs as Code*
@@ -156,7 +156,7 @@ If it is "only" about a technical documentation of databases, then you can find 
 ** virtual PK-FK relations
 ** virtual relations (dependencies)
 
-Most of these products *do not support the use of markup languages* like Markdown or Asciidoc in descriptions, except for these, supporting Markdown:
+Most of these products *do not support the use of markup languages* like Markdown or AsciiDoc in descriptions, except for these, supporting Markdown:
 
 * SchemaSpy
 * SentryOne Database Mapper
@@ -167,17 +167,17 @@ The best tool seems to be:
 * by far: Datadeo
 * then the rest with often comparable features (no diagrams, output only as tables, dependencies only on object level)
 
-=== Markup language Asciidoc
+=== Markup language AsciiDoc
 
-My clear recommendation of an markup language is *Asciidoc*. Why, I have briefly described in a blog article (in German):
+My clear recommendation of an markup language is *AsciiDoc*. Why, I have briefly described in a blog article (in German):
 
 http://datahandwerk.aisberg.de/2021-04-20-docs-code-mit-asciidoc-und-antora/
 
 *Markdown* is the most widely used, but there is not one Markdown, but several "dialects". A major disadvantage of Markdown is that you cannot include content from other files as "include". A Markdown file is always a single entity and can only reference (include) images (and maybe videos).
 
-*reStructuredText* offers no advantages over Markdown or Asciidoc, in my opinion.
+*reStructuredText* offers no advantages over Markdown or AsciiDoc, in my opinion.
 
-*Asciidoc* convinced me as the clear winner in the comparison:
+*AsciiDoc* convinced me as the clear winner in the comparison:
 
 * Especially valuable is the possibility to include content from other documents as `includes`.
 * Variables can be used.
@@ -186,13 +186,13 @@ http://datahandwerk.aisberg.de/2021-04-20-docs-code-mit-asciidoc-und-antora/
 * The possibilities of the formatting are substantially more extensive, than those of Markdown.
 * With https://github.com/asciidoctor/kramdown-asciidoc[Kramdown AsciiDoc (Markdown to AsciiDoc)] you can convert Markdown to Asciidoc.
 
-Links to Asciidoc:
+Links to AsciiDoc:
 
 * https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[]
 
-=== Antora - Docs-As-Code with Asciidoc
+=== Antora - Docs-As-Code with AsciiDoc
 
-Since I decided to use the more powerful markup language https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[Asciidoc] and against Markdown, as justified above, the best framework for _docs-as-code with Asciidoc_ in my opinion is https://antora.org/[Antora]. This tool is created and maintained by the same developers who develop AsciiDoctor. I have come to the conclusion that if you want to run Docs-as-Code with Asciidoc, it will be hard to find anything better.
+Since I decided to use the more powerful markup language https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[AsciiDoc] and against Markdown, as justified above, the best framework for _docs-as-code with AsciiDoc_ in my opinion is https://antora.org/[Antora]. This tool is created and maintained by the same developers who develop Asciidoctor. I have come to the conclusion that if you want to run Docs-as-Code with AsciiDoc, it will be hard to find anything better.
 
 == How does it work?
 

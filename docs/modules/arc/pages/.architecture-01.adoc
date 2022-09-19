@@ -1,4 +1,4 @@
-// configure project settings settings for asciidoc
+// configure project settings settings for AsciiDoc
 include::partial$config_project.adoc[]
 
 include::partial$01_introduction_and_goals.adoc[leveloffset=-1]

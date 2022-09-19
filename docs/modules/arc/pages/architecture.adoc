@@ -24,11 +24,11 @@
 // :email: datahandwerk@aisberg.de
 :date: {docdate}
 
-// configure project settings settings for asciidoc
+// configure project settings settings for AsciiDoc
 include::partial$config_project.adoc[]
-// // configure EN settings for asciidoc
+// // configure EN settings for AsciiDoc
 // include::partial$config.adoc[]
-// // configure style settings settings for asciidoc
+// // configure style settings settings for AsciiDoc
 // include::partial$config_style.adoc[]
 
 image::ROOT:DatenHandwerk-toolkit-mssql.svg[dhw]

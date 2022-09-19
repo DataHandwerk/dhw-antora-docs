@@ -8,7 +8,7 @@
 
 // :c4_dsl_includedir: c4_dsl/puml
 // c4_dsl_includedir we need explicitely
-// configure project settings settings for asciidoc
+// configure project settings settings for AsciiDoc
 // is included in src/config_project.adoc
 // include::config_project.adoc[]
 

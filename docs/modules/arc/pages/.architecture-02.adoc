@@ -1,4 +1,4 @@
-// configure project settings settings for asciidoc
+// configure project settings settings for AsciiDoc
 include::partial$config_project.adoc[]
 
 // 2. Architecture Constraints
