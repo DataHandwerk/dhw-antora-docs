@@ -1,2 +1,0 @@
-* https://github.com/structurizr/cli/releases[]
-* https://github.com/structurizr/dsl/blob/master/docs/language-reference.md
