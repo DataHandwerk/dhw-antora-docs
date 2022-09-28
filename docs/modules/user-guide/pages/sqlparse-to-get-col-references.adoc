@@ -1,4 +1,7 @@
 = SqlParse to detect column references
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
 include::user-guide:page$sqlparser.adoc[tag=shortdescription]
 

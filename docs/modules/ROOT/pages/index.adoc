@@ -3,8 +3,11 @@
 :keywords: dhw, DataHandwerk, dwh, datawarehouse, ms sql server,
 :author: Germo Görtz
 :date: {docdate}
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
-image::DatenHandwerk-toolkit-mssql.svg[dhw]
+image::DatenHandwerk-toolkit-mssql.svg["dhw","opts=none",role="zoom"]
 
 == Key contents of the architecture
 

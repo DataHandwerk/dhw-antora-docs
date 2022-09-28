@@ -1,1 +1,4 @@
 = User Guide
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]

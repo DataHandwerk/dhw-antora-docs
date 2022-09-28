@@ -1,4 +1,7 @@
 = Import from AnalyticsCreator
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
 If the existing database was created with AnalyticsCreator, then some metadata can be taken from an AnalyticsCreator repository.
 

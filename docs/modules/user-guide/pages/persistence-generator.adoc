@@ -1,4 +1,7 @@
 = Persistence generator
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
 IMPORTANT: The procedure xref:sqldb:repo.usp_persistence_set.adoc[] is not called automatically. If a persistence is to be created or changed, this must be done manually!
 

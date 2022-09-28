@@ -1,4 +1,7 @@
 = Execution log
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
 In many projects it has proven useful to have detailed logs for the execution of procedures or processes. DataHandwerk offers the possibility of a formal logging into the table xref:sqldb:logs.executionlog.adoc[].
 

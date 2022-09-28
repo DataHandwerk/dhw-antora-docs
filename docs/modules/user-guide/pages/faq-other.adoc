@@ -1,4 +1,7 @@
 = FAQ other
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
 == How to add columns to graph tables and use them as a target of a persistence?
 

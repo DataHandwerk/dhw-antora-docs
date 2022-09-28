@@ -1,4 +1,7 @@
 = Database documentation generator
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
 [abstract]
 == Abstract

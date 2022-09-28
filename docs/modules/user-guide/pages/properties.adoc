@@ -1,4 +1,7 @@
 = Properties
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
 Each schema, object, column and SSAS Tabular measure can have properties.
 

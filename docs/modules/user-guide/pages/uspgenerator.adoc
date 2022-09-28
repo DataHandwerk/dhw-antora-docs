@@ -1,4 +1,7 @@
 = usp generator
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
 A generator for the formalized definition of usp (user defined procedures) which use xref:user-guide:execution-log.adoc[].
 

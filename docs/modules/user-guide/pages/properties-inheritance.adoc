@@ -1,4 +1,7 @@
 = Properties Inheritance
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
 Object references and column references are used to inherit xref:properties.adoc[] along these references.
 

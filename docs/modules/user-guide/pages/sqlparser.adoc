@@ -1,4 +1,7 @@
 = SqlParser.py
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
 // tag::shortdescription[]
 The Python project https://pypi.org/project/sqlparse/[sqlparse] will be used, to extract column references from database views SQL code.

@@ -1,4 +1,7 @@
 = SQL Server issue with sys-views for references
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
 == sys.dm_sql_referenced_entities - error in usp_id;Number;Parent_Number: 19;310;
 

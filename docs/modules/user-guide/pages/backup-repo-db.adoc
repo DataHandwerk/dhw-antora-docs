@@ -1,4 +1,7 @@
 = Backup and restore repository database
+ifndef::site-gen-antora[]
+include::_local-preview-settings.adoc[]
+endif::[]
 
 The repository database contains important data and should be backed up regularly.
 
