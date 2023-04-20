@@ -7,7 +7,7 @@ ifndef::site-gen-antora[]
 include::_local-preview-settings.adoc[]
 endif::[]
 
-image::DatenHandwerk-toolkit-mssql.svg["dhw","opts=none",role="zoom"]
+image::DatenHandwerk-toolkit-mssql.svg["dhw",role="zoom"]
 
 == Key contents of the architecture
 
